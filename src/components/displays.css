@@ -8,9 +8,9 @@
 }
 #secondary-display {
 	position: absolute;
-	bottom: 5%;
+	bottom: 0%;
 	width: 100%;
-	@apply text-gray-500 text-2xl font-bold tracking-wider text-center;
+	@apply text-gray-500 text-2xl font-bold tracking-wider text-center pb-4;
 }
 body.dark #secondary-display {
 	@apply text-gray-400;

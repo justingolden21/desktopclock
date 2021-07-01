@@ -16,7 +16,10 @@ window.addEventListener('load', () => {
 	setDisplays(displays);
 
 	u('#fullscreen-btn').on('click', toggleFullscreen);
+
 	u('#dark-btn').on('click', () => u('body').toggleClass('dark'));
+
+	u('body').on('dblclick', toggleFullscreen);
 });
 
 function setTime() {
