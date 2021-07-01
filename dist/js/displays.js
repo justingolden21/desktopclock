@@ -2,7 +2,7 @@
 
 let displays = {
 	// both should not be same
-	primary: 'digital', // analog, digital, date
+	primary: 'analog', // analog, digital, date
 	secondary: 'date', // digital, date, none
 };
 

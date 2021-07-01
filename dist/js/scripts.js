@@ -14,6 +14,9 @@ window.addEventListener('load', () => {
 	// setTheme(classicTheme);
 
 	setDisplays(displays);
+
+	u('#fullscreen-btn').on('click', toggleFullscreen);
+	u('#dark-btn').on('click', () => u('body').toggleClass('dark'));
 });
 
 function setTime() {

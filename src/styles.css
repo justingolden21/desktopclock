@@ -18,7 +18,7 @@
 	}
 
 	h1 {
-		@apply text-3xl font-bold tracking-wider;
+		@apply hidden sm:block sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-wider;
 	}
 	p {
 		@apply leading-relaxed;
@@ -26,6 +26,22 @@
 }
 
 @layer components {
+	.icon-btn {
+		@apply absolute top-4 p-2 rounded-full hover:bg-gray-700 hover:text-white;
+	}
+	#menu-btn {
+		@apply left-4;
+	}
+	#dark-btn {
+		@apply left-16;
+	}
+	#fullscreen-btn {
+		@apply right-4;
+	}
+
+	body.dark {
+		@apply bg-gray-900 text-gray-200;
+	}
 }
 
 @media (min-width: 640px) {
