@@ -12,6 +12,8 @@ window.addEventListener('load', () => {
 
 	setTheme(defaultTheme);
 	// setTheme(classicTheme);
+
+	setDisplays(displays);
 });
 
 function setTime() {

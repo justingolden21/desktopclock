@@ -1,0 +1,14 @@
+#primary-display {
+	position: absolute;
+	top: 25%;
+	width: 100%;
+}
+#primary-display h1 {
+	@apply text-9xl font-bold tracking-wider text-center;
+}
+#secondary-display {
+	position: absolute;
+	bottom: 10%;
+	width: 100%;
+	@apply text-2xl font-bold tracking-wider text-center;
+}
