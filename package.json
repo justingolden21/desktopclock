@@ -1,0 +1,50 @@
+{
+	"name": "desktop-clock",
+	"version": "1.0.0",
+	"description": "A simple, resizable and customizable clock for any device",
+	"scripts": {
+		"dev": "postcss src/styles.css -o dist/css/styles.css --watch",
+		"build": "cross-env NODE_ENV=production postcss src/styles.css -o dist/css/styles.css && cleancss -o dist/css/styles.css dist/css/styles.css",
+		"prod": "npm run build && ( py -V && py increment.py ) || ( python3 -V && python3 increment.py )",
+		"lint": "eslint dist/js/ --ext .js --ignore-pattern \"dist/js/lib/*\"",
+		"serve": "live-server --open=dist",
+		"dev-serve": "concurrently --kill-others \"npm run dev\" \"npm run serve\"",
+		"generate-assets": "pwa-asset-generator src/img/icon.svg dist/img/icons --manifest dist/manifest.webmanifest --index dist/index.html --favicon --mstile --icon-only --opaque true"
+	},
+	"keywords": [
+		"clock",
+		"desktop clock",
+		"clock app",
+		"analog clock",
+		"digital clock",
+		"customizable clock",
+		"free clock",
+		"simple clock",
+		"date and time",
+		"clock with date",
+		"fullscreen clock",
+		"bedtime clock",
+		"resizable clock",
+		"clock for windows",
+		"clock for mac",
+		"clock for chrome",
+		"clock for android",
+		"clock for ios"
+	],
+	"author": "Justin Golden",
+	"license": "MIT",
+	"devDependencies": {
+		"autoprefixer": "^10.1.0",
+		"clean-css-cli": "^4.3.0",
+		"concurrently": "^5.3.0",
+		"cross-env": "^7.0.3",
+		"eslint": "^7.29.0",
+		"eslint-config-airbnb-base": "^14.2.1",
+		"eslint-plugin-import": "^2.23.4",
+		"live-server": "^1.2.1",
+		"postcss-cli": "^8.3.1",
+		"postcss-import": "^14.0.2",
+		"pwa-asset-generator": "^4.1.1",
+		"tailwindcss": "^2.0.2"
+	}
+}

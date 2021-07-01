@@ -1,0 +1,7 @@
+{
+	"schedule": "daily",
+	"ignoredFiles": [
+		"src/img/icon.svg"
+	],
+	"minKBReduced": 10
+}

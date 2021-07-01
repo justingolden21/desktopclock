@@ -1,0 +1,44 @@
+@import './components/button.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	::-moz-selection {
+		@apply bg-gray-100;
+	}
+	::selection {
+		@apply bg-gray-100;
+	}
+	*:focus,
+	button:focus {
+		@apply outline-none ring-2 ring-gray-300;
+	}
+
+	h1 {
+		@apply text-2xl font-light;
+	}
+	p {
+		@apply leading-relaxed;
+	}
+}
+
+@layer components {
+}
+
+@media (min-width: 640px) {
+	/* sm */
+}
+
+@media (min-width: 768px) {
+	/* md */
+}
+
+@media (min-width: 1024px) {
+	/* lg */
+}
+
+@media (min-width: 1280px) {
+	/* xl */
+}

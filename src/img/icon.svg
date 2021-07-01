@@ -1,0 +1,9 @@
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g stroke-width="1.5">
+<rect width="24" height="24" fill="none"/>
+<circle cx="12" cy="12" r="8" fill="#FFF"/>
+<path stroke="#B91C1C" stroke-linecap="round" d="m12 12 v-8"/>
+<circle cx="12" cy="12" r="8" fill="none" stroke="#374151"/>
+</g>
+<!-- cool gray 700, red 700 -->
+</svg>
