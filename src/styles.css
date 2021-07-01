@@ -1,4 +1,4 @@
-@import './components/button.css';
+@import './components/analog-clock.css';
 
 @tailwind base;
 @tailwind components;
@@ -17,7 +17,7 @@
 	}
 
 	h1 {
-		@apply text-2xl font-light;
+		@apply text-3xl font-bold tracking-wider;
 	}
 	p {
 		@apply leading-relaxed;

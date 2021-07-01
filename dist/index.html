@@ -22,6 +22,8 @@
 
 		<link rel="stylesheet" href="css/styles.css" />
 		<script src="js/lib/umbrella.min.js"></script>
+		<script src="js/colors.js"></script>
+		<script src="js/themes.js"></script>
 		<script src="js/scripts.js"></script>
 
 		<link
@@ -55,7 +57,25 @@
 	<body class="text-center m-4 text-gray-900">
 		<section>
 			<h1>Desktop Clock</h1>
-			<button class="btn">Hello</button>
+
+			<svg id="clock" viewBox="0 0 64 64">
+				<g transform="translate(32,32)">
+					<circle id="shadow" cx="2" r="30" />
+					<circle id="face" cx="0" r="30" />
+
+					<circle id="sm-ticks" fill="none" />
+					<circle id="md-ticks" fill="none" />
+					<circle id="lg-ticks" fill="none" />
+
+					<!--Hands-->
+					<g transform="rotate(180)">
+						<line id="hour-hand" />
+						<line id="minute-hand" />
+						<line id="second-hand" class="sweep" />
+					</g>
+					<circle id="pin" />
+				</g>
+			</svg>
 		</section>
 	</body>
 </html>
