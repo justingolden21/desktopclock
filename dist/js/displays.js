@@ -42,23 +42,19 @@ function setDigitalTime(display, options) {
 	else u('#secondary-display h2').html(getDigitalTime(options));
 
 	// todo if no seconds, display will lag by fraction of a min
-	// const ms = new Date().getMilliseconds();
-	// setTimeout(() => {
 	clearInterval(digitalTimeInterval);
 
 	digitalTimeInterval = setInterval(
 		() => setDigitalTime(display, options),
 		options.seconds ? 1000 : 1000 * 60
 	);
-	// }, ms);
 }
 
 function getDigitalTime(options = {}) {
 	const today = new Date();
-	return `${today.getHours() % 12}:${today
-		.getMinutes()
-		.toString()
-		.padStart(2, '0')}${
+	return `${
+		(today.getHours() % 12) + (today.getHours() % 12 === 0 ? 12 : 0)
+	}:${today.getMinutes().toString().padStart(2, '0')}${
 		options.seconds
 			? `:${today.getSeconds().toString().padStart(2, '0')}`
 			: ''
