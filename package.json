@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "A simple, resizable and customizable clock for any device",
 	"scripts": {
-		"dev": "postcss src/styles.css -o dist/css/styles.css --watch",
+		"dev": "postcss src/styles.css -o dist/css/styles.css --watch --verbose",
 		"build": "cross-env NODE_ENV=production postcss src/styles.css -o dist/css/styles.css && cleancss -o dist/css/styles.css dist/css/styles.css",
 		"prod": "npm run build && ( py -V && py increment.py ) || ( python3 -V && python3 increment.py )",
 		"lint": "eslint dist/js/ --ext .js --ignore-pattern \"dist/js/lib/*\"",

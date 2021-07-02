@@ -1,6 +1,5 @@
 /* global u */
 
-console.log(colors);
 const defaultTheme = {
 	face: {
 		stroke: '#0000',
@@ -11,7 +10,9 @@ const defaultTheme = {
 		fill: '#' + colors['Cool Gray']['700'],
 	},
 	pin: {
-		fill: '#' + colors['Red']['700'],
+		stroke: '#' + colors['Red']['700'],
+		fill: '#' + colors['Cool Gray']['100'],
+		strokeWidth: 0.5,
 		size: 1,
 	},
 	ticks: {
@@ -21,8 +22,8 @@ const defaultTheme = {
 			width: 1,
 		},
 		md: {
-			stroke: '#0000',
-			height: 1.5,
+			stroke: '#' + colors['Cool Gray']['500'],
+			height: 0.5,
 			width: 3,
 		},
 		lg: {
@@ -66,7 +67,9 @@ const classicTheme = {
 		fill: '#0000',
 	},
 	pin: {
+		stroke: '#0000',
 		fill: '#900',
+		strokeWidth: 0,
 		size: 1,
 	},
 	ticks: {
@@ -121,7 +124,9 @@ function setTheme(theme) {
 
 	u('#shadow').first().setAttribute('fill', theme.shadow.fill);
 
+	u('#pin').first().setAttribute('stroke', theme.pin.stroke);
 	u('#pin').first().setAttribute('fill', theme.pin.fill);
+	u('#pin').first().setAttribute('stroke-width', theme.pin.strokeWidth);
 	u('#pin').first().setAttribute('r', theme.pin.size);
 
 	for (const size of sizes) {

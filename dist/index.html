@@ -125,9 +125,33 @@
 
 					<!--Hands-->
 					<g transform="rotate(180)">
-						<line id="hour-hand" />
-						<line id="minute-hand" />
-						<line id="second-hand" class="sweep" />
+						<line id="hour-hand">
+							<animatetransform
+								attributeName="transform"
+								attributeType="XML"
+								type="rotate"
+								dur="43200s"
+								repeatCount="indefinite"
+							/>
+						</line>
+						<line id="minute-hand">
+							<animatetransform
+								attributeName="transform"
+								attributeType="XML"
+								type="rotate"
+								dur="3600s"
+								repeatCount="indefinite"
+							/>
+						</line>
+						<line id="second-hand">
+							<animatetransform
+								attributeName="transform"
+								attributeType="XML"
+								type="rotate"
+								dur="60s"
+								repeatCount="indefinite"
+							/>
+						</line>
 					</g>
 					<circle id="pin" />
 				</g>

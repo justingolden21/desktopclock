@@ -5,35 +5,11 @@
 	height: 80%;
 	width: 80%;
 }
-#hour-hand {
-	animation: rotate 43200s infinite linear; /*60*60*12*/
-}
-#minute-hand {
-	animation: rotate 3600s infinite linear; /*60*60*/
-}
-#second-hand {
-	animation: rotate 60s infinite;
-}
-#second-hand.sweep {
-	animation-timing-function: linear;
-}
-#second-hand.tick {
-	animation-timing-function: steps(60);
-}
 
 #face,
 #sm-ticks,
 #md-ticks,
 #lg-ticks,
-#hour-hand,
-#minute-hand,
-#second-hand,
 #pin {
 	transition: all 0.25s linear;
-}
-
-@keyframes rotate {
-	100% {
-		transform: rotateZ(360deg);
-	}
 }
