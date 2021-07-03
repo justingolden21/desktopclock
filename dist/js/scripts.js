@@ -22,7 +22,14 @@ window.addEventListener('load', () => {
 
 	u('#dark-btn').on('click', () => u('body').toggleClass('dark'));
 
-	u('body').on('dblclick', toggleFullscreen);
+	u('body').on('dblclick', (evt) => {
+		if (
+			evt.target.tagName === 'BUTTON' ||
+			evt.target.parentNode.tagName === 'BUTTON'
+		)
+			return;
+		toggleFullscreen();
+	});
 });
 
 let firstSetTime = null;

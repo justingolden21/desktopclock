@@ -7,10 +7,10 @@
 
 @layer base {
 	::-moz-selection {
-		@apply bg-gray-100;
+		@apply bg-gray-200;
 	}
 	::selection {
-		@apply bg-gray-100;
+		@apply bg-gray-200;
 	}
 	*:focus,
 	button:focus {
@@ -18,7 +18,7 @@
 	}
 
 	h1 {
-		@apply hidden sm:block sm:text-2xl md:text-3xl font-normal tracking-widest;
+		@apply pt-1 md:pt-2 hidden sm:block sm:text-2xl md:text-3xl font-normal tracking-widest;
 	}
 	p {
 		@apply leading-relaxed;

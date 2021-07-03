@@ -4,14 +4,12 @@
 	width: 100%;
 }
 #primary-display h1 {
-	@apply text-9xl font-bold tracking-widest text-center;
+	@apply block text-9xl font-bold tracking-widest text-center;
 }
 #secondary-display {
 	position: absolute;
 	bottom: 0%;
+	left: 0%;
 	width: 100%;
-	@apply text-2xl md:text-3xl font-bold tracking-widest text-center pb-4;
-}
-body.dark #secondary-display {
-	@apply text-gray-400;
+	@apply block text-2xl md:text-3xl font-normal tracking-widest text-center pb-4;
 }
