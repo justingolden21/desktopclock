@@ -3,12 +3,13 @@
 let displays = {
 	// both should not be same
 	primary: 'analog', // analog, digital, date
-	secondary: 'digital', // digital, date, none
+	secondary: 'date', // digital, date, none
 };
 
+// https://tc39.es/ecma402/#table-datetimeformat-components
 let dateSettings = {
-	weekday: 'long',
-	year: 'numeric',
+	weekday: 'short',
+	// year: 'numeric',
 	month: 'long',
 	day: 'numeric',
 };

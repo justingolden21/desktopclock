@@ -2,16 +2,16 @@
 
 const defaultTheme = {
 	face: {
-		stroke: '#' + colors['Cool Gray']['700'],
-		fill: '#' + colors['Cool Gray']['50'],
+		stroke: '#' + colors['Blue Gray']['700'],
+		fill: '#' + colors['Blue Gray']['200'],
 		strokeWidth: 0,
 	},
 	shadow: {
-		fill: '#' + colors['Cool Gray']['700'],
+		fill: '#' + colors['Blue Gray']['700'],
 	},
 	pin: {
 		stroke: '#' + colors['Red']['700'],
-		fill: '#' + colors['Cool Gray']['100'],
+		fill: '#' + colors['Blue Gray']['200'],
 		strokeWidth: 0.5,
 		size: 1,
 	},
@@ -22,26 +22,26 @@ const defaultTheme = {
 			width: 1,
 		},
 		md: {
-			stroke: '#' + colors['Cool Gray']['400'],
+			stroke: '#' + colors['Blue Gray']['400'],
 			height: 0.5,
 			width: 3,
 		},
 		lg: {
-			stroke: '#' + colors['Cool Gray']['500'],
+			stroke: '#' + colors['Blue Gray']['500'],
 			height: 0.5,
 			width: 5,
 		},
 	},
 	hands: {
 		hour: {
-			stroke: '#' + colors['Cool Gray']['700'],
+			stroke: '#' + colors['Blue Gray']['700'],
 			strokeWidth: 1,
 			length: 15,
 			back: 3,
 			linecap: 'butt',
 		},
 		minute: {
-			stroke: '#' + colors['Cool Gray']['500'],
+			stroke: '#' + colors['Blue Gray']['500'],
 			strokeWidth: 0.5,
 			length: 21,
 			back: 3,
@@ -51,7 +51,7 @@ const defaultTheme = {
 			stroke: '#' + colors['Red']['700'],
 			strokeWidth: 0.5,
 			length: 27,
-			back: 9,
+			back: 6,
 			linecap: 'butt',
 		},
 	},
