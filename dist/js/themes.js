@@ -2,16 +2,16 @@
 
 const defaultTheme = {
 	face: {
-		stroke: '#0000',
-		fill: '#' + colors['Cool Gray']['100'],
-		strokeWidth: 2,
+		stroke: '#' + colors['Cool Gray']['700'],
+		fill: '#' + colors['Blue']['50'],
+		strokeWidth: 0,
 	},
 	shadow: {
 		fill: '#' + colors['Cool Gray']['700'],
 	},
 	pin: {
 		stroke: '#' + colors['Red']['700'],
-		fill: '#' + colors['Cool Gray']['100'],
+		fill: '#' + colors['Blue']['50'],
 		strokeWidth: 0.5,
 		size: 1,
 	},

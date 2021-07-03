@@ -18,7 +18,7 @@
 	}
 
 	h1 {
-		@apply hidden sm:block sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-wider;
+		@apply hidden sm:block sm:text-2xl md:text-3xl font-normal tracking-widest;
 	}
 	p {
 		@apply leading-relaxed;
@@ -33,7 +33,7 @@
 		@apply left-4;
 	}
 	#dark-btn {
-		@apply left-16;
+		@apply left-16 md:left-20;
 	}
 	#fullscreen-btn {
 		@apply right-4;
