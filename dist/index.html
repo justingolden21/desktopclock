@@ -21,12 +21,6 @@
 		<meta name="theme-color" content="#FFFFFF" />
 
 		<link rel="stylesheet" href="css/styles.css" />
-		<script src="js/lib/umbrella.min.js"></script>
-		<script src="js/colors.js"></script>
-		<script src="js/themes.js"></script>
-		<script src="js/displays.js"></script>
-		<script src="js/util.js"></script>
-		<script src="js/scripts.js"></script>
 
 		<link
 			rel="icon"
@@ -56,107 +50,246 @@
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
-	<body class="text-center m-4 text-gray-700">
-		<header>
-			<button id="menu-btn" class="icon-btn float-left">
+	<body class="text-center text-gray-900 flex min-h-screen">
+		<!--bg-gray-700 text-white
+        bg-gray-500 active, 600 hover -->
+		<!-- bg-gray-100, 300 active/hover, backdrop-filter: blur(3px); opacity: 0.5; -->
+		<nav
+			class="
+				min-h-screen
+				bg-gray-50 bg-opacity-50
+				w-64
+				p-8
+				pt-20
+				text-left
+				absolute
+				left-0
+				transform
+				-translate-x-full
+				transition
+				duration-200
+				ease-in-out
+				md:relative md:translate-x-0
+			"
+		>
+			<a class="active">
 				<svg
-					class="w-6 h-6 md:w-8 md:h-8"
+					class="w-6 h-6 inline mr-2"
 					fill="none"
 					stroke="currentColor"
 					viewBox="0 0 24 24"
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<path
-						stroke-linecap="square"
-						stroke-linejoin="square"
+						stroke-linecap="round"
+						stroke-linejoin="round"
 						stroke-width="2"
-						d="M4 6h16M4 12h16M4 18h16"
+						d="m12 8v4l3 3m6-3a9 9 0 11-18 0a9 9 0 0118 0z"
 					></path>
 				</svg>
-			</button>
-
-			<button id="dark-btn" class="icon-btn float-left">
+				Clock</a
+			>
+			<a>
 				<svg
-					class="w-6 h-6 md:w-8 md:h-8"
+					class="w-6 h-6 inline mr-2"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 30"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="m12 8v4l3 3m6-3a9 9 0 11-18 0a9 9 0 0118 0m2 11-2-2a1 1 0 01-18-18l-2-2m11 24v4h3h-7"
+					></path>
+				</svg>
+				Worldclock</a
+			>
+			<a>
+				<svg
+					class="w-6 h-6 inline mr-2"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 -2 22 26"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="m12 8v4m9 0a9 9 0 11-18 0a9 9 0 0118 0m-9-9v-4h4h-8"
+					></path>
+				</svg>
+				Stopwatch</a
+			>
+			<a>
+				<svg
+					class="w-6 h-6 inline mr-2"
 					fill="none"
 					stroke="currentColor"
 					viewBox="0 0 24 24"
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<path
-						stroke-linecap="square"
-						stroke-linejoin="square"
+						stroke-linecap="round"
+						stroke-linejoin="round"
 						stroke-width="2"
-						d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+						d="m12 8v4l3 3m6-3a9 9 0 11-18 0a9 9 0 0118 0m-19-8 3-3m14 0 3 3"
 					></path>
 				</svg>
-			</button>
-
-			<h1>Desktop Clock</h1>
-
-			<button id="fullscreen-btn" class="icon-btn float-right">
+				Timers</a
+			>
+			<a>
 				<svg
-					class="w-6 h-6 md:w-8 md:h-8"
+					class="w-6 h-6 inline mr-2"
 					fill="none"
 					stroke="currentColor"
 					viewBox="0 0 24 24"
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<path
-						stroke-linecap="square"
-						stroke-linejoin="square"
+						stroke-linecap="round"
+						stroke-linejoin="round"
 						stroke-width="2"
-						d="m4 8v-4m0 0h4m-4 0m16 4v-4m0 0h-4m4 0m-16 12v4m0 0h4m-4 0m16 0m0 0v-4m0 4h-4"
+						d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+					></path>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
 					></path>
 				</svg>
-			</button>
-		</header>
-		<section>
-			<div id="primary-display"><h1></h1></div>
-			<div id="secondary-display"><h2></h2></div>
+				Settings</a
+			>
+			<a>
+				<svg
+					class="w-6 h-6 inline mr-2"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+					></path>
+				</svg>
+				About</a
+			>
+		</nav>
+		<div class="flex-1 relative">
+			<header>
+				<button id="menu-btn" class="icon-btn float-left md:hidden">
+					<svg
+						class="w-6 h-6 md:w-8 md:h-8"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							stroke-linecap="square"
+							stroke-linejoin="square"
+							stroke-width="2"
+							d="M4 6h16M4 12h16M4 18h16"
+						></path>
+					</svg>
+				</button>
 
-			<svg id="clock" viewBox="0 0 64 64">
-				<g transform="translate(32,32)">
-					<circle id="shadow" cx="2" r="30" />
-					<circle id="face" cx="0" r="30" />
+				<button id="dark-btn" class="icon-btn float-left">
+					<svg
+						class="w-6 h-6 md:w-8 md:h-8"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							stroke-linecap="square"
+							stroke-linejoin="square"
+							stroke-width="2"
+							d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+						></path>
+					</svg>
+				</button>
 
-					<circle id="sm-ticks" fill="none" />
-					<circle id="md-ticks" fill="none" />
-					<circle id="lg-ticks" fill="none" />
+				<h1>Desktop Clock</h1>
 
-					<!--Hands-->
-					<g transform="rotate(180)">
-						<line id="hour-hand">
-							<animatetransform
-								attributeName="transform"
-								attributeType="XML"
-								type="rotate"
-								dur="43200s"
-								repeatCount="indefinite"
-							/>
-						</line>
-						<line id="minute-hand">
-							<animatetransform
-								attributeName="transform"
-								attributeType="XML"
-								type="rotate"
-								dur="3600s"
-								repeatCount="indefinite"
-							/>
-						</line>
-						<line id="second-hand">
-							<animatetransform
-								attributeName="transform"
-								attributeType="XML"
-								type="rotate"
-								dur="60s"
-								repeatCount="indefinite"
-							/>
-						</line>
+				<button id="fullscreen-btn" class="icon-btn float-right">
+					<svg
+						class="w-6 h-6 md:w-8 md:h-8"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+					>
+						<path
+							stroke-linecap="square"
+							stroke-linejoin="square"
+							stroke-width="2"
+							d="m4 8v-4m0 0h4m-4 0m16 4v-4m0 0h-4m4 0m-16 12v4m0 0h4m-4 0m16 0m0 0v-4m0 4h-4"
+						></path>
+					</svg>
+				</button>
+			</header>
+			<section>
+				<div id="primary-display"><h1></h1></div>
+				<div id="secondary-display"><h2></h2></div>
+
+				<svg id="clock" viewBox="0 0 64 64">
+					<g transform="translate(32,32)">
+						<circle id="shadow" cx="2" r="30" />
+						<circle id="face" cx="0" r="30" />
+
+						<circle id="sm-ticks" fill="none" />
+						<circle id="md-ticks" fill="none" />
+						<circle id="lg-ticks" fill="none" />
+
+						<!--Hands-->
+						<g transform="rotate(180)">
+							<line id="hour-hand">
+								<animatetransform
+									attributeName="transform"
+									attributeType="XML"
+									type="rotate"
+									dur="43200s"
+									repeatCount="indefinite"
+								/>
+							</line>
+							<line id="minute-hand">
+								<animatetransform
+									attributeName="transform"
+									attributeType="XML"
+									type="rotate"
+									dur="3600s"
+									repeatCount="indefinite"
+								/>
+							</line>
+							<line id="second-hand">
+								<animatetransform
+									attributeName="transform"
+									attributeType="XML"
+									type="rotate"
+									dur="60s"
+									repeatCount="indefinite"
+								/>
+							</line>
+						</g>
+						<circle id="pin" />
 					</g>
-					<circle id="pin" />
-				</g>
-			</svg>
-		</section>
+				</svg>
+			</section>
+		</div>
+
+		<script src="js/lib/umbrella.min.js"></script>
+		<script src="js/colors.js"></script>
+		<script src="js/themes.js"></script>
+		<script src="js/displays.js"></script>
+		<script src="js/util.js"></script>
+		<script src="js/scripts.js"></script>
 	</body>
 </html>

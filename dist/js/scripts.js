@@ -30,6 +30,20 @@ window.addEventListener('load', () => {
 			return;
 		toggleFullscreen();
 	});
+
+	u('#menu-btn').on('click', () => {
+		const closeSVG = 'M6 18L18 6M6 6l12 12';
+		const menuSVG = 'M4 6h16M4 12h16M4 18h16';
+
+		u('nav').toggleClass('-translate-x-full');
+
+		u('#menu-btn svg path')
+			.first()
+			.setAttribute(
+				'd',
+				u('nav').hasClass('-translate-x-full') ? menuSVG : closeSVG
+			);
+	});
 });
 
 let firstSetTime = null;
