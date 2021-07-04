@@ -20,7 +20,19 @@ window.addEventListener('load', () => {
 
 	u('#fullscreen-btn').on('click', toggleFullscreen);
 
-	u('#dark-btn').on('click', () => u('body').toggleClass('dark'));
+	u('#dark-btn').on('click', () => {
+		u('body').toggleClass('dark');
+
+		const themeColor = u('body').hasClass('dark')
+			? `#${colors['Blue Gray']['900']}`
+			: '#FFFFFF';
+		u('meta[name="theme-color"]')
+			.first()
+			.setAttribute('content', themeColor);
+		u('meta[name="apple-mobile-web-app-status-bar"]')
+			.first()
+			.setAttribute('content', themeColor);
+	});
 
 	u('body').on('dblclick', (evt) => {
 		if (
