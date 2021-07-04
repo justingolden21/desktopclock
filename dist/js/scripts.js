@@ -10,11 +10,11 @@ if ('serviceWorker' in navigator) {
 let setTimeInterval;
 
 window.addEventListener('load', () => {
-	setTime();
-	setTimeInterval = setInterval(setTime, 5000);
-
 	setTheme(defaultTheme);
 	// setTheme(classicTheme);
+
+	setTime();
+	setTimeInterval = setInterval(setTime, 5000);
 
 	setDisplays(displays);
 
@@ -78,29 +78,27 @@ function setTime() {
 	const mDegrees = (m + s / 60) * 6;
 	const hDegrees = (h + m / 60 + s / 3600) * 30;
 
-	u('#hour-hand animatetransform').first().setAttribute('from', hDegrees);
-	u('#hour-hand animatetransform')
+	u('#hour-animate').first().setAttribute('from', hDegrees);
+	u('#hour-animate')
 		.first()
 		.setAttribute('to', hDegrees + 360);
 
-	u('#minute-hand animatetransform').first().setAttribute('from', mDegrees);
-	u('#minute-hand animatetransform')
+	u('#minute-animate').first().setAttribute('from', mDegrees);
+	u('#minute-animate')
 		.first()
 		.setAttribute('to', mDegrees + 360);
 
-	u('#second-hand animatetransform').first().setAttribute('from', sDegrees);
-	u('#second-hand animatetransform')
+	u('#second-animate').first().setAttribute('from', sDegrees);
+	u('#second-animate')
 		.first()
 		.setAttribute('to', sDegrees + 360);
 
 	// tick
-	u('#second-hand animatetransform')
-		.first()
-		.setAttribute('calcMode', 'discrete');
+	u('#second-animate').first().setAttribute('calcMode', 'discrete');
 
 	const ms = new Date().getMilliseconds();
 	setTimeout(() => {
-		u('#second-hand animatetransform')
+		u('#second-animate')
 			.first()
 			.setAttribute(
 				'values',
