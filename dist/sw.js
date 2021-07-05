@@ -9,6 +9,7 @@ const assets = [
 	'/js/displays.js',
 	'/js/scripts.js',
 	'/js/themes.js',
+	'/js/translator.js',
 	'/js/util.js',
 	'/css/styles.css',
 	'/img/icons/manifest-icon-192.png',

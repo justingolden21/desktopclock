@@ -1,0 +1,24 @@
+{
+	"name": "Desktop Clock",
+	"short_name": "Desktop Clock",
+	"description": "A simple, resizable and customizable clock for any device!",
+	"start_url": "index.html",
+	"display": "standalone",
+	"background_color": "#FFFFFF",
+	"theme_color": "#FFFFFF",
+	"orientation": "portrait-primary",
+	"icons": [
+		{
+			"src": "../../img/icons/manifest-icon-192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "maskable any"
+		},
+		{
+			"src": "../../img/icons/manifest-icon-512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "maskable any"
+		}
+	]
+}

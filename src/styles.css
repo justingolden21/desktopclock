@@ -1,17 +1,59 @@
 @import './components/analog-clock.css';
 @import './components/displays.css';
 
+/* 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200;400;600&family=Aldrich&family=Arsenal:wght@400;700&family=Bai+Jamjuree:wght@300;500;700&family=Bitter:wght@300;500;700&family=Josefin+Sans:wght@300;500;700&family=Julius+Sans+One&family=Jura:wght@300;500;700&family=K2D:wght@300;500;700&family=KoHo:wght@300;500;700&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;600&family=Major+Mono+Display&family=Montserrat+Alternates:wght@300;600;900&family=Orbitron:wght@400;600;800&family=Rajdhani:wght@300;500;700&family=Yatra+One&display=swap" rel="stylesheet">
+
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200;400;600&family=Aldrich&family=Arsenal:wght@400;700&family=Bai+Jamjuree:wght@300;500;700&family=Bitter:wght@300;500;700&family=Josefin+Sans:wght@300;500;700&family=Julius+Sans+One&family=Jura:wght@300;500;700&family=K2D:wght@300;500;700&family=KoHo:wght@300;500;700&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;600&family=Major+Mono+Display&family=Montserrat+Alternates:wght@300;600;900&family=Orbitron:wght@400;600;800&family=Rajdhani:wght@300;500;700&family=Yatra+One&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+	* {
+		/* font-weight: 300 !important; */
+
+		font-family: 'Advent Pro', sans-serif;
+		font-family: 'Aldrich', sans-serif;
+		font-family: 'Arsenal', sans-serif;
+		font-family: 'Bai Jamjuree', sans-serif;
+		font-family: 'Josefin Sans', sans-serif;
+		font-family: 'Julius Sans One', sans-serif;
+		font-family: 'Jura', sans-serif;
+		font-family: 'K2D', sans-serif;
+		font-family: 'KoHo', sans-serif;
+		font-family: 'Montserrat Alternates', sans-serif;
+		font-family: 'Rajdhani', sans-serif;
+
+		font-family: 'Orbitron', sans-serif;
+		font-family: 'Major Mono Display', monospace;
+		font-family: 'Yatra One', cursive;
+
+		font-family: 'Bitter', serif;
+		font-family: 'Libre Baskerville', serif;
+		font-family: 'Lora', serif;
+
+		font-family: 'Jura', sans-serif;
+	}
+
 	::-moz-selection {
 		@apply bg-gray-200;
 	}
 	::selection {
 		@apply bg-gray-200;
 	}
+	body.dark ::-moz-selection {
+		@apply bg-gray-500;
+	}
+	body.dark ::selection {
+		@apply bg-gray-500;
+	}
+
 	*:focus,
 	button:focus {
 		@apply outline-none ring-2 ring-gray-300;
@@ -38,22 +80,22 @@
 		@apply block
 					p-4
 					hover:bg-gray-200
-					hover:bg-opacity-50
+					hover:bg-opacity-75
 					cursor-pointer
 					tracking-widest;
 		/* transition: all 0.25s linear; */
 	}
 	nav a.active {
-		@apply bg-gray-200 bg-opacity-50 font-bold;
+		@apply bg-gray-200 bg-opacity-75 font-bold;
 	}
 	body.dark nav {
-		@apply bg-gray-700 bg-opacity-50;
+		@apply bg-gray-700 bg-opacity-75;
 	}
 	body.dark nav a {
-		@apply hover:bg-gray-700 hover:bg-opacity-50;
+		@apply hover:bg-gray-700 hover:bg-opacity-75;
 	}
 	body.dark nav a.active {
-		@apply bg-gray-700 bg-opacity-50;
+		@apply bg-gray-700 bg-opacity-75;
 	}
 
 	.icon-btn {

@@ -16,7 +16,7 @@ module.exports = {
 			gray: colors.blueGray,
 		},
 		screens: {
-			xs: '480px',
+			xs: '360px',
 			...defaultTheme.screens,
 		},
 		extend: {},

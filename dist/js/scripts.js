@@ -10,13 +10,23 @@ if ('serviceWorker' in navigator) {
 let setTimeInterval;
 
 window.addEventListener('load', () => {
+	const langs = ['en', 'es'];
+	let lang = navigator.language.substring(0, 2);
+	if (langs.indexOf(lang) !== -1) lang = 'en';
+	// lang = 'es'; // tmp for testing
+	u('head').append(
+		`<link rel="manifest" href="localized/${lang}/manifest.webmanifest" />`
+	);
+
+	translate(lang);
+
 	setTheme(defaultTheme);
 	// setTheme(classicTheme);
 
 	setTime();
 	setTimeInterval = setInterval(setTime, 5000);
 
-	setDisplays(displays);
+	setDisplays(displays, lang);
 
 	u('#fullscreen-btn').on('click', toggleFullscreen);
 
