@@ -8,7 +8,7 @@
 
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200;400;600&family=Aldrich&family=Arsenal:wght@400;700&family=Bai+Jamjuree:wght@300;500;700&family=Bitter:wght@300;500;700&family=Josefin+Sans:wght@300;500;700&family=Julius+Sans+One&family=Jura:wght@300;500;700&family=K2D:wght@300;500;700&family=KoHo:wght@300;500;700&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;600&family=Major+Mono+Display&family=Montserrat+Alternates:wght@300;600;900&family=Orbitron:wght@400;600;800&family=Rajdhani:wght@300;500;700&family=Yatra+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200;400;600&family=Aldrich&family=Arsenal:wght@400;700&family=Bai+Jamjuree:wght@300;500;700&family=Bitter:wght@300;500;700&family=Josefin+Sans:wght@300;500;700&family=Julius+Sans+One&family=Jura:wght@300;500;700&family=K2D:wght@300;500;700&family=KoHo:wght@300;500;700&family=Libre+Baskerville:wght@400;700&family=Limelight:wght@400&family=Lora:wght@400;600&family=Major+Mono+Display&family=Montserrat+Alternates:wght@300;600;900&family=Orbitron:wght@400;600;800&family=Rajdhani:wght@300;500;700&family=Yatra+One&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -18,7 +18,7 @@
 	* {
 		/* font-weight: 300 !important; */
 
-		font-family: 'Advent Pro', sans-serif;
+		/* font-family: 'Advent Pro', sans-serif; */
 		font-family: 'Aldrich', sans-serif;
 		font-family: 'Arsenal', sans-serif;
 		font-family: 'Bai Jamjuree', sans-serif;
@@ -26,17 +26,18 @@
 		font-family: 'Julius Sans One', sans-serif;
 		font-family: 'Jura', sans-serif;
 		font-family: 'K2D', sans-serif;
-		font-family: 'KoHo', sans-serif;
+		/* font-family: 'KoHo', sans-serif; */
 		font-family: 'Montserrat Alternates', sans-serif;
-		font-family: 'Rajdhani', sans-serif;
+		/* font-family: 'Rajdhani', sans-serif; */
 
+		font-family: 'Limelight', cursive;
 		font-family: 'Orbitron', sans-serif;
 		font-family: 'Major Mono Display', monospace;
 		font-family: 'Yatra One', cursive;
 
 		font-family: 'Bitter', serif;
 		font-family: 'Libre Baskerville', serif;
-		font-family: 'Lora', serif;
+		/* font-family: 'Lora', serif; */
 
 		font-family: 'Jura', sans-serif;
 	}
@@ -121,6 +122,13 @@
 
 	body.dark {
 		@apply bg-gray-900 text-gray-200;
+	}
+
+	body,
+	body.dark {
+		@apply transition-colors
+			duration-500
+			ease-linear;
 	}
 }
 

@@ -11,5 +11,5 @@
 #md-ticks,
 #lg-ticks,
 #pin {
-	transition: all 0.25s linear;
+	@apply transition duration-200 ease-in-out;
 }
