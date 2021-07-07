@@ -1,0 +1,57 @@
+/* TODO: dark theme modal */
+.modal {
+	@apply pt-8 fixed left-0 top-0 hidden w-full h-full overflow-auto bg-gray-200 bg-opacity-50;
+	z-index: 3;
+}
+.modal-content {
+	@apply border-2 border-gray-200 bg-gray-100 p-8 pt-4 relative m-auto w-full md:w-3/4 bg-opacity-75;
+	box-shadow: 4px 0px 8px #e2e8f0; /*gray-200*/
+	backdrop-filter: blur(2px);
+	animation: animateTop 0.25s;
+	-webkit-animation: animateTop 0.25s;
+}
+.modal button.close {
+	float: right;
+	z-index: 4;
+}
+.modal h1 {
+	@apply text-left mt-4;
+}
+.modal-header {
+	@apply border-b-2 border-gray-200 pb-9;
+}
+.modal-body {
+	@apply pt-4 text-left overflow-x-scroll;
+}
+.modal-body p {
+	@apply text-base sm:text-lg md:text-xl;
+}
+.modal-body h3 {
+	@apply font-bold my-2 md:my-4;
+}
+
+body.dark .modal-content {
+	@apply bg-gray-800;
+	box-shadow: 4px 0px 8px #334155; /*gray-700*/
+}
+
+@keyframes animateTop {
+	from {
+		top: -240px;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
+}
+@-webkit-keyframes animateTop {
+	from {
+		top: -240px;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
+}

@@ -1,0 +1,36 @@
+todo:
+fix time off on awake bug
+pwa install btn if not installed
+add modal component, add settings modal with layout
+add i18n
+organize js, use imports / exports
+implement settings
+add animate.css
+animated icons / icon animations
+add tabs and accordion components, toggle, toast
+use svelte and parcel
+add fonts offline
+
+later:
+open another clock btn
+store settings in localstorage
+
+bugs:
+pinpoint seconds in analog/digital time
+pwa auto update (fixed?)
+dbl click on btn shouldnt toggle fullscreen
+
+visual bugs:
+
+tmp bug fixes:
+nav links are underline despite styless.css
+    cause: npm run dev has :not(nav a) but npm run prod has :not(nava)
+    tried: changing to :not(nav), but links are not affected
+    possible solutions: parent-child selectors such as > or +
+    solution: nav a:hover {text-decoration: none}
+
+performance:
+
+maybe:
+nav: click away or esc to close nav?
+

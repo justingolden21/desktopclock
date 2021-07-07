@@ -51,13 +51,10 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</head>
 	<body class="text-center text-gray-900 flex min-h-screen">
-		<!--bg-gray-700 text-white
-        bg-gray-500 active, 600 hover -->
-		<!-- bg-gray-100, 300 active/hover, backdrop-filter: blur(3px); opacity: 0.5; -->
 		<nav
 			class="
 				min-h-screen
-				bg-gray-50 bg-opacity-50
+				bg-gray-50
 				w-64
 				p-8
 				pt-20
@@ -141,7 +138,7 @@
 				</svg>
 				Timers</a
 			>
-			<a>
+			<a class="modal-btn" href="#settings-modal">
 				<svg
 					class="w-6 h-6 inline mr-2"
 					fill="none"
@@ -164,7 +161,7 @@
 				</svg>
 				Settings</a
 			>
-			<a>
+			<a class="modal-btn" href="#about-modal">
 				<svg
 					class="w-6 h-6 inline mr-2"
 					fill="none"
@@ -289,12 +286,129 @@
 			</section>
 		</div>
 
+		<!-- Modals -->
+
+		<div id="settings-modal" class="modal">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close icon-btn">
+						<svg
+							class="w-6 h-6"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								stroke-linecap="square"
+								stroke-linejoin="square"
+								stroke-width="2"
+								d="M6 18L18 6M6 6l12 12"
+							></path>
+						</svg>
+					</button>
+					<h1>
+						<svg
+							class="w-6 h-6 inline mr-2"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+							></path>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+							></path>
+						</svg>
+						Settings
+					</h1>
+				</div>
+				<div class="modal-body">
+					<h3>Display</h3>
+					<p>Settings Coming Soon. . .</p>
+				</div>
+			</div>
+		</div>
+		<div id="about-modal" class="modal">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button class="close icon-btn">
+						<svg
+							class="w-6 h-6"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								stroke-linecap="square"
+								stroke-linejoin="square"
+								stroke-width="2"
+								d="M6 18L18 6M6 6l12 12"
+							></path>
+						</svg>
+					</button>
+					<h1>
+						<svg
+							class="w-6 h-6 inline mr-2"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+							></path>
+						</svg>
+						About
+					</h1>
+				</div>
+				<div class="modal-body">
+					<h3>About</h3>
+					<p>
+						Desktop Clock is a simple, resizable and customizable
+						clock for any device. Features include customizable
+						analog and digital displays, night mode, and more.
+						Desktop Clock is designed to scale perfectly to any
+						screen size and ratio, with no distortion or pixelation.
+						Use Desktop Clock as a clock on your TV, a night clock,
+						or even project the time for exams. Customize the time,
+						date and more to your liking.
+					</p>
+
+					<h3>Contact</h3>
+					<p>
+						Made by
+						<a href="https://justingolden.me" target="_blank"
+							>Justin Golden</a
+						>. Feel free to contact me with any feedback, questions,
+						or requests at
+						<a href="mailto:contact@justingolden.me" target="_blank"
+							>contact@justingolden.me</a
+						>.
+					</p>
+				</div>
+			</div>
+		</div>
+
 		<script src="js/lib/umbrella.min.js"></script>
 		<script src="js/colors.js"></script>
 		<script src="js/translator.js"></script>
 		<script src="js/themes.js"></script>
 		<script src="js/displays.js"></script>
 		<script src="js/util.js"></script>
+		<script src="js/components/modal.js"></script>
 		<script src="js/scripts.js"></script>
 	</body>
 </html>

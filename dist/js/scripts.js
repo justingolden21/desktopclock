@@ -66,6 +66,10 @@ window.addEventListener('load', () => {
 				u('nav').hasClass('-translate-x-full') ? menuSVG : closeSVG
 			);
 	});
+	u('nav a').on('click', () => {
+		if (!u('nav').hasClass('-translate-x-full'))
+			u('#menu-btn').first().click();
+	});
 });
 
 let firstSetTime = null;

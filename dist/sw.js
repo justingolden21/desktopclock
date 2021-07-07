@@ -1,5 +1,5 @@
 const staticCacheName = 'site-static-v1';
-const dynamicCacheName = 'site-dynamic-v2';
+const dynamicCacheName = 'site-dynamic-v3';
 const assets = [
 	'/',
 	'/index.html',
@@ -11,6 +11,7 @@ const assets = [
 	'/js/themes.js',
 	'/js/translator.js',
 	'/js/util.js',
+	'/js/components/modal.js',
 	'/css/styles.css',
 	'/img/icons/manifest-icon-192.png',
 	'/img/icons/manifest-icon-512.png',
