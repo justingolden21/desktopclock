@@ -10,6 +10,7 @@ animated icons / icon animations
 add tabs and accordion components, toggle, toast
 use svelte and parcel
 add fonts offline
+change increment script from python to node
 
 later:
 open another clock btn

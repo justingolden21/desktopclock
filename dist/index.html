@@ -54,7 +54,7 @@
 		<nav
 			class="
 				min-h-screen
-				bg-gray-50
+				bg-gray-50 bg-opacity-75
 				w-64
 				p-8
 				pt-20
@@ -332,8 +332,68 @@
 					</h1>
 				</div>
 				<div class="modal-body">
+					<div class="tabs">
+						<a class="active tab" data-tab="appearance"
+							>Appearance</a
+						>
+						<a class="tab" data-tab="user">User</a>
+						<a class="tab" data-tab="application">Application</a>
+						<a class="tab" data-tab="help">Help</a>
+						<div
+							class="presentation-slider"
+							role="presentation"
+						></div>
+					</div>
+					<div id="appearance" class="tab-content"></div>
+					<div id="user" class="tab-content"></div>
+					<div id="application" class="tab-content"></div>
+					<div id="help" class="tab-content">
+						<p>Coming soon. . .</p>
+					</div>
+
 					<h3>Display</h3>
-					<p>Settings Coming Soon. . .</p>
+					<div class="toggle-container">
+						<input
+							type="checkbox"
+							id="testing-toggle"
+							class="toggle-checkbox"
+						/>
+						<label class="toggle-bg"></label>
+					</div>
+					<label for="testing-toggle" class="toggle-label"
+						>testing</label
+					>
+					<button class="btn">testing</button>
+					<label for="testing-select">testing</label>
+					<select id="testing-select">
+						<option>testing</option>
+						<option>testing</option>
+					</select>
+
+					<details>
+						<summary>testing</summary>
+						<p>
+							Lorem, ipsum dolor sit amet consectetur adipisicing
+							elit. Culpa exercitationem iste veritatis hic
+							expedita eveniet cumque dignissimos magnam ullam ea.
+						</p>
+					</details>
+					<details>
+						<summary>testing</summary>
+						<p>
+							Lorem, ipsum dolor sit amet consectetur adipisicing
+							elit. Culpa exercitationem iste veritatis hic
+							expedita eveniet cumque dignissimos magnam ullam ea.
+						</p>
+					</details>
+					<details>
+						<summary>testing</summary>
+						<p>
+							Lorem, ipsum dolor sit amet consectetur adipisicing
+							elit. Culpa exercitationem iste veritatis hic
+							expedita eveniet cumque dignissimos magnam ullam ea.
+						</p>
+					</details>
 				</div>
 			</div>
 		</div>
@@ -409,6 +469,8 @@
 		<script src="js/displays.js"></script>
 		<script src="js/util.js"></script>
 		<script src="js/components/modal.js"></script>
+		<script src="js/components/tabs.js"></script>
+		<script src="js/components/toggle.js"></script>
 		<script src="js/scripts.js"></script>
 	</body>
 </html>

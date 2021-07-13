@@ -1,6 +1,8 @@
 @import './components/analog-clock.css';
 @import './components/displays.css';
 @import './components/modal.css';
+@import './components/tabs.css';
+@import './components/toggle.css';
 
 /* 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +18,7 @@
 
 @layer base {
 	* {
-		font-weight: 300;
+		/* font-weight: 300; */
 
 		/* font-family: 'Aldrich', sans-serif;
 		font-family: 'Arsenal', sans-serif;
@@ -36,7 +38,7 @@
 		font-family: 'Bitter', serif;
 		font-family: 'Libre Baskerville', serif; */
 
-		font-family: 'KoHo', sans-serif;
+		font-family: 'Jura', sans-serif;
 	}
 
 	::-moz-selection {
@@ -95,7 +97,7 @@ nav and modal have same bg colors, opacities, and shadows
 		@apply block
 					p-4
 					hover:bg-gray-200
-					hover:bg-opacity-75
+					hover:bg-opacity-50
 					cursor-pointer
 					tracking-widest;
 		/* transition: all 0.25s linear; */
@@ -105,19 +107,20 @@ nav and modal have same bg colors, opacities, and shadows
 		text-decoration: none;
 	}
 	nav a.active {
-		@apply bg-gray-200 bg-opacity-75 font-bold;
+		@apply bg-gray-200 bg-opacity-50 font-bold;
 	}
 	body.dark nav {
-		@apply bg-gray-800 bg-opacity-75;
+		@apply bg-gray-700 bg-opacity-75;
 		box-shadow: 4px 0px 8px #334155; /*gray-700*/
 	}
-	body.dark nav a {
-		@apply hover:bg-gray-700 hover:bg-opacity-75;
-	}
+	body.dark nav a:hover,
 	body.dark nav a.active {
-		@apply bg-gray-700 bg-opacity-75;
+		@apply bg-gray-600 bg-opacity-50;
 	}
 
+	.btn {
+		@apply p-2 rounded-none text-white bg-gray-600 hover:bg-gray-700;
+	}
 	.icon-btn {
 		@apply p-2 rounded-full hover:bg-gray-700 hover:text-white;
 	}
@@ -141,6 +144,70 @@ nav and modal have same bg colors, opacities, and shadows
 	}
 	#fullscreen-btn {
 		@apply right-4;
+	}
+
+	select {
+		@apply cursor-pointer p-2 pr-6 mr-2 text-gray-700 bg-gray-50 hover:bg-gray-100 appearance-none;
+		background: #f8fafc
+			url("data:image/svg+xml;utf8,<svg fill='none' stroke='currentColor' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
+			no-repeat right center;
+	}
+	option {
+		@apply p-1;
+	}
+
+	body.dark select {
+		@apply bg-gray-500 text-gray-100;
+		/* background: #334155
+			url("data:image/svg+xml;utf8,<svg fill='none' stroke='#CBD5E1' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
+			no-repeat right center; */
+	}
+
+	details {
+		@apply bg-gray-50 border-b-2 border-gray-200;
+	}
+	details *:not(summary) {
+		@apply p-2;
+	}
+	summary {
+		@apply cursor-pointer p-2 hover:bg-gray-100 font-bold text-lg;
+	}
+	details[open] summary ~ * {
+		animation: sweep 0.5s ease-in-out;
+	}
+
+	body.dark details {
+		@apply bg-gray-700;
+	}
+	body.dark summary {
+		@apply hover:bg-gray-600;
+	}
+
+	@keyframes sweep {
+		0% {
+			opacity: 0;
+			transform: translateY(-1rem);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	/* icon hover transitions */
+	#dark-btn svg,
+	#fullscreen-btn svg,
+	#meun-btn svg {
+		transition: transform 0.25s;
+	}
+	#dark-btn:hover svg {
+		transform: scale(-1, -1);
+	}
+	#fullscreen-btn:hover svg {
+		transform: scale(-1, 1);
+	}
+	#menu-btn:hover svg {
+		/* transform: scale(1, -1); */
 	}
 
 	body.dark {

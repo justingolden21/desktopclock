@@ -1,0 +1,46 @@
+@layer components {
+	.tabs {
+		@apply mb-8 mx-auto md:sticky md:top-0 bg-gray-50 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4;
+	}
+	.tab {
+		@apply px-4 py-1 py-2 sm:py-4 w-full justify-center mx-auto border-b-2 md:inline-flex items-center leading-none border-gray-300 text-gray-500 hover:text-gray-700 hover:bg-gray-100 cursor-pointer;
+	}
+	a.tab {
+		@apply no-underline hover:no-underline;
+	}
+	.tab.active {
+		@apply bg-gray-100 text-gray-500 border-gray-500 md:border-gray-300;
+	}
+	.tab:first-child.active ~ .presentation-slider {
+		transform: translateX(0) scaleX(0.25);
+	}
+	.tab:nth-child(2).active ~ .presentation-slider {
+		transform: translateX(25%) scaleX(0.25);
+	}
+	.tab:nth-child(3).active ~ .presentation-slider {
+		transform: translateX(50%) scaleX(0.25);
+	}
+	.tab:nth-child(4).active ~ .presentation-slider {
+		transform: translateX(75%) scaleX(0.25);
+	}
+	.presentation-slider {
+		@apply absolute bottom-0 left-0 w-full h-0.5 bg-gray-500 hidden md:block;
+		transform-origin: 0 0;
+		transition: transform 0.25s ease-in-out;
+	}
+	/*purgecss start ignore*/
+	.tab-content.hidden {
+		display: none;
+	}
+	/*purgecss end ignore*/
+
+	body.dark .tab {
+		@apply bg-gray-700 text-gray-300 hover:bg-gray-600;
+	}
+	body.dark .tab.active {
+		@apply bg-gray-600;
+	}
+	body.dark .presentation-slider {
+		@apply bg-gray-100;
+	}
+}

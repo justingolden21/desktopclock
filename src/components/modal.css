@@ -4,7 +4,7 @@
 	z-index: 3;
 }
 .modal-content {
-	@apply border-2 border-gray-300 bg-gray-100 p-8 pt-4 relative m-auto w-full md:w-3/4 bg-opacity-75;
+	@apply border-2 border-gray-300 bg-gray-100 p-2 xs:p-8 xs:pt-4 relative m-auto w-full md:w-3/4 bg-opacity-75;
 	box-shadow: 4px 0px 8px #cbd5e1; /*gray-300*/
 	backdrop-filter: blur(2px);
 	animation: animateTop 0.25s;
