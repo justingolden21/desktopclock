@@ -28,9 +28,9 @@ window.addEventListener('load', () => {
 
 	setDisplays(displays, lang);
 
-	u('#fullscreen-btn').on('click', toggleFullscreen);
+	u('.fullscreen-btn').on('click', toggleFullscreen);
 
-	u('#dark-btn').on('click', () => {
+	u('.dark-btn').on('click', () => {
 		u('body').toggleClass('dark');
 
 		const themeColor = u('body').hasClass('dark')
@@ -83,16 +83,16 @@ window.addEventListener('load', () => {
 		});
 	});
 
-	// u('#menu-btn').on('mouseover', () => {
-	// 	u('#menu-btn svg path')
-	// 		.first()
-	// 		.setAttribute('d', 'M8 6h16M4 12h16M0 18h16');
-	// });
-	// u('#menu-btn').on('mouseout', () => {
-	// 	u('#menu-btn svg path')
-	// 		.first()
-	// 		.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-	// });
+	let themeBtnsHTML = '';
+	// eslint-disable-next-line guard-for-in
+	for (const color in colors) {
+		const c = `#${colors[color]['300']}`;
+		themeBtnsHTML += `<button class="theme-btn ${
+			colors[color] === 'Blue Gray' ? 'active' : ''
+		}" style="background-color: ${c}" data-color="${c}"></button>`;
+	}
+
+	u('#theme-btns').html(themeBtnsHTML);
 });
 
 let firstSetTime = null;

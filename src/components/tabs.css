@@ -29,9 +29,30 @@
 		transition: transform 0.25s ease-in-out;
 	}
 	/*purgecss start ignore*/
+	.tab-content {
+		animation: fadeIn 0.75s linear;
+		-webkit-animation: fadeIn 0.75s linear;
+	}
 	.tab-content.hidden {
 		display: none;
 	}
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+	@-webkit-keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
 	/*purgecss end ignore*/
 
 	body.dark .tab {

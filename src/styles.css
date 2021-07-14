@@ -119,30 +119,38 @@ nav and modal have same bg colors, opacities, and shadows
 	}
 
 	.btn {
-		@apply p-2 rounded-none text-white bg-gray-600 hover:bg-gray-700;
+		@apply p-2 m-2 rounded-none text-white bg-gray-600 hover:bg-gray-700;
 	}
 	.icon-btn {
 		@apply p-2 rounded-full hover:bg-gray-700 hover:text-white;
 	}
+	/* purgecss start ignore */
+	.theme-btn {
+		@apply icon-btn w-6 h-6 m-1;
+	}
+	.theme-btn.active {
+		box-shadow: 4px 0px 0px #64748b; /* gray-500 */
+	}
+	/* purgecss end ignore */
 	#menu-btn,
-	#dark-btn,
-	#fullscreen-btn {
+	#main-dark-btn,
+	#main-fullscreen-btn {
 		@apply absolute top-4;
 	}
 	#menu-btn {
 		z-index: 3;
 	}
-	#dark-btn,
-	#fullscreen-btn {
+	#main-dark-btn,
+	#main-fullscreen-btn {
 		z-index: 1;
 	}
 	#menu-btn {
 		@apply left-4;
 	}
-	#dark-btn {
+	#main-dark-btn {
 		@apply left-16 md:left-4;
 	}
-	#fullscreen-btn {
+	#main-fullscreen-btn {
 		@apply right-4;
 	}
 
@@ -155,6 +163,9 @@ nav and modal have same bg colors, opacities, and shadows
 	option {
 		@apply p-1;
 	}
+	select:disabled {
+		@apply bg-gray-200;
+	}
 
 	body.dark select {
 		@apply bg-gray-500 text-gray-100;
@@ -162,11 +173,14 @@ nav and modal have same bg colors, opacities, and shadows
 			url("data:image/svg+xml;utf8,<svg fill='none' stroke='#CBD5E1' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
 			no-repeat right center; */
 	}
+	body.dark select:disabled {
+		@apply bg-gray-400;
+	}
 
 	details {
 		@apply bg-gray-50 border-b-2 border-gray-200;
 	}
-	details *:not(summary) {
+	details .details-content {
 		@apply p-2;
 	}
 	summary {
@@ -195,15 +209,15 @@ nav and modal have same bg colors, opacities, and shadows
 	}
 
 	/* icon hover transitions */
-	#dark-btn svg,
-	#fullscreen-btn svg,
+	.dark-btn svg,
+	.fullscreen-btn svg,
 	#meun-btn svg {
 		transition: transform 0.25s;
 	}
-	#dark-btn:hover svg {
+	.dark-btn:hover svg {
 		transform: scale(-1, -1);
 	}
-	#fullscreen-btn:hover svg {
+	.fullscreen-btn:hover svg {
 		transform: scale(-1, 1);
 	}
 	#menu-btn:hover svg {
