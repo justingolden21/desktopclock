@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
 	// setTheme(classicTheme);
 
 	setTime();
-	setTimeInterval = setInterval(setTime, 20 * 1000);
+	setTimeInterval = setInterval(setTime, 1 * 1000);
 
 	setDisplays(displays, lang);
 
@@ -95,69 +95,44 @@ window.addEventListener('load', () => {
 	u('#theme-btns').html(themeBtnsHTML);
 });
 
-let firstSetTime = null;
+const setAngle = (type, newAngle) => {
+	document.documentElement.style.setProperty(
+		`--${type}-angle`,
+		`${newAngle}deg`
+	);
+};
 
-// let lastRotations = [0, 0, 0];
-
-function setTime() {
-	const date = new Date();
-
+function setTime(date = new Date()) {
+	// todo: add one second to current date, because transition to current time takes one second
 	const h = date.getHours() % 12;
 	const m = date.getMinutes();
-	let s = date.getSeconds();
+	const s = date.getSeconds();
 
-	// attempt 1 to fix calling setTime on interval to fix time on awake
-	if (firstSetTime == null) {
-		firstSetTime = date;
-	} else {
-		// updating secs carries over to mins and hrs because of math below
-		s -= Math.ceil((date - firstSetTime) / 1000);
+	let rotations = {
+		second: 6 * s,
+		minute: (m + s / 60) * 6,
+		hour: (h + m / 60 + s / 3600) * 30,
+	};
+
+	// check one second's rotation after 0 degrees
+	// because this is when we need to replace the angle with 0 and transition to the next second (rotation % 360)
+	if (rotations['second'] <= 6) rotations['second'] += 360;
+	if (rotations['minute'] <= 0.1) rotations['minute'] += 360;
+	if (rotations['hour'] <= 0.0084) rotations['hour'] += 360;
+
+	// Quickly reset position
+	// See https://stackoverflow.com/q/11131875/4907950
+	for (const handType of ['second', 'minute', 'hour']) {
+		setAngle(handType, rotations[handType]);
+
+		if (rotations[handType] > 360) {
+			let hand = document.getElementById(handType + '-hand');
+			hand.classList.add('notransition');
+			setAngle(handType, 0);
+			// See https://gist.github.com/paulirish/5d52fb081b3570c81e3a#svg
+			hand.getBBox(); // trigger CSS reflow
+			hand.classList.remove('notransition');
+			setAngle(handType, rotations[handType] % 360);
+		}
 	}
-
-	let sDegrees = 6 * s;
-	let mDegrees = (m + s / 60) * 6;
-	let hDegrees = (h + m / 60 + s / 3600) * 30;
-
-	// attempt 3 to fix calling setTime on interval to fix time on awake
-	// hDegrees -= u('#hour-animate').first().getAttribute('from');
-	// mDegrees -= u('#minute-animate').first().getAttribute('from');
-	// sDegrees -= u('#second-animate').first().getAttribute('from');
-
-	// attempt 2 to fix calling setTime on interval to fix time on awake
-	// hDegrees -= lastRotations[0];
-	// mDegrees -= lastRotations[1];
-	// sDegrees -= lastRotations[2];
-	// console.log(hDegrees, mDegrees, sDegrees);
-	// lastRotations = [hDegrees, mDegrees, sDegrees];
-
-	u('#hour-animate').first().setAttribute('from', hDegrees);
-	u('#hour-animate')
-		.first()
-		.setAttribute('to', hDegrees + 360);
-
-	u('#minute-animate').first().setAttribute('from', mDegrees);
-	u('#minute-animate')
-		.first()
-		.setAttribute('to', mDegrees + 360);
-
-	u('#second-animate').first().setAttribute('from', sDegrees);
-	u('#second-animate')
-		.first()
-		.setAttribute('to', sDegrees + 360);
-
-	// tick
-	u('#second-animate').first().setAttribute('calcMode', 'discrete');
-
-	// const ms = new Date().getMilliseconds();
-	// setTimeout(() => {
-	u('#second-animate')
-		.first()
-		.setAttribute(
-			'values',
-			Array(60)
-				.fill()
-				.map((_, idx) => sDegrees + idx * 6)
-				.join(';')
-		);
-	// }, 1000 - ms);
 }

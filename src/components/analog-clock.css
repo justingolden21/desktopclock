@@ -13,3 +13,31 @@
 #pin {
 	@apply transition duration-200 ease-in-out;
 }
+
+:root {
+	--second-angle: 0deg;
+	--minute-angle: 0deg;
+	--hour-angle: 0deg;
+}
+
+#second-hand {
+	transition: transform 1s linear;
+	transform: rotate(var(--second-angle));
+}
+
+#minute-hand {
+	transition: transform 1s linear;
+	transform: rotate(var(--minute-angle));
+}
+
+#hour-hand {
+	transition: transform 1s linear;
+	transform: rotate(var(--hour-angle));
+}
+
+.notransition {
+	-webkit-transition: none !important;
+	-moz-transition: none !important;
+	-o-transition: none !important;
+	transition: none !important;
+}
