@@ -2,27 +2,27 @@ const colors = require('tailwindcss/colors');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-	// mode: 'jit',
+	mode: 'jit',
 	purge: {
-		content: ['./dist/**/*.html'],
+		content: ['./src/**/*.{html,js,svelte,ts}'],
 		options: {
-			safelist: ['dark'],
-		},
+			safelist: ['dark']
+		}
 	},
 	darkMode: 'class',
 	theme: {
 		colors: {
 			white: '#FFF',
-			gray: colors.blueGray,
+			gray: colors.blueGray
 		},
 		screens: {
 			xs: '360px',
-			...defaultTheme.screens,
+			...defaultTheme.screens
 		},
-		extend: {},
+		extend: {}
 	},
 	variants: {
-		extend: {},
+		extend: {}
 	},
-	plugins: [],
+	plugins: []
 };

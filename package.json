@@ -3,13 +3,13 @@
 	"version": "1.0.0",
 	"description": "A simple, resizable and customizable clock for any device",
 	"scripts": {
-		"dev": "postcss src/styles.css -o dist/css/styles.css --watch --verbose",
-		"build": "cross-env NODE_ENV=production postcss src/styles.css -o dist/css/styles.css && cleancss -o dist/css/styles.css dist/css/styles.css",
-		"prod": "npm run build && ( py -V && py increment.py ) || ( python3 -V && python3 increment.py )",
-		"lint": "eslint dist/js/ --ext .js --ignore-pattern \"dist/js/lib/*\"",
-		"serve": "live-server --open=dist",
-		"dev-serve": "concurrently --kill-others \"npm run dev\" \"npm run serve\"",
-		"generate-assets": "pwa-asset-generator src/img/icon.svg dist/img/icons --manifest dist/manifest.webmanifest --index dist/index.html --favicon --mstile --icon-only --opaque true"
+		"dev": "svelte-kit dev",
+		"build": "svelte-kit build",
+		"preview": "svelte-kit preview",
+		"lint": "prettier --ignore-path .gitignore  --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
+		"increment": "( py -V && py increment.py ) || ( python3 -V && python3 increment.py )",
+		"generate-assets": "pwa-asset-generator src/img/icons/icon.svg src/img/icons --manifest src/localized/en/manifest.webmanifest --index src/app.html --favicon --mstile --icon-only --opaque true"
 	},
 	"keywords": [
 		"clock",
@@ -34,17 +34,24 @@
 	"author": "Justin Golden",
 	"license": "MIT",
 	"devDependencies": {
-		"autoprefixer": "^10.1.0",
-		"clean-css-cli": "^4.3.0",
-		"concurrently": "^5.3.0",
-		"cross-env": "^7.0.3",
-		"eslint": "^7.29.0",
+		"@sveltejs/adapter-netlify": "^1.0.0-next.27",
+		"@sveltejs/kit": "next",
+		"autoprefixer": "^10.3.1",
+		"cssnano": "^5.0.6",
+		"eslint": "^7.22.0",
 		"eslint-config-airbnb-base": "^14.2.1",
+		"eslint-config-prettier": "^8.1.0",
 		"eslint-plugin-import": "^2.23.4",
-		"live-server": "^1.2.1",
-		"postcss-cli": "^8.3.1",
+		"eslint-plugin-svelte3": "^3.2.0",
+		"postcss": "^8.3.5",
 		"postcss-import": "^14.0.2",
+		"postcss-load-config": "^3.1.0",
+		"prettier": "~2.2.1",
+		"prettier-plugin-svelte": "^2.2.0",
 		"pwa-asset-generator": "^4.1.1",
-		"tailwindcss": "^2.0.2"
-	}
+		"svelte": "^3.34.0",
+		"svelte-preprocess": "^4.7.4",
+		"tailwindcss": "^2.2.4"
+	},
+	"type": "module"
 }

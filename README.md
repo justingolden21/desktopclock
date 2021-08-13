@@ -8,24 +8,26 @@ A simple, resizable and customizable clock for any device
 
 First time setup: `npm i`
 
-Generate Assets: `npm run generate-assets` with icon.svg saved under /src/img
+Generate Assets: `npm run generate-assets`
 
-Development: `npm run dev`
+Development: `npm run dev` (or `npm run dev -- --open`)
 
-Production: `npm run prod`
+Build: `npm run build`
 
-Serve: `npm run serve`
+Preview: `npm run preview`
+
+Increment PWA version number: `npm run increment`
 
 ### Links
 
--   Live demo: https://justingolden.me/desktop-clock
+- Live demo: https://justingolden.me/desktop-clock
 
--   This repo: https://github.com/justingolden21/desktop-clock
+- This repo: https://github.com/justingolden21/desktop-clock
 
 <hr>
 
--   My website: https://justingolden.me
+- My website: https://justingolden.me
 
--   My repos: https://github.com/justingolden21
+- My repos: https://github.com/justingolden21
 
--   Contact me: contact@justingolden.me
+- Contact me: contact@justingolden.me

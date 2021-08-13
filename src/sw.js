@@ -3,8 +3,6 @@ const dynamicCacheName = 'site-dynamic-v8';
 const assets = [
 	'/',
 	'/index.html',
-	'/404.html',
-	'/pages/fallback.html',
 	'/js/colors.js',
 	'/js/displays.js',
 	'/js/scripts.js',
@@ -14,9 +12,8 @@ const assets = [
 	'/js/components/modal.js',
 	'/js/components/tabs.js',
 	'/js/components/toggle.js',
-	'/css/styles.css',
 	'/img/icons/manifest-icon-192.png',
-	'/img/icons/manifest-icon-512.png',
+	'/img/icons/manifest-icon-512.png'
 ];
 
 // cache size limit function
@@ -49,10 +46,7 @@ self.addEventListener('activate', (evt) => {
 			//console.log(keys);
 			return Promise.all(
 				keys
-					.filter(
-						(key) =>
-							key !== staticCacheName && key !== dynamicCacheName
-					)
+					.filter((key) => key !== staticCacheName && key !== dynamicCacheName)
 					.map((key) => caches.delete(key))
 			);
 		})
@@ -79,9 +73,9 @@ self.addEventListener('fetch', (evt) => {
 				);
 			})
 			.catch(() => {
-				if (evt.request.url.indexOf('.html') > -1) {
-					return caches.match('/pages/fallback.html');
-				}
+				// if (evt.request.url.indexOf('.html') > -1) {
+				// 	return caches.match('/pages/fallback.html');
+				// }
 			})
 	);
 });
