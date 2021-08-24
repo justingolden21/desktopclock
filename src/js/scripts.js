@@ -108,6 +108,7 @@ function init() {
 		if (!u('nav').hasClass('-translate-x-full')) u('#menu-btn').first().click();
 	});
 
+	// TODO not working after details are inside of tab component
 	// one details at a time in settings
 	const details = document.querySelectorAll('#settings-modal details');
 	details.forEach((targetDetail) => {

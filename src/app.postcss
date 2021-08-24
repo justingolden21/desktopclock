@@ -1,7 +1,6 @@
 @import './components/analog-clock.css';
 @import './components/displays.css';
 @import './components/modal.css';
-@import './components/tabs.css';
 
 /* 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -223,6 +222,9 @@ nav and modal have same bg colors, opacities, and shadows
 		/* transform: scale(1, -1); */
 	}
 
+	body {
+		@apply text-gray-900;
+	}
 	body.dark {
 		@apply bg-gray-900 text-gray-200;
 	}

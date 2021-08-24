@@ -93,11 +93,9 @@
 import { onMount } from 'svelte';
 import {init} from "../js/scripts";
 import { initModals } from '../js/components/modal';
-import { initTabs } from '../js/components/tabs';
 
 onMount(() => {
     init();
     initModals();
-    initTabs();
 });
 </script>

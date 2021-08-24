@@ -42,20 +42,20 @@
 
 /* dark */
 
-body.dark .toggle-checkbox {
+:global(body.dark) .toggle-checkbox {
 	@apply bg-gray-100 border-gray-300;
 }
-body.dark .toggle-checkbox + .toggle-bg {
+:global(body.dark) .toggle-checkbox + .toggle-bg {
 	@apply bg-gray-400;
 }
-body.dark .toggle-checkbox:checked {
+:global(body.dark) .toggle-checkbox:checked {
 	@apply border-gray-500;
 }
-body.dark .toggle-checkbox:checked + .toggle-bg {
+:global(body.dark) .toggle-checkbox:checked + .toggle-bg {
 	@apply bg-gray-600;
 }
 
-body.dark .toggle-label:hover {
+:global(body.dark) .toggle-label:hover {
 	@apply text-gray-400;
 }
 
