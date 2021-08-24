@@ -16,7 +16,7 @@ Build: `npm run build`
 
 Preview: `npm run preview`
 
-Increment PWA version number: `npm run increment`
+_In order to test service worker, must run `npm run build` then `npm run preview` for any changes to the service worker to appear on localhost_
 
 ### Links
 

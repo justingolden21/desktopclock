@@ -1,22 +1,34 @@
-if ('serviceWorker' in navigator) {
-	navigator.serviceWorker
-		.register('sw.js')
-		.then((reg) => console.log('service worker registered'))
-		.catch((err) => console.log('service worker not registered', err));
-}
+import { translate } from './translator.js';
+import { defaultTheme, classicTheme, setTheme } from './themes.js';
+import { toggleFullscreen } from './util.js';
+import { displays, setDisplays } from './displays.js';
+import { colors } from './colors.js';
 
-/* global u */
+import { u } from './lib/umbrella.min.js';
+
+// below code is not necessary
+// automatically handled by svelte kit if file is named service-worker.js
+// https://kit.svelte.dev/docs#service-workers
+
+// if ('serviceWorker' in navigator) {
+// 	navigator.serviceWorker
+// 		.register('sw.js')
+// 		.then((reg) => console.log('service worker registered'))
+// 		.catch((err) => console.log('service worker not registered', err));
+// }
 
 let setTimeInterval;
+
+// manifest has to load before the service worker for the service worker to install
+// since both are async here, the app breaks
+// for localization, the manifest should be loaded from an endpoint in svelte kit, to point to a json that loads the correct language manifest
 
 window.addEventListener('load', () => {
 	const langs = ['en', 'es'];
 	let lang = navigator.language.substring(0, 2);
 	if (langs.indexOf(lang) !== -1) lang = 'en';
 	// lang = 'es'; // tmp for testing
-	u('head').append(
-		`<link rel="manifest" href="localized/${lang}/manifest.webmanifest" />`
-	);
+	u('head').append(`<link rel="manifest" href="localized/${lang}/manifest.webmanifest" />`);
 
 	translate(lang);
 
@@ -33,23 +45,13 @@ window.addEventListener('load', () => {
 	u('.dark-btn').on('click', () => {
 		u('body').toggleClass('dark');
 
-		const themeColor = u('body').hasClass('dark')
-			? `#${colors['Blue Gray']['900']}`
-			: '#FFFFFF';
-		u('meta[name="theme-color"]')
-			.first()
-			.setAttribute('content', themeColor);
-		u('meta[name="apple-mobile-web-app-status-bar"]')
-			.first()
-			.setAttribute('content', themeColor);
+		const themeColor = u('body').hasClass('dark') ? `#${colors['Blue Gray']['900']}` : '#FFFFFF';
+		u('meta[name="theme-color"]').first().setAttribute('content', themeColor);
+		u('meta[name="apple-mobile-web-app-status-bar"]').first().setAttribute('content', themeColor);
 	});
 
 	u('body').on('dblclick', (evt) => {
-		if (
-			evt.target.tagName === 'BUTTON' ||
-			evt.target.parentNode.tagName === 'BUTTON'
-		)
-			return;
+		if (evt.target.tagName === 'BUTTON' || evt.target.parentNode.tagName === 'BUTTON') return;
 		toggleFullscreen();
 	});
 
@@ -61,14 +63,10 @@ window.addEventListener('load', () => {
 
 		u('#menu-btn svg path')
 			.first()
-			.setAttribute(
-				'd',
-				u('nav').hasClass('-translate-x-full') ? menuSVG : closeSVG
-			);
+			.setAttribute('d', u('nav').hasClass('-translate-x-full') ? menuSVG : closeSVG);
 	});
 	u('nav a').on('click', () => {
-		if (!u('nav').hasClass('-translate-x-full'))
-			u('#menu-btn').first().click();
+		if (!u('nav').hasClass('-translate-x-full')) u('#menu-btn').first().click();
 	});
 
 	// one details at a time in settings
@@ -96,10 +94,7 @@ window.addEventListener('load', () => {
 });
 
 const setAngle = (type, newAngle) => {
-	document.documentElement.style.setProperty(
-		`--${type}-angle`,
-		`${newAngle}deg`
-	);
+	document.documentElement.style.setProperty(`--${type}-angle`, `${newAngle}deg`);
 };
 
 function setTime(date = new Date()) {
@@ -111,7 +106,7 @@ function setTime(date = new Date()) {
 	let rotations = {
 		second: 6 * s,
 		minute: (m + s / 60) * 6,
-		hour: (h + m / 60 + s / 3600) * 30,
+		hour: (h + m / 60 + s / 3600) * 30
 	};
 
 	// check one second's rotation after 0 degrees

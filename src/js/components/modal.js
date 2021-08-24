@@ -1,3 +1,4 @@
+import { u } from '../lib/umbrella.min.js';
 // TODO: convert to using umbrella (for readability and file size)
 window.addEventListener('load', () => {
 	const modals = document.getElementsByClassName('modal');
@@ -7,9 +8,7 @@ window.addEventListener('load', () => {
 	for (const modalBtn of modalBtns) {
 		modalBtn.onclick = function (event) {
 			event.preventDefault();
-			document.querySelector(
-				modalBtn.getAttribute('href')
-			).style.display = 'block';
+			document.querySelector(modalBtn.getAttribute('href')).style.display = 'block';
 		};
 	}
 

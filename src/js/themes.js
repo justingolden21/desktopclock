@@ -1,4 +1,6 @@
-/* global u */
+import { u } from './lib/umbrella.min.js';
+
+import { colors } from './colors.js';
 
 const defaultTheme = {
 	face: {
@@ -150,3 +152,5 @@ function setTheme(theme) {
 		u(`#${hand}-hand`).first().setAttribute('stroke-linecap', theme.hands[hand].linecap);
 	}
 }
+
+export { defaultTheme, classicTheme, setTheme };

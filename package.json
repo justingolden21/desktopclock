@@ -8,7 +8,6 @@
 		"preview": "svelte-kit preview",
 		"lint": "prettier --ignore-path .gitignore  --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
-		"increment": "( py -V && py increment.py ) || ( python3 -V && python3 increment.py )",
 		"generate-assets": "pwa-asset-generator src/img/icons/icon.svg src/img/icons --manifest src/localized/en/manifest.webmanifest --index src/app.html --favicon --mstile --icon-only --opaque true"
 	},
 	"keywords": [

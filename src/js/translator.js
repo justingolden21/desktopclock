@@ -1,10 +1,12 @@
+import { u } from './lib/umbrella.min.js';
+
 const translations = {
 	en: {
-		title: 'Desktop Clock',
+		title: 'Desktop Clock'
 	},
 	es: {
-		title: 'Reloj Sencillo',
-	},
+		title: 'Reloj Sencillo'
+	}
 };
 
 // TODO: add translations for nav items and modal content
@@ -12,3 +14,5 @@ const translations = {
 function translate(lang) {
 	u('#title-text').html(translations[lang]['title']);
 }
+
+export { translate };

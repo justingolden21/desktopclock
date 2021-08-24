@@ -1,4 +1,4 @@
-/* global u */
+import { u } from '../lib/umbrella.min.js';
 
 function openTab(tabName) {
 	// open the tab, hide others
