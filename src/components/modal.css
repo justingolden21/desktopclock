@@ -21,7 +21,7 @@
 	@apply border-b-2 border-gray-300 pb-9;
 }
 .modal-body {
-	@apply pt-4 text-left overflow-x-scroll;
+	@apply pt-4 text-left;
 }
 .modal-body p {
 	@apply text-base sm:text-lg md:text-xl;

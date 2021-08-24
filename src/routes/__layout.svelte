@@ -536,11 +536,7 @@ transition-colors
     
                         <h3>App</h3>
                         <div class="block mb-2">
-                            <div class="toggle-container">
-                                <input checked type="checkbox" id="always-on-top-toggle" class="toggle-checkbox" />
-                                <label class="toggle-bg" />
-                            </div>
-                            <label for="always-on-top-toggle" class="toggle-label">Always On Top</label>
+                            <Toggle id="always-on-top-toggle" checked={true} labelText="Always On Top"></Toggle>
                         </div>
                         <button class="btn">Open Another Clock</button>
                         <button class="btn">Share</button>
