@@ -241,33 +241,14 @@ transition-colors
 
                             <Toggle id="show-fullscreen-btn-toggle" checked={true} labelText="Show fullscreen button"></Toggle>
 
-							<!-- <div class="toggle-container">
-								<input
-									checked
-									type="checkbox"
-									id="show-fullscreen-btn-toggle"
-									class="toggle-checkbox"
-								/>
-								<label class="toggle-bg" />
-							</div> -->
-
-							<!-- <label for="show-fullscreen-btn-toggle" class="toggle-label"
-								>Show fullscreen button</label
-							> -->
 							<br />
 
-							<div class="toggle-container">
-								<input checked type="checkbox" id="show-dark-btn-toggle" class="toggle-checkbox" />
-								<label class="toggle-bg" />
-							</div>
-							<label for="show-dark-btn-toggle" class="toggle-label">Show dark button</label>
+                            <Toggle id="show-dark-btn-toggle" checked={true} labelText="Show dark button"></Toggle>
+
 							<br />
 
-							<div class="toggle-container">
-								<input type="checkbox" id="show-theme-btn-toggle" class="toggle-checkbox" />
-								<label class="toggle-bg" />
-							</div>
-							<label for="show-theme-btn-toggle" class="toggle-label">Show theme buttons</label>
+                            <Toggle id="show-theme-btn-toggle" checked={false} labelText="Show theme buttons"></Toggle>
+
 						</div>
 					</details>
 					<details>
@@ -294,11 +275,7 @@ transition-colors
 							</div>
 
 							<div class="block mb-2">
-								<div class="toggle-container">
-									<input type="checkbox" id="show-battery-toggle" class="toggle-checkbox" />
-									<label class="toggle-bg" />
-								</div>
-								<label for="show-battery-toggle" class="toggle-label">Show battery</label>
+                                <Toggle id="show-battery-toggle" checked={false} labelText="Show battery"></Toggle>
 							</div>
 						</div>
 					</details>
@@ -495,14 +472,7 @@ transition-colors
 										<option> EN-US Los Angeles, CA, USA </option>
 									</select>
 								</div>
-
-								<div class="toggle-container">
-									<input checked type="checkbox" id="auto-locale-toggle" class="toggle-checkbox" />
-									<label class="toggle-bg" />
-								</div>
-								<label for="auto-locale-toggle" class="toggle-label"
-									>Automatically Detect Locale</label
-								>
+                                <Toggle id="auto-locale-toggle" checked={true} labelText="Automatically Detect Locale"></Toggle>
 							</div>
 						</div>
 					</details>
@@ -510,30 +480,10 @@ transition-colors
 				<div id="user" class="tab-content">
 					<h3>Shortcuts</h3>
 					<div class="block mb-2">
-						<div class="toggle-container">
-							<input
-								checked
-								type="checkbox"
-								id="dbl-click-fullscreen-toggle"
-								class="toggle-checkbox"
-							/>
-							<label class="toggle-bg" />
-						</div>
-						<label for="dbl-click-fullscreen-toggle" class="toggle-label"
-							>Doubleclick Fullscreen</label
-						>
+                        <Toggle id="dbl-click-fullscreen-toggle" checked={true} labelText="Doubleclick Fullscreen"></Toggle>
 					</div>
 					<div class="block mb-2">
-						<div class="toggle-container">
-							<input
-								checked
-								type="checkbox"
-								id="keyboard-shortcuts-toggle"
-								class="toggle-checkbox"
-							/>
-							<label class="toggle-bg" />
-						</div>
-						<label for="keyboard-shortcuts-toggle" class="toggle-label">Keyboard Shortcuts</label>
+                        <Toggle id="keyboard-shortcuts-toggle" checked={true} labelText="Keyboard Shortcuts"></Toggle>
 					</div>
 					<button class="btn">View Keyboard Shortcuts</button>
 					<button class="btn">Reset Keyboard Shortcuts</button>
@@ -568,13 +518,7 @@ transition-colors
 
 					<h3>Settings</h3>
 					<div class="block mb-2">
-						<div class="toggle-container">
-							<input checked type="checkbox" id="save-settings-toggle" class="toggle-checkbox" />
-							<label class="toggle-bg" />
-						</div>
-						<label for="save-settings-toggle" class="toggle-label"
-							>Save Settings Automatically</label
-						>
+                        <Toggle id="save-settings-toggle" checked={true} labelText="Save Settings Automatically"></Toggle>
 					</div>
 					<button class="btn">Reset Settings</button>
 					<button class="btn">Download Settings</button>
