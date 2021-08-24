@@ -1,6 +1,9 @@
 <script>
 	import '../app.postcss';
     import { page } from '$app/stores';
+
+    import Toggle from '../components/Toggle.svelte';
+
 </script>
 <div class="text-center text-gray-900 flex min-h-screen">
 
@@ -236,7 +239,9 @@ transition-colors
 								</button>
 							</div>
 
-							<div class="toggle-container">
+                            <Toggle id="show-fullscreen-btn-toggle" checked={true} labelText="Show fullscreen button"></Toggle>
+
+							<!-- <div class="toggle-container">
 								<input
 									checked
 									type="checkbox"
@@ -244,10 +249,11 @@ transition-colors
 									class="toggle-checkbox"
 								/>
 								<label class="toggle-bg" />
-							</div>
-							<label for="show-fullscreen-btn-toggle" class="toggle-label"
+							</div> -->
+
+							<!-- <label for="show-fullscreen-btn-toggle" class="toggle-label"
 								>Show fullscreen button</label
-							>
+							> -->
 							<br />
 
 							<div class="toggle-container">

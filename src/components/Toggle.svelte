@@ -1,3 +1,23 @@
+<script>
+    export let checked;
+    export let id;
+    export let labelText;
+</script>
+
+<div class="toggle-container">
+    <input
+        bind:checked={checked}
+        type="checkbox"
+        id={id}
+        class="toggle-checkbox"
+    />
+    <label class="toggle-bg" on:click={()=> checked = !checked } />
+</div>
+<label for={id} class="toggle-label">
+    {labelText}
+</label>
+
+<style>
 .toggle-container {
 	@apply relative inline-block w-12 m-2 align-middle select-none;
 }
@@ -38,3 +58,5 @@ body.dark .toggle-checkbox:checked + .toggle-bg {
 body.dark .toggle-label:hover {
 	@apply text-gray-400;
 }
+
+</style>

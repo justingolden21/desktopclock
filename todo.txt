@@ -1,4 +1,11 @@
 todo:
+svelte fix:
+    night styles not applied to some
+    app crashes often on reload
+    fix sw.js and localized manifest
+    implement components
+    make other components, clean code
+
 fix time off on awake bug
 pwa install btn if not installed
 add modal component, add settings modal with layout

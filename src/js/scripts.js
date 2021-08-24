@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
 	let lang = navigator.language.substring(0, 2);
 	if (langs.indexOf(lang) !== -1) lang = 'en';
 	// lang = 'es'; // tmp for testing
-	u('head').append(`<link rel="manifest" href="localized/${lang}/manifest.webmanifest" />`);
+	// u('head').append(`<link rel="manifest" href="localized/${lang}/manifest.webmanifest" />`); // todo
 
 	translate(lang);
 
