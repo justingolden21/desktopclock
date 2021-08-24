@@ -1,10 +1,9 @@
 todo:
 svelte fix:
     night styles not applied to some
-    app crashes often on reload
     fix sw.js and localized manifest
-    implement components
     make other components, clean code
+    tab.svelte file: https://stackoverflow.com/questions/66069647/best-way-to-import-svg-icons-into-a-svelte-app
 
 fix time off on awake bug
 pwa install btn if not installed

@@ -91,16 +91,13 @@
 
 <script>
 import { onMount } from 'svelte';
+import {init} from "../js/scripts";
+import { initModals } from '../js/components/modal';
+import { initTabs } from '../js/components/tabs';
 
-onMount(async () => {
-    await import ('../js/lib/umbrella.min.js');
-    await import ('../js/colors.js');
-    await import ('../js/translator.js');
-    await import ('../js/themes.js');
-    await import ('../js/displays.js');
-    await import ('../js/util.js');
-    await import ('../js/components/modal.js');
-    await import ('../js/components/tabs.js');
-    await import ('../js/scripts.js');
+onMount(() => {
+    init();
+    initModals();
+    initTabs();
 });
 </script>
