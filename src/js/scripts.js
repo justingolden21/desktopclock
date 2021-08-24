@@ -17,82 +17,6 @@ import { u } from './lib/umbrella.min.js';
 // 		.catch((err) => console.log('service worker not registered', err));
 // }
 
-let setTimeInterval;
-
-// manifest has to load before the service worker for the service worker to install
-// since both are async here, the app breaks
-// for localization, the manifest should be loaded from an endpoint in svelte kit, to point to a json that loads the correct language manifest
-
-window.addEventListener('load', () => {
-	const langs = ['en', 'es'];
-	let lang = navigator.language.substring(0, 2);
-	if (langs.indexOf(lang) !== -1) lang = 'en';
-	// lang = 'es'; // tmp for testing
-	// u('head').append(`<link rel="manifest" href="localized/${lang}/manifest.webmanifest" />`); // todo
-
-	translate(lang);
-
-	setTheme(defaultTheme);
-	// setTheme(classicTheme);
-
-	setTime();
-	setTimeInterval = setInterval(setTime, 1 * 1000);
-
-	setDisplays(displays, lang);
-
-	u('.fullscreen-btn').on('click', toggleFullscreen);
-
-	u('.dark-btn').on('click', () => {
-		u('body').toggleClass('dark');
-
-		const themeColor = u('body').hasClass('dark') ? `#${colors['Blue Gray']['900']}` : '#FFFFFF';
-		u('meta[name="theme-color"]').first().setAttribute('content', themeColor);
-		u('meta[name="apple-mobile-web-app-status-bar"]').first().setAttribute('content', themeColor);
-	});
-
-	u('body').on('dblclick', (evt) => {
-		if (evt.target.tagName === 'BUTTON' || evt.target.parentNode.tagName === 'BUTTON') return;
-		toggleFullscreen();
-	});
-
-	u('#menu-btn').on('click', () => {
-		const closeSVG = 'M6 18L18 6M6 6l12 12';
-		const menuSVG = 'M4 6h16M4 12h16M4 18h16';
-
-		u('nav').toggleClass('-translate-x-full');
-
-		u('#menu-btn svg path')
-			.first()
-			.setAttribute('d', u('nav').hasClass('-translate-x-full') ? menuSVG : closeSVG);
-	});
-	u('nav a').on('click', () => {
-		if (!u('nav').hasClass('-translate-x-full')) u('#menu-btn').first().click();
-	});
-
-	// one details at a time in settings
-	const details = document.querySelectorAll('#settings-modal details');
-	details.forEach((targetDetail) => {
-		targetDetail.addEventListener('click', () => {
-			details.forEach((detail) => {
-				if (detail !== targetDetail) {
-					detail.removeAttribute('open');
-				}
-			});
-		});
-	});
-
-	let themeBtnsHTML = '';
-	// eslint-disable-next-line guard-for-in
-	for (const color in colors) {
-		const c = `#${colors[color]['300']}`;
-		themeBtnsHTML += `<button class="theme-btn ${
-			colors[color] === 'Blue Gray' ? 'active' : ''
-		}" style="background-color: ${c}" data-color="${c}"></button>`;
-	}
-
-	u('#theme-btns').html(themeBtnsHTML);
-});
-
 const setAngle = (type, newAngle) => {
 	document.documentElement.style.setProperty(`--${type}-angle`, `${newAngle}deg`);
 };
@@ -131,3 +55,79 @@ function setTime(date = new Date()) {
 		}
 	}
 }
+
+let setTimeInterval;
+
+// manifest has to load before the service worker for the service worker to install
+// since both are async here, the app breaks
+// for localization, the manifest should be loaded from an endpoint in svelte kit, to point to a json that loads the correct language manifest
+
+// window.addEventListener('load', () => {
+const langs = ['en', 'es'];
+let lang = navigator.language.substring(0, 2);
+if (langs.indexOf(lang) === -1) lang = 'en';
+// lang = 'es'; // tmp for testing
+// u('head').append(`<link rel="manifest" href="localized/${lang}/manifest.webmanifest" />`); // todo
+
+translate(lang);
+
+setTheme(defaultTheme);
+// setTheme(classicTheme);
+
+setTime();
+setTimeInterval = setInterval(setTime, 1 * 1000);
+
+setDisplays(displays, lang);
+
+u('.fullscreen-btn').on('click', toggleFullscreen);
+
+u('.dark-btn').on('click', () => {
+	u('body').toggleClass('dark');
+
+	const themeColor = u('body').hasClass('dark') ? `#${colors['Blue Gray']['900']}` : '#FFFFFF';
+	u('meta[name="theme-color"]').first().setAttribute('content', themeColor);
+	u('meta[name="apple-mobile-web-app-status-bar"]').first().setAttribute('content', themeColor);
+});
+
+u('body').on('dblclick', (evt) => {
+	if (evt.target.tagName === 'BUTTON' || evt.target.parentNode.tagName === 'BUTTON') return;
+	toggleFullscreen();
+});
+
+u('#menu-btn').on('click', () => {
+	const closeSVG = 'M6 18L18 6M6 6l12 12';
+	const menuSVG = 'M4 6h16M4 12h16M4 18h16';
+
+	u('nav').toggleClass('-translate-x-full');
+
+	u('#menu-btn svg path')
+		.first()
+		.setAttribute('d', u('nav').hasClass('-translate-x-full') ? menuSVG : closeSVG);
+});
+u('nav a').on('click', () => {
+	if (!u('nav').hasClass('-translate-x-full')) u('#menu-btn').first().click();
+});
+
+// one details at a time in settings
+const details = document.querySelectorAll('#settings-modal details');
+details.forEach((targetDetail) => {
+	targetDetail.addEventListener('click', () => {
+		details.forEach((detail) => {
+			if (detail !== targetDetail) {
+				detail.removeAttribute('open');
+			}
+		});
+	});
+});
+
+let themeBtnsHTML = '';
+// eslint-disable-next-line guard-for-in
+for (const color in colors) {
+	const c = `#${colors[color]['300']}`;
+	themeBtnsHTML += `<button class="theme-btn ${
+		colors[color] === 'Blue Gray' ? 'active' : ''
+	}" style="background-color: ${c}" data-color="${c}"></button>`;
+}
+
+u('#theme-btns').html(themeBtnsHTML);
+// });

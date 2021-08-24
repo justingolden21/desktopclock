@@ -93,15 +93,14 @@
 import { onMount } from 'svelte';
 
 onMount(async () => {
-    (await import ('../js/lib/umbrella.min.js')).default;
-    (await import ('../js/colors.js')).default;
-    (await import ('../js/translator.js')).default;
-    (await import ('../js/themes.js')).default;
-    (await import ('../js/displays.js')).default;
-    (await import ('../js/util.js')).default;
-    (await import ('../js/components/modal.js')).default;
-    (await import ('../js/components/tabs.js')).default;
-    (await import ('../js/scripts.js')).default;
+    await import ('../js/lib/umbrella.min.js');
+    await import ('../js/colors.js');
+    await import ('../js/translator.js');
+    await import ('../js/themes.js');
+    await import ('../js/displays.js');
+    await import ('../js/util.js');
+    await import ('../js/components/modal.js');
+    await import ('../js/components/tabs.js');
+    await import ('../js/scripts.js');
 });
-
 </script>
