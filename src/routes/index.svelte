@@ -87,15 +87,11 @@
 		</section>
 	</div>
 
-	
-
 <script>
 import { onMount } from 'svelte';
 import {init} from "../js/scripts";
-import { initModals } from '../js/components/modal';
 
 onMount(() => {
     init();
-    initModals();
 });
 </script>
