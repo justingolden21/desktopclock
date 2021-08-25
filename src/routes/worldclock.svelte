@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>Worldclock</title>
+	<title>Worldclock</title>
 </svelte:head>
 
 <h1>Worldclock</h1>

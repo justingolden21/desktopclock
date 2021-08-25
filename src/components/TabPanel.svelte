@@ -8,13 +8,11 @@
 	registerPanel(panel);
 </script>
 
-
 {#if $selectedPanel === panel}
 	<div class="tab-content">
-		<slot></slot>
+		<slot />
 	</div>
 {/if}
-
 
 <style>
 	.tab-content {

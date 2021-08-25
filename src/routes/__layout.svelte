@@ -7,11 +7,9 @@
 	import Modal from '../components/Modal.svelte';
 
 	let modal, settingsModal, aboutModal;
-
-
 </script>
-<div class="text-center flex min-h-screen">
 
+<div class="text-center flex min-h-screen">
 	<nav
 		class="
 min-h-screen
@@ -31,9 +29,7 @@ md:relative md:translate-x-0
 transition-colors
 "
 	>
-		<a 
-		class:active="{$page.path === '/'}"
-		href="/">
+		<a class:active={$page.path === '/'} href="/">
 			<svg
 				class="w-6 h-6 inline mr-2"
 				fill="none"
@@ -50,10 +46,7 @@ transition-colors
 			</svg>
 			Clock</a
 		>
-		<a 
-		class:active="{$page.path === '/worldclock'}"
-
-		href="/worldclock">
+		<a class:active={$page.path === '/worldclock'} href="/worldclock">
 			<svg
 				class="w-6 h-6 inline mr-2"
 				fill="none"
@@ -146,9 +139,7 @@ transition-colors
 		>
 	</nav>
 
-
 	<slot />
-
 
 	<!-- Modals -->
 
@@ -160,7 +151,7 @@ transition-colors
 				<Tab>Application</Tab>
 				<Tab>Help</Tab>
 			</TabList>
-		
+
 			<!-- Appearance -->
 			<TabPanel>
 				<details open>
@@ -203,16 +194,19 @@ transition-colors
 							</button>
 						</div>
 
-						<Toggle id="show-fullscreen-btn-toggle" checked={true} labelText="Show fullscreen button"></Toggle>
+						<Toggle
+							id="show-fullscreen-btn-toggle"
+							checked={true}
+							labelText="Show fullscreen button"
+						/>
 
 						<br />
 
-						<Toggle id="show-dark-btn-toggle" checked={true} labelText="Show dark button"></Toggle>
+						<Toggle id="show-dark-btn-toggle" checked={true} labelText="Show dark button" />
 
 						<br />
 
-						<Toggle id="show-theme-btn-toggle" checked={false} labelText="Show theme buttons"></Toggle>
-
+						<Toggle id="show-theme-btn-toggle" checked={false} labelText="Show theme buttons" />
 					</div>
 				</details>
 				<details>
@@ -239,7 +233,7 @@ transition-colors
 						</div>
 
 						<div class="block mb-2">
-							<Toggle id="show-battery-toggle" checked={false} labelText="Show battery"></Toggle>
+							<Toggle id="show-battery-toggle" checked={false} labelText="Show battery" />
 						</div>
 					</div>
 				</details>
@@ -436,25 +430,33 @@ transition-colors
 									<option> EN-US Los Angeles, CA, USA </option>
 								</select>
 							</div>
-							<Toggle id="auto-locale-toggle" checked={true} labelText="Automatically Detect Locale"></Toggle>
+							<Toggle
+								id="auto-locale-toggle"
+								checked={true}
+								labelText="Automatically Detect Locale"
+							/>
 						</div>
 					</div>
 				</details>
 			</TabPanel>
-		
+
 			<!-- User -->
 			<TabPanel>
 				<h3>Shortcuts</h3>
 				<div class="block mb-2">
-					<Toggle id="dbl-click-fullscreen-toggle" checked={true} labelText="Doubleclick Fullscreen"></Toggle>
+					<Toggle
+						id="dbl-click-fullscreen-toggle"
+						checked={true}
+						labelText="Doubleclick Fullscreen"
+					/>
 				</div>
 				<div class="block mb-2">
-					<Toggle id="keyboard-shortcuts-toggle" checked={true} labelText="Keyboard Shortcuts"></Toggle>
+					<Toggle id="keyboard-shortcuts-toggle" checked={true} labelText="Keyboard Shortcuts" />
 				</div>
 				<button class="btn">View Keyboard Shortcuts</button>
 				<button class="btn">Reset Keyboard Shortcuts</button>
 			</TabPanel>
-		
+
 			<!-- Application -->
 			<TabPanel>
 				<h3>Locale</h3>
@@ -486,7 +488,11 @@ transition-colors
 
 				<h3>Settings</h3>
 				<div class="block mb-2">
-					<Toggle id="save-settings-toggle" checked={true} labelText="Save Settings Automatically"></Toggle>
+					<Toggle
+						id="save-settings-toggle"
+						checked={true}
+						labelText="Save Settings Automatically"
+					/>
 				</div>
 				<button class="btn">Reset Settings</button>
 				<button class="btn">Download Settings</button>
@@ -494,7 +500,7 @@ transition-colors
 
 				<h3>App</h3>
 				<div class="block mb-2">
-					<Toggle id="always-on-top-toggle" checked={true} labelText="Always On Top"></Toggle>
+					<Toggle id="always-on-top-toggle" checked={true} labelText="Always On Top" />
 				</div>
 				<button class="btn">Open Another Clock</button>
 				<button class="btn">Share</button>
@@ -511,7 +517,6 @@ transition-colors
 			<!-- Help -->
 			<TabPanel>
 				<p>Coming soon. . .</p>
-
 			</TabPanel>
 		</Tabs>
 	</Modal>
@@ -519,18 +524,18 @@ transition-colors
 	<Modal bind:this={aboutModal} title="About">
 		<h3>About</h3>
 		<p>
-			Desktop Clock is a simple, resizable and customizable clock for any device. Features
-			include customizable analog and digital displays, night mode, and more. Desktop Clock is
-			designed to scale perfectly to any screen size and ratio, with no distortion or
-			pixelation. Use Desktop Clock as a clock on your TV, a night clock, or even project the
-			time for exams. Customize the time, date and more to your liking.
+			Desktop Clock is a simple, resizable and customizable clock for any device. Features include
+			customizable analog and digital displays, night mode, and more. Desktop Clock is designed to
+			scale perfectly to any screen size and ratio, with no distortion or pixelation. Use Desktop
+			Clock as a clock on your TV, a night clock, or even project the time for exams. Customize the
+			time, date and more to your liking.
 		</p>
 
 		<h3>Contact</h3>
 		<p>
 			Made by
-			<a href="https://justingolden.me" target="_blank">Justin Golden</a>. Feel free to contact
-			me with any feedback, questions, or requests at
+			<a href="https://justingolden.me" target="_blank">Justin Golden</a>. Feel free to contact me
+			with any feedback, questions, or requests at
 			<a href="mailto:contact@justingolden.me" target="_blank">contact@justingolden.me</a>.
 		</p>
 	</Modal>

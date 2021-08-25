@@ -8,11 +8,9 @@
 	registerTab(tab);
 </script>
 
-
-<button class:selected="{$selectedTab === tab}" class="tab" on:click="{() => selectTab(tab)}">
-	<slot></slot>
+<button class:selected={$selectedTab === tab} class="tab" on:click={() => selectTab(tab)}>
+	<slot />
 </button>
-
 
 <style>
 	.tab {
