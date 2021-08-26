@@ -26,20 +26,7 @@
 		<div class="modal-content" on:click|stopPropagation>
 			<div class="modal-header">
 				<button class="close icon-btn" on:click={() => hide()}>
-					<svg
-						class="w-6 h-6"
-						fill="none"
-						stroke="currentColor"
-						viewBox="0 0 24 24"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							stroke-linecap="square"
-							stroke-linejoin="square"
-							stroke-width="2"
-							d="M6 18L18 6M6 6l12 12"
-						/>
-					</svg>
+					<Icon name="close" class="w-6 h-6" />
 				</button>
 				<h1><Icon name={icon} class="w-6 h-6 inline mr-2" /> {title}</h1>
 			</div>
