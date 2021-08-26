@@ -1,5 +1,8 @@
 <script>
+	import Icon from './Icon.svelte';
+
 	export let title;
+	export let icon;
 
 	let shown = false;
 	export function show() {
@@ -38,7 +41,7 @@
 						/>
 					</svg>
 				</button>
-				<h1>{title}</h1>
+				<h1><Icon name={icon} class="w-6 h-6 inline mr-2" /> {title}</h1>
 			</div>
 			<div class="modal-body">
 				<slot />

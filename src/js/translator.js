@@ -12,7 +12,7 @@ const translations = {
 // TODO: add translations for nav items and modal content
 
 function translate(lang) {
-	u('#title-text').html(translations[lang]['title']);
+	// u('#title-text').html(translations[lang]['title']);
 }
 
 export { translate };

@@ -1,4 +1,3 @@
-<!-- https://stackoverflow.com/a/66135688/4907950 -->
 <script>
 	export let name;
 	export let focusable = false;
@@ -46,7 +45,7 @@
 			svg: `<path stroke-linecap="square" stroke-linejoin="square" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>`
 		}
 	];
-	let icon = icons.find((i) => i.name === name);
+	$: icon = icons.find((i) => i.name === name);
 </script>
 
 <svg

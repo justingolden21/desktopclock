@@ -94,19 +94,9 @@ function init() {
 		toggleFullscreen();
 	});
 
-	u('#menu-btn').on('click', () => {
-		const closeSVG = 'M6 18L18 6M6 6l12 12';
-		const menuSVG = 'M4 6h16M4 12h16M4 18h16';
-
-		u('nav').toggleClass('-translate-x-full');
-
-		u('#menu-btn svg path')
-			.first()
-			.setAttribute('d', u('nav').hasClass('-translate-x-full') ? menuSVG : closeSVG);
-	});
-	u('nav a').on('click', () => {
-		if (!u('nav').hasClass('-translate-x-full')) u('#menu-btn').first().click();
-	});
+	// u('nav a').on('click', () => {
+	// 	if (!u('nav').hasClass('-translate-x-full')) u('#menu-btn').first().click();
+	// });
 
 	// TODO not working after details are inside of tab component
 	// one details at a time in settings
@@ -121,6 +111,7 @@ function init() {
 		});
 	});
 
+    // TODO not working
 	let themeBtnsHTML = '';
 	// eslint-disable-next-line guard-for-in
 	for (const color in colors) {

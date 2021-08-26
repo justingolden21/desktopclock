@@ -8,6 +8,11 @@
 	import Icon from '../components/Icon.svelte';
 
 	let modal, settingsModal, aboutModal;
+	let navOpen = false;
+	const pageNames = {
+		'': 'Desktop Clock',
+		worldclock: 'Worldclock'
+	};
 </script>
 
 <div class="text-center flex min-h-screen">
@@ -22,15 +27,15 @@ text-left
 absolute
 left-0
 transform
--translate-x-full
 transition-transform
 duration-200
 ease-in-out
 md:relative md:translate-x-0
 transition-colors
 "
+		class:-translate-x-full={!navOpen}
 	>
-		<a class:active={$page.path === '/'} href="/">
+		<a class:active={$page.path === '/'} href="/" on:click={() => (navOpen = false)}>
 			<Icon name="clock" class="w-6 h-6 inline mr-2" />
 			Clock</a
 		>
@@ -56,11 +61,34 @@ transition-colors
 		>
 	</nav>
 
-	<slot />
+	<div class="flex-1 relative">
+		<header>
+			<button
+				id="menu-btn"
+				class="icon-btn float-left md:hidden"
+				on:click={() => (navOpen = !navOpen)}
+			>
+				<Icon name={navOpen ? 'close' : 'menu'} class="w-6 h-6 md:w-8 md:h-8" />
+			</button>
+
+			<button id="main-dark-btn" class="dark-btn icon-btn float-left">
+				<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
+			</button>
+
+			<h1 id="title-text">{pageNames[$page.path.substring(1)]}</h1>
+
+			<button id="main-fullscreen-btn" class="fullscreen-btn icon-btn float-right">
+				<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
+			</button>
+		</header>
+		<div class="p-16">
+			<slot />
+		</div>
+	</div>
 
 	<!-- Modals -->
 
-	<Modal bind:this={settingsModal} title="Settings">
+	<Modal bind:this={settingsModal} title="Settings" icon="settings">
 		<Tabs>
 			<TabList>
 				<Tab>Appearance</Tab>
@@ -412,7 +440,7 @@ transition-colors
 		</Tabs>
 	</Modal>
 
-	<Modal bind:this={aboutModal} title="About">
+	<Modal bind:this={aboutModal} title="About" icon="info">
 		<h3>About</h3>
 		<p>
 			Desktop Clock is a simple, resizable and customizable clock for any device. Features include
