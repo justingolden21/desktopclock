@@ -1,6 +1,6 @@
 <script>
 	import '../app.postcss';
-	import { page } from '$app/stores';
+	import { navigating, page } from '$app/stores';
 
 	import Toggle from '../components/Toggle.svelte';
 	import { Tabs, TabList, TabPanel, Tab } from '../js/components/tabs.js';
@@ -8,7 +8,10 @@
 	import Icon from '../components/Icon.svelte';
 
 	let modal, settingsModal, aboutModal;
+
 	let navOpen = false;
+	$: if ($navigating) navOpen = false;
+
 	const pageNames = {
 		'': 'Desktop Clock',
 		worldclock: 'Worldclock'
@@ -35,7 +38,7 @@ transition-colors
 "
 		class:-translate-x-full={!navOpen}
 	>
-		<a class:active={$page.path === '/'} href="/" on:click={() => (navOpen = false)}>
+		<a class:active={$page.path === '/'} href="/">
 			<Icon name="clock" class="w-6 h-6 inline mr-2" />
 			Clock</a
 		>
@@ -51,11 +54,21 @@ transition-colors
 			<Icon name="timer" class="w-6 h-6 inline mr-2" />
 			Timers</a
 		>
-		<a on:click={() => settingsModal.show()}>
+		<a
+			on:click={() => {
+				navOpen = false;
+				settingsModal.show();
+			}}
+		>
 			<Icon name="settings" class="w-6 h-6 inline mr-2" />
 			Settings</a
 		>
-		<a on:click={() => aboutModal.show()}>
+		<a
+			on:click={() => {
+				navOpen = false;
+				aboutModal.show();
+			}}
+		>
 			<Icon name="info" class="w-6 h-6 inline mr-2" />
 			About</a
 		>
