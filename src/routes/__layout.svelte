@@ -1,13 +1,13 @@
 <script>
 	import '../app.postcss';
 	import { navigating, page, session } from '$app/stores';
+	import TailwindColors from 'tailwindcss/colors';
 	import screenfull from 'screenfull';
 
 	import Toggle from '../components/Toggle.svelte';
 	import { Tabs, TabList, TabPanel, Tab } from '../js/components/tabs.js';
 	import Modal from '../components/Modal.svelte';
 	import Icon from '../components/Icon.svelte';
-
 	let settingsModal, aboutModal;
 
 	let navOpen = false;
@@ -19,14 +19,20 @@
 	}
 
 	function fullscreen() {
-		console.log(screenfull);
 		if (screenfull.isEnabled) {
-			console.log('hi');
-
 			screenfull.toggle();
 		}
 	}
+
+	let darkMode = false;
+	$: if (darkMode) document.body.classList.toggle('dark');
+	let themeColor = 'blueGray';
 </script>
+
+<svelte:head>
+	<meta name="apple-mobile-web-app-status-bar" content={themeColor} />
+	<meta name="theme-color" content={themeColor} />
+</svelte:head>
 
 <svelte:body on:dblclick={doubleClickFullscreen} />
 
@@ -42,11 +48,10 @@
             absolute
             left-0
             transform
-            transition-transform
+            transition-all
             duration-200
             ease-in-out
-            md:relative md:translate-x-0
-            transition-colors"
+            md:relative md:translate-x-0"
 		class:-translate-x-full={!navOpen}
 	>
 		<a class:active={$page.path === '/'} href="/">
@@ -85,36 +90,38 @@
 		</a>
 	</nav>
 
-	<div class="flex-1 relative">
-		<header>
-			<button
-				id="menu-btn"
-				class="icon-btn float-left md:hidden"
-				on:click={() => (navOpen = !navOpen)}
-			>
-				<Icon name={navOpen ? 'close' : 'menu'} class="w-6 h-6 md:w-8 md:h-8" />
-			</button>
+	<header class="flex-1">
+		<button
+			id="menu-btn"
+			class="icon-btn float-left md:hidden"
+			on:click={() => (navOpen = !navOpen)}
+		>
+			<Icon name={navOpen ? 'close' : 'menu'} class="w-6 h-6 md:w-8 md:h-8" />
+		</button>
 
-			<button id="main-dark-btn" class="dark-btn icon-btn float-left">
-				<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
-			</button>
+		<button
+			id="main-dark-btn"
+			class="dark-btn icon-btn float-left"
+			on:click={() => (darkMode = !darkMode)}
+		>
+			<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
+		</button>
 
-			<h1 id="title-text">
-				{$session.language_dictionary.pageNames[$page.path.substring(1) || 'clock']}
-			</h1>
+		<h1 id="title-text">
+			{$session.language_dictionary.pageNames[$page.path.substring(1) || 'clock']}
+		</h1>
 
-			<button
-				id="main-fullscreen-btn"
-				class="fullscreen-btn icon-btn float-right"
-				on:click={fullscreen}
-			>
-				<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
-			</button>
-		</header>
+		<button
+			id="main-fullscreen-btn"
+			class="fullscreen-btn icon-btn float-right"
+			on:click={fullscreen}
+		>
+			<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
+		</button>
 		<div class="p-16">
 			<slot />
 		</div>
-	</div>
+	</header>
 
 	<!-- Modals -->
 
@@ -132,7 +139,16 @@
 				<details open>
 					<summary>General</summary>
 					<div class="details-content">
-						<span id="theme-btns" class="block mb-2" />
+						<div class="mb-2">
+							<!-- Remove first 2 items from array (black and white). They do not have themes. -->
+							{#each Object.keys(TailwindColors).slice(2) as color, colorIndex}
+								<button
+									class="theme-btn"
+									style="background-color: {TailwindColors[color][300]}"
+									on:click={() => (themeColor = color)}
+								/>
+							{/each}
+						</div>
 						<div class="block mb-2">
 							<button class="dark-btn icon-btn">
 								<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />

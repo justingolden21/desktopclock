@@ -1,19 +1,19 @@
 import { u } from './lib/umbrella.min.js';
 
-import { colors } from './colors.js';
+import colors from 'tailwindcss/colors'
 
 const defaultTheme = {
 	face: {
-		stroke: '#' + colors['Blue Gray']['700'],
-		fill: '#' + colors['Blue Gray']['200'],
+		stroke: colors['blueGray']['700'],
+		fill: colors['blueGray']['200'],
 		strokeWidth: 0
 	},
 	shadow: {
-		fill: '#' + colors['Blue Gray']['700']
+		fill: colors['blueGray']['700']
 	},
 	pin: {
-		stroke: '#' + colors['Red']['700'],
-		fill: '#' + colors['Blue Gray']['200'],
+		stroke: colors['red']['700'],
+		fill: colors['blueGray']['200'],
 		strokeWidth: 0.5,
 		size: 1
 	},
@@ -24,33 +24,33 @@ const defaultTheme = {
 			width: 1
 		},
 		md: {
-			stroke: '#' + colors['Blue Gray']['400'],
+			stroke: colors['blueGray']['400'],
 			height: 0.5,
 			width: 3
 		},
 		lg: {
-			stroke: '#' + colors['Blue Gray']['500'],
+			stroke: colors['blueGray']['500'],
 			height: 0.5,
 			width: 5
 		}
 	},
 	hands: {
 		hour: {
-			stroke: '#' + colors['Blue Gray']['700'],
+			stroke: colors['blueGray']['700'],
 			strokeWidth: 1,
 			length: 15,
 			back: 3,
 			linecap: 'butt'
 		},
 		minute: {
-			stroke: '#' + colors['Blue Gray']['500'],
+			stroke: colors['blueGray']['500'],
 			strokeWidth: 0.5,
 			length: 21,
 			back: 3,
 			linecap: 'butt'
 		},
 		second: {
-			stroke: '#' + colors['Red']['700'],
+			stroke: colors['red']['700'],
 			strokeWidth: 0.5,
 			length: 27,
 			back: 6,

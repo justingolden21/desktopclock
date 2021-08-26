@@ -1,4 +1,5 @@
 <script>
+	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { init } from '../js/scripts';
 
@@ -6,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<title>Desktop Clock</title>
+	<title>{$session.language_dictionary.pageNames.clock}</title>
 </svelte:head>
 
 <section>

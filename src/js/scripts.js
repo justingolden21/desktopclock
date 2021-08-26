@@ -1,8 +1,5 @@
 import { defaultTheme, classicTheme, setTheme } from './themes.js';
 import { displays, setDisplays } from './displays.js';
-import { colors } from './colors.js';
-
-import { u } from './lib/umbrella.min.js';
 
 // below code is not necessary
 // automatically handled by svelte kit if file is named service-worker.js
@@ -71,14 +68,6 @@ function init() {
     let lang = 'en'; // tmp
 	setDisplays(displays, lang);
 
-	u('.dark-btn').on('click', () => {
-		u('body').toggleClass('dark');
-
-		const themeColor = u('body').hasClass('dark') ? `#${colors['Blue Gray']['900']}` : '#FFFFFF';
-		u('meta[name="theme-color"]').first().setAttribute('content', themeColor);
-		u('meta[name="apple-mobile-web-app-status-bar"]').first().setAttribute('content', themeColor);
-	});
-
 	// TODO not working after details are inside of tab component
 	// one details at a time in settings
 	const details = document.querySelectorAll('#settings-modal details');
@@ -91,18 +80,6 @@ function init() {
 			});
 		});
 	});
-
-    // TODO not working
-	let themeBtnsHTML = '';
-	// eslint-disable-next-line guard-for-in
-	for (const color in colors) {
-		const c = `#${colors[color]['300']}`;
-		themeBtnsHTML += `<button class="theme-btn ${
-			colors[color] === 'Blue Gray' ? 'active' : ''
-		}" style="background-color: ${c}" data-color="${c}"></button>`;
-	}
-
-	u('#theme-btns').html(themeBtnsHTML);
 }
 
 export { init };
