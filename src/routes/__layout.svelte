@@ -1,41 +1,52 @@
 <script>
 	import '../app.postcss';
-	import { navigating, page } from '$app/stores';
+	import { navigating, page, session } from '$app/stores';
+	import screenfull from 'screenfull';
 
 	import Toggle from '../components/Toggle.svelte';
 	import { Tabs, TabList, TabPanel, Tab } from '../js/components/tabs.js';
 	import Modal from '../components/Modal.svelte';
 	import Icon from '../components/Icon.svelte';
 
-	let modal, settingsModal, aboutModal;
+	let settingsModal, aboutModal;
 
 	let navOpen = false;
 	$: if ($navigating) navOpen = false;
 
-	const pageNames = {
-		'': 'Desktop Clock',
-		worldclock: 'Worldclock'
-	};
+	function doubleClickFullscreen({ target }) {
+		if (target.tagName === 'BUTTON' || target.parentNode.tagName === 'BUTTON') return;
+		fullscreen();
+	}
+
+	function fullscreen() {
+		console.log(screenfull);
+		if (screenfull.isEnabled) {
+			console.log('hi');
+
+			screenfull.toggle();
+		}
+	}
 </script>
+
+<svelte:body on:dblclick={doubleClickFullscreen} />
 
 <div class="text-center flex min-h-screen">
 	<nav
 		class="
-min-h-screen
-bg-gray-50 bg-opacity-75
-w-64
-p-8
-pt-20
-text-left
-absolute
-left-0
-transform
-transition-transform
-duration-200
-ease-in-out
-md:relative md:translate-x-0
-transition-colors
-"
+            min-h-screen
+            bg-gray-50 bg-opacity-75
+            w-64
+            p-8
+            pt-20
+            text-left
+            absolute
+            left-0
+            transform
+            transition-transform
+            duration-200
+            ease-in-out
+            md:relative md:translate-x-0
+            transition-colors"
 		class:-translate-x-full={!navOpen}
 	>
 		<a class:active={$page.path === '/'} href="/">
@@ -70,8 +81,8 @@ transition-colors
 			}}
 		>
 			<Icon name="info" class="w-6 h-6 inline mr-2" />
-			About</a
-		>
+			About
+		</a>
 	</nav>
 
 	<div class="flex-1 relative">
@@ -88,9 +99,15 @@ transition-colors
 				<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
 			</button>
 
-			<h1 id="title-text">{pageNames[$page.path.substring(1)]}</h1>
+			<h1 id="title-text">
+				{$session.language_dictionary.pageNames[$page.path.substring(1) || 'clock']}
+			</h1>
 
-			<button id="main-fullscreen-btn" class="fullscreen-btn icon-btn float-right">
+			<button
+				id="main-fullscreen-btn"
+				class="fullscreen-btn icon-btn float-right"
+				on:click={fullscreen}
+			>
 				<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
 			</button>
 		</header>
@@ -379,7 +396,7 @@ transition-colors
 					<Toggle
 						id="dbl-click-fullscreen-toggle"
 						checked={true}
-						labelText="Doubleclick Fullscreen"
+						labelText={$session.language_dictionary['Doubleclick Fullscreen']}
 					/>
 				</div>
 				<div class="block mb-2">

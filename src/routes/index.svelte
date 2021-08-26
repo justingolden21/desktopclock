@@ -2,9 +2,7 @@
 	import { onMount } from 'svelte';
 	import { init } from '../js/scripts';
 
-	onMount(() => {
-		init();
-	});
+	onMount(init);
 </script>
 
 <svelte:head>

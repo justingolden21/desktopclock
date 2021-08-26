@@ -1,6 +1,4 @@
-import { translate } from './translator.js';
 import { defaultTheme, classicTheme, setTheme } from './themes.js';
-import { toggleFullscreen } from './util.js';
 import { displays, setDisplays } from './displays.js';
 import { colors } from './colors.js';
 
@@ -62,24 +60,16 @@ let setTimeInterval;
 // since both are async here, the app breaks
 // for localization, the manifest should be loaded from an endpoint in svelte kit, to point to a json that loads the correct language manifest
 
+
 function init() {
-	const langs = ['en', 'es'];
-	let lang = navigator.language.substring(0, 2);
-	if (langs.indexOf(lang) === -1) lang = 'en';
-	// lang = 'es'; // tmp for testing
-	// u('head').append(`<link rel="manifest" href="localized/${lang}/manifest.webmanifest" />`); // todo
-
-	translate(lang);
-
 	setTheme(defaultTheme);
 	// setTheme(classicTheme);
 
 	setTime();
 	setTimeInterval = setInterval(setTime, 1 * 1000);
 
+    let lang = 'en'; // tmp
 	setDisplays(displays, lang);
-
-	u('.fullscreen-btn').on('click', toggleFullscreen);
 
 	u('.dark-btn').on('click', () => {
 		u('body').toggleClass('dark');
@@ -88,15 +78,6 @@ function init() {
 		u('meta[name="theme-color"]').first().setAttribute('content', themeColor);
 		u('meta[name="apple-mobile-web-app-status-bar"]').first().setAttribute('content', themeColor);
 	});
-
-	u('body').on('dblclick', (evt) => {
-		if (evt.target.tagName === 'BUTTON' || evt.target.parentNode.tagName === 'BUTTON') return;
-		toggleFullscreen();
-	});
-
-	// u('nav a').on('click', () => {
-	// 	if (!u('nav').hasClass('-translate-x-full')) u('#menu-btn').first().click();
-	// });
 
 	// TODO not working after details are inside of tab component
 	// one details at a time in settings

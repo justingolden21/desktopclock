@@ -1,0 +1,10 @@
+{
+    "appName": "Desktop Clock",
+    "appShortName": "Desktop Clock",
+    "appDescription": "A simple, resizable and customizable clock for any device!",
+    "pageNames": {
+        "clock": "Desktop Clock",
+        "worldclock": "Worldclock"
+    },
+    "Doubleclick Fullscreen": "Doubleclick Fullscreen"
+}
