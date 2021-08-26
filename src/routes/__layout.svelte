@@ -5,6 +5,7 @@
 	import Toggle from '../components/Toggle.svelte';
 	import { Tabs, TabList, TabPanel, Tab } from '../js/components/tabs.js';
 	import Modal from '../components/Modal.svelte';
+	import Icon from '../components/Icon.svelte';
 
 	let modal, settingsModal, aboutModal;
 </script>
@@ -30,111 +31,27 @@ transition-colors
 "
 	>
 		<a class:active={$page.path === '/'} href="/">
-			<svg
-				class="w-6 h-6 inline mr-2"
-				fill="none"
-				stroke="currentColor"
-				viewBox="0 0 24 24"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="m12 8v4l3 3m6-3a9 9 0 11-18 0a9 9 0 0118 0z"
-				/>
-			</svg>
+			<Icon name="clock" class="w-6 h-6 inline mr-2" />
 			Clock</a
 		>
 		<a class:active={$page.path === '/worldclock'} href="/worldclock">
-			<svg
-				class="w-6 h-6 inline mr-2"
-				fill="none"
-				stroke="currentColor"
-				viewBox="0 0 24 30"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="m12 8v4l3 3m6-3a9 9 0 11-18 0a9 9 0 0118 0m2 11-2-2a1 1 0 01-18-18l-2-2m11 24v4h3h-7"
-				/>
-			</svg>
+			<Icon name="worldclock" class="w-6 h-6 inline mr-2" />
 			Worldclock</a
 		>
 		<a>
-			<svg
-				class="w-6 h-6 inline mr-2"
-				fill="none"
-				stroke="currentColor"
-				viewBox="0 -2 22 26"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="m12 8v4m9 0a9 9 0 11-18 0a9 9 0 0118 0m-9-9v-4h4h-8"
-				/>
-			</svg>
+			<Icon name="stopwatch" class="w-6 h-6 inline mr-2" />
 			Stopwatch</a
 		>
 		<a>
-			<svg
-				class="w-6 h-6 inline mr-2"
-				fill="none"
-				stroke="currentColor"
-				viewBox="0 0 24 24"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="m12 8v4l3 3m6-3a9 9 0 11-18 0a9 9 0 0118 0m-19-8 3-3m14 0 3 3"
-				/>
-			</svg>
+			<Icon name="timer" class="w-6 h-6 inline mr-2" />
 			Timers</a
 		>
 		<a on:click={() => settingsModal.show()}>
-			<svg
-				class="w-6 h-6 inline mr-2"
-				fill="none"
-				stroke="currentColor"
-				viewBox="0 0 24 24"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-				/>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-				/>
-			</svg>
+			<Icon name="settings" class="w-6 h-6 inline mr-2" />
 			Settings</a
 		>
 		<a on:click={() => aboutModal.show()}>
-			<svg
-				class="w-6 h-6 inline mr-2"
-				fill="none"
-				stroke="currentColor"
-				viewBox="0 0 24 24"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-				/>
-			</svg>
+			<Icon name="info" class="w-6 h-6 inline mr-2" />
 			About</a
 		>
 	</nav>
@@ -160,37 +77,11 @@ transition-colors
 						<span id="theme-btns" class="block mb-2" />
 						<div class="block mb-2">
 							<button class="dark-btn icon-btn">
-								<svg
-									class="w-6 h-6 md:w-8 md:h-8"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										stroke-linecap="square"
-										stroke-linejoin="square"
-										stroke-width="2"
-										d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-									/>
-								</svg>
+								<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
 							</button>
 
 							<button class="fullscreen-btn icon-btn">
-								<svg
-									class="w-6 h-6 md:w-8 md:h-8"
-									fill="none"
-									stroke="currentColor"
-									viewBox="0 0 24 24"
-									xmlns="http://www.w3.org/2000/svg"
-								>
-									<path
-										stroke-linecap="square"
-										stroke-linejoin="square"
-										stroke-width="2"
-										d="m4 8v-4m0 0h4m-4 0m16 4v-4m0 0h-4m4 0m-16 12v4m0 0h4m-4 0m16 0m0 0v-4m0 4h-4"
-									/>
-								</svg>
+								<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
 							</button>
 						</div>
 
