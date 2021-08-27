@@ -5,9 +5,13 @@
 	import screenfull from 'screenfull';
 
 	import Toggle from '../components/Toggle.svelte';
-	import { Tabs, TabList, TabPanel, Tab } from '../js/components/tabs.js';
+	import { Tabs, TabList, TabPanel, Tab } from '../components/tabs.js';
 	import Modal from '../components/Modal.svelte';
 	import Icon from '../components/Icon.svelte';
+	import Nav from '../components/Nav.svelte';
+	import Header from '../components/Header.svelte';
+	import { browser } from '$app/env';
+
 	let settingsModal, aboutModal;
 
 	let navOpen = false;
@@ -15,17 +19,17 @@
 
 	function doubleClickFullscreen({ target }) {
 		if (target.tagName === 'BUTTON' || target.parentNode.tagName === 'BUTTON') return;
-		fullscreen();
-	}
-
-	function fullscreen() {
 		if (screenfull.isEnabled) {
 			screenfull.toggle();
 		}
 	}
 
-	let darkMode = false;
-	$: if (darkMode) document.body.classList.toggle('dark');
+	// defaults to null so toggle code doesn't run automatically on load
+	let darkMode = null;
+	// We only reference document.body in the browser. This check prevents this code from running on the server side.
+	// We check if darkMode is not null because whenever darkMode is updated, we want to toggle the class.
+	// darkMode will always be true or false, and never null, so the check will always be true, but it will still run the check when the variable is updated
+	$: if (darkMode !== null && browser) document.body.classList.toggle('dark');
 	let themeColor = 'blueGray';
 </script>
 
@@ -37,94 +41,15 @@
 <svelte:body on:dblclick={doubleClickFullscreen} />
 
 <div class="text-center flex min-h-screen">
-	<nav
-		class="
-            min-h-screen
-            bg-gray-50 bg-opacity-75
-            w-64
-            p-8
-            pt-20
-            text-left
-            absolute
-            left-0
-            transform
-            transition-all
-            duration-200
-            ease-in-out
-            md:relative md:translate-x-0"
-		class:-translate-x-full={!navOpen}
-	>
-		<a class:active={$page.path === '/'} href="/">
-			<Icon name="clock" class="w-6 h-6 inline mr-2" />
-			Clock</a
-		>
-		<a class:active={$page.path === '/worldclock'} href="/worldclock">
-			<Icon name="worldclock" class="w-6 h-6 inline mr-2" />
-			Worldclock</a
-		>
-		<a>
-			<Icon name="stopwatch" class="w-6 h-6 inline mr-2" />
-			Stopwatch</a
-		>
-		<a>
-			<Icon name="timer" class="w-6 h-6 inline mr-2" />
-			Timers</a
-		>
-		<a
-			on:click={() => {
-				navOpen = false;
-				settingsModal.show();
-			}}
-		>
-			<Icon name="settings" class="w-6 h-6 inline mr-2" />
-			Settings</a
-		>
-		<a
-			on:click={() => {
-				navOpen = false;
-				aboutModal.show();
-			}}
-		>
-			<Icon name="info" class="w-6 h-6 inline mr-2" />
-			About
-		</a>
-	</nav>
-
-	<header class="flex-1">
-		<button
-			id="menu-btn"
-			class="icon-btn float-left md:hidden"
-			on:click={() => (navOpen = !navOpen)}
-		>
-			<Icon name={navOpen ? 'close' : 'menu'} class="w-6 h-6 md:w-8 md:h-8" />
-		</button>
-
-		<button
-			id="main-dark-btn"
-			class="dark-btn icon-btn float-left"
-			on:click={() => (darkMode = !darkMode)}
-		>
-			<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
-		</button>
-
-		<h1 id="title-text">
-			{$session.language_dictionary.pageNames[$page.path.substring(1) || 'clock']}
-		</h1>
-
-		<button
-			id="main-fullscreen-btn"
-			class="fullscreen-btn icon-btn float-right"
-			on:click={fullscreen}
-		>
-			<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
-		</button>
+	<Nav bind:navOpen bind:settingsModal bind:aboutModal />
+	<div class="flex-1 relative">
+		<Header bind:navOpen bind:darkMode />
 		<div class="p-16">
 			<slot />
 		</div>
-	</header>
+	</div>
 
 	<!-- Modals -->
-
 	<Modal bind:this={settingsModal} title="Settings" icon="settings">
 		<Tabs>
 			<TabList>
