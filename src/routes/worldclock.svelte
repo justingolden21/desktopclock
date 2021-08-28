@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>{$session.language_dictionary.pageNames.worldclock}</title>
+	<title>{$session.languageDictionary.pageNames.worldclock}</title>
 </svelte:head>
 
 <p>Worldclock coming soon...</p>

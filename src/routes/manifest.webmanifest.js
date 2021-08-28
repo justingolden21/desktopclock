@@ -3,9 +3,9 @@ export async function get({ locals })
     return {
         status: 200,
         body: {
-            "name": locals.language_dictionary.appName,
-            "short_name": locals.language_dictionary.appShortName,
-            "description":  locals.language_dictionary.appDescription,
+            "name": locals.languageDictionary.appName,
+            "short_name": locals.languageDictionary.appShortName,
+            "description":  locals.languageDictionary.appDescription,
             "start_url": "index.html",
             "display": "standalone",
             "background_color": "#FFFFFF",

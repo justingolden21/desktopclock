@@ -14,7 +14,13 @@ async function getLanguageDictionary(headers)
 
 export async function handle({ request, resolve })
 {
-    request.locals.language_dictionary = await getLanguageDictionary(request.headers)
+    request.locals.languageDictionary = await getLanguageDictionary(request.headers);
+    request.locals.settings = request.locals.defaultSettings = {
+		mode: 'analog',
+		darkMode: null, // default to null so the initial check to toggle dark mode doesn't occur
+		theme: 'blueGray',
+		doubleclickFullscreen: true
+	};
 
 	return await resolve(request);
 }
@@ -22,6 +28,8 @@ export async function handle({ request, resolve })
 export function getSession({ locals })
 {
     return {
-        language_dictionary: locals.language_dictionary
+        languageDictionary: locals.languageDictionary,
+        settings: locals.settings,
+        defaultSettings: locals.defaultSettings
     }
 }

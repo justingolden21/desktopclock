@@ -3,8 +3,8 @@
 	import Icon from './Icon.svelte';
 
 	export let navOpen;
-	export let settingsModal;
-	export let aboutModal;
+	export let settingsModal = null;
+	export let aboutModal = null;
 </script>
 
 <nav

@@ -1,7 +1,6 @@
 todo:
 svelte fix:
     fix sw.js
-    make night and fullscreen btns in settings modal work
     make other components, clean code
 
 fix time off on awake bug

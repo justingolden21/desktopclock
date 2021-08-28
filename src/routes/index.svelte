@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<title>{$session.language_dictionary.pageNames.clock}</title>
+	<title>{$session.languageDictionary.pageNames.clock}</title>
 </svelte:head>
 
 <section>
