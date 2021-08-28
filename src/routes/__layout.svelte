@@ -1,6 +1,9 @@
 <script>
 	import '../app.postcss';
+
 	import { navigating, page, session } from '$app/stores';
+	import { browser } from '$app/env';
+
 	import TailwindColors from 'tailwindcss/colors';
 	import screenfull from 'screenfull';
 
@@ -10,7 +13,6 @@
 	import Icon from '../components/Icon.svelte';
 	import Nav from '../components/Nav.svelte';
 	import Header from '../components/Header.svelte';
-	import { browser } from '$app/env';
 
 	let settingsModal, aboutModal;
 

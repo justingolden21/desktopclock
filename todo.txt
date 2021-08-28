@@ -1,9 +1,8 @@
 todo:
 svelte fix:
-    night styles not applied to some
-    fix sw.js and localized manifest
+    fix sw.js
+    make night and fullscreen btns in settings modal work
     make other components, clean code
-    tab.svelte file: https://stackoverflow.com/questions/66069647/best-way-to-import-svg-icons-into-a-svelte-app
 
 fix time off on awake bug
 pwa install btn if not installed
@@ -18,8 +17,16 @@ add fonts offline
 change increment script from python to node
 store fonts offline
 
+more settings:
+tick hands
+flip clock for digital time
+font choices
+save time history in stopwatch
+install pwa prompt button
+show battery, internet strength, weather, link to spotify options
+modal for steps to add to taskbar, apps, mobile, etc for each os with details/summary
+
 later:
-open another clock btn
 store settings in localstorage
 
 bugs:
