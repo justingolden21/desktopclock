@@ -301,8 +301,8 @@ TODO communicate with display component to update display reactively -->
 		<div class="block mb-2">
 			<Toggle
 				id="dbl-click-fullscreen-toggle"
-				checked={true}
 				labelText={$session.languageDictionary['Doubleclick Fullscreen']}
+				bind:checked={$session.settings.doubleclickFullscreen}
 			/>
 		</div>
 		<div class="block mb-2">

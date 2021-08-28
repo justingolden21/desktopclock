@@ -1,22 +1,24 @@
 async function getLanguageDictionary(headers)
 {
-    // const lang = 'es'; // testing
-    const lang = headers['accept-language']?.substr?.(0, 2) ?? 'en';
-    try
-    {
-        return ( await import(`./lang/${lang}.json` ) ).default;
-    }
-    catch( error )
-    {
-       return ( await import(`./lang/en.json` ) ).default;
-    }
+	// const lang = 'es'; // testing
+	const lang = headers['accept-language']?.substr?.(0, 2) ?? 'en';
+	try
+	{
+		return ( await import(`./lang/${lang}.json` ) ).default;
+	}
+	catch( error )
+	{
+	   return ( await import(`./lang/en.json` ) ).default;
+	}
 }
 
 export async function handle({ request, resolve })
 {
-    request.locals.languageDictionary = await getLanguageDictionary(request.headers);
-    request.locals.settings = request.locals.defaultSettings = {
-		mode: 'analog',
+	request.locals.languageDictionary = await getLanguageDictionary(request.headers);
+	request.locals.settings = request.locals.defaultSettings = {
+		clock: {
+			mode: 'analog',
+		},
 		darkMode: null, // default to null so the initial check to toggle dark mode doesn't occur
 		theme: 'blueGray',
 		doubleclickFullscreen: true
@@ -27,9 +29,9 @@ export async function handle({ request, resolve })
 
 export function getSession({ locals })
 {
-    return {
-        languageDictionary: locals.languageDictionary,
-        settings: locals.settings,
-        defaultSettings: locals.defaultSettings
-    }
+	return {
+		languageDictionary: locals.languageDictionary,
+		settings: locals.settings,
+		defaultSettings: locals.defaultSettings
+	}
 }

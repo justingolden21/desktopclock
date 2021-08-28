@@ -21,6 +21,7 @@
 	$: if ($navigating) navOpen = false;
 
 	function doubleClickFullscreen({ target }) {
+		if (!$session.settings.doubleclickFullscreen) return;
 		if (target.tagName === 'BUTTON' || target.parentNode.tagName === 'BUTTON') return;
 		if (screenfull.isEnabled) {
 			screenfull.toggle();
