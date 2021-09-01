@@ -49,7 +49,7 @@
 		"prettier-plugin-svelte": "^2.2.0",
 		"pwa-asset-generator": "^4.1.1",
 		"screenfull": "^5.1.0",
-        "svelte": "^3.34.0",
+		"svelte": "^3.34.0",
 		"svelte-preprocess": "^4.7.4",
 		"tailwindcss": "^2.2.4"
 	},
