@@ -1,3 +1,5 @@
+import defaultTheme from './themes/default'
+
 async function getLanguageDictionary(headers)
 {
 	// const lang = 'es'; // testing
@@ -15,12 +17,13 @@ async function getLanguageDictionary(headers)
 export async function handle({ request, resolve })
 {
 	request.locals.languageDictionary = await getLanguageDictionary(request.headers);
-	request.locals.settings = request.locals.defaultSettings = {
+    request.locals.settings = {
+        colorPalette: 'blueGray',
 		clock: {
 			mode: 'analog',
+            theme: defaultTheme
 		},
 		darkMode: null, // default to null so the initial check to toggle dark mode doesn't occur
-		theme: 'blueGray',
 		doubleclickFullscreen: true
 	};
 
@@ -31,7 +34,6 @@ export function getSession({ locals })
 {
 	return {
 		languageDictionary: locals.languageDictionary,
-		settings: locals.settings,
-		defaultSettings: locals.defaultSettings
+		settings: locals.settings
 	}
 }

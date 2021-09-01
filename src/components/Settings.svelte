@@ -16,6 +16,8 @@
 	import Icon from './Icon.svelte';
 	import Toggle from './Toggle.svelte';
 	import { Tabs, TabList, TabPanel, Tab } from './tabs.js';
+
+	$: colorPalette = TailwindColors[$session.settings.colorPalette];
 </script>
 
 <!-- TODO settings modal content synced with settings
@@ -40,7 +42,7 @@ TODO communicate with display component to update display reactively -->
 						<button
 							class="theme-btn"
 							style="background-color: {TailwindColors[color][300]}"
-							on:click={() => ($session.settings.themeColor = color)}
+							on:click={() => ($session.settings.colorPalette = color)}
 						/>
 					{/each}
 				</div>
@@ -103,18 +105,11 @@ TODO communicate with display component to update display reactively -->
 
 				<div class="block mb-2">
 					<label for="face-fill-select">Face Fill Color:</label>
-					<select id="face-fill-select">
-						<option>50</option>
-						<option>100</option>
-						<option>200</option>
-						<option>300</option>
-						<option>400</option>
-						<option>500</option>
-						<option>600</option>
-						<option>700</option>
-						<option>800</option>
-						<option>900</option>
-						<option>None</option>
+					<select id="face-fill-select" bind:value={$session.settings.clock.theme.face.fill}>
+						{#each Object.keys(colorPalette) as lightness}
+							<option value={lightness}>{lightness}</option>
+						{/each}
+						<option value="-1">Transparant</option>
 					</select>
 				</div>
 				<div class="block mb-2">
@@ -157,7 +152,7 @@ TODO communicate with display component to update display reactively -->
 				<h3>Shadow</h3>
 				<div class="block mb-2">
 					<label for="shadow-fill-select">Shadow Color:</label>
-					<select id="shadow-fill-select">
+					<select id="shadow-fill-select" disabled={$session.settings.clock.theme.face.fill == -1}>
 						<option>50</option>
 						<option>100</option>
 						<option>200</option>

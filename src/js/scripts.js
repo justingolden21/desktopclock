@@ -1,4 +1,3 @@
-import { defaultTheme, classicTheme, setTheme } from './themes.js';
 import { displays, setDisplays } from './displays.js';
 
 // below code is not necessary
@@ -59,9 +58,6 @@ let setTimeInterval;
 
 
 function init() {
-	setTheme(defaultTheme);
-	// setTheme(classicTheme);
-
 	setTime();
 	setTimeInterval = setInterval(setTime, 1 * 1000);
 
