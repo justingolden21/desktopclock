@@ -63,19 +63,6 @@ function init() {
 
     let lang = 'en'; // tmp
 	setDisplays(displays, lang);
-
-	// TODO not working after details are inside of tab component
-	// one details at a time in settings
-	const details = document.querySelectorAll('#settings-modal details');
-	details.forEach((targetDetail) => {
-		targetDetail.addEventListener('click', () => {
-			details.forEach((detail) => {
-				if (detail !== targetDetail) {
-					detail.removeAttribute('open');
-				}
-			});
-		});
-	});
 }
 
 export { init };

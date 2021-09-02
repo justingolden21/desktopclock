@@ -18,6 +18,8 @@
 	import { Tabs, TabList, TabPanel, Tab } from './tabs.js';
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
+
+	let currentDetail = 0;
 </script>
 
 <!-- TODO settings modal content synced with settings
@@ -33,9 +35,17 @@ TODO communicate with display component to update display reactively -->
 
 	<!-- Appearance -->
 	<TabPanel>
-		<details open>
-			<summary>General</summary>
-			<div class="details-content">
+		<div class="details">
+			<p
+				class="summary"
+				on:click={() => {
+					if (currentDetail == 0) currentDetail = -1;
+					else currentDetail = 0;
+				}}
+			>
+				General
+			</p>
+			<div class="details-content" class:open={currentDetail === 0}>
 				<div class="mb-2">
 					<!-- Remove first 2 items from array (black and white). They do not have themes. -->
 					{#each Object.keys(TailwindColors).slice(2) as color, colorIndex}
@@ -69,10 +79,18 @@ TODO communicate with display component to update display reactively -->
 
 				<Toggle id="show-theme-btn-toggle" checked={false} labelText="Show theme buttons" />
 			</div>
-		</details>
-		<details>
-			<summary>Displays</summary>
-			<div class="details-content">
+		</div>
+		<div class="details">
+			<p
+				class="summary"
+				on:click={() => {
+					if (currentDetail == 1) currentDetail = -1;
+					else currentDetail = 1;
+				}}
+			>
+				Displays
+			</p>
+			<div class="details-content" class:open={currentDetail === 1}>
 				<div class="block mb-2">
 					<label for="primary-display-select">Primary Display:</label>
 					<select id="primary-display-select">
@@ -97,10 +115,18 @@ TODO communicate with display component to update display reactively -->
 					<Toggle id="show-battery-toggle" checked={false} labelText="Show battery" />
 				</div>
 			</div>
-		</details>
-		<details>
-			<summary>Analog</summary>
-			<div class="details-content">
+		</div>
+		<div class="details">
+			<p
+				class="summary"
+				on:click={() => {
+					if (currentDetail == 2) currentDetail = -1;
+					else currentDetail = 2;
+				}}
+			>
+				Analog
+			</p>
+			<div class="details-content" class:open={currentDetail === 2}>
 				<h3>Face</h3>
 
 				<div class="block mb-2">
@@ -341,10 +367,18 @@ TODO communicate with display component to update display reactively -->
 					</div>
 				{/each}
 			</div>
-		</details>
-		<details>
-			<summary>Digital Datetime</summary>
-			<div class="details-content">
+		</div>
+		<div class="details">
+			<p
+				class="summary"
+				on:click={() => {
+					if (currentDetail == 3) currentDetail = -1;
+					else currentDetail = 3;
+				}}
+			>
+				Digital Datetime
+			</p>
+			<div class="details-content" class:open={currentDetail === 3}>
 				<div class="block mb-2">
 					<div class="block mb-2">
 						<label for="time-format-select">Time Format:</label>
@@ -399,7 +433,7 @@ TODO communicate with display component to update display reactively -->
 					<Toggle id="auto-locale-toggle" checked={true} labelText="Automatically Detect Locale" />
 				</div>
 			</div>
-		</details>
+		</div>
 	</TabPanel>
 
 	<!-- User -->

@@ -176,26 +176,27 @@ nav and modal have same bg colors, opacities, and shadows
 		@apply bg-gray-400;
 	}
 
-	details {
+	.details {
 		@apply bg-gray-50 border-b-2 border-gray-200;
 	}
-	details .details-content {
-		@apply p-4;
+	.details .details-content {
+		@apply p-4 hidden;
 	}
-	details .details-content h3 {
+    .details-content.open {
+        @apply block;
+        animation: sweep 0.5s ease-in-out;
+    }
+	.details .details-content h3 {
         @apply my-4;
     }
-	summary {
+	.summary {
 		@apply cursor-pointer p-2 hover:bg-gray-100 font-bold text-lg;
 	}
-	details[open] summary ~ * {
-		animation: sweep 0.5s ease-in-out;
-	}
 
-	body.dark details {
+	body.dark .details {
 		@apply bg-gray-700;
 	}
-	body.dark summary {
+	body.dark .summary {
 		@apply hover:bg-gray-600;
 	}
 
