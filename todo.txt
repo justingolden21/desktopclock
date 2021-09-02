@@ -3,6 +3,14 @@ svelte fix:
     fix sw.js
     make other components, clean code
 
+themes:
+reset display settings/theme btn
+other theme defaults, save theme profiles
+export and share themes
+
+reset settings btn, save settings to browser local storage
+let user chose primary and secondary color/palette, also chose specific color for hands, ticks, etc
+
 fix time off on awake bug
 pwa install btn if not installed
 add modal component, add settings modal with layout

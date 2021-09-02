@@ -109,61 +109,51 @@ TODO communicate with display component to update display reactively -->
 						{#each Object.keys(colorPalette) as lightness}
 							<option value={lightness}>{lightness}</option>
 						{/each}
-						<option value="-1">Transparant</option>
+						<option value="-1">Transparent</option>
 					</select>
 				</div>
 				<div class="block mb-2">
 					<label for="face-stroke-select">Face Stroke Color:</label>
-					<select id="face-stroke-select">
-						<option>50</option>
-						<option>100</option>
-						<option>200</option>
-						<option>300</option>
-						<option>400</option>
-						<option>500</option>
-						<option>600</option>
-						<option>700</option>
-						<option>800</option>
-						<option>900</option>
-						<option>None</option>
+					<select id="face-stroke-select" bind:value={$session.settings.clock.theme.face.stroke}>
+						{#each Object.keys(colorPalette) as lightness}
+							<option value={lightness}>{lightness}</option>
+						{/each}
+						<option value="-1">Transparent</option>
 					</select>
 				</div>
 				<div class="block mb-2">
 					<label for="face-stroke-width-select">Face Stroke Width:</label>
-					<select id="face-stroke-width-select">
-						<option>0</option>
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-						<option>6</option>
+					<select
+						id="face-stroke-width-select"
+						bind:value={$session.settings.clock.theme.face.strokeWidth}
+					>
+						{#each Array(6) as _, i}
+							<option value={i}>{i}</option>
+						{/each}
 					</select>
 				</div>
 				<div class="block mb-2">
 					<label for="face-shape-select">Face Shape:</label>
-					<select id="face-shape-select">
-						<option>Circle</option>
-						<option>Rounded Square</option>
-						<option>Square</option>
+					<select id="face-shape-select" bind:value={$session.settings.clock.theme.face.shape}>
+						<option value="circle">Circle</option>
+						<option value="rounded">Rounded Square</option>
+						<option value="square">Square</option>
 					</select>
 				</div>
 
 				<h3>Shadow</h3>
+
 				<div class="block mb-2">
 					<label for="shadow-fill-select">Shadow Color:</label>
-					<select id="shadow-fill-select" disabled={$session.settings.clock.theme.face.fill == -1}>
-						<option>50</option>
-						<option>100</option>
-						<option>200</option>
-						<option>300</option>
-						<option>400</option>
-						<option>500</option>
-						<option>600</option>
-						<option>700</option>
-						<option>800</option>
-						<option>900</option>
-						<option>None</option>
+					<select
+						id="shadow-fill-select"
+						bind:value={$session.settings.clock.theme.shadow.fill}
+						disabled={$session.settings.clock.theme.face.fill == -1}
+					>
+						{#each Object.keys(colorPalette) as lightness}
+							<option value={lightness}>{lightness}</option>
+						{/each}
+						<option value="-1">Transparent</option>
 					</select>
 				</div>
 
@@ -171,63 +161,185 @@ TODO communicate with display component to update display reactively -->
 
 				<div class="block mb-2">
 					<label for="pin-fill-select">Pin Fill Color:</label>
-					<select id="pin-fill-select">
-						<option>50</option>
-						<option>100</option>
-						<option>200</option>
-						<option>300</option>
-						<option>400</option>
-						<option>500</option>
-						<option>600</option>
-						<option>700</option>
-						<option>800</option>
-						<option>900</option>
-						<option>None</option>
+					<select id="pin-fill-select" bind:value={$session.settings.clock.theme.pin.fill}>
+						{#each Object.keys(colorPalette) as lightness}
+							<option value={lightness}>{lightness}</option>
+						{/each}
+						<option value="-1">Transparent</option>
 					</select>
 				</div>
 				<div class="block mb-2">
 					<label for="pin-stroke-select">Pin Stroke Color:</label>
-					<select id="pin-stroke-select">
-						<option>50</option>
-						<option>100</option>
-						<option>200</option>
-						<option>300</option>
-						<option>400</option>
-						<option>500</option>
-						<option>600</option>
-						<option>700</option>
-						<option>800</option>
-						<option>900</option>
-						<option>None</option>
+					<select id="pin-stroke-select" bind:value={$session.settings.clock.theme.pin.stroke}>
+						{#each Object.keys(colorPalette) as lightness}
+							<option value={lightness}>{lightness}</option>
+						{/each}
+						<option value="-1">Transparent</option>
 					</select>
 				</div>
 				<div class="block mb-2">
 					<label for="pin-stroke-width-select">Pin Stroke Width:</label>
-					<select id="pin-stroke-width-select">
-						<option>0</option>
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-						<option>6</option>
+					<select
+						id="pin-stroke-width-select"
+						bind:value={$session.settings.clock.theme.pin.strokeWidth}
+					>
+						{#each Array(7) as _, i}
+							<option value={i}>{i}</option>
+						{/each}
 					</select>
 				</div>
 				<div class="block mb-2">
 					<label for="pin-size-select">Pin Size:</label>
-					<select id="pin-size-select">
-						<option>0</option>
-						<option>0.5</option>
-						<option>1</option>
-						<option>1.5</option>
-						<option>2</option>
-						<option>2.5</option>
-						<option>3</option>
+					<select id="pin-size-select" bind:value={$session.settings.clock.theme.pin.size}>
+						{#each Array(6) as _, i}
+							<option value={i / 2}>{i / 2}</option>
+						{/each}
 					</select>
 				</div>
 
-				<p>Coming soon: Ticks, Hands</p>
-				<!-- TODO: dynamically create options via js, save to browser -->
+				<h3>Ticks</h3>
+
+				{#each ['sm', 'md', 'lg'] as size, i}
+					<h5>
+						<b>{$session.languageDictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}</b>
+					</h5>
+					<div class="block mb-2">
+						<label for="{size}-tick-stroke-select">
+							{$session.languageDictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
+							{$session.languageDictionary['Tick Stroke Color:']}
+						</label>
+						<select
+							id="{size}-tick-stroke-select"
+							bind:value={$session.settings.clock.theme.ticks[size].stroke}
+						>
+							{#each Object.keys(colorPalette) as lightness}
+								<option value={lightness}>{lightness}</option>
+							{/each}
+							<option value="-1">Transparent</option>
+						</select>
+					</div>
+					<div class="block mb-2">
+						<label for="{size}-tick-width-select"
+							>{$session.languageDictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
+							{$session.languageDictionary['Tick Width:']}</label
+						>
+						<select
+							id="{size}-tick-width-select"
+							bind:value={$session.settings.clock.theme.ticks[size].width}
+						>
+							{#each Array(6) as _, i}
+								<option value={i}>{i}</option>
+							{/each}
+						</select>
+					</div>
+					<div class="block mb-2">
+						<label for="{size}-tick-height-select"
+							>{$session.languageDictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
+							{$session.languageDictionary['Tick Height:']}</label
+						>
+						<select
+							id="{size}-tick-height-select"
+							bind:value={$session.settings.clock.theme.ticks[size].height}
+						>
+							{#each Array(6) as _, i}
+								<option value={i / 2}>{i / 2}</option>
+							{/each}
+						</select>
+					</div>
+				{/each}
+
+				<h3>Hands</h3>
+
+				{#each ['hour', 'minute', 'second'] as hand, i}
+					<h5>
+						<b
+							>{$session.languageDictionary[
+								{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]
+							]}</b
+						>
+					</h5>
+					<div class="block mb-2">
+						<label for="{hand}-hand-stroke-select">
+							{$session.languageDictionary[
+								{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]
+							]}
+							{$session.languageDictionary['Hand Stroke Color:']}
+						</label>
+						<select
+							id="{hand}-hand-stroke-select"
+							bind:value={$session.settings.clock.theme.hands[hand].stroke.lightness}
+						>
+							{#each Object.keys(colorPalette) as lightness}
+								<option value={lightness}>{lightness}</option>
+							{/each}
+							<option value="-1">Transparent</option>
+						</select>
+					</div>
+					<div class="block mb-2">
+						<label for="{hand}-hand-stroke-width-select"
+							>{$session.languageDictionary[
+								{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]
+							]}
+							{$session.languageDictionary['Hand Stroke Width:']}</label
+						>
+						<select
+							id="{hand}-hand-stroke-width-select"
+							bind:value={$session.settings.clock.theme.hands[hand].strokeWidth}
+						>
+							{#each Array(6) as _, i}
+								<option value={(i + 1) / 2}>{(i + 1) / 2}</option>
+							{/each}
+						</select>
+					</div>
+					<div class="block mb-2">
+						<label for="{hand}-hand-length-select"
+							>{$session.languageDictionary[
+								{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]
+							]}
+							{$session.languageDictionary['Hand Length:']}</label
+						>
+						<select
+							id="{hand}-hand-length-select"
+							bind:value={$session.settings.clock.theme.hands[hand].length}
+						>
+							{#each Array(6) as _, i}
+								<option value={i * 3 + 12}>{i * 3 + 12}</option>
+							{/each}
+						</select>
+					</div>
+					<div class="block mb-2">
+						<label for="{hand}-hand-back-select"
+							>{$session.languageDictionary[
+								{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]
+							]}
+							{$session.languageDictionary['Hand Back:']}</label
+						>
+						<select
+							id="{hand}-hand-back-select"
+							bind:value={$session.settings.clock.theme.hands[hand].back}
+						>
+							{#each Array(6) as _, i}
+								<option value={i}>{i}</option>
+							{/each}
+						</select>
+					</div>
+					<div class="block mb-2">
+						<label for="{hand}-hand-linecap-select"
+							>{$session.languageDictionary[
+								{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]
+							]}
+							{$session.languageDictionary['Hand Linecap:']}</label
+						>
+						<select
+							id="{hand}-hand-linecap-select"
+							bind:value={$session.settings.clock.theme.hands[hand].linecap}
+						>
+							<option value="butt">Butt</option>
+							<option value="round">Round</option>
+							<option value="square">Square</option>
+						</select>
+					</div>
+				{/each}
 			</div>
 		</details>
 		<details>

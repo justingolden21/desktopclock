@@ -19,6 +19,7 @@ export async function handle({ request, resolve })
 	request.locals.languageDictionary = await getLanguageDictionary(request.headers);
     request.locals.settings = {
         colorPalette: 'blueGray',
+        accentColorPalette: 'red',
 		clock: {
 			mode: 'analog',
             theme: defaultTheme

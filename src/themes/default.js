@@ -4,36 +4,34 @@ export default {
     face: {
         stroke: 700,
         fill: 200,
-        strokeWidth: 0
+        strokeWidth: 0,
+        shape: 'circle',
     },
     shadow: {
-        fill: 700
+        fill: 700,
     },
     pin: {
-        stroke: {
-            color: 'red',
-            lightness: 700
-        },
+        stroke: 700,
         fill: 200,
         strokeWidth: 0.5,
-        size: 1
+        size: 1,
     },
     ticks: {
         sm: {
-            stroke: '#0000',
+            stroke: -1,
             height: 1,
-            width: 1
+            width: 1,
         },
         md: {
             stroke: 400,
             height: 0.5,
-            width: 3
+            width: 3,
         },
         lg: {
             stroke: 500,
             height: 0.5,
-            width: 5
-        }
+            width: 5,
+        },
     },
     hands: {
         hour: {
@@ -43,7 +41,7 @@ export default {
             strokeWidth: 1,
             length: 15,
             back: 3,
-            linecap: 'butt'
+            linecap: 'butt',
         },
         minute: {
             stroke: {
@@ -52,7 +50,7 @@ export default {
             strokeWidth: 0.5,
             length: 21,
             back: 3,
-            linecap: 'butt'
+            linecap: 'butt',
         },
         second: {
             stroke: {
@@ -62,7 +60,7 @@ export default {
             strokeWidth: 0.5,
             length: 27,
             back: 6,
-            linecap: 'butt'
-        }
+            linecap: 'butt',
+        },
     }
 }
