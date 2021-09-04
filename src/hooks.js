@@ -25,7 +25,10 @@ export async function handle({ request, resolve })
             theme: defaultTheme
 		},
 		darkMode: null, // default to null so the initial check to toggle dark mode doesn't occur
-		doubleclickFullscreen: true
+		doubleclickFullscreen: true,
+        showFullscreenButton: true,
+        showDarkButton: true,
+        showThemeButtons: false,
 	};
 
 	return await resolve(request);

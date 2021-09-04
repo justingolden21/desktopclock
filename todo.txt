@@ -40,6 +40,8 @@ bugs:
 pinpoint seconds in analog/digital time
 pwa auto update (fixed?)
 dbl click on btn shouldnt toggle fullscreen
+after changing night mode inside the settings modal, then closing and opening the modal, the toggle switches inside the same section toggle night mode...
+
 
 visual bugs:
 

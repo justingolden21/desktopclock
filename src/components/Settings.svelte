@@ -16,6 +16,7 @@
 	import Icon from './Icon.svelte';
 	import Toggle from './Toggle.svelte';
 	import { Tabs, TabList, TabPanel, Tab } from './tabs.js';
+	import ThemeButtons from './ThemeButtons.svelte';
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
 
@@ -47,14 +48,7 @@ TODO communicate with display component to update display reactively -->
 			</p>
 			<div class="details-content" class:open={currentDetail === 0}>
 				<div class="mb-2">
-					<!-- Remove first 2 items from array (black and white). They do not have themes. -->
-					{#each Object.keys(TailwindColors).slice(2) as color, colorIndex}
-						<button
-							class="theme-btn"
-							style="background-color: {TailwindColors[color][300]}"
-							on:click={() => ($session.settings.colorPalette = color)}
-						/>
-					{/each}
+					<ThemeButtons />
 				</div>
 				<div class="block mb-2">
 					<button
@@ -69,15 +63,21 @@ TODO communicate with display component to update display reactively -->
 					</button>
 				</div>
 
-				<Toggle id="show-fullscreen-btn-toggle" checked={true} labelText="Show fullscreen button" />
+				<!-- bind:checked={$session.settings.showFullscreenButton} -->
+				<Toggle id="show-fullscreen-btn-toggle" labelText="Show fullscreen button" />
 
 				<br />
 
-				<Toggle id="show-dark-btn-toggle" checked={true} labelText="Show dark button" />
+				<!-- bind:checked={$session.settings.showDarkButton} -->
+				<Toggle id="show-dark-btn-toggle" labelText="Show dark button" />
 
 				<br />
 
-				<Toggle id="show-theme-btn-toggle" checked={false} labelText="Show theme buttons" />
+				<Toggle
+					id="show-theme-btn-toggle"
+					bind:checked={$session.settings.showThemeButtons}
+					labelText="Show theme buttons"
+				/>
 			</div>
 		</div>
 		<div class="details">

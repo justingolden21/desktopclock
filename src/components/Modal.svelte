@@ -49,8 +49,7 @@
 		-webkit-animation: animateTop 0.25s;
 	}
 	.modal button.close {
-		float: right;
-		z-index: 4;
+		@apply z-30 float-right;
 	}
 	.modal h1 {
 		@apply text-left mt-4;
