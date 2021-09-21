@@ -8,9 +8,13 @@ reset display settings/theme btn
 other theme defaults, save theme profiles
 export and share themes
 
+dev setup:
+extrapolate battery component, analog clock
+
 ux:
 add + and - or > and v icons to accordion/details
 monospace/fix kerning for numbers in time so they do not shift
+make page load less ugly
 
 reset settings btn, save settings to browser local storage
 let user chose primary and secondary color/palette, also chose specific color for hands, ticks, etc
@@ -51,6 +55,7 @@ after changing night mode inside the settings modal, then closing and opening th
 night mode error page is not readable
 
 visual bugs:
+battery fill when charging in night mode doesn't turn unfilled part dark (transparent)
 
 development bugs:
 fix auto format for hooks.js

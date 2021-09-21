@@ -78,12 +78,12 @@
 	<div id="battery-display">
 		<Icon
 			name="battery"
-			fillLevel={batteryLevel}
+			fillLevel={batteryLevel*100}
 			charging={batteryIsCharging}
 			class="inline w-6 h-6 md:w-8 md:h-8"
 		/>
 
-		{(batteryLevel * 100).toFixed(1)}%
+		{batteryLevel * 100}%
 	</div>
 {/if}
 
