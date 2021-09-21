@@ -17,18 +17,39 @@ async function getLanguageDictionary(headers)
 export async function handle({ request, resolve })
 {
 	request.locals.languageDictionary = await getLanguageDictionary(request.headers);
-    request.locals.settings = {
-        colorPalette: 'blueGray',
-        accentColorPalette: 'red',
+	request.locals.settings = {
+		colorPalette: 'blueGray',
+		accentColorPalette: 'red',
 		clock: {
 			mode: 'analog',
-            theme: defaultTheme
+			theme: defaultTheme,
+
+			displays: {
+				primary: 'analog', // analog, time, date, datetime
+				secondary: 'date' // time, date, datetime, none
+			},
+
+			// https://tc39.es/ecma402/#table-datetimeformat-components
+			dateSettings: {
+				weekday: 'short',
+				// year: 'numeric',
+				month: 'long',
+				day: 'numeric'
+			},
+			timeSettings: {
+				hour: 'numeric',
+				minute: 'numeric',
+				second: 'numeric'
+				// fractionalSecondDigits: '1',
+			},
+			dateTimeSettings: {},
+
 		},
 		darkMode: null, // default to null so the initial check to toggle dark mode doesn't occur
 		doubleclickFullscreen: true,
-        showFullscreenButton: true,
-        showDarkButton: true,
-        showThemeButtons: false,
+		showFullscreenButton: true,
+		showDarkButton: true,
+		showThemeButtons: false,
 	};
 
 	return await resolve(request);

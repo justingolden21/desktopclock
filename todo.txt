@@ -8,6 +8,9 @@ reset display settings/theme btn
 other theme defaults, save theme profiles
 export and share themes
 
+ux:
+add + and - or > and v icons to accordion/details
+
 reset settings btn, save settings to browser local storage
 let user chose primary and secondary color/palette, also chose specific color for hands, ticks, etc
 
@@ -35,15 +38,20 @@ modal for steps to add to taskbar, apps, mobile, etc for each os with details/su
 
 later:
 store settings in localstorage
+music playback options secondary display with spotify (p/p, ff, rw, song and artist name)
+displays.js: implement format options, locale options
 
 bugs:
 pinpoint seconds in analog/digital time
 pwa auto update (fixed?)
 dbl click on btn shouldnt toggle fullscreen
 after changing night mode inside the settings modal, then closing and opening the modal, the toggle switches inside the same section toggle night mode...
-
+night mode error page is not readable
 
 visual bugs:
+
+development bugs:
+fix auto format for hooks.js
 
 tmp bug fixes:
 nav links are underline despite styless.css

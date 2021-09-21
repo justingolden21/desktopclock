@@ -93,21 +93,24 @@ TODO communicate with display component to update display reactively -->
 			<div class="details-content" class:open={currentDetail === 1}>
 				<div class="block mb-2">
 					<label for="primary-display-select">Primary Display:</label>
-					<select id="primary-display-select">
-						<option>Analog Clock</option>
-						<option>Digital Time</option>
-						<option>Date</option>
-						<option>Date + Digital Time</option>
+					<select id="primary-display-select" bind:value={$session.settings.clock.displays.primary}>
+						<option value="analog">Analog Clock</option>
+						<option value="time">Digital Time</option>
+						<option value="date">Date</option>
+						<option value="datetime">Date + Digital Time</option>
 					</select>
 				</div>
 
 				<div class="block mb-2">
 					<label for="secondary-display-select">Secondary Display:</label>
-					<select id="secondary-display-select">
-						<option>Digital Time</option>
-						<option>Date</option>
-						<option>Date + Digital Time</option>
-						<option>None</option>
+					<select
+						id="secondary-display-select"
+						bind:value={$session.settings.clock.displays.secondary}
+					>
+						<option value="time">Digital Time</option>
+						<option value="date">Date</option>
+						<option value="datetime">Date + Digital Time</option>
+						<option value="none">None</option>
 					</select>
 				</div>
 

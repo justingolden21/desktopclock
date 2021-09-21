@@ -1,5 +1,3 @@
-import { displays, setDisplays } from './displays.js';
-
 // below code is not necessary
 // automatically handled by svelte kit if file is named service-worker.js
 // https://kit.svelte.dev/docs#service-workers
@@ -60,9 +58,6 @@ let setTimeInterval;
 function init() {
 	setTime();
 	setTimeInterval = setInterval(setTime, 1 * 1000);
-
-    let lang = 'en'; // tmp
-	setDisplays(displays, lang);
 }
 
 export { init };
