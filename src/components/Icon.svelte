@@ -1,6 +1,10 @@
 <script>
 	export let name;
 	export let focusable = false;
+
+	export let fillLevel = -1;
+	export let charging = false;
+
 	const icons = [
 		{
 			name: 'clock',
@@ -43,6 +47,10 @@
 		{
 			name: 'close',
 			svg: `<path stroke-linecap="square" stroke-linejoin="square" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>`
+		},
+		{
+			name: 'battery',
+			svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5h-2a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-12a2 2 0 00-2-2h-2a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>`
 		}
 	];
 	$: icon = icons.find((i) => i.name === name);
@@ -57,4 +65,23 @@
 	viewBox={icon.viewbox ?? '0 0 24 24'}
 >
 	{@html icon.svg}
+	{#if fillLevel != -1}
+		<path
+			stroke-width="2"
+			fill="url('#fillLevelGradient')"
+			clip-path={!charging ? 'url(#lightningMask)' : ''}
+			d="m9 5h-2a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-12a2 2 0 00-2-2h-2a2 2 0 00-2-2h-2a2 2 0 00-2 2"
+		/>
+		<defs
+			><linearGradient y2="0%" x2="0%" y1="100%" x1="0%" id="fillLevelGradient"
+				><stop stop-color="currentColor" offset={fillLevel * 100 + '%'} />
+				<stop stop-color="#FFFF" offset="0%" />
+			</linearGradient>
+		</defs>
+
+		<!-- TODO: https://css-tricks.com/cutouts/ -->
+		<clipPath id="lightningMask">
+			<path fill="orange" d="M13 10V3L4 14h7v7l9-11h-7z" />
+		</clipPath>
+	{/if}
 </svg>

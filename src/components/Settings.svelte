@@ -115,7 +115,11 @@ TODO communicate with display component to update display reactively -->
 				</div>
 
 				<div class="block mb-2">
-					<Toggle id="show-battery-toggle" checked={false} labelText="Show battery" />
+					<Toggle
+						id="show-battery-toggle"
+						bind:checked={$session.settings.clock.displays.battery}
+						labelText="Show battery"
+					/>
 				</div>
 			</div>
 		</div>

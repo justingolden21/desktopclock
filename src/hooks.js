@@ -26,7 +26,8 @@ export async function handle({ request, resolve })
 
 			displays: {
 				primary: 'analog', // analog, time, date, datetime
-				secondary: 'date' // time, date, datetime, none
+				secondary: 'date', // time, date, datetime, none
+				battery: false,
 			},
 
 			// https://tc39.es/ecma402/#table-datetimeformat-components
