@@ -63,13 +63,19 @@ TODO communicate with display component to update display reactively -->
 					</button>
 				</div>
 
-				<!-- bind:checked={$session.settings.showFullscreenButton} -->
-				<Toggle id="show-fullscreen-btn-toggle" labelText="Show fullscreen button" />
+				<Toggle
+					id="show-fullscreen-btn-toggle"
+					bind:checked={$session.settings.showFullscreenButton}
+					labelText="Show fullscreen button"
+				/>
 
 				<br />
 
-				<!-- bind:checked={$session.settings.showDarkButton} -->
-				<Toggle id="show-dark-btn-toggle" labelText="Show dark button" />
+				<Toggle
+					id="show-dark-btn-toggle"
+					bind:checked={$session.settings.showDarkButton}
+					labelText="Show dark button"
+				/>
 
 				<br />
 

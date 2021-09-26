@@ -1,6 +1,7 @@
 <script>
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
+	import BatteryIcon from './BatteryIcon.svelte';
 
 	import Icon from './Icon.svelte';
 
@@ -76,9 +77,8 @@
 
 {#if displays.battery}
 	<div id="battery-display">
-		<Icon
-			name="battery"
-			fillLevel={batteryLevel*100}
+		<BatteryIcon
+			fillLevel={batteryLevel ? batteryLevel * 100 : 100}
 			charging={batteryIsCharging}
 			class="inline w-6 h-6 md:w-8 md:h-8"
 		/>

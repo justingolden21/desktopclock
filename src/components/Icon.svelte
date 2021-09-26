@@ -2,19 +2,6 @@
 	export let name;
 	export let focusable = false;
 
-	export let fillLevel = -1;
-	export let charging = false;
-
-	const batteryPath = 'm9 5h-2a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-12a2 2 0 00-2-2h-2a2 2 0 00-2-2h-2a2 2 0 00-2 2';
-
-	// not working
-	// https://yqnn.github.io/svg-path-editor/
-	// path 'M13 10V3L4 14h7v7l9-11h-7z' (heroicons)
-	// scale 0.5 then translate 6.5 5 (half of original move command)
-	// const lightningPath = 'M13 10V6.5L8.5 12h3.5v3.5l4.5-5.5h-3.5z';
-
-	const lightningPath = 'M13 10V3L4 14h7v7l9-11h-7z';
-
 	const icons = [
 		{
 			name: 'clock',
@@ -76,20 +63,4 @@
 	viewBox={icon.viewbox ?? '0 0 24 24'}
 >
 	{@html icon.svg}
-	{#if fillLevel != -1}
-		<defs>
-			<linearGradient id="fillLevelGradient" y2="0%" x2="0%" y1="100%" x1="0%"
-				><stop stop-color="currentColor" offset={fillLevel + '%'} />
-				<stop stop-color="#FFFF" offset="0%" />
-			</linearGradient>
-		</defs>
-
-		<path
-			fill-rule="evenodd"
-			fill="url('#fillLevelGradient')"
-			stroke-width="2"
-			stroke-linejoin="round"
-			d={charging ? batteryPath + lightningPath : batteryPath}
-		/>
-	{/if}
 </svg>
