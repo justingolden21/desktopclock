@@ -25,6 +25,8 @@
 
 	$: timeout = timeSettings.second || dateTimeSettings.second ? 1000 : 1000 * 60;
 
+	// TODO: starts an event listener each time displays.svelte is mounted, can add up
+	// should unmount the event listener, look into svelte window access navigator
 	onMount(() => {
 		// https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery
 		navigator.getBattery().then(function (battery) {
