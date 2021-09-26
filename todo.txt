@@ -54,7 +54,11 @@ dbl click on btn shouldnt toggle fullscreen
 after changing night mode inside the settings modal, then closing and opening the modal, the toggle switches inside the same section toggle night mode...
 night mode error page is not readable
 
+features:
+use system default for night mode (dropdown with night off, on, or system)
+
 visual bugs:
+close icon in modals not showing
 battery fill when charging in night mode doesn't turn unfilled part dark (transparent)
 
 development bugs:
