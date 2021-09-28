@@ -28,13 +28,13 @@ TODO communicate with display component to update display reactively -->
 
 <Tabs>
 	<TabList>
-		<Tab>Appearance</Tab>
-		<Tab>User</Tab>
+		<Tab>General</Tab>
 		<Tab>Application</Tab>
+		<Tab>Clock</Tab>
 		<Tab>Help</Tab>
 	</TabList>
 
-	<!-- Appearance -->
+	<!-- General -->
 	<TabPanel>
 		<div class="details">
 			<p
@@ -44,7 +44,7 @@ TODO communicate with display component to update display reactively -->
 					else currentDetail = 0;
 				}}
 			>
-				General
+				Appearance
 			</p>
 			<div class="details-content" class:open={currentDetail === 0}>
 				<div class="mb-2">
@@ -94,9 +94,91 @@ TODO communicate with display component to update display reactively -->
 					else currentDetail = 1;
 				}}
 			>
-				Displays
+				Shortcuts
 			</p>
 			<div class="details-content" class:open={currentDetail === 1}>
+				<div class="block mb-2">
+					<Toggle
+						id="dbl-click-fullscreen-toggle"
+						labelText={$session.languageDictionary['Doubleclick Fullscreen']}
+						bind:checked={$session.settings.doubleclickFullscreen}
+					/>
+				</div>
+				<div class="block mb-2">
+					<Toggle id="keyboard-shortcuts-toggle" checked={true} labelText="Keyboard Shortcuts" />
+				</div>
+				<button class="btn">View Keyboard Shortcuts</button>
+				<button class="btn">Reset Keyboard Shortcuts</button>
+			</div>
+		</div>
+	</TabPanel>
+
+	<!-- Application -->
+	<TabPanel>
+		<h3>Locale</h3>
+		<div class="block mb-2">
+			<label for="language-select">Language:</label>
+			<select id="language-select">
+				<option value="en-us">English, US</option>
+				<option value="en-gb">English, GB</option>
+				<option value="es-mx">Spanish, MX</option>
+				<option value="es-sp">Spanish, SP</option>
+			</select>
+		</div>
+		<div class="block mb-2">
+			<label for="datetime-locale-select">Datetime Locale:</label>
+			<select id="datetime-locale-select">
+				<option>en</option>
+				<option>es</option>
+				<option>de-DE</option>
+				<option>ar-EG</option>
+			</select>
+		</div>
+		<!-- todo: autocomplete type timezones -->
+		<div class="block mb-2">
+			<label for="timezone-select">Timezone:</label>
+			<select id="timezone-select">
+				<option> Pacific Daylight Time (GMT-7) Los Angeles, CA </option>
+			</select>
+		</div>
+
+		<h3>Settings</h3>
+		<div class="block mb-2">
+			<Toggle id="save-settings-toggle" checked={true} labelText="Save Settings Automatically" />
+		</div>
+		<button class="btn">Reset Settings</button>
+		<button class="btn">Download Settings</button>
+		<button class="btn">Upload Settings</button>
+
+		<h3>App</h3>
+		<div class="block mb-2">
+			<Toggle id="always-on-top-toggle" checked={true} labelText="Always On Top" />
+		</div>
+		<button class="btn">Open Another Clock</button>
+		<button class="btn">Share</button>
+		<button class="btn">Send Feedback</button>
+		<button class="btn">Install</button>
+
+		<h3>Advanced</h3>
+		<button class="btn">Multiple Clock Settings</button>
+		<button class="btn">Quick Resize Settings</button>
+
+		<p>V. 0.0.0</p>
+	</TabPanel>
+
+	<!-- Clock -->
+	<TabPanel>
+		<div class="details">
+			<p
+				class="summary"
+				on:click={() => {
+					if (currentDetail == 2) currentDetail = -1;
+					else currentDetail = 2;
+				}}
+			>
+				Displays
+			</p>
+			<div class="details-content" class:open={currentDetail === 2}>
 				<div class="block mb-2">
 					<label for="primary-display-select">Primary Display:</label>
 					<select id="primary-display-select" bind:value={$session.settings.clock.displays.primary}>
@@ -134,13 +216,13 @@ TODO communicate with display component to update display reactively -->
 				<p
 					class="summary"
 					on:click={() => {
-						if (currentDetail == 2) currentDetail = -1;
-						else currentDetail = 2;
+						if (currentDetail == 3) currentDetail = -1;
+						else currentDetail = 3;
 					}}
 				>
 					Analog
 				</p>
-				<div class="details-content" class:open={currentDetail === 2}>
+				<div class="details-content" class:open={currentDetail === 3}>
 					<h3>Face</h3>
 
 					<div class="block mb-2">
@@ -387,13 +469,13 @@ TODO communicate with display component to update display reactively -->
 				<p
 					class="summary"
 					on:click={() => {
-						if (currentDetail == 3) currentDetail = -1;
-						else currentDetail = 3;
+						if (currentDetail == 4) currentDetail = -1;
+						else currentDetail = 4;
 					}}
 				>
 					Digital Datetime
 				</p>
-				<div class="details-content" class:open={currentDetail === 3}>
+				<div class="details-content" class:open={currentDetail === 4}>
 					<div class="block mb-2">
 						<div class="block mb-2">
 							<label for="time-format-select">Time Format:</label>
@@ -454,76 +536,6 @@ TODO communicate with display component to update display reactively -->
 				</div>
 			</div>
 		{/if}
-	</TabPanel>
-
-	<!-- User -->
-	<TabPanel>
-		<h3>Shortcuts</h3>
-		<div class="block mb-2">
-			<Toggle
-				id="dbl-click-fullscreen-toggle"
-				labelText={$session.languageDictionary['Doubleclick Fullscreen']}
-				bind:checked={$session.settings.doubleclickFullscreen}
-			/>
-		</div>
-		<div class="block mb-2">
-			<Toggle id="keyboard-shortcuts-toggle" checked={true} labelText="Keyboard Shortcuts" />
-		</div>
-		<button class="btn">View Keyboard Shortcuts</button>
-		<button class="btn">Reset Keyboard Shortcuts</button>
-	</TabPanel>
-
-	<!-- Application -->
-	<TabPanel>
-		<h3>Locale</h3>
-		<div class="block mb-2">
-			<label for="language-select">Language:</label>
-			<select id="language-select">
-				<option value="en-us">English, US</option>
-				<option value="en-gb">English, GB</option>
-				<option value="es-mx">Spanish, MX</option>
-				<option value="es-sp">Spanish, SP</option>
-			</select>
-		</div>
-		<div class="block mb-2">
-			<label for="datetime-locale-select">Datetime Locale:</label>
-			<select id="datetime-locale-select">
-				<option>en</option>
-				<option>es</option>
-				<option>de-DE</option>
-				<option>ar-EG</option>
-			</select>
-		</div>
-		<!-- todo: autocomplete type timezones -->
-		<div class="block mb-2">
-			<label for="timezone-select">Timezone:</label>
-			<select id="timezone-select">
-				<option> Pacific Daylight Time (GMT-7) Los Angeles, CA </option>
-			</select>
-		</div>
-
-		<h3>Settings</h3>
-		<div class="block mb-2">
-			<Toggle id="save-settings-toggle" checked={true} labelText="Save Settings Automatically" />
-		</div>
-		<button class="btn">Reset Settings</button>
-		<button class="btn">Download Settings</button>
-		<button class="btn">Upload Settings</button>
-
-		<h3>App</h3>
-		<div class="block mb-2">
-			<Toggle id="always-on-top-toggle" checked={true} labelText="Always On Top" />
-		</div>
-		<button class="btn">Open Another Clock</button>
-		<button class="btn">Share</button>
-		<button class="btn">Send Feedback</button>
-		<button class="btn">Install</button>
-
-		<h3>Advanced</h3>
-		<button class="btn">Multiple Clock Settings</button>
-		<button class="btn">Quick Resize Settings</button>
-
-		<p>V. 0.0.0</p>
 	</TabPanel>
 
 	<!-- Help -->
