@@ -143,17 +143,11 @@ TODO communicate with display component to update display reactively -->
 		</div>
 
 		<h3>Settings</h3>
-		<div class="block mb-2">
-			<Toggle id="save-settings-toggle" checked={true} labelText="Save Settings Automatically" />
-		</div>
 		<button class="btn">Reset Settings</button>
 		<button class="btn">Download Settings</button>
 		<button class="btn">Upload Settings</button>
 
 		<h3>App</h3>
-		<div class="block mb-2">
-			<Toggle id="always-on-top-toggle" checked={true} labelText="Always On Top" />
-		</div>
 		<button class="btn">Open Another Clock</button>
 		<button class="btn">Share</button>
 		<button class="btn">Send Feedback</button>

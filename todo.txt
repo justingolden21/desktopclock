@@ -45,6 +45,7 @@ later:
 store settings in localstorage
 music playback options secondary display with spotify (p/p, ff, rw, song and artist name)
 displays.js: implement format options, locale options
+always on top mode is not possible. write about this in FAQs or help, and then mention ways of doing this on different operating systems.
 
 bugs:
 home theme buttons do not function
