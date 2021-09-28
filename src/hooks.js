@@ -47,7 +47,7 @@ export async function handle({ request, resolve })
 
 		},
 		darkMode: null, // default to null so the initial check to toggle dark mode doesn't occur
-		doubleclickFullscreen: true,
+		doubleclickFullscreen: false,
 		showFullscreenButton: true,
 		showDarkButton: true,
 		showThemeButtons: false,
