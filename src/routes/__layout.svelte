@@ -28,6 +28,21 @@
 		}
 	}
 
+	function shareApp() {
+		// TODO translate, test on more platforms, store URL in global variable somewhere, in case it changes
+		if (navigator.share) {
+			navigator
+				.share({
+					title: 'Desktop Clock',
+					text:
+						"I think you'd like Desktop Clock. It's a simple, resizable and customizable clock for any device.",
+					url: 'https://desktopclock.netlify.app/'
+				})
+				.then(() => console.log('Successful share'))
+				.catch((err) => console.log('Error sharing', err));
+		}
+	}
+
 	// defaults to null so toggle code doesn't run automatically on load
 	// let darkMode = null;
 	// We only reference document.body in the browser. This check prevents this code from running on the server side.
@@ -75,5 +90,6 @@
 			with any feedback, questions, or requests at
 			<a href="mailto:contact@justingolden.me" target="_blank">contact@justingolden.me</a>.
 		</p>
+		<button class="btn" on:click={shareApp}>Share</button>
 	</Modal>
 </div>
