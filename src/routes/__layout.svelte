@@ -4,7 +4,6 @@
 	import { navigating, page, session } from '$app/stores';
 	import { browser } from '$app/env';
 
-	import TailwindColors from 'tailwindcss/colors';
 	import screenfull from 'screenfull';
 
 	import Toggle from '../components/Toggle.svelte';

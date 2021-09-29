@@ -1,7 +1,7 @@
 <script>
 	import { session } from '$app/stores';
 
-	import TailwindColors from 'tailwindcss/colors';
+	import TailwindColors from 'tailwindcss/colors.js';
 </script>
 
 <!-- Remove first 2 items from array (black and white). They do not have themes. -->

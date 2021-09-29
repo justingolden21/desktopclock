@@ -11,7 +11,7 @@
 <script>
 	import { session } from '$app/stores';
 
-	import TailwindColors from 'tailwindcss/colors';
+	import TailwindColors from 'tailwindcss/colors.js';
 
 	import Icon from './Icon.svelte';
 	import Toggle from './Toggle.svelte';
