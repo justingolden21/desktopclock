@@ -40,6 +40,12 @@ VS Code Extensions:
 
 - Tailwind Docs
 
+###Debugging
+
+For changes not appearing or hydration bugs, try killing the server and restarting, as well as hard refreshing (ctrl+shift+R) the page
+
+For issues with building, previewing, and npm packages, try deleting the build, .netlify, .svelte-kit, and node_modules folders.
+
 ### Links
 
 - Live demo: https://justingolden.me/desktop-clock

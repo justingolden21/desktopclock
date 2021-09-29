@@ -3,6 +3,18 @@ svelte fix:
     fix sw.js
     make other components, clean code
 
+choice of font in ui
+
+wake lock
+https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API
+https://web.dev/wake-lock/
+https://wake-lock-demo.glitch.me/
+
+presentation API
+https://developer.mozilla.org/en-US/docs/Web/API/Navigator/presentation
+https://developers.google.com/web/updates/2018/04/present-web-pages-to-secondary-attached-displays#samples_and_demos
+https://googlechrome.github.io/samples/presentation-api/
+
 themes:
 reset display settings/theme btn
 other theme defaults, save theme profiles
@@ -77,7 +89,26 @@ performance:
 maybe:
 nav: click away or esc to close nav?
 different face appearance for night mode settings
+more reset btns accross settings tabs/pannels
 
 notes:
 changing the face fill to transparent (-1) will disable the shadow fill and shadow input
 node -v is 14.17.5
+
+get user geolocation (browser asks them)
+https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#watching_the_current_position
+const watchID = navigator.geolocation.watchPosition((position) => {
+  console.log(position.coords.latitude, position.coords.longitude);
+});
+
+use picture in picture with clock as video element to keep always on top / its own window on pc or phone?
+https://css-tricks.com/an-introduction-to-the-picture-in-picture-web-api/
+https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API
+
+alarm clock using empty audio element that replaces it at right time and works if user navigates away? notification api for timer? ask for test notification first, can go to settings to change
+
+flipclock like https://onlineclock.net/flip/ ?
+
+more later:
+integrate with spotify for media controls?
+weather api?
