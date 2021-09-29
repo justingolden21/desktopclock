@@ -18,6 +18,28 @@ Preview: `npm run preview`
 
 _In order to test service worker, must run `npm run build` then `npm run preview` for any changes to the service worker to appear on localhost_
 
+### Styleguide and Linting
+
+This project uses ESLint, Prettier for VS code, and the AirBNB Javascript style guide.
+
+VS Code Extensions:
+
+- Auto Rename Tag
+
+- ESLint
+
+- Path Intellisense
+
+- PostCSS Language Support
+
+- Prettier
+
+- Svelte for VS Code
+
+- Tailwind CSS Intellisense
+
+- Tailwind Docs
+
 ### Links
 
 - Live demo: https://justingolden.me/desktop-clock
