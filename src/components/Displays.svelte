@@ -3,8 +3,6 @@
 	import { onMount } from 'svelte';
 	import BatteryIcon from './BatteryIcon.svelte';
 
-	import Icon from './Icon.svelte';
-
 	$: displays = $session.settings.clock.displays;
 	$: dateSettings = $session.settings.clock.dateSettings;
 	$: timeSettings = $session.settings.clock.timeSettings;
