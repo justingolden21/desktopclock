@@ -23,7 +23,8 @@
 	</button>
 
 	<h1 id="title-text">
-		{$session.languageDictionary.pageNames[$page.path.substring(1) || 'clock']}
+		{$session.languageDictionary.pageNames[$page.path.substring(1) || 'clock'] ||
+			$session.languageDictionary.pageNames.error}
 	</h1>
 
 	<!-- todo: z index isnt working, items also should be centered -->

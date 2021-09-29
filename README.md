@@ -24,6 +24,10 @@ _In order to test service worker, must run `npm run build` then `npm run preview
 
 - This repo: https://github.com/justingolden21/desktop-clock
 
+### Attribution
+
+404 vector from https://undraw.co/
+
 <hr>
 
 - My website: https://justingolden.me

@@ -4,7 +4,8 @@
     "appDescription": "A simple, resizable and customizable clock for any device!",
     "pageNames": {
         "clock": "Desktop Clock",
-        "worldclock": "Worldclock"
+        "worldclock": "Worldclock",
+        "error": "Error"
     },
     "Doubleclick Fullscreen": "Doubleclick Fullscreen",
 
