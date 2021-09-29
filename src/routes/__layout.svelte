@@ -79,8 +79,8 @@
 			Desktop Clock is a simple, resizable and customizable clock for any device. Features include
 			customizable analog and digital displays, night mode, and more. Desktop Clock is designed to
 			scale perfectly to any screen size and ratio, with no distortion or pixelation. Use Desktop
-			Clock as a clock on your TV, a night clock, or even project the time for exams. Customize the
-			time, date and more to your liking.
+			Clock as a clock on your TV, a night clock, or even project the time for exams. Use the timers
+			for anything from chess to cooking! Customize the time, date and more to your liking!
 		</p>
 
 		<h3>Contact</h3>
