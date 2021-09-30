@@ -458,7 +458,8 @@ TODO communicate with display component to update display reactively -->
 					{/each}
 				</div>
 			</div>
-		{:else}
+		{/if}
+		{#if $session.settings.clock.displays.primary != 'analog' || $session.settings.clock.displays.secondary != 'none' }
 			<div class="details">
 				<p
 					class="summary"
