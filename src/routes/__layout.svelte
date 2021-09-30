@@ -34,7 +34,7 @@
 				.share({
 					title: 'Desktop Clock',
 					text:
-						"I think you'd like Desktop Clock. It's a simple, resizable and customizable clock for any device.",
+						"Desktop Clock is a simple, resizable and customizable clock for any device.",
 					url: 'https://desktopclock.netlify.app/'
 				})
 				.then(() => console.log('Successful share'))
