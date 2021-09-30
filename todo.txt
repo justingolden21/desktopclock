@@ -1,7 +1,8 @@
-todo:
-svelte fix:
-    fix sw.js
-    make other components, clean code
+main todo:
+fix sw, manifest, pwa
+time format support
+get linting/formatting on all devices, update readme with instructions for new device
+
 
 choice of font in ui
 
@@ -12,8 +13,10 @@ https://wake-lock-demo.glitch.me/
 
 presentation API
 https://developer.mozilla.org/en-US/docs/Web/API/Navigator/presentation
+https://developer.mozilla.org/en-US/docs/Web/API/Presentation_API
 https://developers.google.com/web/updates/2018/04/present-web-pages-to-secondary-attached-displays#samples_and_demos
 https://googlechrome.github.io/samples/presentation-api/
+icon ideas: present, tv, cast, chromecast, projector, arrow, external link
 
 themes:
 reset display settings/theme btn
