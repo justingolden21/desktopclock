@@ -1,8 +1,10 @@
 main todo:
-fix sw, manifest, pwa
+fix sw, manifest, pwa, install btn
 time format support
 get linting/formatting on all devices, update readme with instructions for new device
 
+fix margin on primary display date/time/datetime, too large/overflow
+formatting options for date/time/datetime, should also support short or long names for month, weekday, other locales
 
 choice of font in ui
 
