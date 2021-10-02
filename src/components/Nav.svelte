@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/stores';
 	import Icon from './Icon.svelte';
+	import InstallButton from './InstallButton.svelte';
 
 	export let navOpen;
 	export let settingsModal = null;
@@ -60,4 +61,7 @@
 		<Icon name="info" class="w-6 h-6 inline mr-2" />
 		About
 	</span>
+	<div class="absolute bottom-0 mb-8">
+		<InstallButton />
+	</div>
 </nav>
