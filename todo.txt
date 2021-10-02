@@ -6,6 +6,8 @@ get linting/formatting on all devices, update readme with instructions for new d
 fix margin on primary display date/time/datetime, too large/overflow
 formatting options for date/time/datetime, should also support short or long names for month, weekday, other locales
 
+show cast btn only if device supports it
+
 choice of font in ui
 
 wake lock
