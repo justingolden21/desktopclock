@@ -1,4 +1,5 @@
 <script context="module">
+
 	import Screenfull from 'screenfull';
 
 	export function toggleFullscreen() {
@@ -10,8 +11,13 @@
 
 <script>
 	import { session } from '$app/stores';
+	import { onMount } from 'svelte';
+
+	onMount(setupCasting);
 
 	import TailwindColors from 'tailwindcss/colors.js';
+
+	import { setupCasting, castClock } from './cast.js';
 
 	import Icon from './Icon.svelte';
 	import Toggle from './Toggle.svelte';
@@ -58,23 +64,35 @@ TODO communicate with display component to update display reactively -->
 						<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
 					</button>
 
+					<button class="cast-btn icon-btn" on:click={castClock}>
+						<Icon name="external-link" class="w-6 h-6 md:w-8 md:h-8" />
+					</button>
+
 					<button class="fullscreen-btn icon-btn" on:click={toggleFullscreen}>
 						<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
 					</button>
 				</div>
 
 				<Toggle
-					id="show-fullscreen-btn-toggle"
-					bind:checked={$session.settings.showFullscreenButton}
-					labelText="Show fullscreen button"
+					id="show-dark-btn-toggle"
+					bind:checked={$session.settings.showDarkButton}
+					labelText="Show dark button"
 				/>
 
 				<br />
 
 				<Toggle
-					id="show-dark-btn-toggle"
-					bind:checked={$session.settings.showDarkButton}
-					labelText="Show dark button"
+					id="show-cast-btn-toggle"
+					bind:checked={$session.settings.showCastButton}
+					labelText="Show cast button"
+				/>
+
+				<br />
+
+				<Toggle
+					id="show-fullscreen-btn-toggle"
+					bind:checked={$session.settings.showFullscreenButton}
+					labelText="Show fullscreen button"
 				/>
 
 				<br />
@@ -151,6 +169,7 @@ TODO communicate with display component to update display reactively -->
 		<button class="btn">Open Another Clock</button>
 		<button class="btn">Share</button>
 		<button class="btn">Send Feedback</button>
+		<button class="btn">Pop Out</button>
 		<button class="btn">Install</button>
 
 		<h3>Advanced</h3>

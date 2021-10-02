@@ -132,14 +132,16 @@ nav and modal have same bg colors, opacities, and shadows
 	/* purgecss end ignore */
 	#menu-btn,
 	#main-dark-btn,
-	#main-fullscreen-btn {
+	#main-fullscreen-btn,
+	#main-cast-btn {
 		@apply absolute top-4;
 	}
 	#menu-btn {
 		z-index: 3;
 	}
 	#main-dark-btn,
-	#main-fullscreen-btn {
+	#main-fullscreen-btn,
+	#main-cast-btn {
 		z-index: 1;
 	}
 	#menu-btn {
@@ -150,6 +152,9 @@ nav and modal have same bg colors, opacities, and shadows
 	}
 	#main-fullscreen-btn {
 		@apply right-4;
+	}
+	#main-cast-btn {
+		@apply right-20;
 	}
 
 	select {
@@ -213,6 +218,7 @@ nav and modal have same bg colors, opacities, and shadows
 	/* icon hover transitions */
 	.dark-btn svg,
 	.fullscreen-btn svg,
+	.cast-btn svg,
 	#meun-btn svg {
 		transition: transform 0.25s;
 	}
@@ -221,6 +227,9 @@ nav and modal have same bg colors, opacities, and shadows
 	}
 	.fullscreen-btn:hover svg {
 		transform: scale(-1, 1);
+	}
+	.cast-btn:hover svg {
+		transform: rotate(-45deg);
 	}
 	#menu-btn:hover svg {
 		/* transform: scale(1, -1); */

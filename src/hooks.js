@@ -43,13 +43,16 @@ export async function handle({ request, resolve })
 				second: 'numeric'
 				// fractionalSecondDigits: '1',
 			},
-			dateTimeSettings: {},
+			dateTimeSettings: {
+				// hour12: true
+			},
 
 		},
 		darkMode: null, // default to null so the initial check to toggle dark mode doesn't occur
 		doubleclickFullscreen: false,
 		showFullscreenButton: true,
 		showDarkButton: true,
+		showCastButton: true,
 		showThemeButtons: false,
 	};
 

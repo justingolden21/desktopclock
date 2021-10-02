@@ -1,11 +1,15 @@
 <script>
 	import { page, session } from '$app/stores';
 	import Icon from './Icon.svelte';
+	import { onMount } from 'svelte';
 
 	import { toggleFullscreen } from './Settings.svelte';
+	import { setupCasting, castClock } from './cast.js';
 	import ThemeButtons from './ThemeButtons.svelte';
-
+	
 	export let navOpen;
+
+	onMount(setupCasting);
 </script>
 
 <header class="flex-1 relative">
@@ -31,6 +35,13 @@
 	<div class="m-4 mx-16 z-20 max-w-3xl" class:hidden={!$session.settings.showThemeButtons}>
 		<ThemeButtons />
 	</div>
+
+	<button id="main-cast-btn"
+		class="cast-btn icon-btn float-right"
+		class:hidden={!$session.settings.showCastButton}
+		on:click={castClock}>
+		<Icon name="external-link" class="w-6 h-6 md:w-8 md:h-8"/>
+	</button>
 
 	<button
 		id="main-fullscreen-btn"
