@@ -4,6 +4,10 @@
 
 A simple, resizable and customizable clock for any device
 
+### Codebase
+
+This project is made with Svelte (using Svelte kit) and TailwindCSS. It uses Hero Icons and postCSS/purgeCSS for tailwind. Vite is the bundler used under the hood for Svelte kit. It is hosted on Netlify and has no backend currently. It uses day.js for date/time logic, and uses Prettier, ESLint, and the AirBNB Javascript Style guide for code formatting and style.
+
 ### Development
 
 First time setup: `npm i`
@@ -44,7 +48,7 @@ VS Code Extensions:
 
 - Tailwind Docs
 
-###Debugging
+### Debugging
 
 For changes not appearing or hydration bugs, try killing the server and restarting, as well as hard refreshing (ctrl+shift+R) the page
 
