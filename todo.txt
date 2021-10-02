@@ -33,6 +33,7 @@ extrapolate battery component, analog clock
 ux:
 add + and - or > and v icons to accordion/details
 monospace/fix kerning for numbers in time so they do not shift
+- https://stackoverflow.com/questions/10149330/force-non-monospace-font-into-fixed-width-using-css
 make page load less ugly
 
 reset settings btn, save settings to browser local storage
@@ -73,6 +74,13 @@ pwa auto update (fixed?)
 dbl click on btn shouldnt toggle fullscreen
 after changing night mode inside the settings modal, then closing and opening the modal, the toggle switches inside the same section toggle night mode...
 night mode error page is not readable
+
+not bugs (hydration issues, fixed in build/preview)
+install btn disappears when changing to night mode?
+
+needs testing:
+casting
+pwa, auto update, offline
 
 features:
 use system default for night mode (dropdown with night off, on, or system)
