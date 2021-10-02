@@ -16,7 +16,11 @@ Build: `npm run build`
 
 Preview: `npm run preview`
 
-_In order to test service worker, must run `npm run build` then `npm run preview` for any changes to the service worker to appear on localhost_
+### PWA
+
+_In order to test service worker, must run `npm run build` then `npm run preview` for any changes to the service worker to appear on localhost. Test by opening localhost in incognito chrome, then running lighthouse for PWA_
+
+Location of service worker: `view-source:http://localhost:3000/service-worker.js`
 
 ### Styleguide and Linting
 
