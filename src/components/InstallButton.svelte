@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import Icon from './Icon.svelte';
 
-	$: showInstallButton = true; // TODO should default false?
+	$: showInstallButton = false;
 
 	// Initialize deferredPrompt for use later to show browser install prompt.
 	let deferredPrompt;
@@ -32,28 +32,22 @@
 	});
 
 	async function installButtonClick() {
-		console.log('a');
 		// Hide the app provided install promotion
 		showInstallButton = false;
-		console.log('b');
 
 		console.log(deferredPrompt);
 
 		// Show the install prompt
 		deferredPrompt.prompt();
-		console.log('c');
 
 		// Wait for the user to respond to the prompt
 		const { outcome } = await deferredPrompt.userChoice;
-		console.log('d');
 
 		// Optionally, send analytics event with outcome of user choice
 		console.log(`User response to the install prompt: ${outcome}`);
-		console.log('e');
 
 		// We've used the prompt, and can't use it again, throw it away
 		deferredPrompt = null;
-		console.log('f');
 	}
 </script>
 
