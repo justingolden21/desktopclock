@@ -17,14 +17,13 @@
 	export let status;
 </script>
 
-<!-- todo: message disappears in night mode -->
 <!-- todo: translate 404 message and go home link -->
 
 <svelte:head>
 	<title>{$session.languageDictionary.pageNames.error}</title>
 </svelte:head>
 
-<div class="m-16 text-center text-gray-900">
+<div class="m-16 text-center">
 	{#if status === 404}
 		<img src="img/404_undraw.svg" alt="" class="w-96 mx-auto my-8" />
 		<h2>The resource could not be found</h2>
