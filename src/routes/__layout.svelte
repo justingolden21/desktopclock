@@ -4,6 +4,8 @@
 	import { navigating, page, session } from '$app/stores';
 	import { browser } from '$app/env';
 
+	import colors from 'tailwindcss/colors.js';
+
 	import screenfull from 'screenfull';
 
 	import Toggle from '../components/Toggle.svelte';
@@ -52,8 +54,8 @@
 </script>
 
 <svelte:head>
-	<meta name="apple-mobile-web-app-status-bar" content={themeColor} />
-	<meta name="theme-color" content={themeColor} />
+	<meta name="apple-mobile-web-app-status-bar" content={colors[$session.settings.colorPalette][500]} />
+	<meta name="theme-color" content={colors[$session.settings.colorPalette][500]} />
 </svelte:head>
 
 <svelte:body on:dblclick={doubleClickFullscreen} />
