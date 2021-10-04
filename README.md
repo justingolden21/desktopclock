@@ -48,6 +48,68 @@ VS Code Extensions:
 
 - Tailwind Docs
 
+Set up VS code to auto format on save
+
+1. Open preferences (ctrl+shift+P)
+
+2. Preferences: Open Settings (JSON)
+
+3. Add the following line
+
+```diff
+"[javascript]": {
++    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+}
+
+...
+
++ "[svelte]": {
++	"editor.formatOnSave": true,
++ 	"editor.defaultFormatter": "svelte.svelte-vscode"
++ },
+
+...
+
++ "editor.formatOnSave": true,
+
+```
+
+Full `settings.json` in VS Code for reference:
+
+```json
+{
+	"editor.linkedEditing": true,
+	"editor.detectIndentation": true,
+	"notebook.cellToolbarLocation": {
+		"default": "right",
+		"jupyter-notebook": "left"
+	},
+	"prettier.tabWidth": 4,
+	"prettier.useTabs": true,
+	"[javascript]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[svelte]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"eslint.alwaysShowStatus": true,
+	"workbench.colorTheme": "Default Dark+",
+	"prettier.singleQuote": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"security.workspace.trust.untrustedFiles": "newWindow",
+	"files.autoSave": "afterDelay"
+}
+
+```
+
+4. Reload VS code (may be necessary to go to extensions and find an extension with a button to reload and click that)
+
+Note: Click Prettier button on bottom right of file to view console output and any errors in formatting / autosave
+
 ### Debugging
 
 For changes not appearing or hydration bugs, try killing the server and restarting, as well as hard refreshing (ctrl+shift+R) the page
