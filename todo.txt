@@ -8,8 +8,6 @@ formatting options for date/time/datetime, should also support short or long nam
 
 show cast btn only if device supports it
 
-choice of font in ui
-
 wake lock
 https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API
 https://web.dev/wake-lock/
@@ -105,6 +103,7 @@ maybe:
 nav: click away or esc to close nav?
 different face appearance for night mode settings
 more reset btns accross settings tabs/pannels
+documents.fonts.entries() and give user choice of any font on their system
 
 notes:
 changing the face fill to transparent (-1) will disable the shadow fill and shadow input

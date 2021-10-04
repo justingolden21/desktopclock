@@ -47,7 +47,8 @@ export async function handle({ request, resolve }) {
 		showFullscreenButton: true,
 		showDarkButton: true,
 		showCastButton: true,
-		showThemeButtons: false
+		showThemeButtons: false,
+		fontFamily: 'Jura'
 	};
 
 	return await resolve(request);

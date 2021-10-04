@@ -1,5 +1,4 @@
 <script context="module">
-
 	import Screenfull from 'screenfull';
 
 	export function toggleFullscreen() {
@@ -25,6 +24,24 @@
 	import ThemeButtons from './ThemeButtons.svelte';
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
+
+	const fontFamilies = [
+		'Aldrich',
+		'Arsenal',
+		'Bai Jamjuree',
+		'Bitter',
+		'Josefin Sans',
+		'Julius Sans One',
+		'Jura',
+		'K2D',
+		'KoHo',
+		'Libre Baskerville',
+		'Limelight',
+		'Major Mono Display',
+		'Montserrat Alternates',
+		'Orbitron',
+		'Yatra One'
+	].sort();
 
 	let currentDetail = 0;
 </script>
@@ -102,6 +119,15 @@ TODO communicate with display component to update display reactively -->
 					bind:checked={$session.settings.showThemeButtons}
 					labelText="Show theme buttons"
 				/>
+
+				<br />
+
+				<label for="font-family-select">Font Family:</label>
+				<select id="font-family-select" bind:value={$session.settings.fontFamily}>
+					{#each fontFamilies as fontFamily}
+						<option value={fontFamily}>{fontFamily}</option>
+					{/each}
+				</select>
 			</div>
 		</div>
 		<div class="details">
@@ -478,7 +504,7 @@ TODO communicate with display component to update display reactively -->
 				</div>
 			</div>
 		{/if}
-		{#if $session.settings.clock.displays.primary != 'analog' || $session.settings.clock.displays.secondary != 'none' }
+		{#if $session.settings.clock.displays.primary != 'analog' || $session.settings.clock.displays.secondary != 'none'}
 			<div class="details">
 				<p
 					class="summary"
