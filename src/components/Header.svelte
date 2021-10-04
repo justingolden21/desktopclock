@@ -6,7 +6,7 @@
 	import { toggleFullscreen } from './Settings.svelte';
 	import { setupCasting, castClock } from './cast.js';
 	import ThemeButtons from './ThemeButtons.svelte';
-	
+
 	export let navOpen;
 
 	onMount(setupCasting);
@@ -36,11 +36,13 @@
 		<ThemeButtons />
 	</div>
 
-	<button id="main-cast-btn"
+	<button
+		id="main-cast-btn"
 		class="cast-btn icon-btn float-right"
 		class:hidden={!$session.settings.showCastButton}
-		on:click={castClock}>
-		<Icon name="external-link" class="w-6 h-6 md:w-8 md:h-8"/>
+		on:click={castClock}
+	>
+		<Icon name="external-link" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 
 	<button

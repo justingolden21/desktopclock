@@ -1,21 +1,16 @@
-import defaultTheme from './themes/default'
+import defaultTheme from './themes/default';
 
-async function getLanguageDictionary(headers)
-{
+async function getLanguageDictionary(headers) {
 	// const lang = 'es'; // testing
 	const lang = headers['accept-language']?.substr?.(0, 2) ?? 'en';
-	try
-	{
-		return ( await import(`./lang/${lang}.json` ) ).default;
-	}
-	catch( error )
-	{
-	   return ( await import(`./lang/en.json` ) ).default;
+	try {
+		return (await import(`./lang/${lang}.json`)).default;
+	} catch (error) {
+		return (await import(`./lang/en.json`)).default;
 	}
 }
 
-export async function handle({ request, resolve })
-{
+export async function handle({ request, resolve }) {
 	request.locals.languageDictionary = await getLanguageDictionary(request.headers);
 	request.locals.settings = {
 		colorPalette: 'blueGray',
@@ -27,7 +22,7 @@ export async function handle({ request, resolve })
 			displays: {
 				primary: 'analog', // analog, time, date, datetime
 				secondary: 'date', // time, date, datetime, none
-				battery: false,
+				battery: false
 			},
 
 			// https://tc39.es/ecma402/#table-datetimeformat-components
@@ -45,24 +40,22 @@ export async function handle({ request, resolve })
 			},
 			dateTimeSettings: {
 				// hour12: true
-			},
-
+			}
 		},
 		darkMode: null, // default to null so the initial check to toggle dark mode doesn't occur
 		doubleclickFullscreen: false,
 		showFullscreenButton: true,
 		showDarkButton: true,
 		showCastButton: true,
-		showThemeButtons: false,
+		showThemeButtons: false
 	};
 
 	return await resolve(request);
 }
 
-export function getSession({ locals })
-{
+export function getSession({ locals }) {
 	return {
 		languageDictionary: locals.languageDictionary,
 		settings: locals.settings
-	}
+	};
 }

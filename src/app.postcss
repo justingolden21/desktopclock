@@ -89,7 +89,8 @@ nav and modal have same bg colors, opacities, and shadows
 		backdrop-filter: blur(2px);
 		/* box-shadow: 4px 0px 8px #e2e8f0; /*gray-200*/
 	}
-	nav a, nav span {
+	nav a,
+	nav span {
 		@apply block
 					p-4
 					hover:bg-gray-200
@@ -98,11 +99,13 @@ nav and modal have same bg colors, opacities, and shadows
 					tracking-widest;
 		/* transition: all 0.25s linear; */
 	}
-	nav a:hover, nav span:hover {
+	nav a:hover,
+	nav span:hover {
 		/* bugfix */
 		text-decoration: none;
 	}
-	nav a.active, nav span.active {
+	nav a.active,
+	nav span.active {
 		@apply bg-gray-200 bg-opacity-50 font-bold;
 	}
 	body.dark nav {
@@ -111,7 +114,7 @@ nav and modal have same bg colors, opacities, and shadows
 	}
 	body.dark nav a:hover,
 	body.dark nav a.active,
-    body.dark nav span:hover,
+	body.dark nav span:hover,
 	body.dark nav span.active {
 		@apply bg-gray-600 bg-opacity-50;
 	}
@@ -186,13 +189,13 @@ nav and modal have same bg colors, opacities, and shadows
 	.details .details-content {
 		@apply p-4 hidden;
 	}
-    .details-content.open {
-        @apply block;
-        animation: sweep 0.5s ease-in-out;
-    }
+	.details-content.open {
+		@apply block;
+		animation: sweep 0.5s ease-in-out;
+	}
 	.details .details-content h3 {
-        @apply my-4;
-    }
+		@apply my-4;
+	}
 	.summary {
 		@apply cursor-pointer p-2 hover:bg-gray-100 font-bold text-lg;
 	}

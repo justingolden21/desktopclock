@@ -35,8 +35,7 @@
 			navigator
 				.share({
 					title: 'Desktop Clock',
-					text:
-						"Desktop Clock is a simple, resizable and customizable clock for any device.",
+					text: 'Desktop Clock is a simple, resizable and customizable clock for any device.',
 					url: 'https://desktopclock.netlify.app/'
 				})
 				.then(() => console.log('Successful share'))
@@ -54,7 +53,10 @@
 </script>
 
 <svelte:head>
-	<meta name="apple-mobile-web-app-status-bar" content={colors[$session.settings.colorPalette][500]} />
+	<meta
+		name="apple-mobile-web-app-status-bar"
+		content={colors[$session.settings.colorPalette][500]}
+	/>
 	<meta name="theme-color" content={colors[$session.settings.colorPalette][500]} />
 </svelte:head>
 

@@ -54,7 +54,6 @@ let setTimeInterval;
 // since both are async here, the app breaks
 // for localization, the manifest should be loaded from an endpoint in svelte kit, to point to a json that loads the correct language manifest
 
-
 function init() {
 	setTime();
 	setTimeInterval = setInterval(setTime, 1 * 1000);

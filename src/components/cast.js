@@ -7,21 +7,22 @@
 let presentationConnection, presentationRequest;
 
 function setupCasting() {
-  presentationRequest = new PresentationRequest(['index.html']);
+	presentationRequest = new PresentationRequest(['index.html']);
 
-  // Make this presentation the default one when using the "Cast" browser menu.
-  navigator.presentation.defaultRequest = presentationRequest;
+	// Make this presentation the default one when using the "Cast" browser menu.
+	navigator.presentation.defaultRequest = presentationRequest;
 }
 
 function castClock() {
-  console.log('Starting presentation request...');
-    presentationRequest.start()
-    .then(connection => {
-      console.log(`Connected to ${connection.url}, id: ${connection.id}`);
-    })
-    .catch(error => {
-      console.log(error.name + ': ' + error.message);
-    }); 
+	console.log('Starting presentation request...');
+	presentationRequest
+		.start()
+		.then((connection) => {
+			console.log(`Connected to ${connection.url}, id: ${connection.id}`);
+		})
+		.catch((error) => {
+			console.log(error.name + ': ' + error.message);
+		});
 }
 
-export {setupCasting, castClock};
+export { setupCasting, castClock };
