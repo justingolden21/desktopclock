@@ -519,46 +519,28 @@ TODO communicate with display component to update display reactively -->
 					<div class="block mb-2">
 						<div class="block mb-2">
 							<label for="time-format-select">Time Format:</label>
-							<select id="time-format-select">
-								<option>HH:MM</option>
-								<option>HH:MM:SS</option>
-								<option>HH:MM:SS.SS</option>
-								<option>HH:MM AM/PM</option>
-								<option>HH:MM:SS AM/PM</option>
-								<option>HH:MM:SS.SS AM/PM</option>
-								<option>MM:SS</option>
+							<select id="time-format-select" bind:value={$session.settings.clock.timeFormat}>
+								{#each ['HH:mm', 'HH:mm:ss', 'hh:mm', 'hh:mm:ss', 'hh:mm A', 'hh:mm:ss A', 'mm:ss'] as timeFormat}
+									<option value={timeFormat}>{timeFormat}</option>
+								{/each}
+								<option value="custom">Custom</option>
 							</select>
+							{#if $session.settings.clock.timeFormat === 'custom'}
+								<input type="text" bind:value={$session.settings.clock.timeFormatCustom} />
+							{/if}
 						</div>
 
 						<div class="block mb-2">
 							<label for="date-format-select">Date Format:</label>
-							<select id="date-format-select">
-								<option>DD/MM</option>
-								<option>DD/MM/YY</option>
-								<option>DD/MM/YYYY</option>
-								<option>Wkdy DD/MM</option>
-								<option>Wkdy DD/MM/YY</option>
-								<option>Wkdy DD/MM/YYYY</option>
-								<option>Weekday DD/MM</option>
-								<option>Weekday DD/MM/YY</option>
-								<option>Weekday DD/MM/YYYY</option>
-								<option>Month DD</option>
-								<option>Month DD YY</option>
-								<option>Month DD YYYY</option>
-								<option>Weekday Month DD</option>
-								<option>Weekday Month DD YY</option>
-								<option> Weekday Month DD YYYY </option>
+							<select id="date-format-select" bind:value={$session.settings.clock.dateFormat}>
+								{#each ['MMM D', 'MMM D YYYY', 'ddd, MMM D', 'ddd, MMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
+									<option value={dateFormat}>{dateFormat}</option>
+								{/each}
+								<option value="custom">Custom</option>
 							</select>
-						</div>
-
-						<div class="block mb-2">
-							<label for="datetime-format-select">Datetime Format:</label>
-							<select id="datetime-format-select">
-								<option>HH:MM DD/MM</option>
-								<option>HH:MM:SS DD/MM</option>
-								<option>HH:MM DD/MM/YY</option>
-								<option>HH:MM:SS DD/MM/YY</option>
-							</select>
+							{#if $session.settings.clock.dateFormat === 'custom'}
+								<input type="text" bind:value={$session.settings.clock.dateFormatCustom} />
+							{/if}
 						</div>
 
 						<div class="block mb-2">

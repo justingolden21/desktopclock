@@ -8,6 +8,8 @@ formatting options for date/time/datetime, should also support short or long nam
 
 show cast btn only if device supports it
 
+timezones
+
 wake lock
 https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API
 https://web.dev/wake-lock/
@@ -100,6 +102,7 @@ nav links are underline despite styless.css
 performance:
 
 maybe:
+give them option to swap order of date and time?
 nav: click away or esc to close nav?
 different face appearance for night mode settings
 more reset btns accross settings tabs/pannels
@@ -126,3 +129,6 @@ flipclock like https://onlineclock.net/flip/ ?
 more later:
 integrate with spotify for media controls?
 weather api?
+
+links:
+https://tc39.es/ecma402/#table-datetimeformat-components

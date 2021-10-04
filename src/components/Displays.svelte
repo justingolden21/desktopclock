@@ -1,12 +1,22 @@
 <script>
+	// TODO: implement date and datetime also. TODO: add modal from dayjs documentation table
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
 	import BatteryIcon from './BatteryIcon.svelte';
+	import dayjs from 'dayjs';
 
-	$: displays = $session.settings.clock.displays;
-	$: dateSettings = $session.settings.clock.dateSettings;
-	$: timeSettings = $session.settings.clock.timeSettings;
-	$: dateTimeSettings = $session.settings.clock.dateTimeSettings;
+	$: clockSettings = $session.settings.clock;
+
+	$: displays = clockSettings.displays;
+
+	$: timeFormat =
+		clockSettings.timeFormat !== 'custom'
+			? clockSettings.timeFormat
+			: clockSettings.timeFormatCustom;
+	$: dateFormat =
+		clockSettings.dateFormat !== 'custom'
+			? clockSettings.dateFormat
+			: clockSettings.dateFormatCustom;
 
 	let batteryLevel, batteryIsCharging;
 
@@ -17,11 +27,8 @@
 	let options = {};
 
 	// these update automatically with `now`
-	$: date = now.toLocaleDateString(lang, dateSettings);
-	$: time = now.toLocaleTimeString(lang, timeSettings);
-	$: datetime = now.toLocaleString(lang, dateTimeSettings);
-
-	$: timeout = timeSettings.second || dateTimeSettings.second ? 1000 : 1000 * 60;
+	$: time = new dayjs(now).format(timeFormat);
+	$: date = new dayjs(now).format(dateFormat);
 
 	// TODO: starts an event listener each time displays.svelte is mounted, can add up
 	// should unmount the event listener, look into svelte window access navigator
@@ -40,7 +47,7 @@
 
 		const dateTimeInterval = setInterval(() => {
 			now = new Date(); // update computed properties
-		}, timeout);
+		}, 1000); // browser is optimized anyway, no need to detect seconds
 
 		return () => {
 			clearInterval(dateTimeInterval);
@@ -56,7 +63,9 @@
 			{:else if displays.primary == 'date'}
 				{date}
 			{:else if displays.primary == 'datetime'}
-				{datetime}
+				{time}
+				<br />
+				{date}
 			{/if}
 		</h1>
 	{/if}
@@ -69,7 +78,9 @@
 			{:else if displays.secondary == 'date'}
 				{date}
 			{:else if displays.secondary == 'datetime'}
-				{datetime}
+				{time}
+				<br />
+				{date}
 			{/if}
 		</h2>
 	{/if}

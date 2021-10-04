@@ -25,22 +25,12 @@ export async function handle({ request, resolve }) {
 				battery: false
 			},
 
-			// https://tc39.es/ecma402/#table-datetimeformat-components
-			dateSettings: {
-				weekday: 'short',
-				// year: 'numeric',
-				month: 'long',
-				day: 'numeric'
-			},
-			timeSettings: {
-				hour: 'numeric',
-				minute: 'numeric',
-				second: 'numeric'
-				// fractionalSecondDigits: '1',
-			},
-			dateTimeSettings: {
-				// hour12: true
-			}
+			timeFormat: 'hh:mm:ss',
+			timeFormatCustom: 'hh:mm:ss',
+			dateFormat: 'ddd, MMM D YYYY',
+			dateFormatCustom: 'ddd, MMM D YYYY',
+			datetimeFormat: 'hh:mm:ss ddd, MMM D YYYY',
+			datetimeFormatCustom: 'hh:mm:ss ddd, MMM D YYYY'
 		},
 		darkMode: null, // default to null so the initial check to toggle dark mode doesn't occur
 		doubleclickFullscreen: false,
