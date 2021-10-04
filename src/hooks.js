@@ -32,7 +32,7 @@ export async function handle({ request, resolve }) {
 			datetimeFormat: 'hh:mm:ss ddd, MMM D YYYY',
 			datetimeFormatCustom: 'hh:mm:ss ddd, MMM D YYYY',
 
-			datetimeLocale: 'en-US'
+			datetimeLocale: 'en'
 		},
 		darkMode: null, // default to null so the initial check to toggle dark mode doesn't occur
 		doubleclickFullscreen: false,

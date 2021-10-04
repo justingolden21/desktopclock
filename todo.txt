@@ -1,14 +1,20 @@
 main todo:
+!!! MODAL TABLE FORMAT DATETIME OPTIONS
 fix sw, manifest, pwa, install btn
 time format support
 get linting/formatting on all devices, update readme with instructions for new device
+
+auto detect locale (datetime locale)
 
 fix margin on primary display date/time/datetime, too large/overflow
 formatting options for date/time/datetime, should also support short or long names for month, weekday, other locales
 
 show cast btn only if device supports it
 
+next:
 timezones
+local storage settings
+test casting api
 
 wake lock
 https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API

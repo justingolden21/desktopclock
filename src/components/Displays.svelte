@@ -4,7 +4,8 @@
 	import { onMount } from 'svelte';
 	import BatteryIcon from './BatteryIcon.svelte';
 	import dayjs from 'dayjs';
-	import 'dayjs/locale/es';
+
+	import './all_locales.js';
 
 	$: clockSettings = $session.settings.clock;
 

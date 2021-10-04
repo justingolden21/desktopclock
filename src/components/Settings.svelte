@@ -44,6 +44,108 @@
 		'Yatra One'
 	].sort();
 
+	const locales = [
+		'af',
+		'am',
+		'ar',
+		'az',
+		'be',
+		'bg',
+		'bi',
+		'bm',
+		'bn',
+		'bo',
+		'br',
+		'bs',
+		'ca',
+		'cs',
+		'cv',
+		'cy',
+		'da',
+		'de',
+		'dv',
+		'el',
+		'en',
+		'eo',
+		'es',
+		'eu',
+		'fa',
+		'fi',
+		'fo',
+		'fr',
+		'fy',
+		'ga',
+		'gd',
+		'gl',
+		'gu',
+		'he',
+		'hi',
+		'hr',
+		'ht',
+		'hu',
+		'id',
+		'is',
+		'it',
+		'ja',
+		'jv',
+		'ka',
+		'kk',
+		'km',
+		'kn',
+		'ko',
+		'ku',
+		'ky',
+		'lb',
+		'lo',
+		'lt',
+		'lv',
+		'me',
+		'mi',
+		'mk',
+		'ml',
+		'mn',
+		'mr',
+		'ms',
+		'mt',
+		'my',
+		'nb',
+		'ne',
+		'nl',
+		'nn',
+		'pl',
+		'pt',
+		'ro',
+		'ru',
+		'rw',
+		'sd',
+		'se',
+		'si',
+		'sk',
+		'sl',
+		'sq',
+		'sr',
+		'ss',
+		'sv',
+		'sw',
+		'ta',
+		'te',
+		'tet',
+		'tg',
+		'th',
+		'tk',
+		'tlh',
+		'tr',
+		'tzl',
+		'tzm',
+		'uk',
+		'ur',
+		'uz',
+		'vi',
+		'yo',
+		'zh',
+		'et'
+	];
+
 	let currentDetail = 0;
 
 	let dateInterval;
@@ -549,7 +651,11 @@ TODO communicate with display component to update display reactively -->
 							<label for="date-format-select">Date Format:</label>
 							<select id="date-format-select" bind:value={$session.settings.clock.dateFormat}>
 								{#each ['MMM D', 'MMM D YYYY', 'ddd, MMM D', 'ddd, MMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
-									<option value={dateFormat}>{new dayjs(now).format(dateFormat)}</option>
+									<option value={dateFormat}
+										>{new dayjs(now)
+											.locale($session.settings.clock.datetimeLocale)
+											.format(dateFormat)}</option
+									>
 								{/each}
 								<option value="custom">Custom</option>
 							</select>
@@ -557,14 +663,16 @@ TODO communicate with display component to update display reactively -->
 								<input type="text" bind:value={$session.settings.clock.dateFormatCustom} />
 								<p>
 									<b>Preview:</b>
-									{new dayjs(now).format($session.settings.clock.dateFormatCustom)}
+									{new dayjs(now)
+										.locale($session.settings.clock.datetimeLocale)
+										.format($session.settings.clock.dateFormatCustom)}
 								</p>
 							{/if}
 						</div>
 
 						<label for="datetime-locale-select">Datetime Locale:</label>
 						<select id="datetime-locale-select" bind:value={$session.settings.clock.datetimeLocale}>
-							{#each ['en-US', 'es'] as locale}
+							{#each locales as locale}
 								<option value={locale}>{locale}</option>
 							{/each}
 						</select>
