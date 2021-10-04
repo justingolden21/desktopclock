@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import BatteryIcon from './BatteryIcon.svelte';
 	import dayjs from 'dayjs';
+	import 'dayjs/locale/es';
 
 	$: clockSettings = $session.settings.clock;
 
@@ -22,13 +23,9 @@
 
 	let now = new Date();
 
-	// TODO
-	let lang = 'en';
-	let options = {};
-
 	// these update automatically with `now`
-	$: time = new dayjs(now).format(timeFormat);
-	$: date = new dayjs(now).format(dateFormat);
+	$: time = new dayjs(now).locale(clockSettings.datetimeLocale).format(timeFormat);
+	$: date = new dayjs(now).locale(clockSettings.datetimeLocale).format(dateFormat);
 
 	// TODO: starts an event listener each time displays.svelte is mounted, can add up
 	// should unmount the event listener, look into svelte window access navigator

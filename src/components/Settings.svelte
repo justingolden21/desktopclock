@@ -52,7 +52,6 @@
 	onMount(() => {
 		dateInterval = setInterval(() => {
 			now = new Date();
-			console.log('setting date : )');
 		}, 1000);
 	});
 	onDestroy(() => clearInterval(dateInterval));
@@ -563,7 +562,15 @@ TODO communicate with display component to update display reactively -->
 							{/if}
 						</div>
 
-						<div class="block mb-2">
+						<label for="datetime-locale-select">Datetime Locale:</label>
+						<select id="datetime-locale-select" bind:value={$session.settings.clock.datetimeLocale}>
+							{#each ['en-US', 'es'] as locale}
+								<option value={locale}>{locale}</option>
+							{/each}
+						</select>
+
+						<!-- TODO -->
+						<!-- <div class="block mb-2">
 							<label for="locale-select">Locale:</label>
 							<select disabled id="locale-select">
 								<option> EN-US Los Angeles, CA, USA </option>
@@ -573,7 +580,7 @@ TODO communicate with display component to update display reactively -->
 							id="auto-locale-toggle"
 							checked={true}
 							labelText="Automatically Detect Locale"
-						/>
+						/> -->
 					</div>
 				</div>
 			</div>
