@@ -10,11 +10,12 @@
 
 <script>
 	import { session } from '$app/stores';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
 	onMount(setupCasting);
 
 	import TailwindColors from 'tailwindcss/colors.js';
+	import dayjs from 'dayjs';
 
 	import { setupCasting, castClock } from './cast.js';
 
@@ -44,6 +45,17 @@
 	].sort();
 
 	let currentDetail = 0;
+
+	let dateInterval;
+	let now = new Date();
+
+	onMount(() => {
+		dateInterval = setInterval(() => {
+			now = new Date();
+			console.log('setting date : )');
+		}, 1000);
+	});
+	onDestroy(() => clearInterval(dateInterval));
 </script>
 
 <!-- TODO settings modal content synced with settings
@@ -521,12 +533,16 @@ TODO communicate with display component to update display reactively -->
 							<label for="time-format-select">Time Format:</label>
 							<select id="time-format-select" bind:value={$session.settings.clock.timeFormat}>
 								{#each ['HH:mm', 'HH:mm:ss', 'hh:mm', 'hh:mm:ss', 'hh:mm A', 'hh:mm:ss A', 'mm:ss'] as timeFormat}
-									<option value={timeFormat}>{timeFormat}</option>
+									<option value={timeFormat}>{new dayjs(now).format(timeFormat)}</option>
 								{/each}
 								<option value="custom">Custom</option>
 							</select>
 							{#if $session.settings.clock.timeFormat === 'custom'}
 								<input type="text" bind:value={$session.settings.clock.timeFormatCustom} />
+								<p>
+									<b>Preview:</b>
+									{new dayjs(now).format($session.settings.clock.timeFormatCustom)}
+								</p>
 							{/if}
 						</div>
 
@@ -534,12 +550,16 @@ TODO communicate with display component to update display reactively -->
 							<label for="date-format-select">Date Format:</label>
 							<select id="date-format-select" bind:value={$session.settings.clock.dateFormat}>
 								{#each ['MMM D', 'MMM D YYYY', 'ddd, MMM D', 'ddd, MMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
-									<option value={dateFormat}>{dateFormat}</option>
+									<option value={dateFormat}>{new dayjs(now).format(dateFormat)}</option>
 								{/each}
 								<option value="custom">Custom</option>
 							</select>
 							{#if $session.settings.clock.dateFormat === 'custom'}
 								<input type="text" bind:value={$session.settings.clock.dateFormatCustom} />
+								<p>
+									<b>Preview:</b>
+									{new dayjs(now).format($session.settings.clock.dateFormatCustom)}
+								</p>
 							{/if}
 						</div>
 

@@ -102,6 +102,7 @@ nav links are underline despite styless.css
 performance:
 
 maybe:
+titles for icon buttons, maybe tooltips, should be translated
 give them option to swap order of date and time?
 nav: click away or esc to close nav?
 different face appearance for night mode settings
