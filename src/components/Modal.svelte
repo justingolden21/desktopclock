@@ -45,7 +45,7 @@
 	}
 	.modal-content {
 		@apply border-2 border-gray-300 bg-gray-100 p-2 xs:p-8 xs:pt-4 relative m-auto w-full md:w-3/4 bg-opacity-75;
-		backdrop-filter: blur(2px);
+		backdrop-filter: blur(4px);
 		animation: animateTop 0.25s;
 		-webkit-animation: animateTop 0.25s;
 	}
