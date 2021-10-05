@@ -19,7 +19,12 @@ make it load cleaner
 fix details open/close
 default time format with timezone?
 simple ui for datetime locale, language, and timezone, with auto detect and reset options
+move this branch to prod
 
+future:
+timezone input with autocomplete select
+primary or secondary input: timezone (name, location, utc... pick which ones), greeting ("good morning/afternoon/evening/night, {name}!"), custom (custom text)
+test presentation, share, and pwa
 
 wake lock
 https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API
@@ -120,6 +125,7 @@ nav: click away or esc to close nav?
 different face appearance for night mode settings
 more reset btns accross settings tabs/pannels
 documents.fonts.entries() and give user choice of any font on their system
+binary clock option? Two or three rows for hrs, mins, sec
 
 notes:
 changing the face fill to transparent (-1) will disable the shadow fill and shadow input
@@ -145,3 +151,14 @@ weather api?
 
 links:
 https://tc39.es/ecma402/#table-datetimeformat-components
+
+misc:
+Stopwatch has previous lap as circle and tick marks for laps before, green means before, yellow means after, red means after + at least 1. Can configure number of previous laps to display, default 5, and if the opacity goes down for each previous lap.
+Show lap number, lap time and cumulative time, show small bar / graph on side (optional) and can name them, store notes, store date, and have folders for them.
+Worldclock: analog clock with digital time below, then date below, then utc +- below
+Above is timezone drop-down and name of timezone/time (custom text input)
+Top row has icons on left for drag, move, and right for delete, edit.
+Button to delete all worldclocks, options to open presets (lists of worldclocks for different uses) can be organized into tabs maybe?
+Day, night theme but also theme that changes sky background color based on time of day (can show sunrise and sunset). Function that takes in time (ms since epoch) and location (long/lat) and spit out next sunrise and sunset? Offline?
+More prominent share prompt somewhere?
+Trailer video with bouncy pop music that shows off lots of features quickly
