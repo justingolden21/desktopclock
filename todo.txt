@@ -27,6 +27,10 @@ fix details open/close
 default time format with timezone?
 simple ui for datetime locale, language, and timezone, with auto detect and reset options
 move this branch to prod
+fix theme btn display
+
+preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
+ability to have multiple timers/countdowns in 3hrs/3years, name them, delete them, share them (url params)
 
 future:
 timezone input with autocomplete select
