@@ -15,6 +15,7 @@
 
 <svelte:window
 	on:keydown={(e) => {
+		// TODO: only hide the topmost modal?
 		if (e.key == 'Escape') {
 			hide();
 		}

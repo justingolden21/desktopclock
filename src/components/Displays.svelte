@@ -1,10 +1,10 @@
 <script>
-	// TODO: implement date and datetime also. TODO: add modal from dayjs documentation table
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
 	import BatteryIcon from './BatteryIcon.svelte';
 	import dayjs from 'dayjs';
 
+	// approx 163kb (comment out and compare build sizes in network tab)
 	import './all_locales.js';
 
 	$: clockSettings = $session.settings.clock;

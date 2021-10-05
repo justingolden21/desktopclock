@@ -15,6 +15,10 @@ next:
 timezones
 local storage settings
 test casting api
+keyboard shortcuts
+make it load cleaner
+fix details open/close
+
 
 wake lock
 https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API

@@ -237,6 +237,23 @@ nav and modal have same bg colors, opacities, and shadows
 			duration-500
 			ease-linear;
 	}
+
+	table {
+		@apply w-full my-4;
+	}
+	table th,
+	table td {
+		@apply p-1 px-2 text-gray-800;
+	}
+	th {
+		@apply bg-gray-200 font-bold;
+	}
+	tr:nth-child(even) {
+		@apply bg-gray-200;
+	}
+	tr:nth-child(odd) {
+		@apply bg-gray-100;
+	}
 }
 
 @media (min-width: 640px) {

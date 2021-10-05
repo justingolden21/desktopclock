@@ -2,6 +2,8 @@
 	export let name;
 	export let focusable = false;
 
+	// https://heroicons.dev/
+	// other clock icons made by Justin Golden
 	const icons = [
 		{
 			name: 'clock',
@@ -52,6 +54,10 @@
 		{
 			name: 'battery',
 			svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 5h-2a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-12a2 2 0 00-2-2h-2a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>`
+		},
+		{
+			name: 'table',
+			svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>`
 		},
 		{
 			name: 'download',
