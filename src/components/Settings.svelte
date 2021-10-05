@@ -6,6 +6,17 @@
 			Screenfull.toggle();
 		}
 	}
+
+	export function openWindow(url, width = 400, height = 400, left = 20, top = 20) {
+		// https://www.w3schools.com/jsref/met_win_open.asp
+		let win = window.open(
+			url,
+			'_blank',
+			`width=${width},height=${height},left=${left},top=${top},titlebar=no,toolbar=no,location=no,status=no`,
+			false
+		);
+		win.focus();
+	}
 </script>
 
 <script>
@@ -149,6 +160,8 @@
 
 	let currentDetail = 0;
 
+	// --------
+
 	let dateInterval;
 	let now = new Date();
 
@@ -158,6 +171,8 @@
 		}, 1000);
 	});
 	onDestroy(() => clearInterval(dateInterval));
+
+	// --------
 
 	let datetimeFormatModal;
 </script>
@@ -311,7 +326,8 @@ TODO communicate with display component to update display reactively -->
 		<button class="btn">Upload Settings</button>
 
 		<h3>App</h3>
-		<button class="btn">Open Another Clock</button>
+		<button class="btn" on:click={() => openWindow(window.location.href)}>Open Another Clock</button
+		>
 		<button class="btn">Share</button>
 		<button class="btn">Send Feedback</button>
 		<button class="btn">Pop Out</button>
