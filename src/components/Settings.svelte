@@ -688,7 +688,8 @@ TODO communicate with display component to update display reactively -->
 							{/each}
 						</select>
 
-						<button class="btn" on:click={datetimeFormatModal.show()}>Custom Formatting Help</button
+						<button class="btn" on:click={datetimeFormatModal.show()}
+							>Custom Formatting Reference</button
 						>
 						<Modal bind:this={datetimeFormatModal} title="Datetime Formatting" icon="table">
 							<!-- https://day.js.org/docs/en/display/format -->
