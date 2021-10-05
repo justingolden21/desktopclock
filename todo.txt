@@ -7,7 +7,14 @@ auto detect locale (datetime locale)
 fix margin on primary display date/time/datetime, too large/overflow
 formatting options for date/time/datetime, should also support short or long names for month, weekday, other locales
 
-show cast btn only if device supports it
+show cast btn only if device supports it (navigator.presentation ?)
+
+pinning cast button: https://support.google.com/chromecast/answer/7249696
+cast a tab: https://support.google.com/chromecast/answer/3228332
+add link to faqs/help
+
+btns for reset some settings, btn for reset all
+
 
 next:
 analog settings aren't populating select correctly
