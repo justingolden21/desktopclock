@@ -191,18 +191,21 @@ TODO communicate with display component to update display reactively -->
 				</div>
 				<div class="block mb-2">
 					<button
-						class="dark-btn icon-btn"
+						class="dark-btn btn"
 						on:click={() => ($session.settings.darkMode = !$session.settings.darkMode)}
 					>
-						<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
+						<Icon name="moon" class="inline w-6 h-6 md:w-8 md:h-8" />
+						Dark
 					</button>
 
-					<button class="cast-btn icon-btn" on:click={castClock}>
-						<Icon name="external-link" class="w-6 h-6 md:w-8 md:h-8" />
+					<button class="cast-btn btn" on:click={castClock}>
+						<Icon name="external-link" class="inline w-6 h-6 md:w-8 md:h-8" />
+						Cast
 					</button>
 
-					<button class="fullscreen-btn icon-btn" on:click={toggleFullscreen}>
-						<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
+					<button class="fullscreen-btn btn" on:click={toggleFullscreen}>
+						<Icon name="fullscreen" class="inline w-6 h-6 md:w-8 md:h-8" />
+						Fullscreen
 					</button>
 				</div>
 
@@ -241,7 +244,7 @@ TODO communicate with display component to update display reactively -->
 				<label for="font-family-select">Font Family:</label>
 				<select id="font-family-select" bind:value={$session.settings.fontFamily}>
 					{#each fontFamilies as fontFamily}
-						<option value={fontFamily}>{fontFamily}</option>
+						<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
 					{/each}
 				</select>
 			</div>

@@ -13,7 +13,12 @@
 </script>
 
 <header class="flex-1 relative">
-	<button id="menu-btn" class="icon-btn float-left md:hidden" on:click={() => (navOpen = !navOpen)}>
+	<button
+		id="menu-btn"
+		class="icon-btn float-left md:hidden"
+		on:click={() => (navOpen = !navOpen)}
+		aria-label="Menu"
+	>
 		<Icon name={navOpen ? 'close' : 'menu'} class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 
@@ -22,6 +27,7 @@
 		class="dark-btn icon-btn float-left"
 		class:hidden={!$session.settings.showDarkButton}
 		on:click={() => ($session.settings.darkMode = !$session.settings.darkMode)}
+		aria-label="Toggle Dark Mode"
 	>
 		<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
@@ -41,6 +47,7 @@
 		class="cast-btn icon-btn float-right"
 		class:hidden={!$session.settings.showCastButton}
 		on:click={castClock}
+		aria-label="Cast / Present Clock"
 	>
 		<Icon name="external-link" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
@@ -50,6 +57,7 @@
 		class="fullscreen-btn icon-btn float-right"
 		class:hidden={!$session.settings.showFullscreenButton}
 		on:click={toggleFullscreen}
+		aria-label="Toggle Fullscreen"
 	>
 		<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
