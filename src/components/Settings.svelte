@@ -676,7 +676,7 @@ TODO communicate with display component to update display reactively -->
 						<div class="block mb-2">
 							<label for="date-format-select">Date Format:</label>
 							<select id="date-format-select" bind:value={$session.settings.clock.dateFormat}>
-								{#each ['MMM D', 'MMM D YYYY', 'ddd, MMM D', 'ddd, MMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
+								{#each ['MMM D', 'MMM D YYYY', 'ddd, MMMM D', 'ddd, MMMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
 									<option value={dateFormat}
 										>{new dayjs(now)
 											.locale($session.settings.clock.datetimeLocale)

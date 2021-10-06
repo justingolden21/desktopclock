@@ -47,7 +47,7 @@
 	h1,
 	h2,
 	h3 {
-		@apply font-normal tracking-widest xs:text-lg sm:text-xl md:text-2xl;
+		@apply font-normal tracking-widest xs:text-lg sm:text-xl md:text-2xl mt-4 mb-2;
 	}
 	p {
 		@apply leading-relaxed;
@@ -74,11 +74,13 @@ nav and modal have same bg colors, opacities, and shadows
 	nav a,
 	nav span {
 		@apply block
-					p-4
-					hover:bg-gray-200
-					hover:bg-opacity-50
-					cursor-pointer
-					tracking-widest;
+		font-bold
+		text-gray-700
+		p-4
+		hover:bg-gray-200
+		hover:bg-opacity-50
+		cursor-pointer
+		tracking-widest;
 		/* transition: all 0.25s linear; */
 	}
 	nav a:hover,
@@ -93,6 +95,10 @@ nav and modal have same bg colors, opacities, and shadows
 	body.dark nav {
 		@apply bg-gray-700 bg-opacity-75;
 		/* box-shadow: 4px 0px 8px #334155; /*gray-700*/
+	}
+	body.dark nav a,
+	body.dark nav span {
+		@apply text-gray-300;
 	}
 	body.dark nav a:hover,
 	body.dark nav a.active,

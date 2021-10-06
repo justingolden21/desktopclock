@@ -27,10 +27,10 @@ export async function handle({ request, resolve }) {
 
 			timeFormat: 'hh:mm:ss',
 			timeFormatCustom: 'hh:mm:ss',
-			dateFormat: 'ddd, MMM D YYYY',
-			dateFormatCustom: 'ddd, MMM D YYYY',
-			datetimeFormat: 'hh:mm:ss ddd, MMM D YYYY',
-			datetimeFormatCustom: 'hh:mm:ss ddd, MMM D YYYY',
+			dateFormat: 'ddd, MMMM D',
+			dateFormatCustom: 'ddd, MMMM D',
+			datetimeFormat: 'hh:mm:ss ddd, MMMM D',
+			datetimeFormatCustom: 'hh:mm:ss ddd, MMMM D',
 
 			datetimeLocale: 'en'
 		},
