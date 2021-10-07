@@ -2,6 +2,8 @@ main todo:
 fix sw, manifest, pwa, install btn
 get linting/formatting on all devices, update readme with instructions for new device
 
+fix bug where changing display toggles night theme
+
 auto detect locale (datetime locale)
 
 fix margin on primary display date/time/datetime, too large/overflow
@@ -24,10 +26,14 @@ test casting api
 keyboard shortcuts
 make it load cleaner
 fix details open/close
+make clock leftmost tab in settings?
+add more icons to settings?
 default time format with timezone?
 simple ui for datetime locale, language, and timezone, with auto detect and reset options
 move this branch to prod
 fix theme btn display
+check meta tags, make sure it works on google,fb,twitter, etc, maybe add similar to sharethis?
+https://metatags.io/
 
 preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
 ability to have multiple timers/countdowns in 3hrs/3years, name them, delete them, share them (url params)
@@ -129,6 +135,7 @@ nav links are underline despite styless.css
 performance:
 
 maybe:
+ability to turn off setting to live preview time format in dropdown (advanced setting?)
 font weight options? slider?
 titles for icon buttons, maybe tooltips, should be translated
 give them option to swap order of date and time?
@@ -162,6 +169,11 @@ weather api?
 
 links:
 https://tc39.es/ecma402/#table-datetimeformat-components
+
+https://deviceshots.com/
+
+future maybe:
+support smart watches, android auto, smart tv, etc, mobile port
 
 misc:
 Stopwatch has previous lap as circle and tick marks for laps before, green means before, yellow means after, red means after + at least 1. Can configure number of previous laps to display, default 5, and if the opacity goes down for each previous lap.
