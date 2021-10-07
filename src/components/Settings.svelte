@@ -35,6 +35,7 @@
 	import { Tabs, TabList, TabPanel, Tab } from './tabs.js';
 	import ThemeButtons from './ThemeButtons.svelte';
 	import Modal from './Modal.svelte';
+	import Accordion from './Accordion.svelte';
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
 
@@ -190,80 +191,69 @@ TODO communicate with display component to update display reactively -->
 
 	<!-- General -->
 	<TabPanel>
-		<div class="details">
-			<p
-				class="summary"
-				on:click={() => {
-					if (currentDetail == 0) currentDetail = -1;
-					else currentDetail = 0;
-				}}
-			>
-				Appearance
-			</p>
-			<div class="details-content" class:open={currentDetail === 0}>
-				<div class="mb-2">
-					<ThemeButtons />
-				</div>
-				<div class="block mb-2">
-					<button
-						class="dark-btn btn"
-						on:click={() => ($session.settings.darkMode = !$session.settings.darkMode)}
-					>
-						<Icon name="moon" class="inline w-6 h-6 md:w-8 md:h-8" />
-						Dark
-					</button>
-
-					<button class="cast-btn btn" on:click={castClock}>
-						<Icon name="external-link" class="inline w-6 h-6 md:w-8 md:h-8" />
-						Cast
-					</button>
-
-					<button class="fullscreen-btn btn" on:click={toggleFullscreen}>
-						<Icon name="fullscreen" class="inline w-6 h-6 md:w-8 md:h-8" />
-						Fullscreen
-					</button>
-				</div>
-
-				<Toggle
-					id="show-dark-btn-toggle"
-					bind:checked={$session.settings.showDarkButton}
-					labelText="Show dark button"
-				/>
-
-				<br />
-
-				<Toggle
-					id="show-cast-btn-toggle"
-					bind:checked={$session.settings.showCastButton}
-					labelText="Show cast button"
-				/>
-
-				<br />
-
-				<Toggle
-					id="show-fullscreen-btn-toggle"
-					bind:checked={$session.settings.showFullscreenButton}
-					labelText="Show fullscreen button"
-				/>
-
-				<br />
-
-				<Toggle
-					id="show-theme-btn-toggle"
-					bind:checked={$session.settings.showThemeButtons}
-					labelText="Show theme buttons"
-				/>
-
-				<br />
-
-				<label for="font-family-select">Font Family:</label>
-				<select id="font-family-select" bind:value={$session.settings.fontFamily}>
-					{#each fontFamilies as fontFamily}
-						<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
-					{/each}
-				</select>
+		<Accordion>
+			<div class="mb-2">
+				<ThemeButtons />
 			</div>
-		</div>
+			<div class="block mb-2">
+				<button
+					class="dark-btn btn"
+					on:click={() => ($session.settings.darkMode = !$session.settings.darkMode)}
+				>
+					<Icon name="moon" class="inline w-6 h-6 md:w-8 md:h-8" />
+					Dark
+				</button>
+
+				<button class="cast-btn btn" on:click={castClock}>
+					<Icon name="external-link" class="inline w-6 h-6 md:w-8 md:h-8" />
+					Cast
+				</button>
+
+				<button class="fullscreen-btn btn" on:click={toggleFullscreen}>
+					<Icon name="fullscreen" class="inline w-6 h-6 md:w-8 md:h-8" />
+					Fullscreen
+				</button>
+			</div>
+
+			<Toggle
+				id="show-dark-btn-toggle"
+				bind:checked={$session.settings.showDarkButton}
+				labelText="Show dark button"
+			/>
+
+			<br />
+
+			<Toggle
+				id="show-cast-btn-toggle"
+				bind:checked={$session.settings.showCastButton}
+				labelText="Show cast button"
+			/>
+
+			<br />
+
+			<Toggle
+				id="show-fullscreen-btn-toggle"
+				bind:checked={$session.settings.showFullscreenButton}
+				labelText="Show fullscreen button"
+			/>
+
+			<br />
+
+			<Toggle
+				id="show-theme-btn-toggle"
+				bind:checked={$session.settings.showThemeButtons}
+				labelText="Show theme buttons"
+			/>
+
+			<br />
+
+			<label for="font-family-select">Font Family:</label>
+			<select id="font-family-select" bind:value={$session.settings.fontFamily}>
+				{#each fontFamilies as fontFamily}
+					<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
+				{/each}
+			</select>
+		</Accordion>
 		<div class="details">
 			<p
 				class="summary"
