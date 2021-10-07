@@ -1,4 +1,71 @@
-todo:
+main todo:
+fix sw, manifest, pwa, install btn
+get linting/formatting on all devices, update readme with instructions for new device
+
+auto detect locale (datetime locale)
+
+fix margin on primary display date/time/datetime, too large/overflow
+formatting options for date/time/datetime, should also support short or long names for month, weekday, other locales
+
+show cast btn only if device supports it (navigator.presentation ?)
+
+pinning cast button: https://support.google.com/chromecast/answer/7249696
+cast a tab: https://support.google.com/chromecast/answer/3228332
+add link to faqs/help
+
+btns for reset some settings, btn for reset all
+
+
+next:
+analog settings aren't populating select correctly
+timezones
+local storage settings
+test casting api
+keyboard shortcuts
+make it load cleaner
+fix details open/close
+default time format with timezone?
+simple ui for datetime locale, language, and timezone, with auto detect and reset options
+move this branch to prod
+fix theme btn display
+
+preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
+ability to have multiple timers/countdowns in 3hrs/3years, name them, delete them, share them (url params)
+
+future:
+timezone input with autocomplete select
+primary or secondary input: timezone (name, location, utc... pick which ones), greeting ("good morning/afternoon/evening/night, {name}!"), custom (custom text)
+test presentation, share, and pwa
+
+wake lock
+https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API
+https://web.dev/wake-lock/
+https://wake-lock-demo.glitch.me/
+
+presentation API
+https://developer.mozilla.org/en-US/docs/Web/API/Navigator/presentation
+https://developer.mozilla.org/en-US/docs/Web/API/Presentation_API
+https://developers.google.com/web/updates/2018/04/present-web-pages-to-secondary-attached-displays#samples_and_demos
+https://googlechrome.github.io/samples/presentation-api/
+icon ideas: present, tv, cast, chromecast, projector, arrow, external link
+
+themes:
+reset display settings/theme btn
+other theme defaults, save theme profiles
+export and share themes
+
+dev setup:
+extrapolate battery component, analog clock
+
+ux:
+add + and - or > and v icons to accordion/details
+monospace/fix kerning for numbers in time so they do not shift
+- https://stackoverflow.com/questions/10149330/force-non-monospace-font-into-fixed-width-using-css
+! make page load less ugly
+
+reset settings btn, save settings to browser local storage
+let user chose primary and secondary color/palette, also chose specific color for hands, ticks, etc
+
 fix time off on awake bug
 pwa install btn if not installed
 add modal component, add settings modal with layout
@@ -8,21 +75,49 @@ implement settings
 add animate.css
 animated icons / icon animations
 add tabs and accordion components, toggle, toast
-use svelte and parcel
 add fonts offline
 change increment script from python to node
 store fonts offline
 
+more settings:
+tick hands
+flip clock for digital time
+font choices
+save time history in stopwatch
+install pwa prompt button
+show battery, internet strength, weather, link to spotify options
+modal for steps to add to taskbar, apps, mobile, etc for each os with details/summary
+
 later:
-open another clock btn
 store settings in localstorage
+music playback options secondary display with spotify (p/p, ff, rw, song and artist name)
+displays.js: implement format options, locale options
+always on top mode is not possible. write about this in FAQs or help, and then mention ways of doing this on different operating systems.
 
 bugs:
+home theme buttons do not function
 pinpoint seconds in analog/digital time
 pwa auto update (fixed?)
 dbl click on btn shouldnt toggle fullscreen
+after changing night mode inside the settings modal, then closing and opening the modal, the toggle switches inside the same section toggle night mode...
+night mode error page is not readable
+
+not bugs (hydration issues, fixed in build/preview)
+install btn disappears when changing to night mode?
+
+needs testing:
+casting
+pwa, auto update, offline
+
+features:
+use system default for night mode (dropdown with night off, on, or system)
 
 visual bugs:
+close icon in modals not showing
+battery fill when charging in night mode doesn't turn unfilled part dark (transparent)
+
+development bugs:
+fix auto format for hooks.js
 
 tmp bug fixes:
 nav links are underline despite styless.css
@@ -34,5 +129,47 @@ nav links are underline despite styless.css
 performance:
 
 maybe:
+font weight options? slider?
+titles for icon buttons, maybe tooltips, should be translated
+give them option to swap order of date and time?
 nav: click away or esc to close nav?
+different face appearance for night mode settings
+more reset btns accross settings tabs/pannels
+documents.fonts.entries() and give user choice of any font on their system
+binary clock option? Two or three rows for hrs, mins, sec
 
+notes:
+changing the face fill to transparent (-1) will disable the shadow fill and shadow input
+node -v is 14.17.5
+
+get user geolocation (browser asks them)
+https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#watching_the_current_position
+const watchID = navigator.geolocation.watchPosition((position) => {
+  console.log(position.coords.latitude, position.coords.longitude);
+});
+
+use picture in picture with clock as video element to keep always on top / its own window on pc or phone?
+https://css-tricks.com/an-introduction-to-the-picture-in-picture-web-api/
+https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API
+
+alarm clock using empty audio element that replaces it at right time and works if user navigates away? notification api for timer? ask for test notification first, can go to settings to change
+
+flipclock like https://onlineclock.net/flip/ ?
+
+more later:
+integrate with spotify for media controls?
+weather api?
+
+links:
+https://tc39.es/ecma402/#table-datetimeformat-components
+
+misc:
+Stopwatch has previous lap as circle and tick marks for laps before, green means before, yellow means after, red means after + at least 1. Can configure number of previous laps to display, default 5, and if the opacity goes down for each previous lap.
+Show lap number, lap time and cumulative time, show small bar / graph on side (optional) and can name them, store notes, store date, and have folders for them.
+Worldclock: analog clock with digital time below, then date below, then utc +- below
+Above is timezone drop-down and name of timezone/time (custom text input)
+Top row has icons on left for drag, move, and right for delete, edit.
+Button to delete all worldclocks, options to open presets (lists of worldclocks for different uses) can be organized into tabs maybe?
+Day, night theme but also theme that changes sky background color based on time of day (can show sunrise and sunset). Function that takes in time (ms since epoch) and location (long/lat) and spit out next sunrise and sunset? Offline?
+More prominent share prompt somewhere?
+Trailer video with bouncy pop music that shows off lots of features quickly

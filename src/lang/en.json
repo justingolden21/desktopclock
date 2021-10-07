@@ -1,0 +1,30 @@
+{
+    "appName": "Desktop Clock",
+    "appShortName": "Desktop Clock",
+    "appDescription": "A simple, resizable and customizable clock for any device!",
+    "pageNames": {
+        "clock": "Desktop Clock",
+        "worldclock": "Worldclock",
+        "error": "Error"
+    },
+    "Doubleclick Fullscreen": "Doubleclick Fullscreen",
+
+    "Small": "Small",
+    "Medium": "Medium",
+    "Large": "Large",
+
+    "Tick Stroke Color:": "Tick Stroke Color:",
+    "Tick Width:": "Tick Width:",
+    "Tick Height:": "Tick Height:",
+
+    "Hour": "Hour",
+    "Minute": "Minute",
+    "Second": "Second",
+
+    "Hand Stroke Color:": "Hand Stroke Color:",
+    "Hand Stroke Width:": "Hand Stroke Width:",
+    "Hand Length:": "Hand Length:",
+    "Hand Back:": "Hand Back:",
+    "Hand Linecap:": "Hand Linecap:"
+
+}

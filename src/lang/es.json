@@ -1,0 +1,12 @@
+{
+    "appName": "Reloj Sencillo",
+    "appShortName": "Reloj Sencillo",
+    "appDescription": "\u00A1Un reloj ajustable, personalizable!",
+    "pageNames": {
+        "clock": "Reloj Sencillo",
+        "worldclock": "Worldclockoooooo",
+        "error": "Erroroooooo"
+    },
+    "Doubleclick Fullscreen": "Doubleclickoooo Fullscreenoooo"
+
+}
