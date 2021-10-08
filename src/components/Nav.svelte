@@ -11,7 +11,7 @@
 <nav
 	class="
         min-h-screen
-        bg-gray-50 bg-opacity-40
+		bg-gray-100 bg-opacity-40
         w-64
         p-8
         pt-20
