@@ -103,12 +103,15 @@ Full `settings.json` in VS Code for reference:
 	"security.workspace.trust.untrustedFiles": "newWindow",
 	"files.autoSave": "afterDelay"
 }
-
 ```
 
 4. Reload VS code (may be necessary to go to extensions and find an extension with a button to reload and click that)
 
 Note: Click Prettier button on bottom right of file to view console output and any errors in formatting / autosave
+
+### Other Recommended Extensions
+
+- Svelte 3 Snippets by fivethree
 
 ### Debugging
 
