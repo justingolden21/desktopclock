@@ -48,6 +48,24 @@ timezone input with autocomplete select
 primary or secondary input: timezone (name, location, utc... pick which ones), greeting ("good morning/afternoon/evening/night, {name}!"), custom (custom text)
 test presentation, share, and pwa
 
+settings ui:
+change help to about, move modal three
+application tab should use details
+settings modal should remember which tab and accordion is open
+accordions should have a > v icon for open/closed
+clock should be leftmost
+tabs could have icons
+general tab could be appearance only, renamed appearance, move shortcuts to application
+version number should be moved from applicaiton to about. way to automatically update each commit?
+btn below appearance settings to reset appearance settings
+btn below all clock settings to reset all 3 (displays, analog, digital)
+all 3 locale settings should have reset btns next to them and auto detect toggles next to them
+download and upload settings (json, human readable) should be in advanced settings? maybe not
+rename reset settings btn to reset ALL settings, maybe even add confirmation prompt?
+save old settings and add btn to undo/go back to those settings?
+some btns could use icons next to them?
+reorder/reorganize btns in application > app, rename "app"
+
 wake lock
 https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API
 https://web.dev/wake-lock/
