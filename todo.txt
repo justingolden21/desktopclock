@@ -20,6 +20,8 @@ btns for reset some settings, btn for reset all
 
 ! numbers for colors not auto filling correctly
 
+zen mode btn: top of clock settings, click to go fullscreen, no menu, no buttons, no title, just primary and secondary display
+
 
 next:
 analog settings aren't populating select correctly
@@ -50,6 +52,8 @@ future:
 timezone input with autocomplete select
 primary or secondary input: timezone (name, location, utc... pick which ones), greeting ("good morning/afternoon/evening/night, {name}!"), custom (custom text)
 test presentation, share, and pwa
+calendar page
+flutter mobile apps, port to watch and tv
 
 settings ui:
 change help to about, move modal three
