@@ -22,6 +22,7 @@ btns for reset some settings, btn for reset all
 
 zen mode btn: top of clock settings, click to go fullscreen, no menu, no buttons, no title, just primary and secondary display
 
+custom scrollbar?
 
 next:
 analog settings aren't populating select correctly
@@ -93,6 +94,8 @@ export and share themes
 
 dev setup:
 extrapolate battery component, analog clock
+
+searchable settings? (search bar on modal title area)
 
 ux:
 monospace/fix kerning for numbers in time so they do not shift

@@ -187,8 +187,8 @@
 
 	<!-- General -->
 	<TabPanel>
-		<Accordion>
-			<AccordionPanel accordionTitle="Appearance" opened="true" key="1">
+		<Accordion key="1">
+			<AccordionPanel accordionTitle="Appearance" key="1">
 				<div class="mb-2">
 					<ThemeButtons />
 				</div>
@@ -319,8 +319,8 @@
 
 	<!-- Clock -->
 	<TabPanel>
-		<Accordion>
-			<AccordionPanel accordionTitle="Displays" opened="true" key="3">
+		<Accordion key="3">
+			<AccordionPanel accordionTitle="Displays" key="3">
 				<div class="block mb-2">
 					<label for="primary-display-select">Primary Display:</label>
 					<select id="primary-display-select" bind:value={$session.settings.clock.displays.primary}>
