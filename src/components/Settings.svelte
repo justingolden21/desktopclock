@@ -610,6 +610,7 @@
 								<input
 									type="text"
 									spellcheck="false"
+									class="block my-2"
 									bind:value={$session.settings.clock.timeFormatCustom}
 								/>
 								<p>
@@ -635,6 +636,7 @@
 								<input
 									type="text"
 									spellcheck="false"
+									class="block my-2"
 									bind:value={$session.settings.clock.dateFormatCustom}
 								/>
 								<p>
