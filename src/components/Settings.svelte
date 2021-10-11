@@ -159,8 +159,6 @@
 		'et'
 	];
 
-	let currentDetail = 0;
-
 	// --------
 
 	let dateInterval;
