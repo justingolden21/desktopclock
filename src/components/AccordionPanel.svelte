@@ -14,7 +14,7 @@
 		>
 			<Icon
 				name="chevron-right"
-				class="inline w-6 h-6 {opened ? 'rotate-90' : ''}"
+				class="inline w-6 h-6 transition-transform {opened ? 'rotate-90' : ''}"
 				aria-hidden="true"
 			/>
 			{accordionTitle}
