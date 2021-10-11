@@ -8,6 +8,7 @@
 		<button
 			class="w-full text-left cursor-pointer p-2 hover:bg-gray-100 font-bold text-lg dark:hover:bg-gray-600"
 			on:click={() => (opened = !opened)}
+			aria-expanded={opened}
 		>
 			{accordionTitle}
 		</button>
