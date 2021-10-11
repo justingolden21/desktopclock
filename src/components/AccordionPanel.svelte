@@ -5,8 +5,8 @@
 	export let accordionTitle;
 </script>
 
-<div class="bg-gray-50 border-b-2 border-gray-200">
-	<div>
+<div class="details">
+	<div class="summary">
 		<button
 			class="w-full text-left cursor-pointer p-2 hover:bg-gray-100 font-bold text-lg dark:hover:bg-gray-600"
 			on:click={() => (opened = !opened)}
@@ -16,7 +16,7 @@
 			{accordionTitle}
 		</button>
 	</div>
-	<div class="p-4 hidden dark:bg-gray-700" class:open={opened}>
+	<div class="details-content" class:open={opened}>
 		<slot />
 	</div>
 </div>
@@ -25,5 +25,23 @@
 	.open {
 		@apply block;
 		animation: sweep 0.5s ease-in-out;
+	}
+
+	.details {
+		@apply bg-gray-50 border-b-2 border-gray-200;
+	}
+	.details .details-content {
+		@apply p-4 hidden dark:bg-gray-700;
+	}
+	.details-content.open {
+		@apply block;
+		animation: sweep 0.5s ease-in-out;
+	}
+
+	:global(body.dark) .details {
+		@apply bg-gray-700;
+	}
+	:global(body.dark) .summary {
+		@apply bg-gray-700 hover:bg-gray-600;
 	}
 </style>
