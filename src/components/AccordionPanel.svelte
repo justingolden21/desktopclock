@@ -22,11 +22,6 @@
 </div>
 
 <style>
-	.open {
-		@apply block;
-		animation: sweep 0.5s ease-in-out;
-	}
-
 	.details {
 		@apply bg-gray-50 border-b-2 border-gray-200;
 	}
@@ -42,6 +37,6 @@
 		@apply bg-gray-700;
 	}
 	:global(body.dark) .summary {
-		@apply bg-gray-700 hover:bg-gray-600;
+		@apply hover:bg-gray-600;
 	}
 </style>
