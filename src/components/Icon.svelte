@@ -60,6 +60,10 @@
 			svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>`
 		},
 		{
+			name: 'chevron-right',
+			svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>`
+		},
+		{
 			name: 'download',
 			svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>`
 		}
@@ -68,7 +72,7 @@
 </script>
 
 <svg
-	class={$$props.class}
+	class={$$props.class ?? ''}
 	{focusable}
 	stroke="currentColor"
 	fill="none"

@@ -35,6 +35,8 @@
 	import { Tabs, TabList, TabPanel, Tab } from './tabs.js';
 	import ThemeButtons from './ThemeButtons.svelte';
 	import Modal from './Modal.svelte';
+	import Accordion from './Accordion.svelte';
+	import AccordionPanel from './AccordionPanel.svelte';
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
 
@@ -158,8 +160,6 @@
 		'et'
 	];
 
-	let currentDetail = 0;
-
 	// --------
 
 	let dateInterval;
@@ -177,9 +177,6 @@
 	let datetimeFormatModal;
 </script>
 
-<!-- TODO settings modal content synced with settings
-TODO communicate with display component to update display reactively -->
-
 <Tabs>
 	<TabList>
 		<Tab>General</Tab>
@@ -190,17 +187,8 @@ TODO communicate with display component to update display reactively -->
 
 	<!-- General -->
 	<TabPanel>
-		<div class="details">
-			<p
-				class="summary"
-				on:click={() => {
-					if (currentDetail == 0) currentDetail = -1;
-					else currentDetail = 0;
-				}}
-			>
-				Appearance
-			</p>
-			<div class="details-content" class:open={currentDetail === 0}>
+		<Accordion>
+			<AccordionPanel accordionTitle="Appearance" opened="true" key="1">
 				<div class="mb-2">
 					<ThemeButtons />
 				</div>
@@ -262,19 +250,8 @@ TODO communicate with display component to update display reactively -->
 						<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
 					{/each}
 				</select>
-			</div>
-		</div>
-		<div class="details">
-			<p
-				class="summary"
-				on:click={() => {
-					if (currentDetail == 1) currentDetail = -1;
-					else currentDetail = 1;
-				}}
-			>
-				Shortcuts
-			</p>
-			<div class="details-content" class:open={currentDetail === 1}>
+			</AccordionPanel>
+			<AccordionPanel accordionTitle="Shortcuts" key="2">
 				<div class="block mb-2">
 					<Toggle
 						id="dbl-click-fullscreen-toggle"
@@ -287,8 +264,8 @@ TODO communicate with display component to update display reactively -->
 				</div>
 				<button class="btn">View Keyboard Shortcuts</button>
 				<button class="btn">Reset Keyboard Shortcuts</button>
-			</div>
-		</div>
+			</AccordionPanel>
+		</Accordion>
 	</TabPanel>
 
 	<!-- Application -->
@@ -342,17 +319,8 @@ TODO communicate with display component to update display reactively -->
 
 	<!-- Clock -->
 	<TabPanel>
-		<div class="details">
-			<p
-				class="summary"
-				on:click={() => {
-					if (currentDetail == 2) currentDetail = -1;
-					else currentDetail = 2;
-				}}
-			>
-				Displays
-			</p>
-			<div class="details-content" class:open={currentDetail === 2}>
+		<Accordion>
+			<AccordionPanel accordionTitle="Displays" opened="true" key="3">
 				<div class="block mb-2">
 					<label for="primary-display-select">Primary Display:</label>
 					<select id="primary-display-select" bind:value={$session.settings.clock.displays.primary}>
@@ -383,20 +351,9 @@ TODO communicate with display component to update display reactively -->
 						labelText="Show battery"
 					/>
 				</div>
-			</div>
-		</div>
-		{#if $session.settings.clock.displays.primary == 'analog'}
-			<div class="details">
-				<p
-					class="summary"
-					on:click={() => {
-						if (currentDetail == 3) currentDetail = -1;
-						else currentDetail = 3;
-					}}
-				>
-					Analog
-				</p>
-				<div class="details-content" class:open={currentDetail === 3}>
+			</AccordionPanel>
+			{#if $session.settings.clock.displays.primary == 'analog'}
+				<AccordionPanel accordionTitle="Analog" key="4">
 					<h3>Face</h3>
 
 					<div class="block mb-2">
@@ -636,21 +593,10 @@ TODO communicate with display component to update display reactively -->
 							</select>
 						</div>
 					{/each}
-				</div>
-			</div>
-		{/if}
-		{#if $session.settings.clock.displays.primary != 'analog' || $session.settings.clock.displays.secondary != 'none'}
-			<div class="details">
-				<p
-					class="summary"
-					on:click={() => {
-						if (currentDetail == 4) currentDetail = -1;
-						else currentDetail = 4;
-					}}
-				>
-					Digital Datetime
-				</p>
-				<div class="details-content" class:open={currentDetail === 4}>
+				</AccordionPanel>
+			{/if}
+			{#if $session.settings.clock.displays.primary != 'analog' || $session.settings.clock.displays.secondary != 'none'}
+				<AccordionPanel accordionTitle="Digital Datetime" key="5">
 					<div class="block mb-2">
 						<div class="block mb-2">
 							<label for="time-format-select">Time Format:</label>
@@ -768,9 +714,9 @@ TODO communicate with display component to update display reactively -->
 							labelText="Automatically Detect Locale"
 						/> -->
 					</div>
-				</div>
-			</div>
-		{/if}
+				</AccordionPanel>
+			{/if}
+		</Accordion>
 	</TabPanel>
 
 	<!-- Help -->

@@ -95,7 +95,6 @@ dev setup:
 extrapolate battery component, analog clock
 
 ux:
-add + and - or > and v icons to accordion/details
 monospace/fix kerning for numbers in time so they do not shift
 - https://stackoverflow.com/questions/10149330/force-non-monospace-font-into-fixed-width-using-css
 ! make page load less ugly
