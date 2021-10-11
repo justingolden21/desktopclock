@@ -4,11 +4,13 @@
 </script>
 
 <div class="bg-gray-50 border-b-2 border-gray-200">
-	<div
-		class="cursor-pointer p-2 hover:bg-gray-100 font-bold text-lg dark:hover:bg-gray-600"
-		on:click={() => (opened = !opened)}
-	>
-		{accordionTitle}
+	<div>
+		<button
+			class="w-full text-left cursor-pointer p-2 hover:bg-gray-100 font-bold text-lg dark:hover:bg-gray-600"
+			on:click={() => (opened = !opened)}
+		>
+			{accordionTitle}
+		</button>
 	</div>
 	<div class="p-4 hidden dark:bg-gray-700" class:open={opened}>
 		<slot />
