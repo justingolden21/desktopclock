@@ -1,26 +1,42 @@
 <script>
 	import Icon from './Icon.svelte';
 
-	export let opened = false;
+	// export let opened = false;
+
+	import { getContext } from 'svelte';
+
 	export let accordionTitle;
+	export let key;
+
+	const store = getContext('accordion');
+	$: params = {
+		open: $store.key === key
+	};
+	function handleToggle() {
+		if (params.open) {
+			store.update((s) => Object.assign(s, { key: null }));
+		} else {
+			store.update((s) => Object.assign(s, { key }));
+		}
+	}
 </script>
 
 <div class="details">
 	<div class="summary">
 		<button
 			class="w-full text-left cursor-pointer p-2 hover:bg-gray-100 font-bold text-lg dark:hover:bg-gray-600"
-			on:click={() => (opened = !opened)}
-			aria-expanded={opened}
+			on:click={handleToggle}
+			aria-expanded={params.open}
 		>
 			<Icon
 				name="chevron-right"
-				class="inline w-6 h-6 transition-transform {opened ? 'rotate-90' : ''}"
+				class="inline w-6 h-6 transition-transform {params.open ? 'rotate-90' : ''}"
 				aria-hidden="true"
 			/>
 			{accordionTitle}
 		</button>
 	</div>
-	<div class="details-content" class:open={opened}>
+	<div class="details-content" class:open={params.open}>
 		<slot />
 	</div>
 </div>
