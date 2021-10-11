@@ -12,7 +12,11 @@
 			on:click={() => (opened = !opened)}
 			aria-expanded={opened}
 		>
-			<Icon name="chevron-right" class="inline w-6 h-6 {opened ? 'rotate-90' : ''}" />
+			<Icon
+				name="chevron-right"
+				class="inline w-6 h-6 {opened ? 'rotate-90' : ''}"
+				aria-hidden="true"
+			/>
 			{accordionTitle}
 		</button>
 	</div>

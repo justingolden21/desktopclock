@@ -178,9 +178,6 @@
 	let datetimeFormatModal;
 </script>
 
-<!-- TODO settings modal content synced with settings
-TODO communicate with display component to update display reactively -->
-
 <Tabs>
 	<TabList>
 		<Tab>General</Tab>
