@@ -1,4 +1,6 @@
 <script>
+	import Icon from './Icon.svelte';
+
 	export let opened = false;
 	export let accordionTitle;
 </script>
@@ -10,6 +12,7 @@
 			on:click={() => (opened = !opened)}
 			aria-expanded={opened}
 		>
+			<Icon name="chevron-right" class="inline w-6 h-6 {opened ? 'rotate-90' : ''}" />
 			{accordionTitle}
 		</button>
 	</div>
