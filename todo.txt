@@ -24,6 +24,8 @@ zen mode btn: top of clock settings, click to go fullscreen, no menu, no buttons
 
 custom scrollbar?
 
+remember which tab and accordion are open in settings?
+
 next:
 analog settings aren't populating select correctly
 timezones
