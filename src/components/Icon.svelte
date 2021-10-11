@@ -72,7 +72,7 @@
 </script>
 
 <svg
-	class={$$props.class}
+	class={$$props.class ?? ''}
 	{focusable}
 	stroke="currentColor"
 	fill="none"
