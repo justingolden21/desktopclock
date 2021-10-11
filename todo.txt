@@ -24,6 +24,10 @@ zen mode btn: top of clock settings, click to go fullscreen, no menu, no buttons
 
 custom scrollbar?
 
+presentation api todo:
+make the receiver a page that just has the clock with no menu or buttons, and then the user can change the settings and it sends a signal to the receiver to display those changes on the tv. eventually will want to support worldclock etc
+
+
 remember which tab and accordion are open in settings?
 
 next:
