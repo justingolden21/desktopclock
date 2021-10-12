@@ -103,8 +103,6 @@ extrapolate battery component, analog clock
 
 searchable settings? (search bar on modal title area)
 
-setting to always have menu collapsed (even on large screens)
-
 setting to hide title bar after time (10s, etc) of inactivity, mouse move to make it reappear
 
 ux:

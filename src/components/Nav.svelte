@@ -1,5 +1,5 @@
 <script>
-	import { page } from '$app/stores';
+	import { page, session } from '$app/stores';
 	import Icon from './Icon.svelte';
 	import InstallButton from './InstallButton.svelte';
 
@@ -22,7 +22,7 @@
         transition-all
         duration-200
         ease-in-out
-        md:relative md:translate-x-0"
+        {$session.settings.alwaysCollapseMenu ? '' : 'md:relative md:translate-x-0'}"
 	class:-translate-x-full={!navOpen}
 >
 	<a class:active={$page.path === '/'} href="/">

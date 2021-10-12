@@ -15,7 +15,7 @@
 <header class="flex-1 relative">
 	<button
 		id="menu-btn"
-		class="icon-btn float-left md:hidden"
+		class="icon-btn float-left  {$session.settings.alwaysCollapseMenu ? '' : 'md:hidden'} "
 		on:click={() => (navOpen = !navOpen)}
 		aria-label="Menu"
 	>
@@ -24,7 +24,8 @@
 
 	<button
 		id="main-dark-btn"
-		class="dark-btn icon-btn float-left"
+		class="dark-btn icon-btn float-left left-16 
+        {$session.settings.alwaysCollapseMenu ? '' : 'md:left-4'} "
 		class:hidden={!$session.settings.showDarkButton}
 		on:click={() => ($session.settings.darkMode = !$session.settings.darkMode)}
 		aria-label="Toggle Dark Mode"

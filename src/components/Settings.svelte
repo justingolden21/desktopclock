@@ -244,6 +244,15 @@
 
 				<br />
 
+				<!-- TODO: only display option if on larger screens -->
+				<Toggle
+					id="always-collapse-menu-toggle"
+					bind:checked={$session.settings.alwaysCollapseMenu}
+					labelText="Always collapse menu"
+				/>
+
+				<br />
+
 				<label for="font-family-select">Font Family:</label>
 				<select id="font-family-select" bind:value={$session.settings.fontFamily}>
 					{#each fontFamilies as fontFamily}

@@ -40,6 +40,7 @@ export async function handle({ request, resolve }) {
 		showDarkButton: true,
 		showCastButton: false,
 		showThemeButtons: false,
+		alwaysCollapseMenu: false,
 		fontFamily: 'Jura'
 	};
 
