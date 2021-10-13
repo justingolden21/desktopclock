@@ -41,6 +41,8 @@ export async function handle({ request, resolve }) {
 		showCastButton: false,
 		showThemeButtons: false,
 		alwaysCollapseMenu: false,
+		hideTitlebarWhenIdle: false,
+		secondsUntilIdle: 2,
 		fontFamily: 'Jura'
 	};
 

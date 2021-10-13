@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import BatteryIcon from './BatteryIcon.svelte';
 	import dayjs from 'dayjs';
+	import { now } from './now.js';
 
 	// approx 163kb (comment out and compare build sizes in network tab)
 	import './all_locales.js';
@@ -22,11 +23,9 @@
 
 	let batteryLevel, batteryIsCharging;
 
-	let now = new Date();
-
-	// these update automatically with `now`
-	$: time = new dayjs(now).locale(clockSettings.datetimeLocale).format(timeFormat);
-	$: date = new dayjs(now).locale(clockSettings.datetimeLocale).format(dateFormat);
+	// these update automatically with `$now`
+	$: time = new dayjs($now).locale(clockSettings.datetimeLocale).format(timeFormat);
+	$: date = new dayjs($now).locale(clockSettings.datetimeLocale).format(dateFormat);
 
 	// TODO: starts an event listener each time displays.svelte is mounted, can add up
 	// should unmount the event listener, look into svelte window access navigator
@@ -42,14 +41,6 @@
 				batteryIsCharging = battery.charging;
 			});
 		});
-
-		const dateTimeInterval = setInterval(() => {
-			now = new Date(); // update computed properties
-		}, 1000); // browser is optimized anyway, no need to detect seconds
-
-		return () => {
-			clearInterval(dateTimeInterval);
-		};
 	});
 </script>
 

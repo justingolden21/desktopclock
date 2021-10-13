@@ -13,6 +13,7 @@
 	import Header from '../components/Header.svelte';
 	import Settings from '../components/Settings.svelte';
 	import { onMount } from 'svelte';
+	import { now } from '../components/now.js';
 
 	let settingsModal, aboutModal;
 
@@ -53,6 +54,14 @@
 		if ($session.settings.darkMode === null) {
 			$session.settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
 		}
+	});
+
+	onMount(() => {
+		const dateTimeInterval = setInterval(() => ($now = new Date()), 1000); // browser is optimized anyway, no need to detect seconds
+
+		return () => {
+			clearInterval(dateTimeInterval);
+		};
 	});
 </script>
 

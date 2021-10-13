@@ -17,11 +17,21 @@
 		);
 		win.focus();
 	}
+
+	export function validate(input) {
+		const min = input.min;
+		const max = input.max;
+		const val = input.value;
+
+		if (!val.length || isNaN(val) || val == null) return min;
+		return Math.max(Math.min(parseInt(val), max), min);
+	}
 </script>
 
 <script>
 	import { session } from '$app/stores';
 	import { onMount, onDestroy } from 'svelte';
+	import { now } from './now.js';
 
 	onMount(setupCasting);
 
@@ -37,6 +47,7 @@
 	import Modal from './Modal.svelte';
 	import Accordion from './Accordion.svelte';
 	import AccordionPanel from './AccordionPanel.svelte';
+	import { browser } from '$app/env';
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
 
@@ -160,20 +171,6 @@
 		'et'
 	];
 
-	// --------
-
-	let dateInterval;
-	let now = new Date();
-
-	onMount(() => {
-		dateInterval = setInterval(() => {
-			now = new Date();
-		}, 1000);
-	});
-	onDestroy(() => clearInterval(dateInterval));
-
-	// --------
-
 	let datetimeFormatModal;
 </script>
 
@@ -253,6 +250,32 @@
 
 				<br />
 
+				<Toggle
+					id="hide-titlebar-when-idle-toggle"
+					bind:checked={$session.settings.hideTitlebarWhenIdle}
+					labelText="Hide title bar when idle"
+				/>
+
+				{#if $session.settings.hideTitlebarWhenIdle}
+					<div class="my-2 ml-8">
+						<label for="seconds-until-idle-input">Seconds until idle:</label>
+						<input
+							id="seconds-until-idle-input"
+							on:input|preventDefault={(event) => {
+								const value = validate(event.target);
+								$session.settings.secondsUntilIdle = value;
+								event.target.value = value;
+							}}
+							value={$session.settings.secondsUntilIdle}
+							type="number"
+							min="1"
+							max="1000"
+							required
+						/>
+					</div>
+				{/if}
+
+				<br />
 				<label for="font-family-select">Font Family:</label>
 				<select id="font-family-select" bind:value={$session.settings.fontFamily}>
 					{#each fontFamilies as fontFamily}
@@ -611,21 +634,23 @@
 							<label for="time-format-select">Time Format:</label>
 							<select id="time-format-select" bind:value={$session.settings.clock.timeFormat}>
 								{#each ['HH:mm', 'HH:mm:ss', 'hh:mm', 'hh:mm:ss', 'hh:mm A', 'hh:mm:ss A', 'mm:ss'] as timeFormat}
-									<option value={timeFormat}>{new dayjs(now).format(timeFormat)}</option>
+									<option value={timeFormat}>{new dayjs($now).format(timeFormat)}</option>
 								{/each}
 								<option value="custom">Custom</option>
 							</select>
 							{#if $session.settings.clock.timeFormat === 'custom'}
-								<input
-									type="text"
-									spellcheck="false"
-									class="block my-2"
-									bind:value={$session.settings.clock.timeFormatCustom}
-								/>
-								<p>
-									<b>Preview:</b>
-									{new dayjs(now).format($session.settings.clock.timeFormatCustom)}
-								</p>
+								<div class="my-2 ml-8">
+									<input
+										type="text"
+										spellcheck="false"
+										class="block my-2"
+										bind:value={$session.settings.clock.timeFormatCustom}
+									/>
+									<p>
+										<b>Preview:</b>
+										{new dayjs($now).format($session.settings.clock.timeFormatCustom)}
+									</p>
+								</div>
 							{/if}
 						</div>
 
@@ -634,7 +659,7 @@
 							<select id="date-format-select" bind:value={$session.settings.clock.dateFormat}>
 								{#each ['MMM D', 'MMM D YYYY', 'ddd, MMMM D', 'ddd, MMMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
 									<option value={dateFormat}
-										>{new dayjs(now)
+										>{new dayjs($now)
 											.locale($session.settings.clock.datetimeLocale)
 											.format(dateFormat)}</option
 									>
@@ -642,20 +667,28 @@
 								<option value="custom">Custom</option>
 							</select>
 							{#if $session.settings.clock.dateFormat === 'custom'}
-								<input
-									type="text"
-									spellcheck="false"
-									class="block my-2"
-									bind:value={$session.settings.clock.dateFormatCustom}
-								/>
-								<p>
-									<b>Preview:</b>
-									{new dayjs(now)
-										.locale($session.settings.clock.datetimeLocale)
-										.format($session.settings.clock.dateFormatCustom)}
-								</p>
+								<div class="my-2 ml-8">
+									<input
+										type="text"
+										spellcheck="false"
+										class="block my-2"
+										bind:value={$session.settings.clock.dateFormatCustom}
+									/>
+									<p>
+										<b>Preview:</b>
+										{new dayjs($now)
+											.locale($session.settings.clock.datetimeLocale)
+											.format($session.settings.clock.dateFormatCustom)}
+									</p>
+								</div>
 							{/if}
 						</div>
+
+						{#if $session.settings.clock.dateFormat === 'custom' || $session.settings.clock.timeFormat === 'custom'}
+							<button class="btn block my-2" on:click={datetimeFormatModal.show()}
+								>Custom Formatting Reference</button
+							>
+						{/if}
 
 						<label for="datetime-locale-select">Datetime Locale:</label>
 						<select id="datetime-locale-select" bind:value={$session.settings.clock.datetimeLocale}>
@@ -664,9 +697,6 @@
 							{/each}
 						</select>
 
-						<button class="btn" on:click={datetimeFormatModal.show()}
-							>Custom Formatting Reference</button
-						>
 						<Modal bind:this={datetimeFormatModal} title="Datetime Formatting" icon="table">
 							<!-- https://day.js.org/docs/en/display/format -->
 							<table>
