@@ -12,6 +12,7 @@
 	import Nav from '../components/Nav.svelte';
 	import Header from '../components/Header.svelte';
 	import Settings from '../components/Settings.svelte';
+	import { onMount } from 'svelte';
 
 	let settingsModal, aboutModal;
 
@@ -48,7 +49,11 @@
 			? document.body.classList.add('dark')
 			: document.body.classList.remove('dark');
 
-	let themeColor = 'blueGray';
+	onMount(() => {
+		if ($session.settings.darkMode === null) {
+			$session.settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
+		}
+	});
 </script>
 
 <svelte:head>

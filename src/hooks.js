@@ -34,7 +34,7 @@ export async function handle({ request, resolve }) {
 
 			datetimeLocale: 'en'
 		},
-		darkMode: null, // default to null so the initial check to toggle dark mode doesn't occur
+		darkMode: null, // default to null so the onmount function in layout checks the preferred color scheme
 		doubleclickFullscreen: false,
 		showFullscreenButton: true,
 		showDarkButton: true,

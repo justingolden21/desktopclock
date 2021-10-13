@@ -1,7 +1,7 @@
 main todo:
 get linting/formatting on all devices, update readme with instructions for new device
 
-auto detect locale (datetime locale)
+auto detect locale (datetime locale) (each toggle has a reset/automatically determine btn)
 
 fix margin on primary display date/time/datetime, too large/overflow
 formatting options for date/time/datetime, should also support short or long names for month, weekday, other locales
@@ -14,7 +14,6 @@ add link to faqs/help
 
 btns for reset some settings, btn for reset all
 
-! auto detect night mode
 
 ! numbers for colors not auto filling correctly
 
@@ -44,6 +43,7 @@ move this branch to prod
 fix theme btn display
 check meta tags, make sure it works on google,fb,twitter, etc, maybe add similar to sharethis?
 https://metatags.io/
+implement automated testing?
 
 preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
 ability to have multiple timers/countdowns in 3hrs/3years, name them, delete them, share them (url params)
@@ -144,7 +144,6 @@ home theme buttons do not function
 pinpoint seconds in analog/digital time
 pwa auto update (fixed?)
 dbl click on btn shouldnt toggle fullscreen
-night mode error page is not readable
 
 not bugs (hydration issues, fixed in build/preview)
 install btn disappears when changing to night mode?
@@ -152,9 +151,6 @@ install btn disappears when changing to night mode?
 needs testing:
 casting
 pwa, auto update, offline
-
-features:
-use system default for night mode (dropdown with night off, on, or system)
 
 visual bugs:
 close icon in modals not showing
