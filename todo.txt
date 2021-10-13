@@ -56,7 +56,7 @@ test presentation, share, and pwa
 calendar page
 flutter mobile apps, port to watch and tv
 
-settings ui:
+! settings ui:
 change help to about, move modal three
 application tab should use details
 settings modal should remember which tab and accordion is open
@@ -102,7 +102,6 @@ setting to hide title bar after time (10s, etc) of inactivity, mouse move to mak
 ux:
 monospace/fix kerning for numbers in time so they do not shift
 - https://stackoverflow.com/questions/10149330/force-non-monospace-font-into-fixed-width-using-css
-! make page load less ugly
 
 reset settings btn, save settings to browser local storage
 let user chose primary and secondary color/palette, also chose specific color for hands, ticks, etc
@@ -124,7 +123,7 @@ more settings:
 tick hands
 flip clock for digital time
 font choices
-save time history in stopwatch
+save time history in stopwatch (can print, share, download, etc)
 install pwa prompt button
 show battery, internet strength, weather, link to spotify options
 modal for steps to add to taskbar, apps, mobile, etc for each os with details/summary
