@@ -32,7 +32,6 @@ analog settings aren't populating select correctly
 timezones
 local storage settings
 test casting api
-keyboard shortcuts
 make it load cleaner
 fix details open/close
 make clock leftmost tab in settings?

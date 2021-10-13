@@ -14,6 +14,7 @@
 	import Settings from '../components/Settings.svelte';
 	import { onMount } from 'svelte';
 	import { now } from '../components/now.js';
+	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
 
 	let settingsModal, aboutModal;
 
@@ -72,6 +73,8 @@
 	/>
 	<meta name="theme-color" content={colors[$session.settings.colorPalette][500]} />
 </svelte:head>
+
+<KeyboardShortcuts />
 
 <svelte:body on:dblclick={doubleClickFullscreen} />
 

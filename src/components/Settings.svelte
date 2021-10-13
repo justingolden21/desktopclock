@@ -292,7 +292,11 @@
 					/>
 				</div>
 				<div class="block mb-2">
-					<Toggle id="keyboard-shortcuts-toggle" checked={true} labelText="Keyboard Shortcuts" />
+					<Toggle
+						id="keyboard-shortcuts-toggle"
+						labelText="Keyboard Shortcuts"
+						bind:checked={$session.settings.keyboardShortcuts}
+					/>
 				</div>
 				<button class="btn">View Keyboard Shortcuts</button>
 				<button class="btn">Reset Keyboard Shortcuts</button>

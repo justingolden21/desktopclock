@@ -43,6 +43,7 @@ export async function handle({ request, resolve }) {
 		alwaysCollapseMenu: false,
 		hideTitlebarWhenIdle: false,
 		secondsUntilIdle: 2,
+		keyboardShortcuts: true,
 		fontFamily: 'Jura'
 	};
 
