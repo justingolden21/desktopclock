@@ -34,12 +34,16 @@ export async function handle({ request, resolve }) {
 
 			datetimeLocale: 'en'
 		},
-		darkMode: null, // default to null so the initial check to toggle dark mode doesn't occur
+		darkMode: null, // default to null so the onmount function in layout checks the preferred color scheme
 		doubleclickFullscreen: false,
 		showFullscreenButton: true,
 		showDarkButton: true,
 		showCastButton: false,
 		showThemeButtons: false,
+		alwaysCollapseMenu: false,
+		hideTitlebarWhenIdle: false,
+		secondsUntilIdle: 2,
+		keyboardShortcuts: true,
 		fontFamily: 'Jura'
 	};
 

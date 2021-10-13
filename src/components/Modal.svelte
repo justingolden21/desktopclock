@@ -8,6 +8,7 @@
 	export function show() {
 		shown = true;
 	}
+	
 	export function hide() {
 		shown = false;
 	}
@@ -40,11 +41,11 @@
 
 <style>
 	.modal {
-		@apply pt-8 fixed left-0 top-0 block w-full h-full overflow-auto bg-gray-300 bg-opacity-75;
+		@apply p-12 fixed left-0 top-0 block w-full h-full bg-gray-300 bg-opacity-75;
 		z-index: 3;
 	}
 	.modal-content {
-		@apply border-2 border-gray-300 bg-gray-100 p-2 xs:p-8 xs:pt-4 relative m-auto w-full md:w-3/4 bg-opacity-75;
+		@apply flex flex-col h-full border-2 border-gray-300 bg-gray-100 p-2 xs:p-8 xs:pt-4 relative m-auto w-full md:w-3/4 bg-opacity-75;
 		backdrop-filter: blur(4px);
 		animation: animateTop 0.25s;
 		-webkit-animation: animateTop 0.25s;
@@ -56,10 +57,10 @@
 		@apply text-left mt-4;
 	}
 	.modal-header {
-		@apply border-b-2 border-gray-300 pb-9;
+		@apply mb-4 border-b-2 border-gray-300 pb-9;
 	}
 	.modal-body {
-		@apply pt-4 text-left;
+		@apply text-left relative flex-1 overflow-auto;
 	}
 	.modal-body p {
 		@apply text-base sm:text-lg md:text-xl;

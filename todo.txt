@@ -1,8 +1,7 @@
 main todo:
-fix sw, manifest, pwa, install btn
 get linting/formatting on all devices, update readme with instructions for new device
 
-auto detect locale (datetime locale)
+auto detect locale (datetime locale) (each toggle has a reset/automatically determine btn)
 
 fix margin on primary display date/time/datetime, too large/overflow
 formatting options for date/time/datetime, should also support short or long names for month, weekday, other locales
@@ -16,26 +15,68 @@ add link to faqs/help
 btns for reset some settings, btn for reset all
 
 
+! numbers for colors not auto filling correctly ----> CHANGE THEMES JS FILES TO QUOTES AROUND NUMBERS
+
+zen mode btn: top of clock settings, click to go fullscreen, no menu, no buttons, no title, just primary and secondary display
+
+custom scrollbar?
+
+presentation api todo:
+make the receiver a page that just has the clock with no menu or buttons, and then the user can change the settings and it sends a signal to the receiver to display those changes on the tv. eventually will want to support worldclock etc
+
+
+remember which tab and accordion are open in settings?
+
 next:
 analog settings aren't populating select correctly
 timezones
 local storage settings
 test casting api
-keyboard shortcuts
 make it load cleaner
 fix details open/close
+make clock leftmost tab in settings?
+add more icons to settings?
 default time format with timezone?
 simple ui for datetime locale, language, and timezone, with auto detect and reset options
 move this branch to prod
 fix theme btn display
+check meta tags, make sure it works on google,fb,twitter, etc, maybe add similar to sharethis?
+https://metatags.io/
+implement automated testing?
 
 preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
 ability to have multiple timers/countdowns in 3hrs/3years, name them, delete them, share them (url params)
+
+preset themes (choose from maybe five or ten, preview images or clocks maybe?)
+save your own themes and load them?
+
+live update clock preview in settings on static float right when changing analog display settings?
 
 future:
 timezone input with autocomplete select
 primary or secondary input: timezone (name, location, utc... pick which ones), greeting ("good morning/afternoon/evening/night, {name}!"), custom (custom text)
 test presentation, share, and pwa
+calendar page
+flutter mobile apps, port to watch and tv
+
+settings ui:
+change help to about, move modal three
+application tab should use details
+settings modal should remember which tab and accordion is open
+accordions should have a > v icon for open/closed
+clock should be leftmost
+tabs could have icons
+general tab could be appearance only, renamed appearance, move shortcuts to application
+version number should be moved from applicaiton to about. way to automatically update each commit?
+btn below appearance settings to reset appearance settings
+btn below all clock settings to reset all 3 (displays, analog, digital)
+all 3 locale settings should have reset btns next to them and auto detect toggles next to them
+download and upload settings (json, human readable) should be in advanced settings? maybe not
+rename reset settings btn to reset ALL settings, maybe even add confirmation prompt?
+save old settings and add btn to undo/go back to those settings?
+some btns could use icons next to them?
+reorder/reorganize btns in application > app, rename "app"
+newline before reference table btn, only show btn if custom is selected in a dropdown
 
 wake lock
 https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API
@@ -57,8 +98,11 @@ export and share themes
 dev setup:
 extrapolate battery component, analog clock
 
+searchable settings? (search bar on modal title area)
+
+setting to hide title bar after time (10s, etc) of inactivity, mouse move to make it reappear
+
 ux:
-add + and - or > and v icons to accordion/details
 monospace/fix kerning for numbers in time so they do not shift
 - https://stackoverflow.com/questions/10149330/force-non-monospace-font-into-fixed-width-using-css
 ! make page load less ugly
@@ -99,8 +143,6 @@ home theme buttons do not function
 pinpoint seconds in analog/digital time
 pwa auto update (fixed?)
 dbl click on btn shouldnt toggle fullscreen
-after changing night mode inside the settings modal, then closing and opening the modal, the toggle switches inside the same section toggle night mode...
-night mode error page is not readable
 
 not bugs (hydration issues, fixed in build/preview)
 install btn disappears when changing to night mode?
@@ -108,9 +150,6 @@ install btn disappears when changing to night mode?
 needs testing:
 casting
 pwa, auto update, offline
-
-features:
-use system default for night mode (dropdown with night off, on, or system)
 
 visual bugs:
 close icon in modals not showing
@@ -129,6 +168,7 @@ nav links are underline despite styless.css
 performance:
 
 maybe:
+ability to turn off setting to live preview time format in dropdown (advanced setting?)
 font weight options? slider?
 titles for icon buttons, maybe tooltips, should be translated
 give them option to swap order of date and time?
@@ -163,6 +203,11 @@ weather api?
 links:
 https://tc39.es/ecma402/#table-datetimeformat-components
 
+https://deviceshots.com/
+
+future maybe:
+support smart watches, android auto, smart tv, etc, mobile port
+
 misc:
 Stopwatch has previous lap as circle and tick marks for laps before, green means before, yellow means after, red means after + at least 1. Can configure number of previous laps to display, default 5, and if the opacity goes down for each previous lap.
 Show lap number, lap time and cumulative time, show small bar / graph on side (optional) and can name them, store notes, store date, and have folders for them.
@@ -173,3 +218,11 @@ Button to delete all worldclocks, options to open presets (lists of worldclocks 
 Day, night theme but also theme that changes sky background color based on time of day (can show sunrise and sunset). Function that takes in time (ms since epoch) and location (long/lat) and spit out next sunrise and sunset? Offline?
 More prominent share prompt somewhere?
 Trailer video with bouncy pop music that shows off lots of features quickly
+
+datetime utility:
+converter for 2.2 billion hours to years for example
+how many days ago was July 17
+
+play whitenoise / "sounds" as well, rain, wind, fireplace, birds, etc
+
+speak time/date btn

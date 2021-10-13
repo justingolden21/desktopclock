@@ -1,4 +1,5 @@
 // https://googlechrome.github.io/samples/presentation-api/
+// https://googlechrome.github.io/samples/presentation-api/receiver/
 
 // TODO check if navigator presentation api exists, export bool if supported, if not hide btn
 // change settings toggle label to say "show (if casting is available)" as opposed to just "show" for the main button
@@ -7,7 +8,8 @@
 let presentationConnection, presentationRequest;
 
 function setupCasting() {
-	presentationRequest = new PresentationRequest(['index.html']);
+	// in quotes is url location of receiver page, for example, "receiver/index.html"
+	presentationRequest = new PresentationRequest(['']);
 
 	// Make this presentation the default one when using the "Cast" browser menu.
 	navigator.presentation.defaultRequest = presentationRequest;

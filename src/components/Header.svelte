@@ -6,16 +6,28 @@
 	import { toggleFullscreen } from './Settings.svelte';
 	import { setupCasting, castClock } from './cast.js';
 	import ThemeButtons from './ThemeButtons.svelte';
+	import { now } from './now.js';
 
 	export let navOpen;
+
+	let timeSinceMove = new Date();
+	$: if ($session) timeSinceMove = new Date();
 
 	onMount(setupCasting);
 </script>
 
-<header class="flex-1 relative">
+<svelte:window on:mousemove={() => (timeSinceMove = new Date())} />
+
+<header
+	class="flex-1 relative transition-opacity duration-300 
+    {$session.settings.hideTitlebarWhenIdle &&
+	($now - timeSinceMove) / 1000 > $session.settings.secondsUntilIdle
+		? 'opacity-0'
+		: 'opacity-100'}"
+>
 	<button
 		id="menu-btn"
-		class="icon-btn float-left md:hidden"
+		class="icon-btn float-left  {$session.settings.alwaysCollapseMenu ? '' : 'md:hidden'} "
 		on:click={() => (navOpen = !navOpen)}
 		aria-label="Menu"
 	>
@@ -24,7 +36,8 @@
 
 	<button
 		id="main-dark-btn"
-		class="dark-btn icon-btn float-left"
+		class="dark-btn icon-btn float-left left-16 
+        {$session.settings.alwaysCollapseMenu ? '' : 'md:left-4'} "
 		class:hidden={!$session.settings.showDarkButton}
 		on:click={() => ($session.settings.darkMode = !$session.settings.darkMode)}
 		aria-label="Toggle Dark Mode"
