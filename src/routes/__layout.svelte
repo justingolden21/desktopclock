@@ -8,10 +8,7 @@
 
 	import screenfull from 'screenfull';
 
-	import Toggle from '../components/Toggle.svelte';
-	import { Tabs, TabList, TabPanel, Tab } from '../components/tabs.js';
 	import Modal from '../components/Modal.svelte';
-	import Icon from '../components/Icon.svelte';
 	import Nav from '../components/Nav.svelte';
 	import Header from '../components/Header.svelte';
 	import Settings from '../components/Settings.svelte';
@@ -43,12 +40,14 @@
 		}
 	}
 
-	// defaults to null so toggle code doesn't run automatically on load
-	// let darkMode = null;
-	// We only reference document.body in the browser. This check prevents this code from running on the server side.
-	// We check if darkMode is not null because whenever darkMode is updated, we want to toggle the class.
-	// darkMode will always be true or false, and never null, so the check will always be true, but it will still run the check when the variable is updated
-	$: if ($session.settings.darkMode !== null && browser) document.body.classList.toggle('dark');
+	// check when session changes
+	// also check that browser exists so we can reference document
+	// toggle dark class based on setting
+	$: if ($session && browser)
+		$session.settings.darkMode
+			? document.body.classList.add('dark')
+			: document.body.classList.remove('dark');
+
 	let themeColor = 'blueGray';
 </script>
 
