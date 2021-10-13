@@ -15,7 +15,7 @@ add link to faqs/help
 btns for reset some settings, btn for reset all
 
 
-! numbers for colors not auto filling correctly
+! numbers for colors not auto filling correctly ----> CHANGE THEMES JS FILES TO QUOTES AROUND NUMBERS
 
 zen mode btn: top of clock settings, click to go fullscreen, no menu, no buttons, no title, just primary and secondary display
 
