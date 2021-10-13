@@ -473,7 +473,7 @@
 							bind:value={$session.settings.clock.theme.pin.strokeWidth}
 						>
 							{#each Array(7) as _, i}
-								<option value={i}>{i}</option>
+								<option value={i / 2}>{i / 2}</option>
 							{/each}
 						</select>
 					</div>
@@ -607,7 +607,7 @@
 								id="{hand}-hand-back-select"
 								bind:value={$session.settings.clock.theme.hands[hand].back}
 							>
-								{#each Array(6) as _, i}
+								{#each Array(9) as _, i}
 									<option value={i}>{i}</option>
 								{/each}
 							</select>
