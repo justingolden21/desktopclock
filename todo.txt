@@ -14,9 +14,6 @@ add link to faqs/help
 
 btns for reset some settings, btn for reset all
 
-
-! numbers for colors not auto filling correctly ----> CHANGE THEMES JS FILES TO QUOTES AROUND NUMBERS
-
 zen mode btn: top of clock settings, click to go fullscreen, no menu, no buttons, no title, just primary and secondary display
 
 custom scrollbar?
@@ -25,12 +22,12 @@ presentation api todo:
 make the receiver a page that just has the clock with no menu or buttons, and then the user can change the settings and it sends a signal to the receiver to display those changes on the tv. eventually will want to support worldclock etc
 
 
-remember which tab and accordion are open in settings?
+! remember which tab and accordion are open in settings?
 
 next:
 analog settings aren't populating select correctly
-timezones
-local storage settings
+! timezones
+! local storage settings
 test casting api
 make it load cleaner
 fix details open/close
