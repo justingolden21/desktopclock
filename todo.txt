@@ -163,7 +163,7 @@ performance:
 
 maybe:
 ability to turn off setting to live preview time format in dropdown (advanced setting?)
-font weight options? slider?
+font weight options? slider? dropdown?
 titles for icon buttons, maybe tooltips, should be translated
 give them option to swap order of date and time?
 nav: click away or esc to close nav?

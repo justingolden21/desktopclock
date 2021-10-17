@@ -191,8 +191,8 @@
 <Tabs>
 	<TabList>
 		<Tab>Clock</Tab>
+		<Tab>Appearance</Tab>
 		<Tab>General</Tab>
-		<Tab>Application</Tab>
 		<Tab>Help</Tab>
 	</TabList>
 
@@ -616,7 +616,7 @@
 		</Accordion>
 	</TabPanel>
 
-	<!-- General -->
+	<!-- Appearance -->
 	<TabPanel>
 		<Accordion key="1">
 			<AccordionPanel accordionTitle="Appearance" key="1">
@@ -721,61 +721,13 @@
 					Reset Appearance
 				</button>
 			</AccordionPanel>
-			<AccordionPanel accordionTitle="Shortcuts" key="2">
-				<div class="block mb-2">
-					<Toggle
-						id="dbl-click-fullscreen-toggle"
-						labelText={$session.languageDictionary['Doubleclick Fullscreen']}
-						bind:checked={$session.settings.doubleclickFullscreen}
-					/>
-				</div>
-				<div class="block mb-2">
-					<Toggle
-						id="keyboard-shortcuts-toggle"
-						labelText="Keyboard Shortcuts"
-						bind:checked={$session.settings.keyboardShortcuts}
-					/>
-				</div>
-				<button class="btn">View Keyboard Shortcuts</button>
-				<button class="btn undo-btn block">
-					<Icon name="undo" class="inline w-6 h-6" />
-					Reset Keyboard Shortcuts
-				</button>
-			</AccordionPanel>
 		</Accordion>
 	</TabPanel>
 
-	<!-- Application -->
+	<!-- General -->
 	<TabPanel>
 		<Accordion key="1">
-			<AccordionPanel accordionTitle="Locale" key="1">
-				<div class="block mb-2">
-					<label for="language-select">Language:</label>
-					<select id="language-select">
-						<option value="en-us">English, US</option>
-						<option value="en-gb">English, GB</option>
-						<option value="es-mx">Spanish, MX</option>
-						<option value="es-sp">Spanish, SP</option>
-					</select>
-				</div>
-				<div class="block mb-2">
-					<label for="datetime-locale-select">Datetime Locale:</label>
-					<select id="datetime-locale-select">
-						<option>en</option>
-						<option>es</option>
-						<option>de-DE</option>
-						<option>ar-EG</option>
-					</select>
-				</div>
-				<!-- todo: autocomplete type timezones -->
-				<div class="block mb-2">
-					<label for="timezone-select">Timezone:</label>
-					<select id="timezone-select">
-						<option> Pacific Daylight Time (GMT-7) Los Angeles, CA </option>
-					</select>
-				</div>
-			</AccordionPanel>
-			<AccordionPanel accordionTitle="App" key="2">
+			<AccordionPanel accordionTitle="App" key="1">
 				<!-- <button class="btn">Download Settings</button> -->
 				<!-- <button class="btn">Upload Settings</button> -->
 
@@ -803,10 +755,59 @@
 					<Icon name="undo" class="inline w-6 h-6" />
 					Reset All Settings
 				</button>
+
+				<!-- <h3>Advanced</h3>
+        		<button class="btn">Multiple Clock Settings</button>
+		        <button class="btn">Quick Resize Settings</button> -->
 			</AccordionPanel>
-			<!-- <h3>Advanced</h3>
-		<button class="btn">Multiple Clock Settings</button>
-		<button class="btn">Quick Resize Settings</button> -->
+			<AccordionPanel accordionTitle="Shortcuts" key="2">
+				<div class="block mb-2">
+					<Toggle
+						id="dbl-click-fullscreen-toggle"
+						labelText={$session.languageDictionary['Doubleclick Fullscreen']}
+						bind:checked={$session.settings.doubleclickFullscreen}
+					/>
+				</div>
+				<div class="block mb-2">
+					<Toggle
+						id="keyboard-shortcuts-toggle"
+						labelText="Keyboard Shortcuts"
+						bind:checked={$session.settings.keyboardShortcuts}
+					/>
+				</div>
+				<button class="btn">View Keyboard Shortcuts</button>
+				<button class="btn undo-btn block">
+					<Icon name="undo" class="inline w-6 h-6" />
+					Reset Keyboard Shortcuts
+				</button>
+			</AccordionPanel>
+			<AccordionPanel accordionTitle="Locale" key="3">
+				<div class="block mb-2">
+					<label for="language-select">Language:</label>
+					<select id="language-select">
+						<option value="en-us">English, US</option>
+						<option value="en-gb">English, GB</option>
+						<option value="es-mx">Spanish, MX</option>
+						<option value="es-sp">Spanish, SP</option>
+					</select>
+				</div>
+				<div class="block mb-2">
+					<label for="datetime-locale-select">Datetime Locale:</label>
+					<select id="datetime-locale-select">
+						<option>en</option>
+						<option>es</option>
+						<option>de-DE</option>
+						<option>ar-EG</option>
+					</select>
+				</div>
+				<!-- todo: autocomplete type timezones -->
+				<div class="block mb-2">
+					<label for="timezone-select">Timezone:</label>
+					<select id="timezone-select">
+						<option> Pacific Daylight Time (GMT-7) Los Angeles, CA </option>
+					</select>
+				</div>
+			</AccordionPanel>
 		</Accordion>
 	</TabPanel>
 
