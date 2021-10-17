@@ -40,6 +40,8 @@ prompt "are you sure" before deleting, max of 20 themes, btn to delete all theme
 - finalize keyboard shortcuts, view keyboard shortcuts modal (maybe turn on and off specific shortcuts, change keys (each item has a toggle and input for key))
 - 
 
+fix font loading in select
+
 next:
 ! timezones
 ! local storage settings
