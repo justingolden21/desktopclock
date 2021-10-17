@@ -906,7 +906,7 @@
 			Clock as a clock on your TV, a night clock, or even project the time for exams. Use the timers
 			for anything from chess to cooking! Customize the time, date and more to your liking!
 		</p>
-		<p>If you like this app, consider <a href="#" on:click={shareApp}>sharing</a> it</p>
+		<p>If you like this app, consider <button on:click={shareApp}>sharing</button> it</p>
 		<p class="mt-2">Version 0.0.0</p>
 
 		<h3>Help</h3>
