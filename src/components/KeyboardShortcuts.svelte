@@ -1,6 +1,6 @@
 <script>
 	import { session } from '$app/stores';
-	import fi from 'dayjs/locale/fi';
+	import { toggleFullscreen } from './Settings.svelte';
 
 	export let settingsModal = null;
 </script>
@@ -18,6 +18,9 @@
 		}
 		if (event.code === 'KeyS') {
 			settingsModal.toggle();
+		}
+		if (event.code === 'KeyF') {
+			toggleFullscreen();
 		}
 	}}
 />
