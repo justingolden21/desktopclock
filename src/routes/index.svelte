@@ -26,18 +26,14 @@
 
 	$: sizes = ['sm', 'md', 'lg'].map((size) => ({ size, r: 27.5 - theme.ticks[size].width / 2 }));
 
-	function getColor(obj, accent = false) {
-		// if it does not exist or is -1, the fill/stroke is transparent
+	// return the hex color given a string or object with color information from a theme
+	// if falsey or '-1', return 'none' (lack of value or '-1' results in a transparent color)
+	// other valid options are a string for the lightness (default palette will be used)
+	// or an object, which will use the lightness from the object and the palette from the object if present, else the default palette
+	function getColor(obj) {
 		if (!obj || obj == '-1') return 'none';
-		// if it's a string starting with '#', treat it as a hex code and return it
-		if (typeof obj === 'string' && obj[0] == '#') return obj;
-		// if it's a string, it's the lightness only, use the default palette
-		if (typeof obj === 'string') return accent ? accentColorPalette[obj] : colorPalette[obj];
-		// if it's an object and has a specified color and lightness, use those
-		// if only lightness is specified, use the default palette
-		return colors[
-			obj.color || (accent ? $session.settings.accentColorPalette : $session.settings.colorPalette)
-		][obj.lightness];
+		if (typeof obj === 'string') return colorPalette[obj];
+		return colors[obj.color || $session.settings.colorPalette][obj.lightness];
 	}
 </script>
 
@@ -104,7 +100,7 @@
 				<circle
 					id="pin"
 					fill={getColor(theme.pin.fill)}
-					stroke={getColor(theme.pin.stroke, true)}
+					stroke={getColor(theme.pin.stroke)}
 					stroke-width={theme.pin.strokeWidth}
 					r={theme.pin.size}
 				/>

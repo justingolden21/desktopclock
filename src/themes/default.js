@@ -12,7 +12,10 @@ const defaultTheme = {
 		fill: '700'
 	},
 	pin: {
-		stroke: '700',
+		stroke: {
+			color: 'red',
+			lightness: '700'
+		},
 		fill: '200',
 		strokeWidth: 0.5,
 		size: 1
