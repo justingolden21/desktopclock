@@ -50,7 +50,7 @@
 	$: shade = $session.settings.darkMode ? 200 : 900;
 </script>
 
-<div style="color:{colorPalette[shade]}">
+<div style="color:{colorPalette[shade]}; display: flex">
 	<div id="primary-display">
 		{#if displays.primary != 'analog'}
 			<h1>
@@ -99,14 +99,15 @@
 	#primary-display {
 		position: absolute;
 		top: 25%;
-		width: 100%;
+		left: 0%;
+		right: 0%;
 	}
 	#primary-display h1 {
-		@apply block text-7xl md:text-8xl lg:text-9xl font-bold tracking-widest text-center;
+		@apply text-7xl md:text-8xl lg:text-9xl font-bold tracking-widest text-center;
 	}
 	#secondary-display,
 	#battery-display {
-		@apply block text-2xl md:text-3xl lg:text-4xl font-normal tracking-widest text-center pb-4;
+		@apply text-2xl md:text-3xl lg:text-4xl font-normal tracking-widest text-center pb-4;
 	}
 	#secondary-display {
 		position: absolute;

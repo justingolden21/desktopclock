@@ -47,6 +47,7 @@ fix theme btn display
 check meta tags, make sure it works on google,fb,twitter, etc, maybe add similar to sharethis?
 https://metatags.io/
 implement automated testing?
+save settings automatically toggle?
 
 preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
 ability to have multiple timers/countdowns in 3hrs/3years, name them, delete them, share them (url params)
