@@ -191,19 +191,19 @@
 <Tabs>
 	<TabList>
 		<Tab>
-			<Icon name="clock" class="inline w-6 h-6 mr-2" />
+			<Icon name="clock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 			Clock
 		</Tab>
 		<Tab>
-			<Icon name="eye" class="inline w-6 h-6 mr-2" />
+			<Icon name="eye" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 			Appearance
 		</Tab>
 		<Tab>
-			<Icon name="application" class="inline w-6 h-6 mr-2" />
+			<Icon name="application" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 			General
 		</Tab>
 		<Tab>
-			<Icon name="info" class="inline w-6 h-6 mr-2" />
+			<Icon name="info" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 			About
 		</Tab>
 	</TabList>
