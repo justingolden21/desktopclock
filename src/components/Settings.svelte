@@ -747,65 +747,67 @@
 
 	<!-- Application -->
 	<TabPanel>
-		<h3>Locale</h3>
-		<div class="block mb-2">
-			<label for="language-select">Language:</label>
-			<select id="language-select">
-				<option value="en-us">English, US</option>
-				<option value="en-gb">English, GB</option>
-				<option value="es-mx">Spanish, MX</option>
-				<option value="es-sp">Spanish, SP</option>
-			</select>
-		</div>
-		<div class="block mb-2">
-			<label for="datetime-locale-select">Datetime Locale:</label>
-			<select id="datetime-locale-select">
-				<option>en</option>
-				<option>es</option>
-				<option>de-DE</option>
-				<option>ar-EG</option>
-			</select>
-		</div>
-		<!-- todo: autocomplete type timezones -->
-		<div class="block mb-2">
-			<label for="timezone-select">Timezone:</label>
-			<select id="timezone-select">
-				<option> Pacific Daylight Time (GMT-7) Los Angeles, CA </option>
-			</select>
-		</div>
+		<Accordion key="1">
+			<AccordionPanel accordionTitle="Locale" key="1">
+				<div class="block mb-2">
+					<label for="language-select">Language:</label>
+					<select id="language-select">
+						<option value="en-us">English, US</option>
+						<option value="en-gb">English, GB</option>
+						<option value="es-mx">Spanish, MX</option>
+						<option value="es-sp">Spanish, SP</option>
+					</select>
+				</div>
+				<div class="block mb-2">
+					<label for="datetime-locale-select">Datetime Locale:</label>
+					<select id="datetime-locale-select">
+						<option>en</option>
+						<option>es</option>
+						<option>de-DE</option>
+						<option>ar-EG</option>
+					</select>
+				</div>
+				<!-- todo: autocomplete type timezones -->
+				<div class="block mb-2">
+					<label for="timezone-select">Timezone:</label>
+					<select id="timezone-select">
+						<option> Pacific Daylight Time (GMT-7) Los Angeles, CA </option>
+					</select>
+				</div>
+			</AccordionPanel>
+			<AccordionPanel accordionTitle="App" key="2">
+				<!-- <button class="btn">Download Settings</button> -->
+				<!-- <button class="btn">Upload Settings</button> -->
 
-		<!-- <button class="btn">Download Settings</button> -->
-		<!-- <button class="btn">Upload Settings</button> -->
+				<button class="btn" on:click={() => openWindow(window.location.href)}>
+					Open Another Clock
+				</button>
+				<button class="btn">Pop Out</button>
 
-		<h3>App</h3>
-		<button class="btn" on:click={() => openWindow(window.location.href)}>
-			Open Another Clock
-		</button>
-		<button class="btn">Pop Out</button>
+				<br />
 
-		<br />
+				<button class="btn share-btn" on:click={shareApp}>
+					<Icon name="share" class="inline w-6 h-6" />
+					Share
+				</button>
+				<button class="btn">Copy Website Link</button>
 
-		<button class="btn share-btn" on:click={shareApp}>
-			<Icon name="share" class="inline w-6 h-6" />
-			Share
-		</button>
-		<button class="btn">Copy Website Link</button>
+				<br />
 
-		<br />
+				<button class="btn">Install</button>
+				<button class="btn">Send Feedback</button>
 
-		<button class="btn">Install</button>
-		<button class="btn">Send Feedback</button>
+				<br />
 
-		<br />
-
-		<button class="btn undo-btn">
-			<Icon name="undo" class="inline w-6 h-6" />
-			Reset All Settings
-		</button>
-
-		<!-- <h3>Advanced</h3>
+				<button class="btn undo-btn">
+					<Icon name="undo" class="inline w-6 h-6" />
+					Reset All Settings
+				</button>
+			</AccordionPanel>
+			<!-- <h3>Advanced</h3>
 		<button class="btn">Multiple Clock Settings</button>
 		<button class="btn">Quick Resize Settings</button> -->
+		</Accordion>
 	</TabPanel>
 
 	<!-- Help -->

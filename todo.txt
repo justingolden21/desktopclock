@@ -58,7 +58,6 @@ flutter mobile apps, port to watch and tv
 
 ! settings ui:
 change help to about, move modal there
-application tab should use details
 settings modal should remember which tab and accordion is open
 accordions should have a > v icon for open/closed
 tabs could have icons
