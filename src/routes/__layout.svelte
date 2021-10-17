@@ -11,10 +11,11 @@
 	import Modal from '../components/Modal.svelte';
 	import Nav from '../components/Nav.svelte';
 	import Header from '../components/Header.svelte';
-	import Settings from '../components/Settings.svelte';
+	import Settings, { shareApp } from '../components/Settings.svelte';
 	import { onMount } from 'svelte';
 	import { now } from '../components/now.js';
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
+	import Icon from '../components/Icon.svelte';
 
 	let settingsModal, aboutModal;
 
@@ -26,20 +27,6 @@
 		if (target.tagName === 'BUTTON' || target.parentNode.tagName === 'BUTTON') return;
 		if (screenfull.isEnabled) {
 			screenfull.toggle();
-		}
-	}
-
-	function shareApp() {
-		// TODO translate, test on more platforms, store URL in global variable somewhere, in case it changes
-		if (navigator.share) {
-			navigator
-				.share({
-					title: 'Desktop Clock',
-					text: 'Desktop Clock is a simple, resizable and customizable clock for any device.',
-					url: 'https://desktopclock.netlify.app/'
-				})
-				.then(() => console.log('Successful share'))
-				.catch((err) => console.log('Error sharing', err));
 		}
 	}
 
@@ -109,6 +96,9 @@
 			with any feedback, questions, or requests at
 			<a href="mailto:contact@justingolden.me" target="_blank">contact@justingolden.me</a>.
 		</p>
-		<button class="btn" on:click={shareApp}>Share</button>
+		<button class="btn" on:click={shareApp}>
+			<Icon name="share" class="inline w-6 h-6" />
+			Share
+		</button>
 	</Modal>
 </div>

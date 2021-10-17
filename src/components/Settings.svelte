@@ -7,6 +7,20 @@
 		}
 	}
 
+	export function shareApp() {
+		// TODO translate, test on more platforms, store URL in global variable somewhere, in case it changes
+		if (navigator.share) {
+			navigator
+				.share({
+					title: 'Desktop Clock',
+					text: 'Desktop Clock is a simple, resizable and customizable clock for any device.',
+					url: 'https://desktopclock.netlify.app/'
+				})
+				.then(() => console.log('Successful share'))
+				.catch((err) => console.log('Error sharing', err));
+		}
+	}
+
 	export function openWindow(url, width = 400, height = 400, left = 20, top = 20) {
 		// https://www.w3schools.com/jsref/met_win_open.asp
 		let win = window.open(
@@ -771,7 +785,10 @@
 		<h3>App</h3>
 		<button class="btn" on:click={() => openWindow(window.location.href)}>Open Another Clock</button
 		>
-		<button class="btn">Share</button>
+		<button class="btn" on:click={shareApp}>
+			<Icon name="share" class="inline w-6 h-6" />
+			Share
+		</button>
 		<!-- <button class="btn">Copy Website Link</button> -->
 		<button class="btn">Send Feedback</button>
 		<button class="btn">Pop Out</button>
