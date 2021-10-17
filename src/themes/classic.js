@@ -1,4 +1,4 @@
-export default {
+const classicTheme = {
 	face: {
 		stroke: '#999',
 		fill: '#fff',
@@ -55,3 +55,5 @@ export default {
 		}
 	}
 };
+
+export default classicTheme;

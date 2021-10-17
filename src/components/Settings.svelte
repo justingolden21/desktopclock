@@ -63,6 +63,8 @@
 	import AccordionPanel from './AccordionPanel.svelte';
 	import { browser } from '$app/env';
 	import defaultTheme from '../themes/default';
+	import defaultNightTheme from '../themes/defaultNight';
+	// import classicTheme from '../themes/classic';
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
 
@@ -486,12 +488,26 @@
 						</div>
 					{/each}
 					<button
-						class="btn undo-btn block"
+						class="btn theme-btn block"
 						on:click={() => ($session.settings.clock.theme = defaultTheme)}
 					>
-						<Icon name="undo" class="inline w-6 h-6" />
-						Reset Analog Appearance
+						<Icon name="theme" class="inline w-6 h-6" />
+						Default Theme
 					</button>
+					<button
+						class="btn theme-btn block"
+						on:click={() => ($session.settings.clock.theme = defaultNightTheme)}
+					>
+						<Icon name="theme" class="inline w-6 h-6" />
+						Default Night Theme
+					</button>
+					<!-- <button
+						class="btn theme-btn block"
+						on:click={() => ($session.settings.clock.theme = classicTheme)}
+					>
+						<Icon name="theme" class="inline w-6 h-6" />
+						Classic Theme
+					</button> -->
 				</AccordionPanel>
 			{/if}
 			{#if $session.settings.clock.displays.primary != 'analog' || $session.settings.clock.displays.secondary != 'none'}

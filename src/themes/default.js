@@ -1,6 +1,7 @@
 // '-1' is transparent
 // numbers representing colors (100,200,300... and -1) are strings
-export default {
+
+const defaultTheme = {
 	face: {
 		stroke: '700',
 		fill: '200',
@@ -64,3 +65,5 @@ export default {
 		}
 	}
 };
+
+export default defaultTheme;
