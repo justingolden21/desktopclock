@@ -794,11 +794,9 @@
 		<button class="btn">Pop Out</button>
 		<button class="btn">Install</button>
 
-		<h3>Advanced</h3>
+		<!-- <h3>Advanced</h3>
 		<button class="btn">Multiple Clock Settings</button>
-		<button class="btn">Quick Resize Settings</button>
-
-		<p>V. 0.0.0</p>
+		<button class="btn">Quick Resize Settings</button> -->
 	</TabPanel>
 
 	<!-- Help -->
