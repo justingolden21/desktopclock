@@ -190,10 +190,22 @@
 
 <Tabs>
 	<TabList>
-		<Tab>Clock</Tab>
-		<Tab>Appearance</Tab>
-		<Tab>General</Tab>
-		<Tab>Help</Tab>
+		<Tab>
+			<Icon name="clock" class="inline w-6 h-6 mr-2" />
+			Clock
+		</Tab>
+		<Tab>
+			<Icon name="eye" class="inline w-6 h-6 mr-2" />
+			Appearance
+		</Tab>
+		<Tab>
+			<Icon name="application" class="inline w-6 h-6 mr-2" />
+			General
+		</Tab>
+		<Tab>
+			<Icon name="help" class="inline w-6 h-6 mr-2" />
+			Help
+		</Tab>
 	</TabList>
 
 	<!-- Clock -->
@@ -760,7 +772,7 @@
         		<button class="btn">Multiple Clock Settings</button>
 		        <button class="btn">Quick Resize Settings</button> -->
 			</AccordionPanel>
-			<AccordionPanel accordionTitle="Shortcuts" key="2">
+			<AccordionPanel accordionTitle="Keyboard Shortcuts" key="2">
 				<div class="block mb-2">
 					<Toggle
 						id="dbl-click-fullscreen-toggle"

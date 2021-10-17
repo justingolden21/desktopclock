@@ -66,6 +66,7 @@ download and upload settings (json, human readable) should be in advanced settin
 add confirmation prompt to reset settings or just to reset all settings? simple prompt component?
 save old settings and add btn to undo/go back to those settings?
 some btns could use icons next to them
+clock tab is replaced with worldclock tab when worldclock is open, etc
 
 wake lock
 https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API
