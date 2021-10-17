@@ -553,6 +553,11 @@
 							>
 						{/if}
 
+						<button class="btn undo-btn block">
+							<Icon name="undo" class="inline w-6 h-6" />
+							Reset Digital Datetime Appearance
+						</button>
+
 						<label for="datetime-locale-select">Datetime Locale:</label>
 						<select id="datetime-locale-select" bind:value={$session.settings.clock.datetimeLocale}>
 							{#each locales as locale}
@@ -604,11 +609,6 @@
 								>
 							</p>
 						</Modal>
-
-						<button class="btn undo-btn block">
-							<Icon name="undo" class="inline w-6 h-6" />
-							Reset Digital Datetime Appearance
-						</button>
 
 						<!-- TODO -->
 						<!-- <div class="block mb-2">
