@@ -12,8 +12,6 @@ pinning cast button: https://support.google.com/chromecast/answer/7249696
 cast a tab: https://support.google.com/chromecast/answer/3228332
 add link to faqs/help
 
-btns for reset some settings, btn for reset all
-
 zen mode btn: top of clock settings, click to go fullscreen, no menu, no buttons, no title, just primary and secondary display
 
 custom scrollbar?
@@ -113,10 +111,8 @@ store fonts offline
 more settings:
 tick hands
 flip clock for digital time
-font choices
 save time history in stopwatch (can print, share, download, etc)
-install pwa prompt button
-show battery, internet strength, weather, link to spotify options
+show internet strength, weather, link to spotify options
 modal for steps to add to taskbar, apps, mobile, etc for each os with details/summary
 
 later:
@@ -124,6 +120,7 @@ store settings in localstorage
 music playback options secondary display with spotify (p/p, ff, rw, song and artist name)
 displays.js: implement format options, locale options
 always on top mode is not possible. write about this in FAQs or help, and then mention ways of doing this on different operating systems.
+dark mode styles for <table>
 
 bugs:
 home theme buttons do not function

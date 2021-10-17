@@ -630,110 +630,106 @@
 
 	<!-- Appearance -->
 	<TabPanel>
-		<Accordion key="1">
-			<AccordionPanel accordionTitle="Appearance" key="1">
-				<div class="mb-2">
-					<ThemeButtons />
-				</div>
-				<div class="block mb-2">
-					<button
-						class="dark-btn btn"
-						on:click={() => ($session.settings.darkMode = !$session.settings.darkMode)}
-					>
-						<Icon name="moon" class="inline w-6 h-6 md:w-8 md:h-8" />
-						Dark
-					</button>
+		<div class="mb-2">
+			<ThemeButtons />
+		</div>
+		<div class="block mb-2">
+			<button
+				class="dark-btn btn"
+				on:click={() => ($session.settings.darkMode = !$session.settings.darkMode)}
+			>
+				<Icon name="moon" class="inline w-6 h-6 md:w-8 md:h-8" />
+				Dark
+			</button>
 
-					<button class="cast-btn btn" on:click={castClock}>
-						<Icon name="external-link" class="inline w-6 h-6 md:w-8 md:h-8" />
-						Cast
-					</button>
+			<button class="cast-btn btn" on:click={castClock}>
+				<Icon name="external-link" class="inline w-6 h-6 md:w-8 md:h-8" />
+				Cast
+			</button>
 
-					<button class="fullscreen-btn btn" on:click={toggleFullscreen}>
-						<Icon name="fullscreen" class="inline w-6 h-6 md:w-8 md:h-8" />
-						Fullscreen
-					</button>
-				</div>
+			<button class="fullscreen-btn btn" on:click={toggleFullscreen}>
+				<Icon name="fullscreen" class="inline w-6 h-6 md:w-8 md:h-8" />
+				Fullscreen
+			</button>
+		</div>
 
-				<Toggle
-					id="show-dark-btn-toggle"
-					bind:checked={$session.settings.showDarkButton}
-					labelText="Show dark button"
+		<Toggle
+			id="show-dark-btn-toggle"
+			bind:checked={$session.settings.showDarkButton}
+			labelText="Show dark button"
+		/>
+
+		<br />
+
+		<Toggle
+			id="show-cast-btn-toggle"
+			bind:checked={$session.settings.showCastButton}
+			labelText="Show cast button"
+		/>
+
+		<br />
+
+		<Toggle
+			id="show-fullscreen-btn-toggle"
+			bind:checked={$session.settings.showFullscreenButton}
+			labelText="Show fullscreen button"
+		/>
+
+		<br />
+
+		<Toggle
+			id="show-theme-btn-toggle"
+			bind:checked={$session.settings.showThemeButtons}
+			labelText="Show theme buttons"
+		/>
+
+		<br />
+
+		<!-- TODO: only display option if on larger screens -->
+		<Toggle
+			id="always-collapse-menu-toggle"
+			bind:checked={$session.settings.alwaysCollapseMenu}
+			labelText="Always collapse menu"
+		/>
+
+		<br />
+
+		<Toggle
+			id="hide-titlebar-when-idle-toggle"
+			bind:checked={$session.settings.hideTitlebarWhenIdle}
+			labelText="Hide title bar when idle"
+		/>
+
+		{#if $session.settings.hideTitlebarWhenIdle}
+			<div class="my-2 ml-8">
+				<label for="seconds-until-idle-input">Seconds until idle:</label>
+				<input
+					id="seconds-until-idle-input"
+					on:input|preventDefault={(event) => {
+						const value = validate(event.target);
+						$session.settings.secondsUntilIdle = value;
+						event.target.value = value;
+					}}
+					value={$session.settings.secondsUntilIdle}
+					type="number"
+					min="1"
+					max="1000"
+					required
 				/>
+			</div>
+		{/if}
 
-				<br />
-
-				<Toggle
-					id="show-cast-btn-toggle"
-					bind:checked={$session.settings.showCastButton}
-					labelText="Show cast button"
-				/>
-
-				<br />
-
-				<Toggle
-					id="show-fullscreen-btn-toggle"
-					bind:checked={$session.settings.showFullscreenButton}
-					labelText="Show fullscreen button"
-				/>
-
-				<br />
-
-				<Toggle
-					id="show-theme-btn-toggle"
-					bind:checked={$session.settings.showThemeButtons}
-					labelText="Show theme buttons"
-				/>
-
-				<br />
-
-				<!-- TODO: only display option if on larger screens -->
-				<Toggle
-					id="always-collapse-menu-toggle"
-					bind:checked={$session.settings.alwaysCollapseMenu}
-					labelText="Always collapse menu"
-				/>
-
-				<br />
-
-				<Toggle
-					id="hide-titlebar-when-idle-toggle"
-					bind:checked={$session.settings.hideTitlebarWhenIdle}
-					labelText="Hide title bar when idle"
-				/>
-
-				{#if $session.settings.hideTitlebarWhenIdle}
-					<div class="my-2 ml-8">
-						<label for="seconds-until-idle-input">Seconds until idle:</label>
-						<input
-							id="seconds-until-idle-input"
-							on:input|preventDefault={(event) => {
-								const value = validate(event.target);
-								$session.settings.secondsUntilIdle = value;
-								event.target.value = value;
-							}}
-							value={$session.settings.secondsUntilIdle}
-							type="number"
-							min="1"
-							max="1000"
-							required
-						/>
-					</div>
-				{/if}
-
-				<br />
-				<label for="font-family-select">Font Family:</label>
-				<select id="font-family-select" bind:value={$session.settings.fontFamily}>
-					{#each fontFamilies as fontFamily}
-						<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
-					{/each}
-				</select>
-				<button class="btn undo-btn block">
-					<Icon name="undo" class="inline w-6 h-6" />
-					Reset Appearance
-				</button>
-			</AccordionPanel>
-		</Accordion>
+		<br />
+		<label for="font-family-select">Font Family:</label>
+		<select id="font-family-select" bind:value={$session.settings.fontFamily}>
+			{#each fontFamilies as fontFamily}
+				<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
+			{/each}
+		</select>
+		<button class="btn undo-btn block">
+			<Icon name="undo" class="inline w-6 h-6" />
+			Reset Appearance
+		</button>
 	</TabPanel>
 
 	<!-- General -->
