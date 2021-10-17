@@ -1,5 +1,6 @@
 <script>
 	import { session } from '$app/stores';
+	import fi from 'dayjs/locale/fi';
 
 	export let settingsModal = null;
 </script>
@@ -16,7 +17,7 @@
 			$session.settings.darkMode = !$session.settings.darkMode;
 		}
 		if (event.code === 'KeyS') {
-			settingsModal.show();
+			settingsModal.toggle();
 		}
 	}}
 />
