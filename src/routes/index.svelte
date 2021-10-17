@@ -7,6 +7,7 @@
 
 	// import Displays, { displays, setDisplays } from '../components/Displays.svelte';
 	import Displays from '../components/Displays.svelte';
+	import ThemeButtons from '../components/ThemeButtons.svelte';
 
 	// onMount(() => {
 	// 	init();
@@ -29,7 +30,6 @@
 <svelte:head>
 	<title>{$session.languageDictionary.pageNames.clock}</title>
 </svelte:head>
-
 <section>
 	<Displays />
 	{#if displays.primary == 'analog'}
@@ -101,4 +101,11 @@
 			</g>
 		</svg>
 	{/if}
+</section>
+
+<section class="z-20">
+	<!-- todo: z index does not seem to be the problem, cannot click lower btns -->
+	<div class="z-20 m-4 mx-16 max-w-3xl" class:hidden={!$session.settings.showThemeButtons}>
+		<ThemeButtons />
+	</div>
 </section>
