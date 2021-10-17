@@ -740,13 +740,6 @@
 				<!-- <button class="btn">Download Settings</button> -->
 				<!-- <button class="btn">Upload Settings</button> -->
 
-				<button class="btn" on:click={() => openWindow(window.location.href)}>
-					Open Another Clock
-				</button>
-				<button class="btn">Pop Out</button>
-
-				<br />
-
 				<button class="btn share-btn" on:click={shareApp}>
 					<Icon name="share" class="inline w-6 h-6" />
 					Share
@@ -756,6 +749,9 @@
 				<br />
 
 				<button class="btn">Install</button>
+				<button class="btn" on:click={() => openWindow(window.location.href)}>
+					Open Another Clock
+				</button>
 				<button class="btn">Send Feedback</button>
 
 				<br />

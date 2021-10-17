@@ -31,7 +31,6 @@ make the receiver a page that just has the clock with no menu or buttons, and th
 - reset all settings
 - send feedback can open modal prompt with subject and body and send btn opens mailto
 - copy website link
-- pop out? cannot close current tab, how to make current tab open windowless?
 - implenent langs, locales, timezones, update ui with reset btns next to them and auto detect toggle
 - finalize keyboard shortcuts, view keyboard shortcuts modal (maybe turn on and off specific shortcuts, change keys (each item has a toggle and input for key))
 - 
