@@ -459,7 +459,7 @@
 						</div>
 					{/each}
 					<button class="btn undo-btn block">
-						<Icon name="undo" class="inline w-6 h-6 md:w-8 md:h-8" />
+						<Icon name="undo" class="inline w-6 h-6" />
 						Reset Analog Appearance
 					</button>
 				</AccordionPanel>
@@ -580,7 +580,7 @@
 						</Modal>
 
 						<button class="btn undo-btn block">
-							<Icon name="undo" class="inline w-6 h-6 md:w-8 md:h-8" />
+							<Icon name="undo" class="inline w-6 h-6" />
 							Reset Digital Datetime Appearance
 						</button>
 
@@ -703,7 +703,7 @@
 					{/each}
 				</select>
 				<button class="btn undo-btn block">
-					<Icon name="undo" class="inline w-6 h-6 md:w-8 md:h-8" />
+					<Icon name="undo" class="inline w-6 h-6" />
 					Reset Appearance
 				</button>
 			</AccordionPanel>
@@ -724,7 +724,7 @@
 				</div>
 				<button class="btn">View Keyboard Shortcuts</button>
 				<button class="btn undo-btn block">
-					<Icon name="undo" class="inline w-6 h-6 md:w-8 md:h-8" />
+					<Icon name="undo" class="inline w-6 h-6" />
 					Reset Keyboard Shortcuts
 				</button>
 			</AccordionPanel>
@@ -762,7 +762,7 @@
 
 		<h3>Settings</h3>
 		<button class="btn undo-btn block">
-			<Icon name="undo" class="inline w-6 h-6 md:w-8 md:h-8" />
+			<Icon name="undo" class="inline w-6 h-6" />
 			Reset Settings
 		</button>
 		<!-- <button class="btn">Download Settings</button> -->
@@ -772,6 +772,7 @@
 		<button class="btn" on:click={() => openWindow(window.location.href)}>Open Another Clock</button
 		>
 		<button class="btn">Share</button>
+		<!-- <button class="btn">Copy Website Link</button> -->
 		<button class="btn">Send Feedback</button>
 		<button class="btn">Pop Out</button>
 		<button class="btn">Install</button>
