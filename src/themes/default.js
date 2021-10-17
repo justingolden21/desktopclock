@@ -20,8 +20,8 @@ const defaultTheme = {
 	ticks: {
 		sm: {
 			stroke: '-1',
-			height: 1,
-			width: 1
+			height: 0.5,
+			width: 2
 		},
 		md: {
 			stroke: '400',

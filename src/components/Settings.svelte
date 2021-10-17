@@ -64,7 +64,8 @@
 	import { browser } from '$app/env';
 	import defaultTheme from '../themes/default';
 	import defaultNightTheme from '../themes/defaultNight';
-	// import classicTheme from '../themes/classic';
+	import classicTheme from '../themes/classic';
+	import classicNightTheme from '../themes/classicNight';
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
 
@@ -501,13 +502,31 @@
 						<Icon name="theme" class="inline w-6 h-6" />
 						Default Night Theme
 					</button>
-					<!-- <button
+					<button
 						class="btn theme-btn block"
 						on:click={() => ($session.settings.clock.theme = classicTheme)}
 					>
 						<Icon name="theme" class="inline w-6 h-6" />
 						Classic Theme
-					</button> -->
+					</button>
+					<button
+						class="btn theme-btn block"
+						on:click={() => ($session.settings.clock.theme = classicNightTheme)}
+					>
+						<Icon name="theme" class="inline w-6 h-6" />
+						Classic Night Theme
+					</button>
+					<!-- todo: simple mode mutates classic but not default... they should be handled the same internally... -->
+					<button
+						class="btn theme-btn block"
+						on:click={() => {
+							for (const size of 'sm md lg'.split(' '))
+								$session.settings.clock.theme.ticks[size].stroke = '-1';
+						}}
+					>
+						<Icon name="settings" class="inline w-6 h-6" />
+						Simple Mode
+					</button>
 				</AccordionPanel>
 			{/if}
 			{#if $session.settings.clock.displays.primary != 'analog' || $session.settings.clock.displays.secondary != 'none'}

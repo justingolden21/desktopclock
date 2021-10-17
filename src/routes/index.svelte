@@ -25,6 +25,20 @@
 	$: displays = $session.settings.clock.displays;
 
 	$: sizes = ['sm', 'md', 'lg'].map((size) => ({ size, r: 27.5 - theme.ticks[size].width / 2 }));
+
+	function getColor(obj, accent = false) {
+		// if it does not exist or is -1, the fill/stroke is transparent
+		if (!obj || obj == '-1') return 'none';
+		// if it's a string starting with '#', treat it as a hex code and return it
+		if (typeof obj === 'string' && obj[0] == '#') return obj;
+		// if it's a string, it's the lightness only, use the default palette
+		if (typeof obj === 'string') return accent ? accentColorPalette[obj] : colorPalette[obj];
+		// if it's an object and has a specified color and lightness, use those
+		// if only lightness is specified, use the default palette
+		return colors[
+			obj.color || (accent ? $session.settings.accentColorPalette : $session.settings.colorPalette)
+		][obj.lightness];
+	}
 </script>
 
 <svelte:head>
@@ -51,8 +65,8 @@
 				y="2"
 				width="60"
 				height="60"
-				fill={theme.face.fill == -1 ? 'none' : colorPalette[theme.face.fill]}
-				stroke={colorPalette[theme.face.stroke]}
+				fill={getColor(theme.face.fill)}
+				stroke={getColor(theme.face.stroke)}
 				stroke-width={theme.face.strokeWidth}
 				rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0}
 			/>
@@ -67,9 +81,7 @@
 							(2 * r * Math.PI) / (size == 'sm' ? 60 : size == 'md' ? 12 : 4) -
 							theme.ticks[size].height
 						}`}
-						stroke={theme.ticks[size].stroke == -1
-							? 'none'
-							: colorPalette[theme.ticks[size].stroke]}
+						stroke={getColor(theme.ticks[size].stroke)}
 						stroke-width={theme.ticks[size].width}
 						transform={`rotate(-${theme.ticks[size].height})`}
 					/>
@@ -82,9 +94,7 @@
 							id="{hand}-hand"
 							y1={-theme.hands[hand].back}
 							y2={theme.hands[hand].length}
-							stroke={colors[theme.hands[hand].stroke.color || $session.settings.colorPalette][
-								theme.hands[hand].stroke.lightness
-							]}
+							stroke={getColor(theme.hands[hand].stroke)}
 							stroke-width={theme.hands[hand].strokeWidth}
 							stroke-linecap={theme.hands[hand].linecap}
 						/>
@@ -93,8 +103,8 @@
 				<!-- Pin -->
 				<circle
 					id="pin"
-					fill={colorPalette[theme.pin.fill]}
-					stroke={accentColorPalette[theme.pin.stroke]}
+					fill={getColor(theme.pin.fill)}
+					stroke={getColor(theme.pin.stroke, true)}
 					stroke-width={theme.pin.strokeWidth}
 					r={theme.pin.size}
 				/>
