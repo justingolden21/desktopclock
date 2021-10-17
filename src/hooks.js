@@ -25,12 +25,10 @@ export async function handle({ request, resolve }) {
 				battery: false
 			},
 
-			timeFormat: 'hh:mm:ss',
-			timeFormatCustom: 'hh:mm:ss',
+			timeFormat: 'h:mm A',
+			timeFormatCustom: 'h:mm A',
 			dateFormat: 'ddd, MMMM D',
 			dateFormatCustom: 'ddd, MMMM D',
-			datetimeFormat: 'hh:mm:ss ddd, MMMM D',
-			datetimeFormatCustom: 'hh:mm:ss ddd, MMMM D',
 
 			datetimeLocale: 'en'
 		},

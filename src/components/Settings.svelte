@@ -496,7 +496,7 @@
 						<div class="block mb-2">
 							<label for="time-format-select">Time Format:</label>
 							<select id="time-format-select" bind:value={$session.settings.clock.timeFormat}>
-								{#each ['HH:mm', 'HH:mm:ss', 'hh:mm', 'hh:mm:ss', 'hh:mm A', 'hh:mm:ss A', 'mm:ss'] as timeFormat}
+								{#each ['H:mm', 'H:mm:ss', 'h:mm A', 'h:mm:ss A', 'mm:ss'] as timeFormat}
 									<option value={timeFormat}>{new dayjs($now).format(timeFormat)}</option>
 								{/each}
 								<option value="custom">Custom</option>
@@ -630,6 +630,7 @@
 
 	<!-- Appearance -->
 	<TabPanel>
+		<!-- should theme, dark, cast, fullscreen btns be in general? -->
 		<div class="mb-2">
 			<ThemeButtons />
 		</div>
