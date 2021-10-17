@@ -57,11 +57,10 @@ calendar page
 flutter mobile apps, port to watch and tv
 
 ! settings ui:
-change help to about, move modal three
+change help to about, move modal there
 application tab should use details
 settings modal should remember which tab and accordion is open
 accordions should have a > v icon for open/closed
-clock should be leftmost
 tabs could have icons
 general tab could be appearance only, renamed appearance, move shortcuts to application
 version number should be moved from applicaiton to about. way to automatically update each commit?
