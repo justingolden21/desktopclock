@@ -779,9 +779,19 @@
 				<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
 			{/each}
 		</select>
-		<button class="btn undo-btn block">
+		<button
+			class="btn undo-btn block"
+			on:click={() => {
+				for (const option of 'colorPalette darkMode showDarkButton showCastButton showFullscreenButton showThemeButtons alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily'.split(
+					' '
+				))
+					$session.settings[option] = $session.defaultSettings[option];
+
+				$session.settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches; // same code as in layout
+			}}
+		>
 			<Icon name="undo" class="inline w-6 h-6" />
-			Reset Appearance
+			Reset Appearance Settings
 		</button>
 	</TabPanel>
 
