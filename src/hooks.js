@@ -16,14 +16,12 @@ export async function handle({ request, resolve }) {
 		colorPalette: 'blueGray',
 		accentColorPalette: 'red',
 		clock: {
-			mode: 'analog',
-			theme: defaultTheme,
-
 			displays: {
 				primary: 'analog', // analog, time, date, datetime
 				secondary: 'date', // time, date, datetime, none
 				battery: false
 			},
+			theme: defaultTheme,
 
 			timeFormat: 'h:mm A',
 			timeFormatCustom: 'h:mm A',
@@ -32,17 +30,19 @@ export async function handle({ request, resolve }) {
 
 			datetimeLocale: 'en'
 		},
+
 		darkMode: null, // default to null so the onmount function in layout checks the preferred color scheme
-		doubleclickFullscreen: false,
-		showFullscreenButton: true,
 		showDarkButton: true,
 		showCastButton: false,
+		showFullscreenButton: true,
 		showThemeButtons: false,
 		alwaysCollapseMenu: false,
 		hideTitlebarWhenIdle: false,
 		secondsUntilIdle: 2,
-		keyboardShortcuts: true,
-		fontFamily: 'Jura'
+		fontFamily: 'Jura',
+
+		doubleclickFullscreen: false,
+		keyboardShortcuts: true
 	};
 
 	return await resolve(request);
