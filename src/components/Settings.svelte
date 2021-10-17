@@ -765,7 +765,7 @@
         		<button class="btn">Multiple Clock Settings</button>
 		        <button class="btn">Quick Resize Settings</button> -->
 			</AccordionPanel>
-			<AccordionPanel accordionTitle="Keyboard Shortcuts" key="2">
+			<AccordionPanel accordionTitle="Shortcuts" key="2">
 				<div class="block mb-2">
 					<Toggle
 						id="dbl-click-fullscreen-toggle"
