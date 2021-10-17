@@ -1,5 +1,7 @@
 <script>
 	import { session } from '$app/stores';
+
+	export let settingsModal = null;
 </script>
 
 <svelte:window
@@ -12,6 +14,9 @@
 			return;
 		if (event.code === 'KeyN') {
 			$session.settings.darkMode = !$session.settings.darkMode;
+		}
+		if (event.code === 'KeyS') {
+			settingsModal.show();
 		}
 	}}
 />

@@ -61,7 +61,7 @@
 	<meta name="theme-color" content={colors[$session.settings.colorPalette][500]} />
 </svelte:head>
 
-<KeyboardShortcuts />
+<KeyboardShortcuts bind:settingsModal />
 
 <svelte:body on:dblclick={doubleClickFullscreen} />
 

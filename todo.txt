@@ -33,9 +33,6 @@ prompt "are you sure" before deleting, max of 20 themes, btn to delete all theme
  - settings component could include modal wrapper
 ! use theme in more places (replace "gray" with the theme color, maybe later have an accent)
 ! implement remaining settings:
-- reset analog settings
-- reset digital settings
-- reset appearance
 - reset all settings
 - send feedback can open modal prompt with subject and body and send btn opens mailto
 - copy website link
