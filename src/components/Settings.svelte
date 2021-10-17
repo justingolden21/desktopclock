@@ -727,7 +727,7 @@
 	<!-- General -->
 	<TabPanel>
 		<Accordion key="1">
-			<AccordionPanel accordionTitle="App" key="1">
+			<AccordionPanel accordionTitle="Application" key="1">
 				<!-- <button class="btn">Download Settings</button> -->
 				<!-- <button class="btn">Upload Settings</button> -->
 
