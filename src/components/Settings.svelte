@@ -789,29 +789,52 @@
 			<AccordionPanel accordionTitle="Locale" key="3">
 				<div class="block mb-2">
 					<label for="language-select">Language:</label>
-					<select id="language-select">
+					<select id="language-select" disabled={$session.settings.locale.automaticLanguage}>
 						<option value="en-us">English, US</option>
 						<option value="en-gb">English, GB</option>
 						<option value="es-mx">Spanish, MX</option>
 						<option value="es-sp">Spanish, SP</option>
 					</select>
+					<br class="block lg:hidden" />
+					<Toggle
+						id="auto-detect-language-toggle"
+						labelText="Automatically Detect Language"
+						bind:checked={$session.settings.locale.automaticLanguage}
+					/>
 				</div>
 				<div class="block mb-2">
 					<label for="datetime-locale-select">Datetime Locale:</label>
-					<select id="datetime-locale-select">
+					<select id="datetime-locale-select" disabled={$session.settings.locale.automaticDatetime}>
 						<option>en</option>
 						<option>es</option>
 						<option>de-DE</option>
 						<option>ar-EG</option>
 					</select>
+					<br class="block lg:hidden" />
+					<Toggle
+						id="auto-detect-datetime-locale-toggle"
+						labelText="Automatically Detect Datetime Locale"
+						bind:checked={$session.settings.locale.automaticDatetime}
+					/>
 				</div>
 				<!-- todo: autocomplete type timezones -->
 				<div class="block mb-2">
 					<label for="timezone-select">Timezone:</label>
-					<select id="timezone-select">
+					<select id="timezone-select" disabled={$session.settings.locale.automaticTimezone}>
 						<option> Pacific Daylight Time (GMT-7) Los Angeles, CA </option>
 					</select>
+					<br class="block lg:hidden" />
+					<Toggle
+						id="auto-detect-timezone-toggle"
+						labelText="Automatically Detect Datetime Locale"
+						bind:checked={$session.settings.locale.automaticTimezone}
+					/>
 				</div>
+
+				<button class="btn undo-btn block">
+					<Icon name="undo" class="inline w-6 h-6" />
+					Reset Locale Settings (to automatic)
+				</button>
 			</AccordionPanel>
 		</Accordion>
 	</TabPanel>

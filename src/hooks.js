@@ -29,6 +29,7 @@ const defaultSettings = {
 		datetimeLocale: 'en'
 	},
 
+	// appearance
 	darkMode: null, // default to null so the onmount function in layout checks the preferred color scheme
 	showDarkButton: true,
 	showCastButton: false,
@@ -39,8 +40,17 @@ const defaultSettings = {
 	secondsUntilIdle: 2,
 	fontFamily: 'Jura',
 
+	// general
 	doubleclickFullscreen: false,
-	keyboardShortcuts: true
+	keyboardShortcuts: true,
+	locale: {
+		datetime: 'en',
+		language: 'en',
+		timezone: 'en',
+		automaticDatetime: true,
+		automaticLanguage: true,
+		automaticTimezone: true
+	}
 };
 
 export async function handle({ request, resolve }) {
