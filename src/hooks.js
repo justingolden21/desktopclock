@@ -55,7 +55,8 @@ const defaultSettings = {
 
 export async function handle({ request, resolve }) {
 	request.locals.languageDictionary = await getLanguageDictionary(request.headers);
-	request.locals.settings = defaultSettings;
+	request.locals.settings = JSON.parse(JSON.stringify(defaultSettings)); // deep copy to save original defaultSettings
+	request.locals.defaultSettings = defaultSettings;
 
 	return await resolve(request);
 }
@@ -63,6 +64,7 @@ export async function handle({ request, resolve }) {
 export function getSession({ locals }) {
 	return {
 		languageDictionary: locals.languageDictionary,
-		settings: locals.settings
+		settings: locals.settings,
+		defaultSettings: locals.defaultSettings
 	};
 }

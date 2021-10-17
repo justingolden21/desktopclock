@@ -597,9 +597,17 @@
 							>
 						{/if}
 
-						<button class="btn undo-btn block">
+						<button
+							class="btn undo-btn block"
+							on:click={() => {
+								for (const format of 'timeFormat timeFormatCustom dateFormat dateFormatCustom'.split(
+									' '
+								))
+									$session.settings.clock[format] = $session.defaultSettings.clock[format];
+							}}
+						>
 							<Icon name="undo" class="inline w-6 h-6" />
-							Reset Digital Datetime Appearance
+							Reset Digital Datetime Formats
 						</button>
 
 						<label for="datetime-locale-select">Datetime Locale:</label>
