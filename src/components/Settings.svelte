@@ -639,6 +639,10 @@
 							</select>
 						</div>
 					{/each}
+					<button class="btn undo-btn block">
+						<Icon name="undo" class="inline w-6 h-6 md:w-8 md:h-8" />
+						Reset Analog Appearance
+					</button>
 				</AccordionPanel>
 			{/if}
 			{#if $session.settings.clock.displays.primary != 'analog' || $session.settings.clock.displays.secondary != 'none'}
@@ -755,6 +759,11 @@
 								>
 							</p>
 						</Modal>
+
+						<button class="btn undo-btn block">
+							<Icon name="undo" class="inline w-6 h-6 md:w-8 md:h-8" />
+							Reset Digital Datetime Appearance
+						</button>
 
 						<!-- TODO -->
 						<!-- <div class="block mb-2">
