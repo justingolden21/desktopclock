@@ -249,6 +249,50 @@
 			</AccordionPanel>
 			{#if $session.settings.clock.displays.primary == 'analog'}
 				<AccordionPanel accordionTitle="Analog" key="4">
+					<!-- note: using json for efficient deep clone so original theme object is not mutated -->
+					<button
+						class="btn theme-btn block"
+						on:click={() =>
+							($session.settings.clock.theme = JSON.parse(JSON.stringify(defaultTheme)))}
+					>
+						<Icon name="theme" class="inline w-6 h-6" />
+						Default Theme
+					</button>
+					<button
+						class="btn theme-btn block"
+						on:click={() =>
+							($session.settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme)))}
+					>
+						<Icon name="theme" class="inline w-6 h-6" />
+						Default Night Theme
+					</button>
+					<button
+						class="btn theme-btn block"
+						on:click={() =>
+							($session.settings.clock.theme = JSON.parse(JSON.stringify(classicTheme)))}
+					>
+						<Icon name="theme" class="inline w-6 h-6" />
+						Classic Theme
+					</button>
+					<button
+						class="btn theme-btn block"
+						on:click={() =>
+							($session.settings.clock.theme = JSON.parse(JSON.stringify(classicNightTheme)))}
+					>
+						<Icon name="theme" class="inline w-6 h-6" />
+						Classic Night Theme
+					</button>
+					<button
+						class="btn theme-btn block"
+						on:click={() => {
+							for (const size of 'sm md lg'.split(' '))
+								$session.settings.clock.theme.ticks[size].stroke = '-1';
+						}}
+					>
+						<Icon name="settings" class="inline w-6 h-6" />
+						Simple Mode
+					</button>
+
 					<h3>Face</h3>
 
 					<div class="block mb-2">
@@ -488,49 +532,6 @@
 							</select>
 						</div>
 					{/each}
-					<!-- note: using json for efficient deep clone so original theme object is not mutated -->
-					<button
-						class="btn theme-btn block"
-						on:click={() =>
-							($session.settings.clock.theme = JSON.parse(JSON.stringify(defaultTheme)))}
-					>
-						<Icon name="theme" class="inline w-6 h-6" />
-						Default Theme
-					</button>
-					<button
-						class="btn theme-btn block"
-						on:click={() =>
-							($session.settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme)))}
-					>
-						<Icon name="theme" class="inline w-6 h-6" />
-						Default Night Theme
-					</button>
-					<button
-						class="btn theme-btn block"
-						on:click={() =>
-							($session.settings.clock.theme = JSON.parse(JSON.stringify(classicTheme)))}
-					>
-						<Icon name="theme" class="inline w-6 h-6" />
-						Classic Theme
-					</button>
-					<button
-						class="btn theme-btn block"
-						on:click={() =>
-							($session.settings.clock.theme = JSON.parse(JSON.stringify(classicNightTheme)))}
-					>
-						<Icon name="theme" class="inline w-6 h-6" />
-						Classic Night Theme
-					</button>
-					<button
-						class="btn theme-btn block"
-						on:click={() => {
-							for (const size of 'sm md lg'.split(' '))
-								$session.settings.clock.theme.ticks[size].stroke = '-1';
-						}}
-					>
-						<Icon name="settings" class="inline w-6 h-6" />
-						Simple Mode
-					</button>
 				</AccordionPanel>
 			{/if}
 			{#if $session.settings.clock.displays.primary != 'analog' || $session.settings.clock.displays.secondary != 'none'}
