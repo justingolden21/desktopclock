@@ -774,25 +774,34 @@
 			</select>
 		</div>
 
-		<h3>Settings</h3>
-		<button class="btn undo-btn block">
-			<Icon name="undo" class="inline w-6 h-6" />
-			Reset Settings
-		</button>
 		<!-- <button class="btn">Download Settings</button> -->
 		<!-- <button class="btn">Upload Settings</button> -->
 
 		<h3>App</h3>
-		<button class="btn" on:click={() => openWindow(window.location.href)}>Open Another Clock</button
-		>
+		<button class="btn" on:click={() => openWindow(window.location.href)}>
+			Open Another Clock
+		</button>
+		<button class="btn">Pop Out</button>
+
+		<br />
+
 		<button class="btn share-btn" on:click={shareApp}>
 			<Icon name="share" class="inline w-6 h-6" />
 			Share
 		</button>
-		<!-- <button class="btn">Copy Website Link</button> -->
-		<button class="btn">Send Feedback</button>
-		<button class="btn">Pop Out</button>
+		<button class="btn">Copy Website Link</button>
+
+		<br />
+
 		<button class="btn">Install</button>
+		<button class="btn">Send Feedback</button>
+
+		<br />
+
+		<button class="btn undo-btn">
+			<Icon name="undo" class="inline w-6 h-6" />
+			Reset All Settings
+		</button>
 
 		<!-- <h3>Advanced</h3>
 		<button class="btn">Multiple Clock Settings</button>
