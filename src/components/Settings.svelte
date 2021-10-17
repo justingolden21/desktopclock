@@ -62,6 +62,7 @@
 	import Accordion from './Accordion.svelte';
 	import AccordionPanel from './AccordionPanel.svelte';
 	import { browser } from '$app/env';
+	import defaultTheme from '../themes/default';
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
 
@@ -484,7 +485,10 @@
 							</select>
 						</div>
 					{/each}
-					<button class="btn undo-btn block">
+					<button
+						class="btn undo-btn block"
+						on:click={() => ($session.settings.clock.theme = defaultTheme)}
+					>
 						<Icon name="undo" class="inline w-6 h-6" />
 						Reset Analog Appearance
 					</button>
