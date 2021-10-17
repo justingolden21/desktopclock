@@ -5,7 +5,6 @@
 
 	export let navOpen;
 	export let settingsModal = null;
-	export let aboutModal = null;
 </script>
 
 <nav
@@ -50,16 +49,6 @@
 	>
 		<Icon name="settings" class="w-6 h-6 inline mr-2" />
 		Settings
-	</span>
-	<span
-		tabindex="0"
-		on:click={() => {
-			navOpen = false;
-			aboutModal.show();
-		}}
-	>
-		<Icon name="info" class="w-6 h-6 inline mr-2" />
-		About
 	</span>
 	<div class="absolute bottom-0 mb-8">
 		<InstallButton />

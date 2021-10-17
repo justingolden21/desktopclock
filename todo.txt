@@ -57,9 +57,7 @@ calendar page
 flutter mobile apps, port to watch and tv
 
 ! settings ui:
-change help to about, move modal there
 settings modal should remember which tab and accordion is open
-tabs could have icons
 version number should be moved from applicaiton to about. way to automatically update each commit?
 all 3 locale settings should have reset btns next to them and auto detect toggles next to them
 download and upload settings (json, human readable) should be in advanced settings? maybe not
