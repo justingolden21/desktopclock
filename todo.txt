@@ -20,20 +20,30 @@ presentation api todo:
 make the receiver a page that just has the clock with no menu or buttons, and then the user can change the settings and it sends a signal to the receiver to display those changes on the tv. eventually will want to support worldclock etc
 
 
-! remember which tab and accordion are open in settings?
+! remember which tab and accordion are open in settings
+! group / organize settings in object in hooks.js better, make reset settings simpler
+! add icons to more btns
+! interior modal full width (formatting table, eventually view shortcuts modal)
+! implement remaining settings:
+- reset analog settings
+- reset digital settings
+- reset appearance
+- reset all settings
+- send feedback can open modal prompt with subject and body and send btn opens mailto
+- copy website link
+- pop out? cannot close current tab, how to make current tab open windowless?
+- implenent langs, locales, timezones, update ui with reset btns next to them and auto detect toggle
+- finalize keyboard shortcuts, view keyboard shortcuts modal (maybe turn on and off specific shortcuts, change keys (each item has a toggle and input for key))
+- 
 
 next:
-analog settings aren't populating select correctly
 ! timezones
 ! local storage settings
+review font families again?
 test casting api
-make it load cleaner
-fix details open/close
-make clock leftmost tab in settings?
 add more icons to settings?
 default time format with timezone?
 simple ui for datetime locale, language, and timezone, with auto detect and reset options
-move this branch to prod
 fix theme btn display
 check meta tags, make sure it works on google,fb,twitter, etc, maybe add similar to sharethis?
 https://metatags.io/
@@ -54,8 +64,7 @@ test presentation, share, and pwa
 calendar page
 flutter mobile apps, port to watch and tv
 
-! settings ui:
-settings modal should remember which tab and accordion is open
+settings ui:
 version number should be moved from applicaiton to about. way to automatically update each commit?
 all 3 locale settings should have reset btns next to them and auto detect toggles next to them
 download and upload settings (json, human readable) should be in advanced settings? maybe not
@@ -183,6 +192,7 @@ flipclock like https://onlineclock.net/flip/ ?
 more later:
 integrate with spotify for media controls?
 weather api?
+save custom date/time formats in dropdown, remove default formats, etc
 
 links:
 https://tc39.es/ecma402/#table-datetimeformat-components
