@@ -488,35 +488,39 @@
 							</select>
 						</div>
 					{/each}
+					<!-- note: using json for efficient deep clone so original theme object is not mutated -->
 					<button
 						class="btn theme-btn block"
-						on:click={() => ($session.settings.clock.theme = defaultTheme)}
+						on:click={() =>
+							($session.settings.clock.theme = JSON.parse(JSON.stringify(defaultTheme)))}
 					>
 						<Icon name="theme" class="inline w-6 h-6" />
 						Default Theme
 					</button>
 					<button
 						class="btn theme-btn block"
-						on:click={() => ($session.settings.clock.theme = defaultNightTheme)}
+						on:click={() =>
+							($session.settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme)))}
 					>
 						<Icon name="theme" class="inline w-6 h-6" />
 						Default Night Theme
 					</button>
 					<button
 						class="btn theme-btn block"
-						on:click={() => ($session.settings.clock.theme = classicTheme)}
+						on:click={() =>
+							($session.settings.clock.theme = JSON.parse(JSON.stringify(classicTheme)))}
 					>
 						<Icon name="theme" class="inline w-6 h-6" />
 						Classic Theme
 					</button>
 					<button
 						class="btn theme-btn block"
-						on:click={() => ($session.settings.clock.theme = classicNightTheme)}
+						on:click={() =>
+							($session.settings.clock.theme = JSON.parse(JSON.stringify(classicNightTheme)))}
 					>
 						<Icon name="theme" class="inline w-6 h-6" />
 						Classic Night Theme
 					</button>
-					<!-- todo: simple mode mutates classic but not default... they should be handled the same internally... -->
 					<button
 						class="btn theme-btn block"
 						on:click={() => {

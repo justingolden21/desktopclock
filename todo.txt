@@ -18,8 +18,6 @@ custom scrollbar?
 
 dark theme update app theme colors, favicon? do similar for other themes?
 
-! bug: simple mode mutates classic themes
-
 link to browse all colors at justingolden.me/tailwind-colors ?
 
 presentation api todo:
