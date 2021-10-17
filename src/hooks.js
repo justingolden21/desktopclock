@@ -10,40 +10,42 @@ async function getLanguageDictionary(headers) {
 	}
 }
 
+const defaultSettings = {
+	colorPalette: 'blueGray',
+	accentColorPalette: 'red',
+	clock: {
+		displays: {
+			primary: 'analog', // analog, time, date, datetime
+			secondary: 'date', // time, date, datetime, none
+			battery: false
+		},
+		theme: defaultTheme,
+
+		timeFormat: 'h:mm A',
+		timeFormatCustom: 'h:mm A',
+		dateFormat: 'ddd, MMMM D',
+		dateFormatCustom: 'ddd, MMMM D',
+
+		datetimeLocale: 'en'
+	},
+
+	darkMode: null, // default to null so the onmount function in layout checks the preferred color scheme
+	showDarkButton: true,
+	showCastButton: false,
+	showFullscreenButton: true,
+	showThemeButtons: false,
+	alwaysCollapseMenu: false,
+	hideTitlebarWhenIdle: false,
+	secondsUntilIdle: 2,
+	fontFamily: 'Jura',
+
+	doubleclickFullscreen: false,
+	keyboardShortcuts: true
+};
+
 export async function handle({ request, resolve }) {
 	request.locals.languageDictionary = await getLanguageDictionary(request.headers);
-	request.locals.settings = {
-		colorPalette: 'blueGray',
-		accentColorPalette: 'red',
-		clock: {
-			displays: {
-				primary: 'analog', // analog, time, date, datetime
-				secondary: 'date', // time, date, datetime, none
-				battery: false
-			},
-			theme: defaultTheme,
-
-			timeFormat: 'h:mm A',
-			timeFormatCustom: 'h:mm A',
-			dateFormat: 'ddd, MMMM D',
-			dateFormatCustom: 'ddd, MMMM D',
-
-			datetimeLocale: 'en'
-		},
-
-		darkMode: null, // default to null so the onmount function in layout checks the preferred color scheme
-		showDarkButton: true,
-		showCastButton: false,
-		showFullscreenButton: true,
-		showThemeButtons: false,
-		alwaysCollapseMenu: false,
-		hideTitlebarWhenIdle: false,
-		secondsUntilIdle: 2,
-		fontFamily: 'Jura',
-
-		doubleclickFullscreen: false,
-		keyboardShortcuts: true
-	};
+	request.locals.settings = defaultSettings;
 
 	return await resolve(request);
 }
