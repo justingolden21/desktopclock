@@ -785,7 +785,7 @@
 		<h3>App</h3>
 		<button class="btn" on:click={() => openWindow(window.location.href)}>Open Another Clock</button
 		>
-		<button class="btn" on:click={shareApp}>
+		<button class="btn share-btn" on:click={shareApp}>
 			<Icon name="share" class="inline w-6 h-6" />
 			Share
 		</button>

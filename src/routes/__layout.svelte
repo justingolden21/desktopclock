@@ -96,7 +96,7 @@
 			with any feedback, questions, or requests at
 			<a href="mailto:contact@justingolden.me" target="_blank">contact@justingolden.me</a>.
 		</p>
-		<button class="btn" on:click={shareApp}>
+		<button class="btn share-btn" on:click={shareApp}>
 			<Icon name="share" class="inline w-6 h-6" />
 			Share
 		</button>
