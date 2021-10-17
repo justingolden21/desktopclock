@@ -1,6 +1,9 @@
 <script>
+	import colors from 'tailwindcss/colors.js';
+
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
+
 	import BatteryIcon from './BatteryIcon.svelte';
 	import dayjs from 'dayjs';
 	import { now } from './now.js';
@@ -42,37 +45,42 @@
 			});
 		});
 	});
+
+	$: colorPalette = colors[$session.settings.colorPalette];
+	$: shade = $session.settings.darkMode ? 200 : 900;
 </script>
 
-<div id="primary-display">
-	{#if displays.primary != 'analog'}
-		<h1>
-			{#if displays.primary == 'time'}
-				{time}
-			{:else if displays.primary == 'date'}
-				{date}
-			{:else if displays.primary == 'datetime'}
-				{time}
-				<br />
-				{date}
-			{/if}
-		</h1>
-	{/if}
-</div>
-<div id="secondary-display">
-	{#if displays.secondary != 'none'}
-		<h2>
-			{#if displays.secondary == 'time'}
-				{time}
-			{:else if displays.secondary == 'date'}
-				{date}
-			{:else if displays.secondary == 'datetime'}
-				{time}
-				<br />
-				{date}
-			{/if}
-		</h2>
-	{/if}
+<div style="color:{colorPalette[shade]}">
+	<div id="primary-display">
+		{#if displays.primary != 'analog'}
+			<h1>
+				{#if displays.primary == 'time'}
+					{time}
+				{:else if displays.primary == 'date'}
+					{date}
+				{:else if displays.primary == 'datetime'}
+					{time}
+					<br />
+					{date}
+				{/if}
+			</h1>
+		{/if}
+	</div>
+	<div id="secondary-display">
+		{#if displays.secondary != 'none'}
+			<h2>
+				{#if displays.secondary == 'time'}
+					{time}
+				{:else if displays.secondary == 'date'}
+					{date}
+				{:else if displays.secondary == 'datetime'}
+					{time}
+					<br />
+					{date}
+				{/if}
+			</h2>
+		{/if}
+	</div>
 </div>
 
 {#if displays.battery}
