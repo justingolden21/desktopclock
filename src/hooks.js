@@ -11,8 +11,6 @@ async function getLanguageDictionary(headers) {
 }
 
 const defaultSettings = {
-	colorPalette: 'blueGray',
-	accentColorPalette: 'red',
 	clock: {
 		displays: {
 			primary: 'analog', // analog, time, date, datetime
@@ -30,6 +28,7 @@ const defaultSettings = {
 	},
 
 	// appearance
+	colorPalette: 'blueGray',
 	darkMode: null, // default to null so the onmount function in layout checks the preferred color scheme
 	showDarkButton: true,
 	showCastButton: false,

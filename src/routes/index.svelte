@@ -20,7 +20,6 @@
 	// Shortcut for $session.settings.clock.theme.*
 	$: theme = $session.settings.clock.theme;
 	$: colorPalette = colors[$session.settings.colorPalette];
-	$: accentColorPalette = colors[$session.settings.accentColorPalette];
 
 	$: displays = $session.settings.clock.displays;
 
