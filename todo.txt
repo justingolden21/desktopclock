@@ -16,14 +16,24 @@ zen mode btn: top of clock settings, click to go fullscreen, no menu, no buttons
 
 custom scrollbar?
 
+dark theme update app theme colors, favicon? do similar for other themes?
+
+! bug: simple mode mutates classic themes
+
+link to browse all colors at justingolden.me/tailwind-colors ?
+
 presentation api todo:
 make the receiver a page that just has the clock with no menu or buttons, and then the user can change the settings and it sends a signal to the receiver to display those changes on the tv. eventually will want to support worldclock etc
 
+btn to add new theme, new theme shows up as btn with small x to right to delete it
+prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
 
 ! remember which tab and accordion are open in settings
 ! group / organize settings in object in hooks.js better, make reset settings simpler
 ! add icons to more btns
-! interior modal full width (formatting table, eventually view shortcuts modal)
+! interior modal full width (formatting table, eventually view shortcuts modal) move modal outside of settings modal (settings component)
+ - settings component could include modal wrapper
+! use theme in more places (replace "gray" with the theme color, maybe later have an accent)
 ! implement remaining settings:
 - reset analog settings
 - reset digital settings
@@ -58,6 +68,7 @@ save your own themes and load them?
 live update clock preview in settings on static float right when changing analog display settings?
 
 future:
+!!! : ) dropdown for color in additon to lightness for each item in analog theme. option for "primary color" and "accent color" which can be chosen in general settings
 timezone input with autocomplete select
 primary or secondary input: timezone (name, location, utc... pick which ones), greeting ("good morning/afternoon/evening/night, {name}!"), custom (custom text)
 test presentation, share, and pwa
