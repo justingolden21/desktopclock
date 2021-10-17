@@ -282,6 +282,10 @@
 						<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
 					{/each}
 				</select>
+				<button class="btn undo-btn block">
+					<Icon name="undo" class="inline w-6 h-6 md:w-8 md:h-8" />
+					Reset Appearance
+				</button>
 			</AccordionPanel>
 			<AccordionPanel accordionTitle="Shortcuts" key="2">
 				<div class="block mb-2">
@@ -299,7 +303,10 @@
 					/>
 				</div>
 				<button class="btn">View Keyboard Shortcuts</button>
-				<button class="btn">Reset Keyboard Shortcuts</button>
+				<button class="btn undo-btn block">
+					<Icon name="undo" class="inline w-6 h-6 md:w-8 md:h-8" />
+					Reset Keyboard Shortcuts
+				</button>
 			</AccordionPanel>
 		</Accordion>
 	</TabPanel>
@@ -334,9 +341,12 @@
 		</div>
 
 		<h3>Settings</h3>
-		<button class="btn">Reset Settings</button>
-		<button class="btn">Download Settings</button>
-		<button class="btn">Upload Settings</button>
+		<button class="btn undo-btn block">
+			<Icon name="undo" class="inline w-6 h-6 md:w-8 md:h-8" />
+			Reset Settings
+		</button>
+		<!-- <button class="btn">Download Settings</button> -->
+		<!-- <button class="btn">Upload Settings</button> -->
 
 		<h3>App</h3>
 		<button class="btn" on:click={() => openWindow(window.location.href)}>Open Another Clock</button
