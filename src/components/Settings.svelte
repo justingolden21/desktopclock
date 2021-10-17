@@ -892,11 +892,6 @@
 						bind:checked={$session.settings.locale.automaticTimezone}
 					/>
 				</div>
-
-				<button class="btn undo-btn block">
-					<Icon name="undo" class="inline w-6 h-6" />
-					Reset Locale Settings (to automatic)
-				</button>
 			</AccordionPanel>
 		</Accordion>
 	</TabPanel>
