@@ -21,16 +21,21 @@
 		}
 	}
 
-	// TODO: display toast (new component) that says the url was copied
 	export function copyURL() {
-		copyText(window.location.href);
+		copyText(window.location.href).then((success) => {
+			const message = success ? 'Copied successfully' : 'Failed to copy';
+			const type = success ? 'success' : 'error';
+			const dismissible = true;
+			const timeout = 2000;
+			addToast({ message, type, dismissible, timeout });
+		});
 	}
 
 	// Copies a string to clipboard
 	// Uses navigator API if available, else uses execCommand (deprecated)
 	// Returns a boolean if copy was successful
 	// See: https://stackoverflow.com/q/400212/4907950
-	function copyText(str) {
+	async function copyText(str) {
 		console.log('Copying', str);
 		if (!navigator.clipboard) {
 			// fallback
@@ -52,7 +57,7 @@
 			document.body.removeChild(input);
 			return result;
 		}
-		navigator.clipboard.writeText(str).then(
+		const result = navigator.clipboard.writeText(str).then(
 			function () {
 				console.log('Async: Copying to clipboard was successful');
 				return true;
@@ -62,6 +67,7 @@
 				return false;
 			}
 		);
+		return result;
 	}
 
 	export function openWindow(url, width = 400, height = 400, left = 20, top = 20) {
@@ -109,6 +115,9 @@
 	import defaultNightTheme from '../themes/defaultNight';
 	import classicTheme from '../themes/classic';
 	import classicNightTheme from '../themes/classicNight';
+
+	import Toasts from './Toasts.svelte';
+	import { addToast } from './toastStore';
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
 
@@ -969,6 +978,8 @@
 		</p>
 	</TabPanel>
 </Tabs>
+
+<Toasts />
 
 <style>
 </style>

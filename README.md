@@ -42,6 +42,8 @@ VS Code Extensions:
 
 - Prettier
 
+- Svelte 3 Snippets
+
 - Svelte for VS Code
 
 - Tailwind CSS Intellisense
