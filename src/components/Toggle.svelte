@@ -6,7 +6,7 @@
 
 <div class="toggle-container">
 	<input bind:checked type="checkbox" {id} class="toggle-checkbox" />
-	<label class="toggle-bg" on:click={() => (checked = !checked)} />
+	<label for={id} class="toggle-bg" on:click={() => (checked = !checked)} />
 </div>
 <label for={id} class="toggle-label">
 	{labelText}
