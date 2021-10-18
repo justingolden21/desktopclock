@@ -42,6 +42,9 @@ prompt "are you sure" before deleting, max of 20 themes, btn to delete all theme
 
 fix font loading in select
 
+get version from package.json in about section
+command to automatically build for production (update sw cache name) and update version number in package json?
+
 next:
 ! timezones
 ! local storage settings

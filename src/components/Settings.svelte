@@ -21,6 +21,49 @@
 		}
 	}
 
+	// TODO: display toast (new component) that says the url was copied
+	export function copyURL() {
+		copyText(window.location.href);
+	}
+
+	// Copies a string to clipboard
+	// Uses navigator API if available, else uses execCommand (deprecated)
+	// Returns a boolean if copy was successful
+	// See: https://stackoverflow.com/q/400212/4907950
+	function copyText(str) {
+		console.log('Copying', str);
+		if (!navigator.clipboard) {
+			// fallback
+			let input = document.createElement('textarea');
+			input.innerHTML = str;
+			document.body.appendChild(input);
+			input.focus();
+			input.select();
+			let result;
+
+			try {
+				result = document.execCommand('copy');
+				console.log(
+					'Fallback: Copying text command was ' + (result ? 'successful' : 'unsuccessful')
+				);
+			} catch (err) {
+				console.error('Fallback: Could not copy text: ', err);
+			}
+			document.body.removeChild(input);
+			return result;
+		}
+		navigator.clipboard.writeText(str).then(
+			function () {
+				console.log('Async: Copying to clipboard was successful');
+				return true;
+			},
+			function (err) {
+				console.error('Async: Could not copy text: ', err);
+				return false;
+			}
+		);
+	}
+
 	export function openWindow(url, width = 400, height = 400, left = 20, top = 20) {
 		// https://www.w3schools.com/jsref/met_win_open.asp
 		let win = window.open(
@@ -806,7 +849,10 @@
 					<Icon name="share" class="inline w-6 h-6" />
 					Share
 				</button>
-				<button class="btn">Copy Website Link</button>
+				<button class="btn link-btn" on:click={copyURL}>
+					<Icon name="link" class="inline w-6 h-6" />
+					Copy Website Link
+				</button>
 
 				<br />
 
