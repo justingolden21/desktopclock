@@ -7,6 +7,20 @@
 		}
 	}
 
+	export function shareApp() {
+		// TODO translate, test on more platforms, store URL in global variable somewhere, in case it changes
+		if (navigator.share) {
+			navigator
+				.share({
+					title: 'Desktop Clock',
+					text: 'Desktop Clock is a simple, resizable and customizable clock for any device.',
+					url: 'https://desktopclock.netlify.app/'
+				})
+				.then(() => console.log('Successful share'))
+				.catch((err) => console.log('Error sharing', err));
+		}
+	}
+
 	export function openWindow(url, width = 400, height = 400, left = 20, top = 20) {
 		// https://www.w3schools.com/jsref/met_win_open.asp
 		let win = window.open(
@@ -48,6 +62,10 @@
 	import Accordion from './Accordion.svelte';
 	import AccordionPanel from './AccordionPanel.svelte';
 	import { browser } from '$app/env';
+	import defaultTheme from '../themes/default';
+	import defaultNightTheme from '../themes/defaultNight';
+	import classicTheme from '../themes/classic';
+	import classicNightTheme from '../themes/classicNight';
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
 
@@ -176,182 +194,23 @@
 
 <Tabs>
 	<TabList>
-		<Tab>General</Tab>
-		<Tab>Application</Tab>
-		<Tab>Clock</Tab>
-		<Tab>Help</Tab>
+		<Tab>
+			<Icon name="clock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+			Clock
+		</Tab>
+		<Tab>
+			<Icon name="eye" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+			Appearance
+		</Tab>
+		<Tab>
+			<Icon name="application" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+			General
+		</Tab>
+		<Tab>
+			<Icon name="info" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+			About
+		</Tab>
 	</TabList>
-
-	<!-- General -->
-	<TabPanel>
-		<Accordion key="1">
-			<AccordionPanel accordionTitle="Appearance" key="1">
-				<div class="mb-2">
-					<ThemeButtons />
-				</div>
-				<div class="block mb-2">
-					<button
-						class="dark-btn btn"
-						on:click={() => ($session.settings.darkMode = !$session.settings.darkMode)}
-					>
-						<Icon name="moon" class="inline w-6 h-6 md:w-8 md:h-8" />
-						Dark
-					</button>
-
-					<button class="cast-btn btn" on:click={castClock}>
-						<Icon name="external-link" class="inline w-6 h-6 md:w-8 md:h-8" />
-						Cast
-					</button>
-
-					<button class="fullscreen-btn btn" on:click={toggleFullscreen}>
-						<Icon name="fullscreen" class="inline w-6 h-6 md:w-8 md:h-8" />
-						Fullscreen
-					</button>
-				</div>
-
-				<Toggle
-					id="show-dark-btn-toggle"
-					bind:checked={$session.settings.showDarkButton}
-					labelText="Show dark button"
-				/>
-
-				<br />
-
-				<Toggle
-					id="show-cast-btn-toggle"
-					bind:checked={$session.settings.showCastButton}
-					labelText="Show cast button"
-				/>
-
-				<br />
-
-				<Toggle
-					id="show-fullscreen-btn-toggle"
-					bind:checked={$session.settings.showFullscreenButton}
-					labelText="Show fullscreen button"
-				/>
-
-				<br />
-
-				<Toggle
-					id="show-theme-btn-toggle"
-					bind:checked={$session.settings.showThemeButtons}
-					labelText="Show theme buttons"
-				/>
-
-				<br />
-
-				<!-- TODO: only display option if on larger screens -->
-				<Toggle
-					id="always-collapse-menu-toggle"
-					bind:checked={$session.settings.alwaysCollapseMenu}
-					labelText="Always collapse menu"
-				/>
-
-				<br />
-
-				<Toggle
-					id="hide-titlebar-when-idle-toggle"
-					bind:checked={$session.settings.hideTitlebarWhenIdle}
-					labelText="Hide title bar when idle"
-				/>
-
-				{#if $session.settings.hideTitlebarWhenIdle}
-					<div class="my-2 ml-8">
-						<label for="seconds-until-idle-input">Seconds until idle:</label>
-						<input
-							id="seconds-until-idle-input"
-							on:input|preventDefault={(event) => {
-								const value = validate(event.target);
-								$session.settings.secondsUntilIdle = value;
-								event.target.value = value;
-							}}
-							value={$session.settings.secondsUntilIdle}
-							type="number"
-							min="1"
-							max="1000"
-							required
-						/>
-					</div>
-				{/if}
-
-				<br />
-				<label for="font-family-select">Font Family:</label>
-				<select id="font-family-select" bind:value={$session.settings.fontFamily}>
-					{#each fontFamilies as fontFamily}
-						<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
-					{/each}
-				</select>
-			</AccordionPanel>
-			<AccordionPanel accordionTitle="Shortcuts" key="2">
-				<div class="block mb-2">
-					<Toggle
-						id="dbl-click-fullscreen-toggle"
-						labelText={$session.languageDictionary['Doubleclick Fullscreen']}
-						bind:checked={$session.settings.doubleclickFullscreen}
-					/>
-				</div>
-				<div class="block mb-2">
-					<Toggle
-						id="keyboard-shortcuts-toggle"
-						labelText="Keyboard Shortcuts"
-						bind:checked={$session.settings.keyboardShortcuts}
-					/>
-				</div>
-				<button class="btn">View Keyboard Shortcuts</button>
-				<button class="btn">Reset Keyboard Shortcuts</button>
-			</AccordionPanel>
-		</Accordion>
-	</TabPanel>
-
-	<!-- Application -->
-	<TabPanel>
-		<h3>Locale</h3>
-		<div class="block mb-2">
-			<label for="language-select">Language:</label>
-			<select id="language-select">
-				<option value="en-us">English, US</option>
-				<option value="en-gb">English, GB</option>
-				<option value="es-mx">Spanish, MX</option>
-				<option value="es-sp">Spanish, SP</option>
-			</select>
-		</div>
-		<div class="block mb-2">
-			<label for="datetime-locale-select">Datetime Locale:</label>
-			<select id="datetime-locale-select">
-				<option>en</option>
-				<option>es</option>
-				<option>de-DE</option>
-				<option>ar-EG</option>
-			</select>
-		</div>
-		<!-- todo: autocomplete type timezones -->
-		<div class="block mb-2">
-			<label for="timezone-select">Timezone:</label>
-			<select id="timezone-select">
-				<option> Pacific Daylight Time (GMT-7) Los Angeles, CA </option>
-			</select>
-		</div>
-
-		<h3>Settings</h3>
-		<button class="btn">Reset Settings</button>
-		<button class="btn">Download Settings</button>
-		<button class="btn">Upload Settings</button>
-
-		<h3>App</h3>
-		<button class="btn" on:click={() => openWindow(window.location.href)}>Open Another Clock</button
-		>
-		<button class="btn">Share</button>
-		<button class="btn">Send Feedback</button>
-		<button class="btn">Pop Out</button>
-		<button class="btn">Install</button>
-
-		<h3>Advanced</h3>
-		<button class="btn">Multiple Clock Settings</button>
-		<button class="btn">Quick Resize Settings</button>
-
-		<p>V. 0.0.0</p>
-	</TabPanel>
 
 	<!-- Clock -->
 	<TabPanel>
@@ -390,6 +249,50 @@
 			</AccordionPanel>
 			{#if $session.settings.clock.displays.primary == 'analog'}
 				<AccordionPanel accordionTitle="Analog" key="4">
+					<!-- note: using json for efficient deep clone so original theme object is not mutated -->
+					<button
+						class="btn theme-btn block"
+						on:click={() =>
+							($session.settings.clock.theme = JSON.parse(JSON.stringify(defaultTheme)))}
+					>
+						<Icon name="theme" class="inline w-6 h-6" />
+						Default Theme
+					</button>
+					<button
+						class="btn theme-btn block"
+						on:click={() =>
+							($session.settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme)))}
+					>
+						<Icon name="theme" class="inline w-6 h-6" />
+						Default Night Theme
+					</button>
+					<button
+						class="btn theme-btn block"
+						on:click={() =>
+							($session.settings.clock.theme = JSON.parse(JSON.stringify(classicTheme)))}
+					>
+						<Icon name="theme" class="inline w-6 h-6" />
+						Classic Theme
+					</button>
+					<button
+						class="btn theme-btn block"
+						on:click={() =>
+							($session.settings.clock.theme = JSON.parse(JSON.stringify(classicNightTheme)))}
+					>
+						<Icon name="theme" class="inline w-6 h-6" />
+						Classic Night Theme
+					</button>
+					<button
+						class="btn theme-btn block"
+						on:click={() => {
+							for (const size of 'sm md lg'.split(' '))
+								$session.settings.clock.theme.ticks[size].stroke = '-1';
+						}}
+					>
+						<Icon name="settings" class="inline w-6 h-6" />
+						Simple Mode
+					</button>
+
 					<h3>Face</h3>
 
 					<div class="block mb-2">
@@ -637,7 +540,7 @@
 						<div class="block mb-2">
 							<label for="time-format-select">Time Format:</label>
 							<select id="time-format-select" bind:value={$session.settings.clock.timeFormat}>
-								{#each ['HH:mm', 'HH:mm:ss', 'hh:mm', 'hh:mm:ss', 'hh:mm A', 'hh:mm:ss A', 'mm:ss'] as timeFormat}
+								{#each ['H:mm', 'H:mm:ss', 'h:mm A', 'h:mm:ss A', 'mm:ss'] as timeFormat}
 									<option value={timeFormat}>{new dayjs($now).format(timeFormat)}</option>
 								{/each}
 								<option value="custom">Custom</option>
@@ -693,6 +596,19 @@
 								>Custom Formatting Reference</button
 							>
 						{/if}
+
+						<button
+							class="btn undo-btn block"
+							on:click={() => {
+								for (const format of 'timeFormat timeFormatCustom dateFormat dateFormatCustom'.split(
+									' '
+								))
+									$session.settings.clock[format] = $session.defaultSettings.clock[format];
+							}}
+						>
+							<Icon name="undo" class="inline w-6 h-6" />
+							Reset Digital Datetime Formats
+						</button>
 
 						<label for="datetime-locale-select">Datetime Locale:</label>
 						<select id="datetime-locale-select" bind:value={$session.settings.clock.datetimeLocale}>
@@ -764,9 +680,247 @@
 		</Accordion>
 	</TabPanel>
 
-	<!-- Help -->
+	<!-- Appearance -->
 	<TabPanel>
-		<p>Coming soon. . .</p>
+		<!-- should theme, dark, cast, fullscreen btns be in general? -->
+		<div class="mb-2">
+			<ThemeButtons />
+		</div>
+		<div class="block mb-2">
+			<button
+				class="dark-btn btn"
+				on:click={() => ($session.settings.darkMode = !$session.settings.darkMode)}
+			>
+				<Icon name="moon" class="inline w-6 h-6 md:w-8 md:h-8" />
+				Dark
+			</button>
+
+			<button class="cast-btn btn" on:click={castClock}>
+				<Icon name="external-link" class="inline w-6 h-6 md:w-8 md:h-8" />
+				Cast
+			</button>
+
+			<button class="fullscreen-btn btn" on:click={toggleFullscreen}>
+				<Icon name="fullscreen" class="inline w-6 h-6 md:w-8 md:h-8" />
+				Fullscreen
+			</button>
+		</div>
+
+		<Toggle
+			id="show-dark-btn-toggle"
+			bind:checked={$session.settings.showDarkButton}
+			labelText="Show dark button"
+		/>
+
+		<br />
+
+		<Toggle
+			id="show-cast-btn-toggle"
+			bind:checked={$session.settings.showCastButton}
+			labelText="Show cast button"
+		/>
+
+		<br />
+
+		<Toggle
+			id="show-fullscreen-btn-toggle"
+			bind:checked={$session.settings.showFullscreenButton}
+			labelText="Show fullscreen button"
+		/>
+
+		<br />
+
+		<Toggle
+			id="show-theme-btn-toggle"
+			bind:checked={$session.settings.showThemeButtons}
+			labelText="Show theme buttons"
+		/>
+
+		<br />
+
+		<!-- TODO: only display option if on larger screens -->
+		<Toggle
+			id="always-collapse-menu-toggle"
+			bind:checked={$session.settings.alwaysCollapseMenu}
+			labelText="Always collapse menu"
+		/>
+
+		<br />
+
+		<Toggle
+			id="hide-titlebar-when-idle-toggle"
+			bind:checked={$session.settings.hideTitlebarWhenIdle}
+			labelText="Hide title bar when idle"
+		/>
+
+		{#if $session.settings.hideTitlebarWhenIdle}
+			<div class="my-2 ml-8">
+				<label for="seconds-until-idle-input">Seconds until idle:</label>
+				<input
+					id="seconds-until-idle-input"
+					on:input|preventDefault={(event) => {
+						const value = validate(event.target);
+						$session.settings.secondsUntilIdle = value;
+						event.target.value = value;
+					}}
+					value={$session.settings.secondsUntilIdle}
+					type="number"
+					min="1"
+					max="1000"
+					required
+				/>
+			</div>
+		{/if}
+
+		<br />
+		<label for="font-family-select">Font Family:</label>
+		<select id="font-family-select" bind:value={$session.settings.fontFamily}>
+			{#each fontFamilies as fontFamily}
+				<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
+			{/each}
+		</select>
+		<button
+			class="btn undo-btn block"
+			on:click={() => {
+				for (const option of 'colorPalette darkMode showDarkButton showCastButton showFullscreenButton showThemeButtons alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily'.split(
+					' '
+				))
+					$session.settings[option] = $session.defaultSettings[option];
+
+				$session.settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches; // same code as in layout
+			}}
+		>
+			<Icon name="undo" class="inline w-6 h-6" />
+			Reset Appearance Settings
+		</button>
+	</TabPanel>
+
+	<!-- General -->
+	<TabPanel>
+		<Accordion key="1">
+			<AccordionPanel accordionTitle="Application" key="1">
+				<!-- <button class="btn">Download Settings</button> -->
+				<!-- <button class="btn">Upload Settings</button> -->
+
+				<button class="btn share-btn" on:click={shareApp}>
+					<Icon name="share" class="inline w-6 h-6" />
+					Share
+				</button>
+				<button class="btn">Copy Website Link</button>
+
+				<br />
+
+				<button class="btn">Install</button>
+				<button class="btn" on:click={() => openWindow(window.location.href)}>
+					Open Another Clock
+				</button>
+				<button class="btn">Send Feedback</button>
+
+				<br />
+
+				<button class="btn undo-btn">
+					<Icon name="undo" class="inline w-6 h-6" />
+					Reset All Settings
+				</button>
+
+				<!-- <h3>Advanced</h3>
+        		<button class="btn">Multiple Clock Settings</button>
+		        <button class="btn">Quick Resize Settings</button> -->
+			</AccordionPanel>
+			<AccordionPanel accordionTitle="Shortcuts" key="2">
+				<div class="block mb-2">
+					<Toggle
+						id="dbl-click-fullscreen-toggle"
+						labelText={$session.languageDictionary['Doubleclick Fullscreen']}
+						bind:checked={$session.settings.doubleclickFullscreen}
+					/>
+				</div>
+				<div class="block mb-2">
+					<Toggle
+						id="keyboard-shortcuts-toggle"
+						labelText="Keyboard Shortcuts"
+						bind:checked={$session.settings.keyboardShortcuts}
+					/>
+				</div>
+				<button class="btn">View Keyboard Shortcuts</button>
+				<button class="btn undo-btn block">
+					<Icon name="undo" class="inline w-6 h-6" />
+					Reset Keyboard Shortcuts
+				</button>
+			</AccordionPanel>
+			<AccordionPanel accordionTitle="Locale" key="3">
+				<div class="block mb-2">
+					<label for="language-select">Language:</label>
+					<select id="language-select" disabled={$session.settings.locale.automaticLanguage}>
+						<option value="en-us">English, US</option>
+						<option value="en-gb">English, GB</option>
+						<option value="es-mx">Spanish, MX</option>
+						<option value="es-sp">Spanish, SP</option>
+					</select>
+					<br class="block lg:hidden" />
+					<Toggle
+						id="auto-detect-language-toggle"
+						labelText="Automatically Detect Language"
+						bind:checked={$session.settings.locale.automaticLanguage}
+					/>
+				</div>
+				<div class="block mb-2">
+					<label for="datetime-locale-select">Datetime Locale:</label>
+					<select id="datetime-locale-select" disabled={$session.settings.locale.automaticDatetime}>
+						<option>en</option>
+						<option>es</option>
+						<option>de-DE</option>
+						<option>ar-EG</option>
+					</select>
+					<br class="block lg:hidden" />
+					<Toggle
+						id="auto-detect-datetime-locale-toggle"
+						labelText="Automatically Detect Datetime Locale"
+						bind:checked={$session.settings.locale.automaticDatetime}
+					/>
+				</div>
+				<!-- todo: autocomplete type timezones -->
+				<div class="block mb-2">
+					<label for="timezone-select">Timezone:</label>
+					<select id="timezone-select" disabled={$session.settings.locale.automaticTimezone}>
+						<option> Pacific Daylight Time (GMT-7) Los Angeles, CA </option>
+					</select>
+					<br class="block lg:hidden" />
+					<Toggle
+						id="auto-detect-timezone-toggle"
+						labelText="Automatically Detect Datetime Locale"
+						bind:checked={$session.settings.locale.automaticTimezone}
+					/>
+				</div>
+			</AccordionPanel>
+		</Accordion>
+	</TabPanel>
+
+	<!-- About -->
+	<TabPanel>
+		<h3>About</h3>
+		<p>
+			Desktop Clock is a simple, resizable and customizable clock for any device. Features include
+			customizable analog and digital displays, night mode, and more. Desktop Clock is designed to
+			scale perfectly to any screen size and ratio, with no distortion or pixelation. Use Desktop
+			Clock as a clock on your TV, a night clock, or even project the time for exams. Use the timers
+			for anything from chess to cooking! Customize the time, date and more to your liking!
+		</p>
+		<p>If you like this app, consider <button on:click={shareApp}>sharing</button> it</p>
+		<p class="mt-2">Version 0.0.0</p>
+
+		<h3>Help</h3>
+		<p>Coming Soon...</p>
+
+		<h3>Contact</h3>
+		<p>
+			Made by
+			<a href="https://justingolden.me" target="_blank">Justin Golden</a>. Feel free to contact me
+			with any feedback, questions, or requests at
+			<a href="mailto:contact@justingolden.me?subject=Desktop+Clock" target="_blank"
+				>contact@justingolden.me</a
+			>.
+		</p>
 	</TabPanel>
 </Tabs>
 

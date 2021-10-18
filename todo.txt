@@ -12,34 +12,49 @@ pinning cast button: https://support.google.com/chromecast/answer/7249696
 cast a tab: https://support.google.com/chromecast/answer/3228332
 add link to faqs/help
 
-btns for reset some settings, btn for reset all
-
 zen mode btn: top of clock settings, click to go fullscreen, no menu, no buttons, no title, just primary and secondary display
 
 custom scrollbar?
 
+dark theme update app theme colors, favicon? do similar for other themes?
+
+link to browse all colors at justingolden.me/tailwind-colors ?
+
 presentation api todo:
 make the receiver a page that just has the clock with no menu or buttons, and then the user can change the settings and it sends a signal to the receiver to display those changes on the tv. eventually will want to support worldclock etc
 
+btn to add new theme, new theme shows up as btn with small x to right to delete it
+prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
 
-! remember which tab and accordion are open in settings?
+! remember which tab and accordion are open in settings
+! group / organize settings in object in hooks.js better, make reset settings simpler
+! add icons to more btns
+! interior modal full width (formatting table, eventually view shortcuts modal) move modal outside of settings modal (settings component)
+ - settings component could include modal wrapper
+! use theme in more places (replace "gray" with the theme color, maybe later have an accent)
+! implement remaining settings:
+- reset all settings
+- send feedback can open modal prompt with subject and body and send btn opens mailto
+- copy website link
+- implenent langs, locales, timezones, update ui with reset btns next to them and auto detect toggle
+- finalize keyboard shortcuts, view keyboard shortcuts modal (maybe turn on and off specific shortcuts, change keys (each item has a toggle and input for key))
+- 
+
+fix font loading in select
 
 next:
-analog settings aren't populating select correctly
 ! timezones
 ! local storage settings
+review font families again?
 test casting api
-make it load cleaner
-fix details open/close
-make clock leftmost tab in settings?
 add more icons to settings?
 default time format with timezone?
 simple ui for datetime locale, language, and timezone, with auto detect and reset options
-move this branch to prod
 fix theme btn display
 check meta tags, make sure it works on google,fb,twitter, etc, maybe add similar to sharethis?
 https://metatags.io/
 implement automated testing?
+save settings automatically toggle?
 
 preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
 ability to have multiple timers/countdowns in 3hrs/3years, name them, delete them, share them (url params)
@@ -50,30 +65,21 @@ save your own themes and load them?
 live update clock preview in settings on static float right when changing analog display settings?
 
 future:
+!!! : ) dropdown for color in additon to lightness for each item in analog theme. option for "primary color" and "accent color" which can be chosen in general settings
 timezone input with autocomplete select
 primary or secondary input: timezone (name, location, utc... pick which ones), greeting ("good morning/afternoon/evening/night, {name}!"), custom (custom text)
 test presentation, share, and pwa
 calendar page
 flutter mobile apps, port to watch and tv
 
-! settings ui:
-change help to about, move modal three
-application tab should use details
-settings modal should remember which tab and accordion is open
-accordions should have a > v icon for open/closed
-clock should be leftmost
-tabs could have icons
-general tab could be appearance only, renamed appearance, move shortcuts to application
+settings ui:
 version number should be moved from applicaiton to about. way to automatically update each commit?
-btn below appearance settings to reset appearance settings
-btn below all clock settings to reset all 3 (displays, analog, digital)
 all 3 locale settings should have reset btns next to them and auto detect toggles next to them
 download and upload settings (json, human readable) should be in advanced settings? maybe not
-rename reset settings btn to reset ALL settings, maybe even add confirmation prompt?
+add confirmation prompt to reset settings or just to reset all settings? simple prompt component?
 save old settings and add btn to undo/go back to those settings?
-some btns could use icons next to them?
-reorder/reorganize btns in application > app, rename "app"
-newline before reference table btn, only show btn if custom is selected in a dropdown
+some btns could use icons next to them
+clock tab is replaced with worldclock tab when worldclock is open, etc
 
 wake lock
 https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API
@@ -122,10 +128,8 @@ store fonts offline
 more settings:
 tick hands
 flip clock for digital time
-font choices
 save time history in stopwatch (can print, share, download, etc)
-install pwa prompt button
-show battery, internet strength, weather, link to spotify options
+show internet strength, weather, link to spotify options
 modal for steps to add to taskbar, apps, mobile, etc for each os with details/summary
 
 later:
@@ -133,6 +137,7 @@ store settings in localstorage
 music playback options secondary display with spotify (p/p, ff, rw, song and artist name)
 displays.js: implement format options, locale options
 always on top mode is not possible. write about this in FAQs or help, and then mention ways of doing this on different operating systems.
+dark mode styles for <table>
 
 bugs:
 home theme buttons do not function
@@ -165,7 +170,7 @@ performance:
 
 maybe:
 ability to turn off setting to live preview time format in dropdown (advanced setting?)
-font weight options? slider?
+font weight options? slider? dropdown?
 titles for icon buttons, maybe tooltips, should be translated
 give them option to swap order of date and time?
 nav: click away or esc to close nav?
@@ -195,6 +200,7 @@ flipclock like https://onlineclock.net/flip/ ?
 more later:
 integrate with spotify for media controls?
 weather api?
+save custom date/time formats in dropdown, remove default formats, etc
 
 links:
 https://tc39.es/ecma402/#table-datetimeformat-components

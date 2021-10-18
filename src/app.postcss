@@ -65,6 +65,8 @@ nav links and icon btns have same hover colors (both normal and dark)
 nav and modal have same bg colors, opacities, and shadows
 */
 
+/* MAYBE TODO: move nav styles to Nav.svelte? */
+
 @layer components {
 	nav {
 		z-index: 2;
@@ -108,19 +110,11 @@ nav and modal have same bg colors, opacities, and shadows
 	}
 
 	.btn {
-		@apply p-2 m-2 rounded-none text-white bg-gray-600 hover:bg-gray-700;
+		@apply p-2 my-2 mr-4 rounded-none text-white bg-gray-600 hover:bg-gray-700;
 	}
 	.icon-btn {
 		@apply p-2 rounded-full hover:bg-gray-700 hover:text-white;
 	}
-	/* purgecss start ignore */
-	.theme-btn {
-		@apply icon-btn w-6 h-6 m-1;
-	}
-	.theme-btn.active {
-		box-shadow: 4px 0px 0px #64748b; /* gray-500 */
-	}
-	/* purgecss end ignore */
 	#menu-btn,
 	#main-dark-btn,
 	#main-fullscreen-btn,
@@ -146,7 +140,7 @@ nav and modal have same bg colors, opacities, and shadows
 	}
 
 	select {
-		@apply cursor-pointer p-2 pr-6 mr-2 text-gray-700 bg-gray-50 hover:bg-gray-100 appearance-none;
+		@apply cursor-pointer p-2 pr-6 m-2 text-gray-700 bg-gray-50 hover:bg-gray-100 appearance-none;
 		background: #f8fafc
 			url("data:image/svg+xml;utf8,<svg fill='none' stroke='currentColor' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
 			no-repeat right center;
@@ -164,9 +158,10 @@ nav and modal have same bg colors, opacities, and shadows
 
 	body.dark select {
 		@apply bg-gray-500 text-gray-100;
-		/* background: #334155
-			url("data:image/svg+xml;utf8,<svg fill='none' stroke='#CBD5E1' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
-			no-repeat right center; */
+		/* 'white' works but '#FFFFFF' doesn't and 'currentColor' doesn't, even with 'color' explicitly set above */
+		background: #64748b /*gray-500*/
+			url("data:image/svg+xml;utf8,<svg fill='none' stroke='white' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
+			no-repeat right center;
 	}
 	body.dark select:disabled {
 		@apply bg-gray-400;
@@ -187,7 +182,10 @@ nav and modal have same bg colors, opacities, and shadows
 	.dark-btn svg,
 	.fullscreen-btn svg,
 	.cast-btn svg,
-	#meun-btn svg {
+	#meun-btn svg,
+	.undo-btn svg,
+	.theme-btn svg,
+	.share-btn svg {
 		transition: transform 0.25s;
 	}
 	.dark-btn:hover svg {
@@ -201,6 +199,15 @@ nav and modal have same bg colors, opacities, and shadows
 	}
 	#menu-btn:hover svg {
 		/* transform: scale(1, -1); */
+	}
+	.undo-btn:hover svg {
+		transform: translateX(-0.25rem);
+	}
+	.theme-btn:hover svg {
+		transform: rotate(-180deg);
+	}
+	.share-btn:hover svg {
+		transform: scale(1, -1) rotate(30deg);
 	}
 
 	body {

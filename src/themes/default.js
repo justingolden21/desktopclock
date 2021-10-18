@@ -1,6 +1,7 @@
 // '-1' is transparent
 // numbers representing colors (100,200,300... and -1) are strings
-export default {
+
+const defaultTheme = {
 	face: {
 		stroke: '700',
 		fill: '200',
@@ -11,7 +12,10 @@ export default {
 		fill: '700'
 	},
 	pin: {
-		stroke: '700',
+		stroke: {
+			color: 'red',
+			lightness: '700'
+		},
 		fill: '200',
 		strokeWidth: 0.5,
 		size: 1
@@ -19,8 +23,8 @@ export default {
 	ticks: {
 		sm: {
 			stroke: '-1',
-			height: 1,
-			width: 1
+			height: 0.5,
+			width: 2
 		},
 		md: {
 			stroke: '400',
@@ -64,3 +68,5 @@ export default {
 		}
 	}
 };
+
+export default defaultTheme;

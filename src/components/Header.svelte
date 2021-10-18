@@ -5,7 +5,6 @@
 
 	import { toggleFullscreen } from './Settings.svelte';
 	import { setupCasting, castClock } from './cast.js';
-	import ThemeButtons from './ThemeButtons.svelte';
 	import { now } from './now.js';
 
 	export let navOpen;
@@ -49,11 +48,6 @@
 		{$session.languageDictionary.pageNames[$page.path.substring(1) || 'clock'] ||
 			$session.languageDictionary.pageNames.error}
 	</h1>
-
-	<!-- todo: z index isnt working, items also should be centered -->
-	<div class="m-4 mx-16 z-20 max-w-3xl" class:hidden={!$session.settings.showThemeButtons}>
-		<ThemeButtons />
-	</div>
 
 	<button
 		id="main-cast-btn"

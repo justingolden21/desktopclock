@@ -1,6 +1,9 @@
 <script>
+	import colors from 'tailwindcss/colors.js';
+
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
+
 	import BatteryIcon from './BatteryIcon.svelte';
 	import dayjs from 'dayjs';
 	import { now } from './now.js';
@@ -42,37 +45,42 @@
 			});
 		});
 	});
+
+	$: colorPalette = colors[$session.settings.colorPalette];
+	$: shade = $session.settings.darkMode ? 200 : 900;
 </script>
 
-<div id="primary-display">
-	{#if displays.primary != 'analog'}
-		<h1>
-			{#if displays.primary == 'time'}
-				{time}
-			{:else if displays.primary == 'date'}
-				{date}
-			{:else if displays.primary == 'datetime'}
-				{time}
-				<br />
-				{date}
-			{/if}
-		</h1>
-	{/if}
-</div>
-<div id="secondary-display">
-	{#if displays.secondary != 'none'}
-		<h2>
-			{#if displays.secondary == 'time'}
-				{time}
-			{:else if displays.secondary == 'date'}
-				{date}
-			{:else if displays.secondary == 'datetime'}
-				{time}
-				<br />
-				{date}
-			{/if}
-		</h2>
-	{/if}
+<div style="color:{colorPalette[shade]}; display: flex">
+	<div id="primary-display">
+		{#if displays.primary != 'analog'}
+			<h1>
+				{#if displays.primary == 'time'}
+					{time}
+				{:else if displays.primary == 'date'}
+					{date}
+				{:else if displays.primary == 'datetime'}
+					{time}
+					<br />
+					{date}
+				{/if}
+			</h1>
+		{/if}
+	</div>
+	<div id="secondary-display">
+		{#if displays.secondary != 'none'}
+			<h2>
+				{#if displays.secondary == 'time'}
+					{time}
+				{:else if displays.secondary == 'date'}
+					{date}
+				{:else if displays.secondary == 'datetime'}
+					{time}
+					<br />
+					{date}
+				{/if}
+			</h2>
+		{/if}
+	</div>
 </div>
 
 {#if displays.battery}
@@ -91,14 +99,15 @@
 	#primary-display {
 		position: absolute;
 		top: 25%;
-		width: 100%;
+		left: 0%;
+		right: 0%;
 	}
 	#primary-display h1 {
-		@apply block text-7xl md:text-8xl lg:text-9xl font-bold tracking-widest text-center;
+		@apply text-7xl md:text-8xl lg:text-9xl font-bold tracking-widest text-center;
 	}
 	#secondary-display,
 	#battery-display {
-		@apply block text-2xl md:text-3xl lg:text-4xl font-normal tracking-widest text-center pb-4;
+		@apply text-2xl md:text-3xl lg:text-4xl font-normal tracking-widest text-center pb-4;
 	}
 	#secondary-display {
 		position: absolute;

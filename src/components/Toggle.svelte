@@ -14,7 +14,7 @@
 
 <style>
 	.toggle-container {
-		@apply relative inline-block w-12 m-2 align-middle select-none;
+		@apply relative inline-block w-12 m-2 ml-0 align-middle select-none;
 	}
 	.toggle-checkbox {
 		@apply left-0 absolute block w-6 h-6 rounded-full bg-white border-gray-200 border-4 appearance-none cursor-pointer;

@@ -8,9 +8,11 @@
 	export function show() {
 		shown = true;
 	}
-	
 	export function hide() {
 		shown = false;
+	}
+	export function toggle() {
+		shown = !shown;
 	}
 </script>
 

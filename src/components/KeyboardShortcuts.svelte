@@ -1,5 +1,8 @@
 <script>
 	import { session } from '$app/stores';
+	import { toggleFullscreen } from './Settings.svelte';
+
+	export let settingsModal = null;
 </script>
 
 <svelte:window
@@ -12,6 +15,12 @@
 			return;
 		if (event.code === 'KeyN') {
 			$session.settings.darkMode = !$session.settings.darkMode;
+		}
+		if (event.code === 'KeyS') {
+			settingsModal.toggle();
+		}
+		if (event.code === 'KeyF') {
+			toggleFullscreen();
 		}
 	}}
 />

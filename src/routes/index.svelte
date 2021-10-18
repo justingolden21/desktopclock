@@ -7,6 +7,7 @@
 
 	// import Displays, { displays, setDisplays } from '../components/Displays.svelte';
 	import Displays from '../components/Displays.svelte';
+	import ThemeButtons from '../components/ThemeButtons.svelte';
 
 	// onMount(() => {
 	// 	init();
@@ -19,17 +20,25 @@
 	// Shortcut for $session.settings.clock.theme.*
 	$: theme = $session.settings.clock.theme;
 	$: colorPalette = colors[$session.settings.colorPalette];
-	$: accentColorPalette = colors[$session.settings.accentColorPalette];
 
 	$: displays = $session.settings.clock.displays;
 
 	$: sizes = ['sm', 'md', 'lg'].map((size) => ({ size, r: 27.5 - theme.ticks[size].width / 2 }));
+
+	// return the hex color given a string or object with color information from a theme
+	// if falsey or '-1', return 'none' (lack of value or '-1' results in a transparent color)
+	// other valid options are a string for the lightness (default palette will be used)
+	// or an object, which will use the lightness from the object and the palette from the object if present, else the default palette
+	function getColor(obj) {
+		if (!obj || obj == '-1') return 'none';
+		if (typeof obj === 'string') return colorPalette[obj];
+		return colors[obj.color || $session.settings.colorPalette][obj.lightness];
+	}
 </script>
 
 <svelte:head>
 	<title>{$session.languageDictionary.pageNames.clock}</title>
 </svelte:head>
-
 <section>
 	<Displays />
 	{#if displays.primary == 'analog'}
@@ -51,8 +60,8 @@
 				y="2"
 				width="60"
 				height="60"
-				fill={theme.face.fill == -1 ? 'none' : colorPalette[theme.face.fill]}
-				stroke={colorPalette[theme.face.stroke]}
+				fill={getColor(theme.face.fill)}
+				stroke={getColor(theme.face.stroke)}
 				stroke-width={theme.face.strokeWidth}
 				rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0}
 			/>
@@ -67,9 +76,7 @@
 							(2 * r * Math.PI) / (size == 'sm' ? 60 : size == 'md' ? 12 : 4) -
 							theme.ticks[size].height
 						}`}
-						stroke={theme.ticks[size].stroke == -1
-							? 'none'
-							: colorPalette[theme.ticks[size].stroke]}
+						stroke={getColor(theme.ticks[size].stroke)}
 						stroke-width={theme.ticks[size].width}
 						transform={`rotate(-${theme.ticks[size].height})`}
 					/>
@@ -82,9 +89,7 @@
 							id="{hand}-hand"
 							y1={-theme.hands[hand].back}
 							y2={theme.hands[hand].length}
-							stroke={colors[theme.hands[hand].stroke.color || $session.settings.colorPalette][
-								theme.hands[hand].stroke.lightness
-							]}
+							stroke={getColor(theme.hands[hand].stroke)}
 							stroke-width={theme.hands[hand].strokeWidth}
 							stroke-linecap={theme.hands[hand].linecap}
 						/>
@@ -93,12 +98,19 @@
 				<!-- Pin -->
 				<circle
 					id="pin"
-					fill={colorPalette[theme.pin.fill]}
-					stroke={accentColorPalette[theme.pin.stroke]}
+					fill={getColor(theme.pin.fill)}
+					stroke={getColor(theme.pin.stroke)}
 					stroke-width={theme.pin.strokeWidth}
 					r={theme.pin.size}
 				/>
 			</g>
 		</svg>
 	{/if}
+</section>
+
+<section class="z-20">
+	<!-- todo: z index does not seem to be the problem, cannot click lower btns -->
+	<div class="z-20 m-4 mx-16 max-w-3xl" class:hidden={!$session.settings.showThemeButtons}>
+		<ThemeButtons />
+	</div>
 </section>
