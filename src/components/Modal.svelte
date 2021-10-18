@@ -41,7 +41,7 @@
 	</div>
 {/if}
 
-<style>
+<style lang="postcss">
 	.modal {
 		@apply p-12 fixed left-0 top-0 block w-full h-full bg-gray-300 bg-opacity-75;
 		z-index: 3;

@@ -95,7 +95,7 @@
 	</div>
 {/if}
 
-<style>
+<style lang="postcss">
 	#primary-display {
 		position: absolute;
 		top: 25%;

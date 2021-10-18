@@ -12,7 +12,7 @@
 	{labelText}
 </label>
 
-<style>
+<style lang="postcss">
 	.toggle-container {
 		@apply relative inline-block w-12 m-2 ml-0 align-middle select-none;
 	}

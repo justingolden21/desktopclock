@@ -14,7 +14,7 @@
 	</div>
 {/if}
 
-<style>
+<style lang="postcss">
 	.tab-content {
 		animation: fadeIn 0.75s linear;
 		-webkit-animation: fadeIn 0.75s linear;

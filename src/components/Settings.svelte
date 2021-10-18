@@ -980,6 +980,3 @@
 </Tabs>
 
 <Toasts />
-
-<style>
-</style>

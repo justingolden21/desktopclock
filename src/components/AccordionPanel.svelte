@@ -41,7 +41,7 @@
 	</div>
 </div>
 
-<style>
+<style lang="postcss">
 	.details {
 		@apply bg-gray-50 border-b-2 border-gray-200;
 	}

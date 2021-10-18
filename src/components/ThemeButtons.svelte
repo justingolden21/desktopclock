@@ -15,7 +15,7 @@
 	{/each}
 </div>
 
-<style>
+<style lang="postcss">
 	/* purgecss start ignore */
 	.theme-btn {
 		@apply p-2 rounded-full hover:bg-gray-700 hover:text-white w-6 h-6 m-1; /* fix since it cannot find 'icon-btn' class in prod */

@@ -26,7 +26,7 @@
 	{/if}
 </article>
 
-<style>
+<style lang="postcss">
 	.toast {
 		@apply w-80 p-4;
 		display: flex;

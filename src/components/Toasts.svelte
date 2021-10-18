@@ -20,7 +20,7 @@
 	</section>
 {/if}
 
-<style>
+<style lang="postcss">
 	section {
 		position: fixed;
 		bottom: 0;
