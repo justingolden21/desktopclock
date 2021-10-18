@@ -45,6 +45,8 @@ fix font loading in select
 get version from package.json in about section
 command to automatically build for production (update sw cache name) and update version number in package json?
 
+bug: app doesn't work in messenger in browser
+
 next:
 ! timezones
 ! local storage settings
