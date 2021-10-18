@@ -12,7 +12,6 @@
 	export let dismissible = true;
 </script>
 
-<!-- <article class={type} role="alert" transition:fade> -->
 <article class="toast" role="alert" transition:fade>
 	<Icon name={type} class="inline w-6 h-6" />
 
@@ -28,16 +27,6 @@
 </article>
 
 <style>
-	/* .error {
-		@apply bg-red-400;
-	}
-	.success {
-		@apply bg-green-400;
-	}
-	.info {
-		@apply bg-blue-400;
-	} */
-
 	.toast {
 		@apply w-80 p-4;
 		display: flex;
