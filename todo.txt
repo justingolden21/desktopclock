@@ -26,6 +26,7 @@ make the receiver a page that just has the clock with no menu or buttons, and th
 btn to add new theme, new theme shows up as btn with small x to right to delete it
 prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
 
+! pwa initial screen and offline not working, website not working in messenger
 ! remember which tab and accordion are open in settings
 ! group / organize settings in object in hooks.js better, make reset settings simpler
 ! add icons to more btns
@@ -35,7 +36,6 @@ prompt "are you sure" before deleting, max of 20 themes, btn to delete all theme
 ! implement remaining settings:
 - reset all settings
 - send feedback can open modal prompt with subject and body and send btn opens mailto
-- copy website link
 - implenent langs, locales, timezones, update ui with reset btns next to them and auto detect toggle
 - finalize keyboard shortcuts, view keyboard shortcuts modal (maybe turn on and off specific shortcuts, change keys (each item has a toggle and input for key))
 - 
@@ -117,18 +117,10 @@ monospace/fix kerning for numbers in time so they do not shift
 reset settings btn, save settings to browser local storage
 let user chose primary and secondary color/palette, also chose specific color for hands, ticks, etc
 
-fix time off on awake bug
-pwa install btn if not installed
-add modal component, add settings modal with layout
 add i18n
-organize js, use imports / exports
-implement settings
 add animate.css
 animated icons / icon animations
-add tabs and accordion components, toggle, toast
 add fonts offline
-change increment script from python to node
-store fonts offline
 
 more settings:
 tick hands
