@@ -1,15 +1,10 @@
-// https://caniuse.com/?search=datetimeformat
-
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-// TODO select/autocomplete sorted by section with name sticky top and utc time on side, btn to reset to system default/current timezone
-
 //github.com/kangabru/whats-the-time/blob/master/src/data/timezones.ts
-// replace('UTC', 'Etc/GMT')
 const timezones = {
 	Etc: [
 		'GMT-14',
@@ -403,29 +398,12 @@ export default timezones;
 export function testTimezones() {
 	for (let area in timezones) {
 		for (let timezone in timezones[area]) {
-			const tz = area + '/' + timezones[area][timezone]; // .replace('UTC', 'Etc/GMT');
-			try {
-				// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat
-				new Intl.DateTimeFormat('en-US', { timeZone: tz });
-				console.log(tz, 'works');
-			} catch (err) {
-				console.error(tz, 'failed');
-				console.error(err);
-			}
-
+			const tz = area + '/' + timezones[area][timezone];
 			try {
 				new dayjs().tz(tz);
 				console.log(tz, 'works dayjs');
 			} catch (err) {
 				console.error(tz, 'failed dayjs');
-				console.error(err);
-			}
-
-			try {
-				dayjs().utc(tz);
-				console.log(tz, 'works dayjs utc');
-			} catch (err) {
-				console.error(tz, 'failed dayjs utc');
 				console.error(err);
 			}
 		}
