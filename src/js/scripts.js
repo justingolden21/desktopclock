@@ -14,6 +14,8 @@ const setAngle = (type, newAngle) => {
 };
 
 function setTime(date = new Date()) {
+	if (!document.getElementById('hour-hand')) return; // return if analog clock is not visible
+
 	// todo: add one second to current date, because transition to current time takes one second
 	const h = date.getHours() % 12;
 	const m = date.getMinutes();
