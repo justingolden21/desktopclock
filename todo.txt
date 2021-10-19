@@ -28,7 +28,6 @@ prompt "are you sure" before deleting, max of 20 themes, btn to delete all theme
 
 ! pwa initial screen and offline not working, website not working in messenger
 ! remember which tab and accordion are open in settings
-! group / organize settings in object in hooks.js better, make reset settings simpler
 ! add icons to more btns
 ! interior modal full width (formatting table, eventually view shortcuts modal) move modal outside of settings modal (settings component)
  - settings component could include modal wrapper
@@ -48,6 +47,8 @@ bug: app doesn't work in messenger in browser
 
 next:
 ! timezones
+! translate
+! working dev deploy on netlify
 ! local storage settings
 review font families again?
 test casting api
