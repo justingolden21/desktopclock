@@ -5,12 +5,22 @@
 	import { onMount } from 'svelte';
 
 	import BatteryIcon from './BatteryIcon.svelte';
+
 	import dayjs from 'dayjs';
+
+	// https://day.js.org/docs/en/plugin/timezone
+	// https://day.js.org/docs/en/timezone/timezone
+	import utc from 'dayjs/plugin/utc';
+	import timezone from 'dayjs/plugin/timezone';
+	dayjs.extend(utc);
+	dayjs.extend(timezone);
+
 	import { now } from './now.js';
 
 	// approx 163kb (comment out and compare build sizes in network tab)
 	import './all_locales.js';
 
+	$: localeSettings = $session.settings.locale;
 	$: clockSettings = $session.settings.clock;
 
 	$: displays = clockSettings.displays;
@@ -27,8 +37,14 @@
 	let batteryLevel, batteryIsCharging;
 
 	// these update automatically with `$now`
-	$: time = new dayjs($now).locale(clockSettings.datetimeLocale).format(timeFormat);
-	$: date = new dayjs($now).locale(clockSettings.datetimeLocale).format(dateFormat);
+	$: time = new dayjs($now)
+		.tz(localeSettings.timezone)
+		.locale(clockSettings.datetimeLocale)
+		.format(timeFormat);
+	$: date = new dayjs($now)
+		.tz(localeSettings.timezone)
+		.locale(clockSettings.datetimeLocale)
+		.format(dateFormat);
 
 	// TODO: starts an event listener each time displays.svelte is mounted, can add up
 	// should unmount the event listener, look into svelte window access navigator

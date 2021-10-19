@@ -29,7 +29,7 @@ const defaultSettings = {
 
 	// appearance
 	colorPalette: 'blueGray',
-	darkMode: null, // default to null so the onmount function in layout checks the preferred color scheme
+	darkMode: null, // overridden in _layout onMount to user device's preference
 	showDarkButton: true,
 	showCastButton: false,
 	showFullscreenButton: true,
@@ -45,7 +45,7 @@ const defaultSettings = {
 	locale: {
 		datetime: 'en',
 		language: 'en',
-		timezone: 'en',
+		timezone: null, // overridden in _layout onMount to user device's preference
 		automaticDatetime: true,
 		automaticLanguage: true,
 		automaticTimezone: true

@@ -117,6 +117,7 @@
 	import InstallButton from './InstallButton.svelte';
 	import Toasts from './Toasts.svelte';
 	import { addToast } from './toastStore';
+	import timezones from './timezones';
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
 
@@ -591,7 +592,7 @@
 						<div class="block mb-2">
 							<label for="time-format-select">Time Format:</label>
 							<select id="time-format-select" bind:value={$session.settings.clock.timeFormat}>
-								{#each ['H:mm', 'H:mm:ss', 'h:mm A', 'h:mm:ss A', 'mm:ss'] as timeFormat}
+								{#each ['H:mm', 'H:mm:ss', 'h:mm A', 'h:mm:ss A', 'H:mm Z', 'H:mm:ss Z', 'h:mm A Z', 'h:mm:ss A Z', 'mm:ss'] as timeFormat}
 									<option value={timeFormat}>{new dayjs($now).format(timeFormat)}</option>
 								{/each}
 								<option value="custom">Custom</option>
@@ -704,6 +705,7 @@
 									<tr><td>ZZ</td><td>+0500</td><td>The offset from UTC, ±HHmm</td></tr>
 									<tr><td>A</td><td>AM PM</td><td /></tr>
 									<tr><td>a</td><td>am pm</td><td /></tr>
+									<tr><td>[text]</td><td>text</td><td>Custom text</td></tr>
 								</tbody>
 							</table>
 							<p>
@@ -838,7 +840,8 @@
 				))
 					$session.settings[option] = $session.defaultSettings[option];
 
-				$session.settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches; // same code as in layout
+				// auto detect user device preferences (same code as in layout)
+				$session.settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
 			}}
 		>
 			<Icon name="undo" class="inline w-6 h-6" />
@@ -884,8 +887,11 @@
 					class="btn undo-btn"
 					on:click={() => {
 						$session.settings = JSON.parse(JSON.stringify($session.defaultSettings));
+
+						// auto detect user device preferences (same code as in layout)
 						$session.settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)')
-							.matches; // same code as in layout
+							.matches;
+						$session.settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 					}}
 				>
 					<Icon name="undo" class="inline w-6 h-6" />
@@ -951,18 +957,37 @@
 						bind:checked={$session.settings.locale.automaticDatetime}
 					/>
 				</div>
-				<!-- todo: autocomplete type timezones -->
+				<!-- todo: display gmt offset to the side -->
+				<!-- todo: search input that finds results containing that string in below select -->
+				<!-- options should look something like "Pacific Daylight Time (GMT-7) Los Angeles, CA" -->
 				<div class="block mb-2">
 					<label for="timezone-select">Timezone:</label>
-					<select id="timezone-select" disabled={$session.settings.locale.automaticTimezone}>
-						<option> Pacific Daylight Time (GMT-7) Los Angeles, CA </option>
+					<select
+						id="timezone-select"
+						disabled={$session.settings.locale.automaticTimezone}
+						bind:value={$session.settings.locale.timezone}
+					>
+						{#each Object.keys(timezones) as zone}
+							<optgroup label={zone}>
+								{#each timezones[zone] as tz}
+									<option value={zone + '/' + tz}>{zone + '/' + tz}</option>
+								{/each}
+							</optgroup>
+						{/each}
 					</select>
 					<br class="block lg:hidden" />
 					<Toggle
 						id="auto-detect-timezone-toggle"
-						labelText="Automatically Detect Datetime Locale"
+						labelText="Automatically Detect Timezone"
 						bind:checked={$session.settings.locale.automaticTimezone}
+						on:change={(e) => {
+							if (e.target.checked) {
+								// same code as layout, reset to user device default
+								$session.settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+							}
+						}}
 					/>
+					<!-- TODO: btn to reset all locale settings, onclick toggles all auto to on which resets others -->
 				</div>
 			</AccordionPanel>
 		</Accordion>

@@ -5,7 +5,7 @@
 </script>
 
 <div class="toggle-container">
-	<input bind:checked type="checkbox" {id} class="toggle-checkbox" />
+	<input bind:checked type="checkbox" {id} class="toggle-checkbox" on:change />
 	<label for={id} class="toggle-bg" />
 </div>
 <label for={id} class="toggle-label">

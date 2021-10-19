@@ -39,9 +39,20 @@
 			: document.body.classList.remove('dark');
 
 	onMount(() => {
+		// auto detect user device preferences
 		if ($session.settings.darkMode === null) {
 			$session.settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
 		}
+		if ($session.settings.locale.timezone === null) {
+			$session.settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+		}
+
+		// TODO default system language
+		// https://github.com/kangabru/whats-the-time/blob/master/src/utils/utils.ts
+		// window.navigator.languages ? window.navigator.languages[0] : window.navigator.language;
+		// should instead check default navigator.language and if not in available languages then loop through navigator.languages
+		// in order until finding a hard match (en-US vs en-US) and if not then loop through until finding a soft match (en vs en-US or en-UK vs en-US)
+		// if no matches are found, default to en-US
 	});
 
 	onMount(() => {
