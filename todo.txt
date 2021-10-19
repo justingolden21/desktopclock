@@ -63,6 +63,7 @@ save settings automatically toggle?
 
 preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
 ability to have multiple timers/countdowns in 3hrs/3years, name them, delete them, share them (url params)
+multiple timers can count time since or time until, or for set amount of time. can split into multiple sections each with simple ui
 
 preset themes (choose from maybe five or ten, preview images or clocks maybe?)
 save your own themes and load them?
@@ -225,3 +226,13 @@ how many days ago was July 17
 play whitenoise / "sounds" as well, rain, wind, fireplace, birds, etc
 
 speak time/date btn
+
+sleep clock
+
+Convert timestamp to readable date time, get date for "next Tuesday" "last Monday" "Thanksgiving" etc, July 18 last year, day of week for March 2nd 2025, etc. Natural language like time.lol
+
+Select date and time picker for countdown timers, count time since or time until, chose which units displayed (sec,min,hour,day, etc)
+
+Select font size for digital displays
+
+Save settings in local storage toggle that on change if off clears local storage, clear local storage btn that's disabled if local storage is empty
