@@ -869,7 +869,11 @@
 					<Icon name="external-link" class="inline w-6 h-6" />
 					Open Another Clock
 				</button>
-				<button class="btn">
+				<button
+					class="btn"
+					on:click={() =>
+						window.open('mailto:contact@justingolden.me?subject=Desktop+Clock+Feedback')}
+				>
 					<Icon name="envelope" class="inline w-6 h-6" />
 					Send Feedback
 				</button>
@@ -911,10 +915,10 @@
 					<Icon name="table" class="inline w-6 h-6" />
 					View Keyboard Shortcuts
 				</button>
-				<button class="btn undo-btn block">
+				<!-- <button class="btn undo-btn block">
 					<Icon name="undo" class="inline w-6 h-6" />
 					Reset Keyboard Shortcuts
-				</button>
+				</button> -->
 			</AccordionPanel>
 			<AccordionPanel accordionTitle="Locale" key="3">
 				<div class="block mb-2">
