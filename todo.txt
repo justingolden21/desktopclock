@@ -34,7 +34,6 @@ prompt "are you sure" before deleting, max of 20 themes, btn to delete all theme
  - settings component could include modal wrapper
 ! use theme in more places (replace "gray" with the theme color, maybe later have an accent)
 ! implement remaining settings:
-- reset all settings
 - send feedback can open modal prompt with subject and body and send btn opens mailto
 - implenent langs, locales, timezones, update ui with reset btns next to them and auto detect toggle
 - finalize keyboard shortcuts, view keyboard shortcuts modal (maybe turn on and off specific shortcuts, change keys (each item has a toggle and input for key))

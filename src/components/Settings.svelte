@@ -873,7 +873,14 @@
 
 				<br />
 
-				<button class="btn undo-btn">
+				<button
+					class="btn undo-btn"
+					on:click={() => {
+						$session.settings = JSON.parse(JSON.stringify($session.defaultSettings));
+						$session.settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)')
+							.matches; // same code as in layout
+					}}
+				>
 					<Icon name="undo" class="inline w-6 h-6" />
 					Reset All Settings
 				</button>
