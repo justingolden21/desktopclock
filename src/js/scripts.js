@@ -13,6 +13,7 @@ const setAngle = (type, newAngle) => {
 	document.documentElement.style.setProperty(`--${type}-angle`, `${newAngle}deg`);
 };
 
+// TODO BUG: timezone not refleced in analog clock
 function setTime(date = new Date()) {
 	if (!document.getElementById('hour-hand')) return; // return if analog clock is not visible
 

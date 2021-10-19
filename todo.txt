@@ -26,6 +26,7 @@ make the receiver a page that just has the clock with no menu or buttons, and th
 btn to add new theme, new theme shows up as btn with small x to right to delete it
 prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
 
+! TODO BUG: timezone not refleced in analog clock
 ! pwa initial screen and offline not working, website not working in messenger
 ! remember which tab and accordion are open in settings
 ! add icons to more btns
