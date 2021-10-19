@@ -236,3 +236,14 @@ Select date and time picker for countdown timers, count time since or time until
 Select font size for digital displays
 
 Save settings in local storage toggle that on change if off clears local storage, clear local storage btn that's disabled if local storage is empty
+
+worldclock timetable option like in https://whats-the-time.netlify.app/
+
+schedule option with notes (events with fixed time or date or time range or date range)
+
+notes:
+
+https://github.com/kangabru/whats-the-time/blob/master/src/utils/utils.ts
+export function setDefaultSystemLocale() {
+    Settings.defaultLocale = window.navigator.languages ? window.navigator.languages[0] : window.navigator.language
+}
