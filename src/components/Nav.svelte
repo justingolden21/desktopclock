@@ -2,6 +2,7 @@
 	import { page, session } from '$app/stores';
 	import Icon from './Icon.svelte';
 	import InstallButton from './InstallButton.svelte';
+	import { shareApp } from './Settings.svelte';
 
 	export let navOpen;
 	export let settingsModal = null;
@@ -52,5 +53,9 @@
 	</span>
 	<div class="absolute bottom-0 mb-8">
 		<InstallButton />
+		<span tabindex="0" class="share-btn" on:click={shareApp}>
+			<Icon name="share" class="inline w-6 h-6 mr-2" />
+			Share
+		</span>
 	</div>
 </nav>

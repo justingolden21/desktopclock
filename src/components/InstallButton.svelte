@@ -53,7 +53,7 @@
 
 {#if showInstallButton}
 	<span tabindex="0" on:click={installButtonClick}>
-		<Icon name="download" class="w-6 h-6 inline mr-2" />
+		<Icon name="download" class="inline w-6 h-6 mr-2" />
 		Install
 	</span>
 {/if}
