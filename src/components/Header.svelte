@@ -56,7 +56,7 @@
 		on:click={castClock}
 		aria-label="Cast / Present Clock"
 	>
-		<Icon name="external-link" class="w-6 h-6 md:w-8 md:h-8" />
+		<Icon name="cast" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 
 	<button

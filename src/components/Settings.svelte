@@ -110,12 +110,11 @@
 	import Modal from './Modal.svelte';
 	import Accordion from './Accordion.svelte';
 	import AccordionPanel from './AccordionPanel.svelte';
-	import { browser } from '$app/env';
 	import defaultTheme from '../themes/default';
 	import defaultNightTheme from '../themes/defaultNight';
 	import classicTheme from '../themes/classic';
 	import classicNightTheme from '../themes/classicNight';
-
+	import InstallButton from './InstallButton.svelte';
 	import Toasts from './Toasts.svelte';
 	import { addToast } from './toastStore';
 
@@ -748,7 +747,7 @@
 			</button>
 
 			<button class="cast-btn btn" on:click={castClock}>
-				<Icon name="external-link" class="inline w-6 h-6 md:w-8 md:h-8" />
+				<Icon name="cast" class="inline w-6 h-6 md:w-8 md:h-8" />
 				Cast
 			</button>
 
@@ -865,11 +864,15 @@
 
 				<br />
 
-				<button class="btn">Install</button>
-				<button class="btn" on:click={() => openWindow(window.location.href)}>
+				<InstallButton />
+				<button class="btn external-link-btn" on:click={() => openWindow(window.location.href)}>
+					<Icon name="external-link" class="inline w-6 h-6" />
 					Open Another Clock
 				</button>
-				<button class="btn">Send Feedback</button>
+				<button class="btn">
+					<Icon name="envelope" class="inline w-6 h-6" />
+					Send Feedback
+				</button>
 
 				<br />
 
@@ -904,7 +907,10 @@
 						bind:checked={$session.settings.keyboardShortcuts}
 					/>
 				</div>
-				<button class="btn">View Keyboard Shortcuts</button>
+				<button class="btn">
+					<Icon name="table" class="inline w-6 h-6" />
+					View Keyboard Shortcuts
+				</button>
 				<button class="btn undo-btn block">
 					<Icon name="undo" class="inline w-6 h-6" />
 					Reset Keyboard Shortcuts
