@@ -12,6 +12,8 @@
 	export let dismissible = true;
 </script>
 
+<!-- TODO: translate aria label Close -->
+
 <article class="toast" role="alert" transition:fade>
 	<Icon name={type} class="inline w-6 h-6" />
 
@@ -20,7 +22,7 @@
 	</div>
 
 	{#if dismissible}
-		<button class="ml-auto" on:click={() => dispatch('dismiss')}>
+		<button class="ml-auto" aria-label="Close" on:click={() => dispatch('dismiss')}>
 			<Icon name="close" class="inline w-6 h-6" />
 		</button>
 	{/if}
