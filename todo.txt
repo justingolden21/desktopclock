@@ -50,6 +50,7 @@ next:
 ! translate
 ! working dev deploy on netlify
 ! local storage settings
+!!! : ) dropdown for color in additon to lightness for each item in analog theme. option for "primary color" and "accent color" which can be chosen in general settings
 review font families again?
 test casting api
 add more icons to settings?
@@ -71,9 +72,8 @@ save your own themes and load them?
 live update clock preview in settings on static float right when changing analog display settings?
 
 future:
-!!! : ) dropdown for color in additon to lightness for each item in analog theme. option for "primary color" and "accent color" which can be chosen in general settings
 timezone input with autocomplete select
-primary or secondary input: timezone (name, location, utc... pick which ones), greeting ("good morning/afternoon/evening/night, {name}!"), custom (custom text)
+primary or secondary input: timezone (name, location, utc... pick which ones), greeting ("good morning/afternoon/evening/night, {name}"), custom (custom text)
 test presentation, share, and pwa
 calendar page
 flutter mobile apps, port to watch and tv
