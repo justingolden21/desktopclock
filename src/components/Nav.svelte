@@ -25,32 +25,40 @@
         {$session.settings.smallerMenu ? 'w-32' : 'w-64'}"
 	class:-translate-x-full={!navOpen}
 >
-	<a class:active={$page.path === '/'} href="/" class="inline-flex">
+	<a
+		class:active={$page.path === '/'}
+		href="/"
+		class="inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}"
+	>
 		<Icon name="clock" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
 			Clock
 		{/if}
 	</a>
-	<a class:active={$page.path === '/worldclock'} href="/worldclock" class="inline-flex">
+	<a
+		class:active={$page.path === '/worldclock'}
+		href="/worldclock"
+		class="inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}"
+	>
 		<Icon name="worldclock" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
 			Worldclock
 		{/if}
 	</a>
-	<a href="/" class="inline-flex">
+	<a href="/" class="inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}">
 		<Icon name="stopwatch" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
 			Stopwatch
 		{/if}
 	</a>
-	<a href="/" class="inline-flex">
+	<a href="/" class="inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}">
 		<Icon name="timer" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
 			Timers
 		{/if}
 	</a>
 	<button
-		class="inline-flex"
+		class="inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}"
 		on:click={() => {
 			navOpen = false;
 			settingsModal.show();
@@ -62,8 +70,14 @@
 		{/if}
 	</button>
 	<div class="absolute bottom-0 mb-8">
-		<InstallButton smallButton={$session.settings.smallerMenu} class="inline-flex" />
-		<button class="share-btn inline-flex" on:click={shareApp}>
+		<InstallButton
+			smallButton={$session.settings.smallerMenu}
+			class="inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}"
+		/>
+		<button
+			class="share-btn inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}"
+			on:click={shareApp}
+		>
 			<Icon name="share" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 			{#if !$session.settings.smallerMenu}
 				Share
