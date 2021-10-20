@@ -34,6 +34,7 @@ const defaultSettings = {
 	showCastButton: false,
 	showFullscreenButton: true,
 	showThemeButtons: false,
+	smallerMenu: false,
 	alwaysCollapseMenu: false,
 	hideTitlebarWhenIdle: false,
 	secondsUntilIdle: 2,

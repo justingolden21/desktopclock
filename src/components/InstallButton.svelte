@@ -2,6 +2,8 @@
 	import { onMount } from 'svelte';
 	import Icon from './Icon.svelte';
 
+	export let smallButton = false;
+
 	$: showInstallButton = false;
 
 	// Initialize deferredPrompt for use later to show browser install prompt.
@@ -52,8 +54,10 @@
 </script>
 
 {#if showInstallButton}
-	<span tabindex="0" on:click={installButtonClick}>
-		<Icon name="download" class="inline w-6 h-6 mr-2" />
-		Install
-	</span>
+	<button on:click={installButtonClick} class={$$props.class ?? ''}>
+		<Icon name="download" class="w-6 h-6 inline {smallButton ? '' : 'mr-2'}" />
+		{#if !smallButton}
+			Install
+		{/if}
+	</button>
 {/if}

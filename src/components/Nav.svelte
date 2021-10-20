@@ -12,7 +12,6 @@
 	class="
         min-h-screen
 		bg-gray-100 bg-opacity-40
-        w-64
         p-8
         pt-20
         text-left
@@ -22,40 +21,53 @@
         transition-all
         duration-200
         ease-in-out
-        {$session.settings.alwaysCollapseMenu ? '' : 'md:relative md:translate-x-0'}"
+        {$session.settings.alwaysCollapseMenu ? '' : 'md:relative md:translate-x-0'}
+        {$session.settings.smallerMenu ? 'w-32' : 'w-64'}"
 	class:-translate-x-full={!navOpen}
 >
-	<a class:active={$page.path === '/'} href="/">
-		<Icon name="clock" class="w-6 h-6 inline mr-2" />
-		Clock
+	<a class:active={$page.path === '/'} href="/" class="inline-flex">
+		<Icon name="clock" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
+		{#if !$session.settings.smallerMenu}
+			Clock
+		{/if}
 	</a>
-	<a class:active={$page.path === '/worldclock'} href="/worldclock">
-		<Icon name="worldclock" class="w-6 h-6 inline mr-2" />
-		Worldclock
+	<a class:active={$page.path === '/worldclock'} href="/worldclock" class="inline-flex">
+		<Icon name="worldclock" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
+		{#if !$session.settings.smallerMenu}
+			Worldclock
+		{/if}
 	</a>
-	<a href="/">
-		<Icon name="stopwatch" class="w-6 h-6 inline mr-2" />
-		Stopwatch
+	<a href="/" class="inline-flex">
+		<Icon name="stopwatch" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
+		{#if !$session.settings.smallerMenu}
+			Stopwatch
+		{/if}
 	</a>
-	<a href="/">
-		<Icon name="timer" class="w-6 h-6 inline mr-2" />
-		Timers
+	<a href="/" class="inline-flex">
+		<Icon name="timer" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
+		{#if !$session.settings.smallerMenu}
+			Timers
+		{/if}
 	</a>
-	<span
-		tabindex="0"
+	<button
+		class="inline-flex"
 		on:click={() => {
 			navOpen = false;
 			settingsModal.show();
 		}}
 	>
-		<Icon name="settings" class="w-6 h-6 inline mr-2" />
-		Settings
-	</span>
+		<Icon name="settings" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
+		{#if !$session.settings.smallerMenu}
+			Settings
+		{/if}
+	</button>
 	<div class="absolute bottom-0 mb-8">
-		<InstallButton />
-		<span tabindex="0" class="share-btn" on:click={shareApp}>
-			<Icon name="share" class="inline w-6 h-6 mr-2" />
-			Share
-		</span>
+		<InstallButton smallButton={$session.settings.smallerMenu} class="inline-flex" />
+		<button class="share-btn inline-flex" on:click={shareApp}>
+			<Icon name="share" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
+			{#if !$session.settings.smallerMenu}
+				Share
+			{/if}
+		</button>
 	</div>
 </nav>

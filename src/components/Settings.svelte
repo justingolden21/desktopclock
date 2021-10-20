@@ -791,6 +791,14 @@
 
 		<br />
 
+		<Toggle
+			id="smaller-menu-toggle"
+			bind:checked={$session.settings.smallerMenu}
+			labelText="Smaller menu"
+		/>
+
+		<br />
+
 		<!-- TODO: only display option if on larger screens -->
 		<Toggle
 			id="always-collapse-menu-toggle"
@@ -835,7 +843,7 @@
 		<button
 			class="btn undo-btn block"
 			on:click={() => {
-				for (const option of 'colorPalette darkMode showDarkButton showCastButton showFullscreenButton showThemeButtons alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily'.split(
+				for (const option of 'colorPalette darkMode showDarkButton showCastButton showFullscreenButton showThemeButtons smallerMenu alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily'.split(
 					' '
 				))
 					$session.settings[option] = $session.defaultSettings[option];
@@ -867,7 +875,7 @@
 
 				<br />
 
-				<InstallButton />
+				<InstallButton class="btn" />
 				<button class="btn external-link-btn" on:click={() => openWindow(window.location.href)}>
 					<Icon name="external-link" class="inline w-6 h-6" />
 					Open Another Clock
