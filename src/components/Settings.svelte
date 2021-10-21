@@ -140,18 +140,18 @@
 	// ].sort();
 
 	const fontFamilies = {
-		Aldrich: [],
+		Aldrich: [400],
 		Arsenal: [400, 700],
 		'Bai Jamjuree': [300, 500, 700],
 		Bitter: [300, 500, 700],
 		'Josefin Sans': [300, 500, 700],
-		'Julius Sans One': [],
+		'Julius Sans One': [400],
 		Jura: [300, 500, 700],
 		K2D: [300, 500, 700],
 		KoHo: [300, 500, 700],
 		'Libre Baskerville': [400, 700],
 		Limelight: [400],
-		'Major Mono Display': [],
+		'Major Mono Display': [400],
 		'Montserrat Alternates': [300, 600, 900],
 		Orbitron: [400, 600, 800],
 		'Yatra One': [300, 500, 700]
@@ -689,15 +689,14 @@
 
 						<br />
 
-						{#if $session.settings.clock.displays.primary != 'analog'}
-							<!-- TODO: only show available font weights for each font (store in object) -->
+						{#if $session.settings.clock.displays.primary != 'analog' && fontFamilies[$session.settings.fontFamily].length > 1}
 							<label for="datetime-font-weight-select">Datetime Font Weight:</label>
 							<select
 								id="datetime-font-weight-select"
 								bind:value={$session.settings.clock.datetimeFontWeight}
 							>
-								{#each Array(9) as _, i}
-									<option value={((i + 1) * 100).toString()}>{((i + 1) * 100).toString()}</option>
+								{#each fontFamilies[$session.settings.fontFamily] as weight}
+									<option value={weight.toString()}>{weight.toString()}</option>
 								{/each}
 							</select>
 						{/if}

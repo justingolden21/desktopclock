@@ -25,7 +25,7 @@ const defaultSettings = {
 		dateFormatCustom: 'ddd, MMMM D',
 
 		datetimeLocale: 'en',
-		datetimeFontWeight: '600'
+		datetimeFontWeight: '500'
 	},
 
 	// appearance
