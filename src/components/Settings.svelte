@@ -121,23 +121,41 @@
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
 
-	const fontFamilies = [
-		'Aldrich',
-		'Arsenal',
-		'Bai Jamjuree',
-		'Bitter',
-		'Josefin Sans',
-		'Julius Sans One',
-		'Jura',
-		'K2D',
-		'KoHo',
-		'Libre Baskerville',
-		'Limelight',
-		'Major Mono Display',
-		'Montserrat Alternates',
-		'Orbitron',
-		'Yatra One'
-	].sort();
+	// const fontFamilies = [
+	// 	'Aldrich',
+	// 	'Arsenal',
+	// 	'Bai Jamjuree',
+	// 	'Bitter',
+	// 	'Josefin Sans',
+	// 	'Julius Sans One',
+	// 	'Jura',
+	// 	'K2D',
+	// 	'KoHo',
+	// 	'Libre Baskerville',
+	// 	'Limelight',
+	// 	'Major Mono Display',
+	// 	'Montserrat Alternates',
+	// 	'Orbitron',
+	// 	'Yatra One'
+	// ].sort();
+
+	const fontFamilies = {
+		Aldrich: [],
+		Arsenal: [400, 700],
+		'Bai Jamjuree': [300, 500, 700],
+		Bitter: [300, 500, 700],
+		'Josefin Sans': [300, 500, 700],
+		'Julius Sans One': [],
+		Jura: [300, 500, 700],
+		K2D: [300, 500, 700],
+		KoHo: [300, 500, 700],
+		'Libre Baskerville': [400, 700],
+		Limelight: [400],
+		'Major Mono Display': [],
+		'Montserrat Alternates': [300, 600, 900],
+		Orbitron: [400, 600, 800],
+		'Yatra One': [300, 500, 700]
+	};
 
 	const locales = [
 		'af',
@@ -851,7 +869,7 @@
 		<br />
 		<label for="font-family-select">Font Family:</label>
 		<select id="font-family-select" bind:value={$session.settings.fontFamily}>
-			{#each fontFamilies as fontFamily}
+			{#each Object.keys(fontFamilies) as fontFamily}
 				<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
 			{/each}
 		</select>
