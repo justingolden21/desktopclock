@@ -42,6 +42,8 @@ prompt "are you sure" before deleting, max of 20 themes, btn to delete all theme
 ! option to display timezone name (string selected in dropdown as opposed to utc code)
 
 font weight and font size settings for both primary and secondary displays?
+make sure fonts are served offline
+reduce file size of fonts loaded
 
 pop out settings modal (into new window) button?
 

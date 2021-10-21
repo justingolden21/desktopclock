@@ -121,29 +121,12 @@
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
 
-	// const fontFamilies = [
-	// 	'Aldrich',
-	// 	'Arsenal',
-	// 	'Bai Jamjuree',
-	// 	'Bitter',
-	// 	'Josefin Sans',
-	// 	'Julius Sans One',
-	// 	'Jura',
-	// 	'K2D',
-	// 	'KoHo',
-	// 	'Libre Baskerville',
-	// 	'Limelight',
-	// 	'Major Mono Display',
-	// 	'Montserrat Alternates',
-	// 	'Orbitron',
-	// 	'Yatra One'
-	// ].sort();
-
 	const fontFamilies = {
 		Aldrich: [400],
 		Arsenal: [400, 700],
 		'Bai Jamjuree': [300, 500, 700],
 		Bitter: [300, 500, 700],
+		Comfortaa: [300, 400, 500, 600, 700],
 		'Josefin Sans': [300, 500, 700],
 		'Julius Sans One': [400],
 		Jura: [300, 500, 700],
