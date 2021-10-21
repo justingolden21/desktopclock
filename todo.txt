@@ -43,6 +43,8 @@ prompt "are you sure" before deleting, max of 20 themes, btn to delete all theme
 
 font weight and font size settings for both primary and secondary displays?
 
+pop out settings modal (into new window) button?
+
 
 fix font loading in select
 
