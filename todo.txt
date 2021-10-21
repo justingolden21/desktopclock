@@ -47,6 +47,8 @@ reduce file size of fonts loaded
 
 pop out settings modal (into new window) button?
 
+varying font size based off of lenght of string for custom date/time/datetime format (primary display only)
+
 
 fix font loading in select
 
