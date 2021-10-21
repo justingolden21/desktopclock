@@ -850,7 +850,19 @@
 
 		<br />
 		<label for="font-family-select">Font Family:</label>
-		<select id="font-family-select" bind:value={$session.settings.fontFamily}>
+		<select
+			id="font-family-select"
+			bind:value={$session.settings.fontFamily}
+			on:change={(e) => {
+				const family = e.target.value;
+				const weight = $session.settings.clock.datetimeFontWeight;
+				// if selected font does not have selected weight
+				if (fontFamilies[family].indexOf(weight) == -1) {
+					// default to first listed weight
+					$session.settings.clock.datetimeFontWeight = fontFamilies[family][0].toString();
+				}
+			}}
+		>
 			{#each Object.keys(fontFamilies) as fontFamily}
 				<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
 			{/each}
