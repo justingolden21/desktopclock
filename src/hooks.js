@@ -24,7 +24,8 @@ const defaultSettings = {
 		dateFormat: 'ddd, MMMM D',
 		dateFormatCustom: 'ddd, MMMM D',
 
-		datetimeLocale: 'en'
+		datetimeLocale: 'en',
+		datetimeFontWeight: '600'
 	},
 
 	// appearance

@@ -669,6 +669,21 @@
 							{/each}
 						</select>
 
+						<br />
+
+						{#if $session.settings.clock.displays.primary != 'analog'}
+							<!-- TODO: only show available font weights for each font (store in object) -->
+							<label for="datetime-font-weight-select">Datetime Font Weight:</label>
+							<select
+								id="datetime-font-weight-select"
+								bind:value={$session.settings.clock.datetimeFontWeight}
+							>
+								{#each Array(9) as _, i}
+									<option value={((i + 1) * 100).toString()}>{((i + 1) * 100).toString()}</option>
+								{/each}
+							</select>
+						{/if}
+
 						<Modal bind:this={datetimeFormatModal} title="Datetime Formatting" icon="table">
 							<!-- https://day.js.org/docs/en/display/format -->
 							<table>

@@ -67,7 +67,22 @@
 </script>
 
 <div style="color:{colorPalette[shade]}; display: flex">
-	<div id="primary-display">
+	<div
+		id="primary-display"
+		style="--primary-font-weight: {$session.settings.clock.datetimeFontWeight}"
+	>
+		<!-- class="font-weight-${[
+			'',
+			'thin',
+			'extralight',
+			'light',
+			'normal',
+			'medium',
+			'semibold',
+			'bold',
+			'extrabold',
+			'black'
+		][parseInt($session.settings.clock.datetimeFontWeight) / 100]}" -->
 		{#if displays.primary != 'analog'}
 			<h1>
 				{#if displays.primary == 'time'}
@@ -117,9 +132,10 @@
 		top: 25%;
 		left: 0%;
 		right: 0%;
+		font-weight: var(--primary-font-weight);
 	}
 	#primary-display h1 {
-		@apply text-7xl md:text-8xl lg:text-9xl font-bold tracking-widest text-center;
+		@apply text-7xl md:text-8xl lg:text-9xl tracking-widest text-center;
 	}
 	#secondary-display,
 	#battery-display {
