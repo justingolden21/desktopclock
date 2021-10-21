@@ -25,7 +25,7 @@ const defaultSettings = {
 		dateFormatCustom: 'ddd, MMMM D',
 
 		datetimeLocale: 'en',
-		datetimeFontWeight: '500'
+		datetimeFontWeight: '300'
 	},
 
 	// appearance
@@ -39,7 +39,7 @@ const defaultSettings = {
 	alwaysCollapseMenu: false,
 	hideTitlebarWhenIdle: false,
 	secondsUntilIdle: 2,
-	fontFamily: 'Jura',
+	fontFamily: 'Comfortaa',
 
 	// general
 	doubleclickFullscreen: false,
