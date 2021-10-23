@@ -10,10 +10,12 @@
 		"sourceType": "module"
 	},
 	"plugins": ["prettier", "svelte3"],
-	"overrides": [{
-		"files": ["*.svelte"],
-		"processor": "svelte3/svelte3"
-	}],
+	"overrides": [
+		{
+			"files": ["*.svelte"],
+			"processor": "svelte3/svelte3"
+		}
+	],
 	"rules": {
 		"prettier/prettier": "error",
 		"indent": ["warn", "tab"],

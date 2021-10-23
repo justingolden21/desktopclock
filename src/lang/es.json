@@ -1,14 +1,13 @@
 {
-    "appName": "Reloj Sencillo",
-    "appShortName": "Reloj Sencillo",
-    "appDescription": "\u00A1Un reloj ajustable, personalizable!",
-    "pageNames": {
-        "clock": "Reloj Sencillo",
-        "worldclock": "Worldclockoooooo",
-        "stopwatch": "Stopwatchooo",
-        "timers": "Timersooo",
-        "error": "Erroroooooo"
-    },
-    "Doubleclick Fullscreen": "Doubleclickoooo Fullscreenoooo"
-
+	"appName": "Reloj Sencillo",
+	"appShortName": "Reloj Sencillo",
+	"appDescription": "\u00A1Un reloj ajustable, personalizable!",
+	"pageNames": {
+		"clock": "Reloj Sencillo",
+		"worldclock": "Worldclockoooooo",
+		"stopwatch": "Stopwatchooo",
+		"timers": "Timersooo",
+		"error": "Erroroooooo"
+	},
+	"Doubleclick Fullscreen": "Doubleclickoooo Fullscreenoooo"
 }
