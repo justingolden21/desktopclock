@@ -1011,7 +1011,7 @@
 						{#each Object.keys(timezones) as zone}
 							<optgroup label={zone}>
 								{#each timezones[zone] as tz}
-									<option value={zone + '/' + tz}>{zone + '/' + tz}</option>
+									<option value={zone + '/' + tz}>{(zone + '/' + tz).split('_').join(' ')}</option>
 								{/each}
 							</optgroup>
 						{/each}
