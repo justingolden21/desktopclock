@@ -27,7 +27,6 @@ btn to add new theme, new theme shows up as btn with small x to right to delete 
 prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
 
 TOP PRIORITY / MVP:
-BUG: when changing pages and going back to clock, analog clock moves back and fourth
 PWA bugs fixed
 - PWA initial screen and offline not working, website not working in messenger
 translate / fully support spanish, british english
@@ -36,6 +35,8 @@ implement settings in local storage
 remember which tab and accordion are open in settings
 detect datetime format? should not display am/pm to en-uk users for example
 AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the Philippines" https://www.timeanddate.com/time/am-and-pm.html
+google analytics, etc
+clean code, fix linting errors
 
 BONUS / NEXT:
 theme color(s) (primary and secondary/accent colors) used across entire UI (use css variables and tailwind colors in script to handle app color theme?)

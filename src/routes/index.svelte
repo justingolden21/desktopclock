@@ -20,6 +20,7 @@
 
 	// TODO BUG: timezone not refleced in analog clock
 	function setTime() {
+		console.log('set time');
 		if (!document.getElementById('hour-hand')) return; // return if analog clock is not visible
 
 		// const date = new Date();
@@ -59,18 +60,15 @@
 		}
 	}
 
-	let setTimeInterval;
-
-	// manifest has to load before the service worker for the service worker to install
-	// since both are async here, the app breaks
-	// for localization, the manifest should be loaded from an endpoint in svelte kit, to point to a json that loads the correct language manifest
-
-	function init() {
+	onMount(() => {
 		setTime();
-		setTimeInterval = setInterval(setTime, 1 * 1000);
-	}
 
-	onMount(init);
+		const setTimeInterval = setInterval(setTime, 1000);
+
+		return () => {
+			clearInterval(setTimeInterval);
+		};
+	});
 
 	//  ================
 
