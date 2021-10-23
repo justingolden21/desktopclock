@@ -14,8 +14,10 @@ const setAngle = (type, newAngle) => {
 };
 
 // TODO BUG: timezone not refleced in analog clock
-function setTime(date = new Date()) {
+function setTime() {
 	if (!document.getElementById('hour-hand')) return; // return if analog clock is not visible
+
+	const date = new Date();
 
 	// todo: add one second to current date, because transition to current time takes one second
 	const h = date.getHours() % 12;
