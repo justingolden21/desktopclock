@@ -99,7 +99,7 @@
 	onMount(setupCasting);
 
 	import TailwindColors from 'tailwindcss/colors.js';
-	import dayjs from 'dayjs';
+	import dayjs, { tz } from 'dayjs';
 
 	import { setupCasting, castClock } from './cast.js';
 
@@ -1038,6 +1038,10 @@
 							}
 						}}
 					/>
+					<p>
+						Timezone offset: {new dayjs($now).tz($session.settings.locale.timezone).utcOffset() /
+							60}
+					</p>
 					<!-- TODO: btn to reset all locale settings, onclick toggles all auto to on which resets others -->
 				</div>
 			</AccordionPanel>
