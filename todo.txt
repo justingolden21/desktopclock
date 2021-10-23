@@ -26,18 +26,27 @@ make the receiver a page that just has the clock with no menu or buttons, and th
 btn to add new theme, new theme shows up as btn with small x to right to delete it
 prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
 
+TOP PRIORITY / MVP:
+Pwa bugs fixed
+translate / fully support spanish, british english
+finish keyboard shortcuts
+implement settings in local storage
+
+BONUS / NEXT:
+theme color(s) (primary and secondary/accent colors) used across entire UI (use css variables and tailwind colors in script to handle app color theme?)
+option to display timezone name (string selected in dropdown as opposed to utc code)
+better selection methods and displays for timezone dropdown (display utc, autocomplete input)
+
 ! pwa initial screen and offline not working, website not working in messenger
 ! remember which tab and accordion are open in settings
 ! add icons to more btns
 ! interior modal full width (formatting table, eventually view shortcuts modal) move modal outside of settings modal (settings component)
  - settings component could include modal wrapper
-! use theme in more places (replace "gray" with the theme color, maybe later have an accent)
-! implement remaining settings:
+
+future settings adjustments:
 - send feedback can open modal prompt with subject and body and send btn opens mailto
 - implenent langs, locales, timezones, update ui with reset btns next to them and auto detect toggle
 - finalize keyboard shortcuts, view keyboard shortcuts modal (maybe turn on and off specific shortcuts, change keys (each item has a toggle and input for key))
-- 
-! option to display timezone name (string selected in dropdown as opposed to utc code)
 
 font weight and font size settings for both primary and secondary displays?
 make sure fonts are served offline
@@ -56,9 +65,6 @@ command to automatically build for production (update sw cache name) and update 
 bug: app doesn't work in messenger in browser
 
 next:
-! translate
-! working dev deploy on netlify
-! local storage settings
 !!! : ) dropdown for color in additon to lightness for each item in analog theme. option for "primary color" and "accent color" which can be chosen in general settings
 review font families again?
 test casting api
