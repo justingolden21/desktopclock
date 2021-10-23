@@ -45,13 +45,21 @@
 			Worldclock
 		{/if}
 	</a>
-	<a href="/" class="inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}">
+	<a
+		class:active={$page.path === '/stopwatch'}
+		href="/stopwatch"
+		class="inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}"
+	>
 		<Icon name="stopwatch" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
 			Stopwatch
 		{/if}
 	</a>
-	<a href="/" class="inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}">
+	<a
+		class:active={$page.path === '/timers'}
+		href="/timers"
+		class="inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}"
+	>
 		<Icon name="timer" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
 			Timers

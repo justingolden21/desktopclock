@@ -5,6 +5,8 @@
     "pageNames": {
         "clock": "Desktop Clock",
         "worldclock": "Worldclock",
+        "stopwatch": "Stopwatch",
+        "timers": "Timers",
         "error": "Error"
     },
     "Doubleclick Fullscreen": "Doubleclick Fullscreen",
