@@ -22,6 +22,7 @@
 		if (event.code === 'KeyF') {
 			toggleFullscreen();
 		}
+		// p simple, t themes, b battery, d secondary display, g digital
 	}}
 />
 
