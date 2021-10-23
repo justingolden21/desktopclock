@@ -623,7 +623,7 @@
 								{#each ['MMM D', 'MMM D YYYY', 'ddd, MMMM D', 'ddd, MMMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
 									<option value={dateFormat}
 										>{new dayjs($now)
-											.locale($session.settings.clock.datetimeLocale)
+											.locale($session.settings.locale.datetime)
 											.format(dateFormat)}</option
 									>
 								{/each}
@@ -640,7 +640,7 @@
 									<p>
 										<b>Preview:</b>
 										{new dayjs($now)
-											.locale($session.settings.clock.datetimeLocale)
+											.locale($session.settings.locale.datetime)
 											.format($session.settings.clock.dateFormatCustom)}
 									</p>
 								</div>
@@ -665,15 +665,6 @@
 							<Icon name="undo" class="inline w-6 h-6" />
 							Reset Digital Datetime Formats
 						</button>
-
-						<label for="datetime-locale-select">Datetime Locale:</label>
-						<select id="datetime-locale-select" bind:value={$session.settings.clock.datetimeLocale}>
-							{#each locales as locale}
-								<option value={locale}>{locale}</option>
-							{/each}
-						</select>
-
-						<br />
 
 						{#if $session.settings.clock.displays.primary != 'analog' && fontFamilies[$session.settings.fontFamily].length > 1}
 							<label for="datetime-font-weight-select">Datetime Font Weight:</label>
@@ -732,19 +723,6 @@
 								>
 							</p>
 						</Modal>
-
-						<!-- TODO -->
-						<!-- <div class="block mb-2">
-							<label for="locale-select">Locale:</label>
-							<select disabled id="locale-select">
-								<option> EN-US Los Angeles, CA, USA </option>
-							</select>
-						</div>
-						<Toggle
-							id="auto-locale-toggle"
-							checked={true}
-							labelText="Automatically Detect Locale"
-						/> -->
 					</div>
 				</AccordionPanel>
 			{/if}
@@ -979,14 +957,18 @@
 						labelText="Automatically Detect Language"
 						bind:checked={$session.settings.locale.automaticLanguage}
 					/>
+					<!-- TODO: toggle onchange to reset setting -->
 				</div>
 				<div class="block mb-2">
 					<label for="datetime-locale-select">Datetime Locale:</label>
-					<select id="datetime-locale-select" disabled={$session.settings.locale.automaticDatetime}>
-						<option>en</option>
-						<option>es</option>
-						<option>de-DE</option>
-						<option>ar-EG</option>
+					<select
+						id="datetime-locale-select"
+						disabled={$session.settings.locale.automaticDatetime}
+						bind:value={$session.settings.locale.datetime}
+					>
+						{#each locales as locale}
+							<option value={locale}>{locale}</option>
+						{/each}
 					</select>
 					<br class="block lg:hidden" />
 					<Toggle
@@ -994,6 +976,7 @@
 						labelText="Automatically Detect Datetime Locale"
 						bind:checked={$session.settings.locale.automaticDatetime}
 					/>
+					<!-- TODO: toggle onchange to reset setting -->
 				</div>
 				<!-- todo: display gmt offset to the side -->
 				<!-- todo: search input that finds results containing that string in below select -->

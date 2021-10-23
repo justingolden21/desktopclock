@@ -39,11 +39,11 @@
 	// these update automatically with `$now`
 	$: time = new dayjs($now)
 		.tz(localeSettings.timezone)
-		.locale(clockSettings.datetimeLocale)
+		.locale(localeSettings.datetime)
 		.format(timeFormat);
 	$: date = new dayjs($now)
 		.tz(localeSettings.timezone)
-		.locale(clockSettings.datetimeLocale)
+		.locale(localeSettings.datetime)
 		.format(dateFormat);
 
 	// TODO: starts an event listener each time displays.svelte is mounted, can add up
