@@ -415,7 +415,10 @@
 					</div>
 					<div class="block mb-2">
 						<label for="pin-stroke-select">Pin Stroke Color:</label>
-						<select id="pin-stroke-select" bind:value={$session.settings.clock.theme.pin.stroke}>
+						<select
+							id="pin-stroke-select"
+							bind:value={$session.settings.clock.theme.pin.stroke.lightness}
+						>
 							{#each Object.keys(colorPalette) as lightness}
 								<option value={lightness}>{lightness}</option>
 							{/each}

@@ -27,7 +27,6 @@ btn to add new theme, new theme shows up as btn with small x to right to delete 
 prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
 
 ! TODO BUG: timezone not refleced in analog clock
-! bug pin stroke not populating in select
 ! pwa initial screen and offline not working, website not working in messenger
 ! remember which tab and accordion are open in settings
 ! add icons to more btns
