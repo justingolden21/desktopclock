@@ -5,19 +5,11 @@
 	import { onMount } from 'svelte';
 	import { init } from '../js/scripts';
 
-	// import Displays, { displays, setDisplays } from '../components/Displays.svelte';
 	import Displays from '../components/Displays.svelte';
 	import ThemeButtons from '../components/ThemeButtons.svelte';
 
-	// onMount(() => {
-	// 	init();
-	// 	let lang = 'en'; // tmp
-	// 	setDisplays(displays, lang);
-	// });
-
 	onMount(init);
 
-	// Shortcut for $session.settings.clock.theme.*
 	$: theme = $session.settings.clock.theme;
 	$: colorPalette = colors[$session.settings.colorPalette];
 
