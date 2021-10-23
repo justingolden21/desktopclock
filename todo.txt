@@ -27,20 +27,18 @@ btn to add new theme, new theme shows up as btn with small x to right to delete 
 prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
 
 TOP PRIORITY / MVP:
-Pwa bugs fixed
+PWA bugs fixed
+- PWA initial screen and offline not working, website not working in messenger
 translate / fully support spanish, british english
 finish keyboard shortcuts
 implement settings in local storage
+remember which tab and accordion are open in settings
 
 BONUS / NEXT:
 theme color(s) (primary and secondary/accent colors) used across entire UI (use css variables and tailwind colors in script to handle app color theme?)
 option to display timezone name (string selected in dropdown as opposed to utc code)
 better selection methods and displays for timezone dropdown (display utc, autocomplete input)
-
-! pwa initial screen and offline not working, website not working in messenger
-! remember which tab and accordion are open in settings
-! add icons to more btns
-! interior modal full width (formatting table, eventually view shortcuts modal) move modal outside of settings modal (settings component)
+interior modal full width (formatting table, eventually view shortcuts modal) move modal outside of settings modal (settings component)
  - settings component could include modal wrapper
 
 future settings adjustments:
