@@ -31,7 +31,7 @@ BUG: when changing pages and going back to clock, analog clock moves back and fo
 PWA bugs fixed
 - PWA initial screen and offline not working, website not working in messenger
 translate / fully support spanish, british english
-finish keyboard shortcuts
+finish keyboard shortcuts, display shortcuts in modal
 implement settings in local storage
 remember which tab and accordion are open in settings
 detect datetime format? should not display am/pm to en-uk users for example
@@ -43,6 +43,7 @@ option to display timezone name (string selected in dropdown as opposed to utc c
 better selection methods and displays for timezone dropdown (display utc, autocomplete input)
 interior modal full width (formatting table, eventually view shortcuts modal) move modal outside of settings modal (settings component)
  - settings component could include modal wrapper
+settings should only show clock settings if clock open, show worldclock settings if worldclock open, etc.
 
 future settings adjustments:
 - send feedback can open modal prompt with subject and body and send btn opens mailto
