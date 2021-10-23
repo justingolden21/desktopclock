@@ -27,6 +27,7 @@ btn to add new theme, new theme shows up as btn with small x to right to delete 
 prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
 
 TOP PRIORITY / MVP:
+minor bug: clock freezes for one second before continuing
 PWA bugs fixed
 - PWA initial screen and offline not working, website not working in messenger
 translate / fully support spanish, british english
