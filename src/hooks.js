@@ -44,9 +44,10 @@ const defaultSettings = {
 	doubleclickFullscreen: false,
 	keyboardShortcuts: true,
 	locale: {
-		datetime: 'en',
-		language: 'en-US',
-		timezone: null, // overridden in _layout onMount to user device's preference
+		// null values overridden in _layout onMount to user device's preference
+		datetime: null,
+		language: null,
+		timezone: null,
 		automaticDatetime: true,
 		automaticLanguage: true,
 		automaticTimezone: true
