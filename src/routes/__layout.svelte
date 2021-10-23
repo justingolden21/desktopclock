@@ -47,6 +47,14 @@
 			$session.settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 		}
 
+		if ($session.settings.locale.language === null)
+			$session.settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale;
+
+		if ($session.settings.locale.datetime === null)
+			$session.settings.locale.datetime = Intl.DateTimeFormat()
+				.resolvedOptions()
+				.locale.substring(0, 2);
+
 		// TODO default system language
 		// https://github.com/kangabru/whats-the-time/blob/master/src/utils/utils.ts
 		// window.navigator.languages ? window.navigator.languages[0] : window.navigator.language;

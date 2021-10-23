@@ -907,6 +907,10 @@
 						// auto detect user device preferences (same code as in layout)
 						$session.settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)')
 							.matches;
+						$session.settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale;
+						$session.settings.locale.datetime = Intl.DateTimeFormat()
+							.resolvedOptions()
+							.locale.substring(0, 2);
 						$session.settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 					}}
 				>
@@ -945,19 +949,28 @@
 			<AccordionPanel accordionTitle="Locale" key="3">
 				<div class="block mb-2">
 					<label for="language-select">Language:</label>
-					<select id="language-select" disabled={$session.settings.locale.automaticLanguage}>
-						<option value="en-us">English, US</option>
-						<option value="en-gb">English, GB</option>
-						<option value="es-mx">Spanish, MX</option>
-						<option value="es-sp">Spanish, SP</option>
+					<select
+						id="language-select"
+						disabled={$session.settings.locale.automaticLanguage}
+						bind:value={$session.settings.locale.language}
+					>
+						<option value="en-US">English, US</option>
+						<option value="en-GB">English, GB</option>
+						<option value="es-MX">Spanish, MX</option>
+						<option value="es-SP">Spanish, SP</option>
 					</select>
 					<br class="block lg:hidden" />
 					<Toggle
 						id="auto-detect-language-toggle"
 						labelText="Automatically Detect Language"
 						bind:checked={$session.settings.locale.automaticLanguage}
+						on:change={(e) => {
+							if (e.target.checked) {
+								// same code as layout, reset to user device default
+								$session.settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale;
+							}
+						}}
 					/>
-					<!-- TODO: toggle onchange to reset setting -->
 				</div>
 				<div class="block mb-2">
 					<label for="datetime-locale-select">Datetime Locale:</label>
@@ -975,8 +988,15 @@
 						id="auto-detect-datetime-locale-toggle"
 						labelText="Automatically Detect Datetime Locale"
 						bind:checked={$session.settings.locale.automaticDatetime}
+						on:change={(e) => {
+							if (e.target.checked) {
+								// same code as layout, reset to user device default
+								$session.settings.locale.datetime = Intl.DateTimeFormat()
+									.resolvedOptions()
+									.locale.substring(0, 2);
+							}
+						}}
 					/>
-					<!-- TODO: toggle onchange to reset setting -->
 				</div>
 				<!-- todo: display gmt offset to the side -->
 				<!-- todo: search input that finds results containing that string in below select -->

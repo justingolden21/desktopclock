@@ -45,7 +45,7 @@ const defaultSettings = {
 	keyboardShortcuts: true,
 	locale: {
 		datetime: 'en',
-		language: 'en',
+		language: 'en-US',
 		timezone: null, // overridden in _layout onMount to user device's preference
 		automaticDatetime: true,
 		automaticLanguage: true,
