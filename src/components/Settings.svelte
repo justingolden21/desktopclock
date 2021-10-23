@@ -597,7 +597,12 @@
 							<label for="time-format-select">Time Format:</label>
 							<select id="time-format-select" bind:value={$session.settings.clock.timeFormat}>
 								{#each ['H:mm', 'H:mm:ss', 'h:mm A', 'h:mm:ss A', 'H:mm Z', 'H:mm:ss Z', 'h:mm A Z', 'h:mm:ss A Z', 'mm:ss'] as timeFormat}
-									<option value={timeFormat}>{new dayjs($now).format(timeFormat)}</option>
+									<option value={timeFormat}
+										>{new dayjs($now)
+											.tz($session.settings.locale.timezone)
+											.locale($session.settings.locale.datetime)
+											.format(timeFormat)}</option
+									>
 								{/each}
 								<option value="custom">Custom</option>
 							</select>
@@ -611,7 +616,10 @@
 									/>
 									<p>
 										<b>Preview:</b>
-										{new dayjs($now).format($session.settings.clock.timeFormatCustom)}
+										{new dayjs($now)
+											.tz($session.settings.locale.timezone)
+											.locale($session.settings.locale.datetime)
+											.format($session.settings.clock.timeFormatCustom)}
 									</p>
 								</div>
 							{/if}
@@ -623,6 +631,7 @@
 								{#each ['MMM D', 'MMM D YYYY', 'ddd, MMMM D', 'ddd, MMMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
 									<option value={dateFormat}
 										>{new dayjs($now)
+											.tz($session.settings.locale.timezone)
 											.locale($session.settings.locale.datetime)
 											.format(dateFormat)}</option
 									>
@@ -640,6 +649,7 @@
 									<p>
 										<b>Preview:</b>
 										{new dayjs($now)
+											.tz($session.settings.locale.timezone)
 											.locale($session.settings.locale.datetime)
 											.format($session.settings.clock.dateFormatCustom)}
 									</p>
