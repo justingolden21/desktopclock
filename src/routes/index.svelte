@@ -20,7 +20,6 @@
 
 	// TODO BUG: timezone not refleced in analog clock
 	function setTime() {
-		console.log('set time');
 		if (!document.getElementById('hour-hand')) return; // return if analog clock is not visible
 
 		// const date = new Date();
