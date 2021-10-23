@@ -4,6 +4,13 @@
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
 
+	import dayjs from 'dayjs';
+	import utc from 'dayjs/plugin/utc.js';
+	import timezone from 'dayjs/plugin/timezone.js';
+	dayjs.extend(utc);
+	dayjs.extend(timezone);
+
+	import { now } from '../components/now.js';
 	import Displays from '../components/Displays.svelte';
 	import ThemeButtons from '../components/ThemeButtons.svelte';
 
@@ -15,12 +22,13 @@
 	function setTime() {
 		if (!document.getElementById('hour-hand')) return; // return if analog clock is not visible
 
-		const date = new Date();
+		// const date = new Date();
+		const date = new dayjs($now).tz($session.settings.locale.timezone);
 
 		// todo: add one second to current date, because transition to current time takes one second
-		const h = date.getHours() % 12;
-		const m = date.getMinutes();
-		const s = date.getSeconds();
+		const h = date.hour() % 12;
+		const m = date.minute();
+		const s = date.second();
 
 		let rotations = {
 			second: 6 * s,

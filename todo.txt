@@ -26,7 +26,6 @@ make the receiver a page that just has the clock with no menu or buttons, and th
 btn to add new theme, new theme shows up as btn with small x to right to delete it
 prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
 
-! TODO BUG: timezone not refleced in analog clock
 ! pwa initial screen and offline not working, website not working in messenger
 ! remember which tab and accordion are open in settings
 ! add icons to more btns
@@ -57,7 +56,6 @@ command to automatically build for production (update sw cache name) and update 
 bug: app doesn't work in messenger in browser
 
 next:
-! timezones
 ! translate
 ! working dev deploy on netlify
 ! local storage settings
@@ -65,8 +63,6 @@ next:
 review font families again?
 test casting api
 add more icons to settings?
-default time format with timezone?
-simple ui for datetime locale, language, and timezone, with auto detect and reset options
 fix theme btn display
 check meta tags, make sure it works on google,fb,twitter, etc, maybe add similar to sharethis?
 https://metatags.io/
