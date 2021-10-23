@@ -8,7 +8,7 @@
 		"build": "svelte-kit build",
 		"preview": "svelte-kit preview",
 		"buildpreview": "svelte-kit build && svelte-kit preview",
-		"lint": "prettier --ignore-path .gitignore  --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+		"lint": "prettier --ignore-path .gitignore --ignore-path .prettierignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
 		"format": "prettier --ignore-path .gitignore --ignore-path .prettierignore --write --plugin-search-dir=. .",
 		"generate-assets": "pwa-asset-generator src/img/icons/icon.svg src/img/icons --index src/app.html --favicon --mstile --icon-only --opaque true"
 	},
