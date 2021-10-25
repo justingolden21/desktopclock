@@ -39,6 +39,7 @@ detect datetime format? should not display am/pm to en-uk users for example
 AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the Philippines" https://www.timeanddate.com/time/am-and-pm.html
 google analytics, etc
 clean code, fix linting errors
+zen mode should be a quick button in bottom left by default
 
 BONUS / NEXT:
 theme color(s) (primary and secondary/accent colors) used across entire UI (use css variables and tailwind colors in script to handle app color theme?)
