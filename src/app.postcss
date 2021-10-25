@@ -45,11 +45,16 @@
 	h1,
 	h2,
 	h3 {
-		@apply tracking-widest xs:text-lg sm:text-xl md:text-2xl mt-4 mb-2;
+		@apply tracking-widest xs:text-lg sm:text-xl md:text-2xl mt-8 mb-2;
 	}
+	h3 {
+		@apply font-bold;
+	}
+
 	p {
-		@apply leading-relaxed;
+		@apply leading-relaxed text-base md:text-lg;
 	}
+
 	a:not(nav a) {
 		@apply text-gray-600 hover:underline font-bold;
 	}

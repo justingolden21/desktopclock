@@ -43,7 +43,7 @@
 
 <style lang="postcss">
 	.modal {
-		@apply p-6 md:p-12 fixed left-0 top-0 block w-full h-full bg-gray-300 bg-opacity-75;
+		@apply xs:p-3 sm:p-6 md:p-12 fixed left-0 top-0 block w-full h-full bg-gray-300 bg-opacity-75;
 		z-index: 3;
 	}
 	.modal-content {
@@ -63,12 +63,6 @@
 	}
 	.modal-body {
 		@apply text-left relative flex-1 overflow-auto;
-	}
-	.modal-body p {
-		@apply text-base sm:text-lg md:text-xl;
-	}
-	.modal-body h3 {
-		@apply font-bold my-2 md:my-4;
 	}
 
 	:global(body.dark) .modal {
