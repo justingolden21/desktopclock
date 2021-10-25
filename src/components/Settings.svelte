@@ -1063,7 +1063,7 @@
 				>sharing</button
 			> it
 		</p>
-		<p class="mt-2">Version 0.0.0</p>
+		<p class="mt-2">Version 0.0.0 Aqua</p>
 
 		<h3>Help</h3>
 		<p>Coming Soon...</p>
