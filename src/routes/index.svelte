@@ -18,14 +18,12 @@
 		document.documentElement.style.setProperty(`--${type}-angle`, `${newAngle}deg`);
 	};
 
-	// TODO BUG: timezone not refleced in analog clock
 	function setTime() {
 		if (!document.getElementById('hour-hand')) return; // return if analog clock is not visible
 
-		// const date = new Date();
-		const date = new dayjs($now).tz($session.settings.locale.timezone);
+		// add one second because transition takes one second
+		const date = new dayjs($now).tz($session.settings.locale.timezone).add(1, 'second');
 
-		// todo: add one second to current date, because transition to current time takes one second
 		const h = date.hour() % 12;
 		const m = date.minute();
 		const s = date.second();
