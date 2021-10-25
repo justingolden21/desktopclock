@@ -100,6 +100,7 @@ primary or secondary input: timezone (name, location, utc... pick which ones), g
 test presentation, share, and pwa
 calendar page
 flutter mobile apps, port to watch and tv
+option to change datetime order to date then time or time then date
 
 settings ui:
 version number should be moved from applicaiton to about. way to automatically update each commit?
