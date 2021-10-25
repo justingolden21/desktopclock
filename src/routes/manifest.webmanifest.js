@@ -5,7 +5,7 @@ export async function get({ locals }) {
 			name: locals.languageDictionary.appName,
 			short_name: locals.languageDictionary.appShortName,
 			description: locals.languageDictionary.appDescription,
-			start_url: 'index.html',
+			start_url: '/',
 			display: 'standalone',
 			background_color: '#FFFFFF',
 			theme_color: '#FFFFFF',
