@@ -5,6 +5,7 @@ export async function get({ locals }) {
 			name: locals.languageDictionary.appName,
 			short_name: locals.languageDictionary.appShortName,
 			description: locals.languageDictionary.appDescription,
+			categories: ['utilities', 'productivity', 'travel'],
 			start_url: '/',
 			display: 'standalone',
 			background_color: '#FFFFFF',
