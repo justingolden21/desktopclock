@@ -30,6 +30,7 @@ TOP PRIORITY / MVP:
 minor bug: clock freezes for one second before continuing
 PWA bugs fixed
 - PWA initial screen and offline not working, website not working in messenger
+- cache fonts offline
 translate / fully support spanish, british english
 finish keyboard shortcuts, display shortcuts in modal
 implement settings in local storage
@@ -51,6 +52,8 @@ future settings adjustments:
 - send feedback can open modal prompt with subject and body and send btn opens mailto
 - implenent langs, locales, timezones, update ui with reset btns next to them and auto detect toggle
 - finalize keyboard shortcuts, view keyboard shortcuts modal (maybe turn on and off specific shortcuts, change keys (each item has a toggle and input for key))
+display toast if update is available (click to restart/install) (option to turn this off?)
+redirect /index.html to /
 
 font weight and font size settings for both primary and secondary displays?
 make sure fonts are served offline
