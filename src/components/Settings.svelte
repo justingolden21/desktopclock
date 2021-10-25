@@ -1056,7 +1056,8 @@
 			customizable analog and digital displays, night mode, and more. Desktop Clock is designed to
 			scale perfectly to any screen size and ratio, with no distortion or pixelation. Use Desktop
 			Clock as a clock on your TV, a night clock, or even project the time for exams. Use the timers
-			for anything from chess to cooking! Customize the time, date and more to your liking!
+			for anything from chess to cooking! Customize the time, date and more to your liking! Desktop
+			Clock is the all-in-one clock for any of your timekeeping needs!
 		</p>
 		<p>
 			If you like this app, consider <button class="font-bold hover:underline" on:click={shareApp}
