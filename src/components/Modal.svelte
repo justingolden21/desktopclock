@@ -43,7 +43,7 @@
 
 <style lang="postcss">
 	.modal {
-		@apply p-12 fixed left-0 top-0 block w-full h-full bg-gray-300 bg-opacity-75;
+		@apply p-6 md:p-12 fixed left-0 top-0 block w-full h-full bg-gray-300 bg-opacity-75;
 		z-index: 3;
 	}
 	.modal-content {
