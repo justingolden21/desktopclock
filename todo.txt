@@ -40,6 +40,8 @@ AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the
 google analytics, etc
 clean code, fix linting errors
 zen mode should be a quick button in bottom left by default
+fix time zone null error, check for null in places that use it? try undefined instead of null?
+- one centralized place for dayjs time, which has tz and other settings built in?
 
 BONUS / NEXT:
 theme color(s) (primary and secondary/accent colors) used across entire UI (use css variables and tailwind colors in script to handle app color theme?)
