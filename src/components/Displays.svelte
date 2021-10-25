@@ -38,13 +38,13 @@
 
 	// these update automatically with `$now`
 	$: time = new dayjs($now)
-		.tz(localeSettings.timezone)
-		.locale(localeSettings.datetime)
-		.format(timeFormat);
+		.tz(localeSettings.timezone || 'Etc/GMT')
+		.locale(localeSettings.datetime || 'en')
+		.format(timeFormat || 'h:mm A');
 	$: date = new dayjs($now)
-		.tz(localeSettings.timezone)
-		.locale(localeSettings.datetime)
-		.format(dateFormat);
+		.tz(localeSettings.timezone || 'Etc/GMT')
+		.locale(localeSettings.datetime || 'en')
+		.format(dateFormat || 'ddd, MMMM D');
 
 	// TODO: starts an event listener each time displays.svelte is mounted, can add up
 	// should unmount the event listener, look into svelte window access navigator

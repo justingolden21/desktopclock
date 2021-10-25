@@ -22,7 +22,9 @@
 		if (!document.getElementById('hour-hand')) return; // return if analog clock is not visible
 
 		// add one second because transition takes one second
-		const date = new dayjs($now).tz($session.settings.locale.timezone).add(1, 'second');
+		const date = new dayjs($now)
+			.tz($session.settings.locale.timezone || 'Etc/GMT')
+			.add(1, 'second');
 
 		const h = date.hour() % 12;
 		const m = date.minute();
