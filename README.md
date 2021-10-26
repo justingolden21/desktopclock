@@ -6,7 +6,7 @@ A simple, resizable and customizable clock for any device
 
 ### Codebase
 
-This project is made with Svelte (using Svelte kit) and TailwindCSS. It uses Hero Icons and postCSS/purgeCSS for tailwind. Vite is the bundler used under the hood for Svelte kit. It is hosted on Netlify and has no backend currently. It uses day.js for date/time logic, and uses Prettier, ESLint, and the AirBNB Javascript Style guide for code formatting and style.
+This project is made with Svelte (using Svelte kit) and TailwindCSS. It uses Hero Icons and postCSS/purgeCSS for Tailwind. Vite is the bundler used under the hood for Svelte kit. It is hosted on Netlify and has no backend currently. It uses day.js for date/time logic, and uses Prettier, ESLint, and the AirBNB Javascript Style guide for code formatting and style. Desktop Clock is a PWA and can handle many timezones, date and time formats and locales, and languages.
 
 ### Development
 
@@ -14,7 +14,7 @@ First time setup: `npm i`
 
 Generate Assets: `npm run generate-assets`
 
-Development: `npm run dev` (or `npm run dev -- --open`)
+Development: `npm run dev`
 
 Build: `npm run build`
 
@@ -42,7 +42,7 @@ VS Code Extensions:
 
 - Prettier
 
-- Svelte 3 Snippets
+- Svelte 3 Snippets by fivethree
 
 - Svelte for VS Code
 
@@ -56,37 +56,10 @@ Set up VS code to auto format on save
 
 2. Preferences: Open Settings (JSON)
 
-3. Add the following line
-
-```diff
-"[javascript]": {
-+    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-}
-
-...
-
-+ "[svelte]": {
-+	"editor.formatOnSave": true,
-+ 	"editor.defaultFormatter": "svelte.svelte-vscode"
-+ },
-
-...
-
-+ "editor.formatOnSave": true,
-
-```
-
-Full `settings.json` in VS Code for reference:
+3. Add the following to your `settings.json`:
 
 ```json
 {
-	"editor.linkedEditing": true,
-	"editor.detectIndentation": true,
-	"notebook.cellToolbarLocation": {
-		"default": "right",
-		"jupyter-notebook": "left"
-	},
 	"prettier.tabWidth": 4,
 	"prettier.useTabs": true,
 	"[javascript]": {
@@ -98,22 +71,15 @@ Full `settings.json` in VS Code for reference:
 		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
 	"eslint.alwaysShowStatus": true,
-	"workbench.colorTheme": "Default Dark+",
 	"prettier.singleQuote": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.formatOnSave": true,
-	"security.workspace.trust.untrustedFiles": "newWindow",
-	"files.autoSave": "afterDelay"
+	"editor.formatOnSave": true
 }
 ```
 
 4. Reload VS code (may be necessary to go to extensions and find an extension with a button to reload and click that)
 
 Note: Click Prettier button on bottom right of file to view console output and any errors in formatting / autosave
-
-### Other Recommended Extensions
-
-- Svelte 3 Snippets by fivethree
 
 ### Debugging
 
@@ -123,13 +89,17 @@ For issues with building, previewing, and npm packages, try deleting the build, 
 
 ### Links
 
-- Live demo: https://justingolden.me/desktop-clock
+- Dev: https://desktopclockdev.netlify.app/
+
+- Prod: https://desktopclock.netlify.app/
 
 - This repo: https://github.com/justingolden21/desktop-clock
 
 ### Attribution
 
 404 vector from https://undraw.co/
+
+Icons from https://heroicons.dev and https://iconoir.com
 
 <hr>
 
