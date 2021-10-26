@@ -1,7 +1,6 @@
 <script context="module">
 	import { session } from '$app/stores';
 
-	// import '../app.postcss';
 	export const load = ({ error, status }) => {
 		return {
 			props: {
@@ -17,8 +16,6 @@
 	export let status;
 </script>
 
-<!-- todo: translate 404 message and go home link -->
-
 <svelte:head>
 	<title>{$session.languageDictionary.error['Error']}</title>
 </svelte:head>
@@ -29,6 +26,7 @@
 		<h2>{$session.languageDictionary.error['The resource could not be found']}</h2>
 	{/if}
 	<h2 class="font-bold my-4">{error.name} {status}</h2>
+	<!-- TODO: only show error.message if lang is english? -->
 	<p>{error.message}</p>
 	<a href="/" class="btn block mt-8 hover:no-underline"
 		>{$session.languageDictionary.error['Go back to the homepage']}</a

@@ -1,7 +1,7 @@
 <script>
 	import '../app.postcss';
 
-	import { navigating, page, session } from '$app/stores';
+	import { navigating, session } from '$app/stores';
 	import { browser } from '$app/env';
 	import { onMount } from 'svelte';
 
@@ -53,13 +53,6 @@
 			$session.settings.locale.datetime = Intl.DateTimeFormat()
 				.resolvedOptions()
 				.locale.substring(0, 2);
-
-		// TODO default system language
-		// https://github.com/kangabru/whats-the-time/blob/master/src/utils/utils.ts
-		// window.navigator.languages ? window.navigator.languages[0] : window.navigator.language;
-		// should instead check default navigator.language and if not in available languages then loop through navigator.languages
-		// in order until finding a hard match (en-US vs en-US) and if not then loop through until finding a soft match (en vs en-US or en-UK vs en-US)
-		// if no matches are found, default to en-US
 	});
 
 	onMount(() => {
@@ -93,7 +86,7 @@
 	</div>
 
 	<!-- Modals -->
-	<Modal bind:this={settingsModal} title="Settings" icon="settings">
+	<Modal bind:this={settingsModal} title={$session.languageDictionary['Settings']} icon="settings">
 		<Settings />
 	</Modal>
 </div>

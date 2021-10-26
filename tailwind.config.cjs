@@ -11,14 +11,10 @@ module.exports = {
 	},
 	darkMode: 'class',
 	theme: {
-		// extend: {
-		// 	colors: {
-		// 		gray: colors.blueGray
-		// 	}
-		// },
 		colors: {
 			white: '#FFF',
 			gray: colors.blueGray
+			// ...colors
 		},
 		screens: {
 			xs: '360px',

@@ -1,7 +1,8 @@
 import defaultTheme from './themes/default';
 
 async function getLanguageDictionary(headers) {
-	// const lang = 'es'; // testing
+	// toggle comment below to test another language
+	// const lang = 'es';
 	const lang = headers['accept-language']?.substr?.(0, 2) ?? 'en';
 	try {
 		return (await import(`./lang/${lang}.json`)).default;
@@ -46,7 +47,7 @@ const defaultSettings = {
 	locale: {
 		// null values overridden in _layout onMount to user device's preference
 		datetime: null,
-		language: null,
+		language: null, // TODO: this isn't used for the user's language, `headers['accept-language']` above is used and user is unable to change languages
 		timezone: null,
 		automaticDatetime: true,
 		automaticLanguage: true,

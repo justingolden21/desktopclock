@@ -4,7 +4,6 @@
 	"description": "A simple, resizable and customizable clock for any device",
 	"scripts": {
 		"dev": "svelte-kit dev",
-		"devhost": "svelte-kit dev --host",
 		"build": "svelte-kit build",
 		"preview": "svelte-kit preview",
 		"buildpreview": "svelte-kit build && svelte-kit preview",

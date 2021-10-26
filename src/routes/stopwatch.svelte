@@ -6,4 +6,4 @@
 	<title>{$session.languageDictionary.pageNames.stopwatch}</title>
 </svelte:head>
 
-<h1 class="mt-16 text-3xl">Stopwatch coming soon...</h1>
+<h1 class="mt-16 text-3xl">{$session.languageDictionary['Coming soon']}</h1>

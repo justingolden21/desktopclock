@@ -26,6 +26,9 @@ make the receiver a page that just has the clock with no menu or buttons, and th
 btn to add new theme, new theme shows up as btn with small x to right to delete it
 prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
 
+NOW:
+clean project, then translate
+
 TOP PRIORITY / MVP:
 minor bug: clock freezes for one second before continuing
 PWA bugs fixed
@@ -56,7 +59,43 @@ future settings adjustments:
 - implenent langs, locales, timezones, update ui with reset btns next to them and auto detect toggle
 - finalize keyboard shortcuts, view keyboard shortcuts modal (maybe turn on and off specific shortcuts, change keys (each item has a toggle and input for key))
 display toast if update is available (click to restart/install) (option to turn this off?)
+
+```
+window.isUpdateAvailable = new Promise(function (resolve, reject) {
+    navigator.serviceWorker
+      .register("service-worker.js")
+      .then((reg) => {
+        reg.onupdatefound = () => {
+          const installingWorker = reg.installing;
+          installingWorker.onstatechange = () => {
+            switch (installingWorker.state) {
+              case "installed":
+                if (navigator.serviceWorker.controller) {
+                  // new update available
+                  resolve(true);
+                } else {
+                  // no update available
+                  resolve(false);
+                }
+                break;
+            }
+          };
+        };
+      })
+      .catch((err) => console.error("[SW ERROR]", err));
+});
+```
+
 redirect /index.html to /
+
+better detection for default system language?
+```
+https://github.com/kangabru/whats-the-time/blob/master/src/utils/utils.ts
+window.navigator.languages ? window.navigator.languages[0] : window.navigator.language;
+should instead check default navigator.language and if not in available languages then loop through navigator.languages
+in order until finding a hard match (en-US vs en-US) and if not then loop through until finding a soft match (en vs en-US or en-UK vs en-US)
+if no matches are found, default to en-US
+```
 
 font weight and font size settings for both primary and secondary displays?
 make sure fonts are served offline

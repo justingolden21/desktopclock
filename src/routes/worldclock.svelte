@@ -6,4 +6,4 @@
 	<title>{$session.languageDictionary.pageNames.worldclock}</title>
 </svelte:head>
 
-<h1 class="mt-16 text-3xl">Worldclock coming soon...</h1>
+<h1 class="mt-16 text-3xl">{$session.languageDictionary['Coming soon']}</h1>

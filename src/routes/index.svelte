@@ -162,7 +162,7 @@
 </section>
 
 <section class="z-20">
-	<!-- todo: z index does not seem to be the problem, cannot click lower btns -->
+	<!-- TODO: z index does not seem to be the problem, cannot click lower btns -->
 	<div class="z-20 m-4 mx-16 max-w-3xl" class:hidden={!$session.settings.showThemeButtons}>
 		<ThemeButtons />
 	</div>
