@@ -28,9 +28,9 @@
 		id="menu-btn"
 		class="icon-btn float-left  {$session.settings.alwaysCollapseMenu ? '' : 'md:hidden'} "
 		on:click={() => (navOpen = !navOpen)}
-		aria-label="Menu"
+		aria-label={$session.languageDictionary.labels['Menu']}
 	>
-		<Icon name={navOpen ? 'close' : 'menu'} class="w-6 h-6 md:w-8 md:h-8" />
+		<Icon name={navOpen ? 'close' : 'menu'} class="w-6 h-6" />
 	</button>
 
 	<button
@@ -39,14 +39,14 @@
         {$session.settings.alwaysCollapseMenu ? '' : 'md:left-4'} "
 		class:hidden={!$session.settings.showDarkButton}
 		on:click={() => ($session.settings.darkMode = !$session.settings.darkMode)}
-		aria-label="Toggle Dark Mode"
+		aria-label={$session.languageDictionary.labels['Toggle Dark Mode']}
 	>
 		<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 
 	<h1 id="title-text">
 		{$session.languageDictionary.pageNames[$page.path.substring(1) || 'clock'] ||
-			$session.languageDictionary.pageNames.error}
+			$session.languageDictionary.error['Error']}
 	</h1>
 
 	<button

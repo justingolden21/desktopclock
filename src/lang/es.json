@@ -6,8 +6,16 @@
 		"clock": "Reloj Sencillo",
 		"worldclock": "Worldclockoooooo",
 		"stopwatch": "Stopwatchooo",
-		"timers": "Timersooo",
-		"error": "Erroroooooo"
+		"timers": "Timersooo"
 	},
+    "error": {
+        "The resource could not be found": "No se pudo encontrar el recurso",
+        "Go back to the homepage": "Volver a la página de inicio",
+        "Error": "Error"
+    },
+    "labels": {
+        "Menu": "Menú",
+        "Toggle Dark Mode": "Alternar modo oscuro"
+    },
 	"Doubleclick Fullscreen": "Doubleclickoooo Fullscreenoooo"
 }

@@ -6,9 +6,17 @@
 		"clock": "Desktop Clock",
 		"worldclock": "Worldclock",
 		"stopwatch": "Stopwatch",
-		"timers": "Timers",
-		"error": "Error"
+		"timers": "Timers"
 	},
+    "error": {
+        "The resource could not be found": "The resource could not be found",
+        "Go back to the homepage": "Go back to the homepage",
+        "Error": "Error"
+    },
+    "labels": {
+        "Menu": "Menu",
+        "Toggle Dark Mode": "Toggle Dark Mode"
+    },
 	"Doubleclick Fullscreen": "Doubleclick Fullscreen",
 
 	"Small": "Small",
