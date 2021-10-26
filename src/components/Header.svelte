@@ -54,7 +54,7 @@
 		class="cast-btn icon-btn float-right"
 		class:hidden={!$session.settings.showCastButton}
 		on:click={castClock}
-		aria-label="Cast / Present Clock"
+		aria-label={$session.languageDictionary.labels['Cast Clock']}
 	>
 		<Icon name="cast" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
@@ -64,7 +64,7 @@
 		class="fullscreen-btn icon-btn float-right"
 		class:hidden={!$session.settings.showFullscreenButton}
 		on:click={toggleFullscreen}
-		aria-label="Toggle Fullscreen"
+		aria-label={$session.languageDictionary.labels['Toggle Fullscreen']}
 	>
 		<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>

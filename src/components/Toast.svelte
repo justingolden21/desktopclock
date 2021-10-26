@@ -1,6 +1,8 @@
 <script>
 	// https://dev.to/danawoodman/svelte-quick-tip-creating-a-toast-notification-system-ge3
 
+	import { session } from '$app/stores';
+
 	import { createEventDispatcher } from 'svelte';
 	import { fade } from 'svelte/transition';
 
@@ -12,8 +14,6 @@
 	export let dismissible = true;
 </script>
 
-<!-- TODO: translate aria label Close -->
-
 <article class="toast" role="alert" transition:fade>
 	<Icon name={type} class="inline w-6 h-6" />
 
@@ -22,7 +22,11 @@
 	</div>
 
 	{#if dismissible}
-		<button class="ml-auto" aria-label="Close" on:click={() => dispatch('dismiss')}>
+		<button
+			class="ml-auto"
+			aria-label={$session.languageDictionary.labels['Close']}
+			on:click={() => dispatch('dismiss')}
+		>
 			<Icon name="close" class="inline w-6 h-6" />
 		</button>
 	{/if}

@@ -8,18 +8,36 @@
 		"stopwatch": "Stopwatch",
 		"timers": "Timers"
 	},
-    "error": {
-        "The resource could not be found": "The resource could not be found",
-        "Go back to the homepage": "Go back to the homepage",
-        "Error": "Error"
-    },
-    "labels": {
-        "Menu": "Menu",
-        "Toggle Dark Mode": "Toggle Dark Mode"
-    },
+	"error": {
+		"The resource could not be found": "The resource could not be found",
+		"Go back to the homepage": "Go back to the homepage",
+		"Error": "Error"
+	},
+	"labels": {
+		"Menu": "Menu",
+		"Close": "Close",
+		"Settings": "Settings",
+		"Install": "Install",
+		"Cast Clock": "Cast Clock",
+		"Toggle Dark Mode": "Toggle Dark Mode",
+		"Toggle Fullscreen": "Toggle Fullscreen",
+		"Font Weights": 
+			[
+				"",
+				"thin",
+				"extralight",
+				"light",
+				"normal",
+				"medium",
+				"semibold",
+				"bold",
+				"extrabold",
+				"black"
+			]
+		
+	},
 	"Doubleclick Fullscreen": "Doubleclick Fullscreen",
 	"Coming soon": "Coming soon",
-	"Settings": "Settings",
 
 	"Small": "Small",
 	"Medium": "Medium",

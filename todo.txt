@@ -88,6 +88,8 @@ window.isUpdateAvailable = new Promise(function (resolve, reject) {
 
 redirect /index.html to /
 
+more folders for components? (toast, tabs in their own, components for only one page (clock, worldclock) should also have their own folders)
+
 better detection for default system language?
 ```
 https://github.com/kangabru/whats-the-time/blob/master/src/utils/utils.ts
@@ -124,6 +126,8 @@ https://metatags.io/
 implement automated testing?
 save settings automatically toggle?
 
+settings.svelte is a MESS, needs to be broken down, translated, etc.
+
 preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
 ability to have multiple timers/countdowns in 3hrs/3years, name them, delete them, share them (url params)
 multiple timers can count time since or time until, or for set amount of time. can split into multiple sections each with simple ui
@@ -140,7 +144,7 @@ test presentation, share, and pwa
 calendar page
 flutter mobile apps, port to watch and tv
 option to change datetime order to date then time or time then date
-centralized "card"/"surface" styles for nav, modal, tabs, etc, with similar backdrop blur, colors, night colors, padding, opacity, etc
+centralized "card"/"surface" styles for nav, modal, toast, tabs, etc, with similar backdrop blur, colors, night colors, padding, opacity, etc
 
 settings ui:
 version number should be moved from applicaiton to about. way to automatically update each commit?

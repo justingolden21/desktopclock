@@ -71,18 +71,6 @@
 		id="primary-display"
 		style="--primary-font-weight: {$session.settings.clock.datetimeFontWeight}"
 	>
-		<!-- class="font-weight-${[
-			'',
-			'thin',
-			'extralight',
-			'light',
-			'normal',
-			'medium',
-			'semibold',
-			'bold',
-			'extrabold',
-			'black'
-		][parseInt($session.settings.clock.datetimeFontWeight) / 100]}" -->
 		{#if displays.primary != 'analog'}
 			<h1>
 				{#if displays.primary == 'time'}

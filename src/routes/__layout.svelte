@@ -86,7 +86,11 @@
 	</div>
 
 	<!-- Modals -->
-	<Modal bind:this={settingsModal} title={$session.languageDictionary['Settings']} icon="settings">
+	<Modal
+		bind:this={settingsModal}
+		title={$session.languageDictionary.labels['Settings']}
+		icon="settings"
+	>
 		<Settings />
 	</Modal>
 </div>

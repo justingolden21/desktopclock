@@ -1,4 +1,6 @@
 <script>
+	import { session } from '$app/stores';
+
 	import Icon from './Icon.svelte';
 
 	export let title;
@@ -29,7 +31,11 @@
 	<div class="modal" on:click={() => hide()}>
 		<div class="modal-content" on:click|stopPropagation>
 			<div class="modal-header">
-				<button class="close icon-btn" on:click={() => hide()}>
+				<button
+					class="close icon-btn"
+					on:click={() => hide()}
+					aria-label={$session.languageDictionary.labels['Close']}
+				>
 					<Icon name="close" class="w-6 h-6" />
 				</button>
 				<h1><Icon name={icon} class="w-6 h-6 inline mr-2" /> {title}</h1>

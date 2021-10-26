@@ -683,7 +683,9 @@
 								bind:value={$session.settings.clock.datetimeFontWeight}
 							>
 								{#each fontFamilies[$session.settings.fontFamily] as weight}
-									<option value={weight.toString()}>{weight.toString()}</option>
+									<option value={weight.toString()}
+										>{$session.languageDictionary.labels['Font Weights'][weight / 100]}</option
+									>
 								{/each}
 							</select>
 						{/if}
