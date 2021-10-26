@@ -17,7 +17,6 @@
         text-left
         absolute
         left-0
-        transform
         transition-all
         duration-200
         ease-in-out

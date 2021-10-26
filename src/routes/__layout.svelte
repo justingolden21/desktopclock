@@ -3,6 +3,7 @@
 
 	import { navigating, page, session } from '$app/stores';
 	import { browser } from '$app/env';
+	import { onMount } from 'svelte';
 
 	import colors from 'tailwindcss/colors.js';
 
@@ -11,11 +12,9 @@
 	import Modal from '../components/Modal.svelte';
 	import Nav from '../components/Nav.svelte';
 	import Header from '../components/Header.svelte';
-	import Settings, { shareApp } from '../components/Settings.svelte';
-	import { onMount } from 'svelte';
+	import Settings from '../components/Settings.svelte';
 	import { now } from '../components/now.js';
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
-	import Icon from '../components/Icon.svelte';
 
 	let settingsModal;
 
