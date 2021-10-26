@@ -101,6 +101,7 @@ test presentation, share, and pwa
 calendar page
 flutter mobile apps, port to watch and tv
 option to change datetime order to date then time or time then date
+centralized "card"/"surface" styles for nav, modal, tabs, etc, with similar backdrop blur, colors, night colors, padding, opacity, etc
 
 settings ui:
 version number should be moved from applicaiton to about. way to automatically update each commit?
