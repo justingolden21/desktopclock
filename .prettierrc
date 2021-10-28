@@ -1,6 +1,9 @@
 {
-	"useTabs": true,
+    "bracketSameLine": true,
+	"printWidth": 100,
+    "quoteProps": "consistent",
 	"singleQuote": true,
 	"trailingComma": "none",
-	"printWidth": 100
+	"useTabs": true
+
 }
