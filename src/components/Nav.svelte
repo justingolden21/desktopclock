@@ -83,7 +83,7 @@
 		/>
 		<button
 			class="share-btn inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}"
-			on:click={shareApp}
+			on:click={() => shareApp($session.languageDictionary)}
 		>
 			<Icon name="share" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 			{#if !$session.settings.smallerMenu}

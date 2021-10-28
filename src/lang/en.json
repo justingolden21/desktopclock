@@ -2,6 +2,7 @@
 	"appName": "Desktop Clock",
 	"appShortName": "Desktop Clock",
 	"appDescription": "A simple, resizable and customizable clock for any device!",
+	"shareAppDescription": "Desktop Clock is a simple, resizable and customizable clock for any device.",
 	"pageNames": {
 		"clock": "Desktop Clock",
 		"worldclock": "Worldclock",
@@ -21,6 +22,7 @@
 		"Cast Clock": "Cast Clock",
 		"Toggle Dark Mode": "Toggle Dark Mode",
 		"Toggle Fullscreen": "Toggle Fullscreen",
+        "Doubleclick Fullscreen": "Doubleclick Fullscreen",
 		"Font Weights": 
 			[
 				"",
@@ -36,7 +38,7 @@
 			]
 		
 	},
-	"Doubleclick Fullscreen": "Doubleclick Fullscreen",
+
 	"Coming soon": "Coming soon",
 
 	"Small": "Small",

@@ -7,13 +7,13 @@
 		}
 	}
 
-	export function shareApp() {
+	export function shareApp(languageDictionary) {
 		// TODO translate, test on more platforms, store URL in global variable somewhere, in case it changes
 		if (navigator.share) {
 			navigator
 				.share({
-					title: 'Desktop Clock',
-					text: 'Desktop Clock is a simple, resizable and customizable clock for any device.',
+					title: languageDictionary['appName'],
+					text: languageDictionary['shareAppDescription'],
 					url: 'https://desktopclock.netlify.app/'
 				})
 				.then(() => console.log('Successful share'))
@@ -884,7 +884,7 @@
 				<!-- <button class="btn">Download Settings</button> -->
 				<!-- <button class="btn">Upload Settings</button> -->
 
-				<button class="btn share-btn" on:click={shareApp}>
+				<button class="btn share-btn" on:click={() => shareApp($session.languageDictionary)}>
 					<Icon name="share" class="inline w-6 h-6" />
 					Share
 				</button>
@@ -938,7 +938,7 @@
 				<div class="block mb-2">
 					<Toggle
 						id="dbl-click-fullscreen-toggle"
-						labelText={$session.languageDictionary['Doubleclick Fullscreen']}
+						labelText={$session.languageDictionary.labels['Doubleclick Fullscreen']}
 						bind:checked={$session.settings.doubleclickFullscreen}
 					/>
 				</div>
@@ -1062,8 +1062,9 @@
 			Clock is the all-in-one clock for any of your timekeeping needs!
 		</p>
 		<p>
-			If you like this app, consider <button class="font-bold hover:underline" on:click={shareApp}
-				>sharing</button
+			If you like this app, consider <button
+				class="font-bold hover:underline"
+				on:click={() => shareApp($session.languageDictionary)}>sharing</button
 			> it
 		</p>
 		<p class="mt-2">Version 0.0.0 Aqua</p>
