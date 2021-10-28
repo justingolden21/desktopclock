@@ -271,27 +271,29 @@
 	<!-- Clock -->
 	<TabPanel>
 		<Accordion key="3">
-			<AccordionPanel accordionTitle="Displays" key="3">
+			<AccordionPanel accordionTitle={dictionary.clockSettings['Displays']} key="3">
 				<div class="block mb-2">
-					<label for="primary-display-select">Primary Display:</label>
+					<label for="primary-display-select">{dictionary.clockSettings['Primary Display:']}</label>
 					<select id="primary-display-select" bind:value={$session.settings.clock.displays.primary}>
-						<option value="analog">Analog Clock</option>
-						<option value="time">Digital Time</option>
-						<option value="date">Date</option>
-						<option value="datetime">Date + Digital Time</option>
+						<option value="analog">{dictionary.clockSettings['Analog Clock']}</option>
+						<option value="time">{dictionary.clockSettings['Digital Time']}</option>
+						<option value="date">{dictionary.clockSettings['Date']}</option>
+						<option value="datetime">{dictionary.clockSettings['Date + Digital Time']}</option>
 					</select>
 				</div>
 
 				<div class="block mb-2">
-					<label for="secondary-display-select">Secondary Display:</label>
+					<label for="secondary-display-select"
+						>{dictionary.clockSettings['Secondary Display:']}</label
+					>
 					<select
 						id="secondary-display-select"
 						bind:value={$session.settings.clock.displays.secondary}
 					>
-						<option value="time">Digital Time</option>
-						<option value="date">Date</option>
-						<option value="datetime">Date + Digital Time</option>
-						<option value="none">None</option>
+						<option value="time">{dictionary.clockSettings['Digital Time']}</option>
+						<option value="date">{dictionary.clockSettings['Date']}</option>
+						<option value="datetime">{dictionary.clockSettings['Date + Digital Time']}</option>
+						<option value="none">{dictionary.clockSettings['None']}</option>
 					</select>
 				</div>
 
@@ -299,12 +301,12 @@
 					<Toggle
 						id="show-battery-toggle"
 						bind:checked={$session.settings.clock.displays.battery}
-						labelText="Show battery"
+						labelText={dictionary.clockSettings['Show battery']}
 					/>
 				</div>
 			</AccordionPanel>
 			{#if $session.settings.clock.displays.primary == 'analog'}
-				<AccordionPanel accordionTitle="Analog" key="4">
+				<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="4">
 					<!-- note: using json for efficient deep clone so original theme object is not mutated -->
 					<button
 						class="btn theme-btn block"
@@ -312,7 +314,7 @@
 							($session.settings.clock.theme = JSON.parse(JSON.stringify(defaultTheme)))}
 					>
 						<Icon name="theme" class="inline w-6 h-6" />
-						Default Theme
+						{dictionary.clockSettings['Default Theme']}
 					</button>
 					<button
 						class="btn theme-btn block"
@@ -320,7 +322,7 @@
 							($session.settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme)))}
 					>
 						<Icon name="theme" class="inline w-6 h-6" />
-						Default Night Theme
+						{dictionary.clockSettings['Default Night Theme']}
 					</button>
 					<button
 						class="btn theme-btn block"
@@ -328,7 +330,7 @@
 							($session.settings.clock.theme = JSON.parse(JSON.stringify(classicTheme)))}
 					>
 						<Icon name="theme" class="inline w-6 h-6" />
-						Classic Theme
+						{dictionary.clockSettings['Classic Theme']}
 					</button>
 					<button
 						class="btn theme-btn block"
@@ -336,7 +338,7 @@
 							($session.settings.clock.theme = JSON.parse(JSON.stringify(classicNightTheme)))}
 					>
 						<Icon name="theme" class="inline w-6 h-6" />
-						Classic Night Theme
+						{dictionary.clockSettings['Classic Night Theme']}
 					</button>
 					<button
 						class="btn theme-btn block"
@@ -346,7 +348,7 @@
 						}}
 					>
 						<Icon name="settings" class="inline w-6 h-6" />
-						Simple Mode
+						{dictionary.clockSettings['Simple Mode']}
 					</button>
 
 					<h3>Face</h3>
@@ -580,7 +582,7 @@
 				</AccordionPanel>
 			{/if}
 			{#if $session.settings.clock.displays.primary != 'analog' || $session.settings.clock.displays.secondary != 'none'}
-				<AccordionPanel accordionTitle="Digital Datetime" key="5">
+				<AccordionPanel accordionTitle={dictionary.clockSettings['Digital Datetime']} key="5">
 					<div class="block mb-2">
 						<div class="block mb-2">
 							<label for="time-format-select">Time Format:</label>
