@@ -9,6 +9,8 @@
 
 	export let navOpen;
 
+	$: dictionary = $session.languageDictionary;
+
 	let timeSinceMove = new Date();
 	$: if ($session) timeSinceMove = new Date();
 
@@ -28,7 +30,7 @@
 		id="menu-btn"
 		class="icon-btn float-left  {$session.settings.alwaysCollapseMenu ? '' : 'md:hidden'} "
 		on:click={() => (navOpen = !navOpen)}
-		aria-label={$session.languageDictionary.labels['Menu']}
+		aria-label={dictionary.labels['Menu']}
 	>
 		<Icon name={navOpen ? 'close' : 'menu'} class="w-6 h-6" />
 	</button>
@@ -39,14 +41,13 @@
         {$session.settings.alwaysCollapseMenu ? '' : 'md:left-4'} "
 		class:hidden={!$session.settings.showDarkButton}
 		on:click={() => ($session.settings.darkMode = !$session.settings.darkMode)}
-		aria-label={$session.languageDictionary.labels['Toggle Dark Mode']}
+		aria-label={dictionary.labels['Toggle Dark Mode']}
 	>
 		<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 
 	<h1 id="title-text">
-		{$session.languageDictionary.pageNames[$page.path.substring(1) || 'home'] ||
-			$session.languageDictionary.error['Error']}
+		{dictionary.pageNames[$page.path.substring(1) || 'home'] || dictionary.error['Error']}
 	</h1>
 
 	<button
@@ -54,7 +55,7 @@
 		class="cast-btn icon-btn float-right"
 		class:hidden={!$session.settings.showCastButton}
 		on:click={castClock}
-		aria-label={$session.languageDictionary.labels['Cast Clock']}
+		aria-label={dictionary.labels['Cast Clock']}
 	>
 		<Icon name="cast" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
@@ -64,7 +65,7 @@
 		class="fullscreen-btn icon-btn float-right"
 		class:hidden={!$session.settings.showFullscreenButton}
 		on:click={toggleFullscreen}
-		aria-label={$session.languageDictionary.labels['Toggle Fullscreen']}
+		aria-label={dictionary.labels['Toggle Fullscreen']}
 	>
 		<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>

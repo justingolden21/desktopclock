@@ -122,6 +122,7 @@
 	import timezones from './timezones';
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
+	$: dictionary = $session.languageDictionary;
 
 	const fontFamilies = {
 		Aldrich: [400],
@@ -251,19 +252,19 @@
 	<TabList>
 		<Tab>
 			<Icon name="clock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
-			{$session.languageDictionary.pageNames['clock']}
+			{dictionary.pageNames['clock']}
 		</Tab>
 		<Tab>
 			<Icon name="eye" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
-			{$session.languageDictionary.settingsTabs['Appearance']}
+			{dictionary.settingsTabs['Appearance']}
 		</Tab>
 		<Tab>
 			<Icon name="application" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
-			{$session.languageDictionary.settingsTabs['General']}
+			{dictionary.settingsTabs['General']}
 		</Tab>
 		<Tab>
 			<Icon name="info" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
-			{$session.languageDictionary.settingsTabs['About']}
+			{dictionary.settingsTabs['About']}
 		</Tab>
 	</TabList>
 
@@ -451,12 +452,12 @@
 
 					{#each ['sm', 'md', 'lg'] as size, i}
 						<h5>
-							<b>{$session.languageDictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}</b>
+							<b>{dictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}</b>
 						</h5>
 						<div class="block mb-2">
 							<label for="{size}-tick-stroke-select">
-								{$session.languageDictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
-								{$session.languageDictionary['Tick Stroke Color:']}
+								{dictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
+								{dictionary['Tick Stroke Color:']}
 							</label>
 							<select
 								id="{size}-tick-stroke-select"
@@ -470,8 +471,8 @@
 						</div>
 						<div class="block mb-2">
 							<label for="{size}-tick-width-select"
-								>{$session.languageDictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
-								{$session.languageDictionary['Tick Width:']}</label
+								>{dictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
+								{dictionary['Tick Width:']}</label
 							>
 							<select
 								id="{size}-tick-width-select"
@@ -484,8 +485,8 @@
 						</div>
 						<div class="block mb-2">
 							<label for="{size}-tick-height-select"
-								>{$session.languageDictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
-								{$session.languageDictionary['Tick Height:']}</label
+								>{dictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
+								{dictionary['Tick Height:']}</label
 							>
 							<select
 								id="{size}-tick-height-select"
@@ -502,18 +503,12 @@
 
 					{#each ['hour', 'minute', 'second'] as hand, i}
 						<h5>
-							<b
-								>{$session.languageDictionary[
-									{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]
-								]}</b
-							>
+							<b>{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}</b>
 						</h5>
 						<div class="block mb-2">
 							<label for="{hand}-hand-stroke-select">
-								{$session.languageDictionary[
-									{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]
-								]}
-								{$session.languageDictionary['Hand Stroke Color:']}
+								{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
+								{dictionary['Hand Stroke Color:']}
 							</label>
 							<select
 								id="{hand}-hand-stroke-select"
@@ -527,10 +522,8 @@
 						</div>
 						<div class="block mb-2">
 							<label for="{hand}-hand-stroke-width-select"
-								>{$session.languageDictionary[
-									{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]
-								]}
-								{$session.languageDictionary['Hand Stroke Width:']}</label
+								>{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
+								{dictionary['Hand Stroke Width:']}</label
 							>
 							<select
 								id="{hand}-hand-stroke-width-select"
@@ -543,10 +536,8 @@
 						</div>
 						<div class="block mb-2">
 							<label for="{hand}-hand-length-select"
-								>{$session.languageDictionary[
-									{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]
-								]}
-								{$session.languageDictionary['Hand Length:']}</label
+								>{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
+								{dictionary['Hand Length:']}</label
 							>
 							<select
 								id="{hand}-hand-length-select"
@@ -559,10 +550,8 @@
 						</div>
 						<div class="block mb-2">
 							<label for="{hand}-hand-back-select"
-								>{$session.languageDictionary[
-									{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]
-								]}
-								{$session.languageDictionary['Hand Back:']}</label
+								>{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
+								{dictionary['Hand Back:']}</label
 							>
 							<select
 								id="{hand}-hand-back-select"
@@ -575,10 +564,8 @@
 						</div>
 						<div class="block mb-2">
 							<label for="{hand}-hand-linecap-select"
-								>{$session.languageDictionary[
-									{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]
-								]}
-								{$session.languageDictionary['Hand Linecap:']}</label
+								>{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
+								{dictionary['Hand Linecap:']}</label
 							>
 							<select
 								id="{hand}-hand-linecap-select"
@@ -686,7 +673,7 @@
 							>
 								{#each fontFamilies[$session.settings.fontFamily] as weight}
 									<option value={weight.toString()}
-										>{$session.languageDictionary.labels['Font Weights'][weight / 100]}</option
+										>{dictionary.labels['Font Weights'][weight / 100]}</option
 									>
 								{/each}
 							</select>
@@ -886,7 +873,7 @@
 				<!-- <button class="btn">Download Settings</button> -->
 				<!-- <button class="btn">Upload Settings</button> -->
 
-				<button class="btn share-btn" on:click={() => shareApp($session.languageDictionary)}>
+				<button class="btn share-btn" on:click={() => shareApp(dictionary)}>
 					<Icon name="share" class="inline w-6 h-6" />
 					Share
 				</button>
@@ -940,7 +927,7 @@
 				<div class="block mb-2">
 					<Toggle
 						id="dbl-click-fullscreen-toggle"
-						labelText={$session.languageDictionary.labels['Doubleclick Fullscreen']}
+						labelText={dictionary.labels['Doubleclick Fullscreen']}
 						bind:checked={$session.settings.doubleclickFullscreen}
 					/>
 				</div>
@@ -1066,7 +1053,7 @@
 		<p>
 			If you like this app, consider <button
 				class="font-bold hover:underline"
-				on:click={() => shareApp($session.languageDictionary)}>sharing</button
+				on:click={() => shareApp(dictionary)}>sharing</button
 			> it
 		</p>
 		<p class="mt-2">Version 0.0.0 Aqua</p>

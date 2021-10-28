@@ -6,6 +6,8 @@
 
 	export let navOpen;
 	export let settingsModal = null;
+
+	$: dictionary = $session.languageDictionary;
 </script>
 
 <nav
@@ -31,7 +33,7 @@
 	>
 		<Icon name="clock" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
-			{$session.languageDictionary.pageNames['clock']}
+			{dictionary.pageNames['clock']}
 		{/if}
 	</a>
 	<a
@@ -41,7 +43,7 @@
 	>
 		<Icon name="worldclock" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
-			{$session.languageDictionary.pageNames['worldclock']}
+			{dictionary.pageNames['worldclock']}
 		{/if}
 	</a>
 	<a
@@ -51,7 +53,7 @@
 	>
 		<Icon name="stopwatch" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
-			{$session.languageDictionary.pageNames['stopwatch']}
+			{dictionary.pageNames['stopwatch']}
 		{/if}
 	</a>
 	<a
@@ -61,7 +63,7 @@
 	>
 		<Icon name="timer" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
-			{$session.languageDictionary.pageNames['timers']}
+			{dictionary.pageNames['timers']}
 		{/if}
 	</a>
 	<button
@@ -73,7 +75,7 @@
 	>
 		<Icon name="settings" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
-			{$session.languageDictionary.labels['Settings']}
+			{dictionary.labels['Settings']}
 		{/if}
 	</button>
 	<div class="absolute bottom-0 mb-8">
@@ -83,11 +85,11 @@
 		/>
 		<button
 			class="share-btn inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}"
-			on:click={() => shareApp($session.languageDictionary)}
+			on:click={() => shareApp(dictionary)}
 		>
 			<Icon name="share" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 			{#if !$session.settings.smallerMenu}
-				{$session.languageDictionary.labels['Share']}
+				{dictionary.labels['Share']}
 			{/if}
 		</button>
 	</div>
