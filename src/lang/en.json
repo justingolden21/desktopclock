@@ -63,7 +63,14 @@
         "Default Night Theme": "Default Night Theme",
         "Classic Theme": "Classic Theme",
         "Classic Night Theme": "Classic Night Theme",
-        "Simple Mode": "Simple Mode"
+        "Simple Mode": "Simple Mode",
+
+        "Time Format:": "Time Format:",
+        "Date Format:": "Date Format:",
+        "Custom": "Custom",
+        "Preview:": "Preview:",
+        "Custom Formatting Reference": "Custom Formatting Reference",
+        "Reset Digital Datetime Formats": "Reset Digital Datetime Formats"
     },
     "messages": {
         "Copied successfully": "Copied successfully",

@@ -585,7 +585,7 @@
 				<AccordionPanel accordionTitle={dictionary.clockSettings['Digital Datetime']} key="5">
 					<div class="block mb-2">
 						<div class="block mb-2">
-							<label for="time-format-select">Time Format:</label>
+							<label for="time-format-select">{dictionary.clockSettings['Time Format:']}</label>
 							<select id="time-format-select" bind:value={$session.settings.clock.timeFormat}>
 								{#each ['H:mm', 'H:mm:ss', 'h:mm A', 'h:mm:ss A', 'H:mm Z', 'H:mm:ss Z', 'h:mm A Z', 'h:mm:ss A Z', 'mm:ss'] as timeFormat}
 									<option value={timeFormat}
@@ -595,7 +595,7 @@
 											.format?.(timeFormat)}</option
 									>
 								{/each}
-								<option value="custom">Custom</option>
+								<option value="custom">{dictionary.clockSettings['Custom']}</option>
 							</select>
 							{#if $session.settings.clock.timeFormat === 'custom'}
 								<div class="my-2 ml-8">
@@ -606,7 +606,7 @@
 										bind:value={$session.settings.clock.timeFormatCustom}
 									/>
 									<p>
-										<b>Preview:</b>
+										<b>{dictionary.clockSettings['Preview:']}</b>
 										{new dayjs($now)
 											.tz($session.settings.locale.timezone || 'Etc/GMT')
 											.locale($session.settings.locale.datetime)
@@ -617,7 +617,7 @@
 						</div>
 
 						<div class="block mb-2">
-							<label for="date-format-select">Date Format:</label>
+							<label for="date-format-select">{dictionary.clockSettings['Date Format:']}</label>
 							<select id="date-format-select" bind:value={$session.settings.clock.dateFormat}>
 								{#each ['MMM D', 'MMM D YYYY', 'ddd, MMMM D', 'ddd, MMMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
 									<option value={dateFormat}
@@ -627,7 +627,7 @@
 											.format?.(dateFormat)}</option
 									>
 								{/each}
-								<option value="custom">Custom</option>
+								<option value="custom">{dictionary.clockSettings['Custom']}</option>
 							</select>
 							{#if $session.settings.clock.dateFormat === 'custom'}
 								<div class="my-2 ml-8">
@@ -638,7 +638,7 @@
 										bind:value={$session.settings.clock.dateFormatCustom}
 									/>
 									<p>
-										<b>Preview:</b>
+										<b>{dictionary.clockSettings['Preview:']}</b>
 										{new dayjs($now)
 											.tz($session.settings.locale.timezone || 'Etc/GMT')
 											.locale($session.settings.locale.datetime)
@@ -650,7 +650,7 @@
 
 						{#if $session.settings.clock.dateFormat === 'custom' || $session.settings.clock.timeFormat === 'custom'}
 							<button class="btn block my-2" on:click={datetimeFormatModal.show()}
-								>Custom Formatting Reference</button
+								>{dictionary.clockSettings['Custom Formatting Reference']}</button
 							>
 						{/if}
 
@@ -664,7 +664,7 @@
 							}}
 						>
 							<Icon name="undo" class="inline w-6 h-6" />
-							Reset Digital Datetime Formats
+							{dictionary.clockSettings['Reset Digital Datetime Formats']}
 						</button>
 
 						{#if $session.settings.clock.displays.primary != 'analog' && fontFamilies[$session.settings.fontFamily].length > 1}
