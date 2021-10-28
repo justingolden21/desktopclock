@@ -45,7 +45,7 @@
 	</button>
 
 	<h1 id="title-text">
-		{$session.languageDictionary.pageNames[$page.path.substring(1) || 'clock'] ||
+		{$session.languageDictionary.pageNames[$page.path.substring(1) || 'home'] ||
 			$session.languageDictionary.error['Error']}
 	</h1>
 

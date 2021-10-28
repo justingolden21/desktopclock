@@ -21,9 +21,11 @@
 		}
 	}
 
-	export function copyURL() {
+	export function copyURL(languageDictionary) {
 		copyText(window.location.href).then((success) => {
-			const message = success ? 'Copied successfully' : 'Failed to copy';
+			const message = success
+				? languageDictionary.messages['Copied successfully']
+				: languageDictionary.messages['Failed to copy'];
 			const type = success ? 'success' : 'error';
 			const dismissible = true;
 			const timeout = 2000;
@@ -72,7 +74,7 @@
 
 	export function openWindow(url, width = 400, height = 400, left = 20, top = 20) {
 		// https://www.w3schools.com/jsref/met_win_open.asp
-		let win = window.open(
+		const win = window.open(
 			url,
 			'_blank',
 			`width=${width},height=${height},left=${left},top=${top},titlebar=no,toolbar=no,location=no,status=no`,
@@ -93,7 +95,7 @@
 
 <script>
 	import { session } from '$app/stores';
-	import { onMount, onDestroy } from 'svelte';
+	import { onMount } from 'svelte';
 	import { now } from './now.js';
 
 	onMount(setupCasting);
@@ -249,19 +251,19 @@
 	<TabList>
 		<Tab>
 			<Icon name="clock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
-			Clock
+			{$session.languageDictionary.pageNames['clock']}
 		</Tab>
 		<Tab>
 			<Icon name="eye" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
-			Appearance
+			{$session.languageDictionary.settingsTabs['Appearance']}
 		</Tab>
 		<Tab>
 			<Icon name="application" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
-			General
+			{$session.languageDictionary.settingsTabs['General']}
 		</Tab>
 		<Tab>
 			<Icon name="info" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
-			About
+			{$session.languageDictionary.settingsTabs['About']}
 		</Tab>
 	</TabList>
 

@@ -4,11 +4,17 @@
 	"appDescription": "A simple, resizable and customizable clock for any device!",
 	"shareAppDescription": "Desktop Clock is a simple, resizable and customizable clock for any device.",
 	"pageNames": {
-		"clock": "Desktop Clock",
+		"home": "Desktop Clock",
+		"clock": "Clock",
 		"worldclock": "Worldclock",
 		"stopwatch": "Stopwatch",
 		"timers": "Timers"
 	},
+    "settingsTabs": {
+        "Appearance": "Appearance",
+        "General": "General",
+        "About": "About"
+    },
 	"error": {
 		"The resource could not be found": "The resource could not be found",
 		"Go back to the homepage": "Go back to the homepage",
@@ -38,8 +44,11 @@
 			]
 		
 	},
-
-	"Coming soon": "Coming soon",
+    "messages": {
+        "Copied successfully": "Copied successfully",
+        "Failed to copy": "Failed to copy",
+        "Coming soon": "Coming soon"
+    },	
 
 	"Small": "Small",
 	"Medium": "Medium",
