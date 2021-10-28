@@ -57,12 +57,13 @@
         "Date": "Date",
         "Date + Digital Time": "Date + Digital Time",
         "None": "None",
-        "Show Battery": "Show battery",
+        "Show battery": "Show battery",
 
         "Default Theme": "Default Theme",
         "Default Night Theme": "Default Night Theme",
         "Classic Theme": "Classic Theme",
-        "Classic Night Theme": "Classic Night Theme"
+        "Classic Night Theme": "Classic Night Theme",
+        "Simple Mode": "Simple Mode"
     },
     "messages": {
         "Copied successfully": "Copied successfully",
