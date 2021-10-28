@@ -27,29 +27,27 @@
 	}}
 />
 
-{#if shown}
-	<div class="modal" on:click={() => hide()}>
-		<div class="modal-content" on:click|stopPropagation>
-			<div class="modal-header">
-				<button
-					class="close icon-btn"
-					on:click={() => hide()}
-					aria-label={$session.languageDictionary.labels['Close']}
-				>
-					<Icon name="close" class="w-6 h-6" />
-				</button>
-				<h1><Icon name={icon} class="w-6 h-6 inline mr-2" /> {title}</h1>
-			</div>
-			<div class="modal-body">
-				<slot />
-			</div>
+<div class="modal {shown ? 'block' : 'hidden'}" on:click={() => hide()}>
+	<div class="modal-content" on:click|stopPropagation>
+		<div class="modal-header">
+			<button
+				class="close icon-btn"
+				on:click={() => hide()}
+				aria-label={$session.languageDictionary.labels['Close']}
+			>
+				<Icon name="close" class="w-6 h-6" />
+			</button>
+			<h1><Icon name={icon} class="w-6 h-6 inline mr-2" /> {title}</h1>
+		</div>
+		<div class="modal-body">
+			<slot />
 		</div>
 	</div>
-{/if}
+</div>
 
 <style lang="postcss">
 	.modal {
-		@apply xs:p-3 sm:p-6 md:p-12 fixed left-0 top-0 block w-full h-full bg-gray-300 bg-opacity-75;
+		@apply xs:p-3 sm:p-6 md:p-12 fixed left-0 top-0 w-full h-full bg-gray-300 bg-opacity-75;
 		z-index: 3;
 	}
 	.modal-content {

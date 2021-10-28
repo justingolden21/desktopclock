@@ -34,10 +34,9 @@ minor bug: clock freezes for one second before continuing
 PWA bugs fixed
 - PWA initial screen and offline not working, website not working in messenger
 - cache fonts offline
-translate / fully support spanish, british english
+translate / fully support spanish, let user change their lang
 finish keyboard shortcuts, display shortcuts in modal
-implement settings in local storage
-remember which tab and accordion are open in settings
+implement settings in local storage, option to turn off and option to reset, see notes
 detect datetime format? should not display am/pm to en-uk users for example
 AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the Philippines" https://www.timeanddate.com/time/am-and-pm.html
 google analytics, etc
@@ -45,6 +44,7 @@ clean code, fix linting errors
 zen mode should be a quick button in bottom left by default
 fix time zone null error, check for null in places that use it? try undefined instead of null?
 - one centralized place for dayjs time, which has tz and other settings built in?
+more space to right of icon in menu
 
 BONUS / NEXT:
 theme color(s) (primary and secondary/accent colors) used across entire UI (use css variables and tailwind colors in script to handle app color theme?)
@@ -87,6 +87,9 @@ window.isUpdateAvailable = new Promise(function (resolve, reject) {
 ```
 
 redirect /index.html to /
+
+maybe:
+remember which tab and accordion are open in local storage?
 
 more folders for components? (toast, tabs in their own, components for only one page (clock, worldclock) should also have their own folders)
 
@@ -146,6 +149,7 @@ calendar page
 flutter mobile apps, port to watch and tv
 option to change datetime order to date then time or time then date
 centralized "card"/"surface" styles for nav, modal, toast, tabs, etc, with similar backdrop blur, colors, night colors, padding, opacity, etc
+list in android store and windows store (twa) https://youtu.be/7JDFjeMvxos
 
 settings ui:
 version number should be moved from applicaiton to about. way to automatically update each commit?
@@ -156,10 +160,27 @@ save old settings and add btn to undo/go back to those settings?
 some btns could use icons next to them
 clock tab is replaced with worldclock tab when worldclock is open, etc
 
+https://youtu.be/Xbo3uZ5Ge10
+- offline fallback
+- shortcuts to tasks
+- google analytics
+
+
+worldclocks with weather and music at bottom lots of customizability
+
+big stopwatch in center, smaller ones below, or mode to have all of them smaller, change size of stopwatches/worldclocks and choose a primary one or not to have one
+
 wake lock
+https://whatpwacando.today/wake-lock
 https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API
 https://web.dev/wake-lock/
 https://wake-lock-demo.glitch.me/
+
+vibration for alarms
+https://whatpwacando.today/vibration
+
+audio on lockscreen (for alarms)
+https://whatpwacando.today/audio
 
 presentation API
 https://developer.mozilla.org/en-US/docs/Web/API/Navigator/presentation
@@ -291,12 +312,19 @@ Trailer video with bouncy pop music that shows off lots of features quickly
 datetime utility:
 converter for 2.2 billion hours to years for example
 how many days ago was July 17
+speech rcognition: https://whatpwacando.today/speech-recognition
 
 play whitenoise / "sounds" as well, rain, wind, fireplace, birds, etc
 
 speak time/date btn
 
 sleep clock
+
+calendar
+reminders
+birthdays
+
+blinking colon mode :
 
 Convert timestamp to readable date time, get date for "next Tuesday" "last Monday" "Thanksgiving" etc, July 18 last year, day of week for March 2nd 2025, etc. Natural language like time.lol
 
@@ -305,6 +333,7 @@ Select date and time picker for countdown timers, count time since or time until
 Select font size for digital displays
 
 Save settings in local storage toggle that on change if off clears local storage, clear local storage btn that's disabled if local storage is empty
+- after local storage is cleared/off, toast prompt offering to refresh website / reset settings? too confusing?
 
 worldclock timetable option like in https://whats-the-time.netlify.app/
 

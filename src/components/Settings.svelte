@@ -599,9 +599,9 @@
 								{#each ['H:mm', 'H:mm:ss', 'h:mm A', 'h:mm:ss A', 'H:mm Z', 'H:mm:ss Z', 'h:mm A Z', 'h:mm:ss A Z', 'mm:ss'] as timeFormat}
 									<option value={timeFormat}
 										>{new dayjs($now)
-											.tz($session.settings.locale.timezone)
+											.tz($session.settings.locale.timezone || 'Etc/GMT')
 											.locale($session.settings.locale.datetime)
-											.format(timeFormat)}</option
+											.format?.(timeFormat)}</option
 									>
 								{/each}
 								<option value="custom">Custom</option>
@@ -617,9 +617,9 @@
 									<p>
 										<b>Preview:</b>
 										{new dayjs($now)
-											.tz($session.settings.locale.timezone)
+											.tz($session.settings.locale.timezone || 'Etc/GMT')
 											.locale($session.settings.locale.datetime)
-											.format($session.settings.clock.timeFormatCustom)}
+											.format?.($session.settings.clock.timeFormatCustom)}
 									</p>
 								</div>
 							{/if}
@@ -631,9 +631,9 @@
 								{#each ['MMM D', 'MMM D YYYY', 'ddd, MMMM D', 'ddd, MMMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
 									<option value={dateFormat}
 										>{new dayjs($now)
-											.tz($session.settings.locale.timezone)
+											.tz($session.settings.locale.timezone || 'Etc/GMT')
 											.locale($session.settings.locale.datetime)
-											.format(dateFormat)}</option
+											.format?.(dateFormat)}</option
 									>
 								{/each}
 								<option value="custom">Custom</option>
@@ -649,9 +649,9 @@
 									<p>
 										<b>Preview:</b>
 										{new dayjs($now)
-											.tz($session.settings.locale.timezone)
+											.tz($session.settings.locale.timezone || 'Etc/GMT')
 											.locale($session.settings.locale.datetime)
-											.format($session.settings.clock.dateFormatCustom)}
+											.format?.($session.settings.clock.dateFormatCustom)}
 									</p>
 								</div>
 							{/if}
