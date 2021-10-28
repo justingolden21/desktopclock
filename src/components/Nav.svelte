@@ -31,7 +31,7 @@
 	>
 		<Icon name="clock" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
-			Clock
+			{$session.languageDictionary.pageNames['clock']}
 		{/if}
 	</a>
 	<a
@@ -41,7 +41,7 @@
 	>
 		<Icon name="worldclock" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
-			Worldclock
+			{$session.languageDictionary.pageNames['worldclock']}
 		{/if}
 	</a>
 	<a
@@ -51,7 +51,7 @@
 	>
 		<Icon name="stopwatch" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
-			Stopwatch
+			{$session.languageDictionary.pageNames['stopwatch']}
 		{/if}
 	</a>
 	<a
@@ -61,7 +61,7 @@
 	>
 		<Icon name="timer" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
-			Timers
+			{$session.languageDictionary.pageNames['timers']}
 		{/if}
 	</a>
 	<button
@@ -73,7 +73,7 @@
 	>
 		<Icon name="settings" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 		{#if !$session.settings.smallerMenu}
-			Settings
+			{$session.languageDictionary.labels['Settings']}
 		{/if}
 	</button>
 	<div class="absolute bottom-0 mb-8">
@@ -87,7 +87,7 @@
 		>
 			<Icon name="share" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
 			{#if !$session.settings.smallerMenu}
-				Share
+				{$session.languageDictionary.labels['Share']}
 			{/if}
 		</button>
 	</div>
