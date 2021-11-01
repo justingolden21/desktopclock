@@ -3,6 +3,7 @@
 	import Icon from './Icon.svelte';
 	import { onMount } from 'svelte';
 
+	import { settings } from './localStore.js';
 	import { toggleFullscreen } from './Settings.svelte';
 	import { setupCasting, castClock } from './cast.js';
 	import { now } from './now.js';
@@ -21,14 +22,13 @@
 
 <header
 	class="flex-1 relative transition-opacity duration-300 
-    {$session.settings.hideTitlebarWhenIdle &&
-	($now - timeSinceMove) / 1000 > $session.settings.secondsUntilIdle
+    {$settings.hideTitlebarWhenIdle && ($now - timeSinceMove) / 1000 > $settings.secondsUntilIdle
 		? 'opacity-0'
 		: 'opacity-100'}"
 >
 	<button
 		id="menu-btn"
-		class="icon-btn float-left  {$session.settings.alwaysCollapseMenu ? '' : 'md:hidden'} "
+		class="icon-btn float-left  {$settings.alwaysCollapseMenu ? '' : 'md:hidden'} "
 		on:click={() => (navOpen = !navOpen)}
 		aria-label={dictionary.labels['Menu']}
 	>
@@ -38,9 +38,9 @@
 	<button
 		id="main-dark-btn"
 		class="dark-btn icon-btn float-left left-16 
-        {$session.settings.alwaysCollapseMenu ? '' : 'md:left-4'} "
-		class:hidden={!$session.settings.showDarkButton}
-		on:click={() => ($session.settings.darkMode = !$session.settings.darkMode)}
+        {$settings.alwaysCollapseMenu ? '' : 'md:left-4'} "
+		class:hidden={!$settings.showDarkButton}
+		on:click={() => ($settings.darkMode = !$settings.darkMode)}
 		aria-label={dictionary.labels['Toggle Dark Mode']}
 	>
 		<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
@@ -53,7 +53,7 @@
 	<button
 		id="main-cast-btn"
 		class="cast-btn icon-btn float-right"
-		class:hidden={!$session.settings.showCastButton}
+		class:hidden={!$settings.showCastButton}
 		on:click={castClock}
 		aria-label={dictionary.labels['Cast Clock']}
 	>
@@ -63,7 +63,7 @@
 	<button
 		id="main-fullscreen-btn"
 		class="fullscreen-btn icon-btn float-right"
-		class:hidden={!$session.settings.showFullscreenButton}
+		class:hidden={!$settings.showFullscreenButton}
 		on:click={toggleFullscreen}
 		aria-label={dictionary.labels['Toggle Fullscreen']}
 	>

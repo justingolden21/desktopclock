@@ -1,9 +1,9 @@
 <script>
 	import colors from 'tailwindcss/colors.js';
 
-	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
 
+	import { settings } from './localStore.js';
 	import BatteryIcon from './BatteryIcon.svelte';
 
 	import dayjs from 'dayjs';
@@ -20,8 +20,8 @@
 	// approx 163kb (comment out and compare build sizes in network tab)
 	import './all_locales.js';
 
-	$: localeSettings = $session.settings.locale;
-	$: clockSettings = $session.settings.clock;
+	$: localeSettings = $settings.locale;
+	$: clockSettings = $settings.clock;
 
 	$: displays = clockSettings.displays;
 
@@ -62,15 +62,12 @@
 		});
 	});
 
-	$: colorPalette = colors[$session.settings.colorPalette];
-	$: shade = $session.settings.darkMode ? 200 : 900;
+	$: colorPalette = colors[$settings.colorPalette];
+	$: shade = $settings.darkMode ? 200 : 900;
 </script>
 
 <div style="color:{colorPalette[shade]}; display: flex">
-	<div
-		id="primary-display"
-		style="--primary-font-weight: {$session.settings.clock.datetimeFontWeight}"
-	>
+	<div id="primary-display" style="--primary-font-weight: {$settings.clock.datetimeFontWeight}">
 		{#if displays.primary != 'analog'}
 			<h1>
 				{#if displays.primary == 'time'}

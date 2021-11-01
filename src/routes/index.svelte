@@ -13,6 +13,7 @@
 	import { now } from '../components/now.js';
 	import Displays from '../components/Displays.svelte';
 	import ThemeButtons from '../components/ThemeButtons.svelte';
+	import { settings } from '../components/localStore.js';
 
 	const setAngle = (type, newAngle) => {
 		document.documentElement.style.setProperty(`--${type}-angle`, `${newAngle}deg`);
@@ -22,9 +23,7 @@
 		if (!document.getElementById('hour-hand')) return; // return if analog clock is not visible
 
 		// add one second because transition takes one second
-		const date = new dayjs($now)
-			.tz($session.settings.locale.timezone || 'Etc/GMT')
-			.add(1, 'second');
+		const date = new dayjs($now).tz($settings.locale.timezone || 'Etc/GMT').add(1, 'second');
 
 		const h = date.hour() % 12;
 		const m = date.minute();
@@ -71,10 +70,10 @@
 
 	//  ================
 
-	$: theme = $session.settings.clock.theme;
-	$: colorPalette = colors[$session.settings.colorPalette];
+	$: theme = $settings.clock.theme;
+	$: colorPalette = colors[$settings.colorPalette];
 
-	$: displays = $session.settings.clock.displays;
+	$: displays = $settings.clock.displays;
 
 	$: sizes = ['sm', 'md', 'lg'].map((size) => ({ size, r: 27.5 - theme.ticks[size].width / 2 }));
 
@@ -85,7 +84,7 @@
 	function getColor(obj) {
 		if (!obj || obj == '-1') return 'none';
 		if (typeof obj === 'string') return colorPalette[obj];
-		return colors[obj.color || $session.settings.colorPalette][obj.lightness];
+		return colors[obj.color || $settings.colorPalette][obj.lightness];
 	}
 </script>
 
@@ -163,7 +162,7 @@
 
 <section class="z-20">
 	<!-- TODO: z index does not seem to be the problem, cannot click lower btns -->
-	<div class="z-20 m-4 mx-16 max-w-3xl" class:hidden={!$session.settings.showThemeButtons}>
+	<div class="z-20 m-4 mx-16 max-w-3xl" class:hidden={!$settings.showThemeButtons}>
 		<ThemeButtons />
 	</div>
 </section>

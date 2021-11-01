@@ -13,7 +13,7 @@
 </script>
 
 <script>
-	import { session } from '$app/stores';
+	import { settings } from './localStore.js';
 	import { toggleFullscreen } from './Settings.svelte';
 
 	export let settingsModal = null;
@@ -25,12 +25,12 @@
 	on:keydown={(event) => {
 		// return if setting not enabled or if the active element is an input the user can type in
 		if (
-			!$session.settings.keyboardShortcuts ||
+			!$settings.keyboardShortcuts ||
 			['input', 'textarea', 'select'].includes(document.activeElement.tagName.toLowerCase())
 		)
 			return;
 		if (event.code === 'KeyN') {
-			$session.settings.darkMode = !$session.settings.darkMode;
+			$settings.darkMode = !$settings.darkMode;
 		}
 		if (event.code === 'KeyS') {
 			settingsModal.toggle();
@@ -39,21 +39,21 @@
 			toggleFullscreen();
 		}
 		if (event.code === 'KeyB') {
-			$session.settings.clock.displays.battery = !$session.settings.clock.displays.battery;
+			$settings.clock.displays.battery = !$settings.clock.displays.battery;
 		}
 		if (event.code === 'KeyD') {
-			const current = $session.settings.clock.displays.secondary;
+			const current = $settings.clock.displays.secondary;
 			const secondaryOptions = ['time', 'date', 'datetime', 'none'];
 			let idx = secondaryOptions.indexOf(current);
 			idx = idx < secondaryOptions.length - 1 ? idx + 1 : 0;
-			$session.settings.clock.displays.secondary = secondaryOptions[idx];
+			$settings.clock.displays.secondary = secondaryOptions[idx];
 		}
 		if (event.code === 'KeyP') {
-			const current = $session.settings.clock.displays.primary;
+			const current = $settings.clock.displays.primary;
 			const primaryOptions = ['analog', 'time', 'date', 'datetime'];
 			let idx = primaryOptions.indexOf(current);
 			idx = idx < primaryOptions.length - 1 ? idx + 1 : 0;
-			$session.settings.clock.displays.primary = primaryOptions[idx];
+			$settings.clock.displays.primary = primaryOptions[idx];
 		}
 
 		// TODO: keyT to toggle themes?
@@ -67,7 +67,7 @@
 
 			// simple mode
 			for (const size of 'sm md lg'.split(' '))
-				$session.settings.clock.theme.ticks[size].stroke = '-1';
+				$settings.clock.theme.ticks[size].stroke = '-1';
 		}
 		*/
 	}}

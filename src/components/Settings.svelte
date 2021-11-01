@@ -105,6 +105,8 @@
 
 	import { setupCasting, castClock } from './cast.js';
 
+	import { settings, defaultSettings } from './localStore.js';
+
 	import Icon from './Icon.svelte';
 	import Toggle from './Toggle.svelte';
 	import { Tabs, TabList, TabPanel, Tab } from './tabs.js';
@@ -122,8 +124,27 @@
 	import timezones from './timezones';
 	import { getKeyboardShortcutsList } from './KeyboardShortcuts.svelte';
 
-	$: colorPalette = TailwindColors[$session.settings.colorPalette];
+	$: colorPalette = TailwindColors[$settings.colorPalette];
 	$: dictionary = $session.languageDictionary;
+
+	// Local Storage
+
+	// onMount(() => {
+	// 	const localSettings = localStorage.getItem('settings');
+	// 	if (localSettings !== null) {
+	// 		// TODO: handle updates to json structure in onload
+	// 		$settings = JSON.parse(localSettings);
+	// 		console.log(JSON.parse(localSettings));
+	// 	}
+	// });
+
+	// session.subscribe((value) => {
+	// 	console.log(JSON.stringify(value.settings));
+
+	// 	if (localStorage) localStorage.setItem('settings', JSON.stringify(value.settings));
+	// });
+
+	// Settings Constants
 
 	const keyboardShortcutsList = getKeyboardShortcutsList();
 
@@ -277,7 +298,7 @@
 			<AccordionPanel accordionTitle={dictionary.clockSettings['Displays']} key="3">
 				<div class="block mb-2">
 					<label for="primary-display-select">{dictionary.clockSettings['Primary Display:']}</label>
-					<select id="primary-display-select" bind:value={$session.settings.clock.displays.primary}>
+					<select id="primary-display-select" bind:value={$settings.clock.displays.primary}>
 						<option value="analog">{dictionary.clockSettings['Analog Clock']}</option>
 						<option value="time">{dictionary.clockSettings['Digital Time']}</option>
 						<option value="date">{dictionary.clockSettings['Date']}</option>
@@ -289,10 +310,7 @@
 					<label for="secondary-display-select"
 						>{dictionary.clockSettings['Secondary Display:']}</label
 					>
-					<select
-						id="secondary-display-select"
-						bind:value={$session.settings.clock.displays.secondary}
-					>
+					<select id="secondary-display-select" bind:value={$settings.clock.displays.secondary}>
 						<option value="time">{dictionary.clockSettings['Digital Time']}</option>
 						<option value="date">{dictionary.clockSettings['Date']}</option>
 						<option value="datetime">{dictionary.clockSettings['Date + Digital Time']}</option>
@@ -303,42 +321,38 @@
 				<div class="block mb-2">
 					<Toggle
 						id="show-battery-toggle"
-						bind:checked={$session.settings.clock.displays.battery}
+						bind:checked={$settings.clock.displays.battery}
 						labelText={dictionary.clockSettings['Show battery']}
 					/>
 				</div>
 			</AccordionPanel>
-			{#if $session.settings.clock.displays.primary == 'analog'}
+			{#if $settings.clock.displays.primary == 'analog'}
 				<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="4">
 					<!-- note: using json for efficient deep clone so original theme object is not mutated -->
 					<button
 						class="btn theme-btn block"
-						on:click={() =>
-							($session.settings.clock.theme = JSON.parse(JSON.stringify(defaultTheme)))}
+						on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(defaultTheme)))}
 					>
 						<Icon name="theme" class="inline w-6 h-6" />
 						{dictionary.clockSettings['Default Theme']}
 					</button>
 					<button
 						class="btn theme-btn block"
-						on:click={() =>
-							($session.settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme)))}
+						on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme)))}
 					>
 						<Icon name="theme" class="inline w-6 h-6" />
 						{dictionary.clockSettings['Default Night Theme']}
 					</button>
 					<button
 						class="btn theme-btn block"
-						on:click={() =>
-							($session.settings.clock.theme = JSON.parse(JSON.stringify(classicTheme)))}
+						on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(classicTheme)))}
 					>
 						<Icon name="theme" class="inline w-6 h-6" />
 						{dictionary.clockSettings['Classic Theme']}
 					</button>
 					<button
 						class="btn theme-btn block"
-						on:click={() =>
-							($session.settings.clock.theme = JSON.parse(JSON.stringify(classicNightTheme)))}
+						on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(classicNightTheme)))}
 					>
 						<Icon name="theme" class="inline w-6 h-6" />
 						{dictionary.clockSettings['Classic Night Theme']}
@@ -347,7 +361,7 @@
 						class="btn theme-btn block"
 						on:click={() => {
 							for (const size of 'sm md lg'.split(' '))
-								$session.settings.clock.theme.ticks[size].stroke = '-1';
+								$settings.clock.theme.ticks[size].stroke = '-1';
 						}}
 					>
 						<Icon name="settings" class="inline w-6 h-6" />
@@ -358,7 +372,7 @@
 
 					<div class="block mb-2">
 						<label for="face-fill-select">Face Fill Color:</label>
-						<select id="face-fill-select" bind:value={$session.settings.clock.theme.face.fill}>
+						<select id="face-fill-select" bind:value={$settings.clock.theme.face.fill}>
 							{#each Object.keys(colorPalette) as lightness}
 								<option value={lightness}>{lightness}</option>
 							{/each}
@@ -367,7 +381,7 @@
 					</div>
 					<div class="block mb-2">
 						<label for="face-stroke-select">Face Stroke Color:</label>
-						<select id="face-stroke-select" bind:value={$session.settings.clock.theme.face.stroke}>
+						<select id="face-stroke-select" bind:value={$settings.clock.theme.face.stroke}>
 							{#each Object.keys(colorPalette) as lightness}
 								<option value={lightness}>{lightness}</option>
 							{/each}
@@ -378,7 +392,7 @@
 						<label for="face-stroke-width-select">Face Stroke Width:</label>
 						<select
 							id="face-stroke-width-select"
-							bind:value={$session.settings.clock.theme.face.strokeWidth}
+							bind:value={$settings.clock.theme.face.strokeWidth}
 						>
 							{#each Array(6) as _, i}
 								<option value={i}>{i}</option>
@@ -387,7 +401,7 @@
 					</div>
 					<div class="block mb-2">
 						<label for="face-shape-select">Face Shape:</label>
-						<select id="face-shape-select" bind:value={$session.settings.clock.theme.face.shape}>
+						<select id="face-shape-select" bind:value={$settings.clock.theme.face.shape}>
 							<option value="circle">Circle</option>
 							<option value="rounded">Rounded Square</option>
 							<option value="square">Square</option>
@@ -400,8 +414,8 @@
 						<label for="shadow-fill-select">Shadow Color:</label>
 						<select
 							id="shadow-fill-select"
-							bind:value={$session.settings.clock.theme.shadow.fill}
-							disabled={$session.settings.clock.theme.face.fill == -1}
+							bind:value={$settings.clock.theme.shadow.fill}
+							disabled={$settings.clock.theme.face.fill == -1}
 						>
 							{#each Object.keys(colorPalette) as lightness}
 								<option value={lightness}>{lightness}</option>
@@ -414,7 +428,7 @@
 
 					<div class="block mb-2">
 						<label for="pin-fill-select">Pin Fill Color:</label>
-						<select id="pin-fill-select" bind:value={$session.settings.clock.theme.pin.fill}>
+						<select id="pin-fill-select" bind:value={$settings.clock.theme.pin.fill}>
 							{#each Object.keys(colorPalette) as lightness}
 								<option value={lightness}>{lightness}</option>
 							{/each}
@@ -423,10 +437,7 @@
 					</div>
 					<div class="block mb-2">
 						<label for="pin-stroke-select">Pin Stroke Color:</label>
-						<select
-							id="pin-stroke-select"
-							bind:value={$session.settings.clock.theme.pin.stroke.lightness}
-						>
+						<select id="pin-stroke-select" bind:value={$settings.clock.theme.pin.stroke.lightness}>
 							{#each Object.keys(colorPalette) as lightness}
 								<option value={lightness}>{lightness}</option>
 							{/each}
@@ -435,10 +446,7 @@
 					</div>
 					<div class="block mb-2">
 						<label for="pin-stroke-width-select">Pin Stroke Width:</label>
-						<select
-							id="pin-stroke-width-select"
-							bind:value={$session.settings.clock.theme.pin.strokeWidth}
-						>
+						<select id="pin-stroke-width-select" bind:value={$settings.clock.theme.pin.strokeWidth}>
 							{#each Array(7) as _, i}
 								<option value={i / 2}>{i / 2}</option>
 							{/each}
@@ -446,7 +454,7 @@
 					</div>
 					<div class="block mb-2">
 						<label for="pin-size-select">Pin Size:</label>
-						<select id="pin-size-select" bind:value={$session.settings.clock.theme.pin.size}>
+						<select id="pin-size-select" bind:value={$settings.clock.theme.pin.size}>
 							{#each Array(6) as _, i}
 								<option value={i / 2}>{i / 2}</option>
 							{/each}
@@ -466,7 +474,7 @@
 							</label>
 							<select
 								id="{size}-tick-stroke-select"
-								bind:value={$session.settings.clock.theme.ticks[size].stroke}
+								bind:value={$settings.clock.theme.ticks[size].stroke}
 							>
 								{#each Object.keys(colorPalette) as lightness}
 									<option value={lightness}>{lightness}</option>
@@ -481,7 +489,7 @@
 							>
 							<select
 								id="{size}-tick-width-select"
-								bind:value={$session.settings.clock.theme.ticks[size].width}
+								bind:value={$settings.clock.theme.ticks[size].width}
 							>
 								{#each Array(6) as _, i}
 									<option value={i}>{i}</option>
@@ -495,7 +503,7 @@
 							>
 							<select
 								id="{size}-tick-height-select"
-								bind:value={$session.settings.clock.theme.ticks[size].height}
+								bind:value={$settings.clock.theme.ticks[size].height}
 							>
 								{#each Array(6) as _, i}
 									<option value={i / 2}>{i / 2}</option>
@@ -517,7 +525,7 @@
 							</label>
 							<select
 								id="{hand}-hand-stroke-select"
-								bind:value={$session.settings.clock.theme.hands[hand].stroke.lightness}
+								bind:value={$settings.clock.theme.hands[hand].stroke.lightness}
 							>
 								{#each Object.keys(colorPalette) as lightness}
 									<option value={lightness}>{lightness}</option>
@@ -532,7 +540,7 @@
 							>
 							<select
 								id="{hand}-hand-stroke-width-select"
-								bind:value={$session.settings.clock.theme.hands[hand].strokeWidth}
+								bind:value={$settings.clock.theme.hands[hand].strokeWidth}
 							>
 								{#each Array(6) as _, i}
 									<option value={(i + 1) / 2}>{(i + 1) / 2}</option>
@@ -546,7 +554,7 @@
 							>
 							<select
 								id="{hand}-hand-length-select"
-								bind:value={$session.settings.clock.theme.hands[hand].length}
+								bind:value={$settings.clock.theme.hands[hand].length}
 							>
 								{#each Array(6) as _, i}
 									<option value={i * 3 + 12}>{i * 3 + 12}</option>
@@ -560,7 +568,7 @@
 							>
 							<select
 								id="{hand}-hand-back-select"
-								bind:value={$session.settings.clock.theme.hands[hand].back}
+								bind:value={$settings.clock.theme.hands[hand].back}
 							>
 								{#each Array(9) as _, i}
 									<option value={i}>{i}</option>
@@ -574,7 +582,7 @@
 							>
 							<select
 								id="{hand}-hand-linecap-select"
-								bind:value={$session.settings.clock.theme.hands[hand].linecap}
+								bind:value={$settings.clock.theme.hands[hand].linecap}
 							>
 								<option value="butt">Butt</option>
 								<option value="round">Round</option>
@@ -584,36 +592,36 @@
 					{/each}
 				</AccordionPanel>
 			{/if}
-			{#if $session.settings.clock.displays.primary != 'analog' || $session.settings.clock.displays.secondary != 'none'}
+			{#if $settings.clock.displays.primary != 'analog' || $settings.clock.displays.secondary != 'none'}
 				<AccordionPanel accordionTitle={dictionary.clockSettings['Digital Datetime']} key="5">
 					<div class="block mb-2">
 						<div class="block mb-2">
 							<label for="time-format-select">{dictionary.clockSettings['Time Format:']}</label>
-							<select id="time-format-select" bind:value={$session.settings.clock.timeFormat}>
+							<select id="time-format-select" bind:value={$settings.clock.timeFormat}>
 								{#each ['H:mm', 'H:mm:ss', 'h:mm A', 'h:mm:ss A', 'H:mm Z', 'H:mm:ss Z', 'h:mm A Z', 'h:mm:ss A Z', 'mm:ss'] as timeFormat}
 									<option value={timeFormat}
 										>{new dayjs($now)
-											.tz($session.settings.locale.timezone || 'Etc/GMT')
-											.locale($session.settings.locale.datetime)
+											.tz($settings.locale.timezone || 'Etc/GMT')
+											.locale($settings.locale.datetime)
 											.format?.(timeFormat)}</option
 									>
 								{/each}
 								<option value="custom">{dictionary.clockSettings['Custom']}</option>
 							</select>
-							{#if $session.settings.clock.timeFormat === 'custom'}
+							{#if $settings.clock.timeFormat === 'custom'}
 								<div class="my-2 ml-8">
 									<input
 										type="text"
 										spellcheck="false"
 										class="block my-2"
-										bind:value={$session.settings.clock.timeFormatCustom}
+										bind:value={$settings.clock.timeFormatCustom}
 									/>
 									<p>
 										<b>{dictionary.clockSettings['Preview:']}</b>
 										{new dayjs($now)
-											.tz($session.settings.locale.timezone || 'Etc/GMT')
-											.locale($session.settings.locale.datetime)
-											.format?.($session.settings.clock.timeFormatCustom)}
+											.tz($settings.locale.timezone || 'Etc/GMT')
+											.locale($settings.locale.datetime)
+											.format?.($settings.clock.timeFormatCustom)}
 									</p>
 								</div>
 							{/if}
@@ -621,37 +629,37 @@
 
 						<div class="block mb-2">
 							<label for="date-format-select">{dictionary.clockSettings['Date Format:']}</label>
-							<select id="date-format-select" bind:value={$session.settings.clock.dateFormat}>
+							<select id="date-format-select" bind:value={$settings.clock.dateFormat}>
 								{#each ['MMM D', 'MMM D YYYY', 'ddd, MMMM D', 'ddd, MMMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
 									<option value={dateFormat}
 										>{new dayjs($now)
-											.tz($session.settings.locale.timezone || 'Etc/GMT')
-											.locale($session.settings.locale.datetime)
+											.tz($settings.locale.timezone || 'Etc/GMT')
+											.locale($settings.locale.datetime)
 											.format?.(dateFormat)}</option
 									>
 								{/each}
 								<option value="custom">{dictionary.clockSettings['Custom']}</option>
 							</select>
-							{#if $session.settings.clock.dateFormat === 'custom'}
+							{#if $settings.clock.dateFormat === 'custom'}
 								<div class="my-2 ml-8">
 									<input
 										type="text"
 										spellcheck="false"
 										class="block my-2"
-										bind:value={$session.settings.clock.dateFormatCustom}
+										bind:value={$settings.clock.dateFormatCustom}
 									/>
 									<p>
 										<b>{dictionary.clockSettings['Preview:']}</b>
 										{new dayjs($now)
-											.tz($session.settings.locale.timezone || 'Etc/GMT')
-											.locale($session.settings.locale.datetime)
-											.format?.($session.settings.clock.dateFormatCustom)}
+											.tz($settings.locale.timezone || 'Etc/GMT')
+											.locale($settings.locale.datetime)
+											.format?.($settings.clock.dateFormatCustom)}
 									</p>
 								</div>
 							{/if}
 						</div>
 
-						{#if $session.settings.clock.dateFormat === 'custom' || $session.settings.clock.timeFormat === 'custom'}
+						{#if $settings.clock.dateFormat === 'custom' || $settings.clock.timeFormat === 'custom'}
 							<button class="btn block my-2" on:click={datetimeFormatModal.show()}
 								>{dictionary.clockSettings['Custom Formatting Reference']}</button
 							>
@@ -663,20 +671,20 @@
 								for (const format of 'timeFormat timeFormatCustom dateFormat dateFormatCustom'.split(
 									' '
 								))
-									$session.settings.clock[format] = $session.defaultSettings.clock[format];
+									$settings.clock[format] = defaultSettings.clock[format];
 							}}
 						>
 							<Icon name="undo" class="inline w-6 h-6" />
 							{dictionary.clockSettings['Reset Digital Datetime Formats']}
 						</button>
 
-						{#if $session.settings.clock.displays.primary != 'analog' && fontFamilies[$session.settings.fontFamily].length > 1}
+						{#if $settings.clock.displays.primary != 'analog' && fontFamilies[$settings.fontFamily].length > 1}
 							<label for="datetime-font-weight-select">Datetime Font Weight:</label>
 							<select
 								id="datetime-font-weight-select"
-								bind:value={$session.settings.clock.datetimeFontWeight}
+								bind:value={$settings.clock.datetimeFontWeight}
 							>
-								{#each fontFamilies[$session.settings.fontFamily] as weight}
+								{#each fontFamilies[$settings.fontFamily] as weight}
 									<option value={weight.toString()}
 										>{dictionary.labels['Font Weights'][weight / 100]}</option
 									>
@@ -742,10 +750,7 @@
 			<ThemeButtons />
 		</div>
 		<div class="block mb-2">
-			<button
-				class="dark-btn btn"
-				on:click={() => ($session.settings.darkMode = !$session.settings.darkMode)}
-			>
+			<button class="dark-btn btn" on:click={() => ($settings.darkMode = !$settings.darkMode)}>
 				<Icon name="moon" class="inline w-6 h-6 md:w-8 md:h-8" />
 				Dark
 			</button>
@@ -763,7 +768,7 @@
 
 		<Toggle
 			id="show-dark-btn-toggle"
-			bind:checked={$session.settings.showDarkButton}
+			bind:checked={$settings.showDarkButton}
 			labelText="Show dark button"
 		/>
 
@@ -771,7 +776,7 @@
 
 		<Toggle
 			id="show-cast-btn-toggle"
-			bind:checked={$session.settings.showCastButton}
+			bind:checked={$settings.showCastButton}
 			labelText="Show cast button"
 		/>
 
@@ -779,7 +784,7 @@
 
 		<Toggle
 			id="show-fullscreen-btn-toggle"
-			bind:checked={$session.settings.showFullscreenButton}
+			bind:checked={$settings.showFullscreenButton}
 			labelText="Show fullscreen button"
 		/>
 
@@ -787,7 +792,7 @@
 
 		<Toggle
 			id="show-theme-btn-toggle"
-			bind:checked={$session.settings.showThemeButtons}
+			bind:checked={$settings.showThemeButtons}
 			labelText="Show theme buttons"
 		/>
 
@@ -795,7 +800,7 @@
 
 		<Toggle
 			id="smaller-menu-toggle"
-			bind:checked={$session.settings.smallerMenu}
+			bind:checked={$settings.smallerMenu}
 			labelText="Smaller menu"
 		/>
 
@@ -804,7 +809,7 @@
 		<!-- TODO: only display option if on larger screens -->
 		<Toggle
 			id="always-collapse-menu-toggle"
-			bind:checked={$session.settings.alwaysCollapseMenu}
+			bind:checked={$settings.alwaysCollapseMenu}
 			labelText="Always collapse menu"
 		/>
 
@@ -812,21 +817,21 @@
 
 		<Toggle
 			id="hide-titlebar-when-idle-toggle"
-			bind:checked={$session.settings.hideTitlebarWhenIdle}
+			bind:checked={$settings.hideTitlebarWhenIdle}
 			labelText="Hide title bar when idle"
 		/>
 
-		{#if $session.settings.hideTitlebarWhenIdle}
+		{#if $settings.hideTitlebarWhenIdle}
 			<div class="my-2 ml-8">
 				<label for="seconds-until-idle-input">Seconds until idle:</label>
 				<input
 					id="seconds-until-idle-input"
 					on:input|preventDefault={(event) => {
 						const value = validate(event.target);
-						$session.settings.secondsUntilIdle = value;
+						$settings.secondsUntilIdle = value;
 						event.target.value = value;
 					}}
-					value={$session.settings.secondsUntilIdle}
+					value={$settings.secondsUntilIdle}
 					type="number"
 					min="1"
 					max="1000"
@@ -839,14 +844,14 @@
 		<label for="font-family-select">Font Family:</label>
 		<select
 			id="font-family-select"
-			bind:value={$session.settings.fontFamily}
+			bind:value={$settings.fontFamily}
 			on:change={(e) => {
 				const family = e.target.value;
-				const weight = $session.settings.clock.datetimeFontWeight;
+				const weight = $settings.clock.datetimeFontWeight;
 				// if selected font does not have selected weight
 				if (fontFamilies[family].indexOf(weight) == -1) {
 					// default to first listed weight
-					$session.settings.clock.datetimeFontWeight = fontFamilies[family][0].toString();
+					$settings.clock.datetimeFontWeight = fontFamilies[family][0].toString();
 				}
 			}}
 		>
@@ -860,10 +865,10 @@
 				for (const option of 'colorPalette darkMode showDarkButton showCastButton showFullscreenButton showThemeButtons smallerMenu alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily'.split(
 					' '
 				))
-					$session.settings[option] = $session.defaultSettings[option];
+					$settings[option] = defaultSettings[option];
 
 				// auto detect user device preferences (same code as in layout)
-				$session.settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
+				$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
 			}}
 		>
 			<Icon name="undo" class="inline w-6 h-6" />
@@ -908,16 +913,15 @@
 				<button
 					class="btn undo-btn"
 					on:click={() => {
-						$session.settings = JSON.parse(JSON.stringify($session.defaultSettings));
+						$settings = JSON.parse(JSON.stringify(defaultSettings));
 
 						// auto detect user device preferences (same code as in layout)
-						$session.settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)')
-							.matches;
-						$session.settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale;
-						$session.settings.locale.datetime = Intl.DateTimeFormat()
+						$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
+						$settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale;
+						$settings.locale.datetime = Intl.DateTimeFormat()
 							.resolvedOptions()
 							.locale.substring(0, 2);
-						$session.settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+						$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 					}}
 				>
 					<Icon name="undo" class="inline w-6 h-6" />
@@ -933,14 +937,14 @@
 					<Toggle
 						id="dbl-click-fullscreen-toggle"
 						labelText={dictionary.labels['Doubleclick Fullscreen']}
-						bind:checked={$session.settings.doubleclickFullscreen}
+						bind:checked={$settings.doubleclickFullscreen}
 					/>
 				</div>
 				<div class="block mb-2">
 					<Toggle
 						id="keyboard-shortcuts-toggle"
 						labelText="Keyboard Shortcuts"
-						bind:checked={$session.settings.keyboardShortcuts}
+						bind:checked={$settings.keyboardShortcuts}
 					/>
 				</div>
 				<button class="btn" on:click={keyboardShortcutModal.show()}>
@@ -974,8 +978,8 @@
 					<label for="language-select">Language:</label>
 					<select
 						id="language-select"
-						disabled={$session.settings.locale.automaticLanguage}
-						bind:value={$session.settings.locale.language}
+						disabled={$settings.locale.automaticLanguage}
+						bind:value={$settings.locale.language}
 					>
 						<option value="en-US">English, US</option>
 						<option value="en-GB">English, GB</option>
@@ -986,11 +990,11 @@
 					<Toggle
 						id="auto-detect-language-toggle"
 						labelText="Automatically Detect Language"
-						bind:checked={$session.settings.locale.automaticLanguage}
+						bind:checked={$settings.locale.automaticLanguage}
 						on:change={(e) => {
 							if (e.target.checked) {
 								// same code as layout, reset to user device default
-								$session.settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale;
+								$settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale;
 							}
 						}}
 					/>
@@ -999,8 +1003,8 @@
 					<label for="datetime-locale-select">Datetime Locale:</label>
 					<select
 						id="datetime-locale-select"
-						disabled={$session.settings.locale.automaticDatetime}
-						bind:value={$session.settings.locale.datetime}
+						disabled={$settings.locale.automaticDatetime}
+						bind:value={$settings.locale.datetime}
 					>
 						{#each locales as locale}
 							<option value={locale}>{locale}</option>
@@ -1010,11 +1014,11 @@
 					<Toggle
 						id="auto-detect-datetime-locale-toggle"
 						labelText="Automatically Detect Datetime Locale"
-						bind:checked={$session.settings.locale.automaticDatetime}
+						bind:checked={$settings.locale.automaticDatetime}
 						on:change={(e) => {
 							if (e.target.checked) {
 								// same code as layout, reset to user device default
-								$session.settings.locale.datetime = Intl.DateTimeFormat()
+								$settings.locale.datetime = Intl.DateTimeFormat()
 									.resolvedOptions()
 									.locale.substring(0, 2);
 							}
@@ -1028,8 +1032,8 @@
 					<label for="timezone-select">Timezone:</label>
 					<select
 						id="timezone-select"
-						disabled={$session.settings.locale.automaticTimezone}
-						bind:value={$session.settings.locale.timezone}
+						disabled={$settings.locale.automaticTimezone}
+						bind:value={$settings.locale.timezone}
 					>
 						{#each Object.keys(timezones) as zone}
 							<optgroup label={zone}>
@@ -1043,17 +1047,16 @@
 					<Toggle
 						id="auto-detect-timezone-toggle"
 						labelText="Automatically Detect Timezone"
-						bind:checked={$session.settings.locale.automaticTimezone}
+						bind:checked={$settings.locale.automaticTimezone}
 						on:change={(e) => {
 							if (e.target.checked) {
 								// same code as layout, reset to user device default
-								$session.settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+								$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 							}
 						}}
 					/>
 					<p>
-						Timezone offset: {new dayjs($now).tz($session.settings.locale.timezone).utcOffset() /
-							60}
+						Timezone offset: {new dayjs($now).tz($settings.locale.timezone).utcOffset() / 60}
 					</p>
 					<!-- TODO: btn to reset all locale settings, onclick toggles all auto to on which resets others -->
 				</div>

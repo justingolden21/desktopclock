@@ -1,5 +1,5 @@
 <script>
-	import { session } from '$app/stores';
+	import { settings } from './localStore.js';
 
 	import TailwindColors from 'tailwindcss/colors.js';
 </script>
@@ -8,9 +8,9 @@
 <div>
 	{#each Object.keys(TailwindColors).slice(2) as color, idx}
 		<button
-			class="theme-btn {$session.settings.colorPalette == color ? 'active' : ''}"
+			class="theme-btn {$settings.colorPalette == color ? 'active' : ''}"
 			style="background-color: {TailwindColors[color][300]}"
-			on:click={() => ($session.settings.colorPalette = color)}
+			on:click={() => ($settings.colorPalette = color)}
 		/>
 	{/each}
 </div>
