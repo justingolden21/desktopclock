@@ -37,11 +37,13 @@ PWA bugs fixed
 translate / fully support spanish, let user change their lang
 finish keyboard shortcuts, display shortcuts in modal
 implement settings in local storage, option to turn off and option to reset, see notes
+- needs testing
 detect datetime format? should not display am/pm to en-uk users for example
 AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the Philippines" https://www.timeanddate.com/time/am-and-pm.html
 google analytics, etc
 clean code, fix linting errors
 zen mode should be a quick button in bottom left by default
+inner modals should be same size as outter modals
 
 MVP consider:
 cache fonts offline?
