@@ -42,7 +42,6 @@ AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the
 google analytics, etc
 clean code, fix linting errors
 zen mode should be a quick button in bottom left by default
-more space to right of icon in menu
 
 MVP consider:
 cache fonts offline?

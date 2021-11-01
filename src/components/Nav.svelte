@@ -31,7 +31,7 @@
 		href="/"
 		class="inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}"
 	>
-		<Icon name="clock" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
+		<Icon name="clock" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-4'}" />
 		{#if !$session.settings.smallerMenu}
 			{dictionary.pageNames['clock']}
 		{/if}
@@ -41,7 +41,7 @@
 		href="/worldclock"
 		class="inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}"
 	>
-		<Icon name="worldclock" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
+		<Icon name="worldclock" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-4'}" />
 		{#if !$session.settings.smallerMenu}
 			{dictionary.pageNames['worldclock']}
 		{/if}
@@ -51,7 +51,7 @@
 		href="/stopwatch"
 		class="inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}"
 	>
-		<Icon name="stopwatch" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
+		<Icon name="stopwatch" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-4'}" />
 		{#if !$session.settings.smallerMenu}
 			{dictionary.pageNames['stopwatch']}
 		{/if}
@@ -61,7 +61,7 @@
 		href="/timers"
 		class="inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}"
 	>
-		<Icon name="timer" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
+		<Icon name="timer" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-4'}" />
 		{#if !$session.settings.smallerMenu}
 			{dictionary.pageNames['timers']}
 		{/if}
@@ -73,7 +73,7 @@
 			settingsModal.show();
 		}}
 	>
-		<Icon name="settings" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
+		<Icon name="settings" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-4'}" />
 		{#if !$session.settings.smallerMenu}
 			{dictionary.labels['Settings']}
 		{/if}
@@ -87,7 +87,7 @@
 			class="share-btn inline-flex {$session.settings.smallerMenu ? '' : 'w-full'}"
 			on:click={() => shareApp(dictionary)}
 		>
-			<Icon name="share" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-2'}" />
+			<Icon name="share" class="w-6 h-6 inline {$session.settings.smallerMenu ? '' : 'mr-4'}" />
 			{#if !$session.settings.smallerMenu}
 				{dictionary.labels['Share']}
 			{/if}
