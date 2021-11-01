@@ -30,6 +30,7 @@ NOW:
 clean project, then translate
 
 TOP PRIORITY / MVP:
+btn for zen mode and/or btn for digital/analog on main ui?
 minor bug: clock freezes for one second before continuing
 - hour hand also teleports, probably because of timezone detection
 PWA bugs fixed

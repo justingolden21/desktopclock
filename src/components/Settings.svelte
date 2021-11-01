@@ -120,9 +120,12 @@
 	import Toasts from './Toasts.svelte';
 	import { addToast } from './toastStore';
 	import timezones from './timezones';
+	import { getKeyboardShortcutsList } from './KeyboardShortcuts.svelte';
 
 	$: colorPalette = TailwindColors[$session.settings.colorPalette];
 	$: dictionary = $session.languageDictionary;
+
+	const keyboardShortcutsList = getKeyboardShortcutsList();
 
 	const fontFamilies = {
 		'Aldrich': [400],
@@ -245,7 +248,7 @@
 		'et'
 	];
 
-	let datetimeFormatModal;
+	let datetimeFormatModal, keyboardShortcutModal;
 </script>
 
 <Tabs>
@@ -940,14 +943,31 @@
 						bind:checked={$session.settings.keyboardShortcuts}
 					/>
 				</div>
-				<button class="btn">
+				<button class="btn" on:click={keyboardShortcutModal.show()}>
 					<Icon name="table" class="inline w-6 h-6" />
 					View Keyboard Shortcuts
 				</button>
+
 				<!-- <button class="btn undo-btn block">
 					<Icon name="undo" class="inline w-6 h-6" />
 					Reset Keyboard Shortcuts
 				</button> -->
+
+				<Modal bind:this={keyboardShortcutModal} title="Keyboard Shortcuts" icon="table">
+					<table>
+						<thead>
+							<tr><th>Key</th><th>Action</th></tr>
+						</thead>
+						<tbody>
+							{#each Object.keys(keyboardShortcutsList) as shortcut}
+								<tr>
+									<td>{shortcut}</td>
+									<td>{keyboardShortcutsList[shortcut]}</td>
+								</tr>
+							{/each}
+						</tbody>
+					</table>
+				</Modal>
 			</AccordionPanel>
 			<AccordionPanel accordionTitle="Locale" key="3">
 				<div class="block mb-2">

@@ -1,9 +1,25 @@
+<script context="module">
+	export function getKeyboardShortcutsList() {
+		// TODO: translation
+		return {
+			N: 'Night Mode',
+			S: 'Settings',
+			F: 'Fullscreen',
+			B: 'Battery',
+			D: 'Secondary Display Toggle',
+			P: 'Primary Display Toggle'
+		};
+	}
+</script>
+
 <script>
 	import { session } from '$app/stores';
 	import { toggleFullscreen } from './Settings.svelte';
 
 	export let settingsModal = null;
 </script>
+
+<!-- TODO: let user custom map keys to specific shortcuts -->
 
 <svelte:window
 	on:keydown={(event) => {
@@ -22,8 +38,39 @@
 		if (event.code === 'KeyF') {
 			toggleFullscreen();
 		}
-		// p simple, t themes, b battery, d secondary display, g digital
+		if (event.code === 'KeyB') {
+			$session.settings.clock.displays.battery = !$session.settings.clock.displays.battery;
+		}
+		if (event.code === 'KeyD') {
+			const current = $session.settings.clock.displays.secondary;
+			const secondaryOptions = ['time', 'date', 'datetime', 'none'];
+			let idx = secondaryOptions.indexOf(current);
+			idx = idx < secondaryOptions.length - 1 ? idx + 1 : 0;
+			$session.settings.clock.displays.secondary = secondaryOptions[idx];
+		}
+		if (event.code === 'KeyP') {
+			const current = $session.settings.clock.displays.primary;
+			const primaryOptions = ['analog', 'time', 'date', 'datetime'];
+			let idx = primaryOptions.indexOf(current);
+			idx = idx < primaryOptions.length - 1 ? idx + 1 : 0;
+			$session.settings.clock.displays.primary = primaryOptions[idx];
+		}
+
+		// TODO: keyT to toggle themes?
+
+		/*
+		// commented out because bad UX to accidently press 'P' and irreversibly change appearance
+		if (event.code === 'KeyP') {
+			// TODO: make simple mode in one centralized place
+			// TODO: make option to toggle simple mode off
+			// - (remember previous tick stroke/size, or add new property for visibility to themes)
+
+			// simple mode
+			for (const size of 'sm md lg'.split(' '))
+				$session.settings.clock.theme.ticks[size].stroke = '-1';
+		}
+		*/
 	}}
 />
 
-<!-- TODO: make a modal that lsits all shortcuts -->
+<!-- TODO: make a modal that lists all shortcuts -->
