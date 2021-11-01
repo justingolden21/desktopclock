@@ -345,3 +345,4 @@ schedule option with notes (events with fixed time or date or time range or date
 
 support for daylight savings (reminders, option to turn off, detect locale/locateion before giving reminder toast)
 
+localizing numbers: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
