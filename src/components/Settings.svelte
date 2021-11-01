@@ -732,8 +732,10 @@
 								</tbody>
 							</table>
 							<p>
-								Made with <a href="https://day.js.org/docs/en/display/format" target="_blank"
-									>Day JS</a
+								Made with <a
+									rel="noopener"
+									href="https://day.js.org/docs/en/display/format"
+									target="_blank">Day JS</a
 								>
 							</p>
 						</Modal>
