@@ -3,7 +3,7 @@
 	import Icon from './Icon.svelte';
 	import InstallButton from './InstallButton.svelte';
 	import { shareApp } from './Settings.svelte';
-	import { settings } from './localStore.js';
+	import { settings } from './settings.js';
 
 	export let navOpen;
 	export let settingsModal = null;

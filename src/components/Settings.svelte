@@ -105,7 +105,7 @@
 
 	import { setupCasting, castClock } from './cast.js';
 
-	import { settings, defaultSettings } from './localStore.js';
+	import { settings, defaultSettings } from './settings.js';
 
 	import Icon from './Icon.svelte';
 	import Toggle from './Toggle.svelte';

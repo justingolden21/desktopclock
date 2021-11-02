@@ -1,5 +1,5 @@
 <script>
-	import { settings } from './localStore.js';
+	import { settings } from './settings.js';
 
 	import TailwindColors from 'tailwindcss/colors.js';
 </script>

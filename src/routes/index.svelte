@@ -13,7 +13,7 @@
 	import { now } from '../components/now.js';
 	import Displays from '../components/Displays.svelte';
 	import ThemeButtons from '../components/ThemeButtons.svelte';
-	import { settings } from '../components/localStore.js';
+	import { settings } from '../components/settings.js';
 
 	const setAngle = (type, newAngle) => {
 		document.documentElement.style.setProperty(`--${type}-angle`, `${newAngle}deg`);

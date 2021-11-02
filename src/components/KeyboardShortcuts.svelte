@@ -13,7 +13,7 @@
 </script>
 
 <script>
-	import { settings } from './localStore.js';
+	import { settings } from './settings.js';
 	import { toggleFullscreen } from './Settings.svelte';
 
 	export let settingsModal = null;

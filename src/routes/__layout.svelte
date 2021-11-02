@@ -15,7 +15,7 @@
 	import Settings from '../components/Settings.svelte';
 	import { now } from '../components/now.js';
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
-	import { settings } from '../components/localStore.js';
+	import { settings } from '../components/settings.js';
 
 	let settingsModal;
 

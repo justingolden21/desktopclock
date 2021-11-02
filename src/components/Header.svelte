@@ -3,7 +3,7 @@
 	import Icon from './Icon.svelte';
 	import { onMount } from 'svelte';
 
-	import { settings } from './localStore.js';
+	import { settings } from './settings.js';
 	import { toggleFullscreen } from './Settings.svelte';
 	import { setupCasting, castClock } from './cast.js';
 	import { now } from './now.js';
