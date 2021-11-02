@@ -48,6 +48,7 @@ inner modals should be same size as outter modals
 MVP consider:
 cache fonts offline?
 website not working in messenger?
+flipclock (component) https://codepen.io/shshaw/pen/vKzoLL
 
 code organizaiton:
 one centralized place for $now with .tz() and others so redundant code doesn't have to be supported
@@ -293,8 +294,14 @@ flipclock like https://onlineclock.net/flip/ ?
 
 more later:
 integrate with spotify for media controls?
+- https://developer.spotify.com/documentation/web-api/quick-start/
 weather api?
+- https://www.weatherapi.com/pricing.aspx
+- astronomy api for sunrise/set https://www.weatherapi.com/docs/
+- user choses F or C (default to location), ask user for location in toast
+- multiple toggles for display temp, feels like, wind, air quality, etc.
 save custom date/time formats in dropdown, remove default formats, etc
+
 
 links:
 https://tc39.es/ecma402/#table-datetimeformat-components
@@ -348,3 +355,5 @@ schedule option with notes (events with fixed time or date or time range or date
 support for daylight savings (reminders, option to turn off, detect locale/locateion before giving reminder toast)
 
 localizing numbers: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+instructions for if time is off, based on system time, how to synx system time, windows, android, etc
+windows: date&time > sync now

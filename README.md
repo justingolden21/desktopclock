@@ -77,9 +77,25 @@ Set up VS code to auto format on save
 }
 ```
 
+Recommended keyboard shortcuts (ctrl+shift+P > keyboard shortcuts):
+```json
+[
+    {
+        "key": "alt+w",
+        "command": "editor.emmet.action.wrapWithAbbreviation",
+        "when": "editorTextFocus"
+    }
+]
+```
+
+
 4. Reload VS code (may be necessary to go to extensions and find an extension with a button to reload and click that)
 
 Note: Click Prettier button on bottom right of file to view console output and any errors in formatting / autosave
+
+Prettier options: https://prettier.io/docs/en/options.html
+
+ESLint rules: https://eslint.org/docs/rules/
 
 ### Debugging
 
