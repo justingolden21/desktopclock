@@ -44,6 +44,7 @@ google analytics, etc
 clean code, fix linting errors
 zen mode should be a quick button in bottom left by default
 inner modals should be same size as outter modals
+determine final structure for clock theme settings (will be ahrd to change after launch)
 
 MVP consider:
 cache fonts offline?
