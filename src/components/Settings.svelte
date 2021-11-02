@@ -275,8 +275,8 @@
 
 	<!-- Clock -->
 	<TabPanel>
-		<Accordion key="3">
-			<AccordionPanel accordionTitle={dictionary.clockSettings['Displays']} key="3">
+		<Accordion key="1">
+			<AccordionPanel accordionTitle={dictionary.clockSettings['Displays']} key="1">
 				<div class="block mb-2">
 					<label for="primary-display-select">{dictionary.clockSettings['Primary Display:']}</label>
 					<select id="primary-display-select" bind:value={$settings.clock.displays.primary}>
@@ -308,7 +308,7 @@
 				</div>
 			</AccordionPanel>
 			{#if $settings.clock.displays.primary == 'analog'}
-				<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="4">
+				<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="2">
 					<!-- note: using json for efficient deep clone so original theme object is not mutated -->
 					<button
 						class="btn theme-btn block"
@@ -574,7 +574,7 @@
 				</AccordionPanel>
 			{/if}
 			{#if $settings.clock.displays.primary != 'analog' || $settings.clock.displays.secondary != 'none'}
-				<AccordionPanel accordionTitle={dictionary.clockSettings['Digital Datetime']} key="5">
+				<AccordionPanel accordionTitle={dictionary.clockSettings['Digital Datetime']} key="3">
 					<div class="block mb-2">
 						<div class="block mb-2">
 							<label for="time-format-select">{dictionary.clockSettings['Time Format:']}</label>
