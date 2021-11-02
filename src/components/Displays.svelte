@@ -122,6 +122,13 @@
 	#primary-display h1 {
 		@apply text-7xl md:text-8xl lg:text-9xl tracking-widest text-center;
 	}
+	#primary-display,
+	#secondary-display {
+		/* Set numbers to be monospace
+		only works on some fonts, such as Bitter
+		https://stackoverflow.com/a/56266636/4907950 */
+		font-variant-numeric: tabular-nums;
+	}
 	#secondary-display,
 	#battery-display {
 		@apply text-2xl md:text-3xl lg:text-4xl font-normal tracking-widest text-center pb-4;
