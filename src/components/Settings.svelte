@@ -127,25 +127,6 @@
 	$: colorPalette = TailwindColors[$settings.colorPalette];
 	$: dictionary = $session.languageDictionary;
 
-	// Local Storage
-
-	// onMount(() => {
-	// 	const localSettings = localStorage.getItem('settings');
-	// 	if (localSettings !== null) {
-	// 		// TODO: handle updates to json structure in onload
-	// 		$settings = JSON.parse(localSettings);
-	// 		console.log(JSON.parse(localSettings));
-	// 	}
-	// });
-
-	// session.subscribe((value) => {
-	// 	console.log(JSON.stringify(value.settings));
-
-	// 	if (localStorage) localStorage.setItem('settings', JSON.stringify(value.settings));
-	// });
-
-	// Settings Constants
-
 	const keyboardShortcutsList = getKeyboardShortcutsList();
 
 	const fontFamilies = {
