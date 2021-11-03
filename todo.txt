@@ -107,13 +107,12 @@ remember which tab and accordion are open in local storage?
 more folders for components? (toast, tabs in their own, components for only one page (clock, worldclock) should also have their own folders)
 
 better detection for default system language?
-```
+
 https://github.com/kangabru/whats-the-time/blob/master/src/utils/utils.ts
-window.navigator.languages ? window.navigator.languages[0] : window.navigator.language;
+`window.navigator.languages ? window.navigator.languages[0] : window.navigator.language;`
 should instead check default navigator.language and if not in available languages then loop through navigator.languages
 in order until finding a hard match (en-US vs en-US) and if not then loop through until finding a soft match (en vs en-US or en-UK vs en-US)
 if no matches are found, default to en-US
-```
 
 font weight and font size settings for both primary and secondary displays?
 make sure fonts are served offline
@@ -121,10 +120,7 @@ reduce file size of fonts loaded
 
 pop out settings modal (into new window) button?
 
-varying font size based off of lenght of string for custom date/time/datetime format (primary display only)
-
-
-fix font loading in select
+varying font size based off of length of string for custom date/time/datetime format (primary display only)
 
 get version from package.json in about section
 command to automatically build for production (update sw cache name) and update version number in package json?
@@ -179,9 +175,53 @@ https://youtu.be/Xbo3uZ5Ge10
 - google analytics
 
 
+themes:
+reset display settings/theme btn
+other theme defaults, save theme profiles
+export and share themes
+
+dev setup:
+extrapolate battery component, analog clock
+
+setting to hide title bar after time (10s, etc) of inactivity, mouse move to make it reappear
+
+ux:
+monospace/fix kerning for numbers in time so they do not shift
+- https://stackoverflow.com/questions/10149330/force-non-monospace-font-into-fixed-width-using-css
+
+reset settings btn, save settings to browser local storage
+let user chose primary and secondary color/palette, also chose specific color for hands, ticks, etc
+
+more settings:
+tick hands
+modal for steps to add to taskbar, apps, mobile, etc for each os with details/summary
+select font size for digital displays
+save settings in local storage toggle that on change if off clears local storage, clear local storage btn that's disabled if local storage is empty
+- after local storage is cleared/off, toast prompt offering to refresh website / reset settings? too confusing?
+add about section for help translating to your language
+titles for icon buttons, maybe tooltips, should be translated
+
+----------------
+
+later:
+searchable settings? (search bar on modal title area)
+save time history in stopwatch (can print, share, download, etc)
+show internet strength, weather, link to spotify options
+music playback options secondary display with spotify (p/p, ff, rw, song and artist name)
+always on top mode is not possible. write about this in FAQs or help, and then mention ways of doing this on different operating systems.
+dark mode styles for <table>
+
 worldclocks with weather and music at bottom lots of customizability
 
 big stopwatch in center, smaller ones below, or mode to have all of them smaller, change size of stopwatches/worldclocks and choose a primary one or not to have one
+
+
+presentation API
+https://developer.mozilla.org/en-US/docs/Web/API/Navigator/presentation
+https://developer.mozilla.org/en-US/docs/Web/API/Presentation_API
+https://developers.google.com/web/updates/2018/04/present-web-pages-to-secondary-attached-displays#samples_and_demos
+https://googlechrome.github.io/samples/presentation-api/
+icon ideas: present, tv, cast, chromecast, projector, arrow, external link
 
 wake lock
 https://whatpwacando.today/wake-lock
@@ -195,55 +235,8 @@ https://whatpwacando.today/vibration
 audio on lockscreen (for alarms)
 https://whatpwacando.today/audio
 
-presentation API
-https://developer.mozilla.org/en-US/docs/Web/API/Navigator/presentation
-https://developer.mozilla.org/en-US/docs/Web/API/Presentation_API
-https://developers.google.com/web/updates/2018/04/present-web-pages-to-secondary-attached-displays#samples_and_demos
-https://googlechrome.github.io/samples/presentation-api/
-icon ideas: present, tv, cast, chromecast, projector, arrow, external link
-
-themes:
-reset display settings/theme btn
-other theme defaults, save theme profiles
-export and share themes
-
-dev setup:
-extrapolate battery component, analog clock
-
-searchable settings? (search bar on modal title area)
-
-setting to hide title bar after time (10s, etc) of inactivity, mouse move to make it reappear
-
-ux:
-monospace/fix kerning for numbers in time so they do not shift
-- https://stackoverflow.com/questions/10149330/force-non-monospace-font-into-fixed-width-using-css
-
-reset settings btn, save settings to browser local storage
-let user chose primary and secondary color/palette, also chose specific color for hands, ticks, etc
-
-add i18n
-add animate.css
-animated icons / icon animations
-add fonts offline
-
-more settings:
-tick hands
-flip clock for digital time
-save time history in stopwatch (can print, share, download, etc)
-show internet strength, weather, link to spotify options
-modal for steps to add to taskbar, apps, mobile, etc for each os with details/summary
-
-later:
-store settings in localstorage
-music playback options secondary display with spotify (p/p, ff, rw, song and artist name)
-displays.js: implement format options, locale options
-always on top mode is not possible. write about this in FAQs or help, and then mention ways of doing this on different operating systems.
-dark mode styles for <table>
-
 bugs:
-home theme buttons do not function
 pinpoint seconds in analog/digital time
-pwa auto update (fixed?)
 dbl click on btn shouldnt toggle fullscreen
 
 not bugs (hydration issues, fixed in build/preview)
@@ -254,7 +247,6 @@ casting
 pwa, auto update, offline
 
 visual bugs:
-close icon in modals not showing
 battery fill when charging in night mode doesn't turn unfilled part dark (transparent)
 
 development bugs:
@@ -270,13 +262,10 @@ nav links are underline despite styless.css
 performance:
 
 maybe:
-ability to turn off setting to live preview time format in dropdown (advanced setting?)
-font weight options? slider? dropdown?
-titles for icon buttons, maybe tooltips, should be translated
 give them option to swap order of date and time?
+ability to turn off setting to live preview time format in dropdown (advanced setting?)
 nav: click away or esc to close nav?
-different face appearance for night mode settings
-more reset btns accross settings tabs/pannels
+nah: different face appearance for night mode settings
 documents.fonts.entries() and give user choice of any font on their system
 binary clock option? Two or three rows for hrs, mins, sec
 
@@ -314,9 +303,6 @@ https://tc39.es/ecma402/#table-datetimeformat-components
 
 https://deviceshots.com/
 
-future maybe:
-support smart watches, android auto, smart tv, etc, mobile port
-
 misc:
 Stopwatch has previous lap as circle and tick marks for laps before, green means before, yellow means after, red means after + at least 1. Can configure number of previous laps to display, default 5, and if the opacity goes down for each previous lap.
 Show lap number, lap time and cumulative time, show small bar / graph on side (optional) and can name them, store notes, store date, and have folders for them.
@@ -325,15 +311,19 @@ Above is timezone drop-down and name of timezone/time (custom text input)
 Top row has icons on left for drag, move, and right for delete, edit.
 Button to delete all worldclocks, options to open presets (lists of worldclocks for different uses) can be organized into tabs maybe?
 Day, night theme but also theme that changes sky background color based on time of day (can show sunrise and sunset). Function that takes in time (ms since epoch) and location (long/lat) and spit out next sunrise and sunset? Offline?
-More prominent share prompt somewhere?
 Trailer video with bouncy pop music that shows off lots of features quickly
+
+future maybe:
+support smart watches, android auto, smart tv, etc, mobile port
 
 datetime utility:
 converter for 2.2 billion hours to years for example
 how many days ago was July 17
-speech rcognition: https://whatpwacando.today/speech-recognition
+speech recognition: https://whatpwacando.today/speech-recognition
 
 play whitenoise / "sounds" as well, rain, wind, fireplace, birds, etc
+
+way future: custom images, audio, slideshow, playlist options?
 
 speak time/date btn
 
@@ -349,16 +339,12 @@ Convert timestamp to readable date time, get date for "next Tuesday" "last Monda
 
 Select date and time picker for countdown timers, count time since or time until, chose which units displayed (sec,min,hour,day, etc)
 
-Select font size for digital displays
-
-Save settings in local storage toggle that on change if off clears local storage, clear local storage btn that's disabled if local storage is empty
-- after local storage is cleared/off, toast prompt offering to refresh website / reset settings? too confusing?
-
 worldclock timetable option like in https://whats-the-time.netlify.app/
 
 schedule option with notes (events with fixed time or date or time range or date range)
 
 support for daylight savings (reminders, option to turn off, detect locale/locateion before giving reminder toast)
+- reminders option, modal to check when whch timezones enter or leave daylight savings
 
 localizing numbers: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
 instructions for if time is off, based on system time, how to synx system time, windows, android, etc
