@@ -35,6 +35,7 @@
 			: clockSettings.dateFormatCustom;
 
 	let batteryLevel, batteryIsCharging;
+	let batterySupported = false;
 
 	// these update automatically with `$now`
 	$: time = new dayjs($now)
@@ -50,6 +51,8 @@
 	// should unmount the event listener, look into svelte window access navigator
 	onMount(() => {
 		// https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery
+		if (!(navigator && navigator.getBattery)) return;
+		batterySupported = true;
 		navigator.getBattery().then(function (battery) {
 			batteryLevel = battery.level;
 
@@ -99,7 +102,7 @@
 	</div>
 </div>
 
-{#if displays.battery}
+{#if displays.battery && batterySupported}
 	<div id="battery-display">
 		<BatteryIcon
 			fillLevel={batteryLevel ? batteryLevel * 100 : 100}
@@ -129,7 +132,7 @@
 		https://stackoverflow.com/a/56266636/4907950 */
 		font-variant-numeric: tabular-nums;
 
-        white-space: break-spaces;
+		white-space: break-spaces;
 	}
 	#secondary-display,
 	#battery-display {

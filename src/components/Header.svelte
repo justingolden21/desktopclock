@@ -5,12 +5,14 @@
 
 	import { settings } from './settings.js';
 	import { toggleFullscreen } from './Settings.svelte';
-	import { setupCasting, castClock } from './cast.js';
+	import { setupCasting, castClock, isCastSupported } from './cast.js';
 	import { now } from './now.js';
 
 	export let navOpen;
 
 	$: dictionary = $session.languageDictionary;
+
+    const castSupported = isCastSupported();
 
 	let timeSinceMove = new Date();
 	$: if ($session) timeSinceMove = new Date();
@@ -53,7 +55,7 @@
 	<button
 		id="main-cast-btn"
 		class="cast-btn icon-btn float-right"
-		class:hidden={!$settings.showCastButton}
+		class:hidden={!$settings.showCastButton || !castSupported}
 		on:click={castClock}
 		aria-label={dictionary.labels['Cast clock']}
 	>

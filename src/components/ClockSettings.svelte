@@ -1,5 +1,6 @@
 <script>
 	import { session } from '$app/stores';
+	import { onMount } from 'svelte';
 
 	import TailwindColors from 'tailwindcss/colors.js';
 	import dayjs from 'dayjs';
@@ -23,6 +24,11 @@
 	$: dictionary = $session.languageDictionary;
 
 	let datetimeFormatModal;
+
+	let batterySupported = false;
+	onMount(() => {
+		batterySupported = navigator && navigator.getBattery;
+	});
 </script>
 
 <Accordion key="1">
@@ -47,7 +53,7 @@
 			</select>
 		</div>
 
-		<div class="block mb-2">
+		<div class="block mb-2" class:hidden={!batterySupported}>
 			<Toggle
 				id="show-battery-toggle"
 				bind:checked={$settings.clock.displays.battery}

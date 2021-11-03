@@ -102,7 +102,7 @@
 
 	import dayjs, { tz } from 'dayjs';
 
-	import { setupCasting, castClock } from './cast.js';
+	import { setupCasting, castClock, isCastSupported } from './cast.js';
 
 	import { settings, defaultSettings } from './settings.js';
 
@@ -123,6 +123,7 @@
 	$: dictionary = $session.languageDictionary;
 
 	const keyboardShortcutsList = getKeyboardShortcutsList();
+	const castSupported = isCastSupported();
 
 	import { fontFamilies, locales, supportedLangs } from './consts.js';
 
@@ -166,7 +167,7 @@
 				{dictionary.labels['Dark']}
 			</button>
 
-			<button class="cast-btn btn" on:click={castClock}>
+			<button class="cast-btn btn" on:click={castClock} class:hidden={!castSupported}>
 				<Icon name="cast" class="inline w-6 h-6 md:w-8 md:h-8" />
 				{dictionary.labels['Cast']}
 			</button>
@@ -183,11 +184,13 @@
 			labelText={dictionary.labels['Show dark button']}
 		/>
 
-		<Toggle
-			id="show-cast-btn-toggle"
-			bind:checked={$settings.showCastButton}
-			labelText={dictionary.labels['Show cast button']}
-		/>
+		<div class:hidden={!castSupported}>
+			<Toggle
+				id="show-cast-btn-toggle"
+				bind:checked={$settings.showCastButton}
+				labelText={dictionary.labels['Show cast button']}
+			/>
+		</div>
 
 		<Toggle
 			id="show-fullscreen-btn-toggle"
@@ -365,10 +368,12 @@
 						</thead>
 						<tbody>
 							{#each Object.keys(keyboardShortcutsList) as shortcut}
-								<tr>
-									<td>{shortcut}</td>
-									<td>{keyboardShortcutsList[shortcut]}</td>
-								</tr>
+								{#if shortcut != 'B' || (navigator && navigator.getBattery)}
+									<tr>
+										<td>{shortcut}</td>
+										<td>{keyboardShortcutsList[shortcut]}</td>
+									</tr>
+								{/if}
 							{/each}
 						</tbody>
 					</table>
