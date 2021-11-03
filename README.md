@@ -97,6 +97,8 @@ Prettier options: https://prettier.io/docs/en/options.html
 
 ESLint rules: https://eslint.org/docs/rules/
 
+`alt+shift+F` to format current file with prettier
+
 ### Debugging
 
 For changes not appearing or hydration bugs, try killing the server and restarting, as well as hard refreshing (ctrl+shift+R) the page

@@ -180,9 +180,6 @@ reset display settings/theme btn
 other theme defaults, save theme profiles
 export and share themes
 
-dev setup:
-extrapolate battery component, analog clock
-
 setting to hide title bar after time (10s, etc) of inactivity, mouse move to make it reappear
 
 ux:
