@@ -12,7 +12,6 @@
 
 	import { now } from '../components/now.js';
 	import Displays from '../components/Displays.svelte';
-	import ThemeButtons from '../components/ThemeButtons.svelte';
 	import { settings } from '../components/settings.js';
 
 	const setAngle = (type, newAngle) => {
@@ -158,11 +157,4 @@
 			</g>
 		</svg>
 	{/if}
-</section>
-
-<section class="z-20">
-	<!-- TODO: z index does not seem to be the problem, cannot click lower btns -->
-	<div class="z-20 m-4 mx-16 max-w-3xl" class:hidden={!$settings.showThemeButtons}>
-		<ThemeButtons />
-	</div>
 </section>

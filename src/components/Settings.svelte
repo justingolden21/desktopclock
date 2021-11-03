@@ -1,9 +1,9 @@
 <script context="module">
 	import Screenfull from 'screenfull';
 
-	export function toggleFullscreen() {
+	export async function toggleFullscreen() {
 		if (Screenfull.isEnabled) {
-			Screenfull.toggle();
+			await Screenfull.toggle();
 		}
 	}
 

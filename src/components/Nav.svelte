@@ -4,9 +4,18 @@
 	import InstallButton from './InstallButton.svelte';
 	import { shareApp } from './Settings.svelte';
 	import { settings } from './settings.js';
+	import Screenfull from 'screenfull';
+	import { onMount } from 'svelte';
 
 	export let navOpen;
 	export let settingsModal = null;
+
+	// similar to header
+	let isFullscreen;
+	onMount(() => {
+		isFullscreen = Screenfull.isFullscreen;
+		Screenfull.on('change', () => (isFullscreen = Screenfull.isFullscreen));
+	});
 
 	$: dictionary = $session.languageDictionary;
 </script>
@@ -23,7 +32,7 @@
         transition-all
         duration-200
         ease-in-out
-        {$settings.alwaysCollapseMenu ? '' : 'md:relative md:translate-x-0'}
+        {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:relative md:translate-x-0'}
         {$settings.smallerMenu ? 'w-32' : 'w-64'}"
 	class:-translate-x-full={!navOpen}
 >

@@ -5,7 +5,7 @@
 </script>
 
 <!-- Remove first 2 items from array (black and white). They do not have themes. -->
-<div>
+<div class="relative">
 	{#each Object.keys(TailwindColors).slice(2) as color, idx}
 		<button
 			class="theme-btn {$settings.colorPalette == color ? 'active' : ''}"

@@ -47,8 +47,7 @@
 
 <style lang="postcss">
 	.modal {
-		@apply xs:p-3 sm:p-6 md:p-12 fixed left-0 top-0 w-full h-full bg-gray-300 bg-opacity-75;
-		z-index: 3;
+		@apply xs:p-3 sm:p-6 md:p-12 fixed left-0 top-0 w-full h-full bg-gray-300 bg-opacity-75 z-20;
 	}
 	.modal-content {
 		@apply flex flex-col h-full border-2 border-gray-300 bg-gray-100 p-2 xs:p-8 xs:pt-4 relative m-auto w-full md:w-3/4 bg-opacity-75;

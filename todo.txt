@@ -30,28 +30,29 @@ NOW:
 clean project, then translate
 
 TOP PRIORITY / MVP:
+appearance undefined netlify kanga, memory leak, netlify?
 translate / fully support spanish, let user change their lang
 !!! - changeable language
 translate: modals, about text, clock stuff
-!!! btn for zen mode and/or btn for digital/analog on main ui?
-!!! minor bug: clock freezes for one second before continuing
-- hour hand also teleports, probably because of timezone detection
-PWA testing
+!!! btn for digital/analog on main ui?
 !!! localize keyboard shortcuts?
 option to turn off and option to reset local storage, see notes
 detect datetime format? should not display am/pm to en-uk users for example
 AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the Philippines" https://www.timeanddate.com/time/am-and-pm.html
 !!! google analytics, etc
-clean code, fix linting errors
-zen mode should be a quick button in bottom left by default
-!!! inner modals should be same size as outter modals
 determine final structure for clock theme settings (will be hard to change after launch)
 translate timezones?
-!!! theme btns not clickable with analog clock on screen
-interior modal full width (formatting table, eventually view shortcuts modal) move modal outside of settings modal (settings component)
- - settings component could include modal wrapper
+btn titles/popovers should say shortcut ie. "night mode (N)"
+support localStore adding new settings in future
 
 MVP consider:
+??? clean code, fix linting errors (check svelte kit repo package json)
+minor bug: clock freezes for one second before continuing
+- hour hand also teleports, probably because of timezone detection
+PWA testing
+inner modals should be same size as outter modals?
+- interior modal full width (formatting table, eventually view shortcuts modal) move modal outside of settings modal (settings component)
+- settings component could include modal wrapper
 ??? cache fonts offline?
 translate numbers? (other locales with different counting systems for timezone hours difference, etc)
 ??? website not working in messenger?
@@ -132,7 +133,6 @@ next:
 review font families again?
 test casting api
 add more icons to settings?
-fix theme btn display
 check meta tags, make sure it works on google,fb,twitter, etc, maybe add similar to sharethis?
 https://metatags.io/
 implement automated testing?

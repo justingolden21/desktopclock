@@ -1,5 +1,8 @@
 import { writable } from 'svelte/store';
 
+// TODO implement system for new settings not defaulting to falsey
+// lo dash merge
+
 export function localStore(key, default_value) {
 	let store = writable(default_value);
 

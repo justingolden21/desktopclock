@@ -1,10 +1,12 @@
 <script>
 	import { page, session } from '$app/stores';
 	import Icon from './Icon.svelte';
+	import Screenfull from 'screenfull';
 	import { onMount } from 'svelte';
 
 	import { settings } from './settings.js';
 	import { toggleFullscreen } from './Settings.svelte';
+	import ThemeButtons from './ThemeButtons.svelte';
 	import { setupCasting, castClock, isCastSupported } from './cast.js';
 	import { now } from './now.js';
 
@@ -12,25 +14,46 @@
 
 	$: dictionary = $session.languageDictionary;
 
-    const castSupported = isCastSupported();
+	const castSupported = isCastSupported();
 
 	let timeSinceMove = new Date();
 	$: if ($session) timeSinceMove = new Date();
 
 	onMount(setupCasting);
+
+	// Minor bug: user has hideTitlebarWhenIdle off, then enters fullscreen, then turns it on, then leavews fullscreen, the setting will be turned off
+	// Fix: when the user changes the setting in fullscreen, update oldHideTitlebarWhenIdle
+
+	let isFullscreen;
+	let oldHideTitlebarWhenIdle;
+	onMount(() => {
+		isFullscreen = Screenfull.isFullscreen;
+
+		Screenfull.on('change', () => {
+			if (Screenfull.isFullscreen) {
+				oldHideTitlebarWhenIdle = $settings.hideTitlebarWhenIdle;
+				$settings.hideTitlebarWhenIdle = true;
+			} else {
+				$settings.hideTitlebarWhenIdle = oldHideTitlebarWhenIdle;
+			}
+
+			timeSinceMove = Screenfull.isFullscreen ? new Date(0) : timeSinceMove;
+			isFullscreen = Screenfull.isFullscreen;
+		});
+	});
 </script>
 
 <svelte:window on:mousemove={() => (timeSinceMove = new Date())} />
 
 <header
-	class="flex-1 relative transition-opacity duration-300 
+	class="transition-opacity duration-300 
     {$settings.hideTitlebarWhenIdle && ($now - timeSinceMove) / 1000 > $settings.secondsUntilIdle
 		? 'opacity-0'
 		: 'opacity-100'}"
 >
 	<button
 		id="menu-btn"
-		class="icon-btn float-left  {$settings.alwaysCollapseMenu ? '' : 'md:hidden'} "
+		class="icon-btn float-left  {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:hidden'} "
 		on:click={() => (navOpen = !navOpen)}
 		aria-label={dictionary.labels['Menu']}
 	>
@@ -40,7 +63,7 @@
 	<button
 		id="main-dark-btn"
 		class="dark-btn icon-btn float-left left-16 
-        {$settings.alwaysCollapseMenu ? '' : 'md:left-4'} "
+        {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-4'} "
 		class:hidden={!$settings.showDarkButton}
 		on:click={() => ($settings.darkMode = !$settings.darkMode)}
 		aria-label={dictionary.labels['Toggle dark mode']}
@@ -71,4 +94,8 @@
 	>
 		<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
+
+	<div class="relative mx-auto m-8 mt-24 max-w-3xl z-10" class:hidden={!$settings.showThemeButtons}>
+		<ThemeButtons />
+	</div>
 </header>
