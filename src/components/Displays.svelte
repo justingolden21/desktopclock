@@ -128,6 +128,8 @@
 		only works on some fonts, such as Bitter
 		https://stackoverflow.com/a/56266636/4907950 */
 		font-variant-numeric: tabular-nums;
+
+        white-space: break-spaces;
 	}
 	#secondary-display,
 	#battery-display {
