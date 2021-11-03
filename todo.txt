@@ -30,6 +30,8 @@ NOW:
 clean project, then translate
 
 TOP PRIORITY / MVP:
+changeable language
+translate: modals, about text, clock stuff
 btn for zen mode and/or btn for digital/analog on main ui?
 minor bug: clock freezes for one second before continuing
 - hour hand also teleports, probably because of timezone detection
@@ -45,11 +47,14 @@ clean code, fix linting errors
 zen mode should be a quick button in bottom left by default
 inner modals should be same size as outter modals
 determine final structure for clock theme settings (will be ahrd to change after launch)
+translate timezones?
 
 MVP consider:
 cache fonts offline?
+translate numbers? (other locales with different counting systems for timezone hours difference, etc)
 website not working in messenger?
 flipclock (component) https://codepen.io/shshaw/pen/vKzoLL
+primary and secondary font options, same with theme color
 
 code organizaiton:
 one centralized place for $now with .tz() and others so redundant code doesn't have to be supported

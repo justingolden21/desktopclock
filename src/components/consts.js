@@ -1,3 +1,5 @@
+export const supportedLangs = ['en-US', 'es-MX'];
+
 export const fontFamilies = {
 	'Aldrich': [400],
 	'Arsenal': [400, 700],

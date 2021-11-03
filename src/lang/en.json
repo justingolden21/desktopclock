@@ -26,10 +26,40 @@
 		"Settings": "Settings",
 		"Install": "Install",
 		"Share": "Share",
-		"Cast Clock": "Cast Clock",
-		"Toggle Dark Mode": "Toggle Dark Mode",
-		"Toggle Fullscreen": "Toggle Fullscreen",
-		"Doubleclick Fullscreen": "Doubleclick Fullscreen",
+		"Cast": "Cast",
+		"Dark": "Dark",
+		"Fullscreen": "Fullscreen",
+		"Cast clock": "Cast clock",
+		"Toggle dark mode": "Toggle dark mode",
+		"Toggle fullscreen": "Toggle fullscreen",
+		"Doubleclick fullscreen": "Doubleclick fullscreen",
+		"Show dark button": "Show dark button",
+		"Show cast button": "Show cast button",
+		"Show fullscreen button": "Show fullscreen button",
+		"Show theme buttons": "Show theme buttons",
+		"Smaller menu": "Smaller menu",
+		"Always collapse menu": "Always collapse menu",
+		"Hide title bar when idle": "Hide title bar when idle",
+		"Seconds until idle:": "Seconds until idle:",
+		"Font family:": "Font family:",
+		"Reset appearance settings": "Reset appearance settings",
+		"Application": "Application",
+		"Shortcuts": "Shortcuts",
+		"Locale": "Locale",
+		"Copy website link": "Copy website link",
+		"Open another clock": "Open another clock",
+		"Send feedback": "Send feedback",
+		"Reset all settings": "Reset all settings",
+		"Keyboard shortcuts": "Keyboard shortcuts",
+		"View keyboard shortcuts": "View keyboard shortcuts",
+		"Language:": "Language:",
+		"Automatically detect language": "Automatically detect language",
+		"Datetime locale:": "Datetime locale:",
+		"Automatically detect datetime locale": "Automatically detect datetime locale",
+		"Timezone:": "Timezone:",
+		"Automatically detect timezone": "Automatically detect timezone",
+		"Timezone offset:": "Timezone offset:",
+
 		"Font Weights": [
 			"",
 			"thin",
@@ -43,17 +73,21 @@
 			"black"
 		]
 	},
+	"languages": {
+		"en-US": "English, US",
+		"es-MX": "Spanish, MX"
+	},
 	"clockSettings": {
 		"Displays": "Displays",
 		"Analog": "Analog",
 		"Digital Datetime": "Digital Datetime",
 
-		"Primary Display:": "Primary Display:",
-		"Secondary Display:": "Secondary Display:",
-		"Analog Clock": "Analog Clock",
-		"Digital Time": "Digital Time",
+		"Primary display:": "Primary display:",
+		"Secondary display:": "Secondary display:",
+		"Analog clock": "Analog clock",
+		"Digital time": "Digital time",
 		"Date": "Date",
-		"Date + Digital Time": "Date + Digital Time",
+		"Date + digital time": "Date + digital time",
 		"None": "None",
 		"Show battery": "Show battery",
 
@@ -63,12 +97,12 @@
 		"Classic Night Theme": "Classic Night Theme",
 		"Simple Mode": "Simple Mode",
 
-		"Time Format:": "Time Format:",
-		"Date Format:": "Date Format:",
+		"Time format:": "Time format:",
+		"Date format:": "Date format:",
 		"Custom": "Custom",
 		"Preview:": "Preview:",
-		"Custom Formatting Reference": "Custom Formatting Reference",
-		"Reset Digital Datetime Formats": "Reset Digital Datetime Formats"
+		"Custom formatting reference": "Custom formatting reference",
+		"Reset datetime formats": "Reset datetime formats"
 	},
 	"messages": {
 		"Copied successfully": "Copied successfully",
@@ -80,17 +114,17 @@
 	"Medium": "Medium",
 	"Large": "Large",
 
-	"Tick Stroke Color:": "Tick Stroke Color:",
-	"Tick Width:": "Tick Width:",
-	"Tick Height:": "Tick Height:",
+	"tick stroke color:": "tick stroke color:",
+	"tick width:": "tick width:",
+	"tick height:": "tick height:",
 
 	"Hour": "Hour",
 	"Minute": "Minute",
 	"Second": "Second",
 
-	"Hand Stroke Color:": "Hand Stroke Color:",
-	"Hand Stroke Width:": "Hand Stroke Width:",
-	"Hand Length:": "Hand Length:",
-	"Hand Back:": "Hand Back:",
-	"Hand Linecap:": "Hand Linecap:"
+	"hand stroke color:": "hand stroke color:",
+	"hand stroke width:": "hand stroke width:",
+	"hand length:": "hand length:",
+	"hand back:": "hand back:",
+	"hand linecap:": "hand linecap:"
 }

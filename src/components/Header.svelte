@@ -41,7 +41,7 @@
         {$settings.alwaysCollapseMenu ? '' : 'md:left-4'} "
 		class:hidden={!$settings.showDarkButton}
 		on:click={() => ($settings.darkMode = !$settings.darkMode)}
-		aria-label={dictionary.labels['Toggle Dark Mode']}
+		aria-label={dictionary.labels['Toggle dark mode']}
 	>
 		<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
@@ -55,7 +55,7 @@
 		class="cast-btn icon-btn float-right"
 		class:hidden={!$settings.showCastButton}
 		on:click={castClock}
-		aria-label={dictionary.labels['Cast Clock']}
+		aria-label={dictionary.labels['Cast clock']}
 	>
 		<Icon name="cast" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
@@ -65,7 +65,7 @@
 		class="fullscreen-btn icon-btn float-right"
 		class:hidden={!$settings.showFullscreenButton}
 		on:click={toggleFullscreen}
-		aria-label={dictionary.labels['Toggle Fullscreen']}
+		aria-label={dictionary.labels['Toggle fullscreen']}
 	>
 		<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>

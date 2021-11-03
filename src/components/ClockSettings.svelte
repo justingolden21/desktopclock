@@ -28,21 +28,21 @@
 <Accordion key="1">
 	<AccordionPanel accordionTitle={dictionary.clockSettings['Displays']} key="1">
 		<div class="block mb-2">
-			<label for="primary-display-select">{dictionary.clockSettings['Primary Display:']}</label>
+			<label for="primary-display-select">{dictionary.clockSettings['Primary display:']}</label>
 			<select id="primary-display-select" bind:value={$settings.clock.displays.primary}>
-				<option value="analog">{dictionary.clockSettings['Analog Clock']}</option>
-				<option value="time">{dictionary.clockSettings['Digital Time']}</option>
+				<option value="analog">{dictionary.clockSettings['Analog clock']}</option>
+				<option value="time">{dictionary.clockSettings['Digital time']}</option>
 				<option value="date">{dictionary.clockSettings['Date']}</option>
-				<option value="datetime">{dictionary.clockSettings['Date + Digital Time']}</option>
+				<option value="datetime">{dictionary.clockSettings['Date + digital time']}</option>
 			</select>
 		</div>
 
 		<div class="block mb-2">
-			<label for="secondary-display-select">{dictionary.clockSettings['Secondary Display:']}</label>
+			<label for="secondary-display-select">{dictionary.clockSettings['Secondary display:']}</label>
 			<select id="secondary-display-select" bind:value={$settings.clock.displays.secondary}>
-				<option value="time">{dictionary.clockSettings['Digital Time']}</option>
+				<option value="time">{dictionary.clockSettings['Digital time']}</option>
 				<option value="date">{dictionary.clockSettings['Date']}</option>
-				<option value="datetime">{dictionary.clockSettings['Date + Digital Time']}</option>
+				<option value="datetime">{dictionary.clockSettings['Date + digital time']}</option>
 				<option value="none">{dictionary.clockSettings['None']}</option>
 			</select>
 		</div>
@@ -195,7 +195,7 @@
 				<div class="block mb-2">
 					<label for="{size}-tick-stroke-select">
 						{dictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
-						{dictionary['Tick Stroke Color:']}
+						{dictionary['tick stroke color:']}
 					</label>
 					<select
 						id="{size}-tick-stroke-select"
@@ -210,7 +210,7 @@
 				<div class="block mb-2">
 					<label for="{size}-tick-width-select"
 						>{dictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
-						{dictionary['Tick Width:']}</label
+						{dictionary['tick width:']}</label
 					>
 					<select
 						id="{size}-tick-width-select"
@@ -224,7 +224,7 @@
 				<div class="block mb-2">
 					<label for="{size}-tick-height-select"
 						>{dictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
-						{dictionary['Tick Height:']}</label
+						{dictionary['tick height:']}</label
 					>
 					<select
 						id="{size}-tick-height-select"
@@ -246,7 +246,7 @@
 				<div class="block mb-2">
 					<label for="{hand}-hand-stroke-select">
 						{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
-						{dictionary['Hand Stroke Color:']}
+						{dictionary['hand stroke color:']}
 					</label>
 					<select
 						id="{hand}-hand-stroke-select"
@@ -261,7 +261,7 @@
 				<div class="block mb-2">
 					<label for="{hand}-hand-stroke-width-select"
 						>{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
-						{dictionary['Hand Stroke Width:']}</label
+						{dictionary['hand stroke width:']}</label
 					>
 					<select
 						id="{hand}-hand-stroke-width-select"
@@ -275,7 +275,7 @@
 				<div class="block mb-2">
 					<label for="{hand}-hand-length-select"
 						>{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
-						{dictionary['Hand Length:']}</label
+						{dictionary['hand length:']}</label
 					>
 					<select
 						id="{hand}-hand-length-select"
@@ -289,7 +289,7 @@
 				<div class="block mb-2">
 					<label for="{hand}-hand-back-select"
 						>{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
-						{dictionary['Hand Back:']}</label
+						{dictionary['hand back:']}</label
 					>
 					<select id="{hand}-hand-back-select" bind:value={$settings.clock.theme.hands[hand].back}>
 						{#each Array(9) as _, i}
@@ -300,7 +300,7 @@
 				<div class="block mb-2">
 					<label for="{hand}-hand-linecap-select"
 						>{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
-						{dictionary['Hand Linecap:']}</label
+						{dictionary['hand linecap:']}</label
 					>
 					<select
 						id="{hand}-hand-linecap-select"
@@ -318,7 +318,7 @@
 		<AccordionPanel accordionTitle={dictionary.clockSettings['Digital Datetime']} key="3">
 			<div class="block mb-2">
 				<div class="block mb-2">
-					<label for="time-format-select">{dictionary.clockSettings['Time Format:']}</label>
+					<label for="time-format-select">{dictionary.clockSettings['Time format:']}</label>
 					<select id="time-format-select" bind:value={$settings.clock.timeFormat}>
 						{#each ['H:mm', 'H:mm:ss', 'h:mm A', 'h:mm:ss A', 'H:mm Z', 'H:mm:ss Z', 'h:mm A Z', 'h:mm:ss A Z', 'mm:ss'] as timeFormat}
 							<option value={timeFormat}
@@ -350,7 +350,7 @@
 				</div>
 
 				<div class="block mb-2">
-					<label for="date-format-select">{dictionary.clockSettings['Date Format:']}</label>
+					<label for="date-format-select">{dictionary.clockSettings['Date format:']}</label>
 					<select id="date-format-select" bind:value={$settings.clock.dateFormat}>
 						{#each ['MMM D', 'MMM D YYYY', 'ddd, MMMM D', 'ddd, MMMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
 							<option value={dateFormat}
@@ -383,7 +383,7 @@
 
 				{#if $settings.clock.dateFormat === 'custom' || $settings.clock.timeFormat === 'custom'}
 					<button class="btn block my-2" on:click={datetimeFormatModal.show()}
-						>{dictionary.clockSettings['Custom Formatting Reference']}</button
+						>{dictionary.clockSettings['Custom formatting reference']}</button
 					>
 				{/if}
 
@@ -397,7 +397,7 @@
 					}}
 				>
 					<Icon name="undo" class="inline w-6 h-6" />
-					{dictionary.clockSettings['Reset Digital Datetime Formats']}
+					{dictionary.clockSettings['Reset datetime formats']}
 				</button>
 
 				{#if $settings.clock.displays.primary != 'analog' && fontFamilies[$settings.fontFamily].length > 1}

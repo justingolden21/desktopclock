@@ -4,13 +4,15 @@
 	export let labelText;
 </script>
 
-<div class="toggle-container">
-	<input bind:checked type="checkbox" {id} class="toggle-checkbox" on:change />
-	<label for={id} class="toggle-bg" />
+<div class="block">
+	<div class="toggle-container">
+		<input bind:checked type="checkbox" {id} class="toggle-checkbox" on:change />
+		<label for={id} class="toggle-bg" />
+	</div>
+	<label for={id} class="toggle-label">
+		{labelText}
+	</label>
 </div>
-<label for={id} class="toggle-label">
-	{labelText}
-</label>
 
 <style lang="postcss">
 	.toggle-container {

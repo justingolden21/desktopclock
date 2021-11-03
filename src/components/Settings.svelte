@@ -124,7 +124,7 @@
 
 	const keyboardShortcutsList = getKeyboardShortcutsList();
 
-	import { fontFamilies, locales } from './consts.js';
+	import { fontFamilies, locales, supportedLangs } from './consts.js';
 
 	let keyboardShortcutModal;
 </script>
@@ -163,78 +163,68 @@
 		<div class="block mb-2">
 			<button class="dark-btn btn" on:click={() => ($settings.darkMode = !$settings.darkMode)}>
 				<Icon name="moon" class="inline w-6 h-6 md:w-8 md:h-8" />
-				Dark
+				{dictionary.labels['Dark']}
 			</button>
 
 			<button class="cast-btn btn" on:click={castClock}>
 				<Icon name="cast" class="inline w-6 h-6 md:w-8 md:h-8" />
-				Cast
+				{dictionary.labels['Cast']}
 			</button>
 
 			<button class="fullscreen-btn btn" on:click={toggleFullscreen}>
 				<Icon name="fullscreen" class="inline w-6 h-6 md:w-8 md:h-8" />
-				Fullscreen
+				{dictionary.labels['Fullscreen']}
 			</button>
 		</div>
 
 		<Toggle
 			id="show-dark-btn-toggle"
 			bind:checked={$settings.showDarkButton}
-			labelText="Show dark button"
+			labelText={dictionary.labels['Show dark button']}
 		/>
-
-		<br />
 
 		<Toggle
 			id="show-cast-btn-toggle"
 			bind:checked={$settings.showCastButton}
-			labelText="Show cast button"
+			labelText={dictionary.labels['Show cast button']}
 		/>
-
-		<br />
 
 		<Toggle
 			id="show-fullscreen-btn-toggle"
 			bind:checked={$settings.showFullscreenButton}
-			labelText="Show fullscreen button"
+			labelText={dictionary.labels['Show fullscreen button']}
 		/>
-
-		<br />
 
 		<Toggle
 			id="show-theme-btn-toggle"
 			bind:checked={$settings.showThemeButtons}
-			labelText="Show theme buttons"
+			labelText={dictionary.labels['Show theme buttons']}
 		/>
-
-		<br />
 
 		<Toggle
 			id="smaller-menu-toggle"
 			bind:checked={$settings.smallerMenu}
-			labelText="Smaller menu"
+			labelText={dictionary.labels['Smaller menu']}
 		/>
 
-		<br />
-
-		<!-- TODO: only display option if on larger screens -->
-		<Toggle
-			id="always-collapse-menu-toggle"
-			bind:checked={$settings.alwaysCollapseMenu}
-			labelText="Always collapse menu"
-		/>
-
-		<br />
+		<!-- only relevant on larger screens that don't always have the menu collapsed anyway -->
+		<div class="hidden md:block">
+			<Toggle
+				id="always-collapse-menu-toggle"
+				bind:checked={$settings.alwaysCollapseMenu}
+				labelText={dictionary.labels['Always collapse menu']}
+			/>
+		</div>
 
 		<Toggle
 			id="hide-titlebar-when-idle-toggle"
 			bind:checked={$settings.hideTitlebarWhenIdle}
-			labelText="Hide title bar when idle"
+			labelText={dictionary.labels['Hide title bar when idle']}
 		/>
 
 		{#if $settings.hideTitlebarWhenIdle}
 			<div class="my-2 ml-8">
-				<label for="seconds-until-idle-input">Seconds until idle:</label>
+				<label for="seconds-until-idle-input">{dictionary.labels['Seconds until idle:']}</label>
 				<input
 					id="seconds-until-idle-input"
 					on:input|preventDefault={(event) => {
@@ -252,7 +242,7 @@
 		{/if}
 
 		<br />
-		<label for="font-family-select">Font Family:</label>
+		<label for="font-family-select">{dictionary.labels['Font family:']}</label>
 		<select
 			id="font-family-select"
 			bind:value={$settings.fontFamily}
@@ -283,24 +273,24 @@
 			}}
 		>
 			<Icon name="undo" class="inline w-6 h-6" />
-			Reset Appearance Settings
+			{dictionary.labels['Reset appearance settings']}
 		</button>
 	</TabPanel>
 
 	<!-- General -->
 	<TabPanel>
 		<Accordion key="1">
-			<AccordionPanel accordionTitle="Application" key="1">
+			<AccordionPanel accordionTitle={dictionary.labels['Application']} key="1">
 				<!-- <button class="btn">Download Settings</button> -->
 				<!-- <button class="btn">Upload Settings</button> -->
 
 				<button class="btn share-btn" on:click={() => shareApp(dictionary)}>
 					<Icon name="share" class="inline w-6 h-6" />
-					Share
+					{dictionary.labels['Share']}
 				</button>
 				<button class="btn link-btn" on:click={copyURL}>
 					<Icon name="link" class="inline w-6 h-6" />
-					Copy Website Link
+					{dictionary.labels['Copy website link']}
 				</button>
 
 				<br />
@@ -308,7 +298,7 @@
 				<InstallButton class="btn" />
 				<button class="btn external-link-btn" on:click={() => openWindow(window.location.href)}>
 					<Icon name="external-link" class="inline w-6 h-6" />
-					Open Another Clock
+					{dictionary.labels['Open another clock']}
 				</button>
 				<button
 					class="btn"
@@ -316,7 +306,7 @@
 						window.open('mailto:contact@justingolden.me?subject=Desktop+Clock+Feedback')}
 				>
 					<Icon name="envelope" class="inline w-6 h-6" />
-					Send Feedback
+					{dictionary.labels['Send feedback']}
 				</button>
 
 				<br />
@@ -336,31 +326,31 @@
 					}}
 				>
 					<Icon name="undo" class="inline w-6 h-6" />
-					Reset All Settings
+					{dictionary.labels['Reset all settings']}
 				</button>
 
 				<!-- <h3>Advanced</h3>
         		<button class="btn">Multiple Clock Settings</button>
 		        <button class="btn">Quick Resize Settings</button> -->
 			</AccordionPanel>
-			<AccordionPanel accordionTitle="Shortcuts" key="2">
+			<AccordionPanel accordionTitle={dictionary.labels['Shortcuts']} key="2">
 				<div class="block mb-2">
 					<Toggle
 						id="dbl-click-fullscreen-toggle"
-						labelText={dictionary.labels['Doubleclick Fullscreen']}
+						labelText={dictionary.labels['Doubleclick fullscreen']}
 						bind:checked={$settings.doubleclickFullscreen}
 					/>
 				</div>
 				<div class="block mb-2">
 					<Toggle
 						id="keyboard-shortcuts-toggle"
-						labelText="Keyboard Shortcuts"
+						labelText={dictionary.labels['Keyboard shortcuts']}
 						bind:checked={$settings.keyboardShortcuts}
 					/>
 				</div>
 				<button class="btn" on:click={keyboardShortcutModal.show()}>
 					<Icon name="table" class="inline w-6 h-6" />
-					View Keyboard Shortcuts
+					{dictionary.labels['View keyboard shortcuts']}
 				</button>
 
 				<!-- <button class="btn undo-btn block">
@@ -384,23 +374,22 @@
 					</table>
 				</Modal>
 			</AccordionPanel>
-			<AccordionPanel accordionTitle="Locale" key="3">
+			<AccordionPanel accordionTitle={dictionary.labels['Locale']} key="3">
 				<div class="block mb-2">
-					<label for="language-select">Language:</label>
+					<label for="language-select">{dictionary.labels['Language:']}</label>
 					<select
 						id="language-select"
 						disabled={$settings.locale.automaticLanguage}
 						bind:value={$settings.locale.language}
 					>
-						<option value="en-US">English, US</option>
-						<option value="en-GB">English, GB</option>
-						<option value="es-MX">Spanish, MX</option>
-						<option value="es-SP">Spanish, SP</option>
+						{#each supportedLangs as lang}
+							<option value={lang}>{dictionary.languages[lang]}</option>
+						{/each}
 					</select>
 					<br class="block lg:hidden" />
 					<Toggle
 						id="auto-detect-language-toggle"
-						labelText="Automatically Detect Language"
+						labelText={dictionary.labels['Automatically detect language']}
 						bind:checked={$settings.locale.automaticLanguage}
 						on:change={(e) => {
 							if (e.target.checked) {
@@ -411,7 +400,7 @@
 					/>
 				</div>
 				<div class="block mb-2">
-					<label for="datetime-locale-select">Datetime Locale:</label>
+					<label for="datetime-locale-select">{dictionary.labels['Datetime locale:']}</label>
 					<select
 						id="datetime-locale-select"
 						disabled={$settings.locale.automaticDatetime}
@@ -424,7 +413,7 @@
 					<br class="block lg:hidden" />
 					<Toggle
 						id="auto-detect-datetime-locale-toggle"
-						labelText="Automatically Detect Datetime Locale"
+						labelText={dictionary.labels['Automatically detect datetime locale']}
 						bind:checked={$settings.locale.automaticDatetime}
 						on:change={(e) => {
 							if (e.target.checked) {
@@ -440,7 +429,7 @@
 				<!-- todo: search input that finds results containing that string in below select -->
 				<!-- options should look something like "Pacific Daylight Time (GMT-7) Los Angeles, CA" -->
 				<div class="block mb-2">
-					<label for="timezone-select">Timezone:</label>
+					<label for="timezone-select">{dictionary.labels['Timezone:']}</label>
 					<select
 						id="timezone-select"
 						disabled={$settings.locale.automaticTimezone}
@@ -457,7 +446,7 @@
 					<br class="block lg:hidden" />
 					<Toggle
 						id="auto-detect-timezone-toggle"
-						labelText="Automatically Detect Timezone"
+						labelText={dictionary.labels['Automatically detect timezone']}
 						bind:checked={$settings.locale.automaticTimezone}
 						on:change={(e) => {
 							if (e.target.checked) {
@@ -467,7 +456,8 @@
 						}}
 					/>
 					<p>
-						Timezone offset: {new dayjs($now).tz($settings.locale.timezone).utcOffset() / 60}
+						{dictionary.labels['Timezone offset:']}
+						{new dayjs($now).tz($settings.locale.timezone).utcOffset() / 60}
 					</p>
 					<!-- TODO: btn to reset all locale settings, onclick toggles all auto to on which resets others -->
 				</div>
