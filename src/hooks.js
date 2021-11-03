@@ -1,7 +1,7 @@
 async function getLanguageDictionary(headers) {
 	// toggle comment below to test another language
 	// const lang = 'es';
-	const lang = headers['accept-language']?.substr?.(0, 2) ?? 'en';
+	const lang = headers ? headers['accept-language']?.substr?.(0, 2) ?? 'en' : 'en';
 	try {
 		return (await import(`./lang/${lang}.json`)).default;
 	} catch (error) {
