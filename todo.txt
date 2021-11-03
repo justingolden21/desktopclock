@@ -30,41 +30,41 @@ NOW:
 clean project, then translate
 
 TOP PRIORITY / MVP:
-changeable language
-translate: modals, about text, clock stuff
-btn for zen mode and/or btn for digital/analog on main ui?
-minor bug: clock freezes for one second before continuing
-- hour hand also teleports, probably because of timezone detection
-PWA bugs fixed
 translate / fully support spanish, let user change their lang
-finish keyboard shortcuts, display shortcuts in modal
-implement settings in local storage, option to turn off and option to reset, see notes
-- needs testing
+!!! - changeable language
+translate: modals, about text, clock stuff
+!!! btn for zen mode and/or btn for digital/analog on main ui?
+!!! minor bug: clock freezes for one second before continuing
+- hour hand also teleports, probably because of timezone detection
+PWA testing
+!!! localize keyboard shortcuts?
+option to turn off and option to reset local storage, see notes
 detect datetime format? should not display am/pm to en-uk users for example
 AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the Philippines" https://www.timeanddate.com/time/am-and-pm.html
-google analytics, etc
+!!! google analytics, etc
 clean code, fix linting errors
 zen mode should be a quick button in bottom left by default
-inner modals should be same size as outter modals
-determine final structure for clock theme settings (will be ahrd to change after launch)
+!!! inner modals should be same size as outter modals
+determine final structure for clock theme settings (will be hard to change after launch)
 translate timezones?
+!!! theme btns not clickable with analog clock on screen
+interior modal full width (formatting table, eventually view shortcuts modal) move modal outside of settings modal (settings component)
+ - settings component could include modal wrapper
 
 MVP consider:
-cache fonts offline?
+??? cache fonts offline?
 translate numbers? (other locales with different counting systems for timezone hours difference, etc)
-website not working in messenger?
+??? website not working in messenger?
 flipclock (component) https://codepen.io/shshaw/pen/vKzoLL
 primary and secondary font options, same with theme color
 
 code organizaiton:
-one centralized place for $now with .tz() and others so redundant code doesn't have to be supported
+??? one centralized place for $now with .tz() and others so redundant code doesn't have to be supported
 
 BONUS / NEXT:
 theme color(s) (primary and secondary/accent colors) used across entire UI (use css variables and tailwind colors in script to handle app color theme?)
 option to display timezone name (string selected in dropdown as opposed to utc code)
 better selection methods and displays for timezone dropdown (display utc, autocomplete input)
-interior modal full width (formatting table, eventually view shortcuts modal) move modal outside of settings modal (settings component)
- - settings component could include modal wrapper
 settings should only show clock settings if clock open, show worldclock settings if worldclock open, etc.
 
 future settings adjustments:
