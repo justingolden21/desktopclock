@@ -10,11 +10,11 @@
 		"stopwatch": "Stopwatch",
 		"timers": "Timers"
 	},
-    "settingsTabs": {
-        "Appearance": "Appearance",
-        "General": "General",
-        "About": "About"
-    },
+	"settingsTabs": {
+		"Appearance": "Appearance",
+		"General": "General",
+		"About": "About"
+	},
 	"error": {
 		"The resource could not be found": "The resource could not be found",
 		"Go back to the homepage": "Go back to the homepage",
@@ -29,54 +29,52 @@
 		"Cast Clock": "Cast Clock",
 		"Toggle Dark Mode": "Toggle Dark Mode",
 		"Toggle Fullscreen": "Toggle Fullscreen",
-        "Doubleclick Fullscreen": "Doubleclick Fullscreen",
-		"Font Weights": 
-			[
-				"",
-				"thin",
-				"extralight",
-				"light",
-				"normal",
-				"medium",
-				"semibold",
-				"bold",
-				"extrabold",
-				"black"
-			]
-		
+		"Doubleclick Fullscreen": "Doubleclick Fullscreen",
+		"Font Weights": [
+			"",
+			"thin",
+			"extralight",
+			"light",
+			"normal",
+			"medium",
+			"semibold",
+			"bold",
+			"extrabold",
+			"black"
+		]
 	},
-    "clockSettings": {
-        "Displays": "Displays",
-        "Analog": "Analog",
-        "Digital Datetime": "Digital Datetime",
+	"clockSettings": {
+		"Displays": "Displays",
+		"Analog": "Analog",
+		"Digital Datetime": "Digital Datetime",
 
-        "Primary Display:": "Primary Display:",
-        "Secondary Display:": "Secondary Display:",
-        "Analog Clock": "Analog Clock",
-        "Digital Time": "Digital Time",
-        "Date": "Date",
-        "Date + Digital Time": "Date + Digital Time",
-        "None": "None",
-        "Show battery": "Show battery",
+		"Primary Display:": "Primary Display:",
+		"Secondary Display:": "Secondary Display:",
+		"Analog Clock": "Analog Clock",
+		"Digital Time": "Digital Time",
+		"Date": "Date",
+		"Date + Digital Time": "Date + Digital Time",
+		"None": "None",
+		"Show battery": "Show battery",
 
-        "Default Theme": "Default Theme",
-        "Default Night Theme": "Default Night Theme",
-        "Classic Theme": "Classic Theme",
-        "Classic Night Theme": "Classic Night Theme",
-        "Simple Mode": "Simple Mode",
+		"Default Theme": "Default Theme",
+		"Default Night Theme": "Default Night Theme",
+		"Classic Theme": "Classic Theme",
+		"Classic Night Theme": "Classic Night Theme",
+		"Simple Mode": "Simple Mode",
 
-        "Time Format:": "Time Format:",
-        "Date Format:": "Date Format:",
-        "Custom": "Custom",
-        "Preview:": "Preview:",
-        "Custom Formatting Reference": "Custom Formatting Reference",
-        "Reset Digital Datetime Formats": "Reset Digital Datetime Formats"
-    },
-    "messages": {
-        "Copied successfully": "Copied successfully",
-        "Failed to copy": "Failed to copy",
-        "Coming soon": "Coming soon"
-    },	
+		"Time Format:": "Time Format:",
+		"Date Format:": "Date Format:",
+		"Custom": "Custom",
+		"Preview:": "Preview:",
+		"Custom Formatting Reference": "Custom Formatting Reference",
+		"Reset Digital Datetime Formats": "Reset Digital Datetime Formats"
+	},
+	"messages": {
+		"Copied successfully": "Copied successfully",
+		"Failed to copy": "Failed to copy",
+		"Coming soon": "Coming soon"
+	},
 
 	"Small": "Small",
 	"Medium": "Medium",
