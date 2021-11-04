@@ -472,34 +472,32 @@
 
 	<!-- About -->
 	<TabPanel>
-		<h3>About</h3>
+		<h3>{dictionary.settingsTabs['About']}</h3>
 		<p>
-			Desktop Clock is a simple, resizable and customizable clock for any device. Features include
-			customizable analog and digital displays, night mode, and more. Desktop Clock is designed to
-			scale perfectly to any screen size and ratio, with no distortion or pixelation. Use Desktop
-			Clock as a clock on your TV, a night clock, or even project the time for exams. Use the timers
-			for anything from chess to cooking! Customize the time, date and more to your liking! Desktop
-			Clock is the all-in-one clock for any of your timekeeping needs!
+			{dictionary.about.aboutText}
 		</p>
 		<p>
-			If you like this app, consider <button
-				class="font-bold hover:underline"
-				on:click={() => shareApp(dictionary)}>sharing</button
-			> it
+			{dictionary.about.shareText}
+			<button class="font-bold hover:underline" on:click={() => shareApp(dictionary)}>
+				{dictionary.labels['Share']}
+			</button>
 		</p>
-		<p class="mt-2">Version 0.0.0 Aqua</p>
+		<p class="mt-2">{dictionary.about['Version']} 0.0.0</p>
 
-		<h3>Help</h3>
-		<p>Coming Soon...</p>
+		<!-- <h3>Help</h3>
+		<p>Coming Soon...</p> -->
 
-		<h3>Contact</h3>
+		<h3>{dictionary.about['Contact']}</h3>
 		<p>
-			Made by
-			<a href="https://justingolden.me" target="_blank">Justin Golden</a>. Feel free to contact me
-			with any feedback, questions, or requests at
-			<a href="mailto:contact@justingolden.me?subject=Desktop+Clock" target="_blank"
-				>contact@justingolden.me</a
-			>.
+			{@html dictionary.about.contactText
+				.replace(
+					'{{author}}',
+					'<a href="https://justingolden.me" target="_blank">Justin Golden</a>'
+				)
+				.replace(
+					'{{email}}',
+					'<a href="mailto:contact@justingolden.me?subject=Desktop+Clock" target="_blank">contact@justingolden.me</a>'
+				)}
 		</p>
 	</TabPanel>
 </Tabs>

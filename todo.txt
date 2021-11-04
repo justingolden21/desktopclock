@@ -33,7 +33,7 @@ TOP PRIORITY / MVP:
 appearance undefined netlify kanga, memory leak, netlify?
 translate / fully support spanish, let user change their lang
 !!! - changeable language
-translate: modals, about text, clock stuff
+translate: modals, clock stuff
 !!! btn for digital/analog on main ui?
 !!! localize keyboard shortcuts?
 option to turn off and option to reset local storage, see notes
