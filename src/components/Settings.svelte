@@ -117,12 +117,11 @@
 	import Toasts from './Toasts.svelte';
 	import { addToast } from './toastStore';
 	import timezones from './timezones';
-	import { getKeyboardShortcutsList } from './KeyboardShortcuts.svelte';
+	import { keyboardShortcutsList } from './KeyboardShortcuts.svelte';
 	import ClockSettings from './ClockSettings.svelte';
 
 	$: dictionary = $session.languageDictionary;
 
-	const keyboardShortcutsList = getKeyboardShortcutsList();
 	const castSupported = isCastSupported();
 
 	import { fontFamilies, locales, supportedLangs } from './consts.js';

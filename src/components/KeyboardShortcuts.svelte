@@ -1,15 +1,14 @@
 <script context="module">
-	export function getKeyboardShortcutsList() {
-		// TODO: translation
-		return {
-			N: 'Night Mode',
-			S: 'Settings',
-			F: 'Fullscreen',
-			B: 'Battery',
-			D: 'Secondary Display Toggle',
-			P: 'Primary Display Toggle'
-		};
-	}
+	// TODO: translation
+	// replace these values with vals from dictionary
+	export const keyboardShortcutsList = {
+		N: 'Night Mode',
+		S: 'Settings',
+		F: 'Fullscreen',
+		B: 'Battery',
+		D: 'Secondary Display Toggle',
+		P: 'Primary Display Toggle'
+	};
 </script>
 
 <script>
