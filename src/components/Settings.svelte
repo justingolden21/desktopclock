@@ -476,10 +476,11 @@
 			{dictionary.about.aboutText}
 		</p>
 		<p>
-			{dictionary.about.shareText}
+			{dictionary.about.shareText.split('{{sharing}}')[0]}
 			<button class="font-bold hover:underline" on:click={() => shareApp(dictionary)}>
-				{dictionary.labels['Share']}
+				{dictionary.about['sharing']}
 			</button>
+			{dictionary.about.shareText.split('{{sharing}}')[1]}
 		</p>
 		<p class="mt-2">{dictionary.about['Version']} 0.0.0</p>
 
