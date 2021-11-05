@@ -31,10 +31,10 @@ clean project, then translate
 
 TOP PRIORITY / MVP:
 translate / fully support spanish, let user change their lang
-translate: modals, clock stuff
+- translate: modals, clock stuff
 !!! btn for digital/analog on main ui? cycle primary and secondary btns?
 detect datetime format? should not display am/pm to en-uk users for example
-AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the Philippines" https://www.timeanddate.com/time/am-and-pm.html
+- AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the Philippines" https://www.timeanddate.com/time/am-and-pm.html
 !!! google analytics, etc
 determine final structure for clock theme settings (will be hard to change after launch)
 translate timezones?

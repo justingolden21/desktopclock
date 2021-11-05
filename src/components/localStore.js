@@ -1,14 +1,12 @@
 import { writable } from 'svelte/store';
-
-// TODO implement system for new settings not defaulting to falsey
-// lo dash merge
+import { merge } from 'lodash';
 
 export function localStore(key, default_value) {
 	let store = writable(default_value);
 
 	if (typeof localStorage !== 'undefined') {
-		const value = localStorage.getItem(key);
-		if (value !== null) store.set(JSON.parse(value));
+		const value = merge(default_value, JSON.parse(localStorage.getItem(key)));
+		if (value !== null) store.set(value);
 
 		store.subscribe((value) => {
 			localStorage.setItem(key, JSON.stringify(value));
