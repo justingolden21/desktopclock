@@ -370,7 +370,7 @@
 								{#if shortcut != 'B' || (navigator && navigator.getBattery)}
 									<tr>
 										<td>{shortcut}</td>
-										<td>{keyboardShortcutsList[shortcut]}</td>
+										<td>{dictionary.labels[keyboardShortcutsList[shortcut]]}</td>
 									</tr>
 								{/if}
 							{/each}

@@ -30,11 +30,9 @@ NOW:
 clean project, then translate
 
 TOP PRIORITY / MVP:
-appearance undefined netlify kanga, memory leak, netlify?
 translate / fully support spanish, let user change their lang
 translate: modals, clock stuff
 !!! btn for digital/analog on main ui? cycle primary and secondary btns?
-!!! localize keyboard shortcuts?
 detect datetime format? should not display am/pm to en-uk users for example
 AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the Philippines" https://www.timeanddate.com/time/am-and-pm.html
 !!! google analytics, etc
@@ -42,6 +40,10 @@ determine final structure for clock theme settings (will be hard to change after
 translate timezones?
 btn titles/popovers should say shortcut ie. "night mode (N)"
 support localStore adding new settings in future
+
+important:
+does netlify have memory leak?
+test in other langs
 
 MVP consider:
 option to turn off and option to reset local storage, see notes
@@ -70,7 +72,8 @@ settings should only show clock settings if clock open, show worldclock settings
 future settings adjustments:
 - send feedback can open modal prompt with subject and body and send btn opens mailto
 - implenent langs, locales, timezones, update ui with reset btns next to them and auto detect toggle
-- finalize keyboard shortcuts, view keyboard shortcuts modal (maybe turn on and off specific shortcuts, change keys (each item has a toggle and input for key))
+- finalize keyboard shortcuts
+- maybe turn on and off specific shortcuts, change keys (each item has a toggle and input for key)
 display toast if update is available (click to restart/install) (option to turn this off?)
 
 ```

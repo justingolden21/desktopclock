@@ -1,13 +1,13 @@
 <script context="module">
-	// TODO: translation
-	// replace these values with vals from dictionary
+	// cannot import session here
+	// workaround: these are keys in the dictionary to be used where the shortcuts list is used
 	export const keyboardShortcutsList = {
-		N: 'Night Mode',
+		N: 'Toggle dark mode',
 		S: 'Settings',
-		F: 'Fullscreen',
-		B: 'Battery',
-		D: 'Secondary Display Toggle',
-		P: 'Primary Display Toggle'
+		F: 'Toggle fullscreen',
+		B: 'Toggle battery display',
+		P: 'Toggle primary display',
+		D: 'Toggle secondary display'
 	};
 </script>
 
