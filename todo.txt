@@ -44,6 +44,7 @@ support localStore adding new settings in future
 important:
 does netlify have memory leak?
 test in other langs
+test lodash merge local storage in depth
 
 MVP consider:
 option to turn off and option to reset local storage, see notes
