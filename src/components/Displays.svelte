@@ -110,7 +110,7 @@
 			class="inline w-6 h-6 md:w-8 md:h-8"
 		/>
 
-		{Math.round(batteryLevel * 100)}%
+		<h2 class="inline">{Math.round(batteryLevel * 100)}%</h2>
 	</div>
 {/if}
 
