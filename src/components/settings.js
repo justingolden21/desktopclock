@@ -46,4 +46,4 @@ export const defaultSettings = {
 };
 
 // deep copy to preserve original defaultSettings
-export const settings = localStore('settings', defaultSettings);
+export const settings = localStore('settings', JSON.parse(JSON.stringify(defaultSettings)));
