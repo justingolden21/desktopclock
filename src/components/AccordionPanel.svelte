@@ -41,7 +41,7 @@
 
 <style lang="postcss">
 	.details {
-		@apply bg-gray-50 border-b-2 border-gray-200 dark:bg-gray-700;
+		@apply bg-gray-50 border-b-2 border-gray-200;
 	}
 	.details .details-content {
 		@apply p-4 hidden dark:bg-gray-700;
