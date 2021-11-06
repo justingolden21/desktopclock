@@ -166,6 +166,8 @@
 	"messages": {
 		"Copied successfully": "Copied successfully",
 		"Failed to copy": "Failed to copy",
-		"Coming soon": "Coming soon"
+		"Coming soon": "Coming soon",
+		"Wake lock was activated successfully": "Wake lock was activated successfully",
+		"Wake lock failure": "Wake lock failure"
 	}
 }

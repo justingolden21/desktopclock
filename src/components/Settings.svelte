@@ -84,14 +84,24 @@
 	}
 
 	// https://developer.mozilla.org/en-US/docs/Web/API/WakeLock/request
-	export async function requestWakeLock() {
+	export async function requestWakeLock(languageDictionary) {
+		let success = true;
 		try {
 			const wakeLock = await navigator.wakeLock.request('screen');
 			console.log('wakeLock success');
 		} catch (err) {
 			// The wake lock request fails - usually system-related, such as low battery.
 			console.log(`wakeLock error: ${err.name}, ${err.message}`);
+			success = false;
 		}
+
+		const message = success
+			? languageDictionary.messages['Wake lock was activated successfully']
+			: languageDictionary.messages['Wake lock failure'];
+		const type = success ? 'success' : 'error';
+		const dismissible = true;
+		const timeout = 2000;
+		addToast({ message, type, dismissible, timeout });
 	}
 
 	export function validate(input) {
@@ -346,7 +356,9 @@
 				</button>
 
 				<h3>{dictionary.labels['Advanced / Experimental']}</h3>
-				<button class="btn" on:click={requestWakeLock}>{dictionary.labels['Keep screen awake']}</button>
+				<button class="btn" on:click={() => requestWakeLock(dictionary)}
+					>{dictionary.labels['Keep screen awake']}</button
+				>
 
 				<!-- 
         		<button class="btn">Multiple Clock Settings</button>
