@@ -31,15 +31,15 @@ clean project, then translate
 
 TOP PRIORITY / MVP:
 translate / fully support spanish, let user change their lang
-- translate: modals, clock stuff
+- translate: datetime format modal, color names
 !!! btn for digital/analog on main ui? cycle primary and secondary btns?
 detect datetime format? should not display am/pm to en-uk users for example
 - AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the Philippines" https://www.timeanddate.com/time/am-and-pm.html
 !!! google analytics, etc
 determine final structure for clock theme settings (will be hard to change after launch)
-translate timezones?
 btn titles/popovers should say shortcut ie. "night mode (N)"
-support localStore adding new settings in future
+support localStore adding new settings in future (NEEDS TESTING)
+update about text, comment other nav options for now
 
 important:
 does netlify have memory leak?
@@ -47,6 +47,7 @@ test in other langs
 test lodash merge local storage in depth
 
 MVP consider:
+translate timezones?
 option to turn off and option to reset local storage, see notes
 ??? clean code, fix linting errors (check svelte kit repo package json)
 minor bug: clock freezes for one second before continuing
@@ -130,6 +131,8 @@ get version from package.json in about section
 command to automatically build for production (update sw cache name) and update version number in package json?
 
 bug: app doesn't work in messenger in browser
+
+"convert" menu section
 
 next:
 !!! : ) dropdown for color in additon to lightness for each item in analog theme. option for "primary color" and "accent color" which can be chosen in general settings

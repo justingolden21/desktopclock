@@ -102,28 +102,28 @@
 				{dictionary.clockSettings['Simple Mode']}
 			</button>
 
-			<h3>Face</h3>
+			<h3>{dictionary.clockSettings['Face']}</h3>
 
 			<div class="block mb-2">
-				<label for="face-fill-select">Face Fill Color:</label>
+				<label for="face-fill-select">{dictionary.display['Fill color:']}</label>
 				<select id="face-fill-select" bind:value={$settings.clock.theme.face.fill}>
 					{#each Object.keys(colorPalette) as lightness}
 						<option value={lightness}>{lightness}</option>
 					{/each}
-					<option value="-1">Transparent</option>
+					<option value="-1">{dictionary.display['Transparent']}</option>
 				</select>
 			</div>
 			<div class="block mb-2">
-				<label for="face-stroke-select">Face Stroke Color:</label>
+				<label for="face-stroke-select">{dictionary.display['Stroke color:']}</label>
 				<select id="face-stroke-select" bind:value={$settings.clock.theme.face.stroke}>
 					{#each Object.keys(colorPalette) as lightness}
 						<option value={lightness}>{lightness}</option>
 					{/each}
-					<option value="-1">Transparent</option>
+					<option value="-1">{dictionary.display['Transparent']}</option>
 				</select>
 			</div>
 			<div class="block mb-2">
-				<label for="face-stroke-width-select">Face Stroke Width:</label>
+				<label for="face-stroke-width-select">{dictionary.display['Stroke width:']}</label>
 				<select id="face-stroke-width-select" bind:value={$settings.clock.theme.face.strokeWidth}>
 					{#each Array(6) as _, i}
 						<option value={i}>{i}</option>
@@ -131,18 +131,18 @@
 				</select>
 			</div>
 			<div class="block mb-2">
-				<label for="face-shape-select">Face Shape:</label>
+				<label for="face-shape-select">{dictionary.display['Shape:']}</label>
 				<select id="face-shape-select" bind:value={$settings.clock.theme.face.shape}>
-					<option value="circle">Circle</option>
-					<option value="rounded">Rounded Square</option>
-					<option value="square">Square</option>
+					<option value="circle">{dictionary.display.shapes['Circle']}</option>
+					<option value="rounded">{dictionary.display.shapes['Rounded Square']}</option>
+					<option value="square">{dictionary.display.shapes['Square']}</option>
 				</select>
 			</div>
 
-			<h3>Shadow</h3>
+			<h3>{dictionary.clockSettings['Shadow']}</h3>
 
 			<div class="block mb-2">
-				<label for="shadow-fill-select">Shadow Color:</label>
+				<label for="shadow-fill-select">{dictionary.display['Color:']}</label>
 				<select
 					id="shadow-fill-select"
 					bind:value={$settings.clock.theme.shadow.fill}
@@ -151,32 +151,32 @@
 					{#each Object.keys(colorPalette) as lightness}
 						<option value={lightness}>{lightness}</option>
 					{/each}
-					<option value="-1">Transparent</option>
+					<option value="-1">{dictionary.display['Transparent']}</option>
 				</select>
 			</div>
 
-			<h3>Pin</h3>
+			<h3>{dictionary.clockSettings['Pin']}</h3>
 
 			<div class="block mb-2">
-				<label for="pin-fill-select">Pin Fill Color:</label>
+				<label for="pin-fill-select">{dictionary.display['Fill color:']}</label>
 				<select id="pin-fill-select" bind:value={$settings.clock.theme.pin.fill}>
 					{#each Object.keys(colorPalette) as lightness}
 						<option value={lightness}>{lightness}</option>
 					{/each}
-					<option value="-1">Transparent</option>
+					<option value="-1">{dictionary.display['Transparent']}</option>
 				</select>
 			</div>
 			<div class="block mb-2">
-				<label for="pin-stroke-select">Pin Stroke Color:</label>
+				<label for="pin-stroke-select">{dictionary.display['Stroke color:']}</label>
 				<select id="pin-stroke-select" bind:value={$settings.clock.theme.pin.stroke.lightness}>
 					{#each Object.keys(colorPalette) as lightness}
 						<option value={lightness}>{lightness}</option>
 					{/each}
-					<option value="-1">Transparent</option>
+					<option value="-1">{dictionary.display['Transparent']}</option>
 				</select>
 			</div>
 			<div class="block mb-2">
-				<label for="pin-stroke-width-select">Pin Stroke Width:</label>
+				<label for="pin-stroke-width-select">{dictionary.display['Stroke width:']}</label>
 				<select id="pin-stroke-width-select" bind:value={$settings.clock.theme.pin.strokeWidth}>
 					{#each Array(7) as _, i}
 						<option value={i / 2}>{i / 2}</option>
@@ -184,7 +184,7 @@
 				</select>
 			</div>
 			<div class="block mb-2">
-				<label for="pin-size-select">Pin Size:</label>
+				<label for="pin-size-select">{dictionary.display['Size:']}</label>
 				<select id="pin-size-select" bind:value={$settings.clock.theme.pin.size}>
 					{#each Array(6) as _, i}
 						<option value={i / 2}>{i / 2}</option>
@@ -192,16 +192,15 @@
 				</select>
 			</div>
 
-			<h3>Ticks</h3>
+			<h3>{dictionary.clockSettings['Ticks']}</h3>
 
 			{#each ['sm', 'md', 'lg'] as size, i}
 				<h5>
-					<b>{dictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}</b>
+					<b>{dictionary.clockSettings[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}</b>
 				</h5>
 				<div class="block mb-2">
 					<label for="{size}-tick-stroke-select">
-						{dictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
-						{dictionary['tick stroke color:']}
+						{dictionary.display['Stroke color:']}
 					</label>
 					<select
 						id="{size}-tick-stroke-select"
@@ -210,14 +209,11 @@
 						{#each Object.keys(colorPalette) as lightness}
 							<option value={lightness}>{lightness}</option>
 						{/each}
-						<option value="-1">Transparent</option>
+						<option value="-1">{dictionary.display['Transparent']}</option>
 					</select>
 				</div>
 				<div class="block mb-2">
-					<label for="{size}-tick-width-select"
-						>{dictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
-						{dictionary['tick width:']}</label
-					>
+					<label for="{size}-tick-width-select">{dictionary.display['Width:']}</label>
 					<select
 						id="{size}-tick-width-select"
 						bind:value={$settings.clock.theme.ticks[size].width}
@@ -228,10 +224,7 @@
 					</select>
 				</div>
 				<div class="block mb-2">
-					<label for="{size}-tick-height-select"
-						>{dictionary[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
-						{dictionary['tick height:']}</label
-					>
+					<label for="{size}-tick-height-select">{dictionary.display['Height:']}</label>
 					<select
 						id="{size}-tick-height-select"
 						bind:value={$settings.clock.theme.ticks[size].height}
@@ -243,16 +236,19 @@
 				</div>
 			{/each}
 
-			<h3>Hands</h3>
+			<h3>{dictionary.clockSettings['Hands']}</h3>
 
 			{#each ['hour', 'minute', 'second'] as hand, i}
 				<h5>
-					<b>{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}</b>
+					<b
+						>{dictionary.clockSettings[
+							{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]
+						]}</b
+					>
 				</h5>
 				<div class="block mb-2">
 					<label for="{hand}-hand-stroke-select">
-						{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
-						{dictionary['hand stroke color:']}
+						{dictionary.display['Stroke color:']}
 					</label>
 					<select
 						id="{hand}-hand-stroke-select"
@@ -261,14 +257,11 @@
 						{#each Object.keys(colorPalette) as lightness}
 							<option value={lightness}>{lightness}</option>
 						{/each}
-						<option value="-1">Transparent</option>
+						<option value="-1">{dictionary.display['Transparent']}</option>
 					</select>
 				</div>
 				<div class="block mb-2">
-					<label for="{hand}-hand-stroke-width-select"
-						>{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
-						{dictionary['hand stroke width:']}</label
-					>
+					<label for="{hand}-hand-stroke-width-select">{dictionary.display['Stroke width:']}</label>
 					<select
 						id="{hand}-hand-stroke-width-select"
 						bind:value={$settings.clock.theme.hands[hand].strokeWidth}
@@ -279,10 +272,7 @@
 					</select>
 				</div>
 				<div class="block mb-2">
-					<label for="{hand}-hand-length-select"
-						>{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
-						{dictionary['hand length:']}</label
-					>
+					<label for="{hand}-hand-length-select">{dictionary.display['Length:']}</label>
 					<select
 						id="{hand}-hand-length-select"
 						bind:value={$settings.clock.theme.hands[hand].length}
@@ -293,10 +283,7 @@
 					</select>
 				</div>
 				<div class="block mb-2">
-					<label for="{hand}-hand-back-select"
-						>{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
-						{dictionary['hand back:']}</label
-					>
+					<label for="{hand}-hand-back-select">{dictionary.display['Back:']}</label>
 					<select id="{hand}-hand-back-select" bind:value={$settings.clock.theme.hands[hand].back}>
 						{#each Array(9) as _, i}
 							<option value={i}>{i}</option>
@@ -304,17 +291,14 @@
 					</select>
 				</div>
 				<div class="block mb-2">
-					<label for="{hand}-hand-linecap-select"
-						>{dictionary[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
-						{dictionary['hand linecap:']}</label
-					>
+					<label for="{hand}-hand-linecap-select">{dictionary.display['Linecap:']}</label>
 					<select
 						id="{hand}-hand-linecap-select"
 						bind:value={$settings.clock.theme.hands[hand].linecap}
 					>
-						<option value="butt">Butt</option>
-						<option value="round">Round</option>
-						<option value="square">Square</option>
+						<option value="butt">{dictionary.display.linecaps['Butt']}</option>
+						<option value="round">{dictionary.display.linecaps['Round']}</option>
+						<option value="square">{dictionary.display.linecaps['Square']}</option>
 					</select>
 				</div>
 			{/each}
@@ -407,18 +391,24 @@
 				</button>
 
 				{#if $settings.clock.displays.primary != 'analog' && fontFamilies[$settings.fontFamily].length > 1}
-					<label for="datetime-font-weight-select">Datetime Font Weight:</label>
+					<label for="datetime-font-weight-select"
+						>{dictionary.clockSettings['Datetime font weight:']}</label
+					>
 					<select id="datetime-font-weight-select" bind:value={$settings.clock.datetimeFontWeight}>
 						{#each fontFamilies[$settings.fontFamily] as weight}
 							<option value={weight.toString()}
-								>{dictionary.labels['Font Weights'][weight / 100]}</option
+								>{dictionary.labels['Font Weights'][weight / 100]} ({weight / 100})</option
 							>
 						{/each}
 					</select>
 				{/if}
 
-				<Modal bind:this={datetimeFormatModal} title="Datetime Formatting" icon="table">
-					<!-- https://day.js.org/docs/en/display/format -->
+				<Modal
+					bind:this={datetimeFormatModal}
+					title={dictionary.clockSettings['Datetime Formatting']}
+					icon="table"
+				>
+					<!-- TODO: translate -->
 					<table>
 						<thead>
 							<tr><th>Format</th><th>Output</th><th>Description</th></tr>
@@ -453,11 +443,11 @@
 						</tbody>
 					</table>
 					<p>
-						Made with <a
-							rel="noopener"
-							href="https://day.js.org/docs/en/display/format"
-							target="_blank">Day JS</a
-						>
+						<!-- TODO: replace 'en' in link with user language -->
+						{@html dictionary.about['madeWithText'].replace(
+							'{{Day JS}}',
+							'<a rel="noopener" href="https://day.js.org/docs/en/display/format" target="_blank">Day JS</a>'
+						)}
 					</p>
 				</Modal>
 			</div>

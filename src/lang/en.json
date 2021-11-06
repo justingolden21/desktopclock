@@ -65,15 +65,15 @@
 
 		"Font Weights": [
 			"",
-			"thin",
-			"extralight",
-			"light",
-			"normal",
-			"medium",
-			"semibold",
-			"bold",
-			"extrabold",
-			"black"
+			"Thin",
+			"Extralight",
+			"Light",
+			"Normal",
+			"Medium",
+			"Semibold",
+			"Bold",
+			"Extrabold",
+			"Black"
 		]
 	},
 	"languages": {
@@ -105,7 +105,51 @@
 		"Custom": "Custom",
 		"Preview:": "Preview:",
 		"Custom formatting reference": "Custom formatting reference",
-		"Reset datetime formats": "Reset datetime formats"
+		"Reset datetime formats": "Reset datetime formats",
+		"Datetime font weight:": "Datetime font weight:",
+
+		"Datetime Formatting": "Datetime Formatting",
+
+		"Face": "Face",
+		"Shadow": "Shadow",
+		"Pin": "Pin",
+		"Ticks": "Ticks",
+		"Hands": "Hands",
+
+		"Small": "Small",
+		"Medium": "Medium",
+		"Large": "Large",
+
+		"Hour": "Hour",
+		"Minute": "Minute",
+		"Second": "Second"
+	},
+	"display": {
+		"Stroke color:": "Stroke color:",
+		"Fill color:": "Fill color:",
+		"Color:": "Color:",
+		"Stroke width:": "Stroke width:",
+		"Size:": "Size:",
+		"Shape:": "Shape:",
+		"Width:": "Width:",
+		"Height:": "Height:",
+		"Length:": "Length:",
+		"Back:": "Back:",
+		"Linecap:": "Linecap:",
+
+		"Transparent": "Transparent",
+
+		"shapes": {
+			"Circle": "Circle",
+			"Rounded Square": "Rounded Square",
+			"Square": "Square"
+		},
+
+		"linecaps": {
+			"Butt": "Butt",
+			"Round": "Round",
+			"Square": "Square"
+		}
 	},
 	"about": {
 		"Version": "Version",
@@ -113,29 +157,12 @@
 		"aboutText": "Desktop Clock is a simple, resizable and customizable clock for any device. Features include customizable analog and digital displays, night mode, and more. Desktop Clock is designed to scale perfectly to any screen size and ratio, with no distortion or pixelation. Use Desktop Clock as a clock on your TV, a night clock, or even project the time for exams. Use the timers for anything from chess to cooking! Customize the time, date and more to your liking! Desktop Clock is the all-in-one clock for any of your timekeeping needs!",
 		"contactText": "Made by {{author}}. Feel free to contact me with any feedback, questions, or requests at {{email}}",
 		"shareText": "If you like this app, consider {{sharing}} it.",
-		"sharing": "sharing"
+		"sharing": "sharing",
+		"madeWithText": "Made with {{Day JS}}"
 	},
 	"messages": {
 		"Copied successfully": "Copied successfully",
 		"Failed to copy": "Failed to copy",
 		"Coming soon": "Coming soon"
-	},
-
-	"Small": "Small",
-	"Medium": "Medium",
-	"Large": "Large",
-
-	"tick stroke color:": "tick stroke color:",
-	"tick width:": "tick width:",
-	"tick height:": "tick height:",
-
-	"Hour": "Hour",
-	"Minute": "Minute",
-	"Second": "Second",
-
-	"hand stroke color:": "hand stroke color:",
-	"hand stroke width:": "hand stroke width:",
-	"hand length:": "hand length:",
-	"hand back:": "hand back:",
-	"hand linecap:": "hand linecap:"
+	}
 }
