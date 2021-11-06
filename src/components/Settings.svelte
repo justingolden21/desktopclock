@@ -259,8 +259,11 @@
 			}}
 		>
 			{#each Object.keys(fontFamilies) as fontFamily}
-				<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
+				{#if fontFamily !== ''}
+					<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
+				{/if}
 			{/each}
+			<option value="">{dictionary.display['System default']}</option>
 		</select>
 		<button
 			class="btn undo-btn block"

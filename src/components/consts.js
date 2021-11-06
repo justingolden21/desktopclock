@@ -16,7 +16,8 @@ export const fontFamilies = {
 	'Major Mono Display': [400],
 	'Montserrat Alternates': [300, 600, 900],
 	'Orbitron': [400, 600, 800],
-	'Yatra One': [300, 500, 700]
+	'Yatra One': [300, 500, 700],
+	'': [100, 200, 300, 400, 500, 600, 700, 800, 900]
 };
 
 export const locales = [
