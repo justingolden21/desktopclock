@@ -50,4 +50,9 @@
 		@apply block;
 		animation: sweep 0.5s ease-in-out;
 	}
+
+	/* prevent white flash when opening details in dark mode */
+	:global(body.dark) .details {
+		@apply bg-gray-700;
+	}
 </style>
