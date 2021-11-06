@@ -356,12 +356,19 @@
 				</button>
 
 				<h3>{dictionary.labels['Advanced / Experimental']}</h3>
+
+				<button
+					class="btn"
+					on:click={() => {
+						localStorage.clear();
+						location.reload();
+					}}>{dictionary.labels['Delete settings and reload']}</button
+				>
 				<button class="btn" on:click={() => requestWakeLock(dictionary)}
 					>{dictionary.labels['Keep screen awake']}</button
 				>
 
-				<!-- 
-        		<button class="btn">Multiple Clock Settings</button>
+				<!-- <button class="btn">Multiple Clock Settings</button>
 		        <button class="btn">Quick Resize Settings</button> -->
 			</AccordionPanel>
 			<AccordionPanel accordionTitle={dictionary.labels['Shortcuts']} key="2">
