@@ -22,7 +22,7 @@
 <div class="details">
 	<div class="summary">
 		<button
-			class="w-full text-left cursor-pointer p-2 hover:bg-gray-100 font-bold text-lg dark:hover:bg-gray-600 bg-opacity-50 dark:bg-gray-700"
+			class="w-full text-left cursor-pointer p-2 hover:bg-gray-100 font-bold text-lg dark:hover:bg-gray-600 bg-opacity-25 dark:bg-gray-700 dark:bg-opacity-50"
 			on:click={handleToggle}
 			aria-expanded={params.open}
 		>
@@ -41,10 +41,10 @@
 
 <style lang="postcss">
 	.details {
-		@apply bg-gray-50 border-b-2 border-gray-200;
+		@apply bg-gray-50 border-b-2 border-gray-200 bg-opacity-25;
 	}
 	.details .details-content {
-		@apply p-4 hidden dark:bg-gray-700;
+		@apply p-4 hidden dark:bg-gray-700 dark:bg-opacity-50;
 	}
 	.details-content.open {
 		@apply block;
@@ -53,6 +53,6 @@
 
 	/* prevent white flash when opening details in dark mode */
 	:global(body.dark) .details {
-		@apply bg-gray-700;
+		@apply bg-gray-700 bg-opacity-25;
 	}
 </style>
