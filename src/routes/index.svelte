@@ -1,5 +1,5 @@
 <script>
-	import colors from 'tailwindcss/colors.js';
+	import TailwindColors from 'tailwindcss/colors';
 
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
@@ -70,7 +70,7 @@
 	//  ================
 
 	$: theme = $settings.clock.theme;
-	$: colorPalette = colors[$settings.colorPalette];
+	$: colorPalette = TailwindColors[$settings.colorPalette];
 
 	$: displays = $settings.clock.displays;
 
@@ -83,7 +83,7 @@
 	function getColor(obj) {
 		if (!obj || obj == '-1') return 'none';
 		if (typeof obj === 'string') return colorPalette[obj];
-		return colors[obj.color || $settings.colorPalette][obj.lightness];
+		return TailwindColors[obj.color || $settings.colorPalette][obj.lightness];
 	}
 </script>
 

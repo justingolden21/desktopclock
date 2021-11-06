@@ -1,7 +1,7 @@
 <script>
 	import { settings } from './settings.js';
 
-	import TailwindColors from 'tailwindcss/colors.js';
+	import TailwindColors from 'tailwindcss/colors';
 </script>
 
 <!-- Remove first 2 items from array (black and white). They do not have themes. -->

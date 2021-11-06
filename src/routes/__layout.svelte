@@ -5,7 +5,7 @@
 	import { browser } from '$app/env';
 	import { onMount } from 'svelte';
 
-	import colors from 'tailwindcss/colors.js';
+	import TailwindColors from 'tailwindcss/colors';
 
 	import screenfull from 'screenfull';
 
@@ -64,8 +64,11 @@
 </script>
 
 <svelte:head>
-	<meta name="apple-mobile-web-app-status-bar" content={colors[$settings.colorPalette][500]} />
-	<meta name="theme-color" content={colors[$settings.colorPalette][500]} />
+	<meta
+		name="apple-mobile-web-app-status-bar"
+		content={TailwindColors[$settings.colorPalette][500]}
+	/>
+	<meta name="theme-color" content={TailwindColors[$settings.colorPalette][500]} />
 </svelte:head>
 
 <KeyboardShortcuts bind:settingsModal />

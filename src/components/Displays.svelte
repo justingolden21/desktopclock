@@ -1,5 +1,5 @@
 <script>
-	import colors from 'tailwindcss/colors.js';
+	import TailwindColors from 'tailwindcss/colors';
 
 	import { onMount } from 'svelte';
 
@@ -65,7 +65,7 @@
 		});
 	});
 
-	$: colorPalette = colors[$settings.colorPalette];
+	$: colorPalette = TailwindColors[$settings.colorPalette];
 	$: shade = $settings.darkMode ? 200 : 900;
 </script>
 

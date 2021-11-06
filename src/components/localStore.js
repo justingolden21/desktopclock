@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { merge } from 'lodash';
+import merge from 'lodash.merge';
 
 export function localStore(key, default_value) {
 	let store = writable(default_value);
