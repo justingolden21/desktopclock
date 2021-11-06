@@ -10,7 +10,7 @@ export async function get({ locals }) {
 			display: 'standalone',
 			background_color: '#FFFFFF',
 			theme_color: '#FFFFFF',
-			orientation: 'portrait-primary',
+			orientation: 'any',
 			icons: [
 				{
 					src: 'img/icons/manifest-icon-192.png',
