@@ -83,6 +83,17 @@
 		win.focus();
 	}
 
+	// https://developer.mozilla.org/en-US/docs/Web/API/WakeLock/request
+	export async function requestWakeLock() {
+		try {
+			const wakeLock = await navigator.wakeLock.request('screen');
+			console.log('wakeLock success');
+		} catch (err) {
+			// The wake lock request fails - usually system-related, such as low battery.
+			console.log(`wakeLock error: ${err.name}, ${err.message}`);
+		}
+	}
+
 	export function validate(input) {
 		const min = input.min;
 		const max = input.max;
@@ -334,7 +345,10 @@
 					{dictionary.labels['Reset all settings']}
 				</button>
 
-				<!-- <h3>Advanced</h3>
+				<h3>{dictionary.labels['Advanced / Experimental']}</h3>
+				<button class="btn" on:click={requestWakeLock}>{dictionary.labels['Keep screen awake']}</button>
+
+				<!-- 
         		<button class="btn">Multiple Clock Settings</button>
 		        <button class="btn">Quick Resize Settings</button> -->
 			</AccordionPanel>

@@ -62,6 +62,8 @@
 		"Timezone:": "Timezone:",
 		"Automatically detect timezone": "Automatically detect timezone",
 		"Timezone offset:": "Timezone offset:",
+		"Advanced / Experimental": "Advanced / Experimental",
+		"Keep screen awake": "Keep screen awake",
 
 		"Font Weights": [
 			"",

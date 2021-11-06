@@ -47,6 +47,7 @@ test in other langs
 test lodash merge local storage in depth
 
 MVP consider:
+add option to add any text to main screen?
 translate timezones?
 option to turn off and option to reset local storage, see notes
 ??? clean code, fix linting errors (check svelte kit repo package json)
@@ -61,6 +62,8 @@ translate numbers? (other locales with different counting systems for timezone h
 ??? website not working in messenger?
 flipclock (component) https://codepen.io/shshaw/pen/vKzoLL
 primary and secondary font options, same with theme color
+
+option to display battery on primary or secondary?
 
 code organizaiton:
 ??? one centralized place for $now with .tz() and others so redundant code doesn't have to be supported
