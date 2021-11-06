@@ -5,7 +5,7 @@
 	import { browser } from '$app/env';
 	import { onMount } from 'svelte';
 
-	import TailwindColors from 'tailwindcss/colors';
+	import TailwindColors from 'tailwindcss/colors.js';
 
 	import screenfull from 'screenfull';
 

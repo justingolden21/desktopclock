@@ -1,5 +1,5 @@
 <script>
-	import TailwindColors from 'tailwindcss/colors';
+	import TailwindColors from 'tailwindcss/colors.js';
 
 	import { onMount } from 'svelte';
 
