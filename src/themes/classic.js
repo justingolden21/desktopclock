@@ -12,10 +12,10 @@ const classicTheme = {
 		shape: 'circle'
 	},
 	shadow: {
-		fill: -1 // transparent
+		fill: '-1' // transparent
 	},
 	pin: {
-		stroke: -1, // transparent
+		stroke: '-1', // transparent
 		// prev #900 now #991B1B
 		fill: {
 			color: 'red',

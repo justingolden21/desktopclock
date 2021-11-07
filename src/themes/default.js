@@ -9,7 +9,7 @@ const defaultTheme = {
 		shape: 'circle'
 	},
 	shadow: {
-		fill: '700'
+		fill: '-1'
 	},
 	pin: {
 		stroke: {
