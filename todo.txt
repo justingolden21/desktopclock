@@ -38,6 +38,7 @@ translate / fully support spanish, let user change their lang
     now you can just use $session
 
 !!! btn for digital/analog on main ui? cycle primary and secondary btns? (use func from keyboard shortcuts component)
+- use "toggle secondary display" and primary for labels for btns with keyboard shortcut in parentheses in header
 
 detect datetime format? should not display am/pm to en-uk users for example
 - AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the Philippines" https://www.timeanddate.com/time/am-and-pm.html
@@ -48,7 +49,9 @@ determine final structure for clock theme settings (will be hard to change after
 
 support localStore adding new settings in future (NEEDS TESTING)
 
-update about text, comment other nav options for now
+before release:
+- comment other nav options
+- test everything to hell (devices, browsers, versions, aspect ratios, pixel densities, operating systems, pwa, language, display settings, saving settings)
 ================
 
 important:
@@ -376,3 +379,6 @@ windows: date&time > sync now
 
 console check theme settings:
 JSON.parse(localStorage.settings).clock.theme
+
+setting to turn off transitions? (tick second hands)
+- sweep second hand but not transition wildly when switching tabs
