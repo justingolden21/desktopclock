@@ -284,7 +284,12 @@
 					<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
 				{/if}
 			{/each}
-			<option value="">{dictionary.display['System default']}</option>
+			<!-- https://tailwindcss.com/docs/font-family -->
+			<option
+				value=""
+				style="font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
+				>{dictionary.display['System default']}</option
+			>
 		</select>
 		<button
 			class="btn undo-btn block"
