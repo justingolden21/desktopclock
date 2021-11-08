@@ -31,6 +31,10 @@ clean project, then translate
 
 TOP PRIORITY / MVP:
 translate / fully support spanish, let user change their lang
+- let user change lang:
+    If you stored the data inside cookies instead of local storage
+    you could just access it in hooks
+    now you can just use $session
 - translate: datetime format modal, color names
 !!! btn for digital/analog on main ui? cycle primary and secondary btns?
 detect datetime format? should not display am/pm to en-uk users for example
@@ -40,13 +44,18 @@ determine final structure for clock theme settings (will be hard to change after
 btn titles/popovers should say shortcut ie. "night mode (N)"
 support localStore adding new settings in future (NEEDS TESTING)
 update about text, comment other nav options for now
+!!! mobile landscape nav is squished, needs css
+larger font for subtitle headings in analog settings (min, sec, hr, small, md, lg) maybe bolder?
 
 important:
+turn off screen lock option?
 does netlify have memory leak?
 test in other langs
 test lodash merge local storage in depth
 
 MVP consider:
+remember theme preset name rather than each individual setting?
+??? only store settings when they differ from defaults?
 add option to add any text to main screen?
 translate timezones?
 option to turn off and option to reset local storage, see notes
@@ -62,8 +71,11 @@ translate numbers? (other locales with different counting systems for timezone h
 ??? website not working in messenger?
 flipclock (component) https://codepen.io/shshaw/pen/vKzoLL
 primary and secondary font options, same with theme color
+remove redundant lightblue theme btn (now sky)
 
 option to display battery on primary or secondary?
+
+future: each analog clock part will be able to be in the primary or secondary color
 
 code organizaiton:
 ??? one centralized place for $now with .tz() and others so redundant code doesn't have to be supported
@@ -355,3 +367,6 @@ support for daylight savings (reminders, option to turn off, detect locale/locat
 localizing numbers: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
 instructions for if time is off, based on system time, how to synx system time, windows, android, etc
 windows: date&time > sync now
+
+console check theme settings:
+JSON.parse(localStorage.settings).clock.theme
