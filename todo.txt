@@ -46,8 +46,6 @@ detect datetime format? should not display am/pm to en-uk users for example
 
 determine final structure for clock theme settings (will be hard to change after launch)
 
-btn titles/popovers should say shortcut ie. "night mode (N)"
-
 support localStore adding new settings in future (NEEDS TESTING)
 
 update about text, comment other nav options for now

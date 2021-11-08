@@ -67,6 +67,7 @@
 		class:hidden={!$settings.showDarkButton}
 		on:click={() => ($settings.darkMode = !$settings.darkMode)}
 		aria-label={dictionary.labels['Toggle dark mode']}
+		title={dictionary.labels['Toggle dark mode'] + ($settings.keyboardShortcuts ? ' (N)' : '')}
 	>
 		<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
@@ -81,6 +82,7 @@
 		class:hidden={!$settings.showCastButton || !castSupported}
 		on:click={castClock}
 		aria-label={dictionary.labels['Cast clock']}
+		title={dictionary.labels['Cast clock']}
 	>
 		<Icon name="cast" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
@@ -91,6 +93,7 @@
 		class:hidden={!$settings.showFullscreenButton}
 		on:click={toggleFullscreen}
 		aria-label={dictionary.labels['Toggle fullscreen']}
+		title={dictionary.labels['Toggle fullscreen'] + ($settings.keyboardShortcuts ? ' (F)' : '')}
 	>
 		<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
