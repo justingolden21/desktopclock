@@ -314,7 +314,7 @@
 					<Icon name="share" class="inline w-6 h-6" />
 					{dictionary.labels['Share']}
 				</button>
-				<button class="btn link-btn" on:click={copyURL}>
+				<button class="btn link-btn" on:click={() => copyURL(dictionary)}>
 					<Icon name="link" class="inline w-6 h-6" />
 					{dictionary.labels['Copy website link']}
 				</button>
