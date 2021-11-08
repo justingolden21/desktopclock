@@ -406,47 +406,33 @@
 					title={dictionary.clockSettings['Datetime Formatting']}
 					icon="table"
 				>
-					<!-- TODO: translate -->
 					<table>
 						<thead>
-							<tr><th>Format</th><th>Output</th><th>Description</th></tr>
+							<tr>
+								{#each dictionary.clockSettings.datetimeFormatTableHeadings as item}
+									<th>{item}</th>
+								{/each}
+							</tr>
 						</thead>
 						<tbody>
-							<tr><td>YY</td><td>18</td><td>Two-digit year</td></tr>
-							<tr><td>YYYY</td><td>2018</td><td>Four-digit year</td></tr>
-							<tr><td>M</td><td>1-12</td><td>The month, beginning at 1</td></tr>
-							<tr><td>MM</td><td>01-12</td><td>The month, 2-digits</td></tr>
-							<tr><td>MMM</td><td>Jan-Dec</td><td>The abbreviated month name</td></tr>
-							<tr><td>MMMM</td><td>January-December</td><td>The full month name</td></tr>
-							<tr><td>D</td><td>1-31</td><td>The day of the month</td></tr>
-							<tr><td>DD</td><td>01-31</td><td>The day of the month, 2-digits</td></tr>
-							<tr><td>d</td><td>0-6</td><td>The day of the week, with Sunday as 0</td></tr>
-							<tr><td>dd</td><td>Su-Sa</td><td>The min name of the day of the week</td></tr>
-							<tr><td>ddd</td><td>Sun-Sat</td><td>The short name of the day of the week</td></tr>
-							<tr><td>dddd</td><td>Sunday-Saturday</td><td>The name of the day of the week</td></tr>
-							<tr><td>H</td><td>0-23</td><td>The hour</td></tr>
-							<tr><td>HH</td><td>00-23</td><td>The hour, 2-digits</td></tr>
-							<tr><td>h</td><td>1-12</td><td>The hour, 12-hour clock</td></tr>
-							<tr><td>hh</td><td>01-12</td><td>The hour, 12-hour clock, 2-digits</td></tr>
-							<tr><td>m</td><td>0-59</td><td>The minute</td></tr>
-							<tr><td>mm</td><td>00-59</td><td>The minute, 2-digits</td></tr>
-							<tr><td>s</td><td>0-59</td><td>The second</td></tr>
-							<tr><td>ss</td><td>00-59</td><td>The second, 2-digits</td></tr>
-							<tr><td>SSS</td><td>000-999</td><td>The millisecond, 3-digits</td></tr>
-							<tr><td>Z</td><td>+05:00</td><td>The offset from UTC, ±HH:mm</td></tr>
-							<tr><td>ZZ</td><td>+0500</td><td>The offset from UTC, ±HHmm</td></tr>
-							<tr><td>A</td><td>AM PM</td><td /></tr>
-							<tr><td>a</td><td>am pm</td><td /></tr>
-							<tr><td>[text]</td><td>text</td><td>Custom text</td></tr>
+							{#each dictionary.clockSettings.datetimeFormatTable as row}
+								<tr>
+									{#each row as item}
+										<td>{item}</td>
+									{/each}
+								</tr>
+							{/each}
 						</tbody>
 					</table>
-					<p>
-						<!-- TODO: replace 'en' in link with user language -->
-						{@html dictionary.about['madeWithText'].replace(
-							'{{Day JS}}',
-							'<a rel="noopener" href="https://day.js.org/docs/en/display/format" target="_blank">Day JS</a>'
-						)}
-					</p>
+					<!-- Note: only exists in en and few other langs -->
+					{#if $settings?.locale?.language?.substring(0, 2) == 'en'}
+						<p>
+							{@html dictionary.about['madeWithText'].replace(
+								'{{Day JS}}',
+								'<a rel="noopener" href="https://day.js.org/docs/en/display/format" target="_blank">Day JS</a>'
+							)}
+						</p>
+					{/if}
 				</Modal>
 			</div>
 		</AccordionPanel>

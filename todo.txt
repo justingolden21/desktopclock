@@ -36,7 +36,6 @@ translate / fully support spanish, let user change their lang
     If you stored the data inside cookies instead of local storage
     you could just access it in hooks
     now you can just use $session
-- translate: datetime format modal, color names
 
 !!! btn for digital/analog on main ui? cycle primary and secondary btns? (use func from keyboard shortcuts component)
 
@@ -84,6 +83,7 @@ remove redundant lightblue theme btn (now sky)
 option to display battery on primary or secondary?
 
 future: each analog clock part will be able to be in the primary or secondary color
+future: translate color names
 
 code organizaiton:
 ??? one centralized place for $now with .tz() and others so redundant code doesn't have to be supported
