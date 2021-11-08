@@ -196,9 +196,9 @@
 			<h3>{dictionary.clockSettings['Ticks']}</h3>
 
 			{#each ['sm', 'md', 'lg'] as size, i}
-				<h5>
-					<b>{dictionary.clockSettings[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}</b>
-				</h5>
+				<h4>
+					{dictionary.clockSettings[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
+				</h4>
 				<div class="block mb-2">
 					<label for="{size}-tick-stroke-select">
 						{dictionary.display['Stroke color:']}
@@ -240,13 +240,9 @@
 			<h3>{dictionary.clockSettings['Hands']}</h3>
 
 			{#each ['hour', 'minute', 'second'] as hand, i}
-				<h5>
-					<b
-						>{dictionary.clockSettings[
-							{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]
-						]}</b
-					>
-				</h5>
+				<h4>
+					{dictionary.clockSettings[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
+				</h4>
 				<div class="block mb-2">
 					<label for="{hand}-hand-stroke-select">
 						{dictionary.display['Stroke color:']}

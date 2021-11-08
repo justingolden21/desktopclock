@@ -45,7 +45,6 @@ btn titles/popovers should say shortcut ie. "night mode (N)"
 support localStore adding new settings in future (NEEDS TESTING)
 update about text, comment other nav options for now
 !!! mobile landscape nav is squished, needs css
-larger font for subtitle headings in analog settings (min, sec, hr, small, md, lg) maybe bolder?
 
 important:
 turn off screen lock option?
