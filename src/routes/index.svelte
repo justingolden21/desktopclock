@@ -81,9 +81,10 @@
 	// other valid options are a string for the lightness (default palette will be used)
 	// or an object, which will use the lightness from the object and the palette from the object if present, else the default palette
 	function getColor(obj) {
-		if (!obj || obj == '-1') return 'none';
-		if (typeof obj === 'string') return colorPalette[obj];
-		return TailwindColors[obj.color || $settings.colorPalette][obj.lightness];
+		// TODO: support 'secondary', 'primary'
+		return obj.lightness === '-1'
+			? 'none'
+			: TailwindColors[obj.color ?? $settings.colorPalette][obj.lightness];
 	}
 </script>
 
@@ -96,17 +97,19 @@
 		<svg id="clock" viewBox="0 0 64 64">
 			<!-- Shadow -->
 			<rect
+				id="shadow"
 				x="4"
 				y="2"
 				width="60"
 				height="60"
-				fill={theme.face.fill == -1 || theme.shadow.fill == -1
+				fill={theme.face.fill.lightness == '-1' || theme.shadow.fill.lightness == '-1'
 					? 'none'
-					: colorPalette[theme.shadow.fill]}
+					: colorPalette[theme.shadow.fill.lightness]}
 				rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0}
 			/>
 			<!-- Face -->
 			<rect
+				id="face"
 				x="2"
 				y="2"
 				width="60"

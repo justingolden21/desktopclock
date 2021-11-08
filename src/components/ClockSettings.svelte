@@ -95,7 +95,8 @@
 			<button
 				class="btn theme-btn block"
 				on:click={() => {
-					for (const size of 'sm md lg'.split(' ')) $settings.clock.theme.ticks[size].stroke = '-1';
+					for (const size of 'sm md lg'.split(' '))
+						$settings.clock.theme.ticks[size].stroke.lightness = '-1';
 				}}
 			>
 				<Icon name="settings" class="inline w-6 h-6" />
@@ -106,7 +107,7 @@
 
 			<div class="block mb-2">
 				<label for="face-fill-select">{dictionary.display['Fill color:']}</label>
-				<select id="face-fill-select" bind:value={$settings.clock.theme.face.fill}>
+				<select id="face-fill-select" bind:value={$settings.clock.theme.face.fill.lightness}>
 					{#each Object.keys(colorPalette) as lightness}
 						<option value={lightness}>{lightness}</option>
 					{/each}
@@ -115,7 +116,7 @@
 			</div>
 			<div class="block mb-2">
 				<label for="face-stroke-select">{dictionary.display['Stroke color:']}</label>
-				<select id="face-stroke-select" bind:value={$settings.clock.theme.face.stroke}>
+				<select id="face-stroke-select" bind:value={$settings.clock.theme.face.stroke.lightness}>
 					{#each Object.keys(colorPalette) as lightness}
 						<option value={lightness}>{lightness}</option>
 					{/each}
@@ -145,8 +146,8 @@
 				<label for="shadow-fill-select">{dictionary.display['Color:']}</label>
 				<select
 					id="shadow-fill-select"
-					bind:value={$settings.clock.theme.shadow.fill}
-					disabled={$settings.clock.theme.face.fill == -1}
+					bind:value={$settings.clock.theme.shadow.fill.lightness}
+					disabled={$settings.clock.theme.face.fill.lightness == '-1'}
 				>
 					{#each Object.keys(colorPalette) as lightness}
 						<option value={lightness}>{lightness}</option>
@@ -159,7 +160,7 @@
 
 			<div class="block mb-2">
 				<label for="pin-fill-select">{dictionary.display['Fill color:']}</label>
-				<select id="pin-fill-select" bind:value={$settings.clock.theme.pin.fill}>
+				<select id="pin-fill-select" bind:value={$settings.clock.theme.pin.fill.lightness}>
 					{#each Object.keys(colorPalette) as lightness}
 						<option value={lightness}>{lightness}</option>
 					{/each}
@@ -204,7 +205,7 @@
 					</label>
 					<select
 						id="{size}-tick-stroke-select"
-						bind:value={$settings.clock.theme.ticks[size].stroke}
+						bind:value={$settings.clock.theme.ticks[size].stroke.lightness}
 					>
 						{#each Object.keys(colorPalette) as lightness}
 							<option value={lightness}>{lightness}</option>
@@ -285,7 +286,7 @@
 				<div class="block mb-2">
 					<label for="{hand}-hand-back-select">{dictionary.display['Back:']}</label>
 					<select id="{hand}-hand-back-select" bind:value={$settings.clock.theme.hands[hand].back}>
-						{#each Array(9) as _, i}
+						{#each Array(10) as _, i}
 							<option value={i}>{i}</option>
 						{/each}
 					</select>
