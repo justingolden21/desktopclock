@@ -53,7 +53,8 @@
 			</select>
 		</div>
 
-		<div class="block mb-2" class:hidden={!batterySupported}>
+		<!-- hide unless battery is supported and screen is large enough to show battery -->
+		<div class="hidden mb-2 {batterySupported ? 'sm:block' : ''}">
 			<Toggle
 				id="show-battery-toggle"
 				bind:checked={$settings.clock.displays.battery}

@@ -103,11 +103,11 @@
 </div>
 
 {#if displays.battery && batterySupported}
-	<div id="battery-display">
+	<div id="battery-display" class="hidden sm:block">
 		<BatteryIcon
 			fillLevel={batteryLevel ? batteryLevel * 100 : 100}
 			charging={batteryIsCharging}
-			class="inline w-6 h-6 md:w-8 md:h-8"
+			class="inline w-6 h-6 md:w-8 md:h-8 mb-8"
 		/>
 
 		<h2 class="inline">{Math.round(batteryLevel * 100)}%</h2>
@@ -134,19 +134,21 @@
 
 		white-space: break-spaces;
 	}
+	#secondary-display {
+		@apply pb-4;
+	}
+	#secondary-display h2,
+	#battery-display h2 {
+		@apply text-2xl md:text-3xl lg:text-4xl font-normal tracking-widest text-center;
+	}
 	#secondary-display,
 	#battery-display {
-		@apply text-2xl md:text-3xl lg:text-4xl font-normal tracking-widest text-center pb-4;
+		@apply absolute bottom-0;
 	}
 	#secondary-display {
-		position: absolute;
-		bottom: 0%;
-		left: 0%;
-		width: 100%;
+		@apply left-0 w-full;
 	}
 	#battery-display {
-		position: absolute;
-		bottom: 0%;
-		right: 10%;
+		@apply right-8;
 	}
 </style>

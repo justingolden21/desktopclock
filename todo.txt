@@ -38,7 +38,7 @@ translate / fully support spanish, let user change their lang
     now you can just use $session
 - translate: datetime format modal, color names
 
-!!! btn for digital/analog on main ui? cycle primary and secondary btns?
+!!! btn for digital/analog on main ui? cycle primary and secondary btns? (use func from keyboard shortcuts component)
 
 detect datetime format? should not display am/pm to en-uk users for example
 - AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the Philippines" https://www.timeanddate.com/time/am-and-pm.html
