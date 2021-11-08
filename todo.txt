@@ -30,20 +30,29 @@ NOW:
 clean project, then translate
 
 TOP PRIORITY / MVP:
+================
 translate / fully support spanish, let user change their lang
 - let user change lang:
     If you stored the data inside cookies instead of local storage
     you could just access it in hooks
     now you can just use $session
 - translate: datetime format modal, color names
+
 !!! btn for digital/analog on main ui? cycle primary and secondary btns?
+
 detect datetime format? should not display am/pm to en-uk users for example
 - AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the Philippines" https://www.timeanddate.com/time/am-and-pm.html
+
 !!! google analytics, etc
+
 determine final structure for clock theme settings (will be hard to change after launch)
+
 btn titles/popovers should say shortcut ie. "night mode (N)"
+
 support localStore adding new settings in future (NEEDS TESTING)
+
 update about text, comment other nav options for now
+================
 
 important:
 turn off screen lock option?
