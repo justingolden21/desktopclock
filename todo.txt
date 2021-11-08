@@ -44,7 +44,6 @@ determine final structure for clock theme settings (will be hard to change after
 btn titles/popovers should say shortcut ie. "night mode (N)"
 support localStore adding new settings in future (NEEDS TESTING)
 update about text, comment other nav options for now
-!!! mobile landscape nav is squished, needs css
 
 important:
 turn off screen lock option?
@@ -53,6 +52,7 @@ test in other langs
 test lodash merge local storage in depth
 
 MVP consider:
+inconsistent icons which are animated and which aren't? share nav icon shouldn't animate?
 remember theme preset name rather than each individual setting?
 ??? only store settings when they differ from defaults?
 add option to add any text to main screen?

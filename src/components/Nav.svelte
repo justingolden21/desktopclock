@@ -88,7 +88,7 @@
 			{dictionary.labels['Settings']}
 		{/if}
 	</button>
-	<div class="absolute bottom-0 mb-8">
+	<div id="nav-bottom" class="mb-8">
 		<InstallButton
 			smallButton={$settings.smallerMenu}
 			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
@@ -104,3 +104,11 @@
 		</button>
 	</div>
 </nav>
+
+<style lang="postcss">
+	@media (min-height: 640px) {
+		#nav-bottom {
+			@apply absolute bottom-0;
+		}
+	}
+</style>
