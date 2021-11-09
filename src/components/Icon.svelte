@@ -15,9 +15,9 @@
 			svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 8v4l3 3m6-3a9 9 0 11-18 0a9 9 0 0118 0m2 11-2-2a1 1 0 01-18-18l-2-2m11 24v4h3h-7"/>`
 		},
 		{
-			viewbox: '0 -2 22 26',
+			viewbox: '0 0 22 26',
 			name: 'stopwatch',
-			svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 8v4m9 0a9 9 0 11-18 0a9 9 0 0118 0m-9-9v-4h4h-8"/>`
+			svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 10v4m9 0a9 9 0 11-18 0a9 9 0 0118 0m-9-9v-4h4h-8"/>`
 		},
 		{
 			name: 'timer',
@@ -112,6 +112,19 @@
 			name: 'download',
 			svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>`
 		}
+		// custom icons
+		// {
+		// 	name: 'digital',
+		// 	svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 3v6m0 2h0h0v6m2 2v0h6v0m2-2v-6m0-2v-6m-2-2h-6m0 9h6"/>`
+		// },
+		// {
+		// 	name: 'primary',
+		// 	svg: `<circle stroke-linecap="round" stroke-linejoin="round" stroke-width="2" cx="12" cy="12" r="11"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 9l3-3v12"/>`
+		// },
+		// {
+		// 	name: 'secondary',
+		// 	svg: `<circle stroke-linecap="round" stroke-linejoin="round" stroke-width="2" cx="12" cy="12" r="11"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16 18h-8s8-6 8-10s-8-4-8 0"/>`
+		// }
 	];
 	$: icon = icons.find((i) => i.name === name);
 </script>
