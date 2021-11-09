@@ -10,8 +10,8 @@ export const defaultSettings = {
 		},
 		theme: defaultTheme,
 
-		timeFormat: 'h:mm A',
-		timeFormatCustom: 'h:mm A',
+		timeFormat: null, // overridden in _layout onMount to user device's preference
+		timeFormatCustom: null, // overridden in _layout onMount to user device's preference
 		dateFormat: 'ddd, MMMM D',
 		dateFormatCustom: 'ddd, MMMM D',
 

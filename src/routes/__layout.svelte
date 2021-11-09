@@ -52,6 +52,14 @@
 
 		if ($settings.locale.datetime === null)
 			$settings.locale.datetime = Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2);
+		if ($settings.locale.timeFormat === null) {
+			// https://stackoverflow.com/q/27647918/4907950
+			const AMPM =
+				Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions().hourCycle ===
+				'h12';
+			$settings.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
+			$settings.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
+		}
 	});
 
 	onMount(() => {
