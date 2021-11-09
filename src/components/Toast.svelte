@@ -2,7 +2,6 @@
 	// https://dev.to/danawoodman/svelte-quick-tip-creating-a-toast-notification-system-ge3
 
 	import { session } from '$app/stores';
-
 	import { createEventDispatcher } from 'svelte';
 	import { fade } from 'svelte/transition';
 
@@ -12,6 +11,7 @@
 
 	export let type = 'info';
 	export let dismissible = true;
+	export let timeout;
 </script>
 
 <article class="toast" role="alert" transition:fade>
@@ -30,6 +30,9 @@
 			<Icon name="close" class="inline w-6 h-6" />
 		</button>
 	{/if}
+	{#if timeout}
+		<div class="progress" style="animation-duration: {timeout / 1000}s" />
+	{/if}
 </article>
 
 <style lang="postcss">
@@ -45,5 +48,22 @@
 	:global(body.dark) .toast {
 		/* copied from modal */
 		@apply border-gray-200 bg-gray-800 bg-opacity-75;
+	}
+	.progress {
+		@apply absolute bottom-0 left-0 h-1 bg-gray-600;
+		animation-timing-function: linear;
+		animation-name: shrink;
+	}
+	:global(body.dark) .progress {
+		@apply bg-gray-200;
+	}
+
+	@keyframes shrink {
+		from {
+			width: 100%;
+		}
+		to {
+			width: 0%;
+		}
 	}
 </style>

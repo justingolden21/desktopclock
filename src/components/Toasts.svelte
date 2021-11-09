@@ -12,6 +12,7 @@
 			<Toast
 				type={toast.type}
 				dismissible={toast.dismissible}
+				timeout={toast.timeout}
 				on:dismiss={() => dismissToast(toast.id)}
 			>
 				{toast.message}
