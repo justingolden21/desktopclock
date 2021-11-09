@@ -93,8 +93,9 @@
 			smallButton={$settings.smallerMenu}
 			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
 		/>
+		<!-- no share-btn class so it isn't animated on hover -->
 		<button
-			class="share-btn inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
+			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
 			on:click={() => shareApp(dictionary)}
 		>
 			<Icon name="share" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-4'}" />
