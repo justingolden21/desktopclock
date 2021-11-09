@@ -37,11 +37,8 @@ translate / fully support spanish, let user change their lang
     you could just access it in hooks
     now you can just use $session
 
-!!! btn for digital/analog on main ui? cycle primary and secondary btns? (use func from keyboard shortcuts component)
+!!! btn for digital/analog on main ui? cycle primary and secondary btns? (use func from keyboard shortcuts component) digital icon btn in header?
 - use "toggle secondary display" and primary for labels for btns with keyboard shortcut in parentheses in header
-
-detect datetime format? should not display am/pm to en-uk users for example
-- AM PM : "United States, Canada (except Québec), Australia, New Zealand, and the Philippines" https://www.timeanddate.com/time/am-and-pm.html
 
 !!! google analytics, etc
 
@@ -52,6 +49,9 @@ support localStore adding new settings in future (NEEDS TESTING)
 before release:
 - comment other nav options
 - test everything to hell (devices, browsers, versions, aspect ratios, pixel densities, operating systems, pwa, language, display settings, saving settings)
+
+fix teleportr clock hands (if diff is more than 2 seconds from old time then no transition)
+last: get domain, marketing video, para about translate to your lang, ux test
 ================
 
 important:
@@ -62,6 +62,7 @@ test lodash merge local storage in depth
 
 MVP consider:
 inconsistent icons which are animated and which aren't? share nav icon shouldn't animate?
+if hovered then pause timeout to dismiss toast?
 remember theme preset name rather than each individual setting?
 ??? only store settings when they differ from defaults?
 add option to add any text to main screen?
@@ -80,6 +81,7 @@ translate numbers? (other locales with different counting systems for timezone h
 flipclock (component) https://codepen.io/shshaw/pen/vKzoLL
 primary and secondary font options, same with theme color
 remove redundant lightblue theme btn (now sky)
+deopdown for each tailwind color (needs translation) for analog clock parts, default to primary palette color if not specified (dropdown with "primary" as display and value of "")
 
 option to display battery on primary or secondary?
 
