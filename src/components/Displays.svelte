@@ -1,17 +1,27 @@
 <script>
-	import colors from 'tailwindcss/colors.js';
+	import TailwindColors from 'tailwindcss/colors.js';
 
-	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
 
+	import { settings } from './settings.js';
 	import BatteryIcon from './BatteryIcon.svelte';
+
 	import dayjs from 'dayjs';
+
+	// https://day.js.org/docs/en/plugin/timezone
+	// https://day.js.org/docs/en/timezone/timezone
+	import utc from 'dayjs/plugin/utc.js';
+	import timezone from 'dayjs/plugin/timezone.js';
+	dayjs.extend(utc);
+	dayjs.extend(timezone);
+
 	import { now } from './now.js';
 
 	// approx 163kb (comment out and compare build sizes in network tab)
 	import './all_locales.js';
 
-	$: clockSettings = $session.settings.clock;
+	$: localeSettings = $settings.locale;
+	$: clockSettings = $settings.clock;
 
 	$: displays = clockSettings.displays;
 
@@ -25,15 +35,24 @@
 			: clockSettings.dateFormatCustom;
 
 	let batteryLevel, batteryIsCharging;
+	let batterySupported = false;
 
 	// these update automatically with `$now`
-	$: time = new dayjs($now).locale(clockSettings.datetimeLocale).format(timeFormat);
-	$: date = new dayjs($now).locale(clockSettings.datetimeLocale).format(dateFormat);
+	$: time = new dayjs($now)
+		.tz(localeSettings.timezone || 'Etc/GMT')
+		.locale(localeSettings.datetime || 'en')
+		.format(timeFormat || 'h:mm A');
+	$: date = new dayjs($now)
+		.tz(localeSettings.timezone || 'Etc/GMT')
+		.locale(localeSettings.datetime || 'en')
+		.format(dateFormat || 'ddd, MMMM D');
 
 	// TODO: starts an event listener each time displays.svelte is mounted, can add up
 	// should unmount the event listener, look into svelte window access navigator
 	onMount(() => {
 		// https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery
+		if (!(navigator && navigator.getBattery)) return;
+		batterySupported = true;
 		navigator.getBattery().then(function (battery) {
 			batteryLevel = battery.level;
 
@@ -46,12 +65,12 @@
 		});
 	});
 
-	$: colorPalette = colors[$session.settings.colorPalette];
-	$: shade = $session.settings.darkMode ? 200 : 900;
+	$: colorPalette = TailwindColors[$settings.colorPalette];
+	$: shade = $settings.darkMode ? 200 : 900;
 </script>
 
 <div style="color:{colorPalette[shade]}; display: flex">
-	<div id="primary-display">
+	<div id="primary-display" style="--primary-font-weight: {$settings.clock.datetimeFontWeight}">
 		{#if displays.primary != 'analog'}
 			<h1>
 				{#if displays.primary == 'time'}
@@ -83,41 +102,53 @@
 	</div>
 </div>
 
-{#if displays.battery}
-	<div id="battery-display">
+{#if displays.battery && batterySupported}
+	<div id="battery-display" class="hidden sm:block">
 		<BatteryIcon
 			fillLevel={batteryLevel ? batteryLevel * 100 : 100}
 			charging={batteryIsCharging}
-			class="inline w-6 h-6 md:w-8 md:h-8"
+			class="inline w-6 h-6 md:w-8 md:h-8 mb-8"
 		/>
 
-		{batteryLevel * 100}%
+		<h2 class="inline">{Math.round(batteryLevel * 100)}%</h2>
 	</div>
 {/if}
 
-<style>
+<style lang="postcss">
 	#primary-display {
 		position: absolute;
 		top: 25%;
 		left: 0%;
 		right: 0%;
+		font-weight: var(--primary-font-weight);
 	}
 	#primary-display h1 {
-		@apply text-7xl md:text-8xl lg:text-9xl font-bold tracking-widest text-center;
+		@apply text-7xl md:text-8xl lg:text-9xl tracking-widest text-center;
+	}
+	#primary-display,
+	#secondary-display {
+		/* Set numbers to be monospace
+		only works on some fonts, such as Bitter
+		https://stackoverflow.com/a/56266636/4907950 */
+		font-variant-numeric: tabular-nums;
+
+		white-space: break-spaces;
+	}
+	#secondary-display {
+		@apply pb-4;
+	}
+	#secondary-display h2,
+	#battery-display h2 {
+		@apply text-2xl md:text-3xl lg:text-4xl font-normal tracking-widest text-center;
 	}
 	#secondary-display,
 	#battery-display {
-		@apply text-2xl md:text-3xl lg:text-4xl font-normal tracking-widest text-center pb-4;
+		@apply absolute bottom-0;
 	}
 	#secondary-display {
-		position: absolute;
-		bottom: 0%;
-		left: 0%;
-		width: 100%;
+		@apply left-0 w-full;
 	}
 	#battery-display {
-		position: absolute;
-		bottom: 0%;
-		right: 10%;
+		@apply right-8;
 	}
 </style>

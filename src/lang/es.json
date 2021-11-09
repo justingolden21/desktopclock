@@ -1,12 +1,204 @@
 {
-    "appName": "Reloj Sencillo",
-    "appShortName": "Reloj Sencillo",
-    "appDescription": "\u00A1Un reloj ajustable, personalizable!",
-    "pageNames": {
-        "clock": "Reloj Sencillo",
-        "worldclock": "Worldclockoooooo",
-        "error": "Erroroooooo"
-    },
-    "Doubleclick Fullscreen": "Doubleclickoooo Fullscreenoooo"
+	"appName": "Reloj Sencillo",
+	"appShortName": "Reloj Sencillo",
+	"appDescription": "¡Un reloj ajustable, personalizable!",
+	"shareAppDescription": "Desktop Clock is a simple, resizable and customizable clock for any device.",
+	"pageNames": {
+		"home": "Reloj Sencillo",
+		"clock": "Reloj",
+		"worldclock": "Worldclock",
+		"stopwatch": "Stopwatch",
+		"timers": "Timers"
+	},
+	"settingsTabs": {
+		"Appearance": "Appearance",
+		"General": "General",
+		"About": "About"
+	},
+	"error": {
+		"The resource could not be found": "No se pudo encontrar el recurso",
+		"Go back to the homepage": "Volver a la página de inicio",
+		"Error": "Error"
+	},
+	"labels": {
+		"Menu": "Menú",
+		"Close": "Close",
+		"Settings": "Settings",
+		"Install": "Install",
+		"Share": "Share",
+		"Cast": "Cast",
+		"Dark": "Dark",
+		"Fullscreen": "Fullscreen",
+		"Cast clock": "Cast clock",
+		"Toggle secondary display": "Toggle secondary display",
+		"Toggle primary display": "Toggle primary display",
+		"Toggle battery display": "Toggle battery display",
+		"Toggle dark mode": "Alternar modo oscuro",
+		"Toggle fullscreen": "Toggle fullscreen",
+		"Doubleclick fullscreen": "Doubleclick fullscreen",
+		"Show dark button": "Show dark button",
+		"Show cast button": "Show cast button",
+		"Show fullscreen button": "Show fullscreen button",
+		"Show theme buttons": "Show theme buttons",
+		"Smaller menu": "Smaller menu",
+		"Always collapse menu": "Always collapse menu",
+		"Hide title bar when idle": "Hide title bar when idle",
+		"Seconds until idle:": "Seconds until idle:",
+		"Font family:": "Font family:",
+		"Reset appearance settings": "Reset appearance settings",
+		"Application": "Application",
+		"Shortcuts": "Shortcuts",
+		"Locale": "Locale",
+		"Copy website link": "Copy website link",
+		"Open another clock": "Open another clock",
+		"Send feedback": "Send feedback",
+		"Reset all settings": "Reset all settings",
+		"Keyboard shortcuts": "Keyboard shortcuts",
+		"View keyboard shortcuts": "View keyboard shortcuts",
+		"Language:": "Language:",
+		"Automatically detect language": "Automatically detect language",
+		"Datetime locale:": "Datetime locale:",
+		"Automatically detect datetime locale": "Automatically detect datetime locale",
+		"Timezone:": "Timezone:",
+		"Automatically detect timezone": "Automatically detect timezone",
+		"Timezone offset:": "Timezone offset:",
+		"Advanced / Experimental": "Advanced / Experimental",
+		"Keep screen awake": "Keep screen awake",
+		"Delete settings and reload": "Delete settings and reload",
 
+		"Font Weights": [
+			"",
+			"Thin",
+			"Extralight",
+			"Light",
+			"Normal",
+			"Medium",
+			"Semibold",
+			"Bold",
+			"Extrabold",
+			"Black"
+		]
+	},
+	"languages": {
+		"en-US": "English, US",
+		"es-MX": "Spanish, MX"
+	},
+	"clockSettings": {
+		"Displays": "Displays",
+		"Analog": "Analog",
+		"Digital Datetime": "Digital Datetime",
+
+		"Primary display:": "Primary display:",
+		"Secondary display:": "Secondary display:",
+		"Analog clock": "Analog clock",
+		"Digital time": "Digital time",
+		"Date": "Date",
+		"Date + digital time": "Date + digital time",
+		"None": "None",
+		"Show battery": "Show battery",
+
+		"Default Theme": "Default Theme",
+		"Default Night Theme": "Default Night Theme",
+		"Classic Theme": "Classic Theme",
+		"Classic Night Theme": "Classic Night Theme",
+		"Simple Mode": "Simple Mode",
+
+		"Time format:": "Time format:",
+		"Date format:": "Date format:",
+		"Custom": "Custom",
+		"Preview:": "Preview:",
+		"Custom formatting reference": "Custom formatting reference",
+		"Reset datetime formats": "Reset datetime formats",
+		"Datetime font weight:": "Datetime font weight:",
+
+		"Datetime Formatting": "Datetime Formatting",
+
+		"Face": "Face",
+		"Shadow": "Shadow",
+		"Pin": "Pin",
+		"Ticks": "Ticks",
+		"Hands": "Hands",
+
+		"Small": "Small",
+		"Medium": "Medium",
+		"Large": "Large",
+
+		"Hour": "Hour",
+		"Minute": "Minute",
+		"Second": "Second",
+
+		"datetimeFormatTableHeadings": ["Format", "Output", "Description"],
+		"datetimeFormatTable": [
+			["YY", "18", "Two-digit year"],
+			["YYYY", "2018", "Four-digit year"],
+			["M", "1-12", "The month, beginning at 1"],
+			["MM", "01-12", "The month, 2-digits"],
+			["MMM", "Jan-Dec", "The abbreviated month name"],
+			["MMMM", "January-December", "The full month name"],
+			["D", "1-31", "The day of the month"],
+			["DD", "01-31", "The day of the month, 2-digits"],
+			["d", "0-6", "The day of the week, with Sunday as 0"],
+			["dd", "Su-Sa", "The min name of the day of the week"],
+			["ddd", "Sun-Sat", "The short name of the day of the week"],
+			["dddd", "Sunday-Saturday", "The name of the day of the week"],
+			["H", "0-23", "The hour"],
+			["HH", "00-23", "The hour, 2-digits"],
+			["h", "1-12", "The hour, 12-hour clock"],
+			["hh", "01-12", "The hour, 12-hour clock, 2-digits"],
+			["m", "0-59", "The minute"],
+			["mm", "00-59", "The minute, 2-digits"],
+			["s", "0-59", "The second"],
+			["ss", "00-59", "The second, 2-digits"],
+			["SSS", "000-999", "The millisecond, 3-digits"],
+			["Z", "+05:00", "The offset from UTC, ±HH:mm"],
+			["ZZ", "+0500", "The offset from UTC, ±HHmm"],
+			["A", "AM PM", "The period"],
+			["a", "am pm", "The period, lowercase"],
+			["[text]", "text", "Custom text"]
+		]
+	},
+	"display": {
+		"Stroke color:": "Stroke color:",
+		"Fill color:": "Fill color:",
+		"Color:": "Color:",
+		"Stroke width:": "Stroke width:",
+		"Size:": "Size:",
+		"Shape:": "Shape:",
+		"Width:": "Width:",
+		"Height:": "Height:",
+		"Length:": "Length:",
+		"Back:": "Back:",
+		"Linecap:": "Linecap:",
+
+		"Transparent": "Transparent",
+		"System default": "System default",
+
+		"shapes": {
+			"Circle": "Circle",
+			"Rounded Square": "Rounded Square",
+			"Square": "Square"
+		},
+
+		"linecaps": {
+			"Butt": "Butt",
+			"Round": "Round",
+			"Square": "Square"
+		}
+	},
+	"about": {
+		"Version": "Version",
+		"Contact": "Contact",
+		"aboutText": "Desktop Clock is a simple, resizable and customizable clock for any device. Features include customizable analog and digital displays, night mode, themes, timezones and more. Desktop Clock is designed to scale perfectly to any screen size and ratio, with no distortion or pixelation. Use Desktop Clock as a clock on your TV, a night clock, or project the time in the classroom. Download on any device for offline use. Desktop Clock is super light-weight (< 1mb), 100% free, 100% ad-free, and always will be. Customize the time, date and more to your liking! Desktop Clock is the all-in-one clock for any of your timekeeping needs!",
+		"contactText": "Made by {{author}}. Feel free to contact me with any feedback, questions, or requests at {{email}}",
+		"shareText": "If you like this app, consider {{sharing}} it.",
+		"sharing": "sharing",
+		"madeWithText": "Made with {{Day JS}}"
+	},
+	"messages": {
+		"Copied successfully": "Copied successfully",
+		"Failed to copy": "Failed to copy",
+		"Coming soon": "Coming soon",
+		"Wake lock was activated successfully": "Wake lock was activated successfully",
+		"Wake lock failure": "Wake lock failure"
+	}
 }

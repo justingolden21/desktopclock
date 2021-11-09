@@ -1,10 +1,8 @@
 const classicTheme = {
 	face: {
-		// prev #999 now #64748B
 		stroke: {
 			lightness: '500'
 		},
-		// prev #fff now #F8FAFC
 		fill: {
 			lightness: '50'
 		},
@@ -12,11 +10,15 @@ const classicTheme = {
 		shape: 'circle'
 	},
 	shadow: {
-		fill: -1 // transparent
+		fill: {
+			lightness: '-1'
+		}
 	},
 	pin: {
-		stroke: -1, // transparent
-		// prev #900 now #991B1B
+		stroke: {
+			lightness: '-1'
+		},
+
 		fill: {
 			color: 'red',
 			lightness: '800'
@@ -26,7 +28,6 @@ const classicTheme = {
 	},
 	ticks: {
 		sm: {
-			// prev #999 now #64748B
 			stroke: {
 				lightness: '500'
 			},
@@ -34,7 +35,6 @@ const classicTheme = {
 			width: 1
 		},
 		md: {
-			// prev #666 now #475569
 			stroke: {
 				lightness: '600'
 			},
@@ -42,7 +42,6 @@ const classicTheme = {
 			width: 3
 		},
 		lg: {
-			// prev #333 now #1E293B
 			stroke: {
 				lightness: '800'
 			},
@@ -52,7 +51,6 @@ const classicTheme = {
 	},
 	hands: {
 		hour: {
-			// prev #333 now #1E293B
 			stroke: {
 				lightness: '800'
 			},
@@ -62,7 +60,6 @@ const classicTheme = {
 			linecap: 'round'
 		},
 		minute: {
-			// prev #666 now #475569
 			stroke: {
 				lightness: '600'
 			},
@@ -72,7 +69,6 @@ const classicTheme = {
 			linecap: 'round'
 		},
 		second: {
-			// prev #900 now #991B1B
 			stroke: {
 				color: 'red',
 				lightness: '800'

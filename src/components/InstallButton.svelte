@@ -1,6 +1,9 @@
 <script>
+	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
 	import Icon from './Icon.svelte';
+
+	export let smallButton = false;
 
 	$: showInstallButton = false;
 
@@ -52,8 +55,10 @@
 </script>
 
 {#if showInstallButton}
-	<span tabindex="0" on:click={installButtonClick}>
-		<Icon name="download" class="w-6 h-6 inline mr-2" />
-		Install
-	</span>
+	<button on:click={installButtonClick} class={$$props.class ?? ''}>
+		<Icon name="download" class="w-6 h-6 inline {smallButton ? '' : 'mr-2'}" />
+		{#if !smallButton}
+			{$session.languageDictionary.labels['Install']}
+		{/if}
+	</button>
 {/if}

@@ -10,10 +10,12 @@
 		"sourceType": "module"
 	},
 	"plugins": ["prettier", "svelte3"],
-	"overrides": [{
-		"files": ["*.svelte"],
-		"processor": "svelte3/svelte3"
-	}],
+	"overrides": [
+		{
+			"files": ["*.svelte"],
+			"processor": "svelte3/svelte3"
+		}
+	],
 	"rules": {
 		"prettier/prettier": "error",
 		"indent": ["warn", "tab"],
@@ -22,6 +24,7 @@
 		"no-console": "off",
 		"no-tabs": "off",
 		"no-restricted-syntax": "off",
-		"func-names": "off"
+		"func-names": "off",
+		"quote-props": ["error", "always"]
 	}
 }

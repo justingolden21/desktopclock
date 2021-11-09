@@ -14,6 +14,7 @@ module.exports = {
 		colors: {
 			white: '#FFF',
 			gray: colors.blueGray
+			// ...colors
 		},
 		screens: {
 			xs: '360px',

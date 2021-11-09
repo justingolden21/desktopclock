@@ -1,27 +1,78 @@
 <script>
-	import colors from 'tailwindcss/colors.js';
+	import TailwindColors from 'tailwindcss/colors.js';
 
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { init } from '../js/scripts';
 
-	// import Displays, { displays, setDisplays } from '../components/Displays.svelte';
+	import dayjs from 'dayjs';
+	import utc from 'dayjs/plugin/utc.js';
+	import timezone from 'dayjs/plugin/timezone.js';
+	dayjs.extend(utc);
+	dayjs.extend(timezone);
+
+	import { now } from '../components/now.js';
 	import Displays from '../components/Displays.svelte';
-	import ThemeButtons from '../components/ThemeButtons.svelte';
+	import { settings } from '../components/settings.js';
 
-	// onMount(() => {
-	// 	init();
-	// 	let lang = 'en'; // tmp
-	// 	setDisplays(displays, lang);
-	// });
+	const setAngle = (type, newAngle) => {
+		document.documentElement.style.setProperty(`--${type}-angle`, `${newAngle}deg`);
+	};
 
-	onMount(init);
+	function setTime() {
+		if (!document.getElementById('hour-hand')) return; // return if analog clock is not visible
 
-	// Shortcut for $session.settings.clock.theme.*
-	$: theme = $session.settings.clock.theme;
-	$: colorPalette = colors[$session.settings.colorPalette];
+		// add one second because transition takes one second
+		const date = new dayjs($now).tz($settings.locale.timezone || 'Etc/GMT').add(1, 'second');
 
-	$: displays = $session.settings.clock.displays;
+		const h = date.hour() % 12;
+		const m = date.minute();
+		const s = date.second();
+
+		let rotations = {
+			second: 6 * s,
+			minute: (m + s / 60) * 6,
+			hour: (h + m / 60 + s / 3600) * 30
+		};
+
+		// check one second's rotation after 0 degrees
+		// because this is when we need to replace the angle with 0 and transition to the next second (rotation % 360)
+		if (rotations['second'] <= 6) rotations['second'] += 360;
+		if (rotations['minute'] <= 0.1) rotations['minute'] += 360;
+		if (rotations['hour'] <= 0.0084) rotations['hour'] += 360;
+
+		// Quickly reset position
+		// See https://stackoverflow.com/q/11131875/4907950
+		for (const handType of ['second', 'minute', 'hour']) {
+			setAngle(handType, rotations[handType]);
+
+			if (rotations[handType] > 360) {
+				let hand = document.getElementById(handType + '-hand');
+				hand.classList.add('notransition');
+				setAngle(handType, 0);
+				// See https://gist.github.com/paulirish/5d52fb081b3570c81e3a#svg
+				hand.getBBox(); // trigger CSS reflow
+				hand.classList.remove('notransition');
+				setAngle(handType, rotations[handType] % 360);
+			}
+		}
+	}
+
+	onMount(() => {
+		setTime();
+
+		const setTimeInterval = setInterval(setTime, 1000);
+
+		return () => {
+			clearInterval(setTimeInterval);
+		};
+	});
+
+	//  ================
+
+	$: theme = $settings.clock.theme;
+	$: colorPalette = TailwindColors[$settings.colorPalette];
+
+	$: displays = $settings.clock.displays;
 
 	$: sizes = ['sm', 'md', 'lg'].map((size) => ({ size, r: 27.5 - theme.ticks[size].width / 2 }));
 
@@ -30,14 +81,15 @@
 	// other valid options are a string for the lightness (default palette will be used)
 	// or an object, which will use the lightness from the object and the palette from the object if present, else the default palette
 	function getColor(obj) {
-		if (!obj || obj == '-1') return 'none';
-		if (typeof obj === 'string') return colorPalette[obj];
-		return colors[obj.color || $session.settings.colorPalette][obj.lightness];
+		// TODO: support 'secondary', 'primary'
+		return obj.lightness === '-1'
+			? 'none'
+			: TailwindColors[obj.color ?? $settings.colorPalette][obj.lightness];
 	}
 </script>
 
 <svelte:head>
-	<title>{$session.languageDictionary.pageNames.clock}</title>
+	<title>{$session.languageDictionary.pageNames.home}</title>
 </svelte:head>
 <section>
 	<Displays />
@@ -45,17 +97,19 @@
 		<svg id="clock" viewBox="0 0 64 64">
 			<!-- Shadow -->
 			<rect
+				id="shadow"
 				x="4"
 				y="2"
 				width="60"
 				height="60"
-				fill={theme.face.fill == -1 || theme.shadow.fill == -1
+				fill={theme.face.fill.lightness == '-1' || theme.shadow.fill.lightness == '-1'
 					? 'none'
-					: colorPalette[theme.shadow.fill]}
+					: colorPalette[theme.shadow.fill.lightness]}
 				rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0}
 			/>
 			<!-- Face -->
 			<rect
+				id="face"
 				x="2"
 				y="2"
 				width="60"
@@ -106,11 +160,4 @@
 			</g>
 		</svg>
 	{/if}
-</section>
-
-<section class="z-20">
-	<!-- todo: z index does not seem to be the problem, cannot click lower btns -->
-	<div class="z-20 m-4 mx-16 max-w-3xl" class:hidden={!$session.settings.showThemeButtons}>
-		<ThemeButtons />
-	</div>
 </section>

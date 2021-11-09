@@ -7,8 +7,14 @@
 
 let presentationConnection, presentationRequest;
 
+function isCastSupported() {
+    return typeof PresentationRequest !== 'undefined'
+}
+
 function setupCasting() {
-	// in quotes is url location of receiver page, for example, "receiver/index.html"
+    if(!isCastSupported()) return;
+
+    // in quotes is url location of receiver page, for example, "receiver/index.html"
 	presentationRequest = new PresentationRequest(['']);
 
 	// Make this presentation the default one when using the "Cast" browser menu.
@@ -16,7 +22,12 @@ function setupCasting() {
 }
 
 function castClock() {
-	console.log('Starting presentation request...');
+    if(!isCastSupported()) {
+        console.log('Not supported');
+        return;
+    }
+
+    console.log('Starting presentation request...');
 	presentationRequest
 		.start()
 		.then((connection) => {
@@ -27,4 +38,4 @@ function castClock() {
 		});
 }
 
-export { setupCasting, castClock };
+export { setupCasting, castClock, isCastSupported };

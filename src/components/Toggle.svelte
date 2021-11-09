@@ -4,15 +4,17 @@
 	export let labelText;
 </script>
 
-<div class="toggle-container">
-	<input bind:checked type="checkbox" {id} class="toggle-checkbox" />
-	<label class="toggle-bg" on:click={() => (checked = !checked)} />
+<div class="block">
+	<div class="toggle-container">
+		<input bind:checked type="checkbox" {id} class="toggle-checkbox" on:change />
+		<label for={id} class="toggle-bg" />
+	</div>
+	<label for={id} class="toggle-label">
+		{labelText}
+	</label>
 </div>
-<label for={id} class="toggle-label">
-	{labelText}
-</label>
 
-<style>
+<style lang="postcss">
 	.toggle-container {
 		@apply relative inline-block w-12 m-2 ml-0 align-middle select-none;
 	}

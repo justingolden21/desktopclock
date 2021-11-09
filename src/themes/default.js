@@ -3,36 +3,50 @@
 
 const defaultTheme = {
 	face: {
-		stroke: '700',
-		fill: '200',
+		stroke: {
+			lightness: '700'
+		},
+		fill: {
+			lightness: '200'
+		},
 		strokeWidth: 0,
 		shape: 'circle'
 	},
 	shadow: {
-		fill: '700'
+		fill: {
+			lightness: '700'
+		}
 	},
 	pin: {
 		stroke: {
 			color: 'red',
 			lightness: '700'
 		},
-		fill: '200',
+		fill: {
+			lightness: '200'
+		},
 		strokeWidth: 0.5,
 		size: 1
 	},
 	ticks: {
 		sm: {
-			stroke: '-1',
+			stroke: {
+				lightness: '-1'
+			},
 			height: 0.5,
 			width: 2
 		},
 		md: {
-			stroke: '400',
+			stroke: {
+				lightness: '400'
+			},
 			height: 0.5,
 			width: 3
 		},
 		lg: {
-			stroke: '500',
+			stroke: {
+				lightness: '500'
+			},
 			height: 0.5,
 			width: 5
 		}

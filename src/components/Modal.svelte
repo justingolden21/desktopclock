@@ -1,4 +1,6 @@
 <script>
+	import { session } from '$app/stores';
+
 	import Icon from './Icon.svelte';
 
 	export let title;
@@ -25,26 +27,27 @@
 	}}
 />
 
-{#if shown}
-	<div class="modal" on:click={() => hide()}>
-		<div class="modal-content" on:click|stopPropagation>
-			<div class="modal-header">
-				<button class="close icon-btn" on:click={() => hide()}>
-					<Icon name="close" class="w-6 h-6" />
-				</button>
-				<h1><Icon name={icon} class="w-6 h-6 inline mr-2" /> {title}</h1>
-			</div>
-			<div class="modal-body">
-				<slot />
-			</div>
+<div class="modal {shown ? 'block' : 'hidden'}" on:click={() => hide()}>
+	<div class="modal-content" on:click|stopPropagation>
+		<div class="modal-header">
+			<button
+				class="close icon-btn"
+				on:click={() => hide()}
+				aria-label={$session.languageDictionary.labels['Close']}
+			>
+				<Icon name="close" class="w-6 h-6" />
+			</button>
+			<h1><Icon name={icon} class="w-6 h-6 inline mr-2" /> {title}</h1>
+		</div>
+		<div class="modal-body">
+			<slot />
 		</div>
 	</div>
-{/if}
+</div>
 
-<style>
+<style lang="postcss">
 	.modal {
-		@apply p-12 fixed left-0 top-0 block w-full h-full bg-gray-300 bg-opacity-75;
-		z-index: 3;
+		@apply xs:p-3 sm:p-6 md:p-12 fixed left-0 top-0 w-full h-full bg-gray-300 bg-opacity-75 z-20;
 	}
 	.modal-content {
 		@apply flex flex-col h-full border-2 border-gray-300 bg-gray-100 p-2 xs:p-8 xs:pt-4 relative m-auto w-full md:w-3/4 bg-opacity-75;
@@ -63,12 +66,6 @@
 	}
 	.modal-body {
 		@apply text-left relative flex-1 overflow-auto;
-	}
-	.modal-body p {
-		@apply text-base sm:text-lg md:text-xl;
-	}
-	.modal-body h3 {
-		@apply font-bold my-2 md:my-4;
 	}
 
 	:global(body.dark) .modal {

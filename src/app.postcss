@@ -1,12 +1,10 @@
+/* global styles across app */
+
 @import './components/analog-clock.css';
 
-/* 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Arsenal:wght@400;700&family=Bai+Jamjuree:wght@300;500;700&family=Bitter:wght@300;500;700&family=Josefin+Sans:wght@300;500;700&family=Julius+Sans+One&family=Jura:wght@300;500;700&family=K2D:wght@300;500;700&family=KoHo:wght@300;500;700&family=Libre+Baskerville:wght@400;700&family=Limelight:wght@400&family=Major+Mono+Display&family=Montserrat+Alternates:wght@300;600;900&family=Orbitron:wght@400;600;800&family=Yatra+One&display=swap" rel="stylesheet">
-*/
+/* TODO: fallback to Noto? https://fonts.google.com/noto */
 
-@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Arsenal:wght@400;700&family=Bai+Jamjuree:wght@300;500;700&family=Bitter:wght@300;500;700&family=Josefin+Sans:wght@300;500;700&family=Julius+Sans+One&family=Jura:wght@300;500;700&family=K2D:wght@300;500;700&family=KoHo:wght@300;500;700&family=Libre+Baskerville:wght@400;700&family=Limelight:wght@400&family=Major+Mono+Display&family=Montserrat+Alternates:wght@300;600;900&family=Orbitron:wght@400;600;800&family=Yatra+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Arsenal:wght@400;700&family=Bai+Jamjuree:wght@300;500;700&family=Bitter:wght@300;500;700&family=Josefin+Sans:wght@300;500;700&family=Julius+Sans+One&family=Jura:wght@300;500;700&family=K2D:wght@300;500;700&family=KoHo:wght@300;500;700&family=Libre+Baskerville:wght@400;700&family=Limelight:wght@400&family=Major+Mono+Display&family=Montserrat+Alternates:wght@300;600;900&family=Orbitron:wght@400;600;800&family=Yatra+One&family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -46,12 +44,27 @@
 	}
 	h1,
 	h2,
+	h3,
+	h4 {
+		@apply tracking-widest mt-8 mb-2;
+	}
+	h1,
+	h2,
 	h3 {
-		@apply font-normal tracking-widest xs:text-lg sm:text-xl md:text-2xl mt-4 mb-2;
+		@apply xs:text-lg sm:text-xl md:text-2xl;
 	}
+	h4 {
+		@apply sm:text-lg md:text-xl;
+	}
+	h3,
+	h4 {
+		@apply font-bold;
+	}
+
 	p {
-		@apply leading-relaxed;
+		@apply leading-relaxed text-base md:text-lg;
 	}
+
 	a:not(nav a) {
 		@apply text-gray-600 hover:underline font-bold;
 	}
@@ -74,7 +87,7 @@ nav and modal have same bg colors, opacities, and shadows
 		/* box-shadow: 4px 0px 8px #e2e8f0; /*gray-200*/
 	}
 	nav a,
-	nav span {
+	nav button {
 		@apply block
 		font-bold
 		text-gray-700
@@ -86,12 +99,12 @@ nav and modal have same bg colors, opacities, and shadows
 		/* transition: all 0.25s linear; */
 	}
 	nav a:hover,
-	nav span:hover {
+	nav button:hover {
 		/* bugfix */
 		text-decoration: none;
 	}
 	nav a.active,
-	nav span.active {
+	nav button.active {
 		@apply bg-gray-200 bg-opacity-50 font-bold;
 	}
 	body.dark nav {
@@ -99,13 +112,13 @@ nav and modal have same bg colors, opacities, and shadows
 		/* box-shadow: 4px 0px 8px #334155; /*gray-700*/
 	}
 	body.dark nav a,
-	body.dark nav span {
+	body.dark nav button {
 		@apply text-gray-300;
 	}
 	body.dark nav a:hover,
 	body.dark nav a.active,
-	body.dark nav span:hover,
-	body.dark nav span.active {
+	body.dark nav button:hover,
+	body.dark nav button.active {
 		@apply bg-gray-600 bg-opacity-50;
 	}
 
@@ -114,29 +127,6 @@ nav and modal have same bg colors, opacities, and shadows
 	}
 	.icon-btn {
 		@apply p-2 rounded-full hover:bg-gray-700 hover:text-white;
-	}
-	#menu-btn,
-	#main-dark-btn,
-	#main-fullscreen-btn,
-	#main-cast-btn {
-		@apply absolute top-4;
-	}
-	#menu-btn {
-		z-index: 3;
-	}
-	#main-dark-btn,
-	#main-fullscreen-btn,
-	#main-cast-btn {
-		z-index: 1;
-	}
-	#menu-btn {
-		@apply left-4;
-	}
-	#main-fullscreen-btn {
-		@apply right-4;
-	}
-	#main-cast-btn {
-		@apply right-20;
 	}
 
 	select {
@@ -182,10 +172,11 @@ nav and modal have same bg colors, opacities, and shadows
 	.dark-btn svg,
 	.fullscreen-btn svg,
 	.cast-btn svg,
-	#meun-btn svg,
+	.external-link-btn svg,
 	.undo-btn svg,
 	.theme-btn svg,
-	.share-btn svg {
+	.share-btn svg,
+	.link-btn svg {
 		transition: transform 0.25s;
 	}
 	.dark-btn:hover svg {
@@ -195,10 +186,10 @@ nav and modal have same bg colors, opacities, and shadows
 		transform: scale(-1, 1);
 	}
 	.cast-btn:hover svg {
-		transform: rotate(-45deg);
+		transform: scale(-1, 1);
 	}
-	#menu-btn:hover svg {
-		/* transform: scale(1, -1); */
+	.external-link-btn:hover svg {
+		transform: rotate(-45deg);
 	}
 	.undo-btn:hover svg {
 		transform: translateX(-0.25rem);
@@ -209,11 +200,16 @@ nav and modal have same bg colors, opacities, and shadows
 	.share-btn:hover svg {
 		transform: scale(1, -1) rotate(30deg);
 	}
+	.link-btn:hover svg {
+		transform: rotate(45deg);
+	}
 
 	body {
+		/* background: linear-gradient(-45deg, #f8fafc 0%, #fff 100%); */
 		@apply text-gray-900;
 	}
 	body.dark {
+		/* background: linear-gradient(-45deg, #0f172a 0%, #1e293b 100%); */
 		@apply bg-gray-900 text-gray-200;
 	}
 
@@ -240,20 +236,4 @@ nav and modal have same bg colors, opacities, and shadows
 	tr:nth-child(odd) {
 		@apply bg-gray-100;
 	}
-}
-
-@media (min-width: 640px) {
-	/* sm */
-}
-
-@media (min-width: 768px) {
-	/* md */
-}
-
-@media (min-width: 1024px) {
-	/* lg */
-}
-
-@media (min-width: 1280px) {
-	/* xl */
 }
