@@ -13,8 +13,7 @@
 			svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 8v4l3 3m6-3a9 9 0 11-18 0a9 9 0 0118 0m2 11-2-2a1 1 0 01-18-18l-2-2m11 24v4h3h-7"/>`
 		},
 		'stopwatch': {
-			viewbox: '0 0 22 26',
-			svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 10v4m9 0a9 9 0 11-18 0a9 9 0 0118 0m-9-9v-4h4h-8"/>`
+			svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m13 10v4m9 0a9 9 0 11-18 0a9 9 0 0118 0m-9-9v-4h4h-8"/>`
 		},
 		'timer': {
 			svg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m12 8v4l3 3m6-3a9 9 0 11-18 0a9 9 0 0118 0m-19-8 3-3m14 0 3 3"/>`
