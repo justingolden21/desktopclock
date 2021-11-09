@@ -14,7 +14,7 @@ const defaultTheme = {
 	},
 	shadow: {
 		fill: {
-			lightness: '-1'
+			lightness: '700'
 		}
 	},
 	pin: {
