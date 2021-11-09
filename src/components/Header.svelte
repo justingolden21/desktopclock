@@ -52,8 +52,10 @@
 		: 'opacity-100'}"
 >
 	<button
-		id="menu-btn"
-		class="icon-btn float-left  {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:hidden'} "
+		class="icon-btn float-left absolute top-4 left-4 z-10 {$settings.alwaysCollapseMenu ||
+		isFullscreen
+			? ''
+			: 'md:hidden'} "
 		on:click={() => (navOpen = !navOpen)}
 		aria-label={dictionary.labels['Menu']}
 	>
@@ -61,8 +63,7 @@
 	</button>
 
 	<button
-		id="main-dark-btn"
-		class="dark-btn icon-btn float-left left-16 
+		class="dark-btn icon-btn float-left left-16 absolute top-4 z-10
         {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-4'} "
 		class:hidden={!$settings.showDarkButton}
 		on:click={() => ($settings.darkMode = !$settings.darkMode)}
@@ -77,8 +78,7 @@
 	</h1>
 
 	<button
-		id="main-cast-btn"
-		class="cast-btn icon-btn float-right"
+		class="cast-btn icon-btn float-right absolute top-4 right-20 z-10"
 		class:hidden={!$settings.showCastButton || !castSupported}
 		on:click={castClock}
 		aria-label={dictionary.labels['Cast clock']}
@@ -88,8 +88,7 @@
 	</button>
 
 	<button
-		id="main-fullscreen-btn"
-		class="fullscreen-btn icon-btn float-right"
+		class="fullscreen-btn icon-btn float-right absolute top-4 right-4 z-10"
 		class:hidden={!$settings.showFullscreenButton}
 		on:click={toggleFullscreen}
 		aria-label={dictionary.labels['Toggle fullscreen']}
