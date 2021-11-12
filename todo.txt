@@ -395,3 +395,107 @@ custom icons:
 'secondary': {
 	path: `<circle stroke-linecap="round" stroke-linejoin="round" stroke-width="2" cx="12" cy="12" r="11"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16 18h-8s8-6 8-10s-8-4-8 0"/>`
 }
+
+
+misc unsorted:
+Timer, countdown, stopwatch, kitchen/exam/exercise/running, time and date calculations, time since, time until, alarms, svelte, moment
+Sleep cycle, world clock, workout mode (set a number of different timers in a row, for rest and excersize, give them each labels)
+Desktop Clock: calendar, sunrise / sunset info
+chess clock, calendar
+Milliseconds option for stopwatch, swim clock option for only mins and sec, Chromecast button
+Quick copy inputs and buttons for date, time, and both in one with formatting options (for entering current date/time in a spreadsheet for example)
+Clock: multiple countdowns on a row, bus stop clock display, tournament organizer display with room for displaying text, custom text at bottom option for default clock
+4 ticks 12 ticks and 60 ticks display large medium small or none. Clock face and ticks and hands colors between white light, medium, dark, and black. Hand display is large medium small or none. Clock face can be circle, square, or rounded.
+Main display can be analog, digital, or date, and sub display can be digital or date
+realfavicon generator, social media fb, twitter, etc meta cards
+worldclocks in row or grid, as analog or digital?
+save settings to browser local storage, option to download and upload (as json)
+pop out window button
+reminder notificaiton at time or day
+stay awake mode, localization, multiple date and time modes, store settings, reset settings, keyboard shortcuts
+always on top, chromecast, battery, theme colors, luxon
+installable in android play store https://developer.chrome.com/docs/android/trusted-web-activity/overview/
+sleep calculator, timezone list with reset to current/device btn
+New mode "programming" for listing utc string, iso string, mills since epoch, enter one and convert to the other, subtract dates, etc
+
+Days until
+Countdown to a time and day
+save a list of time/dates
+calendar, birthday tracker (with reminders)
+maybe later: weather
+Blockers: Changeable lang, Google analytics
+Next: Translate to Spanish, testing, inline check for Lang for dayjs docs modal
+Finally: marketing, seo, launch trailer
+Note: update about description, mention more modes coming soon, all in one clock
+Port to extension
+font options, background image, clock size settings
+primary display: calendar and clock, or just clock, or just calendar
+ticking sound option
+chess clock / game clock, add multiple players, pause, resume options, change defaults. clocks for sports with quarters/halves and mins length, add timeouts feature that can be tracked (how many used), add kitchen timers with names
+ask kanga about converting timezones idea adding to desktop clock?
+Sharable calendar links for scheduling
+Show battery and device wifi / data signal
+Last degrees = [0,0,0] then rotate back by last degrees and set last degrees to new degrees in setTime
+Above secondary display, have "install" btn in dark gray and long rounded, next to it a question mark small btn that opens a modal and explains you can install for offline use, app is free with no ads or tracking, small file size, light weight, etc. Can explain about PWAs and how to open on your device (detect device?)
+display timezone on bottom option
+metronome
+custom sweep or tick, custom font
+mode for detect bpm (tap or click at frequency and determine bpm of music, heartrate, etc)
+Digital / analog swap quick button (like night Fullscreen etc) icon of clock or of ":" colon check if colon is used internationally.
+Options for analog or digital for each section (clock, stopwatch, game clock, etc) option for both in some (stopwatch and game clock can have both)
+
+Option to have digital time on the bottom right of the app in different modes such as stopwatch
+Always on top mode for timer / stopwatch.
+Cooking timer mode for listing different steps. Label timers then click a button to go to next timer.
+Todos: standard Todo mvc app, but also includes checkbox/radio for in progress, and sort by name, date added, status etc. Optional "more" section to expand on bottom with small caret icon: includes time task takes and start date and time. Will show up in calendar. Option to add to calendar app or set reminder.
+Calendar: standard calendar, can have tasks such as meetings, but also shows todos. Also integrates with birthdays.
+Birthdays: store names and birthdays, and importance level. Option to see birthdays on homescreen of clock, can chose which importance level and see how many days advance reminder before their birthday.
+
+Integrate clock homescreen with Spotify option in settings. Btn to log in with Spotify. Requires backend to store API key...
+Free, and pro features free for first 10k users (create email login)
+
+
+Show slideshow option (between time date and other displays) choose slideshow seconds per slide
+Display timezone option, option for utc gmt location name or timezone name
+Weather using geolocation with icon and temperature maybe forecast. Option to use current location of set manually, same as timezone options
+Show wifi signal
+Picture in picture clock? Embed svg inside video element?
+Sunrise sunset options
+Game clock option
+Binary option clock
+Flipcard clock, blinking colon
+Datetime options and region
+Calendar?
+Notification API, stay awake API
+Opacity on analog svg paths and shapes, background blur always true
+Reset settings, clear storage btns, do not store checkbox
+Share btn defaults to quick btn but can remove
+In about modal, like the clock? Instead of donating to the developer, please donate to one of the following charities instead (list links) feel free to tweet out your donation with the tag #desktopclock
+If calendar show upcoming items in main screen. Option to remind x mins before and show notification y mins before. Sync with system calendar? Sync with system alarms? Is there an alarms API? Store stopwatch progress, delete history, organize items in labels and folders.
+Worldclock show current time and date in local timezone in large heading on top, option for media controls below as well
+Setting for default tab (clock, worldclock etc) to open on startup
+Set reminders using an API?
+Todos?
+Countdown timer?
+Pop out btn for desktop (new window frameless)
+
+Bpm calculator for heart rate or song
+Metronome
+Game clock (sports, board game, etc) chess presets, other presets for sports
+Cooking timer
+Workout timer, sequential timers with names, click when one ends and click again to start the next one
+Clock android advertise/features:
+Very large display, nightstand clock, custom colors, portrait and landscape, widget, system alarms, custom photo background, custom alarm sounds
+
+Clock alarms calendar
+
+Future: date picker and time picker (dropdown for hour, min, sec, year, mon, day)?
+screensaver
+
+Stopwatch with quick buttons like night, Fullscreen, change display: switch to workout / running mode, other quick btns hidden by default such as chess mode, sports mode, cooking mode etc. Set workout routines, recipes etc. Convert running laps automatically if you tell it how far a lap is.
+stopwatch speaks time when you hit lap, extra large lap button
+Worldclock options like those in kanga's app, in world clock app by timeanddate.com
+For use as night clock on computer or phone, can be cast
+About section: what features would you like to see in desktop clock? (Contact btn)
+Button to speak. Interval to speak
+similar marketing to https://play.google.com/store/apps/details?id=hdesign.theclock
