@@ -73,8 +73,10 @@
 </script>
 
 <svelte:head>
+	<meta name="title" content={$session.languageDictionary['appName']} />
 	<meta name="description" content={$session.languageDictionary['appDescription']} />
 	<meta name="keywords" content={$session.languageDictionary['appKeywords']} />
+
 	<meta
 		name="apple-mobile-web-app-status-bar"
 		content={TailwindColors[$settings.colorPalette][500]}
