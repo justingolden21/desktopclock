@@ -9,6 +9,7 @@
 
 	import screenfull from 'screenfull';
 
+	import GoogleAnalytics from '../components/GoogleAnalytics.svelte';
 	import Modal from '../components/Modal.svelte';
 	import Nav from '../components/Nav.svelte';
 	import Header from '../components/Header.svelte';
@@ -72,12 +73,16 @@
 </script>
 
 <svelte:head>
+	<meta name="description" content={$session.languageDictionary['appDescription']} />
+	<meta name="keywords" content={$session.languageDictionary['appKeywords']} />
 	<meta
 		name="apple-mobile-web-app-status-bar"
 		content={TailwindColors[$settings.colorPalette][500]}
 	/>
 	<meta name="theme-color" content={TailwindColors[$settings.colorPalette][500]} />
 </svelte:head>
+
+<GoogleAnalytics />
 
 <KeyboardShortcuts bind:settingsModal />
 

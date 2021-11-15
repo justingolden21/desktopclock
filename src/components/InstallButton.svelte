@@ -10,6 +10,11 @@
 	// Initialize deferredPrompt for use later to show browser install prompt.
 	let deferredPrompt;
 
+	// Source (ie. browser, our prompt) that caused install. Used for analytics.
+	let installSource;
+
+	// Google Analytics PWA: https://youtu.be/Xbo3uZ5Ge10?t=458
+
 	onMount(() => {
 		// https://web.dev/customize-install/
 
@@ -22,6 +27,13 @@
 			showInstallButton = true;
 			// Optionally, send analytics event that PWA install promo was shown.
 			console.log(`'beforeinstallprompt' event was fired.`);
+
+			// Google Analytics
+			ga('send', 'event', {
+				eventCategory: 'pwa-install', // user shown custom install experience
+				eventAction: 'promo-shown',
+				nonInteraction: true
+			});
 		});
 
 		window.addEventListener('appinstalled', () => {
@@ -31,6 +43,13 @@
 			deferredPrompt = null;
 			// Optionally, send analytics event to indicate successful install
 			console.log('PWA was installed');
+
+			// Ignore if the page is hidden
+			if (document.visibilityState !== 'visible') return;
+
+			const source = installSource || 'browser';
+			ga('send', 'event', 'pwa-install', 'installed', source);
+			ga('set', 'dimension1', 'standalone');
 		});
 	});
 
@@ -51,6 +70,18 @@
 
 		// We've used the prompt, and can't use it again, throw it away
 		deferredPrompt = null;
+
+		// Google Analytics
+		installSource = 'installButton';
+		ga('send', 'event', {
+			eventCategory: 'pwa-install',
+			eventAction: 'promo-clicked', // user installed app
+			eventLabel: installSource,
+			eventValue: outcome === 'accepted' ? 1 : 0
+		});
+		if (outcome === 'dismissed') {
+			installSource = null;
+		}
 	}
 </script>
 
