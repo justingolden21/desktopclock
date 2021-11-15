@@ -88,6 +88,7 @@
 	<meta name="twitter:description" content={$session.languageDictionary['appDescription']} />
 	<meta name="twitter:image" content="https://desktopclock.netlify.app/img/screenshot.png" />
 	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://desktopclock.netlify.app/" />
 
 	<meta
 		name="apple-mobile-web-app-status-bar"
