@@ -77,6 +77,13 @@
 	<meta name="description" content={$session.languageDictionary['appDescription']} />
 	<meta name="keywords" content={$session.languageDictionary['appKeywords']} />
 
+	<meta property="og:image:height" content="292" />
+	<meta property="og:image:width" content="558" />
+	<meta property="og:description" content={$session.languageDictionary['appDescription']} />
+	<meta property="og:title" content={$session.languageDictionary['appName']} />
+	<meta property="og:url" content="https://desktopclock.netlify.app/" />
+	<meta property="og:image" content="img/icons/og-image.jpg" />
+
 	<meta
 		name="apple-mobile-web-app-status-bar"
 		content={TailwindColors[$settings.colorPalette][500]}
