@@ -10,6 +10,7 @@
 	import screenfull from 'screenfull';
 
 	import GoogleAnalytics from '../components/GoogleAnalytics.svelte';
+	import Loader from '../components/Loader.svelte';
 	import Modal from '../components/Modal.svelte';
 	import Nav from '../components/Nav.svelte';
 	import Header from '../components/Header.svelte';
@@ -106,6 +107,8 @@
 </svelte:head>
 
 <GoogleAnalytics />
+
+<Loader />
 
 <KeyboardShortcuts bind:settingsModal />
 
