@@ -3,6 +3,7 @@
 	"appShortName": "Reloj Sencillo",
 	"appDescription": "¡Un reloj ajustable, personalizable!",
 	"shareAppDescription": "Desktop Clock is a simple, resizable and customizable clock for any device.",
+	"appKeywords": "",
 	"pageNames": {
 		"home": "Reloj Sencillo",
 		"clock": "Reloj",
