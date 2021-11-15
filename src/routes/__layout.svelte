@@ -84,6 +84,11 @@
 	<meta property="og:url" content="https://desktopclock.netlify.app/" />
 	<meta property="og:image" content="img/icons/og-image.jpg" />
 
+	<meta name="twitter:title" content={$session.languageDictionary['appName']} />
+	<meta name="twitter:description" content={$session.languageDictionary['appDescription']} />
+	<meta name="twitter:image" content="https://desktopclock.netlify.app/img/screenshot.png" />
+	<meta name="twitter:card" content="summary_large_image" />
+
 	<meta
 		name="apple-mobile-web-app-status-bar"
 		content={TailwindColors[$settings.colorPalette][500]}
