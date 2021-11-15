@@ -73,13 +73,35 @@
 </script>
 
 <svelte:head>
+	<meta name="title" content={$session.languageDictionary['appName']} />
 	<meta name="description" content={$session.languageDictionary['appDescription']} />
 	<meta name="keywords" content={$session.languageDictionary['appKeywords']} />
+
+	<meta property="og:image:height" content="292" />
+	<meta property="og:image:width" content="558" />
+	<meta property="og:description" content={$session.languageDictionary['appDescription']} />
+	<meta property="og:title" content={$session.languageDictionary['appName']} />
+	<meta property="og:url" content="https://desktopclock.netlify.app/" />
+	<meta property="og:image" content="img/icons/og-image.jpg" />
+	<meta property="og:type" content="website" />
+
+	<meta name="twitter:title" content={$session.languageDictionary['appName']} />
+	<meta name="twitter:description" content={$session.languageDictionary['appDescription']} />
+	<meta name="twitter:image" content="https://desktopclock.netlify.app/img/screenshot.png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://desktopclock.netlify.app/" />
+
 	<meta
 		name="apple-mobile-web-app-status-bar"
 		content={TailwindColors[$settings.colorPalette][500]}
 	/>
 	<meta name="theme-color" content={TailwindColors[$settings.colorPalette][500]} />
+	<meta name="msapplication-TileColor" content={TailwindColors[$settings.colorPalette][500]} />
+	<link
+		rel="mask-icon"
+		href="img/icons/safari-pinned-tab.svg"
+		color={TailwindColors[$settings.colorPalette][500]}
+	/>
 </svelte:head>
 
 <GoogleAnalytics />

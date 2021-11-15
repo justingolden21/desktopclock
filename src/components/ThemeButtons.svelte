@@ -7,11 +7,14 @@
 <!-- Remove first 2 items from array (black and white). They do not have themes. -->
 <div class="relative">
 	{#each Object.keys(TailwindColors).slice(2) as color, idx}
-		<button
-			class="theme-btn {$settings.colorPalette == color ? 'active' : ''}"
-			style="background-color: {TailwindColors[color][300]}"
-			on:click={() => ($settings.colorPalette = color)}
-		/>
+		<!-- As of Tailwind CSS v2.2, `lightBlue` has been renamed to `sky`  -->
+		{#if color !== 'lightBlue'}
+			<button
+				class="theme-btn {$settings.colorPalette == color ? 'active' : ''}"
+				style="background-color: {TailwindColors[color][300]}"
+				on:click={() => ($settings.colorPalette = color)}
+			/>
+		{/if}
 	{/each}
 </div>
 
