@@ -31,6 +31,8 @@ clean project, then translate
 
 TOP PRIORITY / MVP:
 ================
+realfavicon generator, social media fb, twitter, etc meta cards
+
 translate / fully support spanish, let user change their lang
 - let user change lang:
     If you stored the data inside cookies instead of local storage
@@ -47,6 +49,8 @@ fix teleport clock hands (if diff is more than 2 seconds from old time then no t
 determine final structure for clock theme settings (will be hard to change after launch)
 
 support localStore adding new settings in future (NEEDS TESTING)
+
+auto versioning?
 
 before release:
 - comment other nav options
@@ -406,7 +410,6 @@ Quick copy inputs and buttons for date, time, and both in one with formatting op
 Clock: multiple countdowns on a row, bus stop clock display, tournament organizer display with room for displaying text, custom text at bottom option for default clock
 4 ticks 12 ticks and 60 ticks display large medium small or none. Clock face and ticks and hands colors between white light, medium, dark, and black. Hand display is large medium small or none. Clock face can be circle, square, or rounded.
 Main display can be analog, digital, or date, and sub display can be digital or date
-realfavicon generator, social media fb, twitter, etc meta cards
 worldclocks in row or grid, as analog or digital?
 save settings to browser local storage, option to download and upload (as json)
 pop out window button
