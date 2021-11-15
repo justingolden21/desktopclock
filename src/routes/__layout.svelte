@@ -82,6 +82,12 @@
 		content={TailwindColors[$settings.colorPalette][500]}
 	/>
 	<meta name="theme-color" content={TailwindColors[$settings.colorPalette][500]} />
+	<meta name="msapplication-TileColor" content={TailwindColors[$settings.colorPalette][500]} />
+	<link
+		rel="mask-icon"
+		href="img/icons/safari-pinned-tab.svg"
+		color={TailwindColors[$settings.colorPalette][500]}
+	/>
 </svelte:head>
 
 <GoogleAnalytics />
