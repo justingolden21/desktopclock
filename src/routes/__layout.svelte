@@ -9,6 +9,7 @@
 
 	import screenfull from 'screenfull';
 
+	import GoogleAnalytics from '../components/GoogleAnalytics.svelte';
 	import Modal from '../components/Modal.svelte';
 	import Nav from '../components/Nav.svelte';
 	import Header from '../components/Header.svelte';
@@ -80,6 +81,8 @@
 	/>
 	<meta name="theme-color" content={TailwindColors[$settings.colorPalette][500]} />
 </svelte:head>
+
+<GoogleAnalytics />
 
 <KeyboardShortcuts bind:settingsModal />
 
