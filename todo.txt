@@ -26,13 +26,8 @@ make the receiver a page that just has the clock with no menu or buttons, and th
 btn to add new theme, new theme shows up as btn with small x to right to delete it
 prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
 
-NOW:
-clean project, then translate
-
 TOP PRIORITY / MVP:
 ================
-realfavicon generator, social media fb, twitter, etc meta cards
-
 translate / fully support spanish, let user change their lang
 - let user change lang:
     If you stored the data inside cookies instead of local storage
@@ -44,13 +39,14 @@ fix teleport clock hands (if diff is more than 2 seconds from old time then no t
 !!! btn for digital/analog on main ui? cycle primary and secondary btns? (use func from keyboard shortcuts component) digital icon btn in header?
 - use "toggle secondary display" and primary for labels for btns with keyboard shortcut in parentheses in header
 
-!!! google analytics, etc
 
 determine final structure for clock theme settings (will be hard to change after launch)
 
 support localStore adding new settings in future (NEEDS TESTING)
 
 auto versioning?
+
+test google analytics
 
 before release:
 - comment other nav options
@@ -60,12 +56,10 @@ before release:
 
 important:
 turn off screen lock option?
-does netlify have memory leak?
 test in other langs
 test lodash merge local storage in depth
 
 MVP consider:
-inconsistent icons which are animated and which aren't? share nav icon shouldn't animate?
 if hovered then pause timeout to dismiss toast?
 remember theme preset name rather than each individual setting?
 ??? only store settings when they differ from defaults?
