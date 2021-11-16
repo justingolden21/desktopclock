@@ -12,9 +12,7 @@
 			const displayMode = window.matchMedia('(display-mode: standalone)').matches
 				? 'standalone'
 				: 'browser';
-			// ga('set', 'dimension1', displayMode);
 			gtag('event', 'pwa-install', { dimension1: displayMode });
-			// ga('send', 'pageview');
 		}
 	}
 </script>
