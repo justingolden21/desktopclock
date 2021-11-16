@@ -85,6 +85,8 @@ option to display battery on primary or secondary?
 future: each analog clock part will be able to be in the primary or secondary color
 future: translate color names
 
+on open modal, focus close btn? or focus somewhere inside modal?
+
 code organizaiton:
 ??? one centralized place for $now with .tz() and others so redundant code doesn't have to be supported
 
