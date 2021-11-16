@@ -34,7 +34,18 @@ translate / fully support spanish, let user change their lang
     you could just access it in hooks
     now you can just use $session
 
-test google analytics
+google analytics:
+- make sure page view works
+- user device type
+- number of seconds user is on page
+- user country, lang
+- pwa prompt shown, pwa prompt clicked and success or fail, prompt from browser or not
+- user opens app in pwa
+- offline analytics?
+- which page user was on when installed app
+- which pages users spend most time on
+- !!! track when certain buttons are clicked (like primary btn, settings btn)
+- !!! track which settings users have? firebase and auth to store settings across devices? eh... future
 
 before release:
 - comment other nav options
