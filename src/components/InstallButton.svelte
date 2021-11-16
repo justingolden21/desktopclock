@@ -29,10 +29,16 @@
 			console.log(`'beforeinstallprompt' event was fired.`);
 
 			// Google Analytics
-			ga('send', 'event', {
-				eventCategory: 'pwa-install', // user shown custom install experience
-				eventAction: 'promo-shown',
-				nonInteraction: true
+			// ga('send', 'event', {
+			// 	eventCategory: 'pwa-install', // user shown custom install experience
+			// 	eventAction: 'promo-shown',
+			// 	nonInteraction: true
+			// });
+			gtag('event', 'pwa-install', {
+				// user shown custom install experience
+				event_action: 'promo-shown',
+				event_category: 'pwa-install',
+				non_interaction: true
 			});
 		});
 
@@ -48,8 +54,14 @@
 			if (document.visibilityState !== 'visible') return;
 
 			const source = installSource || 'browser';
-			ga('send', 'event', 'pwa-install', 'installed', source);
-			ga('set', 'dimension1', 'standalone');
+			// ga('send', 'event', 'pwa-install', 'installed', source);
+			gtag('event', 'pwa-install', {
+				event_action: 'installed',
+				event_category: 'pwa-install',
+				event_label: source
+			});
+			// ga('set', 'dimension1', 'standalone');
+			gtag('event', 'pwa-install', { dimension1: 'standalone' });
 		});
 	});
 
@@ -73,11 +85,17 @@
 
 		// Google Analytics
 		installSource = 'installButton';
-		ga('send', 'event', {
-			eventCategory: 'pwa-install',
-			eventAction: 'promo-clicked', // user installed app
-			eventLabel: installSource,
-			eventValue: outcome === 'accepted' ? 1 : 0
+		// ga('send', 'event', {
+		// 	eventCategory: 'pwa-install',
+		// 	eventAction: 'promo-clicked', // user installed app
+		// 	eventLabel: installSource,
+		// 	eventValue: outcome === 'accepted' ? 1 : 0
+		// });
+		gtag('event', 'pwa-install', {
+			event_action: 'promo-clicked',
+			event_category: 'pwa-install',
+			event_label: installSource,
+			event_value: outcome === 'accepted' ? 1 : 0
 		});
 		if (outcome === 'dismissed') {
 			installSource = null;
