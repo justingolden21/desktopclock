@@ -141,6 +141,8 @@
 	import { keyboardShortcutsList } from './KeyboardShortcuts.svelte';
 	import ClockSettings from './ClockSettings.svelte';
 
+	import { version } from '../../package.json';
+
 	$: dictionary = $session.languageDictionary;
 
 	const castSupported = isCastSupported();
@@ -202,6 +204,18 @@
 			id="show-dark-btn-toggle"
 			bind:checked={$settings.showDarkButton}
 			labelText={dictionary.labels['Show dark button']}
+		/>
+
+		<Toggle
+			id="show-primary-btn-toggle"
+			bind:checked={$settings.showPrimaryButton}
+			labelText={dictionary.labels['Show primary toggle button']}
+		/>
+
+		<Toggle
+			id="show-secondary-btn-toggle"
+			bind:checked={$settings.showSecondaryButton}
+			labelText={dictionary.labels['Show secondary toggle button']}
 		/>
 
 		<div class:hidden={!castSupported}>
@@ -530,7 +544,11 @@
 			</button>
 			{dictionary.about.shareText.split('{{sharing}}')[1]}
 		</p>
-		<p class="mt-2">{dictionary.about['Version']} 0.0.0</p>
+		<p class="mt-2">
+			{dictionary.about['Version']}
+			{version}
+			{import.meta.env.PROD ? 'prod' : 'dev'}
+		</p>
 
 		<!-- <h3>Help</h3>
 		<p>Coming Soon...</p> -->

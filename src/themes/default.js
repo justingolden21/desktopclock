@@ -56,7 +56,7 @@ const defaultTheme = {
 			stroke: {
 				lightness: '700'
 			},
-			strokeWidth: 1,
+			strokeWidth: 0.5,
 			length: 15,
 			back: 3,
 			linecap: 'butt'

@@ -10,6 +10,7 @@
 	import screenfull from 'screenfull';
 
 	import GoogleAnalytics from '../components/GoogleAnalytics.svelte';
+	import Loader from '../components/Loader.svelte';
 	import Modal from '../components/Modal.svelte';
 	import Nav from '../components/Nav.svelte';
 	import Header from '../components/Header.svelte';
@@ -84,6 +85,7 @@
 	<meta property="og:url" content="https://desktopclock.netlify.app/" />
 	<meta property="og:image" content="img/icons/og-image.jpg" />
 	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content={$session.languageDictionary['appName']} />
 
 	<meta name="twitter:title" content={$session.languageDictionary['appName']} />
 	<meta name="twitter:description" content={$session.languageDictionary['appDescription']} />
@@ -105,6 +107,8 @@
 </svelte:head>
 
 <GoogleAnalytics />
+
+<Loader />
 
 <KeyboardShortcuts bind:settingsModal />
 

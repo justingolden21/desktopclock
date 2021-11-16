@@ -22,6 +22,8 @@ export const defaultSettings = {
 	colorPalette: 'blueGray',
 	darkMode: null, // overridden in _layout onMount to user device's preference
 	showDarkButton: true,
+	showPrimaryButton: true,
+	showSecondaryButton: false,
 	showCastButton: false,
 	showFullscreenButton: true,
 	showThemeButtons: false,

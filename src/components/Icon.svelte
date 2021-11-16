@@ -3,7 +3,7 @@
 	export let focusable = false;
 
 	// https://heroicons.dev/
-	// other clock icons made by Justin Golden
+	// other clock icons, primary, secondary icons made by Justin Golden
 	const icons = {
 		'clock': {
 			path: `m12 8v4l3 3m6-3a9 9 0 11-18 0a9 9 0 0118 0z`
@@ -90,6 +90,12 @@
 		},
 		'download': {
 			path: `M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4`
+		},
+		'primary': {
+			path: `m9 9l3-3v12`
+		},
+		'secondary': {
+			path: `m16 18h-8s8-6 8-10s-8-4-8 0`
 		}
 	};
 	$: icon = icons[name];

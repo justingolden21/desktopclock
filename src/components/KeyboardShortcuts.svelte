@@ -41,35 +41,28 @@
 			$settings.clock.displays.battery = !$settings.clock.displays.battery;
 		}
 		if (event.code === 'KeyD') {
-			const current = $settings.clock.displays.secondary;
-			const secondaryOptions = ['time', 'date', 'datetime', 'none'];
-			let idx = secondaryOptions.indexOf(current);
-			idx = idx < secondaryOptions.length - 1 ? idx + 1 : 0;
-			$settings.clock.displays.secondary = secondaryOptions[idx];
+			// const current = $settings.clock.displays.secondary;
+			// const secondaryOptions = ['time', 'date', 'datetime', 'none'];
+			// let idx = secondaryOptions.indexOf(current);
+			// idx = (idx + 1) % secondaryOptions.length;
+			// $settings.clock.displays.secondary = secondaryOptions[idx];
+
+			const options = ['time', 'date', 'datetime', 'none'];
+			$settings.clock.displays.secondary =
+				options[(options.indexOf($settings.clock.displays.secondary) + 1) % options.length];
 		}
 		if (event.code === 'KeyP') {
-			const current = $settings.clock.displays.primary;
-			const primaryOptions = ['analog', 'time', 'date', 'datetime'];
-			let idx = primaryOptions.indexOf(current);
-			idx = idx < primaryOptions.length - 1 ? idx + 1 : 0;
-			$settings.clock.displays.primary = primaryOptions[idx];
+			// const current = $settings.clock.displays.primary;
+			// const primaryOptions = ['analog', 'time', 'date', 'datetime'];
+			// let idx = primaryOptions.indexOf(current);
+			// idx = (idx + 1) % primaryOptions.length;
+			// $settings.clock.displays.primary = primaryOptions[idx];
+
+			const options = ['analog', 'time', 'date', 'datetime'];
+			$settings.clock.displays.primary =
+				options[(options.indexOf($settings.clock.displays.primary) + 1) % options.length];
 		}
 
 		// TODO: keyT to toggle themes?
-
-		/*
-		// commented out because bad UX to accidently press 'P' and irreversibly change appearance
-		if (event.code === 'KeyP') {
-			// TODO: make simple mode in one centralized place
-			// TODO: make option to toggle simple mode off
-			// - (remember previous tick stroke/size, or add new property for visibility to themes)
-
-			// simple mode
-			for (const size of 'sm md lg'.split(' '))
-				$settings.clock.theme.ticks[size].stroke = '-1';
-		}
-		*/
 	}}
 />
-
-<!-- TODO: make a modal that lists all shortcuts -->

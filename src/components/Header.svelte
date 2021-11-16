@@ -41,6 +41,18 @@
 			isFullscreen = Screenfull.isFullscreen;
 		});
 	});
+
+	function togglePrimaryDisplay() {
+		// copied from KeyboardShortcuts.svelte
+		const options = ['analog', 'time', 'date', 'datetime'];
+		$settings.clock.displays.primary =
+			options[(options.indexOf($settings.clock.displays.primary) + 1) % options.length];
+	}
+	function toggleSecondaryDisplay() {
+		const options = ['time', 'date', 'datetime', 'none'];
+		$settings.clock.displays.secondary =
+			options[(options.indexOf($settings.clock.displays.secondary) + 1) % options.length];
+	}
 </script>
 
 <svelte:window on:mousemove={() => (timeSinceMove = new Date())} />
@@ -52,10 +64,10 @@
 		: 'opacity-100'}"
 >
 	<button
-		class="icon-btn float-left absolute top-4 left-4 z-10 {$settings.alwaysCollapseMenu ||
+		class="icon-btn float-left absolute top-4 left-4 z-20 {$settings.alwaysCollapseMenu ||
 		isFullscreen
 			? ''
-			: 'md:hidden'} "
+			: 'md:hidden'}"
 		on:click={() => (navOpen = !navOpen)}
 		aria-label={dictionary.labels['Menu']}
 	>
@@ -63,14 +75,37 @@
 	</button>
 
 	<button
-		class="dark-btn icon-btn float-left left-16 absolute top-4 z-10
-        {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-4'} "
+		class="dark-btn icon-btn float-left left-20 absolute top-4 z-10
+        {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-4'}"
 		class:hidden={!$settings.showDarkButton}
 		on:click={() => ($settings.darkMode = !$settings.darkMode)}
 		aria-label={dictionary.labels['Toggle dark mode']}
 		title={dictionary.labels['Toggle dark mode'] + ($settings.keyboardShortcuts ? ' (N)' : '')}
 	>
 		<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
+	</button>
+
+	<button
+		class="icon-btn float-left left-36 absolute top-4 z-10 
+        {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-20'}"
+		class:hidden={!$settings.showPrimaryButton}
+		on:click={togglePrimaryDisplay}
+		aria-label={dictionary.labels['Toggle primary display']}
+		title={dictionary.labels['Toggle primary display'] +
+			($settings.keyboardShortcuts ? ' (P)' : '')}
+	>
+		<Icon name="primary" class="w-6 h-6 md:w-8 md:h-8" />
+	</button>
+	<button
+		class="icon-btn float-left left-54 absolute top-4 z-10 
+        {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-36'}"
+		class:hidden={!$settings.showSecondaryButton}
+		on:click={toggleSecondaryDisplay}
+		aria-label={dictionary.labels['Toggle secondary display']}
+		title={dictionary.labels['Toggle secondary display'] +
+			($settings.keyboardShortcuts ? ' (D)' : '')}
+	>
+		<Icon name="secondary" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 
 	<h1 id="title-text">

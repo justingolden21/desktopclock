@@ -26,31 +26,15 @@ make the receiver a page that just has the clock with no menu or buttons, and th
 btn to add new theme, new theme shows up as btn with small x to right to delete it
 prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
 
-NOW:
-clean project, then translate
-
 TOP PRIORITY / MVP:
 ================
-realfavicon generator, social media fb, twitter, etc meta cards
-
 translate / fully support spanish, let user change their lang
 - let user change lang:
     If you stored the data inside cookies instead of local storage
     you could just access it in hooks
     now you can just use $session
 
-fix teleport clock hands (if diff is more than 2 seconds from old time then no transition)
-
-!!! btn for digital/analog on main ui? cycle primary and secondary btns? (use func from keyboard shortcuts component) digital icon btn in header?
-- use "toggle secondary display" and primary for labels for btns with keyboard shortcut in parentheses in header
-
-!!! google analytics, etc
-
-determine final structure for clock theme settings (will be hard to change after launch)
-
-support localStore adding new settings in future (NEEDS TESTING)
-
-auto versioning?
+test google analytics
 
 before release:
 - comment other nav options
@@ -58,14 +42,16 @@ before release:
 - last: get domain, marketing video, para about translate to your lang, ux test
 ================
 
+fix teleport clock hands (if diff is more than 2 seconds from old time then no transition)
+
 important:
 turn off screen lock option?
-does netlify have memory leak?
 test in other langs
 test lodash merge local storage in depth
+- support localStore adding new settings in future (NEEDS TESTING)
+determine final structure for clock theme settings (will be hard to change after launch)
 
 MVP consider:
-inconsistent icons which are animated and which aren't? share nav icon shouldn't animate?
 if hovered then pause timeout to dismiss toast?
 remember theme preset name rather than each individual setting?
 ??? only store settings when they differ from defaults?
@@ -90,6 +76,8 @@ option to display battery on primary or secondary?
 
 future: each analog clock part will be able to be in the primary or secondary color
 future: translate color names
+
+on open modal, focus close btn? or focus somewhere inside modal?
 
 code organizaiton:
 ??? one centralized place for $now with .tz() and others so redundant code doesn't have to be supported
@@ -392,13 +380,6 @@ custom icons:
 'digital': {
 	path: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 3v6m0 2h0h0v6m2 2v0h6v0m2-2v-6m0-2v-6m-2-2h-6m0 9h6"/>`
 },
-'primary': {
-	path: `<circle stroke-linecap="round" stroke-linejoin="round" stroke-width="2" cx="12" cy="12" r="11"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 9l3-3v12"/>`
-},
-'secondary': {
-	path: `<circle stroke-linecap="round" stroke-linejoin="round" stroke-width="2" cx="12" cy="12" r="11"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16 18h-8s8-6 8-10s-8-4-8 0"/>`
-}
-
 
 misc unsorted:
 Timer, countdown, stopwatch, kitchen/exam/exercise/running, time and date calculations, time since, time until, alarms, svelte, moment

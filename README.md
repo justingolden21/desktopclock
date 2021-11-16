@@ -20,6 +20,8 @@ Build: `npm run build`
 
 Preview: `npm run preview`
 
+Update version: `npm version patch`
+
 ### PWA
 
 _In order to test service worker, must run `npm run build` then `npm run preview` for any changes to the service worker to appear on localhost. Test by opening localhost in incognito chrome, then running lighthouse for PWA_
@@ -78,16 +80,16 @@ Set up VS code to auto format on save
 ```
 
 Recommended keyboard shortcuts (ctrl+shift+P > keyboard shortcuts):
+
 ```json
 [
-    {
-        "key": "alt+w",
-        "command": "editor.emmet.action.wrapWithAbbreviation",
-        "when": "editorTextFocus"
-    }
+	{
+		"key": "alt+w",
+		"command": "editor.emmet.action.wrapWithAbbreviation",
+		"when": "editorTextFocus"
+	}
 ]
 ```
-
 
 4. Reload VS code (may be necessary to go to extensions and find an extension with a button to reload and click that)
 

@@ -22,7 +22,7 @@
 <div class="details">
 	<div class="summary">
 		<button
-			class="w-full text-left cursor-pointer p-2 hover:bg-gray-100 font-bold text-lg dark:hover:bg-gray-600 bg-opacity-25 dark:bg-gray-700 dark:bg-opacity-50"
+			class="w-full text-left cursor-pointer p-2 hover:bg-gray-100 focus:bg-gray-100 font-bold text-lg dark:hover:bg-gray-600 dark:focus:bg-gray-600 bg-opacity-25 dark:bg-gray-700 dark:bg-opacity-50"
 			on:click={handleToggle}
 			aria-expanded={params.open}
 		>
