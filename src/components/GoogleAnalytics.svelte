@@ -7,13 +7,10 @@
 			gtag('config', 'G-CM722NVXJ9', {
 				page_path: $page.path
 			});
-		}
-		if (typeof ga !== 'undefined') {
 			const displayMode = window.matchMedia('(display-mode: standalone)').matches
 				? 'standalone'
 				: 'browser';
-			ga('set', 'dimension1', displayMode);
-			ga('send', 'pageview');
+			gtag('event', 'pwa-install', { dimension1: displayMode });
 		}
 	}
 </script>
