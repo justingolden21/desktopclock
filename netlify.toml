@@ -1,5 +1,5 @@
 [build]
-  command = "npm version patch && npm run build"
+  command = "npm run build"
   publish = "build/publish/"
   functions = "build/functions/"
   environment = { NODE_VERSION = "14.17.5" }
