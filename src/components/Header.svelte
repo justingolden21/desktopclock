@@ -64,7 +64,7 @@
 		: 'opacity-100'}"
 >
 	<button
-		class="icon-btn float-left absolute top-4 left-4 z-10 {$settings.alwaysCollapseMenu ||
+		class="icon-btn float-left absolute top-4 left-4 z-20 {$settings.alwaysCollapseMenu ||
 		isFullscreen
 			? ''
 			: 'md:hidden'}"
