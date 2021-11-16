@@ -206,6 +206,18 @@
 			labelText={dictionary.labels['Show dark button']}
 		/>
 
+		<Toggle
+			id="show-primary-btn-toggle"
+			bind:checked={$settings.showPrimaryButton}
+			labelText={dictionary.labels['Show primary toggle button']}
+		/>
+
+		<Toggle
+			id="show-secondary-btn-toggle"
+			bind:checked={$settings.showSecondaryButton}
+			labelText={dictionary.labels['Show secondary toggle button']}
+		/>
+
 		<div class:hidden={!castSupported}>
 			<Toggle
 				id="show-cast-btn-toggle"

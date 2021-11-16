@@ -34,17 +34,7 @@ translate / fully support spanish, let user change their lang
     you could just access it in hooks
     now you can just use $session
 
-fix teleport clock hands (if diff is more than 2 seconds from old time then no transition)
-
-!!! btn for digital/analog on main ui? cycle primary and secondary btns? (use func from keyboard shortcuts component) digital icon btn in header?
-- use "toggle secondary display" and primary for labels for btns with keyboard shortcut in parentheses in header
-
-
-determine final structure for clock theme settings (will be hard to change after launch)
-
 support localStore adding new settings in future (NEEDS TESTING)
-
-auto versioning?
 
 test google analytics
 
@@ -54,10 +44,13 @@ before release:
 - last: get domain, marketing video, para about translate to your lang, ux test
 ================
 
+fix teleport clock hands (if diff is more than 2 seconds from old time then no transition)
+
 important:
 turn off screen lock option?
 test in other langs
 test lodash merge local storage in depth
+determine final structure for clock theme settings (will be hard to change after launch)
 
 MVP consider:
 if hovered then pause timeout to dismiss toast?
@@ -388,13 +381,6 @@ custom icons:
 'digital': {
 	path: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 3v6m0 2h0h0v6m2 2v0h6v0m2-2v-6m0-2v-6m-2-2h-6m0 9h6"/>`
 },
-'primary': {
-	path: `<circle stroke-linecap="round" stroke-linejoin="round" stroke-width="2" cx="12" cy="12" r="11"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 9l3-3v12"/>`
-},
-'secondary': {
-	path: `<circle stroke-linecap="round" stroke-linejoin="round" stroke-width="2" cx="12" cy="12" r="11"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m16 18h-8s8-6 8-10s-8-4-8 0"/>`
-}
-
 
 misc unsorted:
 Timer, countdown, stopwatch, kitchen/exam/exercise/running, time and date calculations, time since, time until, alarms, svelte, moment
