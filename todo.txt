@@ -34,7 +34,18 @@ translate / fully support spanish, let user change their lang
     you could just access it in hooks
     now you can just use $session
 
-test google analytics
+google analytics:
+- make sure page view works
+- user device type
+- number of seconds user is on page
+- user country, lang
+- pwa prompt shown, pwa prompt clicked and success or fail, prompt from browser or not
+- user opens app in pwa
+- offline analytics?
+- which page user was on when installed app
+- which pages users spend most time on
+- !!! track when certain buttons are clicked (like primary btn, settings btn)
+- !!! track which settings users have? firebase and auth to store settings across devices? eh... future
 
 before release:
 - comment other nav options
@@ -52,6 +63,7 @@ test lodash merge local storage in depth
 determine final structure for clock theme settings (will be hard to change after launch)
 
 MVP consider:
+different seo data, meta tags, social meta tags for different pages (worldclock, stopwatch, etc)
 if hovered then pause timeout to dismiss toast?
 remember theme preset name rather than each individual setting?
 ??? only store settings when they differ from defaults?
@@ -73,6 +85,17 @@ primary and secondary font options, same with theme color
 dropdown for each tailwind color (needs translation) for analog clock parts, default to primary palette color if not specified (dropdown with "primary" as display and value of "")
 
 option to display battery on primary or secondary?
+
+worldclock:
+main time / your timezone at top, horizontal row, other timezones below in grid. options for analog clock, digital clock, or analog with digital below
+option to display date above
+option to delete, edit/rename/change location/timezone, and move
+view settings for comfy or compact, more rows with larger screens, quick fullscreen btn as well
+save multiple layouts, each layout like a folder/list that can have multiple clocks, use arrows or dropdown to switch layouts, delete layouts
+share link to worldclock with layouts in url params (list of timezones in order)
+option to show seconds or not
+timetable option like kanga
+see options offered in google app, microsoft app, timeandate app
 
 future: each analog clock part will be able to be in the primary or secondary color
 future: translate color names
