@@ -34,8 +34,6 @@ translate / fully support spanish, let user change their lang
     you could just access it in hooks
     now you can just use $session
 
-support localStore adding new settings in future (NEEDS TESTING)
-
 test google analytics
 
 before release:
@@ -50,6 +48,7 @@ important:
 turn off screen lock option?
 test in other langs
 test lodash merge local storage in depth
+- support localStore adding new settings in future (NEEDS TESTING)
 determine final structure for clock theme settings (will be hard to change after launch)
 
 MVP consider:
