@@ -62,6 +62,15 @@
 			$settings.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
 			$settings.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
 		}
+
+		gtag('event', 'page-load-settings', {
+			non_interaction: true,
+			dark_mode: $settings.darkMode,
+			timezone: $settings.locale.timezone,
+			language: $settings.locale.language,
+			datetime_locale: $settings.locale.datetime,
+			time_format: $settings.timeFormat
+		});
 	});
 
 	onMount(() => {
