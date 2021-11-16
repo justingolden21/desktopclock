@@ -141,6 +141,8 @@
 	import { keyboardShortcutsList } from './KeyboardShortcuts.svelte';
 	import ClockSettings from './ClockSettings.svelte';
 
+	import { version } from '../../package.json';
+
 	$: dictionary = $session.languageDictionary;
 
 	const castSupported = isCastSupported();
@@ -530,7 +532,11 @@
 			</button>
 			{dictionary.about.shareText.split('{{sharing}}')[1]}
 		</p>
-		<p class="mt-2">{dictionary.about['Version']} 0.0.0</p>
+		<p class="mt-2">
+			{dictionary.about['Version']}
+			{version}
+			{import.meta.env.PROD ? 'prod' : 'dev'}
+		</p>
 
 		<!-- <h3>Help</h3>
 		<p>Coming Soon...</p> -->
