@@ -44,14 +44,14 @@
 			const current = $settings.clock.displays.secondary;
 			const secondaryOptions = ['time', 'date', 'datetime', 'none'];
 			let idx = secondaryOptions.indexOf(current);
-			idx = idx < secondaryOptions.length - 1 ? idx + 1 : 0;
+			idx = (idx + 1) % secondaryOptions.length;
 			$settings.clock.displays.secondary = secondaryOptions[idx];
 		}
 		if (event.code === 'KeyP') {
 			const current = $settings.clock.displays.primary;
 			const primaryOptions = ['analog', 'time', 'date', 'datetime'];
 			let idx = primaryOptions.indexOf(current);
-			idx = idx < primaryOptions.length - 1 ? idx + 1 : 0;
+			idx = (idx + 1) % primaryOptions.length;
 			$settings.clock.displays.primary = primaryOptions[idx];
 		}
 
