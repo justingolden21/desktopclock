@@ -123,7 +123,8 @@
 		font-weight: var(--primary-font-weight);
 	}
 	#primary-display h1 {
-		@apply text-7xl md:text-8xl lg:text-9xl tracking-widest text-center;
+		@apply text-7xl md:text-8xl lg:text-9xl tracking-widest text-center px-16;
+		line-height: 1.5;
 	}
 	#primary-display,
 	#secondary-display {
