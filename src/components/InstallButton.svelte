@@ -29,7 +29,6 @@
 			console.log(`'beforeinstallprompt' event was fired.`);
 
 			gtag('event', 'pwa-install', {
-				// user shown custom install experience
 				event_action: 'promo-shown',
 				non_interaction: true
 			});
@@ -46,10 +45,9 @@
 			// Ignore if the page is hidden
 			if (document.visibilityState !== 'visible') return;
 
-			const source = installSource || 'browser';
 			gtag('event', 'pwa-install', {
 				event_action: 'installed',
-				install_source: source
+				install_source: installSource || 'browser'
 			});
 			gtag('event', 'pwa-install', { display_mode: 'standalone' });
 		});
@@ -78,7 +76,7 @@
 		gtag('event', 'pwa-install', {
 			event_action: 'promo-clicked',
 			install_source: installSource,
-			event_value: outcome === 'accepted' ? 1 : 0
+			install_outcome: outcome
 		});
 		if (outcome === 'dismissed') {
 			installSource = null;
