@@ -53,7 +53,7 @@
 				event_category: 'pwa-install',
 				event_label: source
 			});
-			gtag('event', 'pwa-install', { dimension1: 'standalone' });
+			gtag('event', 'pwa-install', { display_mode: 'standalone' });
 		});
 	});
 
