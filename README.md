@@ -8,6 +8,8 @@ A simple, resizable and customizable clock for any device
 
 This project is made with Svelte (using Svelte kit) and TailwindCSS. It uses Hero Icons and postCSS/purgeCSS for Tailwind. Vite is the bundler used under the hood for Svelte kit. It is hosted on Netlify and has no backend currently. It uses day.js for date/time logic, and uses Prettier, ESLint, and the AirBNB Javascript Style guide for code formatting and style. Desktop Clock is a PWA and can handle many timezones, date and time formats and locales, and languages.
 
+Requires NodeJS/npm
+
 ### Development
 
 First time setup: `npm i`
