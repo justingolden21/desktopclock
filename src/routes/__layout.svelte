@@ -53,8 +53,7 @@
 			$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 		}
 
-		if ($settings.locale.language === null)
-			$settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2);
+		if ($settings.locale.language === null) $settings.locale.language = $session.lang;
 
 		if ($settings.locale.datetime === null)
 			$settings.locale.datetime = Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2);
