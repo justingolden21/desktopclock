@@ -76,8 +76,26 @@
 		});
 	});
 
+	let dateTimeInterval; // browser is optimized anyway, no need to detect seconds
+
+	function startInterval() {
+		if (dateTimeInterval) clearInterval(dateTimeInterval);
+
+		const ms =
+			$settings.clock.timeFormat === 'custom' && $settings.clock.timeFormatCustom.includes('SSS')
+				? 50
+				: 1000;
+		dateTimeInterval = setInterval(() => ($now = new Date()), ms);
+	}
+
 	onMount(() => {
-		const dateTimeInterval = setInterval(() => ($now = new Date()), 1000); // browser is optimized anyway, no need to detect seconds
+		startInterval();
+
+		let lastTimeFormatCustom;
+		settings.subscribe(() => {
+			if (lastTimeFormatCustom !== $settings.clock.timeFormatCustom) startInterval();
+			lastTimeFormatCustom = $settings.clock.timeFormatCustom;
+		});
 
 		return () => {
 			clearInterval(dateTimeInterval);
