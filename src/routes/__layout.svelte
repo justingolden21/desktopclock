@@ -14,7 +14,7 @@
 	import Modal from '../components/Modal.svelte';
 	import Nav from '../components/Nav.svelte';
 	import Header from '../components/Header.svelte';
-	import Settings from '../components/Settings.svelte';
+	import Settings, { fetchLanguage } from '../components/Settings.svelte';
 	import { now } from '../components/now.js';
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
 	import { settings } from '../components/settings.js';
@@ -40,7 +40,11 @@
 			? document.body.classList.add('dark')
 			: document.body.classList.remove('dark');
 
-	onMount(() => {
+	onMount(async () => {
+		if ($settings.locale.language) {
+			$session.languageDictionary = await fetchLanguage($settings.locale.language);
+		}
+
 		// auto detect user device preferences
 		if ($settings.darkMode === null) {
 			$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -50,7 +54,7 @@
 		}
 
 		if ($settings.locale.language === null)
-			$settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale;
+			$settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2);
 
 		if ($settings.locale.datetime === null)
 			$settings.locale.datetime = Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2);

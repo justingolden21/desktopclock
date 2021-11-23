@@ -83,8 +83,8 @@
 		]
 	},
 	"languages": {
-		"en-US": "English, US",
-		"es-MX": "Spanish, MX"
+		"en": "English, US",
+		"es": "Spanish, MX"
 	},
 	"clockSettings": {
 		"Displays": "Displays",

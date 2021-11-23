@@ -3,9 +3,9 @@ async function getLanguageDictionary(headers) {
 	// const lang = 'es';
 	const lang = headers ? headers['accept-language']?.substr?.(0, 2) ?? 'en' : 'en';
 	try {
-		return (await import(`./lang/${lang}.json`)).default;
+		return (await import(`../static/lang/${lang}.json`)).default;
 	} catch (error) {
-		return (await import(`./lang/en.json`)).default;
+		return (await import(`../static/lang/en.json`)).default;
 	}
 }
 
