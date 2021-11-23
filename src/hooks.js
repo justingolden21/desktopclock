@@ -1,7 +1,4 @@
-async function getLanguageDictionary(headers) {
-	// toggle comment below to test another language
-	// const lang = 'es';
-	const lang = headers ? headers['accept-language']?.substr?.(0, 2) ?? 'en' : 'en';
+async function getLanguageDictionary(lang) {
 	try {
 		return (await import(`../static/lang/${lang}.json`)).default;
 	} catch (error) {
@@ -10,10 +7,10 @@ async function getLanguageDictionary(headers) {
 }
 
 export async function handle({ request, resolve }) {
-	request.locals.languageDictionary = await getLanguageDictionary(request.headers);
 	request.locals.lang = request.headers
 		? request.headers['accept-language']?.substr?.(0, 2) ?? 'en'
 		: 'en';
+	request.locals.languageDictionary = await getLanguageDictionary(request.locals.lang);
 
 	return await resolve(request);
 }
