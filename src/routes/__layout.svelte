@@ -50,20 +50,22 @@
 			$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
 		}
 		if ($settings.locale.timezone === null) {
-			$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+			$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? 'Etc/GMT';
 		}
 
-		if ($settings.locale.language === null) $settings.locale.language = $session.lang;
+		if ($settings.locale.language === null) $settings.locale.language = $session.lang ?? 'en';
 
 		if ($settings.locale.datetime === null)
-			$settings.locale.datetime = Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2);
-		if ($settings.locale.timeFormat === null) {
+			$settings.locale.datetime =
+				Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2) ?? 'en';
+
+		if ($settings.clock.timeFormat === null) {
 			// https://stackoverflow.com/q/27647918/4907950
 			const AMPM =
 				Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions().hourCycle ===
 				'h12';
-			$settings.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
-			$settings.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
+			$settings.clock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
+			$settings.clock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
 		}
 
 		gtag('event', 'page-load-settings', {
