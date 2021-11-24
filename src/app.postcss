@@ -18,16 +18,22 @@
 	}
 
 	::-moz-selection {
-		@apply bg-gray-200;
+		@apply bg-gray-300;
 	}
 	::selection {
-		@apply bg-gray-200;
+		@apply bg-gray-300;
 	}
 	body.dark ::-moz-selection {
 		@apply bg-gray-500;
 	}
 	body.dark ::selection {
 		@apply bg-gray-500;
+	}
+	body.dark input::-moz-selection {
+		@apply bg-gray-300;
+	}
+	body.dark input::selection {
+		@apply bg-gray-300;
 	}
 
 	*:focus,

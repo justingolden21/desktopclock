@@ -43,8 +43,6 @@ google analytics:
 
 JSON.parse(localStorage.settings).clock.timeFormat is null and not set
 
-text select of number input in dark mode insufficent contrast
-
 second hand moving backwards (switching displays, tabs) thats illegal
 
 before release:
