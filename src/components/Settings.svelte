@@ -247,6 +247,8 @@
 			labelText={dictionary.labels['Show theme buttons']}
 		/>
 
+        <hr>
+
 		<Toggle
 			id="smaller-menu-toggle"
 			bind:checked={$settings.smallerMenu}
