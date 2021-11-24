@@ -247,6 +247,8 @@
 			labelText={dictionary.labels['Show theme buttons']}
 		/>
 
+		<hr />
+
 		<Toggle
 			id="smaller-menu-toggle"
 			bind:checked={$settings.smallerMenu}
@@ -285,9 +287,9 @@
 					required
 				/>
 			</div>
+			<br />
 		{/if}
 
-		<br />
 		<label for="font-family-select">{dictionary.labels['Font family:']}</label>
 		<select
 			id="font-family-select"
@@ -372,11 +374,11 @@
 
 						// auto detect user device preferences (same code as in layout)
 						$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
-						$settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale;
-						$settings.locale.datetime = Intl.DateTimeFormat()
-							.resolvedOptions()
-							.locale.substring(0, 2);
-						$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+						$settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale ?? 'en';
+						$settings.locale.datetime =
+							Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2) ?? 'en';
+						$settings.locale.timezone =
+							Intl.DateTimeFormat().resolvedOptions().timeZone ?? 'Etc/GMT';
 
 						// https://stackoverflow.com/q/27647918/4907950
 						const AMPM =

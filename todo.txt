@@ -41,10 +41,6 @@ google analytics:
 - !!! track when certain buttons are clicked (like primary btn, settings btn)
 - !!! track which settings users have? firebase and auth to store settings across devices? eh... future
 
-JSON.parse(localStorage.settings).clock.timeFormat is null and not set
-
-text select of number input in dark mode insufficent contrast
-
 second hand moving backwards (switching displays, tabs) thats illegal
 
 before release:
