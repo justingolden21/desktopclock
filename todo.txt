@@ -28,12 +28,6 @@ prompt "are you sure" before deleting, max of 20 themes, btn to delete all theme
 
 TOP PRIORITY / MVP:
 ================
-translate / fully support spanish, let user change their lang
-- let user change lang:
-    If you stored the data inside cookies instead of local storage
-    you could just access it in hooks
-    now you can just use $session
-
 google analytics:
 - make sure page view works
 - user device type
@@ -46,6 +40,12 @@ google analytics:
 - which pages users spend most time on
 - !!! track when certain buttons are clicked (like primary btn, settings btn)
 - !!! track which settings users have? firebase and auth to store settings across devices? eh... future
+
+JSON.parse(localStorage.settings).clock.timeFormat is null and not set
+
+text select of number input in dark mode insufficent contrast
+
+second hand moving backwards (switching displays, tabs) thats illegal
 
 before release:
 - comment other nav options
@@ -505,3 +505,6 @@ For use as night clock on computer or phone, can be cast
 About section: what features would you like to see in desktop clock? (Contact btn)
 Button to speak. Interval to speak
 similar marketing to https://play.google.com/store/apps/details?id=hdesign.theclock
+
+Many preset clocks to chose from, different svg / css patterns, live preview.
+Date and time, battery, weather, music, calendar

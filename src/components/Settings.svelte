@@ -112,6 +112,11 @@
 		if (!val.length || isNaN(val) || val == null) return min;
 		return Math.max(Math.min(parseInt(val), max), min);
 	}
+
+	export async function fetchLanguage(language) {
+		const result = await fetch(`/lang/${language}.json`);
+		return await result.json();
+	}
 </script>
 
 <script>
@@ -148,6 +153,10 @@
 	const castSupported = isCastSupported();
 
 	import { fontFamilies, locales, supportedLangs } from './consts.js';
+
+	async function changeLanguage() {
+		$session.languageDictionary = await fetchLanguage($settings.locale.language);
+	}
 
 	let keyboardShortcutModal;
 </script>
@@ -447,6 +456,7 @@
 						id="language-select"
 						disabled={$settings.locale.automaticLanguage}
 						bind:value={$settings.locale.language}
+						on:change={changeLanguage}
 					>
 						{#each supportedLangs as lang}
 							<option value={lang}>{dictionary.languages[lang]}</option>
@@ -460,7 +470,10 @@
 						on:change={(e) => {
 							if (e.target.checked) {
 								// same code as layout, reset to user device default
-								$settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale;
+								$settings.locale.language = Intl.DateTimeFormat()
+									.resolvedOptions()
+									.locale.substring(0, 2);
+								changeLanguage();
 							}
 						}}
 					/>

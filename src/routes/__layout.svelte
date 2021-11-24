@@ -14,7 +14,7 @@
 	import Modal from '../components/Modal.svelte';
 	import Nav from '../components/Nav.svelte';
 	import Header from '../components/Header.svelte';
-	import Settings from '../components/Settings.svelte';
+	import Settings, { fetchLanguage } from '../components/Settings.svelte';
 	import { now } from '../components/now.js';
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
 	import { settings } from '../components/settings.js';
@@ -40,7 +40,11 @@
 			? document.body.classList.add('dark')
 			: document.body.classList.remove('dark');
 
-	onMount(() => {
+	onMount(async () => {
+		if ($settings.locale.language) {
+			$session.languageDictionary = await fetchLanguage($settings.locale.language);
+		}
+
 		// auto detect user device preferences
 		if ($settings.darkMode === null) {
 			$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -49,8 +53,7 @@
 			$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 		}
 
-		if ($settings.locale.language === null)
-			$settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale;
+		if ($settings.locale.language === null) $settings.locale.language = $session.lang;
 
 		if ($settings.locale.datetime === null)
 			$settings.locale.datetime = Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2);
@@ -73,8 +76,26 @@
 		});
 	});
 
+	let dateTimeInterval; // browser is optimized anyway, no need to detect seconds
+
+	function startInterval() {
+		if (dateTimeInterval) clearInterval(dateTimeInterval);
+
+		const ms =
+			$settings.clock.timeFormat === 'custom' && $settings.clock.timeFormatCustom.includes('SSS')
+				? 50
+				: 1000;
+		dateTimeInterval = setInterval(() => ($now = new Date()), ms);
+	}
+
 	onMount(() => {
-		const dateTimeInterval = setInterval(() => ($now = new Date()), 1000); // browser is optimized anyway, no need to detect seconds
+		startInterval();
+
+		let lastTimeFormatCustom;
+		settings.subscribe(() => {
+			if (lastTimeFormatCustom !== $settings.clock.timeFormatCustom) startInterval();
+			lastTimeFormatCustom = $settings.clock.timeFormatCustom;
+		});
 
 		return () => {
 			clearInterval(dateTimeInterval);

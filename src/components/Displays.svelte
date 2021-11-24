@@ -70,7 +70,11 @@
 </script>
 
 <div style="color:{colorPalette[shade]}; display: flex">
-	<div id="primary-display" style="--primary-font-weight: {$settings.clock.datetimeFontWeight}">
+	<div
+		id="primary-display"
+		style="--primary-font-weight: {$settings.clock.datetimeFontWeight}"
+		class={displays.primary}
+	>
 		{#if displays.primary != 'analog'}
 			<h1>
 				{#if displays.primary == 'time'}
@@ -123,8 +127,10 @@
 		font-weight: var(--primary-font-weight);
 	}
 	#primary-display h1 {
-		@apply text-7xl md:text-8xl lg:text-9xl tracking-widest text-center px-16;
-		line-height: 1.5;
+		@apply text-7xl md:text-8xl lg:text-9xl tracking-widest text-center px-8 leading-tight;
+	}
+	#primary-display.datetime h1 {
+		@apply text-5xl md:text-6xl lg:text-7xl;
 	}
 	#primary-display,
 	#secondary-display {
