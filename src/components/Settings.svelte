@@ -247,7 +247,7 @@
 			labelText={dictionary.labels['Show theme buttons']}
 		/>
 
-        <hr>
+		<hr />
 
 		<Toggle
 			id="smaller-menu-toggle"
@@ -287,9 +287,9 @@
 					required
 				/>
 			</div>
+			<br />
 		{/if}
 
-		<br />
 		<label for="font-family-select">{dictionary.labels['Font family:']}</label>
 		<select
 			id="font-family-select"
