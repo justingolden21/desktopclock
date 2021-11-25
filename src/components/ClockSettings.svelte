@@ -66,35 +66,35 @@
 		<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="2">
 			<!-- note: using json for efficient deep clone so original theme object is not mutated -->
 			<button
-				class="btn theme-btn block"
+				class="btn theme-btn"
 				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(defaultTheme)))}
 			>
 				<Icon name="theme" class="inline w-6 h-6" />
 				{dictionary.clockSettings['Default Theme']}
 			</button>
 			<button
-				class="btn theme-btn block"
+				class="btn theme-btn"
 				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme)))}
 			>
 				<Icon name="theme" class="inline w-6 h-6" />
 				{dictionary.clockSettings['Default Night Theme']}
 			</button>
 			<button
-				class="btn theme-btn block"
+				class="btn theme-btn"
 				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(classicTheme)))}
 			>
 				<Icon name="theme" class="inline w-6 h-6" />
 				{dictionary.clockSettings['Classic Theme']}
 			</button>
 			<button
-				class="btn theme-btn block"
+				class="btn theme-btn"
 				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(classicNightTheme)))}
 			>
 				<Icon name="theme" class="inline w-6 h-6" />
 				{dictionary.clockSettings['Classic Night Theme']}
 			</button>
 			<button
-				class="btn theme-btn block"
+				class="btn theme-btn"
 				on:click={() => {
 					for (const size of 'sm md lg'.split(' '))
 						$settings.clock.theme.ticks[size].stroke.lightness = '-1';
