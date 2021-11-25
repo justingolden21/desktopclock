@@ -14,8 +14,6 @@ add link to faqs/help
 
 zen mode btn: top of clock settings, click to go fullscreen, no menu, no buttons, no title, just primary and secondary display
 
-custom scrollbar?
-
 dark theme update app theme colors, favicon? do similar for other themes?
 
 link to browse all colors at justingolden.me/tailwind-colors ?
