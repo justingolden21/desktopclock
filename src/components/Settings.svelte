@@ -423,13 +423,6 @@
 
 				<h3>{dictionary.labels['Advanced / Experimental']}</h3>
 
-				<button
-					class="btn"
-					on:click={() => {
-						localStorage.clear();
-						location.reload();
-					}}>{dictionary.labels['Delete settings and reload']}</button
-				>
 				<div class="block mb-2">
 					<Toggle
 						id="wakelock-toggle"
@@ -439,6 +432,13 @@
 							evt.target.checked ? requestWakeLock(dictionary) : releaseWakeLock(dictionary)}
 					/>
 				</div>
+				<button
+					class="btn"
+					on:click={() => {
+						localStorage.clear();
+						location.reload();
+					}}>{dictionary.labels['Delete settings and reload']}</button
+				>
 
 				<!-- <button class="btn">Multiple Clock Settings</button>
 		        <button class="btn">Quick Resize Settings</button> -->
