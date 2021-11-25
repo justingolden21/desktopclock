@@ -56,7 +56,7 @@
 		-webkit-animation: animateTop 0.25s;
 	}
 	.modal button.close {
-		@apply z-30 float-right;
+		@apply z-30 float-right mt-2;
 	}
 	.modal h1 {
 		@apply text-left mt-4;

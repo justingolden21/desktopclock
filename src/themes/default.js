@@ -7,7 +7,7 @@ const defaultTheme = {
 			lightness: '700'
 		},
 		fill: {
-			lightness: '200'
+			lightness: '100'
 		},
 		strokeWidth: 0,
 		shape: 'circle'
