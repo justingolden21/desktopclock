@@ -83,15 +83,20 @@
 		win.focus();
 	}
 
+	let wakeLock;
+
 	// https://developer.mozilla.org/en-US/docs/Web/API/WakeLock/request
 	export async function requestWakeLock(languageDictionary) {
 		let success = true;
 		try {
-			const wakeLock = await navigator.wakeLock.request('screen');
+			wakeLock = await navigator.wakeLock.request('screen');
+			wakeLock.addEventListener('release', () => {
+				console.log('wakeLock was released');
+			});
 			console.log('wakeLock success');
 		} catch (err) {
 			// The wake lock request fails - usually system-related, such as low battery.
-			console.log(`wakeLock error: ${err.name}, ${err.message}`);
+			console.log(`Error creating wakeLock: ${err.name}, ${err.message}`);
 			success = false;
 		}
 
@@ -103,6 +108,27 @@
 		const timeout = 2000;
 		addToast({ message, type, dismissible, timeout });
 	}
+
+	// https://phpnews.io/feeditem/have-a-web-page-prevent-your-screen-computer-from-dimming-sleeping-with-the-wake-lock-api
+	const releaseWakeLock = async (languageDictionary) => {
+		let success = true;
+		if (!wakeLock) return;
+		try {
+			await wakeLock.release();
+			wakeLock = null;
+		} catch (err) {
+			console.log(`Error releasing wakeLock: ${err.name}, ${err.message}`);
+			success = false;
+		}
+
+		const message = success
+			? languageDictionary.messages['Wake lock was deactivated successfully']
+			: languageDictionary.messages['Wake lock failure'];
+		const type = success ? 'success' : 'error';
+		const dismissible = true;
+		const timeout = 2000;
+		addToast({ message, type, dismissible, timeout });
+	};
 
 	export function validate(input) {
 		const min = input.min;
@@ -404,9 +430,15 @@
 						location.reload();
 					}}>{dictionary.labels['Delete settings and reload']}</button
 				>
-				<button class="btn" on:click={() => requestWakeLock(dictionary)}
-					>{dictionary.labels['Keep screen awake']}</button
-				>
+				<div class="block mb-2">
+					<Toggle
+						id="wakelock-toggle"
+						labelText={dictionary.labels['Keep screen awake']}
+						checked={false}
+						on:change={(evt) =>
+							evt.target.checked ? requestWakeLock(dictionary) : releaseWakeLock(dictionary)}
+					/>
+				</div>
 
 				<!-- <button class="btn">Multiple Clock Settings</button>
 		        <button class="btn">Quick Resize Settings</button> -->
