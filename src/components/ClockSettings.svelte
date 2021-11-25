@@ -33,7 +33,7 @@
 
 <Accordion key="1">
 	<AccordionPanel accordionTitle={dictionary.clockSettings['Displays']} key="1">
-		<div class="block mb-2">
+		<div class="block xl:inline">
 			<label for="primary-display-select">{dictionary.clockSettings['Primary display:']}</label>
 			<select id="primary-display-select" bind:value={$settings.clock.displays.primary}>
 				<option value="analog">{dictionary.clockSettings['Analog clock']}</option>
@@ -43,7 +43,7 @@
 			</select>
 		</div>
 
-		<div class="block mb-2">
+		<div class="block xl:inline">
 			<label for="secondary-display-select">{dictionary.clockSettings['Secondary display:']}</label>
 			<select id="secondary-display-select" bind:value={$settings.clock.displays.secondary}>
 				<option value="time">{dictionary.clockSettings['Digital time']}</option>
@@ -106,7 +106,7 @@
 
 			<h3>{dictionary.clockSettings['Face']}</h3>
 
-			<div class="block mb-2">
+			<div class="block xl:inline">
 				<label for="face-fill-select">{dictionary.display['Fill color:']}</label>
 				<select id="face-fill-select" bind:value={$settings.clock.theme.face.fill.lightness}>
 					{#each Object.keys(colorPalette) as lightness}
@@ -115,7 +115,7 @@
 					<option value="-1">{dictionary.display['Transparent']}</option>
 				</select>
 			</div>
-			<div class="block mb-2">
+			<div class="block xl:inline">
 				<label for="face-stroke-select">{dictionary.display['Stroke color:']}</label>
 				<select id="face-stroke-select" bind:value={$settings.clock.theme.face.stroke.lightness}>
 					{#each Object.keys(colorPalette) as lightness}
@@ -124,7 +124,7 @@
 					<option value="-1">{dictionary.display['Transparent']}</option>
 				</select>
 			</div>
-			<div class="block mb-2">
+			<div class="block xl:inline">
 				<label for="face-stroke-width-select">{dictionary.display['Stroke width:']}</label>
 				<select id="face-stroke-width-select" bind:value={$settings.clock.theme.face.strokeWidth}>
 					{#each Array(6) as _, i}
@@ -132,7 +132,7 @@
 					{/each}
 				</select>
 			</div>
-			<div class="block mb-2">
+			<div class="block xl:inline">
 				<label for="face-shape-select">{dictionary.display['Shape:']}</label>
 				<select id="face-shape-select" bind:value={$settings.clock.theme.face.shape}>
 					<option value="circle">{dictionary.display.shapes['Circle']}</option>
@@ -143,7 +143,7 @@
 
 			<h3>{dictionary.clockSettings['Shadow']}</h3>
 
-			<div class="block mb-2">
+			<div class="block xl:inline">
 				<label for="shadow-fill-select">{dictionary.display['Color:']}</label>
 				<select
 					id="shadow-fill-select"
@@ -159,7 +159,7 @@
 
 			<h3>{dictionary.clockSettings['Pin']}</h3>
 
-			<div class="block mb-2">
+			<div class="block xl:inline">
 				<label for="pin-fill-select">{dictionary.display['Fill color:']}</label>
 				<select id="pin-fill-select" bind:value={$settings.clock.theme.pin.fill.lightness}>
 					{#each Object.keys(colorPalette) as lightness}
@@ -168,7 +168,7 @@
 					<option value="-1">{dictionary.display['Transparent']}</option>
 				</select>
 			</div>
-			<div class="block mb-2">
+			<div class="block xl:inline">
 				<label for="pin-stroke-select">{dictionary.display['Stroke color:']}</label>
 				<select id="pin-stroke-select" bind:value={$settings.clock.theme.pin.stroke.lightness}>
 					{#each Object.keys(colorPalette) as lightness}
@@ -177,7 +177,7 @@
 					<option value="-1">{dictionary.display['Transparent']}</option>
 				</select>
 			</div>
-			<div class="block mb-2">
+			<div class="block xl:inline">
 				<label for="pin-stroke-width-select">{dictionary.display['Stroke width:']}</label>
 				<select id="pin-stroke-width-select" bind:value={$settings.clock.theme.pin.strokeWidth}>
 					{#each Array(7) as _, i}
@@ -185,7 +185,7 @@
 					{/each}
 				</select>
 			</div>
-			<div class="block mb-2">
+			<div class="block xl:inline">
 				<label for="pin-size-select">{dictionary.display['Size:']}</label>
 				<select id="pin-size-select" bind:value={$settings.clock.theme.pin.size}>
 					{#each Array(6) as _, i}
@@ -200,7 +200,7 @@
 				<h4>
 					{dictionary.clockSettings[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
 				</h4>
-				<div class="block mb-2">
+				<div class="block xl:inline">
 					<label for="{size}-tick-stroke-select">
 						{dictionary.display['Stroke color:']}
 					</label>
@@ -214,7 +214,7 @@
 						<option value="-1">{dictionary.display['Transparent']}</option>
 					</select>
 				</div>
-				<div class="block mb-2">
+				<div class="block xl:inline">
 					<label for="{size}-tick-width-select">{dictionary.display['Width:']}</label>
 					<select
 						id="{size}-tick-width-select"
@@ -225,7 +225,7 @@
 						{/each}
 					</select>
 				</div>
-				<div class="block mb-2">
+				<div class="block xl:inline">
 					<label for="{size}-tick-height-select">{dictionary.display['Height:']}</label>
 					<select
 						id="{size}-tick-height-select"
@@ -244,7 +244,7 @@
 				<h4>
 					{dictionary.clockSettings[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
 				</h4>
-				<div class="block mb-2">
+				<div class="block xl:inline">
 					<label for="{hand}-hand-stroke-select">
 						{dictionary.display['Stroke color:']}
 					</label>
@@ -258,7 +258,7 @@
 						<option value="-1">{dictionary.display['Transparent']}</option>
 					</select>
 				</div>
-				<div class="block mb-2">
+				<div class="block xl:inline">
 					<label for="{hand}-hand-stroke-width-select">{dictionary.display['Stroke width:']}</label>
 					<select
 						id="{hand}-hand-stroke-width-select"
@@ -269,7 +269,7 @@
 						{/each}
 					</select>
 				</div>
-				<div class="block mb-2">
+				<div class="block xl:inline">
 					<label for="{hand}-hand-length-select">{dictionary.display['Length:']}</label>
 					<select
 						id="{hand}-hand-length-select"
@@ -280,7 +280,7 @@
 						{/each}
 					</select>
 				</div>
-				<div class="block mb-2">
+				<div class="block xl:inline">
 					<label for="{hand}-hand-back-select">{dictionary.display['Back:']}</label>
 					<select id="{hand}-hand-back-select" bind:value={$settings.clock.theme.hands[hand].back}>
 						{#each Array(10) as _, i}
@@ -288,7 +288,7 @@
 						{/each}
 					</select>
 				</div>
-				<div class="block mb-2">
+				<div class="block xl:inline">
 					<label for="{hand}-hand-linecap-select">{dictionary.display['Linecap:']}</label>
 					<select
 						id="{hand}-hand-linecap-select"
@@ -304,8 +304,8 @@
 	{/if}
 	{#if $settings.clock.displays.primary != 'analog' || $settings.clock.displays.secondary != 'none'}
 		<AccordionPanel accordionTitle={dictionary.clockSettings['Digital Datetime']} key="3">
-			<div class="block mb-2">
-				<div class="block mb-2">
+			<div class="block xl:inline">
+				<div class="block xl:inline">
 					<label for="time-format-select">{dictionary.clockSettings['Time format:']}</label>
 					<select id="time-format-select" bind:value={$settings.clock.timeFormat}>
 						{#each ['H:mm', 'H:mm:ss', 'h:mm A', 'h:mm:ss A', 'H:mm Z', 'H:mm:ss Z', 'h:mm A Z', 'h:mm:ss A Z', 'mm:ss'] as timeFormat}
@@ -337,7 +337,7 @@
 					{/if}
 				</div>
 
-				<div class="block mb-2">
+				<div class="block xl:inline">
 					<label for="date-format-select">{dictionary.clockSettings['Date format:']}</label>
 					<select id="date-format-select" bind:value={$settings.clock.dateFormat}>
 						{#each ['MMM D', 'MMM D YYYY', 'ddd, MMMM D', 'ddd, MMMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
