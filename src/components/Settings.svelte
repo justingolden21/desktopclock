@@ -145,6 +145,7 @@
 	import timezones from './timezones';
 	import { keyboardShortcutsList } from './KeyboardShortcuts.svelte';
 	import ClockSettings from './ClockSettings.svelte';
+	import defaultNightTheme from '../themes/defaultNight';
 
 	import { version } from '../../package.json';
 
@@ -374,6 +375,8 @@
 
 						// auto detect user device preferences (same code as in layout)
 						$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
+						if ($settings.darkMode) $settings.clock.theme = defaultNightTheme;
+
 						$settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale ?? 'en';
 						$settings.locale.datetime =
 							Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2) ?? 'en';

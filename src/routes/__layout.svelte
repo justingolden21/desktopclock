@@ -18,6 +18,7 @@
 	import { now } from '../components/now.js';
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
 	import { settings } from '../components/settings.js';
+	import defaultNightTheme from '../themes/defaultNight';
 
 	let settingsModal;
 
@@ -48,6 +49,8 @@
 		// auto detect user device preferences
 		if ($settings.darkMode === null) {
 			$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
+			// if darkMode doesn't exist, the user doesn't already have theme settings, it's ok to step on the old theme
+			if ($settings.darkMode) $settings.clock.theme = defaultNightTheme;
 		}
 		if ($settings.locale.timezone === null) {
 			$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? 'Etc/GMT';
