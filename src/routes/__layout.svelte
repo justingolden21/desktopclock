@@ -77,7 +77,8 @@
 			timezone: $settings.locale.timezone,
 			language: $settings.locale.language,
 			datetime_locale: $settings.locale.datetime,
-			time_format: $settings.timeFormat
+			time_format: $settings.timeFormat,
+			navigator_language: navigator.language
 		});
 	});
 
