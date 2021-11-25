@@ -11,6 +11,24 @@ export async function get({ locals }) {
 			background_color: '#FFFFFF',
 			theme_color: '#FFFFFF',
 			orientation: 'any',
+			shortcuts: [
+				{
+					name: locals.languageDictionary.pageNames['clock'],
+					url: '/'
+				},
+				{
+					name: locals.languageDictionary.pageNames['worldclock'],
+					url: '/worldclock'
+				},
+				{
+					name: locals.languageDictionary.pageNames['stopwatch'],
+					url: '/stopwatch'
+				},
+				{
+					name: locals.languageDictionary.pageNames['timers'],
+					url: '/timers'
+				}
+			],
 			icons: [
 				{
 					src: 'img/icons/manifest-icon-192.png',

@@ -211,9 +211,7 @@ clock tab is replaced with worldclock tab when worldclock is open, etc
 
 https://youtu.be/Xbo3uZ5Ge10
 - offline fallback
-- shortcuts to tasks
 - google analytics
-
 
 themes:
 reset display settings/theme btn
@@ -228,6 +226,9 @@ monospace/fix kerning for numbers in time so they do not shift
 
 reset settings btn, save settings to browser local storage
 let user chose primary and secondary color/palette, also chose specific color for hands, ticks, etc
+
+low priority:
+can add shortcut icons for pwa manifest shortcuts
 
 more settings:
 tick hands
