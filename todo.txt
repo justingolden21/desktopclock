@@ -47,6 +47,11 @@ before release:
 - last: get domain, marketing video, para about translate to your lang, ux test
 ================
 
+zoom in/out buttons?
+if(document.body.style.zoom)
+document.body.style.zoom = "80%";
+https://stackoverflow.com/a/12603229/4907950
+
 fix teleport clock hands (if diff is more than 2 seconds from old time then no transition)
 
 important:
