@@ -381,6 +381,17 @@
 							' '
 						))
 							$settings.clock[format] = defaultSettings.clock[format];
+
+						// copied from `_layout.svelte` since `timeFormat` will be null
+						// because it's null in `defaultSettings` because it's overriden in `_layout.svelte` like so:
+						if ($settings.clock.timeFormat === null) {
+							// https://stackoverflow.com/q/27647918/4907950
+							const AMPM =
+								Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions()
+									.hourCycle === 'h12';
+							$settings.clock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
+							$settings.clock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
+						}
 					}}
 				>
 					<Icon name="undo" class="inline w-6 h-6" />
