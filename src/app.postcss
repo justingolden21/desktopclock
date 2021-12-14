@@ -1,6 +1,5 @@
 /* global styles across app */
 
-@import './components/analog-clock.css';
 @import './css/scrollbar.css';
 @import './css/animatedIcons.css';
 
@@ -17,6 +16,14 @@
 		font-weight: 300;
 		/* default to sans-serif, even for serif, cursive, monospace fonts */
 		font-family: var(--font-family), sans-serif;
+	}
+
+	/* Mostly for analog clock */
+	.notransition {
+		-webkit-transition: none !important;
+		-moz-transition: none !important;
+		-o-transition: none !important;
+		transition: none !important;
 	}
 
 	/* Selection and focus */

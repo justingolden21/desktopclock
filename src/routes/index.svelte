@@ -161,3 +161,51 @@
 		</svg>
 	{/if}
 </section>
+
+<style lang="postcss">
+	#clock {
+		position: absolute;
+		top: 12.5%;
+		left: 12.5%;
+		height: 75%;
+		width: 75%;
+	}
+
+	#sm-ticks,
+	#md-ticks,
+	#lg-ticks,
+	#pin {
+		@apply transition duration-200 ease-in-out;
+	}
+
+	/* clock face shadows */
+	/* #face {
+	filter: drop-shadow(0px 0px 1px #33415580);
+	-webkit-filter: drop-shadow(0px 0px 1px #33415580);
+}
+.dark #face {
+	filter: drop-shadow(0px 0px 1px #e2e8f080);
+	-webkit-filter: drop-shadow(0px 0px 1px #e2e8f080);
+} */
+
+	:root {
+		--second-angle: 0deg;
+		--minute-angle: 0deg;
+		--hour-angle: 0deg;
+	}
+
+	#second-hand {
+		transition: transform 1s linear;
+		transform: rotate(var(--second-angle));
+	}
+
+	#minute-hand {
+		transition: transform 1s linear;
+		transform: rotate(var(--minute-angle));
+	}
+
+	#hour-hand {
+		transition: transform 1s linear;
+		transform: rotate(var(--hour-angle));
+	}
+</style>
