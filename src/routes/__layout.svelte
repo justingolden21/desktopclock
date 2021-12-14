@@ -15,7 +15,7 @@
 	import Nav from '../components/Nav.svelte';
 	import Header from '../components/Header.svelte';
 	import Settings, { fetchLanguage } from '../components/Settings.svelte';
-	import { now } from '../components/now.js';
+	import { now } from '../util/now.js';
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
 	import { settings } from '../components/settings.js';
 	import defaultNightTheme from '../themes/defaultNight';

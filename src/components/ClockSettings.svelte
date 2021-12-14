@@ -5,7 +5,7 @@
 	import TailwindColors from 'tailwindcss/colors.js';
 	import dayjs from 'dayjs';
 
-	import { now } from './now.js';
+	import { now } from '../util/now.js';
 	import { settings, defaultSettings } from './settings.js';
 
 	import { Accordion, AccordionPanel } from './Accordion/_accordion.js';

@@ -148,7 +148,7 @@
 <script>
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { now } from './now.js';
+	import { now } from '../util/now.js';
 
 	onMount(setupCasting);
 

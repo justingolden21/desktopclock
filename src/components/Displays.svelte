@@ -15,7 +15,7 @@
 	dayjs.extend(utc);
 	dayjs.extend(timezone);
 
-	import { now } from './now.js';
+	import { now } from '../util/now.js';
 
 	// approx 163kb (comment out and compare build sizes in network tab)
 	import '../data/all_locales.js';

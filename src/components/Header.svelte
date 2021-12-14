@@ -8,7 +8,7 @@
 	import { toggleFullscreen } from './Settings.svelte';
 	import ThemeButtons from './ThemeButtons.svelte';
 	import { setupCasting, castClock, isCastSupported } from './cast.js';
-	import { now } from './now.js';
+	import { now } from '../util/now.js';
 
 	export let navOpen;
 

@@ -10,7 +10,7 @@
 	dayjs.extend(utc);
 	dayjs.extend(timezone);
 
-	import { now } from '../components/now.js';
+	import { now } from '../util/now.js';
 	import Displays from '../components/Displays.svelte';
 	import { settings } from '../components/settings.js';
 
