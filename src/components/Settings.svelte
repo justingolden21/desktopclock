@@ -178,7 +178,7 @@
 
 	const castSupported = isCastSupported();
 
-	import { fontFamilies, locales, supportedLangs } from './consts.js';
+	import { fontFamilies, locales, supportedLangs } from '../data/consts.js';
 
 	async function changeLanguage() {
 		$session.languageDictionary = await fetchLanguage($settings.locale.language);

@@ -12,7 +12,7 @@
 	import Icon from './Icon.svelte';
 	import Toggle from './Toggle.svelte';
 	import Modal from './Modal.svelte';
-	import { fontFamilies } from './consts.js';
+	import { fontFamilies } from '../data/consts.js';
 
 	import defaultTheme from '../themes/default';
 	import defaultNightTheme from '../themes/defaultNight';
