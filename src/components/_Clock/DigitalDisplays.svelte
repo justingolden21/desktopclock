@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 
 	import { settings } from '../settings.js';
-	import BatteryIcon from '../BatteryIcon.svelte';
+	import BatteryIcon from './BatteryIcon.svelte';
 
 	import dayjs from 'dayjs';
 
