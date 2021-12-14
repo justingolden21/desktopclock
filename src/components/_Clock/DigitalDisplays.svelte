@@ -3,8 +3,8 @@
 
 	import { onMount } from 'svelte';
 
-	import { settings } from './settings.js';
-	import BatteryIcon from './BatteryIcon.svelte';
+	import { settings } from '../settings.js';
+	import BatteryIcon from '../BatteryIcon.svelte';
 
 	import dayjs from 'dayjs';
 
@@ -15,10 +15,10 @@
 	dayjs.extend(utc);
 	dayjs.extend(timezone);
 
-	import { now } from '../util/now.js';
+	import { now } from '../../util/now.js';
 
 	// approx 163kb (comment out and compare build sizes in network tab)
-	import '../data/all_locales.js';
+	import '../../data/all_locales.js';
 
 	$: localeSettings = $settings.locale;
 	$: clockSettings = $settings.clock;
