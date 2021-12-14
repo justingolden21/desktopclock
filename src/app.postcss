@@ -2,6 +2,7 @@
 
 @import './components/analog-clock.css';
 @import './css/scrollbar.css';
+@import './css/animatedIcons.css';
 
 /* TODO: fallback to Noto? https://fonts.google.com/noto */
 
@@ -207,42 +208,5 @@ nav and modal have same bg colors, opacities, and shadows
 	body.dark nav button:hover,
 	body.dark nav button.active {
 		@apply bg-gray-600 bg-opacity-50;
-	}
-
-	/* Icon hover transitions */
-
-	.dark-btn svg,
-	.fullscreen-btn svg,
-	.cast-btn svg,
-	.external-link-btn svg,
-	.undo-btn svg,
-	.theme-btn svg,
-	.share-btn svg,
-	.link-btn svg {
-		transition: transform 0.25s;
-	}
-	.dark-btn:hover svg {
-		transform: scale(-1, -1);
-	}
-	.fullscreen-btn:hover svg {
-		transform: scale(-1, 1);
-	}
-	.cast-btn:hover svg {
-		transform: scale(-1, 1);
-	}
-	.external-link-btn:hover svg {
-		transform: rotate(-45deg);
-	}
-	.undo-btn:hover svg {
-		transform: translateX(-0.25rem);
-	}
-	.theme-btn:hover svg {
-		transform: rotate(-180deg);
-	}
-	.share-btn:hover svg {
-		transform: scale(1, -1) rotate(30deg);
-	}
-	.link-btn:hover svg {
-		transform: rotate(45deg);
 	}
 }

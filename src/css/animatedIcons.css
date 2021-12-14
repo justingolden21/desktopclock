@@ -1,0 +1,34 @@
+.dark-btn svg,
+.fullscreen-btn svg,
+.cast-btn svg,
+.external-link-btn svg,
+.undo-btn svg,
+.theme-btn svg,
+.share-btn svg,
+.link-btn svg {
+	transition: transform 0.25s;
+}
+.dark-btn:hover svg {
+	transform: scale(-1, -1);
+}
+.fullscreen-btn:hover svg {
+	transform: scale(-1, 1);
+}
+.cast-btn:hover svg {
+	transform: scale(-1, 1);
+}
+.external-link-btn:hover svg {
+	transform: rotate(-45deg);
+}
+.undo-btn:hover svg {
+	transform: translateX(-0.25rem);
+}
+.theme-btn:hover svg {
+	transform: rotate(-180deg);
+}
+.share-btn:hover svg {
+	transform: scale(1, -1) rotate(30deg);
+}
+.link-btn:hover svg {
+	transform: rotate(45deg);
+}
