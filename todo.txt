@@ -47,6 +47,11 @@ before release:
 - last: get domain, marketing video, para about translate to your lang, ux test
 ================
 
+zoom in/out buttons?
+if(document.body.style.zoom)
+document.body.style.zoom = "80%";
+https://stackoverflow.com/a/12603229/4907950
+
 fix teleport clock hands (if diff is more than 2 seconds from old time then no transition)
 
 important:
@@ -211,9 +216,7 @@ clock tab is replaced with worldclock tab when worldclock is open, etc
 
 https://youtu.be/Xbo3uZ5Ge10
 - offline fallback
-- shortcuts to tasks
 - google analytics
-
 
 themes:
 reset display settings/theme btn
@@ -228,6 +231,9 @@ monospace/fix kerning for numbers in time so they do not shift
 
 reset settings btn, save settings to browser local storage
 let user chose primary and secondary color/palette, also chose specific color for hands, ticks, etc
+
+low priority:
+can add shortcut icons for pwa manifest shortcuts
 
 more settings:
 tick hands

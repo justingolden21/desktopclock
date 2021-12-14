@@ -28,9 +28,7 @@
 	function doubleClickFullscreen({ target }) {
 		if (!$settings.doubleclickFullscreen) return;
 		if (target.tagName === 'BUTTON' || target.parentNode.tagName === 'BUTTON') return;
-		if (screenfull.isEnabled) {
-			screenfull.toggle();
-		}
+		if (screenfull.isEnabled) screenfull.toggle();
 	}
 
 	// check when session changes

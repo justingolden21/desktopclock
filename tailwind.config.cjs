@@ -12,9 +12,9 @@ module.exports = {
 	darkMode: 'class',
 	theme: {
 		colors: {
+			// ...colors,
 			white: '#FFF',
 			gray: colors.blueGray
-			// ...colors
 		},
 		screens: {
 			xs: '360px',

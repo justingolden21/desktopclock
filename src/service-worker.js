@@ -17,9 +17,7 @@ worker.addEventListener('install', (event) => {
 		caches
 			.open(FILES)
 			.then((cache) => cache.addAll(to_cache))
-			.then(() => {
-				worker.skipWaiting();
-			})
+			.then(() => worker.skipWaiting())
 	);
 });
 

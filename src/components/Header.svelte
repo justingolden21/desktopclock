@@ -71,7 +71,7 @@
 		on:click={() => (navOpen = !navOpen)}
 		aria-label={dictionary.labels['Menu']}
 	>
-		<Icon name={navOpen ? 'close' : 'menu'} class="w-6 h-6" />
+		<Icon name={navOpen ? 'close' : 'menu'} class="md:w-8 md:h-8 w-6 h-6" />
 	</button>
 
 	<button
