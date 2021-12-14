@@ -51,6 +51,17 @@
 		animation: sweep 0.5s ease-in-out;
 	}
 
+	@keyframes sweep {
+		0% {
+			opacity: 0;
+			transform: translateY(-1rem);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
 	/* prevent white flash when opening details in dark mode */
 	:global(body.dark) .details {
 		@apply bg-gray-700 bg-opacity-25;

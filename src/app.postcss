@@ -18,6 +18,8 @@
 		font-family: var(--font-family), sans-serif;
 	}
 
+	/* Selection and focus */
+
 	::-moz-selection {
 		@apply bg-gray-300;
 	}
@@ -42,13 +44,12 @@
 		@apply outline-none ring-2 ring-gray-300;
 	}
 
+	/* Typography */
+
 	#title-text {
-		position: absolute;
-		top: 0%;
-		left: 0%;
-		width: 100%;
 		@apply pt-5 md:pt-6 hidden xs:block;
 	}
+
 	h1,
 	h2,
 	h3,
@@ -81,6 +82,81 @@
 	}
 	body.dark a:not(nav a) {
 		@apply text-gray-300;
+	}
+
+	/* Body colors */
+
+	body {
+		/* background: linear-gradient(-45deg, #f8fafc 0%, #fff 100%); */
+		@apply text-gray-900;
+	}
+	body.dark {
+		/* background: linear-gradient(-45deg, #0f172a 0%, #1e293b 100%); */
+		@apply bg-gray-900 text-gray-200;
+	}
+
+	body,
+	body.dark {
+		@apply transition-colors
+			duration-200
+			ease-linear;
+	}
+
+	/* Tables */
+
+	table {
+		@apply w-full mb-4;
+	}
+	table th,
+	table td {
+		@apply p-1 px-2 text-gray-800 dark:text-gray-200;
+	}
+	th {
+		@apply font-bold;
+	}
+	th,
+	tr:nth-child(even) {
+		@apply bg-gray-200 dark:bg-gray-800;
+	}
+	tr:nth-child(odd) {
+		@apply bg-gray-100 dark:bg-gray-700;
+	}
+
+	/* Inputs */
+
+	.btn {
+		@apply p-2 my-2 mr-4 rounded-none text-white bg-gray-600 hover:bg-gray-700;
+	}
+	.icon-btn {
+		@apply p-2 rounded-full hover:bg-gray-700 hover:text-white;
+	}
+
+	select {
+		@apply cursor-pointer p-2 pr-6 m-2 text-gray-700 bg-gray-50 hover:bg-gray-100 appearance-none;
+		background: #f8fafc
+			url("data:image/svg+xml;utf8,<svg fill='none' stroke='currentColor' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
+			no-repeat right center;
+	}
+	option {
+		@apply p-1;
+	}
+	select:disabled {
+		@apply bg-gray-200;
+	}
+	input[type='text'],
+	input[type='number'] {
+		@apply p-2 text-gray-800;
+	}
+
+	body.dark select {
+		@apply bg-gray-500 text-gray-100;
+		/* 'white' works but '#FFFFFF' doesn't and 'currentColor' doesn't, even with 'color' explicitly set above */
+		background: #64748b /*gray-500*/
+			url("data:image/svg+xml;utf8,<svg fill='none' stroke='white' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
+			no-repeat right center;
+	}
+	body.dark select:disabled {
+		@apply bg-gray-400;
 	}
 }
 
@@ -120,7 +196,7 @@ nav and modal have same bg colors, opacities, and shadows
 	}
 	body.dark nav {
 		@apply bg-gray-700 bg-opacity-75;
-		/* box-shadow: 4px 0px 8px #334155; /*gray-700*/
+		/* box-shadow: 4px 0px 8px #1e293b; /*gray-800*/
 	}
 	body.dark nav a,
 	body.dark nav button {
@@ -133,53 +209,8 @@ nav and modal have same bg colors, opacities, and shadows
 		@apply bg-gray-600 bg-opacity-50;
 	}
 
-	.btn {
-		@apply p-2 my-2 mr-4 rounded-none text-white bg-gray-600 hover:bg-gray-700;
-	}
-	.icon-btn {
-		@apply p-2 rounded-full hover:bg-gray-700 hover:text-white;
-	}
+	/* Icon hover transitions */
 
-	select {
-		@apply cursor-pointer p-2 pr-6 m-2 text-gray-700 bg-gray-50 hover:bg-gray-100 appearance-none;
-		background: #f8fafc
-			url("data:image/svg+xml;utf8,<svg fill='none' stroke='currentColor' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
-			no-repeat right center;
-	}
-	option {
-		@apply p-1;
-	}
-	select:disabled {
-		@apply bg-gray-200;
-	}
-	input[type='text'],
-	input[type='number'] {
-		@apply p-2 text-gray-800;
-	}
-
-	body.dark select {
-		@apply bg-gray-500 text-gray-100;
-		/* 'white' works but '#FFFFFF' doesn't and 'currentColor' doesn't, even with 'color' explicitly set above */
-		background: #64748b /*gray-500*/
-			url("data:image/svg+xml;utf8,<svg fill='none' stroke='white' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
-			no-repeat right center;
-	}
-	body.dark select:disabled {
-		@apply bg-gray-400;
-	}
-
-	@keyframes sweep {
-		0% {
-			opacity: 0;
-			transform: translateY(-1rem);
-		}
-		100% {
-			opacity: 1;
-			transform: translateX(0);
-		}
-	}
-
-	/* icon hover transitions */
 	.dark-btn svg,
 	.fullscreen-btn svg,
 	.cast-btn svg,
@@ -213,41 +244,5 @@ nav and modal have same bg colors, opacities, and shadows
 	}
 	.link-btn:hover svg {
 		transform: rotate(45deg);
-	}
-
-	body {
-		/* background: linear-gradient(-45deg, #f8fafc 0%, #fff 100%); */
-		@apply text-gray-900;
-	}
-	body.dark {
-		/* background: linear-gradient(-45deg, #0f172a 0%, #1e293b 100%); */
-		@apply bg-gray-900 text-gray-200;
-	}
-
-	body,
-	body.dark {
-		@apply transition-colors
-			duration-200
-			ease-linear;
-	}
-
-	/* Tables */
-
-	table {
-		@apply w-full mb-4;
-	}
-	table th,
-	table td {
-		@apply p-1 px-2 text-gray-800 dark:text-gray-200;
-	}
-	th {
-		@apply font-bold;
-	}
-	th,
-	tr:nth-child(even) {
-		@apply bg-gray-200 dark:bg-gray-800;
-	}
-	tr:nth-child(odd) {
-		@apply bg-gray-100 dark:bg-gray-700;
 	}
 }
