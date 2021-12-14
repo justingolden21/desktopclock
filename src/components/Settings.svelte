@@ -164,7 +164,6 @@
 	import { Accordion, AccordionPanel } from './Accordion/_accordion.js';
 	import ThemeButtons from './ThemeButtons.svelte';
 	import Modal from './Modal.svelte';
-	import InstallButton from './InstallButton.svelte';
 	import { Toasts, addToast } from './Toast/_toast.js';
 	import timezones from '../data/timezones';
 	import { keyboardShortcutsList } from './KeyboardShortcuts.svelte';
@@ -178,6 +177,7 @@
 	const castSupported = isCastSupported();
 
 	import { fontFamilies, locales, supportedLangs } from '../data/consts.js';
+	import { installButtonClick, showInstallButton } from '../util/install.js';
 
 	async function changeLanguage() {
 		$session.languageDictionary = await fetchLanguage($settings.locale.language);
@@ -237,63 +237,54 @@
 		<Toggle
 			id="show-dark-btn-toggle"
 			bind:checked={$settings.showDarkButton}
-			labelText={dictionary.labels['Show dark button']}
-		/>
+			labelText={dictionary.labels['Show dark button']} />
 
 		<Toggle
 			id="show-primary-btn-toggle"
 			bind:checked={$settings.showPrimaryButton}
-			labelText={dictionary.labels['Show primary toggle button']}
-		/>
+			labelText={dictionary.labels['Show primary toggle button']} />
 
 		<Toggle
 			id="show-secondary-btn-toggle"
 			bind:checked={$settings.showSecondaryButton}
-			labelText={dictionary.labels['Show secondary toggle button']}
-		/>
+			labelText={dictionary.labels['Show secondary toggle button']} />
 
 		<div class:hidden={!castSupported}>
 			<Toggle
 				id="show-cast-btn-toggle"
 				bind:checked={$settings.showCastButton}
-				labelText={dictionary.labels['Show cast button']}
-			/>
+				labelText={dictionary.labels['Show cast button']} />
 		</div>
 
 		<Toggle
 			id="show-fullscreen-btn-toggle"
 			bind:checked={$settings.showFullscreenButton}
-			labelText={dictionary.labels['Show fullscreen button']}
-		/>
+			labelText={dictionary.labels['Show fullscreen button']} />
 
 		<Toggle
 			id="show-theme-btn-toggle"
 			bind:checked={$settings.showThemeButtons}
-			labelText={dictionary.labels['Show theme buttons']}
-		/>
+			labelText={dictionary.labels['Show theme buttons']} />
 
 		<hr />
 
 		<Toggle
 			id="smaller-menu-toggle"
 			bind:checked={$settings.smallerMenu}
-			labelText={dictionary.labels['Smaller menu']}
-		/>
+			labelText={dictionary.labels['Smaller menu']} />
 
 		<!-- only relevant on larger screens that don't always have the menu collapsed anyway -->
 		<div class="hidden md:block">
 			<Toggle
 				id="always-collapse-menu-toggle"
 				bind:checked={$settings.alwaysCollapseMenu}
-				labelText={dictionary.labels['Always collapse menu']}
-			/>
+				labelText={dictionary.labels['Always collapse menu']} />
 		</div>
 
 		<Toggle
 			id="hide-titlebar-when-idle-toggle"
 			bind:checked={$settings.hideTitlebarWhenIdle}
-			labelText={dictionary.labels['Hide title bar when idle']}
-		/>
+			labelText={dictionary.labels['Hide title bar when idle']} />
 
 		{#if $settings.hideTitlebarWhenIdle}
 			<div class="my-2 ml-8">
@@ -309,8 +300,7 @@
 					type="number"
 					min="1"
 					max="1000"
-					required
-				/>
+					required />
 			</div>
 			<br />
 		{/if}
@@ -327,8 +317,7 @@
 					// default to first listed weight
 					$settings.clock.datetimeFontWeight = fontFamilies[family][0].toString();
 				}
-			}}
-		>
+			}}>
 			{#each Object.keys(fontFamilies) as fontFamily}
 				{#if fontFamily !== ''}
 					<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
@@ -338,8 +327,7 @@
 			<option
 				value=""
 				style="font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
-				>{dictionary.display['System default']}</option
-			>
+				>{dictionary.display['System default']}</option>
 		</select>
 		<button
 			class="btn undo-btn block"
@@ -351,8 +339,7 @@
 
 				// auto detect user device preferences (same code as in layout)
 				$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
-			}}
-		>
+			}}>
 			<Icon name="undo" class="inline w-6 h-6" />
 			{dictionary.labels['Reset appearance settings']}
 		</button>
@@ -376,7 +363,13 @@
 
 				<br />
 
-				<InstallButton class="btn" />
+				{#if $showInstallButton}
+					<button on:click={installButtonClick} class="btn">
+						<Icon name="download" class="w-6 h-6 inline" />
+						{$session.languageDictionary.labels['Install']}
+					</button>
+				{/if}
+
 				<button class="btn external-link-btn" on:click={() => openWindow(window.location.href)}>
 					<Icon name="external-link" class="inline w-6 h-6" />
 					{dictionary.labels['Open another clock']}
@@ -384,8 +377,7 @@
 				<button
 					class="btn"
 					on:click={() =>
-						window.open('mailto:contact@justingolden.me?subject=Desktop+Clock+Feedback')}
-				>
+						window.open('mailto:contact@justingolden.me?subject=Desktop+Clock+Feedback')}>
 					<Icon name="envelope" class="inline w-6 h-6" />
 					{dictionary.labels['Send feedback']}
 				</button>
@@ -413,8 +405,7 @@
 								.hourCycle === 'h12';
 						$settings.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
 						$settings.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
-					}}
-				>
+					}}>
 					<Icon name="undo" class="inline w-6 h-6" />
 					{dictionary.labels['Reset all settings']}
 				</button>
@@ -427,16 +418,14 @@
 						labelText={dictionary.labels['Keep screen awake']}
 						checked={false}
 						on:change={(evt) =>
-							evt.target.checked ? requestWakeLock(dictionary) : releaseWakeLock(dictionary)}
-					/>
+							evt.target.checked ? requestWakeLock(dictionary) : releaseWakeLock(dictionary)} />
 				</div>
 				<button
 					class="btn"
 					on:click={() => {
 						localStorage.clear();
 						location.reload();
-					}}>{dictionary.labels['Delete settings and reload']}</button
-				>
+					}}>{dictionary.labels['Delete settings and reload']}</button>
 
 				<!-- <button class="btn">Multiple Clock Settings</button>
 		        <button class="btn">Quick Resize Settings</button> -->
@@ -446,15 +435,13 @@
 					<Toggle
 						id="dbl-click-fullscreen-toggle"
 						labelText={dictionary.labels['Doubleclick fullscreen']}
-						bind:checked={$settings.doubleclickFullscreen}
-					/>
+						bind:checked={$settings.doubleclickFullscreen} />
 				</div>
 				<div class="block mb-2">
 					<Toggle
 						id="keyboard-shortcuts-toggle"
 						labelText={dictionary.labels['Keyboard shortcuts']}
-						bind:checked={$settings.keyboardShortcuts}
-					/>
+						bind:checked={$settings.keyboardShortcuts} />
 				</div>
 				<button class="btn" on:click={keyboardShortcutModal.show()}>
 					<Icon name="table" class="inline w-6 h-6" />
@@ -491,8 +478,7 @@
 						id="language-select"
 						disabled={$settings.locale.automaticLanguage}
 						bind:value={$settings.locale.language}
-						on:change={changeLanguage}
-					>
+						on:change={changeLanguage}>
 						{#each supportedLangs as lang}
 							<option value={lang}>{dictionary.languages[lang]}</option>
 						{/each}
@@ -510,16 +496,14 @@
 									.locale.substring(0, 2);
 								changeLanguage();
 							}
-						}}
-					/>
+						}} />
 				</div>
 				<div class="block mb-2">
 					<label for="datetime-locale-select">{dictionary.labels['Datetime locale:']}</label>
 					<select
 						id="datetime-locale-select"
 						disabled={$settings.locale.automaticDatetime}
-						bind:value={$settings.locale.datetime}
-					>
+						bind:value={$settings.locale.datetime}>
 						{#each locales as locale}
 							<option value={locale}>{locale}</option>
 						{/each}
@@ -536,8 +520,7 @@
 									.resolvedOptions()
 									.locale.substring(0, 2);
 							}
-						}}
-					/>
+						}} />
 				</div>
 				<!-- todo: display gmt offset to the side -->
 				<!-- todo: search input that finds results containing that string in below select -->
@@ -547,8 +530,7 @@
 					<select
 						id="timezone-select"
 						disabled={$settings.locale.automaticTimezone}
-						bind:value={$settings.locale.timezone}
-					>
+						bind:value={$settings.locale.timezone}>
 						{#each Object.keys(timezones) as zone}
 							<optgroup label={zone}>
 								{#each timezones[zone] as tz}
@@ -567,8 +549,7 @@
 								// same code as layout, reset to user device default
 								$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 							}
-						}}
-					/>
+						}} />
 					<p>
 						{dictionary.labels['Timezone offset:']}
 						{new dayjs($now).tz($settings.locale.timezone).utcOffset() / 60}

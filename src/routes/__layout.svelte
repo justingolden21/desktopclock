@@ -19,6 +19,7 @@
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
 	import { settings } from '../components/settings.js';
 	import defaultNightTheme from '../themes/defaultNight';
+	import { setupInstall } from '../util/install';
 
 	let settingsModal;
 
@@ -36,8 +37,8 @@
 	// toggle dark class based on setting
 	$: if ($session && browser)
 		$settings.darkMode
-			? document.body.classList.add('dark')
-			: document.body.classList.remove('dark');
+			? document.body.parentNode.classList.add('dark')
+			: document.body.parentNode.classList.remove('dark');
 
 	onMount(async () => {
 		if ($settings.locale.language) {
@@ -93,6 +94,7 @@
 	}
 
 	onMount(() => {
+		setupInstall();
 		startInterval();
 
 		let lastTimeFormatCustom;
@@ -129,15 +131,13 @@
 
 	<meta
 		name="apple-mobile-web-app-status-bar"
-		content={TailwindColors[$settings.colorPalette][500]}
-	/>
+		content={TailwindColors[$settings.colorPalette][500]} />
 	<meta name="theme-color" content={TailwindColors[$settings.colorPalette][500]} />
 	<meta name="msapplication-TileColor" content={TailwindColors[$settings.colorPalette][500]} />
 	<link
 		rel="mask-icon"
 		href="img/icons/safari-pinned-tab.svg"
-		color={TailwindColors[$settings.colorPalette][500]}
-	/>
+		color={TailwindColors[$settings.colorPalette][500]} />
 </svelte:head>
 
 <GoogleAnalytics />
@@ -161,8 +161,7 @@
 	<Modal
 		bind:this={settingsModal}
 		title={$session.languageDictionary.labels['Settings']}
-		icon="settings"
-	>
+		icon="settings">
 		<Settings />
 	</Modal>
 </div>

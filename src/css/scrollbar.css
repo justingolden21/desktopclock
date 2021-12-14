@@ -5,7 +5,7 @@ html {
 	--thumbBG: #64748b; /*blue gray 500*/
 	--scrollbarBG: #f1f5f9; /*blue gray 100*/
 }
-html > body.dark {
+.dark {
 	--scrollbarBG: #64748b; /*blue gray 500*/
 	--thumbBG: #cbd5e1; /*blue gray 300*/
 }

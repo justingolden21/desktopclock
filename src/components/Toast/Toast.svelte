@@ -14,7 +14,10 @@
 	export let timeout;
 </script>
 
-<article class="toast" role="alert" transition:fade>
+<div
+	class="w-80 p-4 flex items-center mb-2 mx-auto border-2 border-gray-300 bg-gray-100 bg-opacity-75 backdrop-blur-sm dark:border-gray-200 dark:bg-gray-800 dark:bg-opacity-75"
+	role="alert"
+	transition:fade>
 	<Icon name={type} class="inline w-6 h-6" />
 
 	<div class="ml-4 font-bold">
@@ -25,39 +28,20 @@
 		<button
 			class="ml-auto"
 			aria-label={$session.languageDictionary.labels['Close']}
-			on:click={() => dispatch('dismiss')}
-		>
+			on:click={() => dispatch('dismiss')}>
 			<Icon name="close" class="inline w-6 h-6" />
 		</button>
 	{/if}
+
 	{#if timeout}
-		<div class="progress" style="animation-duration: {timeout / 1000}s" />
+		<div
+			class="progress-animation absolute bottom-0 left-0 h-1 bg-gray-600 dark:bg-gray-200"
+			style="animation-duration: {timeout /
+				1000}s; animation-timing-function: linear; animation-name: shrink;" />
 	{/if}
-</article>
+</div>
 
-<style lang="postcss">
-	.toast {
-		@apply w-80 p-4;
-		display: flex;
-		align-items: center;
-		margin: 0 auto 0.5rem auto;
-		/* copied from modal */
-		@apply border-2 border-gray-300 bg-gray-100 bg-opacity-75;
-		backdrop-filter: blur(4px);
-	}
-	:global(body.dark) .toast {
-		/* copied from modal */
-		@apply border-gray-200 bg-gray-800 bg-opacity-75;
-	}
-	.progress {
-		@apply absolute bottom-0 left-0 h-1 bg-gray-600;
-		animation-timing-function: linear;
-		animation-name: shrink;
-	}
-	:global(body.dark) .progress {
-		@apply bg-gray-200;
-	}
-
+<style>
 	@keyframes shrink {
 		from {
 			width: 100%;

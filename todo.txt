@@ -184,7 +184,7 @@ implement automated testing?
 save settings automatically toggle?
 
 settings.svelte is a MESS, needs to be broken down, translated, etc.
-next: clean settings and nav, implement spanish translations, implement way for user to change language (currently has no effect), clean :global(body.dark) to dark:
+next: clean settings and nav, implement spanish translations, implement way for user to change language (currently has no effect), clean :global(.dark) to dark:
 
 preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
 ability to have multiple timers/countdowns in 3hrs/3years, name them, delete them, share them (url params)

@@ -61,16 +61,14 @@
 	class="transition-opacity duration-300 
     {$settings.hideTitlebarWhenIdle && ($now - timeSinceMove) / 1000 > $settings.secondsUntilIdle
 		? 'opacity-0'
-		: 'opacity-100'}"
->
+		: 'opacity-100'}">
 	<button
 		class="icon-btn float-left absolute top-4 left-4 z-20 {$settings.alwaysCollapseMenu ||
 		isFullscreen
 			? ''
 			: 'md:hidden'}"
 		on:click={() => (navOpen = !navOpen)}
-		aria-label={dictionary.labels['Menu']}
-	>
+		aria-label={dictionary.labels['Menu']}>
 		<Icon name={navOpen ? 'close' : 'menu'} class="md:w-8 md:h-8 w-6 h-6" />
 	</button>
 
@@ -80,8 +78,7 @@
 		class:hidden={!$settings.showDarkButton}
 		on:click={() => ($settings.darkMode = !$settings.darkMode)}
 		aria-label={dictionary.labels['Toggle dark mode']}
-		title={dictionary.labels['Toggle dark mode'] + ($settings.keyboardShortcuts ? ' (N)' : '')}
-	>
+		title={dictionary.labels['Toggle dark mode'] + ($settings.keyboardShortcuts ? ' (N)' : '')}>
 		<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 
@@ -92,8 +89,7 @@
 		on:click={togglePrimaryDisplay}
 		aria-label={dictionary.labels['Toggle primary display']}
 		title={dictionary.labels['Toggle primary display'] +
-			($settings.keyboardShortcuts ? ' (P)' : '')}
-	>
+			($settings.keyboardShortcuts ? ' (P)' : '')}>
 		<Icon name="primary" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 	<button
@@ -103,12 +99,11 @@
 		on:click={toggleSecondaryDisplay}
 		aria-label={dictionary.labels['Toggle secondary display']}
 		title={dictionary.labels['Toggle secondary display'] +
-			($settings.keyboardShortcuts ? ' (D)' : '')}
-	>
+			($settings.keyboardShortcuts ? ' (D)' : '')}>
 		<Icon name="secondary" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 
-	<h1 id="title-text">
+	<h1 class="pt-5 md:pt-6 hidden xs:block">
 		{dictionary.pageNames[$page.path.substring(1) || 'home'] || dictionary.error['Error']}
 	</h1>
 
@@ -117,8 +112,7 @@
 		class:hidden={!$settings.showCastButton || !castSupported}
 		on:click={castClock}
 		aria-label={dictionary.labels['Cast clock']}
-		title={dictionary.labels['Cast clock']}
-	>
+		title={dictionary.labels['Cast clock']}>
 		<Icon name="cast" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 
@@ -127,8 +121,7 @@
 		class:hidden={!$settings.showFullscreenButton}
 		on:click={toggleFullscreen}
 		aria-label={dictionary.labels['Toggle fullscreen']}
-		title={dictionary.labels['Toggle fullscreen'] + ($settings.keyboardShortcuts ? ' (F)' : '')}
-	>
+		title={dictionary.labels['Toggle fullscreen'] + ($settings.keyboardShortcuts ? ' (F)' : '')}>
 		<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 

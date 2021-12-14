@@ -8,6 +8,7 @@
 <svelte:head>
 	<title>{$session.languageDictionary.pageNames.home}</title>
 </svelte:head>
+
 <section>
 	<Displays />
 	<AnalogClock />

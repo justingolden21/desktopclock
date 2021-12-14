@@ -24,8 +24,7 @@
 		if (e.key == 'Escape') {
 			hide();
 		}
-	}}
-/>
+	}} />
 
 <div class="modal {shown ? 'block' : 'hidden'}" on:click={() => hide()}>
 	<div class="modal-content" on:click|stopPropagation>
@@ -33,8 +32,7 @@
 			<button
 				class="close icon-btn"
 				on:click={() => hide()}
-				aria-label={$session.languageDictionary.labels['Close']}
-			>
+				aria-label={$session.languageDictionary.labels['Close']}>
 				<Icon name="close" class="w-6 h-6" />
 			</button>
 			<h1><Icon name={icon} class="w-6 h-6 inline mr-2" /> {title}</h1>
@@ -68,13 +66,13 @@
 		@apply text-left relative flex-1 overflow-auto;
 	}
 
-	:global(body.dark) .modal {
+	:global(.dark) .modal {
 		@apply bg-gray-700 bg-opacity-75;
 	}
-	:global(body.dark) .modal-content {
+	:global(.dark) .modal-content {
 		@apply border-gray-200 bg-gray-800 bg-opacity-75;
 	}
-	:global(body.dark) .modal-header {
+	:global(.dark) .modal-header {
 		@apply border-gray-200;
 	}
 

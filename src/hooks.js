@@ -8,7 +8,7 @@ async function getLanguageDictionary(lang) {
 
 export async function handle({ request, resolve }) {
 	request.locals.lang = request.headers
-		? request.headers['accept-language']?.substr?.(0, 2) ?? 'en'
+		? request.headers['accept-language']?.substr(0, 2) ?? 'en'
 		: 'en';
 	request.locals.languageDictionary = await getLanguageDictionary(request.locals.lang);
 

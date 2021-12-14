@@ -6,7 +6,6 @@ export const toasts = writable([]);
 
 // addToast({ message, type, dismissible, timeout })}
 export const addToast = (toast) => {
-	// TODO: better way of doing this?
 	const id = Math.floor(Math.random() * 10000);
 
 	// TODO: default timeout not working

@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="robots" content="index, follow" />
-		<meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no" />
-		<link rel="shortcut icon" href="/img/icons/manifest-icon-192.png" />
 
-		<link rel="manifest" href="/manifest.webmanifest" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="/img/icons/manifest-icon-192.png" />
 
-		<link rel="icon" type="image/png" sizes="196x196" href="/img/icons/favicon-196.png" />
+    <link rel="icon" type="image/png" sizes="196x196" href="/img/icons/favicon-196.png" />
 
-		<meta name="msapplication-config" content="/browserconfig.xml" />
-		<meta name="msapplication-square70x70logo" content="/img/icons/mstile-icon-128.png" />
-		<meta name="msapplication-square150x150logo" content="/img/icons/mstile-icon-270.png" />
-		<meta name="msapplication-square310x310logo" content="/img/icons/mstile-icon-558.png" />
-		<meta name="msapplication-wide310x150logo" content="/img/icons/mstile-icon-558-270.png" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <meta name="msapplication-square70x70logo" content="/img/icons/mstile-icon-128.png" />
+    <meta name="msapplication-square150x150logo" content="/img/icons/mstile-icon-270.png" />
+    <meta name="msapplication-square310x310logo" content="/img/icons/mstile-icon-558.png" />
+    <meta name="msapplication-wide310x150logo" content="/img/icons/mstile-icon-558-270.png" />
 
-		<link rel="apple-touch-icon" href="/img/icons/apple-icon-180.png" />
+    <link rel="apple-touch-icon" href="/img/icons/apple-icon-180.png" />
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
-		%svelte.head%
+    %svelte.head%
 
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-CM722NVXJ9"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag('js', new Date());
-			gtag('config', 'G-CM722NVXJ9');
-		</script>
-	</head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CM722NVXJ9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-CM722NVXJ9');
+    </script>
+</head>
 
-	<body>
-		<div id="svelte" style="-webkit-tap-highlight-color: transparent">%svelte.body%</div>
-	</body>
+<body class="dark:bg-gray-900 dark:text-gray-200 transition-colors duration-200 ease-linear text-gray-900">
+    %svelte.body%
+</body>
+
 </html>
