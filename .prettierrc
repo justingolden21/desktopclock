@@ -1,9 +1,8 @@
 {
-    "bracketSameLine": true,
+	"bracketSameLine": true,
 	"printWidth": 100,
-    "quoteProps": "consistent",
+	"quoteProps": "consistent",
 	"singleQuote": true,
 	"trailingComma": "none",
 	"useTabs": true
-
 }
