@@ -160,7 +160,7 @@
 
 	import Icon from './Icon.svelte';
 	import Toggle from './Toggle.svelte';
-	import { Tabs, TabList, TabPanel, Tab } from './tabs.js';
+	import { Tabs, TabList, TabPanel, Tab } from './tabs/_tabs.js';
 	import ThemeButtons from './ThemeButtons.svelte';
 	import Modal from './Modal.svelte';
 	import Accordion from './Accordion.svelte';
