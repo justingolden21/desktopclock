@@ -7,9 +7,8 @@
 
 	import { now } from './now.js';
 	import { settings, defaultSettings } from './settings.js';
-	import Accordion from './Accordion.svelte';
-	import AccordionPanel from './AccordionPanel.svelte';
 
+	import { Accordion, AccordionPanel } from './Accordion/_accordion.js';
 	import Icon from './Icon.svelte';
 	import Toggle from './Toggle.svelte';
 	import Modal from './Modal.svelte';
