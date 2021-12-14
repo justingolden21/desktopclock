@@ -18,7 +18,7 @@
 	import { now } from './now.js';
 
 	// approx 163kb (comment out and compare build sizes in network tab)
-	import './all_locales.js';
+	import '../data/all_locales.js';
 
 	$: localeSettings = $settings.locale;
 	$: clockSettings = $settings.clock;
