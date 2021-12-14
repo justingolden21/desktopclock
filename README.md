@@ -24,6 +24,8 @@ Preview: `npm run preview`
 
 Update version: `npm version patch`
 
+Update packages: `npm update`
+
 ### PWA
 
 _In order to test service worker, must run `npm run build` then `npm run preview` for any changes to the service worker to appear on localhost. Test by opening localhost in incognito chrome, then running lighthouse for PWA_
