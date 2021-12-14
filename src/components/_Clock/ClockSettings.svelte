@@ -5,19 +5,19 @@
 	import TailwindColors from 'tailwindcss/colors.js';
 	import dayjs from 'dayjs';
 
-	import { now } from '../util/now.js';
-	import { settings, defaultSettings } from './settings.js';
+	import { now } from '../../util/now.js';
+	import { settings, defaultSettings } from '../settings.js';
 
-	import { Accordion, AccordionPanel } from './Accordion/_accordion.js';
-	import Icon from './Icon.svelte';
-	import Toggle from './Toggle.svelte';
-	import Modal from './Modal.svelte';
-	import { fontFamilies } from '../data/consts.js';
+	import { Accordion, AccordionPanel } from '../Accordion/_accordion.js';
+	import Icon from '../Icon.svelte';
+	import Toggle from '../Toggle.svelte';
+	import Modal from '../Modal.svelte';
+	import { fontFamilies } from '../../data/consts.js';
 
-	import defaultTheme from '../themes/default';
-	import defaultNightTheme from '../themes/defaultNight';
-	import classicTheme from '../themes/classic';
-	import classicNightTheme from '../themes/classicNight';
+	import defaultTheme from '../../themes/default';
+	import defaultNightTheme from '../../themes/defaultNight';
+	import classicTheme from '../../themes/classic';
+	import classicNightTheme from '../../themes/classicNight';
 
 	$: colorPalette = TailwindColors[$settings.colorPalette];
 	$: dictionary = $session.languageDictionary;

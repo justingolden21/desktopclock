@@ -168,7 +168,7 @@
 	import { Toasts, addToast } from './Toast/_toast.js';
 	import timezones from '../data/timezones';
 	import { keyboardShortcutsList } from './KeyboardShortcuts.svelte';
-	import ClockSettings from './ClockSettings.svelte';
+	import ClockSettings from './_Clock/ClockSettings.svelte';
 	import defaultNightTheme from '../themes/defaultNight';
 
 	import { version } from '../../package.json';
