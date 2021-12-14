@@ -154,7 +154,7 @@
 
 	import dayjs, { tz } from 'dayjs';
 
-	import { setupCasting, castClock, isCastSupported } from './cast.js';
+	import { setupCasting, castClock, isCastSupported } from '../util/cast.js';
 
 	import { settings, defaultSettings } from './settings.js';
 
