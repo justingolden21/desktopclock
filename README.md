@@ -109,6 +109,10 @@ For changes not appearing or hydration bugs, try killing the server and restarti
 
 For issues with building, previewing, and npm packages, try deleting the build, .netlify, .svelte-kit, and node_modules folders.
 
+### Other
+
+When adding a language, add it to `supportedLangs` in `consts.js`
+
 ### Links
 
 - Dev: https://desktopclockdev.netlify.app/
