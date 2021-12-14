@@ -165,8 +165,7 @@
 	import ThemeButtons from './ThemeButtons.svelte';
 	import Modal from './Modal.svelte';
 	import InstallButton from './InstallButton.svelte';
-	import Toasts from './Toasts.svelte';
-	import { addToast } from './toastStore';
+	import { Toasts, addToast } from './Toast/_toast.js';
 	import timezones from '../data/timezones';
 	import { keyboardShortcutsList } from './KeyboardShortcuts.svelte';
 	import ClockSettings from './ClockSettings.svelte';
