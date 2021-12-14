@@ -8,10 +8,10 @@ const dev = mode === 'development';
 
 module.exports = {
 	plugins: [
-		//Some plugins, like postcss-nested, need to run before Tailwind,
+		// postcss needs to run before tailwind
 		postcssimport(),
 		tailwindcss(),
-		//But others, like autoprefixer, need to run after,
+		// autoprefixer needs to run after tailwind
 		autoprefixer(),
 		!dev &&
 			cssnano({

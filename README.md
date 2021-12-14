@@ -12,7 +12,7 @@ Requires NodeJS/npm
 
 ### Development
 
-First time setup: `npm i`
+Install: `npm i`
 
 Generate Assets: `npm run generate-assets`
 
