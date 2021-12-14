@@ -1,5 +1,5 @@
 import defaultTheme from '../themes/default';
-import { localStore } from './localStore.js';
+import { localStore } from '../util/localStore';
 
 export const defaultSettings = {
 	clock: {
