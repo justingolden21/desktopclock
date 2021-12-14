@@ -1,7 +1,7 @@
 <script>
 	import { session } from '$app/stores';
 
-	import Displays from '../components/Displays.svelte';
+	import Displays from '../components/DigitalDisplays.svelte';
 	import AnalogClock from '../components/_Clock/AnalogClock.svelte';
 </script>
 
