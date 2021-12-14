@@ -12,6 +12,7 @@
 		"generate-assets": "pwa-asset-generator static/img/icons/icon.svg static/img/icons --favicon --mstile --icon-only --opaque true"
 	},
 	"author": "Justin Golden",
+	"private": "true",
 	"devDependencies": {
 		"@sveltejs/adapter-netlify": "^1.0.0-next.32",
 		"@sveltejs/kit": "^1.0.0-next.180",
