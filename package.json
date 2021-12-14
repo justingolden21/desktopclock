@@ -11,26 +11,6 @@
 		"format": "prettier --ignore-path .gitignore --ignore-path .prettierignore --write --plugin-search-dir=. .",
 		"generate-assets": "pwa-asset-generator static/img/icons/icon.svg static/img/icons --favicon --mstile --icon-only --opaque true"
 	},
-	"keywords": [
-		"clock",
-		"desktop clock",
-		"clock app",
-		"analog clock",
-		"digital clock",
-		"customizable clock",
-		"free clock",
-		"simple clock",
-		"date and time",
-		"clock with date",
-		"fullscreen clock",
-		"bedtime clock",
-		"resizable clock",
-		"clock for windows",
-		"clock for mac",
-		"clock for chrome",
-		"clock for android",
-		"clock for ios"
-	],
 	"author": "Justin Golden",
 	"license": "MIT",
 	"devDependencies": {
