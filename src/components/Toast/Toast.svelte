@@ -35,13 +35,17 @@
 
 	{#if timeout}
 		<div
-			class="progress-animation absolute bottom-0 left-0 h-1 bg-gray-600 dark:bg-gray-200"
-			style="animation-duration: {timeout /
-				1000}s; animation-timing-function: linear; animation-name: shrink;" />
+			class="progress-bar absolute bottom-0 left-0 h-1 bg-gray-600 dark:bg-gray-200"
+			style="animation-duration: {timeout / 1000}s;" />
 	{/if}
 </div>
 
 <style>
+	.progress-bar {
+		animation-timing-function: linear;
+		animation-name: shrink;
+	}
+
 	@keyframes shrink {
 		from {
 			width: 100%;

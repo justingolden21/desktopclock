@@ -57,8 +57,7 @@
 			<Toggle
 				id="show-battery-toggle"
 				bind:checked={$settings.clock.displays.battery}
-				labelText={dictionary.clockSettings['Show battery']}
-			/>
+				labelText={dictionary.clockSettings['Show battery']} />
 		</div>
 	</AccordionPanel>
 	{#if $settings.clock.displays.primary == 'analog'}
@@ -66,29 +65,25 @@
 			<!-- note: using json for efficient deep clone so original theme object is not mutated -->
 			<button
 				class="btn theme-btn"
-				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(defaultTheme)))}
-			>
+				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(defaultTheme)))}>
 				<Icon name="theme" class="inline w-6 h-6" />
 				{dictionary.clockSettings['Default Theme']}
 			</button>
 			<button
 				class="btn theme-btn"
-				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme)))}
-			>
+				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme)))}>
 				<Icon name="theme" class="inline w-6 h-6" />
 				{dictionary.clockSettings['Default Night Theme']}
 			</button>
 			<button
 				class="btn theme-btn"
-				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(classicTheme)))}
-			>
+				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(classicTheme)))}>
 				<Icon name="theme" class="inline w-6 h-6" />
 				{dictionary.clockSettings['Classic Theme']}
 			</button>
 			<button
 				class="btn theme-btn"
-				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(classicNightTheme)))}
-			>
+				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(classicNightTheme)))}>
 				<Icon name="theme" class="inline w-6 h-6" />
 				{dictionary.clockSettings['Classic Night Theme']}
 			</button>
@@ -97,8 +92,7 @@
 				on:click={() => {
 					for (const size of 'sm md lg'.split(' '))
 						$settings.clock.theme.ticks[size].stroke.lightness = '-1';
-				}}
-			>
+				}}>
 				<Icon name="settings" class="inline w-6 h-6" />
 				{dictionary.clockSettings['Simple Mode']}
 			</button>
@@ -147,8 +141,7 @@
 				<select
 					id="shadow-fill-select"
 					bind:value={$settings.clock.theme.shadow.fill.lightness}
-					disabled={$settings.clock.theme.face.fill.lightness == '-1'}
-				>
+					disabled={$settings.clock.theme.face.fill.lightness == '-1'}>
 					{#each Object.keys(colorPalette) as lightness}
 						<option value={lightness}>{lightness}</option>
 					{/each}
@@ -205,8 +198,7 @@
 					</label>
 					<select
 						id="{size}-tick-stroke-select"
-						bind:value={$settings.clock.theme.ticks[size].stroke.lightness}
-					>
+						bind:value={$settings.clock.theme.ticks[size].stroke.lightness}>
 						{#each Object.keys(colorPalette) as lightness}
 							<option value={lightness}>{lightness}</option>
 						{/each}
@@ -217,8 +209,7 @@
 					<label for="{size}-tick-width-select">{dictionary.display['Width:']}</label>
 					<select
 						id="{size}-tick-width-select"
-						bind:value={$settings.clock.theme.ticks[size].width}
-					>
+						bind:value={$settings.clock.theme.ticks[size].width}>
 						{#each Array(6) as _, i}
 							<option value={i}>{i}</option>
 						{/each}
@@ -228,8 +219,7 @@
 					<label for="{size}-tick-height-select">{dictionary.display['Height:']}</label>
 					<select
 						id="{size}-tick-height-select"
-						bind:value={$settings.clock.theme.ticks[size].height}
-					>
+						bind:value={$settings.clock.theme.ticks[size].height}>
 						{#each Array(6) as _, i}
 							<option value={i / 2}>{i / 2}</option>
 						{/each}
@@ -249,8 +239,7 @@
 					</label>
 					<select
 						id="{hand}-hand-stroke-select"
-						bind:value={$settings.clock.theme.hands[hand].stroke.lightness}
-					>
+						bind:value={$settings.clock.theme.hands[hand].stroke.lightness}>
 						{#each Object.keys(colorPalette) as lightness}
 							<option value={lightness}>{lightness}</option>
 						{/each}
@@ -261,8 +250,7 @@
 					<label for="{hand}-hand-stroke-width-select">{dictionary.display['Stroke width:']}</label>
 					<select
 						id="{hand}-hand-stroke-width-select"
-						bind:value={$settings.clock.theme.hands[hand].strokeWidth}
-					>
+						bind:value={$settings.clock.theme.hands[hand].strokeWidth}>
 						{#each Array(6) as _, i}
 							<option value={(i + 1) / 2}>{(i + 1) / 2}</option>
 						{/each}
@@ -272,8 +260,7 @@
 					<label for="{hand}-hand-length-select">{dictionary.display['Length:']}</label>
 					<select
 						id="{hand}-hand-length-select"
-						bind:value={$settings.clock.theme.hands[hand].length}
-					>
+						bind:value={$settings.clock.theme.hands[hand].length}>
 						{#each Array(6) as _, i}
 							<option value={i * 3 + 12}>{i * 3 + 12}</option>
 						{/each}
@@ -291,8 +278,7 @@
 					<label for="{hand}-hand-linecap-select">{dictionary.display['Linecap:']}</label>
 					<select
 						id="{hand}-hand-linecap-select"
-						bind:value={$settings.clock.theme.hands[hand].linecap}
-					>
+						bind:value={$settings.clock.theme.hands[hand].linecap}>
 						<option value="butt">{dictionary.display.linecaps['Butt']}</option>
 						<option value="round">{dictionary.display.linecaps['Round']}</option>
 						<option value="square">{dictionary.display.linecaps['Square']}</option>
@@ -312,8 +298,7 @@
 								>{new dayjs($now)
 									.tz($settings.locale.timezone || 'Etc/GMT')
 									.locale($settings.locale.datetime)
-									.format?.(timeFormat)}</option
-							>
+									.format?.(timeFormat)}</option>
 						{/each}
 						<option value="custom">{dictionary.clockSettings['Custom']}</option>
 					</select>
@@ -323,8 +308,7 @@
 								type="text"
 								spellcheck="false"
 								class="block my-2"
-								bind:value={$settings.clock.timeFormatCustom}
-							/>
+								bind:value={$settings.clock.timeFormatCustom} />
 							<p>
 								<b>{dictionary.clockSettings['Preview:']}</b>
 								{new dayjs($now)
@@ -344,8 +328,7 @@
 								>{new dayjs($now)
 									.tz($settings.locale.timezone || 'Etc/GMT')
 									.locale($settings.locale.datetime)
-									.format?.(dateFormat)}</option
-							>
+									.format?.(dateFormat)}</option>
 						{/each}
 						<option value="custom">{dictionary.clockSettings['Custom']}</option>
 					</select>
@@ -355,8 +338,7 @@
 								type="text"
 								spellcheck="false"
 								class="block my-2"
-								bind:value={$settings.clock.dateFormatCustom}
-							/>
+								bind:value={$settings.clock.dateFormatCustom} />
 							<p>
 								<b>{dictionary.clockSettings['Preview:']}</b>
 								{new dayjs($now)
@@ -369,9 +351,8 @@
 				</div>
 
 				{#if $settings.clock.dateFormat === 'custom' || $settings.clock.timeFormat === 'custom'}
-					<button class="btn block my-2" on:click={datetimeFormatModal.show()}
-						>{dictionary.clockSettings['Custom formatting reference']}</button
-					>
+					<button class="btn block my-2" on:click={datetimeFormatModal.show}
+						>{dictionary.clockSettings['Custom formatting reference']}</button>
 				{/if}
 
 				<button
@@ -392,21 +373,18 @@
 							$settings.clock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
 							$settings.clock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
 						}
-					}}
-				>
+					}}>
 					<Icon name="undo" class="inline w-6 h-6" />
 					{dictionary.clockSettings['Reset datetime formats']}
 				</button>
 
 				{#if $settings.clock.displays.primary != 'analog' && fontFamilies[$settings.fontFamily].length > 1}
 					<label for="datetime-font-weight-select"
-						>{dictionary.clockSettings['Datetime font weight:']}</label
-					>
+						>{dictionary.clockSettings['Datetime font weight:']}</label>
 					<select id="datetime-font-weight-select" bind:value={$settings.clock.datetimeFontWeight}>
 						{#each fontFamilies[$settings.fontFamily] as weight}
 							<option value={weight.toString()}
-								>{dictionary.labels['Font Weights'][weight / 100]} ({weight / 100})</option
-							>
+								>{dictionary.labels['Font Weights'][weight / 100]} ({weight / 100})</option>
 						{/each}
 					</select>
 				{/if}
@@ -414,8 +392,7 @@
 				<Modal
 					bind:this={datetimeFormatModal}
 					title={dictionary.clockSettings['Datetime Formatting']}
-					icon="table"
-				>
+					icon="table">
 					<table>
 						<thead>
 							<tr>

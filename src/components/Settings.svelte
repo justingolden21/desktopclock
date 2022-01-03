@@ -443,7 +443,7 @@
 						labelText={dictionary.labels['Keyboard shortcuts']}
 						bind:checked={$settings.keyboardShortcuts} />
 				</div>
-				<button class="btn" on:click={keyboardShortcutModal.show()}>
+				<button class="btn" on:click={keyboardShortcutModal.show}>
 					<Icon name="table" class="inline w-6 h-6" />
 					{dictionary.labels['View keyboard shortcuts']}
 				</button>

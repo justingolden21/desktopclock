@@ -26,6 +26,10 @@ prompt "are you sure" before deleting, max of 20 themes, btn to delete all theme
 
 TOP PRIORITY / MVP:
 ================
+clock custom format then reset null bug
+
+linecap only needs round and square options
+
 google analytics:
 - make sure page view works
 - user device type
