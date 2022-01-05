@@ -47,7 +47,7 @@
 			{dictionary.pageNames['clock']}
 		{/if}
 	</a>
-	<a
+	<!-- <a
 		class:active={$page.path === '/worldclock'}
 		href="/worldclock"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
@@ -73,7 +73,7 @@
 		{#if !$settings.smallerMenu}
 			{dictionary.pageNames['timers']}
 		{/if}
-	</a>
+	</a> -->
 	<button
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
 		on:click={() => {
