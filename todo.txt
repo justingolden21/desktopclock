@@ -87,6 +87,11 @@ flipclock (component) https://codepen.io/shshaw/pen/vKzoLL
 primary and secondary font options, same with theme color
 dropdown for each tailwind color (needs translation) for analog clock parts, default to primary palette color if not specified (dropdown with "primary" as display and value of "")
 
+date calculator:
+find difference between two dates
+chose one date and add or subtract days/time
+find out how long ago or how long until certain day from today
+
 option to display battery on primary or secondary?
 
 worldclock:
