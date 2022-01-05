@@ -26,6 +26,9 @@ prompt "are you sure" before deleting, max of 20 themes, btn to delete all theme
 
 change theme color with dark mode / reactively?
 
+note:
+when user changes lang, they may also want to change datetime locale. prompt them with a notification?
+
 TOP PRIORITY / MVP:
 ================
 
