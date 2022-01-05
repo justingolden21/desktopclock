@@ -28,8 +28,6 @@ TOP PRIORITY / MVP:
 ================
 clock custom format then reset null bug
 
-linecap only needs round and square options
-
 google analytics:
 - make sure page view works
 - user device type
@@ -46,7 +44,7 @@ google analytics:
 second hand moving backwards (switching displays, tabs) thats illegal
 
 before release:
-- comment other nav options
+[x] comment other nav options
 - test everything to hell (devices, browsers, versions, aspect ratios, pixel densities, operating systems, pwa, language, display settings, saving settings)
 - last: get domain, marketing video, para about translate to your lang, ux test
 ================

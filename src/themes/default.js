@@ -59,7 +59,7 @@ const defaultTheme = {
 			strokeWidth: 0.5,
 			length: 15,
 			back: 3,
-			linecap: 'butt'
+			linecap: 'square'
 		},
 		minute: {
 			stroke: {
@@ -68,7 +68,7 @@ const defaultTheme = {
 			strokeWidth: 0.5,
 			length: 21,
 			back: 3,
-			linecap: 'butt'
+			linecap: 'square'
 		},
 		second: {
 			stroke: {
@@ -78,7 +78,7 @@ const defaultTheme = {
 			strokeWidth: 0.5,
 			length: 27,
 			back: 6,
-			linecap: 'butt'
+			linecap: 'square'
 		}
 	}
 };

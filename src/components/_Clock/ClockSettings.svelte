@@ -279,7 +279,6 @@
 					<select
 						id="{hand}-hand-linecap-select"
 						bind:value={$settings.clock.theme.hands[hand].linecap}>
-						<option value="butt">{dictionary.display.linecaps['Butt']}</option>
 						<option value="round">{dictionary.display.linecaps['Round']}</option>
 						<option value="square">{dictionary.display.linecaps['Square']}</option>
 					</select>
