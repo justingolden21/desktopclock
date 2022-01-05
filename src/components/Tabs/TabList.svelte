@@ -9,9 +9,7 @@
 	}
 
 	.presentation-slider {
-		@apply absolute bottom-0 left-0 w-full h-0.5 bg-gray-500 hidden md:block;
-		transform-origin: 0 0;
-		transition: transform 0.25s ease-in-out;
+		@apply absolute bottom-0 left-0 w-full h-0.5 bg-gray-500 hidden md:block origin-top-left transition-transform;
 	}
 
 	:global(.dark) .presentation-slider {

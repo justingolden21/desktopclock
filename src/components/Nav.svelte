@@ -130,13 +130,8 @@
 		/* bugfix */
 		text-decoration: none;
 	}
-	nav a.active,
-	nav button.active {
+	nav a.active {
 		@apply bg-gray-200 bg-opacity-50 font-bold;
-	}
-	.dark nav {
-		@apply bg-gray-700 bg-opacity-75;
-		/* box-shadow: 4px 0px 8px #1e293b; /*gray-800*/
 	}
 	.dark nav a,
 	.dark nav button {
@@ -144,8 +139,7 @@
 	}
 	.dark nav a:hover,
 	.dark nav a.active,
-	.dark nav button:hover,
-	.dark nav button.active {
+	.dark nav button:hover {
 		@apply bg-gray-600 bg-opacity-50;
 	}
 </style>

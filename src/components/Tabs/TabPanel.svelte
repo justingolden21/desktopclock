@@ -11,8 +11,8 @@
 </script>
 
 {#if $selectedPanel === panel}
-	<!-- consider transition:slide -->
-	<div class="tab-content" in:fade>
+	<!-- consider transition in:slide -->
+	<div in:fade>
 		<slot />
 	</div>
 {/if}
