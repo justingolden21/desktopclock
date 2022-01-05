@@ -90,7 +90,7 @@
 			<button
 				on:click={installButtonClick}
 				class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
-				<Icon name="download" class="w-6 h-6 inline" />
+				<Icon name="download" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
 				{#if !$settings.smallerMenu}
 					{$session.languageDictionary.labels['Install']}
 				{/if}
@@ -122,7 +122,7 @@
     */
 	nav a,
 	nav button {
-		@apply block font-bold text-gray-700 p-4 hover:bg-gray-200 hover:bg-opacity-50 cursor-pointer tracking-widest text-left;
+		@apply block font-normal text-gray-700 p-4 hover:bg-gray-200 hover:bg-opacity-50 cursor-pointer tracking-widest text-left;
 		/* transition: all 0.25s linear; */
 	}
 	nav a:hover,
