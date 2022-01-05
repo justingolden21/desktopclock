@@ -1,4 +1,5 @@
-export const supportedLangs = ['en', 'es'];
+export const supportedLangs = ['en'];
+// export const supportedLangs = ['en', 'es'];
 
 export const fontFamilies = {
 	'Aldrich': [400],
