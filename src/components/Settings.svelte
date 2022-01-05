@@ -418,14 +418,14 @@
 
 				<h3>{dictionary.labels['Advanced / Experimental']}</h3>
 
-				<div class="block mb-2">
+				<!-- <div class="block mb-2">
 					<Toggle
 						id="wakelock-toggle"
 						labelText={dictionary.labels['Keep screen awake']}
 						checked={false}
 						on:change={(evt) =>
 							evt.target.checked ? requestWakeLock(dictionary) : releaseWakeLock(dictionary)} />
-				</div>
+				</div> -->
 				<button
 					class="btn"
 					on:click={() => {
