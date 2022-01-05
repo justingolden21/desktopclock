@@ -23,7 +23,8 @@
 <nav
 	class="
         min-h-screen
-		bg-gray-100 bg-opacity-40
+		bg-gray-100
+        bg-opacity-75
         p-8
         pt-20
         absolute
@@ -35,6 +36,9 @@
         z-20
         dark:bg-gray-700
         dark:bg-opacity-75
+        border-r-2
+        border-gray-100
+        dark:border-gray-700
         {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:relative md:translate-x-0'}
         {$settings.smallerMenu ? 'w-32' : 'w-64'}"
 	class:-translate-x-full={!navOpen}>
