@@ -73,8 +73,7 @@
 	<div
 		id="primary-display"
 		style="--primary-font-weight: {$settings.clock.datetimeFontWeight}"
-		class={displays.primary}
-	>
+		class={displays.primary}>
 		{#if displays.primary != 'analog'}
 			<h1>
 				{#if displays.primary == 'time'}
@@ -111,8 +110,7 @@
 		<BatteryIcon
 			fillLevel={batteryLevel ? batteryLevel * 100 : 100}
 			charging={batteryIsCharging}
-			class="inline w-6 h-6 md:w-8 md:h-8 mb-8"
-		/>
+			class="inline w-6 h-6 md:w-8 md:h-8 mb-8" />
 
 		<h2 class="inline">{Math.round(batteryLevel * 100)}%</h2>
 	</div>
@@ -127,7 +125,7 @@
 		font-weight: var(--primary-font-weight);
 	}
 	#primary-display h1 {
-		@apply text-7xl md:text-8xl lg:text-9xl tracking-widest text-center px-8 leading-tight;
+		@apply text-7xl md:text-8xl lg:text-9xl xl:text-10xl tracking-widest text-center px-8 leading-tight;
 	}
 	#primary-display.datetime h1 {
 		@apply text-5xl md:text-6xl lg:text-7xl;

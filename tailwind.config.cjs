@@ -20,6 +20,11 @@ module.exports = {
 			xs: '360px',
 			...defaultTheme.screens
 		},
+		fontSize: {
+			...defaultTheme.fontSize,
+			'10xl': '10rem',
+			'11xl': '12rem'
+		},
 		extend: {}
 	},
 	variants: {
