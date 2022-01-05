@@ -28,7 +28,6 @@ change theme color with dark mode / reactively?
 
 TOP PRIORITY / MVP:
 ================
-clock custom format then reset null bug
 
 google analytics:
 - make sure page view works

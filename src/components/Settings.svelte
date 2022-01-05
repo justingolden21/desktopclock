@@ -409,8 +409,8 @@
 						const AMPM =
 							Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions()
 								.hourCycle === 'h12';
-						$settings.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
-						$settings.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
+						$settings.clock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
+						$settings.clock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
 					}}>
 					<Icon name="undo" class="inline w-6 h-6" />
 					{dictionary.labels['Reset all settings']}
