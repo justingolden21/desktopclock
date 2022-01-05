@@ -184,6 +184,8 @@
 	}
 
 	let keyboardShortcutModal;
+
+	let hoveringContact = false;
 </script>
 
 <Tabs>
@@ -364,7 +366,7 @@
 				<br />
 
 				{#if $showInstallButton}
-					<button on:click={installButtonClick} class="btn">
+					<button on:click={installButtonClick} class="btn install-btn">
 						<Icon name="download" class="w-6 h-6 inline" />
 						{$session.languageDictionary.labels['Install']}
 					</button>
@@ -376,9 +378,13 @@
 				</button>
 				<button
 					class="btn"
+					on:mouseover={() => (hoveringContact = true)}
+					on:focus={() => (hoveringContact = true)}
+					on:mouseout={() => (hoveringContact = false)}
+					on:blur={() => (hoveringContact = false)}
 					on:click={() =>
 						window.open('mailto:contact@justingolden.me?subject=Desktop+Clock+Feedback')}>
-					<Icon name="envelope" class="inline w-6 h-6" />
+					<Icon name={hoveringContact ? 'envelope_open' : 'envelope'} class="inline w-6 h-6" />
 					{dictionary.labels['Send feedback']}
 				</button>
 
