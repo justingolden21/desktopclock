@@ -103,7 +103,7 @@
 		<Icon name="secondary" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 
-	<h1 class="pt-5 md:pt-6 hidden xs:block">
+	<h1 class="hidden xs:block mx-auto inset-x-1/2 font-normal">
 		{dictionary.pageNames[$page.path.substring(1) || 'home'] || dictionary.error['Error']}
 	</h1>
 
