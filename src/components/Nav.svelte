@@ -38,7 +38,7 @@
         {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:relative md:translate-x-0'}
         {$settings.smallerMenu ? 'w-32' : 'w-64'}"
 	class:-translate-x-full={!navOpen}>
-	<a
+	<!-- <a
 		class:active={$page.path === '/'}
 		href="/"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
@@ -73,7 +73,7 @@
 		{#if !$settings.smallerMenu}
 			{dictionary.pageNames['timers']}
 		{/if}
-	</a>
+	</a> -->
 	<button
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
 		on:click={() => {
