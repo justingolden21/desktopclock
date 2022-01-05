@@ -23,7 +23,8 @@
 <nav
 	class="
         min-h-screen
-		bg-gray-100 bg-opacity-40
+		bg-gray-100
+        bg-opacity-75
         p-8
         pt-20
         absolute
@@ -35,10 +36,13 @@
         z-20
         dark:bg-gray-700
         dark:bg-opacity-75
+        border-r-2
+        border-gray-100
+        dark:border-gray-700
         {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:relative md:translate-x-0'}
         {$settings.smallerMenu ? 'w-32' : 'w-64'}"
 	class:-translate-x-full={!navOpen}>
-	<a
+	<!-- <a
 		class:active={$page.path === '/'}
 		href="/"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
@@ -47,7 +51,7 @@
 			{dictionary.pageNames['clock']}
 		{/if}
 	</a>
-	<!-- <a
+	<a
 		class:active={$page.path === '/worldclock'}
 		href="/worldclock"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
@@ -90,7 +94,7 @@
 			<button
 				on:click={installButtonClick}
 				class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
-				<Icon name="download" class="w-6 h-6 inline" />
+				<Icon name="download" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
 				{#if !$settings.smallerMenu}
 					{$session.languageDictionary.labels['Install']}
 				{/if}
@@ -122,7 +126,7 @@
     */
 	nav a,
 	nav button {
-		@apply block font-bold text-gray-700 p-4 hover:bg-gray-200 hover:bg-opacity-50 cursor-pointer tracking-widest text-left;
+		@apply block font-normal text-gray-700 p-4 hover:bg-gray-200 hover:bg-opacity-50 cursor-pointer tracking-widest text-left;
 		/* transition: all 0.25s linear; */
 	}
 	nav a:hover,
@@ -130,13 +134,8 @@
 		/* bugfix */
 		text-decoration: none;
 	}
-	nav a.active,
-	nav button.active {
+	nav a.active {
 		@apply bg-gray-200 bg-opacity-50 font-bold;
-	}
-	.dark nav {
-		@apply bg-gray-700 bg-opacity-75;
-		/* box-shadow: 4px 0px 8px #1e293b; /*gray-800*/
 	}
 	.dark nav a,
 	.dark nav button {
@@ -144,8 +143,7 @@
 	}
 	.dark nav a:hover,
 	.dark nav a.active,
-	.dark nav button:hover,
-	.dark nav button.active {
+	.dark nav button:hover {
 		@apply bg-gray-600 bg-opacity-50;
 	}
 </style>
