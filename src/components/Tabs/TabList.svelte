@@ -14,7 +14,7 @@
 		transition: transform 0.25s ease-in-out;
 	}
 
-	:global(body.dark) .presentation-slider {
+	:global(.dark) .presentation-slider {
 		@apply bg-gray-100;
 	}
 </style>

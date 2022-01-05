@@ -26,6 +26,8 @@ prompt "are you sure" before deleting, max of 20 themes, btn to delete all theme
 
 TOP PRIORITY / MVP:
 ================
+clock custom format then reset null bug
+
 google analytics:
 - make sure page view works
 - user device type
@@ -42,7 +44,7 @@ google analytics:
 second hand moving backwards (switching displays, tabs) thats illegal
 
 before release:
-- comment other nav options
+[x] comment other nav options
 - test everything to hell (devices, browsers, versions, aspect ratios, pixel densities, operating systems, pwa, language, display settings, saving settings)
 - last: get domain, marketing video, para about translate to your lang, ux test
 ================
@@ -82,6 +84,11 @@ translate numbers? (other locales with different counting systems for timezone h
 flipclock (component) https://codepen.io/shshaw/pen/vKzoLL
 primary and secondary font options, same with theme color
 dropdown for each tailwind color (needs translation) for analog clock parts, default to primary palette color if not specified (dropdown with "primary" as display and value of "")
+
+date calculator:
+find difference between two dates
+chose one date and add or subtract days/time
+find out how long ago or how long until certain day from today
 
 option to display battery on primary or secondary?
 
@@ -184,7 +191,7 @@ implement automated testing?
 save settings automatically toggle?
 
 settings.svelte is a MESS, needs to be broken down, translated, etc.
-next: clean settings and nav, implement spanish translations, implement way for user to change language (currently has no effect), clean :global(body.dark) to dark:
+next: clean settings and nav, implement spanish translations, implement way for user to change language (currently has no effect), clean :global(.dark) to dark:
 
 preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
 ability to have multiple timers/countdowns in 3hrs/3years, name them, delete them, share them (url params)

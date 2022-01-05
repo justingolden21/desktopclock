@@ -1,5 +1,5 @@
 <script>
-	import Icon from './Icon.svelte';
+	import Icon from '../Icon.svelte';
 
 	import { getContext } from 'svelte';
 
@@ -24,13 +24,11 @@
 		<button
 			class="w-full text-left cursor-pointer p-2 hover:bg-gray-100 focus:bg-gray-100 font-bold text-lg dark:hover:bg-gray-600 dark:focus:bg-gray-600 bg-opacity-25 dark:bg-gray-700 dark:bg-opacity-50"
 			on:click={handleToggle}
-			aria-expanded={params.open}
-		>
+			aria-expanded={params.open}>
 			<Icon
 				name="chevron-right"
 				class="inline w-6 h-6 transition-transform {params.open ? 'rotate-90' : ''}"
-				aria-hidden="true"
-			/>
+				aria-hidden="true" />
 			{accordionTitle}
 		</button>
 	</div>
@@ -63,7 +61,7 @@
 	}
 
 	/* prevent white flash when opening details in dark mode */
-	:global(body.dark) .details {
+	:global(.dark) .details {
 		@apply bg-gray-700 bg-opacity-25;
 	}
 </style>

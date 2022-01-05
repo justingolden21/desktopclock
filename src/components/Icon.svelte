@@ -88,6 +88,9 @@
 		'envelope': {
 			path: `M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z`
 		},
+		'envelope_open': {
+			path: `M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76`
+		},
 		'download': {
 			path: `M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4`
 		},
@@ -108,12 +111,10 @@
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
-	viewBox={icon.viewbox ?? '0 0 24 24'}
->
+	viewBox={icon.viewbox ?? '0 0 24 24'}>
 	<path
 		stroke-linecap={icon.style ?? 'round'}
 		stroke-linejoin={icon.style ?? 'round'}
 		stroke-width="2"
-		d={icon.path}
-	/>
+		d={icon.path} />
 </svg>

@@ -24,6 +24,8 @@ Preview: `npm run preview`
 
 Update version: `npm version patch`
 
+Update packages: `npm update`
+
 ### PWA
 
 _In order to test service worker, must run `npm run build` then `npm run preview` for any changes to the service worker to appear on localhost. Test by opening localhost in incognito chrome, then running lighthouse for PWA_
@@ -108,6 +110,10 @@ ESLint rules: https://eslint.org/docs/rules/
 For changes not appearing or hydration bugs, try killing the server and restarting, as well as hard refreshing (ctrl+shift+R) the page
 
 For issues with building, previewing, and npm packages, try deleting the build, .netlify, .svelte-kit, and node_modules folders.
+
+### Other
+
+When adding a language, add it to `supportedLangs` in `consts.js`
 
 ### Links
 

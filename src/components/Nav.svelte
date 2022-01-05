@@ -1,11 +1,11 @@
 <script>
-	import { page, session } from '$app/stores';
-	import Icon from './Icon.svelte';
-	import InstallButton from './InstallButton.svelte';
-	import { shareApp } from './Settings.svelte';
-	import { settings } from './settings.js';
 	import Screenfull from 'screenfull';
 	import { onMount } from 'svelte';
+	import { page, session } from '$app/stores';
+	import Icon from './Icon.svelte';
+	import { shareApp } from './Settings.svelte';
+	import { settings } from './settings.js';
+	import { installButtonClick, showInstallButton } from '../util/install.js';
 
 	export let navOpen;
 	export let settingsModal = null;
@@ -26,32 +26,32 @@
 		bg-gray-100 bg-opacity-40
         p-8
         pt-20
-        text-left
         absolute
         left-0
         transition-all
         duration-200
         ease-in-out
+        backdrop-blur-sm
+        z-20
+        dark:bg-gray-700
+        dark:bg-opacity-75
         {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:relative md:translate-x-0'}
         {$settings.smallerMenu ? 'w-32' : 'w-64'}"
-	class:-translate-x-full={!navOpen}
->
+	class:-translate-x-full={!navOpen}>
 	<a
 		class:active={$page.path === '/'}
 		href="/"
-		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
-	>
-		<Icon name="clock" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-4'}" />
+		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
+		<Icon name="clock" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
 		{#if !$settings.smallerMenu}
 			{dictionary.pageNames['clock']}
 		{/if}
 	</a>
-	<a
+	<!-- <a
 		class:active={$page.path === '/worldclock'}
 		href="/worldclock"
-		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
-	>
-		<Icon name="worldclock" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-4'}" />
+		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
+		<Icon name="worldclock" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
 		{#if !$settings.smallerMenu}
 			{dictionary.pageNames['worldclock']}
 		{/if}
@@ -59,9 +59,8 @@
 	<a
 		class:active={$page.path === '/stopwatch'}
 		href="/stopwatch"
-		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
-	>
-		<Icon name="stopwatch" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-4'}" />
+		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
+		<Icon name="stopwatch" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
 		{#if !$settings.smallerMenu}
 			{dictionary.pageNames['stopwatch']}
 		{/if}
@@ -69,36 +68,40 @@
 	<a
 		class:active={$page.path === '/timers'}
 		href="/timers"
-		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
-	>
-		<Icon name="timer" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-4'}" />
+		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
+		<Icon name="timer" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
 		{#if !$settings.smallerMenu}
 			{dictionary.pageNames['timers']}
 		{/if}
-	</a>
+	</a> -->
 	<button
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
 		on:click={() => {
 			navOpen = false;
 			settingsModal.show();
-		}}
-	>
-		<Icon name="settings" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-4'}" />
+		}}>
+		<Icon name="settings" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
 		{#if !$settings.smallerMenu}
 			{dictionary.labels['Settings']}
 		{/if}
 	</button>
 	<div id="nav-bottom" class="mb-8">
-		<InstallButton
-			smallButton={$settings.smallerMenu}
-			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
-		/>
+		{#if $showInstallButton}
+			<button
+				on:click={installButtonClick}
+				class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
+				<Icon name="download" class="w-6 h-6 inline" />
+				{#if !$settings.smallerMenu}
+					{$session.languageDictionary.labels['Install']}
+				{/if}
+			</button>
+		{/if}
+
 		<!-- no share-btn class so it isn't animated on hover -->
 		<button
 			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
-			on:click={() => shareApp(dictionary)}
-		>
-			<Icon name="share" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-4'}" />
+			on:click={() => shareApp(dictionary)}>
+			<Icon name="share" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
 			{#if !$settings.smallerMenu}
 				{dictionary.labels['Share']}
 			{/if}
@@ -111,5 +114,38 @@
 		#nav-bottom {
 			@apply absolute bottom-0;
 		}
+	}
+
+	/* notes
+    nav links and icon btns have same hover colors (both normal and dark)
+    nav and modal have same bg colors, opacities, and shadows
+    */
+	nav a,
+	nav button {
+		@apply block font-bold text-gray-700 p-4 hover:bg-gray-200 hover:bg-opacity-50 cursor-pointer tracking-widest text-left;
+		/* transition: all 0.25s linear; */
+	}
+	nav a:hover,
+	nav button:hover {
+		/* bugfix */
+		text-decoration: none;
+	}
+	nav a.active,
+	nav button.active {
+		@apply bg-gray-200 bg-opacity-50 font-bold;
+	}
+	.dark nav {
+		@apply bg-gray-700 bg-opacity-75;
+		/* box-shadow: 4px 0px 8px #1e293b; /*gray-800*/
+	}
+	.dark nav a,
+	.dark nav button {
+		@apply text-gray-300;
+	}
+	.dark nav a:hover,
+	.dark nav a.active,
+	.dark nav button:hover,
+	.dark nav button.active {
+		@apply bg-gray-600 bg-opacity-50;
 	}
 </style>

@@ -83,8 +83,11 @@
 		]
 	},
 	"languages": {
-		"en": "English, US",
-		"es": "Spanish, MX"
+		"en": "English",
+		"es": "Spanish",
+		"de": "German",
+		"fr": "French",
+		"ru": "Russian"
 	},
 	"clockSettings": {
 		"Displays": "Displays",
@@ -183,7 +186,6 @@
 		},
 
 		"linecaps": {
-			"Butt": "Butt",
 			"Round": "Round",
 			"Square": "Square"
 		}

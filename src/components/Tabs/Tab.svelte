@@ -33,10 +33,10 @@
 		transform: translateX(75%) scaleX(0.25);
 	}
 
-	:global(body.dark) .tab {
+	:global(.dark) .tab {
 		@apply bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-gray-300;
 	}
-	:global(body.dark) .tab.selected {
+	:global(.dark) .tab.selected {
 		@apply bg-gray-600;
 	}
 </style>

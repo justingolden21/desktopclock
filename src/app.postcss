@@ -1,9 +1,7 @@
 /* global styles across app */
 
-@import './components/analog-clock.css';
-@import './components/scrollbar.css';
-
-/* TODO: fallback to Noto? https://fonts.google.com/noto */
+@import './css/scrollbar.css';
+@import './css/animatedIcons.css';
 
 @import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Arsenal:wght@400;700&family=Bai+Jamjuree:wght@300;500;700&family=Bitter:wght@300;500;700&family=Josefin+Sans:wght@300;500;700&family=Julius+Sans+One&family=Jura:wght@300;500;700&family=K2D:wght@300;500;700&family=KoHo:wght@300;500;700&family=Libre+Baskerville:wght@400;700&family=Limelight:wght@400&family=Major+Mono+Display&family=Montserrat+Alternates:wght@300;600;900&family=Orbitron:wght@400;600;800&family=Yatra+One&family=Comfortaa:wght@300;400;500;600;700&display=swap');
 
@@ -16,6 +14,15 @@
 		font-weight: 300;
 		/* default to sans-serif, even for serif, cursive, monospace fonts */
 		font-family: var(--font-family), sans-serif;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	/* Mostly for analog clock */
+	.notransition {
+		-webkit-transition: none !important;
+		-moz-transition: none !important;
+		-o-transition: none !important;
+		transition: none !important;
 	}
 
 	/* Selection and focus */
@@ -26,16 +33,16 @@
 	::selection {
 		@apply bg-gray-300;
 	}
-	body.dark ::-moz-selection {
+	.dark ::-moz-selection {
 		@apply bg-gray-500;
 	}
-	body.dark ::selection {
+	.dark ::selection {
 		@apply bg-gray-500;
 	}
-	body.dark input::-moz-selection {
+	.dark input::-moz-selection {
 		@apply bg-gray-300;
 	}
-	body.dark input::selection {
+	.dark input::selection {
 		@apply bg-gray-300;
 	}
 
@@ -45,25 +52,23 @@
 	}
 
 	/* Typography */
-
-	#title-text {
-		@apply pt-5 md:pt-6 hidden xs:block;
-	}
-
 	h1,
 	h2,
 	h3,
 	h4 {
 		@apply tracking-widest mt-8 mb-2;
 	}
+
 	h1,
 	h2,
 	h3 {
 		@apply xs:text-lg sm:text-xl md:text-2xl;
 	}
+
 	h4 {
 		@apply sm:text-lg md:text-xl;
 	}
+
 	h3,
 	h4 {
 		@apply font-bold;
@@ -80,26 +85,8 @@
 	a:not(nav a) {
 		@apply text-gray-600 hover:underline font-bold;
 	}
-	body.dark a:not(nav a) {
+	.dark a:not(nav a) {
 		@apply text-gray-300;
-	}
-
-	/* Body colors */
-
-	body {
-		/* background: linear-gradient(-45deg, #f8fafc 0%, #fff 100%); */
-		@apply text-gray-900;
-	}
-	body.dark {
-		/* background: linear-gradient(-45deg, #0f172a 0%, #1e293b 100%); */
-		@apply bg-gray-900 text-gray-200;
-	}
-
-	body,
-	body.dark {
-		@apply transition-colors
-			duration-200
-			ease-linear;
 	}
 
 	/* Tables */
@@ -148,101 +135,14 @@
 		@apply p-2 text-gray-800;
 	}
 
-	body.dark select {
+	.dark select {
 		@apply bg-gray-500 text-gray-100;
 		/* 'white' works but '#FFFFFF' doesn't and 'currentColor' doesn't, even with 'color' explicitly set above */
 		background: #64748b /*gray-500*/
 			url("data:image/svg+xml;utf8,<svg fill='none' stroke='white' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
 			no-repeat right center;
 	}
-	body.dark select:disabled {
+	.dark select:disabled {
 		@apply bg-gray-400;
-	}
-}
-
-/* notes
-nav links and icon btns have same hover colors (both normal and dark)
-nav and modal have same bg colors, opacities, and shadows
-*/
-
-/* MAYBE TODO: move nav styles to Nav.svelte? */
-
-@layer components {
-	nav {
-		@apply z-20;
-		backdrop-filter: blur(4px);
-		/* box-shadow: 4px 0px 8px #e2e8f0; /*gray-200*/
-	}
-	nav a,
-	nav button {
-		@apply block
-		font-bold
-		text-gray-700
-		p-4
-		hover:bg-gray-200
-		hover:bg-opacity-50
-		cursor-pointer
-		tracking-widest;
-		/* transition: all 0.25s linear; */
-	}
-	nav a:hover,
-	nav button:hover {
-		/* bugfix */
-		text-decoration: none;
-	}
-	nav a.active,
-	nav button.active {
-		@apply bg-gray-200 bg-opacity-50 font-bold;
-	}
-	body.dark nav {
-		@apply bg-gray-700 bg-opacity-75;
-		/* box-shadow: 4px 0px 8px #1e293b; /*gray-800*/
-	}
-	body.dark nav a,
-	body.dark nav button {
-		@apply text-gray-300;
-	}
-	body.dark nav a:hover,
-	body.dark nav a.active,
-	body.dark nav button:hover,
-	body.dark nav button.active {
-		@apply bg-gray-600 bg-opacity-50;
-	}
-
-	/* Icon hover transitions */
-
-	.dark-btn svg,
-	.fullscreen-btn svg,
-	.cast-btn svg,
-	.external-link-btn svg,
-	.undo-btn svg,
-	.theme-btn svg,
-	.share-btn svg,
-	.link-btn svg {
-		transition: transform 0.25s;
-	}
-	.dark-btn:hover svg {
-		transform: scale(-1, -1);
-	}
-	.fullscreen-btn:hover svg {
-		transform: scale(-1, 1);
-	}
-	.cast-btn:hover svg {
-		transform: scale(-1, 1);
-	}
-	.external-link-btn:hover svg {
-		transform: rotate(-45deg);
-	}
-	.undo-btn:hover svg {
-		transform: translateX(-0.25rem);
-	}
-	.theme-btn:hover svg {
-		transform: rotate(-180deg);
-	}
-	.share-btn:hover svg {
-		transform: scale(1, -1) rotate(30deg);
-	}
-	.link-btn:hover svg {
-		transform: rotate(45deg);
 	}
 }
