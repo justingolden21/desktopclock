@@ -39,7 +39,7 @@ export const defaultSettings = {
 	locale: {
 		// null values overridden in _layout onMount to user device's preference
 		datetime: null,
-		language: null, // TODO: this isn't used for the user's language, `headers['accept-language']` above is used and user is unable to change languages
+		language: null,
 		timezone: null,
 		automaticDatetime: true,
 		automaticLanguage: true,
