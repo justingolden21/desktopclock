@@ -4,7 +4,7 @@ import { localStore } from '../util/localStore';
 export const defaultSettings = {
 	clock: {
 		displays: {
-			primary: 'time', // analog, time, date, datetime
+			primary: 'analog', // analog, time, date, datetime
 			secondary: 'date', // time, date, datetime, none
 			battery: false
 		},
