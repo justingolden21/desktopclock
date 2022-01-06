@@ -29,6 +29,8 @@ change theme color with dark mode / reactively?
 note:
 when user changes lang, they may also want to change datetime locale. prompt them with a notification?
 
+"super dark mode" as night clock, background is #000 and text is #444 and enter fullscreen
+
 TOP PRIORITY / MVP:
 ================
 
