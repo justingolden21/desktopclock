@@ -334,7 +334,7 @@
 		<button
 			class="btn undo-btn block"
 			on:click={() => {
-				for (const option of 'colorPalette darkMode showDarkButton showCastButton showFullscreenButton showThemeButtons smallerMenu alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily'.split(
+				for (const option of 'colorPalette darkMode showDarkButton showPrimaryButton showSecondaryButton showCastButton showFullscreenButton showThemeButtons smallerMenu alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily'.split(
 					' '
 				))
 					$settings[option] = defaultSettings[option];
