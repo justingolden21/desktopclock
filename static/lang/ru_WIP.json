@@ -47,7 +47,8 @@
 		"Always collapse menu": "Always collapse menu",
 		"Hide title bar when idle": "Hide title bar when idle",
 		"Seconds until idle:": "Seconds until idle:",
-		"Font family:": "Font family:",
+		"Heading font family:": "Heading font family:",
+		"Body font family:": "Body font family:",
 		"Reset appearance settings": "Reset appearance settings",
 		"Application": "Application",
 		"Shortcuts": "Shortcuts",
@@ -115,7 +116,7 @@
 		"Preview:": "Preview:",
 		"Custom formatting reference": "Custom formatting reference",
 		"Reset datetime formats": "Reset datetime formats",
-		"Datetime font weight:": "Datetime font weight:",
+		"Primary display font weight:": "Primary display font weight:",
 
 		"Datetime Formatting": "Datetime Formatting",
 

@@ -379,7 +379,7 @@
 
 				{#if $settings.clock.displays.primary != 'analog' && fontFamilies[$settings.fontFamily].length > 1}
 					<label for="datetime-font-weight-select"
-						>{dictionary.clockSettings['Datetime font weight:']}</label>
+						>{dictionary.clockSettings['Primary display font weight:']}</label>
 					<select id="datetime-font-weight-select" bind:value={$settings.clock.datetimeFontWeight}>
 						{#each fontFamilies[$settings.fontFamily] as weight}
 							<option value={weight.toString()}

@@ -88,7 +88,7 @@ inner modals should be same size as outter modals?
 translate numbers? (other locales with different counting systems for timezone hours difference, etc)
 ??? website not working in messenger?
 flipclock (component) https://codepen.io/shshaw/pen/vKzoLL
-primary and secondary font options, same with theme color
+primary and secondary theme color options
 dropdown for each tailwind color (needs translation) for analog clock parts, default to primary palette color if not specified (dropdown with "primary" as display and value of "")
 
 date calculator:

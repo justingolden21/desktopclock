@@ -32,6 +32,7 @@ export const defaultSettings = {
 	hideTitlebarWhenIdle: false,
 	secondsUntilIdle: 2,
 	fontFamily: 'Comfortaa',
+	fontFamilyBody: 'Bitter',
 
 	// general
 	doubleclickFullscreen: false,

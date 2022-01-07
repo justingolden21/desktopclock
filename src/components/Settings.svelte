@@ -176,7 +176,7 @@
 
 	const castSupported = isCastSupported();
 
-	import { fontFamilies, locales, supportedLangs } from '../data/consts.js';
+	import { fontFamilies, systemFontFamilies, locales, supportedLangs } from '../data/consts.js';
 	import { installButtonClick, showInstallButton } from '../util/install.js';
 
 	async function changeLanguage() {
@@ -307,7 +307,7 @@
 			<br />
 		{/if}
 
-		<label for="font-family-select">{dictionary.labels['Font family:']}</label>
+		<label for="font-family-select">{dictionary.labels['Heading font family:']}</label>
 		<select
 			id="font-family-select"
 			bind:value={$settings.fontFamily}
@@ -326,15 +326,26 @@
 				{/if}
 			{/each}
 			<!-- https://tailwindcss.com/docs/font-family -->
-			<option
-				value=""
-				style="font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'"
-				>{dictionary.display['System default']}</option>
+			<option value="" style={systemFontFamilies}>{dictionary.display['System default']}</option>
 		</select>
+
+		<br />
+
+		<label for="font-family-body-select">{dictionary.labels['Body font family:']}</label>
+		<select id="font-family-body-select" bind:value={$settings.fontFamilyBody}>
+			{#each Object.keys(fontFamilies) as fontFamily}
+				{#if fontFamily !== ''}
+					<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
+				{/if}
+			{/each}
+			<!-- https://tailwindcss.com/docs/font-family -->
+			<option value="" style={systemFontFamilies}>{dictionary.display['System default']}</option>
+		</select>
+
 		<button
 			class="btn undo-btn block"
 			on:click={() => {
-				for (const option of 'colorPalette darkMode showDarkButton showPrimaryButton showSecondaryButton showCastButton showFullscreenButton showThemeButtons smallerMenu alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily'.split(
+				for (const option of 'colorPalette darkMode showDarkButton showPrimaryButton showSecondaryButton showCastButton showFullscreenButton showThemeButtons smallerMenu alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily fontFamilyBody'.split(
 					' '
 				))
 					$settings[option] = defaultSettings[option];

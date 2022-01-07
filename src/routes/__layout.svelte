@@ -148,7 +148,9 @@
 
 <svelte:body on:dblclick={doubleClickFullscreen} />
 
-<div class="text-center flex min-h-screen" style="--font-family:{$settings.fontFamily}">
+<div
+	class="text-center flex min-h-screen"
+	style="--font-family:{$settings.fontFamily}; --font-family-body:{$settings.fontFamilyBody}">
 	<Nav bind:navOpen bind:settingsModal />
 	<div class="flex-1 relative">
 		<Header bind:navOpen />
