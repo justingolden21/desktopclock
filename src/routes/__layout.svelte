@@ -1,5 +1,5 @@
 <script>
-	import '../app.postcss';
+	import '../css/app.postcss';
 
 	import { navigating, session } from '$app/stores';
 	import { browser } from '$app/env';
