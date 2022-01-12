@@ -12,6 +12,7 @@
 	import Icon from '../Icon.svelte';
 	import Toggle from '../Toggle.svelte';
 	import Modal from '../Modal.svelte';
+	import AnalogClock from './AnalogClock.svelte';
 	import { fontFamilies } from '../../data/consts.js';
 
 	import defaultTheme from '../../themes/default';
@@ -19,7 +20,7 @@
 	import classicTheme from '../../themes/classic';
 	import classicNightTheme from '../../themes/classicNight';
 
-	$: colorPalette = TailwindColors[$settings.colorPalette];
+	$: baseColorPalette = TailwindColors[$settings.baseColorPalette];
 	$: dictionary = $session.languageDictionary;
 
 	let datetimeFormatModal;
@@ -62,31 +63,19 @@
 	</AccordionPanel>
 	{#if $settings.clock.displays.primary == 'analog'}
 		<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="2">
-			<!-- note: using json for efficient deep clone so original theme object is not mutated -->
-			<button
-				class="btn theme-btn"
-				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(defaultTheme)))}>
-				<Icon name="theme" class="inline w-6 h-6" />
-				{dictionary.clockSettings['Default Theme']}
-			</button>
-			<button
-				class="btn theme-btn"
-				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme)))}>
-				<Icon name="theme" class="inline w-6 h-6" />
-				{dictionary.clockSettings['Default Night Theme']}
-			</button>
-			<button
-				class="btn theme-btn"
-				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(classicTheme)))}>
-				<Icon name="theme" class="inline w-6 h-6" />
-				{dictionary.clockSettings['Classic Theme']}
-			</button>
-			<button
-				class="btn theme-btn"
-				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(classicNightTheme)))}>
-				<Icon name="theme" class="inline w-6 h-6" />
-				{dictionary.clockSettings['Classic Night Theme']}
-			</button>
+			<div
+				class="float-right fixed right-16 w-32 h-32 p-1 rounded-full bg-opacity-75 bg-gray-300 dark:bg-gray-500 hidden md:block">
+				<AnalogClock clock_id="1" mode="static" time={{ h: 10, m: 9, s: 0 }} />
+			</div>
+			<!-- using stringify for efficient deep clone so original theme object is not mutated -->
+			{#each [defaultTheme, defaultNightTheme, classicTheme, classicNightTheme] as clockTheme}
+				<button
+					class="btn theme-btn"
+					on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(clockTheme)))}>
+					<Icon name="theme" class="inline w-6 h-6" />
+					{dictionary.clockSettings[clockTheme.name]}
+				</button>
+			{/each}
 			<button
 				class="btn theme-btn"
 				on:click={() => {
@@ -102,19 +91,14 @@
 			<div class="block xl:inline">
 				<label for="face-fill-select">{dictionary.display['Fill color:']}</label>
 				<select id="face-fill-select" bind:value={$settings.clock.theme.face.fill.lightness}>
-					{#each Object.keys(colorPalette) as lightness}
+					{#each Object.keys(baseColorPalette) as lightness}
 						<option value={lightness}>{lightness}</option>
 					{/each}
 					<option value="-1">{dictionary.display['Transparent']}</option>
 				</select>
-			</div>
-			<div class="block xl:inline">
-				<label for="face-stroke-select">{dictionary.display['Stroke color:']}</label>
-				<select id="face-stroke-select" bind:value={$settings.clock.theme.face.stroke.lightness}>
-					{#each Object.keys(colorPalette) as lightness}
-						<option value={lightness}>{lightness}</option>
-					{/each}
-					<option value="-1">{dictionary.display['Transparent']}</option>
+				<select id="face-fill-palette-select" bind:value={$settings.clock.theme.face.fill.palette}>
+					<option value="base">{dictionary.labels['Base Theme']}</option>
+					<option value="accent">{dictionary.labels['Accent Theme']}</option>
 				</select>
 			</div>
 			<div class="block xl:inline">
@@ -123,6 +107,21 @@
 					{#each Array(6) as _, i}
 						<option value={i}>{i}</option>
 					{/each}
+				</select>
+			</div>
+			<div class="block xl:inline">
+				<label for="face-stroke-select">{dictionary.display['Stroke color:']}</label>
+				<select id="face-stroke-select" bind:value={$settings.clock.theme.face.stroke.lightness}>
+					{#each Object.keys(baseColorPalette) as lightness}
+						<option value={lightness}>{lightness}</option>
+					{/each}
+					<option value="-1">{dictionary.display['Transparent']}</option>
+				</select>
+				<select
+					id="face-stroke-palette-select"
+					bind:value={$settings.clock.theme.face.stroke.palette}>
+					<option value="base">{dictionary.labels['Base Theme']}</option>
+					<option value="accent">{dictionary.labels['Accent Theme']}</option>
 				</select>
 			</div>
 			<div class="block xl:inline">
@@ -142,10 +141,16 @@
 					id="shadow-fill-select"
 					bind:value={$settings.clock.theme.shadow.fill.lightness}
 					disabled={$settings.clock.theme.face.fill.lightness == '-1'}>
-					{#each Object.keys(colorPalette) as lightness}
+					{#each Object.keys(baseColorPalette) as lightness}
 						<option value={lightness}>{lightness}</option>
 					{/each}
 					<option value="-1">{dictionary.display['Transparent']}</option>
+				</select>
+				<select
+					id="shadow-fill-palette-select"
+					bind:value={$settings.clock.theme.shadow.fill.palette}>
+					<option value="base">{dictionary.labels['Base Theme']}</option>
+					<option value="accent">{dictionary.labels['Accent Theme']}</option>
 				</select>
 			</div>
 
@@ -154,19 +159,14 @@
 			<div class="block xl:inline">
 				<label for="pin-fill-select">{dictionary.display['Fill color:']}</label>
 				<select id="pin-fill-select" bind:value={$settings.clock.theme.pin.fill.lightness}>
-					{#each Object.keys(colorPalette) as lightness}
+					{#each Object.keys(baseColorPalette) as lightness}
 						<option value={lightness}>{lightness}</option>
 					{/each}
 					<option value="-1">{dictionary.display['Transparent']}</option>
 				</select>
-			</div>
-			<div class="block xl:inline">
-				<label for="pin-stroke-select">{dictionary.display['Stroke color:']}</label>
-				<select id="pin-stroke-select" bind:value={$settings.clock.theme.pin.stroke.lightness}>
-					{#each Object.keys(colorPalette) as lightness}
-						<option value={lightness}>{lightness}</option>
-					{/each}
-					<option value="-1">{dictionary.display['Transparent']}</option>
+				<select id="pin-fill-palette-select" bind:value={$settings.clock.theme.pin.fill.palette}>
+					<option value="base">{dictionary.labels['Base Theme']}</option>
+					<option value="accent">{dictionary.labels['Accent Theme']}</option>
 				</select>
 			</div>
 			<div class="block xl:inline">
@@ -175,6 +175,21 @@
 					{#each Array(7) as _, i}
 						<option value={i / 2}>{i / 2}</option>
 					{/each}
+				</select>
+			</div>
+			<div class="block xl:inline">
+				<label for="pin-stroke-select">{dictionary.display['Stroke color:']}</label>
+				<select id="pin-stroke-select" bind:value={$settings.clock.theme.pin.stroke.lightness}>
+					{#each Object.keys(baseColorPalette) as lightness}
+						<option value={lightness}>{lightness}</option>
+					{/each}
+					<option value="-1">{dictionary.display['Transparent']}</option>
+				</select>
+				<select
+					id="pin-stroke-palette-select"
+					bind:value={$settings.clock.theme.pin.stroke.palette}>
+					<option value="base">{dictionary.labels['Base Theme']}</option>
+					<option value="accent">{dictionary.labels['Accent Theme']}</option>
 				</select>
 			</div>
 			<div class="block xl:inline">
@@ -199,10 +214,16 @@
 					<select
 						id="{size}-tick-stroke-select"
 						bind:value={$settings.clock.theme.ticks[size].stroke.lightness}>
-						{#each Object.keys(colorPalette) as lightness}
+						{#each Object.keys(baseColorPalette) as lightness}
 							<option value={lightness}>{lightness}</option>
 						{/each}
 						<option value="-1">{dictionary.display['Transparent']}</option>
+					</select>
+					<select
+						id="{size}-tick-stroke-palette-select"
+						bind:value={$settings.clock.theme.ticks[size].stroke.palette}>
+						<option value="base">{dictionary.labels['Base Theme']}</option>
+						<option value="accent">{dictionary.labels['Accent Theme']}</option>
 					</select>
 				</div>
 				<div class="block xl:inline">
@@ -240,10 +261,16 @@
 					<select
 						id="{hand}-hand-stroke-select"
 						bind:value={$settings.clock.theme.hands[hand].stroke.lightness}>
-						{#each Object.keys(colorPalette) as lightness}
+						{#each Object.keys(baseColorPalette) as lightness}
 							<option value={lightness}>{lightness}</option>
 						{/each}
 						<option value="-1">{dictionary.display['Transparent']}</option>
+					</select>
+					<select
+						id="{hand}-hand-stroke-palette-select"
+						bind:value={$settings.clock.theme.hands[hand].stroke.palette}>
+						<option value="base">{dictionary.labels['Base Theme']}</option>
+						<option value="accent">{dictionary.labels['Accent Theme']}</option>
 					</select>
 				</div>
 				<div class="block xl:inline">
@@ -379,7 +406,7 @@
 
 				{#if $settings.clock.displays.primary != 'analog' && fontFamilies[$settings.fontFamily].length > 1}
 					<label for="datetime-font-weight-select"
-						>{dictionary.clockSettings['Datetime font weight:']}</label>
+						>{dictionary.clockSettings['Primary display font weight:']}</label>
 					<select id="datetime-font-weight-select" bind:value={$settings.clock.datetimeFontWeight}>
 						{#each fontFamilies[$settings.fontFamily] as weight}
 							<option value={weight.toString()}

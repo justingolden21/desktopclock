@@ -12,15 +12,28 @@
 	import { now } from '../../util/now.js';
 	import { settings } from '../settings.js';
 
+	// 'static' if the clock displays only one time
+	export let mode = '';
+	// time to display if static
+	export let time = {};
+	// id used to differentiate names for css variables which are global, so they only apply to one specific clock
+	export let clock_id;
+
 	const setAngle = (type, newAngle) => {
-		document.documentElement.style.setProperty(`--${type}-angle`, `${newAngle}deg`);
+		document.documentElement.style.setProperty(`--${type}-angle-${clock_id}`, `${newAngle}deg`);
 	};
 
 	function setTime() {
 		if (!document.getElementById('hour-hand')) return; // return if analog clock is not visible
 
-		// add one second because transition takes one second
-		const date = new dayjs($now).tz($settings.locale.timezone || 'Etc/GMT').add(1, 'second');
+		let date;
+
+		if (mode && mode === 'static') {
+			date = new dayjs().hour(time.h).minute(time.m).second(time.s);
+		} else {
+			// add one second because transition takes one second
+			date = new dayjs($now).tz($settings.locale.timezone || 'Etc/GMT').add(1, 'second');
+		}
 
 		const h = date.hour() % 12;
 		const m = date.minute();
@@ -68,19 +81,20 @@
 	//  ================
 
 	$: theme = $settings.clock.theme;
-	$: colorPalette = TailwindColors[$settings.colorPalette];
+	$: baseColorPalette = TailwindColors[$settings.baseColorPalette];
 
 	$: sizes = ['sm', 'md', 'lg'].map((size) => ({ size, r: 27.5 - theme.ticks[size].width / 2 }));
 
 	// return the hex color given a string or object with color information from a theme
+	// lightness is a string (100, 200, 300) that represents the lightness of the color in the tailwind theme
 	// if falsey or '-1', return 'none' (lack of value or '-1' results in a transparent color)
-	// other valid options are a string for the lightness (default palette will be used)
-	// or an object, which will use the lightness from the object and the palette from the object if present, else the default palette
+	// palette is 'base' unless otherwise specified, 'accent' is the other valid color palette
 	function getColor(obj) {
-		// TODO: support 'secondary', 'primary'
 		return obj.lightness === '-1'
 			? 'none'
-			: TailwindColors[obj.color ?? $settings.colorPalette][obj.lightness];
+			: TailwindColors[
+					$settings[obj.palette == 'accent' ? 'accentColorPalette' : 'baseColorPalette']
+			  ][obj.lightness];
 	}
 </script>
 
@@ -90,8 +104,7 @@ so when switching to it, it continues moving instantly -->
 <svg
 	id="clock"
 	viewBox="0 0 64 64"
-	class={$settings.clock.displays.primary !== 'analog' ? 'opacity-0' : ''}
->
+	class={$settings.clock.displays.primary !== 'analog' ? 'opacity-0' : ''}>
 	<!-- Shadow -->
 	<rect
 		id="shadow"
@@ -101,9 +114,8 @@ so when switching to it, it continues moving instantly -->
 		height="60"
 		fill={theme.face.fill.lightness == '-1' || theme.shadow.fill.lightness == '-1'
 			? 'none'
-			: colorPalette[theme.shadow.fill.lightness]}
-		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0}
-	/>
+			: baseColorPalette[theme.shadow.fill.lightness]}
+		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0} />
 	<!-- Face -->
 	<rect
 		id="face"
@@ -114,8 +126,7 @@ so when switching to it, it continues moving instantly -->
 		fill={getColor(theme.face.fill)}
 		stroke={getColor(theme.face.stroke)}
 		stroke-width={theme.face.strokeWidth}
-		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0}
-	/>
+		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0} />
 	<g transform="translate(32,32)">
 		<!-- Ticks -->
 		{#each sizes as { size, r }, index}
@@ -128,8 +139,7 @@ so when switching to it, it continues moving instantly -->
 				}`}
 				stroke={getColor(theme.ticks[size].stroke)}
 				stroke-width={theme.ticks[size].width}
-				transform={`rotate(-${theme.ticks[size].height})`}
-			/>
+				transform={`rotate(-${theme.ticks[size].height})`} />
 		{/each}
 
 		<!-- Hands -->
@@ -137,12 +147,12 @@ so when switching to it, it continues moving instantly -->
 			{#each ['hour', 'minute', 'second'] as hand, index}
 				<line
 					id="{hand}-hand"
+					style={`transition: transform 1s linear;transform: rotate(var(--${hand}-angle-${clock_id}));`}
 					y1={-theme.hands[hand].back}
 					y2={theme.hands[hand].length}
 					stroke={getColor(theme.hands[hand].stroke)}
 					stroke-width={theme.hands[hand].strokeWidth}
-					stroke-linecap={theme.hands[hand].linecap}
-				/>
+					stroke-linecap={theme.hands[hand].linecap} />
 			{/each}
 		</g>
 		<!-- Pin -->
@@ -151,8 +161,7 @@ so when switching to it, it continues moving instantly -->
 			fill={getColor(theme.pin.fill)}
 			stroke={getColor(theme.pin.stroke)}
 			stroke-width={theme.pin.strokeWidth}
-			r={theme.pin.size}
-		/>
+			r={theme.pin.size} />
 	</g>
 </svg>
 
@@ -186,20 +195,5 @@ so when switching to it, it continues moving instantly -->
 		--second-angle: 0deg;
 		--minute-angle: 0deg;
 		--hour-angle: 0deg;
-	}
-
-	#second-hand {
-		transition: transform 1s linear;
-		transform: rotate(var(--second-angle));
-	}
-
-	#minute-hand {
-		transition: transform 1s linear;
-		transform: rotate(var(--minute-angle));
-	}
-
-	#hour-hand {
-		transition: transform 1s linear;
-		transform: rotate(var(--hour-angle));
 	}
 </style>

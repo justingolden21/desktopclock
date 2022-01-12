@@ -1,5 +1,5 @@
 <script>
-	import '../app.postcss';
+	import '../css/app.postcss';
 
 	import { navigating, session } from '$app/stores';
 	import { browser } from '$app/env';
@@ -49,7 +49,7 @@
 		if ($settings.darkMode === null) {
 			$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
 			// if darkMode doesn't exist, the user doesn't already have theme settings, it's ok to step on the old theme
-			if ($settings.darkMode) $settings.clock.theme = defaultNightTheme;
+			if ($settings.darkMode) $settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme));
 		}
 		if ($settings.locale.timezone === null) {
 			$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? 'Etc/GMT';
@@ -131,13 +131,13 @@
 
 	<meta
 		name="apple-mobile-web-app-status-bar"
-		content={TailwindColors[$settings.colorPalette][500]} />
-	<meta name="theme-color" content={TailwindColors[$settings.colorPalette][500]} />
-	<meta name="msapplication-TileColor" content={TailwindColors[$settings.colorPalette][500]} />
+		content={TailwindColors[$settings.baseColorPalette][500]} />
+	<meta name="theme-color" content={TailwindColors[$settings.baseColorPalette][500]} />
+	<meta name="msapplication-TileColor" content={TailwindColors[$settings.baseColorPalette][500]} />
 	<link
 		rel="mask-icon"
 		href="img/icons/safari-pinned-tab.svg"
-		color={TailwindColors[$settings.colorPalette][500]} />
+		color={TailwindColors[$settings.baseColorPalette][500]} />
 </svelte:head>
 
 <GoogleAnalytics />
@@ -148,7 +148,9 @@
 
 <svelte:body on:dblclick={doubleClickFullscreen} />
 
-<div class="text-center flex min-h-screen" style="--font-family:{$settings.fontFamily}">
+<div
+	class="text-center flex min-h-screen"
+	style="--font-family:{$settings.fontFamily}; --font-family-body:{$settings.fontFamilyBody}">
 	<Nav bind:navOpen bind:settingsModal />
 	<div class="flex-1 relative">
 		<Header bind:navOpen />

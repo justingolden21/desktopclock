@@ -21,6 +21,9 @@ export const fontFamilies = {
 	'': [100, 200, 300, 400, 500, 600, 700, 800, 900]
 };
 
+export const systemFontFamilies =
+	"font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'";
+
 export const locales = [
 	'af',
 	'am',

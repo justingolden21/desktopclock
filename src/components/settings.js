@@ -8,7 +8,7 @@ export const defaultSettings = {
 			secondary: 'date', // time, date, datetime, none
 			battery: false
 		},
-		theme: defaultTheme,
+		theme: JSON.parse(JSON.stringify(defaultTheme)),
 
 		timeFormat: null, // overridden in _layout onMount to user device's preference
 		timeFormatCustom: null, // overridden in _layout onMount to user device's preference
@@ -19,19 +19,20 @@ export const defaultSettings = {
 	},
 
 	// appearance
-	colorPalette: 'blueGray',
+	baseColorPalette: 'blueGray',
+	accentColorPalette: 'red',
 	darkMode: null, // overridden in _layout onMount to user device's preference
 	showDarkButton: true,
 	showPrimaryButton: false,
 	showSecondaryButton: false,
 	showCastButton: false,
 	showFullscreenButton: true,
-	showThemeButtons: false,
 	smallerMenu: false,
 	alwaysCollapseMenu: false,
 	hideTitlebarWhenIdle: false,
 	secondsUntilIdle: 2,
 	fontFamily: 'Comfortaa',
+	fontFamilyBody: 'Bitter',
 
 	// general
 	doubleclickFullscreen: false,

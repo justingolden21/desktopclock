@@ -11,5 +11,5 @@
 
 <section>
 	<Displays />
-	<AnalogClock />
+	<AnalogClock clock_id="0" />
 </section>

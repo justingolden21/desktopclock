@@ -1,29 +1,31 @@
-// '-1' is transparent
-// numbers representing colors (100,200,300... and -1) are strings
-
 const defaultTheme = {
+	name: 'Default Theme',
 	face: {
 		stroke: {
-			lightness: '700'
+			lightness: '700',
+			palette: 'base'
 		},
 		fill: {
-			lightness: '100'
+			lightness: '100',
+			palette: 'base'
 		},
 		strokeWidth: 0,
 		shape: 'circle'
 	},
 	shadow: {
 		fill: {
-			lightness: '700'
+			lightness: '700',
+			palette: 'base'
 		}
 	},
 	pin: {
 		stroke: {
-			color: 'red',
-			lightness: '700'
+			lightness: '700',
+			palette: 'accent'
 		},
 		fill: {
-			lightness: '100'
+			lightness: '100',
+			palette: 'base'
 		},
 		strokeWidth: 0.5,
 		size: 1
@@ -31,21 +33,24 @@ const defaultTheme = {
 	ticks: {
 		sm: {
 			stroke: {
-				lightness: '-1'
+				lightness: '-1',
+				palette: 'base'
 			},
 			height: 0.5,
 			width: 2
 		},
 		md: {
 			stroke: {
-				lightness: '400'
+				lightness: '400',
+				palette: 'base'
 			},
 			height: 0.5,
 			width: 3
 		},
 		lg: {
 			stroke: {
-				lightness: '500'
+				lightness: '500',
+				palette: 'base'
 			},
 			height: 0.5,
 			width: 5
@@ -54,7 +59,8 @@ const defaultTheme = {
 	hands: {
 		hour: {
 			stroke: {
-				lightness: '700'
+				lightness: '700',
+				palette: 'base'
 			},
 			strokeWidth: 0.5,
 			length: 15,
@@ -63,7 +69,8 @@ const defaultTheme = {
 		},
 		minute: {
 			stroke: {
-				lightness: '500'
+				lightness: '500',
+				palette: 'base'
 			},
 			strokeWidth: 0.5,
 			length: 21,
@@ -72,8 +79,8 @@ const defaultTheme = {
 		},
 		second: {
 			stroke: {
-				color: 'red',
-				lightness: '700'
+				lightness: '700',
+				palette: 'accent'
 			},
 			strokeWidth: 0.5,
 			length: 27,
