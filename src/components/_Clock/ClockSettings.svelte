@@ -12,6 +12,7 @@
 	import Icon from '../Icon.svelte';
 	import Toggle from '../Toggle.svelte';
 	import Modal from '../Modal.svelte';
+	import AnalogClock from './AnalogClock.svelte';
 	import { fontFamilies } from '../../data/consts.js';
 
 	import defaultTheme from '../../themes/default';
@@ -62,6 +63,10 @@
 	</AccordionPanel>
 	{#if $settings.clock.displays.primary == 'analog'}
 		<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="2">
+			<div
+				class="float-right fixed right-16 w-32 h-32 p-1 rounded-full bg-opacity-75 bg-gray-500 hidden md:block">
+				<AnalogClock />
+			</div>
 			<!-- note: using json for efficient deep clone so original theme object is not mutated -->
 			<button
 				class="btn theme-btn"
