@@ -1,3 +1,26 @@
+only display stroke color if stroke width !== 0, same with pin stroke
+
+toggles for elements, if off set color to transparent
+
+====
+important now:
+====
+bug: setting back to default theme or any theme doesnt reset the accent/base palette
+bug: the palette dropdown shows empty string when not set
+how do we solve these bugs without explicitly setting the theme to have `palette: 'base'` everywhere?
+
+====
+future:
+====
+
+condence logic for clock settings
+
+palettes:
+option to use base or accent palette in primary and secondary displays
+use base palette across app
+
+========
+
 main todo:
 get linting/formatting on all devices, update readme with instructions for new device
 
