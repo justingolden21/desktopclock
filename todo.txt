@@ -5,7 +5,6 @@ toggles for elements, if off set color to transparent
 ====
 important now:
 ====
-bug: setting back to default theme or any theme doesnt reset the accent/base palette
 bug: the palette dropdown shows empty string when not set
 how do we solve these bugs without explicitly setting the theme to have `palette: 'base'` everywhere?
 
