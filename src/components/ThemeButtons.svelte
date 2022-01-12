@@ -5,10 +5,6 @@
 
 	export let colors;
 	export let theme;
-
-	console.log(colors);
-
-	// console.log(Object.keys(TailwindColors));
 </script>
 
 <div class="relative">
