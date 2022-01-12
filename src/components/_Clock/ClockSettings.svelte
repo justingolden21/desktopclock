@@ -118,6 +118,14 @@
 				</select>
 			</div>
 			<div class="block xl:inline">
+				<label for="face-stroke-width-select">{dictionary.display['Stroke width:']}</label>
+				<select id="face-stroke-width-select" bind:value={$settings.clock.theme.face.strokeWidth}>
+					{#each Array(6) as _, i}
+						<option value={i}>{i}</option>
+					{/each}
+				</select>
+			</div>
+			<div class="block xl:inline">
 				<label for="face-stroke-select">{dictionary.display['Stroke color:']}</label>
 				<select id="face-stroke-select" bind:value={$settings.clock.theme.face.stroke.lightness}>
 					{#each Object.keys(baseColorPalette) as lightness}
@@ -130,14 +138,6 @@
 					bind:value={$settings.clock.theme.face.stroke.palette}>
 					<option value="base">{dictionary.labels['Base Theme']}</option>
 					<option value="accent">{dictionary.labels['Accent Theme']}</option>
-				</select>
-			</div>
-			<div class="block xl:inline">
-				<label for="face-stroke-width-select">{dictionary.display['Stroke width:']}</label>
-				<select id="face-stroke-width-select" bind:value={$settings.clock.theme.face.strokeWidth}>
-					{#each Array(6) as _, i}
-						<option value={i}>{i}</option>
-					{/each}
 				</select>
 			</div>
 			<div class="block xl:inline">
@@ -186,6 +186,14 @@
 				</select>
 			</div>
 			<div class="block xl:inline">
+				<label for="pin-stroke-width-select">{dictionary.display['Stroke width:']}</label>
+				<select id="pin-stroke-width-select" bind:value={$settings.clock.theme.pin.strokeWidth}>
+					{#each Array(7) as _, i}
+						<option value={i / 2}>{i / 2}</option>
+					{/each}
+				</select>
+			</div>
+			<div class="block xl:inline">
 				<label for="pin-stroke-select">{dictionary.display['Stroke color:']}</label>
 				<select id="pin-stroke-select" bind:value={$settings.clock.theme.pin.stroke.lightness}>
 					{#each Object.keys(baseColorPalette) as lightness}
@@ -198,14 +206,6 @@
 					bind:value={$settings.clock.theme.pin.stroke.palette}>
 					<option value="base">{dictionary.labels['Base Theme']}</option>
 					<option value="accent">{dictionary.labels['Accent Theme']}</option>
-				</select>
-			</div>
-			<div class="block xl:inline">
-				<label for="pin-stroke-width-select">{dictionary.display['Stroke width:']}</label>
-				<select id="pin-stroke-width-select" bind:value={$settings.clock.theme.pin.strokeWidth}>
-					{#each Array(7) as _, i}
-						<option value={i / 2}>{i / 2}</option>
-					{/each}
 				</select>
 			</div>
 			<div class="block xl:inline">
