@@ -217,11 +217,11 @@
 	<TabPanel>
 		<!-- should theme, dark, cast, fullscreen btns be in general? -->
 		<div class="mb-2">
-			<p>{dictionary.labels['Base Theme']}</p>
+			<h3>{dictionary.labels['Base Theme']}</h3>
 			<ThemeButtons
 				colors={['warmGray', 'trueGray', 'gray', 'coolGray', 'blueGray']}
 				theme="baseColorPalette" />
-			<p>{dictionary.labels['Accent Theme']}</p>
+			<h3>{dictionary.labels['Accent Theme']}</h3>
 			<ThemeButtons
 				colors={[
 					'rose',
