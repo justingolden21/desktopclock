@@ -68,19 +68,20 @@
 	//  ================
 
 	$: theme = $settings.clock.theme;
-	$: colorPalette = TailwindColors[$settings.colorPalette];
+	$: baseColorPalette = TailwindColors[$settings.baseColorPalette];
 
 	$: sizes = ['sm', 'md', 'lg'].map((size) => ({ size, r: 27.5 - theme.ticks[size].width / 2 }));
 
 	// return the hex color given a string or object with color information from a theme
+	// lightness is a string (100, 200, 300) that represents the lightness of the color in the tailwind theme
 	// if falsey or '-1', return 'none' (lack of value or '-1' results in a transparent color)
-	// other valid options are a string for the lightness (default palette will be used)
-	// or an object, which will use the lightness from the object and the palette from the object if present, else the default palette
+	// palette is 'base' unless otherwise specified, 'accent' is the other valid color palette
 	function getColor(obj) {
-		// TODO: support 'secondary', 'primary'
 		return obj.lightness === '-1'
 			? 'none'
-			: TailwindColors[obj.color ?? $settings.colorPalette][obj.lightness];
+			: TailwindColors[
+					$settings[obj.palette == 'accent' ? 'accentColorPalette' : 'baseColorPalette']
+			  ][obj.lightness];
 	}
 </script>
 
@@ -90,8 +91,7 @@ so when switching to it, it continues moving instantly -->
 <svg
 	id="clock"
 	viewBox="0 0 64 64"
-	class={$settings.clock.displays.primary !== 'analog' ? 'opacity-0' : ''}
->
+	class={$settings.clock.displays.primary !== 'analog' ? 'opacity-0' : ''}>
 	<!-- Shadow -->
 	<rect
 		id="shadow"
@@ -101,9 +101,8 @@ so when switching to it, it continues moving instantly -->
 		height="60"
 		fill={theme.face.fill.lightness == '-1' || theme.shadow.fill.lightness == '-1'
 			? 'none'
-			: colorPalette[theme.shadow.fill.lightness]}
-		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0}
-	/>
+			: baseColorPalette[theme.shadow.fill.lightness]}
+		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0} />
 	<!-- Face -->
 	<rect
 		id="face"
@@ -114,8 +113,7 @@ so when switching to it, it continues moving instantly -->
 		fill={getColor(theme.face.fill)}
 		stroke={getColor(theme.face.stroke)}
 		stroke-width={theme.face.strokeWidth}
-		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0}
-	/>
+		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0} />
 	<g transform="translate(32,32)">
 		<!-- Ticks -->
 		{#each sizes as { size, r }, index}
@@ -128,8 +126,7 @@ so when switching to it, it continues moving instantly -->
 				}`}
 				stroke={getColor(theme.ticks[size].stroke)}
 				stroke-width={theme.ticks[size].width}
-				transform={`rotate(-${theme.ticks[size].height})`}
-			/>
+				transform={`rotate(-${theme.ticks[size].height})`} />
 		{/each}
 
 		<!-- Hands -->
@@ -141,8 +138,7 @@ so when switching to it, it continues moving instantly -->
 					y2={theme.hands[hand].length}
 					stroke={getColor(theme.hands[hand].stroke)}
 					stroke-width={theme.hands[hand].strokeWidth}
-					stroke-linecap={theme.hands[hand].linecap}
-				/>
+					stroke-linecap={theme.hands[hand].linecap} />
 			{/each}
 		</g>
 		<!-- Pin -->
@@ -151,8 +147,7 @@ so when switching to it, it continues moving instantly -->
 			fill={getColor(theme.pin.fill)}
 			stroke={getColor(theme.pin.stroke)}
 			stroke-width={theme.pin.strokeWidth}
-			r={theme.pin.size}
-		/>
+			r={theme.pin.size} />
 	</g>
 </svg>
 

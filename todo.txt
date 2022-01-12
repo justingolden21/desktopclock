@@ -186,6 +186,9 @@ bug: app doesn't work in messenger in browser
 
 "convert" menu section
 
+idea:
+custom date and time formats default to the most recent selection before custom was selected
+
 next:
 !!! : ) dropdown for color in additon to lightness for each item in analog theme. option for "primary color" and "accent color" which can be chosen in general settings
 review font families again?

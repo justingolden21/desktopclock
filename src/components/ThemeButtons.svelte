@@ -2,28 +2,32 @@
 	import { settings } from './settings.js';
 
 	import TailwindColors from 'tailwindcss/colors.js';
+
+	export let colors;
+	export let theme;
+
+	console.log(colors);
+
+	// console.log(Object.keys(TailwindColors));
 </script>
 
-<!-- Remove first 2 items from array (black and white). They do not have themes. -->
 <div class="relative">
-	{#each Object.keys(TailwindColors).slice(2) as color, idx}
-		<!-- As of Tailwind CSS v2.2, `lightBlue` has been renamed to `sky`  -->
-		{#if color !== 'lightBlue'}
-			<button
-				class="theme-btn {$settings.colorPalette == color ? 'active' : ''}"
-				style="background-color: {TailwindColors[color][300]}"
-				on:click={() => ($settings.colorPalette = color)}
-			/>
-		{/if}
+	{#each colors as color}
+		<button
+			class="theme-btn {$settings[theme] == color ? 'active' : ''}"
+			style="background-color: {TailwindColors[color][300]}; border-color: {TailwindColors[
+				color
+			][300]}"
+			on:click={() => ($settings[theme] = color)} />
 	{/each}
 </div>
 
 <style lang="postcss">
 	.theme-btn {
-		@apply p-2 rounded-full hover:bg-gray-700 hover:text-white w-6 h-6 m-1; /* fix since it cannot find 'icon-btn' class in prod */
+		@apply p-2 rounded-full hover:bg-gray-700 hover:text-white w-6 h-6 m-1 border-2; /* fix since it cannot find 'icon-btn' class in prod */
 		/* @apply icon-btn w-6 h-6 m-1; */
 	}
 	.theme-btn.active {
-		box-shadow: 4px 0px 0px #64748b; /* gray-500 */
+		@apply border-white;
 	}
 </style>

@@ -1,6 +1,3 @@
-// '-1' is transparent
-// numbers representing colors (100,200,300... and -1) are strings
-
 const defaultTheme = {
 	face: {
 		stroke: {
@@ -19,7 +16,7 @@ const defaultTheme = {
 	},
 	pin: {
 		stroke: {
-			color: 'red',
+			palette: 'accent',
 			lightness: '700'
 		},
 		fill: {
@@ -72,7 +69,7 @@ const defaultTheme = {
 		},
 		second: {
 			stroke: {
-				color: 'red',
+				palette: 'accent',
 				lightness: '700'
 			},
 			strokeWidth: 0.5,

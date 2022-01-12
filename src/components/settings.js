@@ -19,14 +19,14 @@ export const defaultSettings = {
 	},
 
 	// appearance
-	colorPalette: 'blueGray',
+	baseColorPalette: 'blueGray',
+	accentColorPalette: 'red',
 	darkMode: null, // overridden in _layout onMount to user device's preference
 	showDarkButton: true,
 	showPrimaryButton: false,
 	showSecondaryButton: false,
 	showCastButton: false,
 	showFullscreenButton: true,
-	showThemeButtons: false,
 	smallerMenu: false,
 	alwaysCollapseMenu: false,
 	hideTitlebarWhenIdle: false,

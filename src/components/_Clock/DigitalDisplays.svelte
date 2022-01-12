@@ -65,11 +65,11 @@
 		});
 	});
 
-	$: colorPalette = TailwindColors[$settings.colorPalette];
+	$: baseColorPalette = TailwindColors[$settings.baseColorPalette];
 	$: shade = $settings.darkMode ? 200 : 900;
 </script>
 
-<div style="color:{colorPalette[shade]}; display: flex">
+<div style="color:{baseColorPalette[shade]}; display: flex">
 	<div
 		id="primary-display"
 		style="--primary-font-weight: {$settings.clock.datetimeFontWeight}"

@@ -20,7 +20,7 @@ const classicTheme = {
 		},
 
 		fill: {
-			color: 'red',
+			palette: 'accent',
 			lightness: '800'
 		},
 		strokeWidth: 0,
@@ -70,7 +70,7 @@ const classicTheme = {
 		},
 		second: {
 			stroke: {
-				color: 'red',
+				palette: 'accent',
 				lightness: '800'
 			},
 			strokeWidth: 0.5,

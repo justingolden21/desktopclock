@@ -217,7 +217,32 @@
 	<TabPanel>
 		<!-- should theme, dark, cast, fullscreen btns be in general? -->
 		<div class="mb-2">
-			<ThemeButtons />
+			<p>{dictionary.labels['Base Theme']}</p>
+			<ThemeButtons
+				colors={['warmGray', 'trueGray', 'gray', 'coolGray', 'blueGray']}
+				theme="baseColorPalette" />
+			<p>{dictionary.labels['Accent Theme']}</p>
+			<ThemeButtons
+				colors={[
+					'rose',
+					'pink',
+					'fuchsia',
+					'purple',
+					'violet',
+					'indigo',
+					'blue',
+					'sky',
+					'cyan',
+					'teal',
+					'emerald',
+					'green',
+					'lime',
+					'yellow',
+					'amber',
+					'orange',
+					'red'
+				]}
+				theme="accentColorPalette" />
 		</div>
 		<div class="block mb-2">
 			<button class="dark-btn btn" on:click={() => ($settings.darkMode = !$settings.darkMode)}>
@@ -262,11 +287,6 @@
 			id="show-fullscreen-btn-toggle"
 			bind:checked={$settings.showFullscreenButton}
 			labelText={dictionary.labels['Show fullscreen button']} />
-
-		<Toggle
-			id="show-theme-btn-toggle"
-			bind:checked={$settings.showThemeButtons}
-			labelText={dictionary.labels['Show theme buttons']} />
 
 		<hr />
 
@@ -345,7 +365,7 @@
 		<button
 			class="btn undo-btn block"
 			on:click={() => {
-				for (const option of 'colorPalette darkMode showDarkButton showPrimaryButton showSecondaryButton showCastButton showFullscreenButton showThemeButtons smallerMenu alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily fontFamilyBody'.split(
+				for (const option of 'baseColorPalette accentColorPalette darkMode showDarkButton showPrimaryButton showSecondaryButton showCastButton showFullscreenButton smallerMenu alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily fontFamilyBody'.split(
 					' '
 				))
 					$settings[option] = defaultSettings[option];

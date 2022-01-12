@@ -131,13 +131,13 @@
 
 	<meta
 		name="apple-mobile-web-app-status-bar"
-		content={TailwindColors[$settings.colorPalette][500]} />
-	<meta name="theme-color" content={TailwindColors[$settings.colorPalette][500]} />
-	<meta name="msapplication-TileColor" content={TailwindColors[$settings.colorPalette][500]} />
+		content={TailwindColors[$settings.baseColorPalette][500]} />
+	<meta name="theme-color" content={TailwindColors[$settings.baseColorPalette][500]} />
+	<meta name="msapplication-TileColor" content={TailwindColors[$settings.baseColorPalette][500]} />
 	<link
 		rel="mask-icon"
 		href="img/icons/safari-pinned-tab.svg"
-		color={TailwindColors[$settings.colorPalette][500]} />
+		color={TailwindColors[$settings.baseColorPalette][500]} />
 </svelte:head>
 
 <GoogleAnalytics />

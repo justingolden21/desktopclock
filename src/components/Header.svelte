@@ -6,7 +6,6 @@
 
 	import { settings } from './settings.js';
 	import { toggleFullscreen } from './Settings.svelte';
-	import ThemeButtons from './ThemeButtons.svelte';
 	import { setupCasting, castClock, isCastSupported } from '../util/cast.js';
 	import { now } from '../util/now.js';
 
@@ -124,8 +123,4 @@
 		title={dictionary.labels['Toggle fullscreen'] + ($settings.keyboardShortcuts ? ' (F)' : '')}>
 		<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
-
-	<div class="relative mx-auto m-8 mt-24 max-w-3xl z-10" class:hidden={!$settings.showThemeButtons}>
-		<ThemeButtons />
-	</div>
 </header>
