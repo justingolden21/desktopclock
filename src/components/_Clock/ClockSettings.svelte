@@ -41,6 +41,12 @@
 				<option value="date">{dictionary.clockSettings['Date']}</option>
 				<option value="datetime">{dictionary.clockSettings['Date + digital time']}</option>
 			</select>
+			{#if $settings.clock.displays.primary !== 'analog'}
+				<select bind:value={$settings.clock.displays.primaryPalette}>
+					<option value="base">{dictionary.labels['Base Palette']}</option>
+					<option value="accent">{dictionary.labels['Accent Palette']}</option>
+				</select>
+			{/if}
 		</div>
 
 		<div class="block xl:inline">
@@ -51,6 +57,12 @@
 				<option value="datetime">{dictionary.clockSettings['Date + digital time']}</option>
 				<option value="none">{dictionary.clockSettings['None']}</option>
 			</select>
+			{#if $settings.clock.displays.secondary !== 'none'}
+				<select bind:value={$settings.clock.displays.secondaryPalette}>
+					<option value="base">{dictionary.labels['Base Palette']}</option>
+					<option value="accent">{dictionary.labels['Accent Palette']}</option>
+				</select>
+			{/if}
 		</div>
 
 		<!-- hide unless battery is supported and screen is large enough to show battery -->
