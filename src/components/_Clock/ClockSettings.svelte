@@ -68,30 +68,14 @@
 				<AnalogClock clock_id="1" mode="static" time={{ h: 10, m: 9, s: 0 }} />
 			</div>
 			<!-- note: using json for efficient deep clone so original theme object is not mutated -->
-			<button
-				class="btn theme-btn"
-				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(defaultTheme)))}>
-				<Icon name="theme" class="inline w-6 h-6" />
-				{dictionary.clockSettings['Default Theme']}
-			</button>
-			<button
-				class="btn theme-btn"
-				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme)))}>
-				<Icon name="theme" class="inline w-6 h-6" />
-				{dictionary.clockSettings['Default Night Theme']}
-			</button>
-			<button
-				class="btn theme-btn"
-				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(classicTheme)))}>
-				<Icon name="theme" class="inline w-6 h-6" />
-				{dictionary.clockSettings['Classic Theme']}
-			</button>
-			<button
-				class="btn theme-btn"
-				on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(classicNightTheme)))}>
-				<Icon name="theme" class="inline w-6 h-6" />
-				{dictionary.clockSettings['Classic Night Theme']}
-			</button>
+			{#each [{ name: 'Default Theme', theme: defaultTheme }, { name: 'Default Night Theme', theme: defaultNightTheme }, { name: 'Classic Theme', theme: classicTheme }, { name: 'Classic Night Theme', theme: classicNightTheme }] as clockTheme}
+				<button
+					class="btn theme-btn"
+					on:click={() => ($settings.clock.theme = JSON.parse(JSON.stringify(clockTheme.theme)))}>
+					<Icon name="theme" class="inline w-6 h-6" />
+					{dictionary.clockSettings[clockTheme.name]}
+				</button>
+			{/each}
 			<button
 				class="btn theme-btn"
 				on:click={() => {
