@@ -97,8 +97,8 @@
 					<option value="-1">{dictionary.display['Transparent']}</option>
 				</select>
 				<select id="face-fill-palette-select" bind:value={$settings.clock.theme.face.fill.palette}>
-					<option value="base">{dictionary.labels['Base Theme']}</option>
-					<option value="accent">{dictionary.labels['Accent Theme']}</option>
+					<option value="base">{dictionary.labels['Base Palette']}</option>
+					<option value="accent">{dictionary.labels['Accent Palette']}</option>
 				</select>
 			</div>
 			<div class="block xl:inline">
@@ -109,21 +109,23 @@
 					{/each}
 				</select>
 			</div>
-			<div class="block xl:inline">
-				<label for="face-stroke-select">{dictionary.display['Stroke color:']}</label>
-				<select id="face-stroke-select" bind:value={$settings.clock.theme.face.stroke.lightness}>
-					{#each Object.keys(baseColorPalette) as lightness}
-						<option value={lightness}>{lightness}</option>
-					{/each}
-					<option value="-1">{dictionary.display['Transparent']}</option>
-				</select>
-				<select
-					id="face-stroke-palette-select"
-					bind:value={$settings.clock.theme.face.stroke.palette}>
-					<option value="base">{dictionary.labels['Base Theme']}</option>
-					<option value="accent">{dictionary.labels['Accent Theme']}</option>
-				</select>
-			</div>
+			{#if $settings.clock.theme.face.strokeWidth !== 0}
+				<div class="block xl:inline">
+					<label for="face-stroke-select">{dictionary.display['Stroke color:']}</label>
+					<select id="face-stroke-select" bind:value={$settings.clock.theme.face.stroke.lightness}>
+						{#each Object.keys(baseColorPalette) as lightness}
+							<option value={lightness}>{lightness}</option>
+						{/each}
+						<option value="-1">{dictionary.display['Transparent']}</option>
+					</select>
+					<select
+						id="face-stroke-palette-select"
+						bind:value={$settings.clock.theme.face.stroke.palette}>
+						<option value="base">{dictionary.labels['Base Palette']}</option>
+						<option value="accent">{dictionary.labels['Accent Palette']}</option>
+					</select>
+				</div>
+			{/if}
 			<div class="block xl:inline">
 				<label for="face-shape-select">{dictionary.display['Shape:']}</label>
 				<select id="face-shape-select" bind:value={$settings.clock.theme.face.shape}>
@@ -149,49 +151,13 @@
 				<select
 					id="shadow-fill-palette-select"
 					bind:value={$settings.clock.theme.shadow.fill.palette}>
-					<option value="base">{dictionary.labels['Base Theme']}</option>
-					<option value="accent">{dictionary.labels['Accent Theme']}</option>
+					<option value="base">{dictionary.labels['Base Palette']}</option>
+					<option value="accent">{dictionary.labels['Accent Palette']}</option>
 				</select>
 			</div>
 
 			<h3>{dictionary.clockSettings['Pin']}</h3>
 
-			<div class="block xl:inline">
-				<label for="pin-fill-select">{dictionary.display['Fill color:']}</label>
-				<select id="pin-fill-select" bind:value={$settings.clock.theme.pin.fill.lightness}>
-					{#each Object.keys(baseColorPalette) as lightness}
-						<option value={lightness}>{lightness}</option>
-					{/each}
-					<option value="-1">{dictionary.display['Transparent']}</option>
-				</select>
-				<select id="pin-fill-palette-select" bind:value={$settings.clock.theme.pin.fill.palette}>
-					<option value="base">{dictionary.labels['Base Theme']}</option>
-					<option value="accent">{dictionary.labels['Accent Theme']}</option>
-				</select>
-			</div>
-			<div class="block xl:inline">
-				<label for="pin-stroke-width-select">{dictionary.display['Stroke width:']}</label>
-				<select id="pin-stroke-width-select" bind:value={$settings.clock.theme.pin.strokeWidth}>
-					{#each Array(7) as _, i}
-						<option value={i / 2}>{i / 2}</option>
-					{/each}
-				</select>
-			</div>
-			<div class="block xl:inline">
-				<label for="pin-stroke-select">{dictionary.display['Stroke color:']}</label>
-				<select id="pin-stroke-select" bind:value={$settings.clock.theme.pin.stroke.lightness}>
-					{#each Object.keys(baseColorPalette) as lightness}
-						<option value={lightness}>{lightness}</option>
-					{/each}
-					<option value="-1">{dictionary.display['Transparent']}</option>
-				</select>
-				<select
-					id="pin-stroke-palette-select"
-					bind:value={$settings.clock.theme.pin.stroke.palette}>
-					<option value="base">{dictionary.labels['Base Theme']}</option>
-					<option value="accent">{dictionary.labels['Accent Theme']}</option>
-				</select>
-			</div>
 			<div class="block xl:inline">
 				<label for="pin-size-select">{dictionary.display['Size:']}</label>
 				<select id="pin-size-select" bind:value={$settings.clock.theme.pin.size}>
@@ -200,6 +166,46 @@
 					{/each}
 				</select>
 			</div>
+			{#if $settings.clock.theme.pin.size !== 0}
+				<div class="block xl:inline">
+					<label for="pin-fill-select">{dictionary.display['Fill color:']}</label>
+					<select id="pin-fill-select" bind:value={$settings.clock.theme.pin.fill.lightness}>
+						{#each Object.keys(baseColorPalette) as lightness}
+							<option value={lightness}>{lightness}</option>
+						{/each}
+						<option value="-1">{dictionary.display['Transparent']}</option>
+					</select>
+					<select id="pin-fill-palette-select" bind:value={$settings.clock.theme.pin.fill.palette}>
+						<option value="base">{dictionary.labels['Base Palette']}</option>
+						<option value="accent">{dictionary.labels['Accent Palette']}</option>
+					</select>
+				</div>
+				<div class="block xl:inline">
+					<label for="pin-stroke-width-select">{dictionary.display['Stroke width:']}</label>
+					<select id="pin-stroke-width-select" bind:value={$settings.clock.theme.pin.strokeWidth}>
+						{#each Array(7) as _, i}
+							<option value={i / 2}>{i / 2}</option>
+						{/each}
+					</select>
+				</div>
+				{#if $settings.clock.theme.pin.strokeWidth !== 0}
+					<div class="block xl:inline">
+						<label for="pin-stroke-select">{dictionary.display['Stroke color:']}</label>
+						<select id="pin-stroke-select" bind:value={$settings.clock.theme.pin.stroke.lightness}>
+							{#each Object.keys(baseColorPalette) as lightness}
+								<option value={lightness}>{lightness}</option>
+							{/each}
+							<option value="-1">{dictionary.display['Transparent']}</option>
+						</select>
+						<select
+							id="pin-stroke-palette-select"
+							bind:value={$settings.clock.theme.pin.stroke.palette}>
+							<option value="base">{dictionary.labels['Base Palette']}</option>
+							<option value="accent">{dictionary.labels['Accent Palette']}</option>
+						</select>
+					</div>
+				{/if}
+			{/if}
 
 			<h3>{dictionary.clockSettings['Ticks']}</h3>
 
@@ -222,30 +228,32 @@
 					<select
 						id="{size}-tick-stroke-palette-select"
 						bind:value={$settings.clock.theme.ticks[size].stroke.palette}>
-						<option value="base">{dictionary.labels['Base Theme']}</option>
-						<option value="accent">{dictionary.labels['Accent Theme']}</option>
+						<option value="base">{dictionary.labels['Base Palette']}</option>
+						<option value="accent">{dictionary.labels['Accent Palette']}</option>
 					</select>
 				</div>
-				<div class="block xl:inline">
-					<label for="{size}-tick-width-select">{dictionary.display['Width:']}</label>
-					<select
-						id="{size}-tick-width-select"
-						bind:value={$settings.clock.theme.ticks[size].width}>
-						{#each Array(6) as _, i}
-							<option value={i}>{i}</option>
-						{/each}
-					</select>
-				</div>
-				<div class="block xl:inline">
-					<label for="{size}-tick-height-select">{dictionary.display['Height:']}</label>
-					<select
-						id="{size}-tick-height-select"
-						bind:value={$settings.clock.theme.ticks[size].height}>
-						{#each Array(6) as _, i}
-							<option value={i / 2}>{i / 2}</option>
-						{/each}
-					</select>
-				</div>
+				{#if $settings.clock.theme.ticks[size].stroke.lightness !== '-1'}
+					<div class="block xl:inline">
+						<label for="{size}-tick-width-select">{dictionary.display['Width:']}</label>
+						<select
+							id="{size}-tick-width-select"
+							bind:value={$settings.clock.theme.ticks[size].width}>
+							{#each Array(6) as _, i}
+								<option value={i}>{i}</option>
+							{/each}
+						</select>
+					</div>
+					<div class="block xl:inline">
+						<label for="{size}-tick-height-select">{dictionary.display['Height:']}</label>
+						<select
+							id="{size}-tick-height-select"
+							bind:value={$settings.clock.theme.ticks[size].height}>
+							{#each Array(6) as _, i}
+								<option value={i / 2}>{i / 2}</option>
+							{/each}
+						</select>
+					</div>
+				{/if}
 			{/each}
 
 			<h3>{dictionary.clockSettings['Hands']}</h3>
@@ -269,47 +277,52 @@
 					<select
 						id="{hand}-hand-stroke-palette-select"
 						bind:value={$settings.clock.theme.hands[hand].stroke.palette}>
-						<option value="base">{dictionary.labels['Base Theme']}</option>
-						<option value="accent">{dictionary.labels['Accent Theme']}</option>
+						<option value="base">{dictionary.labels['Base Palette']}</option>
+						<option value="accent">{dictionary.labels['Accent Palette']}</option>
 					</select>
 				</div>
-				<div class="block xl:inline">
-					<label for="{hand}-hand-stroke-width-select">{dictionary.display['Stroke width:']}</label>
-					<select
-						id="{hand}-hand-stroke-width-select"
-						bind:value={$settings.clock.theme.hands[hand].strokeWidth}>
-						{#each Array(6) as _, i}
-							<option value={(i + 1) / 2}>{(i + 1) / 2}</option>
-						{/each}
-					</select>
-				</div>
-				<div class="block xl:inline">
-					<label for="{hand}-hand-length-select">{dictionary.display['Length:']}</label>
-					<select
-						id="{hand}-hand-length-select"
-						bind:value={$settings.clock.theme.hands[hand].length}>
-						{#each Array(6) as _, i}
-							<option value={i * 3 + 12}>{i * 3 + 12}</option>
-						{/each}
-					</select>
-				</div>
-				<div class="block xl:inline">
-					<label for="{hand}-hand-back-select">{dictionary.display['Back:']}</label>
-					<select id="{hand}-hand-back-select" bind:value={$settings.clock.theme.hands[hand].back}>
-						{#each Array(10) as _, i}
-							<option value={i}>{i}</option>
-						{/each}
-					</select>
-				</div>
-				<div class="block xl:inline">
-					<label for="{hand}-hand-linecap-select">{dictionary.display['Linecap:']}</label>
-					<select
-						id="{hand}-hand-linecap-select"
-						bind:value={$settings.clock.theme.hands[hand].linecap}>
-						<option value="round">{dictionary.display.linecaps['Round']}</option>
-						<option value="square">{dictionary.display.linecaps['Square']}</option>
-					</select>
-				</div>
+				{#if $settings.clock.theme.hands[hand].stroke.lightness !== '-1'}
+					<div class="block xl:inline">
+						<label for="{hand}-hand-stroke-width-select"
+							>{dictionary.display['Stroke width:']}</label>
+						<select
+							id="{hand}-hand-stroke-width-select"
+							bind:value={$settings.clock.theme.hands[hand].strokeWidth}>
+							{#each Array(6) as _, i}
+								<option value={(i + 1) / 2}>{(i + 1) / 2}</option>
+							{/each}
+						</select>
+					</div>
+					<div class="block xl:inline">
+						<label for="{hand}-hand-length-select">{dictionary.display['Length:']}</label>
+						<select
+							id="{hand}-hand-length-select"
+							bind:value={$settings.clock.theme.hands[hand].length}>
+							{#each Array(6) as _, i}
+								<option value={i * 3 + 12}>{i * 3 + 12}</option>
+							{/each}
+						</select>
+					</div>
+					<div class="block xl:inline">
+						<label for="{hand}-hand-back-select">{dictionary.display['Back:']}</label>
+						<select
+							id="{hand}-hand-back-select"
+							bind:value={$settings.clock.theme.hands[hand].back}>
+							{#each Array(10) as _, i}
+								<option value={i}>{i}</option>
+							{/each}
+						</select>
+					</div>
+					<div class="block xl:inline">
+						<label for="{hand}-hand-linecap-select">{dictionary.display['Linecap:']}</label>
+						<select
+							id="{hand}-hand-linecap-select"
+							bind:value={$settings.clock.theme.hands[hand].linecap}>
+							<option value="round">{dictionary.display.linecaps['Round']}</option>
+							<option value="square">{dictionary.display.linecaps['Square']}</option>
+						</select>
+					</div>
+				{/if}
 			{/each}
 		</AccordionPanel>
 	{/if}
