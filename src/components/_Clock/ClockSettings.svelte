@@ -97,8 +97,8 @@
 					<option value="-1">{dictionary.display['Transparent']}</option>
 				</select>
 				<select id="face-fill-palette-select" bind:value={$settings.clock.theme.face.fill.palette}>
-					<option value="base">{dictionary.labels['Base Theme']}</option>
-					<option value="accent">{dictionary.labels['Accent Theme']}</option>
+					<option value="base">{dictionary.labels['Base Palette']}</option>
+					<option value="accent">{dictionary.labels['Accent Palette']}</option>
 				</select>
 			</div>
 			<div class="block xl:inline">
@@ -121,8 +121,8 @@
 					<select
 						id="face-stroke-palette-select"
 						bind:value={$settings.clock.theme.face.stroke.palette}>
-						<option value="base">{dictionary.labels['Base Theme']}</option>
-						<option value="accent">{dictionary.labels['Accent Theme']}</option>
+						<option value="base">{dictionary.labels['Base Palette']}</option>
+						<option value="accent">{dictionary.labels['Accent Palette']}</option>
 					</select>
 				</div>
 			{/if}
@@ -151,8 +151,8 @@
 				<select
 					id="shadow-fill-palette-select"
 					bind:value={$settings.clock.theme.shadow.fill.palette}>
-					<option value="base">{dictionary.labels['Base Theme']}</option>
-					<option value="accent">{dictionary.labels['Accent Theme']}</option>
+					<option value="base">{dictionary.labels['Base Palette']}</option>
+					<option value="accent">{dictionary.labels['Accent Palette']}</option>
 				</select>
 			</div>
 
@@ -176,8 +176,8 @@
 						<option value="-1">{dictionary.display['Transparent']}</option>
 					</select>
 					<select id="pin-fill-palette-select" bind:value={$settings.clock.theme.pin.fill.palette}>
-						<option value="base">{dictionary.labels['Base Theme']}</option>
-						<option value="accent">{dictionary.labels['Accent Theme']}</option>
+						<option value="base">{dictionary.labels['Base Palette']}</option>
+						<option value="accent">{dictionary.labels['Accent Palette']}</option>
 					</select>
 				</div>
 				<div class="block xl:inline">
@@ -200,8 +200,8 @@
 						<select
 							id="pin-stroke-palette-select"
 							bind:value={$settings.clock.theme.pin.stroke.palette}>
-							<option value="base">{dictionary.labels['Base Theme']}</option>
-							<option value="accent">{dictionary.labels['Accent Theme']}</option>
+							<option value="base">{dictionary.labels['Base Palette']}</option>
+							<option value="accent">{dictionary.labels['Accent Palette']}</option>
 						</select>
 					</div>
 				{/if}
@@ -228,8 +228,8 @@
 					<select
 						id="{size}-tick-stroke-palette-select"
 						bind:value={$settings.clock.theme.ticks[size].stroke.palette}>
-						<option value="base">{dictionary.labels['Base Theme']}</option>
-						<option value="accent">{dictionary.labels['Accent Theme']}</option>
+						<option value="base">{dictionary.labels['Base Palette']}</option>
+						<option value="accent">{dictionary.labels['Accent Palette']}</option>
 					</select>
 				</div>
 				{#if $settings.clock.theme.ticks[size].stroke.lightness !== '-1'}
@@ -277,8 +277,8 @@
 					<select
 						id="{hand}-hand-stroke-palette-select"
 						bind:value={$settings.clock.theme.hands[hand].stroke.palette}>
-						<option value="base">{dictionary.labels['Base Theme']}</option>
-						<option value="accent">{dictionary.labels['Accent Theme']}</option>
+						<option value="base">{dictionary.labels['Base Palette']}</option>
+						<option value="accent">{dictionary.labels['Accent Palette']}</option>
 					</select>
 				</div>
 				{#if $settings.clock.theme.hands[hand].stroke.lightness !== '-1'}

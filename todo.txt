@@ -1,6 +1,4 @@
 
-rename base theme and accent theme in langs to base and accent palette
-
 palettes:
 option to use base or accent palette in primary and secondary displays
 use base palette across app
