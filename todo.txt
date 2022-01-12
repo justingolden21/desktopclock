@@ -2,8 +2,8 @@ only display stroke color if stroke width !== 0, same with pin stroke
 
 toggles for elements, if off set color to transparent
 
-changing palette still mutates theme?
-even though objects are deep copied with json.stringify and other settings aren't linked?
+BUG IMPORTANT:
+changing any theme setting before changing theme with a button mutates the default theme loaded
 
 ====
 future:
