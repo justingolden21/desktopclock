@@ -12,15 +12,28 @@
 	import { now } from '../../util/now.js';
 	import { settings } from '../settings.js';
 
+	// 'static' if the clock displays only one time
+	export let mode = '';
+	// time to display if static
+	export let time = {};
+	// id used to differentiate names for css variables which are global, so they only apply to one specific clock
+	export let clock_id;
+
 	const setAngle = (type, newAngle) => {
-		document.documentElement.style.setProperty(`--${type}-angle`, `${newAngle}deg`);
+		document.documentElement.style.setProperty(`--${type}-angle-${clock_id}`, `${newAngle}deg`);
 	};
 
 	function setTime() {
 		if (!document.getElementById('hour-hand')) return; // return if analog clock is not visible
 
-		// add one second because transition takes one second
-		const date = new dayjs($now).tz($settings.locale.timezone || 'Etc/GMT').add(1, 'second');
+		let date;
+
+		if (mode && mode === 'static') {
+			date = new dayjs().hour(time.h).minute(time.m).second(time.s);
+		} else {
+			// add one second because transition takes one second
+			date = new dayjs($now).tz($settings.locale.timezone || 'Etc/GMT').add(1, 'second');
+		}
 
 		const h = date.hour() % 12;
 		const m = date.minute();
@@ -134,6 +147,7 @@ so when switching to it, it continues moving instantly -->
 			{#each ['hour', 'minute', 'second'] as hand, index}
 				<line
 					id="{hand}-hand"
+					style={`transition: transform 1s linear;transform: rotate(var(--${hand}-angle-${clock_id}));`}
 					y1={-theme.hands[hand].back}
 					y2={theme.hands[hand].length}
 					stroke={getColor(theme.hands[hand].stroke)}
@@ -181,20 +195,5 @@ so when switching to it, it continues moving instantly -->
 		--second-angle: 0deg;
 		--minute-angle: 0deg;
 		--hour-angle: 0deg;
-	}
-
-	#second-hand {
-		transition: transform 1s linear;
-		transform: rotate(var(--second-angle));
-	}
-
-	#minute-hand {
-		transition: transform 1s linear;
-		transform: rotate(var(--minute-angle));
-	}
-
-	#hour-hand {
-		transition: transform 1s linear;
-		transform: rotate(var(--hour-angle));
 	}
 </style>

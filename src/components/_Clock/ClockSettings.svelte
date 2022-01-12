@@ -65,7 +65,7 @@
 		<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="2">
 			<div
 				class="float-right fixed right-16 w-32 h-32 p-1 rounded-full bg-opacity-75 bg-gray-500 hidden md:block">
-				<AnalogClock />
+				<AnalogClock clock_id="1" mode="static" time={{ h: 10, m: 9, s: 0 }} />
 			</div>
 			<!-- note: using json for efficient deep clone so original theme object is not mutated -->
 			<button
