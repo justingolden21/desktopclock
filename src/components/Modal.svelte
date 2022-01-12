@@ -59,7 +59,7 @@
 		@apply text-left mt-4;
 	}
 	.modal-header {
-		@apply mb-4 border-b-2 border-gray-300 pb-9;
+		@apply border-b-2 border-gray-300 pb-4;
 	}
 	.modal-body {
 		@apply text-left relative flex-1 overflow-auto;
