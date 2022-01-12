@@ -66,13 +66,17 @@
 	});
 
 	$: baseColorPalette = TailwindColors[$settings.baseColorPalette];
-	$: shade = $settings.darkMode ? 200 : 900;
+	$: accentColorPalette = TailwindColors[$settings.accentColorPalette];
+	$: shade = $settings.darkMode ? 300 : 900;
 </script>
 
-<div style="color:{baseColorPalette[shade]}; display: flex">
+<div class="flex">
 	<div
 		id="primary-display"
-		style="--primary-font-weight: {$settings.clock.datetimeFontWeight}"
+		style="--primary-font-weight: {$settings.clock
+			.datetimeFontWeight}; color:{displays.primaryPalette === 'base'
+			? baseColorPalette[shade]
+			: accentColorPalette[shade]}"
 		class={displays.primary}>
 		{#if displays.primary != 'analog'}
 			<h1>
@@ -88,7 +92,11 @@
 			</h1>
 		{/if}
 	</div>
-	<div id="secondary-display">
+	<div
+		id="secondary-display"
+		style="color:{displays.secondaryPalette === 'base'
+			? baseColorPalette[shade]
+			: accentColorPalette[shade]}">
 		{#if displays.secondary != 'none'}
 			<h2>
 				{#if displays.secondary == 'time'}

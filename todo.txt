@@ -1,6 +1,4 @@
 
-palettes:
-option to use base or accent palette in primary and secondary displays
 use base palette across app
 
 ====

@@ -6,6 +6,8 @@ export const defaultSettings = {
 		displays: {
 			primary: 'analog', // analog, time, date, datetime
 			secondary: 'date', // time, date, datetime, none
+			primaryPalette: 'base',
+			secondaryPalette: 'base',
 			battery: false
 		},
 		theme: JSON.parse(JSON.stringify(defaultTheme)),
