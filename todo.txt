@@ -2,11 +2,8 @@ only display stroke color if stroke width !== 0, same with pin stroke
 
 toggles for elements, if off set color to transparent
 
-====
-important now:
-====
-bug: the palette dropdown shows empty string when not set
-how do we solve these bugs without explicitly setting the theme to have `palette: 'base'` everywhere?
+changing palette still mutates theme?
+even though objects are deep copied with json.stringify and other settings aren't linked?
 
 ====
 future:
