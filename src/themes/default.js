@@ -1,4 +1,5 @@
 const defaultTheme = {
+	name: 'Default Theme',
 	face: {
 		stroke: {
 			lightness: '700'

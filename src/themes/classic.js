@@ -1,4 +1,5 @@
 const classicTheme = {
+	name: 'Classic Theme',
 	face: {
 		stroke: {
 			lightness: '500'
