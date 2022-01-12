@@ -1,18 +1,14 @@
-only display stroke color if stroke width !== 0, same with pin stroke
 
-toggles for elements, if off set color to transparent
-
-====
-future:
-====
-
-condence logic for clock settings
+rename base theme and accent theme in langs to base and accent palette
 
 palettes:
 option to use base or accent palette in primary and secondary displays
 use base palette across app
 
-========
+====
+
+future:
+condence logic for clock settings
 
 main todo:
 get linting/formatting on all devices, update readme with instructions for new device
