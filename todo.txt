@@ -2,9 +2,6 @@ only display stroke color if stroke width !== 0, same with pin stroke
 
 toggles for elements, if off set color to transparent
 
-BUG IMPORTANT:
-changing any theme setting before changing theme with a button mutates the default theme loaded
-
 ====
 future:
 ====

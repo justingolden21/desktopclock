@@ -428,7 +428,8 @@
 
 						// auto detect user device preferences (same code as in layout)
 						$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
-						if ($settings.darkMode) $settings.clock.theme = defaultNightTheme;
+						if ($settings.darkMode)
+							$settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme));
 
 						$settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale ?? 'en';
 						$settings.locale.datetime =

@@ -8,7 +8,7 @@ export const defaultSettings = {
 			secondary: 'date', // time, date, datetime, none
 			battery: false
 		},
-		theme: defaultTheme,
+		theme: JSON.parse(JSON.stringify(defaultTheme)),
 
 		timeFormat: null, // overridden in _layout onMount to user device's preference
 		timeFormatCustom: null, // overridden in _layout onMount to user device's preference

@@ -49,7 +49,7 @@
 		if ($settings.darkMode === null) {
 			$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
 			// if darkMode doesn't exist, the user doesn't already have theme settings, it's ok to step on the old theme
-			if ($settings.darkMode) $settings.clock.theme = defaultNightTheme;
+			if ($settings.darkMode) $settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme));
 		}
 		if ($settings.locale.timezone === null) {
 			$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? 'Etc/GMT';
