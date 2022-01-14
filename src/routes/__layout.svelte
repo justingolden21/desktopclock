@@ -139,7 +139,7 @@
 		.map(
 			(lightness) =>
 				`--base-${lightness}: ${TailwindColors[$settings.baseColorPalette][lightness]}; 
-                --accent-${lightness}: ${TailwindColors[$settings.accentColorPalette][lightness]};`
+				--accent-${lightness}: ${TailwindColors[$settings.accentColorPalette][lightness]};`
 		)
 		.join('');
 </script>
@@ -180,7 +180,7 @@
 <svelte:body on:dblclick={doubleClickFullscreen} />
 
 <div
-	class="text-center flex min-h-screen"
+	class="dark:bg-base-900 dark:text-base-200 transition-colors duration-200 ease-linear text-base-900 text-center flex min-h-screen"
 	style="--font-family:{$settings.fontFamily};
     --font-family-body:{$settings.fontFamilyBody};
     {paletteVariablesHTML}">
