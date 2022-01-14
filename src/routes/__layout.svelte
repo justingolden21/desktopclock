@@ -177,10 +177,6 @@
 
 <GoogleAnalytics />
 
-<Loader />
-
-<KeyboardShortcuts bind:settingsModal />
-
 <svelte:body on:dblclick={doubleClickFullscreen} />
 
 <div
@@ -188,6 +184,10 @@
 	style="--font-family:{$settings.fontFamily};
     --font-family-body:{$settings.fontFamilyBody};
     {paletteVariablesHTML}">
+	<Loader />
+
+	<KeyboardShortcuts bind:settingsModal />
+
 	<Nav bind:navOpen bind:settingsModal />
 	<div class="flex-1 relative">
 		<Header bind:navOpen />
