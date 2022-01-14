@@ -1,26 +1,16 @@
 /* https://css-tricks.com/the-current-state-of-styling-scrollbars/ */
 
-html {
-	/* --scrollbarBG: transparent; */
-	--thumbBG: rgb(var(--base-500));
-	--scrollbarBG: rgb(var(--base-100));
-}
-.dark {
-	--scrollbarBG: rgb(var(--base-500));
-	--thumbBG: rgb(var(--base-300));
-}
 *::-webkit-scrollbar {
 	width: 1rem;
 }
 * {
 	scrollbar-width: thin;
-	scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+	scrollbar-color: rgb(var(--base-500)) rgb(var(--base-300));
 }
 *::-webkit-scrollbar-track {
-	background: var(--scrollbarBG);
+	background: rgb(var(--base-300));
 }
 *::-webkit-scrollbar-thumb {
-	background-color: var(--thumbBG);
-	/* border-radius: 0.5rem; */
-	border: 0.25rem solid var(--scrollbarBG);
+	background-color: rgb(var(--base-500));
+	border: 0.25rem solid rgb(var(--base-300));
 }
