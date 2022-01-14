@@ -23,7 +23,7 @@
 <nav
 	class="
         min-h-screen
-		bg-gray-100
+		bg-base-100
         bg-opacity-75
         p-8
         pt-20
@@ -34,11 +34,11 @@
         ease-in-out
         backdrop-blur-sm
         z-20
-        dark:bg-gray-700
+        dark:bg-base-700
         dark:bg-opacity-75
         border-r-2
-        border-gray-100
-        dark:border-gray-700
+        border-base-100
+        dark:border-base-700
         {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:relative md:translate-x-0'}
         {$settings.smallerMenu ? 'w-32' : 'w-64'}"
 	class:-translate-x-full={!navOpen}>
@@ -126,7 +126,7 @@
     */
 	nav a,
 	nav button {
-		@apply block font-normal text-gray-700 p-4 hover:bg-gray-200 hover:bg-opacity-50 cursor-pointer tracking-widest text-left;
+		@apply block font-normal text-base-700 p-4 hover:bg-base-200 hover:bg-opacity-50 cursor-pointer tracking-widest text-left;
 		/* transition: all 0.25s linear; */
 	}
 	nav a:hover,
@@ -135,15 +135,15 @@
 		text-decoration: none;
 	}
 	nav a.active {
-		@apply bg-gray-200 bg-opacity-50 font-bold;
+		@apply bg-base-200 bg-opacity-50 font-bold;
 	}
 	.dark nav a,
 	.dark nav button {
-		@apply text-gray-300;
+		@apply text-base-300;
 	}
 	.dark nav a:hover,
 	.dark nav a.active,
 	.dark nav button:hover {
-		@apply bg-gray-600 bg-opacity-50;
+		@apply bg-base-600 bg-opacity-50;
 	}
 </style>
