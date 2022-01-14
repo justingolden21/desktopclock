@@ -2,12 +2,12 @@
 
 html {
 	/* --scrollbarBG: transparent; */
-	--thumbBG: #64748b; /*blue gray 500*/
-	--scrollbarBG: #f1f5f9; /*blue gray 100*/
+	--thumbBG: var(--base-500);
+	--scrollbarBG: var(--base-100);
 }
 .dark {
-	--scrollbarBG: #64748b; /*blue gray 500*/
-	--thumbBG: #cbd5e1; /*blue gray 300*/
+	--scrollbarBG: var(--base-500);
+	--thumbBG: var(--base-300);
 }
 *::-webkit-scrollbar {
 	width: 1rem;
