@@ -13,14 +13,13 @@
 	import Toggle from '../Toggle.svelte';
 	import Modal from '../Modal.svelte';
 	import AnalogClock from './AnalogClock.svelte';
-	import { fontFamilies } from '../../data/consts.js';
+	import { fontFamilies, lightnesses } from '../../data/consts.js';
 
 	import defaultTheme from '../../themes/default';
 	import defaultNightTheme from '../../themes/defaultNight';
 	import classicTheme from '../../themes/classic';
 	import classicNightTheme from '../../themes/classicNight';
 
-	$: baseColorPalette = TailwindColors[$settings.baseColorPalette];
 	$: dictionary = $session.languageDictionary;
 
 	let datetimeFormatModal;
@@ -103,7 +102,7 @@
 			<div class="block xl:inline">
 				<label for="face-fill-select">{dictionary.display['Fill color:']}</label>
 				<select id="face-fill-select" bind:value={$settings.clock.theme.face.fill.lightness}>
-					{#each Object.keys(baseColorPalette) as lightness}
+					{#each lightnesses as lightness}
 						<option value={lightness}>{lightness}</option>
 					{/each}
 					<option value="-1">{dictionary.display['Transparent']}</option>
@@ -125,7 +124,7 @@
 				<div class="block xl:inline">
 					<label for="face-stroke-select">{dictionary.display['Stroke color:']}</label>
 					<select id="face-stroke-select" bind:value={$settings.clock.theme.face.stroke.lightness}>
-						{#each Object.keys(baseColorPalette) as lightness}
+						{#each lightnesses as lightness}
 							<option value={lightness}>{lightness}</option>
 						{/each}
 						<option value="-1">{dictionary.display['Transparent']}</option>
@@ -155,7 +154,7 @@
 					id="shadow-fill-select"
 					bind:value={$settings.clock.theme.shadow.fill.lightness}
 					disabled={$settings.clock.theme.face.fill.lightness == '-1'}>
-					{#each Object.keys(baseColorPalette) as lightness}
+					{#each lightnesses as lightness}
 						<option value={lightness}>{lightness}</option>
 					{/each}
 					<option value="-1">{dictionary.display['Transparent']}</option>
@@ -182,7 +181,7 @@
 				<div class="block xl:inline">
 					<label for="pin-fill-select">{dictionary.display['Fill color:']}</label>
 					<select id="pin-fill-select" bind:value={$settings.clock.theme.pin.fill.lightness}>
-						{#each Object.keys(baseColorPalette) as lightness}
+						{#each lightnesses as lightness}
 							<option value={lightness}>{lightness}</option>
 						{/each}
 						<option value="-1">{dictionary.display['Transparent']}</option>
@@ -204,7 +203,7 @@
 					<div class="block xl:inline">
 						<label for="pin-stroke-select">{dictionary.display['Stroke color:']}</label>
 						<select id="pin-stroke-select" bind:value={$settings.clock.theme.pin.stroke.lightness}>
-							{#each Object.keys(baseColorPalette) as lightness}
+							{#each lightnesses as lightness}
 								<option value={lightness}>{lightness}</option>
 							{/each}
 							<option value="-1">{dictionary.display['Transparent']}</option>
@@ -232,7 +231,7 @@
 					<select
 						id="{size}-tick-stroke-select"
 						bind:value={$settings.clock.theme.ticks[size].stroke.lightness}>
-						{#each Object.keys(baseColorPalette) as lightness}
+						{#each lightnesses as lightness}
 							<option value={lightness}>{lightness}</option>
 						{/each}
 						<option value="-1">{dictionary.display['Transparent']}</option>
@@ -281,7 +280,7 @@
 					<select
 						id="{hand}-hand-stroke-select"
 						bind:value={$settings.clock.theme.hands[hand].stroke.lightness}>
-						{#each Object.keys(baseColorPalette) as lightness}
+						{#each lightnesses as lightness}
 							<option value={lightness}>{lightness}</option>
 						{/each}
 						<option value="-1">{dictionary.display['Transparent']}</option>
