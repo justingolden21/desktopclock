@@ -135,11 +135,21 @@
 		};
 	});
 
+	// https://stackoverflow.com/a/5624139/4907950
+	function hexToRgb(hex) {
+		const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+		return result
+			? `${parseInt(result[1], 16)}, 
+			${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`
+			: null;
+	}
+
+	// store numbers as list of rgb values for use in withOpacity in tailwind.config.cjs
 	$: paletteVariablesHTML = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900']
 		.map(
 			(lightness) =>
-				`--base-${lightness}: ${TailwindColors[$settings.baseColorPalette][lightness]}; 
-				--accent-${lightness}: ${TailwindColors[$settings.accentColorPalette][lightness]};`
+				`--base-${lightness}: ${hexToRgb(TailwindColors[$settings.baseColorPalette][lightness])}; 
+				--accent-${lightness}: ${hexToRgb(TailwindColors[$settings.accentColorPalette][lightness])};`
 		)
 		.join('');
 </script>

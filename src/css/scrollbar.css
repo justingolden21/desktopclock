@@ -2,12 +2,12 @@
 
 html {
 	/* --scrollbarBG: transparent; */
-	--thumbBG: var(--base-500);
-	--scrollbarBG: var(--base-100);
+	--thumbBG: rgb(var(--base-500));
+	--scrollbarBG: rgb(var(--base-100));
 }
 .dark {
-	--scrollbarBG: var(--base-500);
-	--thumbBG: var(--base-300);
+	--scrollbarBG: rgb(var(--base-500));
+	--thumbBG: rgb(var(--base-300));
 }
 *::-webkit-scrollbar {
 	width: 1rem;
