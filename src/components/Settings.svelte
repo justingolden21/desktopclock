@@ -216,7 +216,6 @@
 
 	<!-- Appearance -->
 	<TabPanel>
-		<!-- should theme, dark, cast, fullscreen btns be in general? -->
 		<div class="mb-2">
 			<h3>{dictionary.labels['Base Palette']}</h3>
 			<ThemeButtons
@@ -247,18 +246,8 @@
 		</div>
 		<div class="block mb-2">
 			<button class="dark-btn btn" on:click={() => ($settings.darkMode = !$settings.darkMode)}>
-				<Icon name="moon" class="inline w-6 h-6 md:w-8 md:h-8" />
+				<Icon name="moon" class="inline w-6 h-6" />
 				{dictionary.labels['Dark']}
-			</button>
-
-			<button class="cast-btn btn" on:click={castClock} class:hidden={!castSupported}>
-				<Icon name="cast" class="inline w-6 h-6 md:w-8 md:h-8" />
-				{dictionary.labels['Cast']}
-			</button>
-
-			<button class="fullscreen-btn btn" on:click={toggleFullscreen}>
-				<Icon name="fullscreen" class="inline w-6 h-6 md:w-8 md:h-8" />
-				{dictionary.labels['Fullscreen']}
 			</button>
 		</div>
 
@@ -393,6 +382,16 @@
 				<button class="btn link-btn" on:click={() => copyURL(dictionary)}>
 					<Icon name="link" class="inline w-6 h-6" />
 					{dictionary.labels['Copy website link']}
+				</button>
+
+				<button class="cast-btn btn" on:click={castClock} class:hidden={!castSupported}>
+					<Icon name="cast" class="inline w-6 h-6" />
+					{dictionary.labels['Cast']}
+				</button>
+
+				<button class="fullscreen-btn btn" on:click={toggleFullscreen}>
+					<Icon name="fullscreen" class="inline w-6 h-6" />
+					{dictionary.labels['Fullscreen']}
 				</button>
 
 				<br />
