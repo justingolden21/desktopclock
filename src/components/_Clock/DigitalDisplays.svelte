@@ -67,7 +67,7 @@
 
 	$: baseColorPalette = TailwindColors[$settings.baseColorPalette];
 	$: accentColorPalette = TailwindColors[$settings.accentColorPalette];
-	$: shade = $settings.darkMode ? 300 : 900;
+	$: shade = $settings.darkMode ? 400 : 900;
 </script>
 
 <div class="flex">
