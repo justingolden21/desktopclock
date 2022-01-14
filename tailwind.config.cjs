@@ -9,7 +9,8 @@ module.exports = {
 		colors: {
 			// ...colors,
 			white: '#FFF',
-			gray: colors.slate
+			gray: colors.slate,
+			transparent: 'transparent'
 		},
 		screens: {
 			xs: '360px',
