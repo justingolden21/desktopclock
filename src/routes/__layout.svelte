@@ -9,6 +9,8 @@
 
 	import screenfull from 'screenfull';
 
+	import { version } from '../../package.json';
+
 	import GoogleAnalytics from '../components/GoogleAnalytics.svelte';
 	import Loader from '../components/Loader.svelte';
 	import Modal from '../components/Modal.svelte';
@@ -40,6 +42,30 @@
 		$settings.darkMode
 			? document.body.parentNode.classList.add('dark')
 			: document.body.parentNode.classList.remove('dark');
+
+	// ================
+	// reverse compatibility
+	// this works. don't touch it.
+	const oldGrays = ['warmGray', 'trueGray', 'gray', 'coolGray', 'blueGray'];
+	const newGrays = ['stone', 'neutral', 'zinc', 'gray', 'slate'];
+	if (!$settings.recentVersion) {
+		if ($settings.baseColorPalette in oldGrays) {
+			$settings.baseColorPalette = newGrays[oldGrays.indexOf($settings.baseColorPalette)];
+		} else {
+			$settings.baseColorPalette = 'slate';
+		}
+	}
+
+	// uncomment to simulate user with old palette setting
+	// then reload page, it should error, then recomment and reload page
+	// and it should run the fix above without breaking here
+
+	// $settings.baseColorPalette = 'warmGray';
+	// $settings.recentVersion = undefined;
+
+	// ================
+
+	$settings.recentVersion = version;
 
 	onMount(async () => {
 		if ($settings.locale.language) {

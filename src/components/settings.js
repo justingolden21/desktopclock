@@ -21,7 +21,7 @@ export const defaultSettings = {
 	},
 
 	// appearance
-	baseColorPalette: 'blueGray',
+	baseColorPalette: 'slate',
 	accentColorPalette: 'red',
 	darkMode: null, // overridden in _layout onMount to user device's preference
 	showDarkButton: true,

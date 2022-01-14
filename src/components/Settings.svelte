@@ -220,7 +220,7 @@
 		<div class="mb-2">
 			<h3>{dictionary.labels['Base Palette']}</h3>
 			<ThemeButtons
-				colors={['warmGray', 'trueGray', 'gray', 'coolGray', 'blueGray']}
+				colors={['slate', 'gray', 'zinc', 'neutral', 'stone']}
 				theme="baseColorPalette" />
 			<h3>{dictionary.labels['Accent Palette']}</h3>
 			<ThemeButtons
