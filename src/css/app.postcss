@@ -130,7 +130,7 @@
 
 	select {
 		@apply cursor-pointer p-2 pr-6 m-2 text-base-700 bg-base-50 hover:bg-base-100 appearance-none;
-		background: #f8fafc
+		background: var(--base-50)
 			url("data:image/svg+xml;utf8,<svg fill='none' stroke='currentColor' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
 			no-repeat right center;
 	}
@@ -148,7 +148,7 @@
 	.dark select {
 		@apply bg-base-500 text-base-100;
 		/* 'white' works but '#FFFFFF' doesn't and 'currentColor' doesn't, even with 'color' explicitly set above */
-		background: #64748b /*base-500*/
+		background: var(--base-500)
 			url("data:image/svg+xml;utf8,<svg fill='none' stroke='white' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
 			no-repeat right center;
 	}
