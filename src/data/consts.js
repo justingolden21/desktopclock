@@ -1,6 +1,8 @@
 export const supportedLangs = ['en'];
 // export const supportedLangs = ['en', 'es'];
 
+export const app_url = 'https://desktopclock.app';
+
 export const fontFamilies = {
 	'Aldrich': [400],
 	'Arsenal': [400, 700],

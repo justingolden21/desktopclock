@@ -119,7 +119,9 @@ When adding a language, add it to `supportedLangs` in `consts.js`
 
 - Dev: https://desktopclockdev.netlify.app/
 
-- Prod: https://desktopclock.netlify.app/
+- Prod Netlify: https://desktopclock.netlify.app/
+
+- Prod: https://desktopclock.app
 
 - This repo: https://github.com/justingolden21/desktop-clock
 

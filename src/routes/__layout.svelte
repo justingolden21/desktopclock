@@ -18,6 +18,7 @@
 	import { now } from '../util/now.js';
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
 	import { settings } from '../components/settings.js';
+	import { app_url } from '../data/consts.js';
 	import defaultNightTheme from '../themes/defaultNight';
 	import { setupInstall } from '../util/install';
 
@@ -118,16 +119,16 @@
 	<meta property="og:image:width" content="558" />
 	<meta property="og:description" content={$session.languageDictionary['appDescription']} />
 	<meta property="og:title" content={$session.languageDictionary['appName']} />
-	<meta property="og:url" content="https://desktopclock.netlify.app/" />
+	<meta property="og:url" content={app_url} />
 	<meta property="og:image" content="img/icons/og-image.jpg" />
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content={$session.languageDictionary['appName']} />
 
 	<meta name="twitter:title" content={$session.languageDictionary['appName']} />
 	<meta name="twitter:description" content={$session.languageDictionary['appDescription']} />
-	<meta name="twitter:image" content="https://desktopclock.netlify.app/img/screenshot.png" />
+	<meta name="twitter:image" content={app_url + '/img/screenshot.png'} />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta property="twitter:url" content="https://desktopclock.netlify.app/" />
+	<meta property="twitter:url" content={app_url} />
 
 	<meta
 		name="apple-mobile-web-app-status-bar"

@@ -1,6 +1,8 @@
 <script context="module">
 	import Screenfull from 'screenfull';
 
+	import { app_url } from '../data/consts.js';
+
 	export async function toggleFullscreen() {
 		if (Screenfull.isEnabled) {
 			await Screenfull.toggle();
@@ -8,13 +10,12 @@
 	}
 
 	export function shareApp(languageDictionary) {
-		// TODO translate, test on more platforms, store URL in global variable somewhere, in case it changes
 		if (navigator.share) {
 			navigator
 				.share({
 					title: languageDictionary['appName'],
 					text: languageDictionary['shareAppDescription'],
-					url: 'https://desktopclock.netlify.app/'
+					url: app_url
 				})
 				.then(() => console.log('Successful share'))
 				.catch((err) => console.log('Error sharing', err));
