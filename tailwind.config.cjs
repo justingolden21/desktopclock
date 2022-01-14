@@ -21,7 +21,17 @@ module.exports = {
 			'10xl': '10rem',
 			'11xl': '12rem'
 		},
-		extend: {}
+		extend: {
+			colors: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'].reduce(
+				(obj, item) => {
+					return {
+						...obj,
+						[`base-${item}`]: `var(--base-${item})`
+					};
+				},
+				{}
+			)
+		}
 	},
 	plugins: []
 };

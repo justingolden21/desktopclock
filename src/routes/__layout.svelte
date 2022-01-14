@@ -134,6 +134,14 @@
 			clearInterval(dateTimeInterval);
 		};
 	});
+
+	$: paletteVariablesHTML = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900']
+		.map(
+			(lightness) =>
+				`--base-${lightness}: ${TailwindColors[$settings.baseColorPalette][lightness]}; 
+                --accent-${lightness}: ${TailwindColors[$settings.accentColorPalette][lightness]};`
+		)
+		.join('');
 </script>
 
 <svelte:head>
@@ -177,7 +185,9 @@
 
 <div
 	class="text-center flex min-h-screen"
-	style="--font-family:{$settings.fontFamily}; --font-family-body:{$settings.fontFamilyBody}">
+	style="--font-family:{$settings.fontFamily};
+    --font-family-body:{$settings.fontFamilyBody};
+    {paletteVariablesHTML}">
 	<Nav bind:navOpen bind:settingsModal />
 	<div class="flex-1 relative">
 		<Header bind:navOpen />
