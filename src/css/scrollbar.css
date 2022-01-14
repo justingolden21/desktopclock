@@ -5,12 +5,12 @@
 }
 * {
 	scrollbar-width: thin;
-	scrollbar-color: rgb(var(--base-500)) rgb(var(--base-300));
+	scrollbar-color: rgb(var(--base-500)) rgb(var(--base-200));
 }
 *::-webkit-scrollbar-track {
-	background: rgb(var(--base-300));
+	background: rgb(var(--base-200));
 }
 *::-webkit-scrollbar-thumb {
 	background-color: rgb(var(--base-500));
-	border: 0.25rem solid rgb(var(--base-300));
+	border: 0.25rem solid rgb(var(--base-200));
 }
