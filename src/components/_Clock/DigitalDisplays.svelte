@@ -114,7 +114,12 @@
 </div>
 
 {#if displays.battery && batterySupported}
-	<div id="battery-display" class="hidden sm:block">
+	<div
+		id="battery-display"
+		class="hidden sm:block"
+		style="color:{displays.secondaryPalette === 'base'
+			? baseColorPalette[shade]
+			: accentColorPalette[shade]}">
 		<BatteryIcon
 			fillLevel={batteryLevel ? batteryLevel * 100 : 100}
 			charging={batteryIsCharging}
