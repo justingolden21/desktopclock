@@ -14,3 +14,6 @@
 	background-color: rgb(var(--base-500));
 	border: 0.25rem solid rgb(var(--base-200));
 }
+*::-webkit-scrollbar-thumb:hover {
+	background-color: rgb(var(--base-600));
+}
