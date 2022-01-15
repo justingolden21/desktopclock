@@ -25,7 +25,7 @@ export const defaultSettings = {
 	accentColorPalette: 'red',
 	darkMode: null, // overridden in _layout onMount to user device's preference
 	showDarkButton: true,
-	showPrimaryButton: false,
+	showPrimaryButton: true,
 	showSecondaryButton: false,
 	showCastButton: false,
 	showFullscreenButton: true,
