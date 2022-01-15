@@ -612,7 +612,7 @@
 		<p>
 			{dictionary.about.shareText.split('{{sharing}}')[0]}
 			<button class="font-bold hover:underline" on:click={() => shareApp(dictionary)}>
-				{dictionary.about['sharing']}
+				<a>{dictionary.about['sharing']}</a>
 			</button>
 			{dictionary.about.shareText.split('{{sharing}}')[1]}
 		</p>
