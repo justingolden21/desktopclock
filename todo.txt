@@ -37,8 +37,6 @@ make the receiver a page that just has the clock with no menu or buttons, and th
 btn to add new theme, new theme shows up as btn with small x to right to delete it
 prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
 
-change theme color with dark mode / reactively?
-
 note:
 when user changes lang, they may also want to change datetime locale. prompt them with a notification?
 

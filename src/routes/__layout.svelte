@@ -135,6 +135,8 @@
 		};
 	});
 
+	$: themeColor = TailwindColors[$settings.baseColorPalette][$settings.darkMode ? 900 : 200];
+
 	// https://stackoverflow.com/a/5624139/4907950
 	function hexToRgb(hex) {
 		const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -171,15 +173,10 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta property="twitter:url" content={app_url} />
 
-	<meta
-		name="apple-mobile-web-app-status-bar"
-		content={TailwindColors[$settings.baseColorPalette][500]} />
-	<meta name="theme-color" content={TailwindColors[$settings.baseColorPalette][500]} />
-	<meta name="msapplication-TileColor" content={TailwindColors[$settings.baseColorPalette][500]} />
-	<link
-		rel="mask-icon"
-		href="img/icons/safari-pinned-tab.svg"
-		color={TailwindColors[$settings.baseColorPalette][500]} />
+	<meta name="apple-mobile-web-app-status-bar" content={themeColor} />
+	<meta name="theme-color" content={themeColor} />
+	<meta name="msapplication-TileColor" content={themeColor} />
+	<link rel="mask-icon" href="img/icons/safari-pinned-tab.svg" color={themeColor} />
 </svelte:head>
 
 <GoogleAnalytics />
