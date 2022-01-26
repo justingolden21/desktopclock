@@ -9,6 +9,8 @@
 
 	import screenfull from 'screenfull';
 
+	import { version } from '../../package.json';
+
 	import GoogleAnalytics from '../components/GoogleAnalytics.svelte';
 	import Loader from '../components/Loader.svelte';
 	import Modal from '../components/Modal.svelte';
@@ -18,6 +20,7 @@
 	import { now } from '../util/now.js';
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
 	import { settings } from '../components/settings.js';
+	import { app_url } from '../data/consts.js';
 	import defaultNightTheme from '../themes/defaultNight';
 	import { setupInstall } from '../util/install';
 
@@ -39,6 +42,30 @@
 		$settings.darkMode
 			? document.body.parentNode.classList.add('dark')
 			: document.body.parentNode.classList.remove('dark');
+
+	// ================
+	// reverse compatibility
+	// this works. don't touch it.
+	const oldGrays = ['warmGray', 'trueGray', 'gray', 'coolGray', 'blueGray'];
+	const newGrays = ['stone', 'neutral', 'zinc', 'gray', 'slate'];
+	if (!$settings.recentVersion) {
+		if ($settings.baseColorPalette in oldGrays) {
+			$settings.baseColorPalette = newGrays[oldGrays.indexOf($settings.baseColorPalette)];
+		} else {
+			$settings.baseColorPalette = 'slate';
+		}
+	}
+
+	// uncomment to simulate user with old palette setting
+	// then reload page, it should error, then recomment and reload page
+	// and it should run the fix above without breaking here
+
+	// $settings.baseColorPalette = 'warmGray';
+	// $settings.recentVersion = undefined;
+
+	// ================
+
+	$settings.recentVersion = version;
 
 	onMount(async () => {
 		if ($settings.locale.language) {
@@ -107,6 +134,23 @@
 			clearInterval(dateTimeInterval);
 		};
 	});
+
+	$: themeColor = TailwindColors[$settings.baseColorPalette][$settings.darkMode ? 900 : 200];
+
+	// https://stackoverflow.com/a/5624139/4907950
+	function hexToRgb(hex) {
+		const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+		return `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`;
+	}
+
+	// store numbers as list of rgb values for use in withOpacity in tailwind.config.cjs
+	$: paletteVariablesHTML = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900']
+		.map(
+			(lightness) =>
+				`--base-${lightness}: ${hexToRgb(TailwindColors[$settings.baseColorPalette][lightness])}; 
+				--accent-${lightness}: ${hexToRgb(TailwindColors[$settings.accentColorPalette][lightness])};`
+		)
+		.join('');
 </script>
 
 <svelte:head>
@@ -118,39 +162,36 @@
 	<meta property="og:image:width" content="558" />
 	<meta property="og:description" content={$session.languageDictionary['appDescription']} />
 	<meta property="og:title" content={$session.languageDictionary['appName']} />
-	<meta property="og:url" content="https://desktopclock.netlify.app/" />
+	<meta property="og:url" content={app_url} />
 	<meta property="og:image" content="img/icons/og-image.jpg" />
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content={$session.languageDictionary['appName']} />
 
 	<meta name="twitter:title" content={$session.languageDictionary['appName']} />
 	<meta name="twitter:description" content={$session.languageDictionary['appDescription']} />
-	<meta name="twitter:image" content="https://desktopclock.netlify.app/img/screenshot.png" />
+	<meta name="twitter:image" content={app_url + '/img/screenshot.png'} />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta property="twitter:url" content="https://desktopclock.netlify.app/" />
+	<meta property="twitter:url" content={app_url} />
 
-	<meta
-		name="apple-mobile-web-app-status-bar"
-		content={TailwindColors[$settings.baseColorPalette][500]} />
-	<meta name="theme-color" content={TailwindColors[$settings.baseColorPalette][500]} />
-	<meta name="msapplication-TileColor" content={TailwindColors[$settings.baseColorPalette][500]} />
-	<link
-		rel="mask-icon"
-		href="img/icons/safari-pinned-tab.svg"
-		color={TailwindColors[$settings.baseColorPalette][500]} />
+	<meta name="apple-mobile-web-app-status-bar" content={themeColor} />
+	<meta name="theme-color" content={themeColor} />
+	<meta name="msapplication-TileColor" content={themeColor} />
+	<link rel="mask-icon" href="img/icons/safari-pinned-tab.svg" color={themeColor} />
 </svelte:head>
 
 <GoogleAnalytics />
 
-<Loader />
-
-<KeyboardShortcuts bind:settingsModal />
-
 <svelte:body on:dblclick={doubleClickFullscreen} />
 
 <div
-	class="text-center flex min-h-screen"
-	style="--font-family:{$settings.fontFamily}; --font-family-body:{$settings.fontFamilyBody}">
+	class="dark:bg-base-900 dark:text-base-200 transition-colors duration-200 ease-linear text-base-900 text-center flex min-h-screen"
+	style="--font-family:{$settings.fontFamily};
+    --font-family-body:{$settings.fontFamilyBody};
+    {paletteVariablesHTML}">
+	<Loader />
+
+	<KeyboardShortcuts bind:settingsModal />
+
 	<Nav bind:navOpen bind:settingsModal />
 	<div class="flex-1 relative">
 		<Header bind:navOpen />

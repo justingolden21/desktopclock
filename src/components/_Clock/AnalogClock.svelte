@@ -181,16 +181,6 @@ so when switching to it, it continues moving instantly -->
 		@apply transition duration-200 ease-in-out;
 	}
 
-	/* clock face shadows */
-	/* #face {
-		filter: drop-shadow(0px 0px 1px #33415580);
-		-webkit-filter: drop-shadow(0px 0px 1px #33415580);
-	}
-	.dark #face {
-		filter: drop-shadow(0px 0px 1px #e2e8f080);
-		-webkit-filter: drop-shadow(0px 0px 1px #e2e8f080);
-	} */
-
 	:root {
 		--second-angle: 0deg;
 		--minute-angle: 0deg;

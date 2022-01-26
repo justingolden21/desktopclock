@@ -1,6 +1,8 @@
 <script context="module">
 	import Screenfull from 'screenfull';
 
+	import { app_url } from '../data/consts.js';
+
 	export async function toggleFullscreen() {
 		if (Screenfull.isEnabled) {
 			await Screenfull.toggle();
@@ -8,13 +10,12 @@
 	}
 
 	export function shareApp(languageDictionary) {
-		// TODO translate, test on more platforms, store URL in global variable somewhere, in case it changes
 		if (navigator.share) {
 			navigator
 				.share({
 					title: languageDictionary['appName'],
 					text: languageDictionary['shareAppDescription'],
-					url: 'https://desktopclock.netlify.app/'
+					url: app_url
 				})
 				.then(() => console.log('Successful share'))
 				.catch((err) => console.log('Error sharing', err));
@@ -188,6 +189,11 @@
 	let hoveringContact = false;
 </script>
 
+<!-- dirty trick to cache fonts when opening settings (for PWA) -->
+{#each Object.keys(fontFamilies) as fontFamily}
+	<span class="w-0 h-0" style="font-family:{fontFamily}" />
+{/each}
+
 <Tabs>
 	<TabList>
 		<Tab>
@@ -215,11 +221,10 @@
 
 	<!-- Appearance -->
 	<TabPanel>
-		<!-- should theme, dark, cast, fullscreen btns be in general? -->
 		<div class="mb-2">
 			<h3>{dictionary.labels['Base Palette']}</h3>
 			<ThemeButtons
-				colors={['warmGray', 'trueGray', 'gray', 'coolGray', 'blueGray']}
+				colors={['slate', 'gray', 'zinc', 'neutral', 'stone']}
 				theme="baseColorPalette" />
 			<h3>{dictionary.labels['Accent Palette']}</h3>
 			<ThemeButtons
@@ -246,18 +251,8 @@
 		</div>
 		<div class="block mb-2">
 			<button class="dark-btn btn" on:click={() => ($settings.darkMode = !$settings.darkMode)}>
-				<Icon name="moon" class="inline w-6 h-6 md:w-8 md:h-8" />
+				<Icon name="moon" class="inline w-6 h-6" />
 				{dictionary.labels['Dark']}
-			</button>
-
-			<button class="cast-btn btn" on:click={castClock} class:hidden={!castSupported}>
-				<Icon name="cast" class="inline w-6 h-6 md:w-8 md:h-8" />
-				{dictionary.labels['Cast']}
-			</button>
-
-			<button class="fullscreen-btn btn" on:click={toggleFullscreen}>
-				<Icon name="fullscreen" class="inline w-6 h-6 md:w-8 md:h-8" />
-				{dictionary.labels['Fullscreen']}
 			</button>
 		</div>
 
@@ -392,6 +387,16 @@
 				<button class="btn link-btn" on:click={() => copyURL(dictionary)}>
 					<Icon name="link" class="inline w-6 h-6" />
 					{dictionary.labels['Copy website link']}
+				</button>
+
+				<button class="cast-btn btn" on:click={castClock} class:hidden={!castSupported}>
+					<Icon name="cast" class="inline w-6 h-6" />
+					{dictionary.labels['Cast']}
+				</button>
+
+				<button class="fullscreen-btn btn" on:click={toggleFullscreen}>
+					<Icon name="fullscreen" class="inline w-6 h-6" />
+					{dictionary.labels['Fullscreen']}
 				</button>
 
 				<br />
@@ -607,7 +612,7 @@
 		<p>
 			{dictionary.about.shareText.split('{{sharing}}')[0]}
 			<button class="font-bold hover:underline" on:click={() => shareApp(dictionary)}>
-				{dictionary.about['sharing']}
+				<a>{dictionary.about['sharing']}</a>
 			</button>
 			{dictionary.about.shareText.split('{{sharing}}')[1]}
 		</p>

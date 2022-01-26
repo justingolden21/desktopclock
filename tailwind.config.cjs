@@ -1,20 +1,30 @@
 const colors = require('tailwindcss/colors.js');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
-module.exports = {
-	mode: 'jit',
-	purge: {
-		content: ['./src/**/*.{html,js,svelte,ts}'],
-		options: {
-			safelist: ['dark']
+// https://stackoverflow.com/a/70480061/4907950
+// https://github.com/adamwathan/tailwind-css-variable-text-opacity-demo
+function withOpacity(cssVariable) {
+	return ({ opacityVariable, opacityValue }) => {
+		if (opacityValue !== undefined) {
+			return `rgba(var(${cssVariable}), ${opacityValue})`;
 		}
-	},
+		if (opacityVariable !== undefined) {
+			return `rgba(var(${cssVariable}), var(${opacityVariable}, 1))`;
+		}
+		return `rgb(var(${cssVariable}))`;
+	};
+}
+
+module.exports = {
+	content: ['./src/**/*.{html,js,svelte,ts}'],
+	safelist: ['dark'],
 	darkMode: 'class',
 	theme: {
 		colors: {
 			// ...colors,
 			white: '#FFF',
-			gray: colors.blueGray
+			gray: colors.slate,
+			transparent: 'transparent'
 		},
 		screens: {
 			xs: '360px',
@@ -25,10 +35,17 @@ module.exports = {
 			'10xl': '10rem',
 			'11xl': '12rem'
 		},
-		extend: {}
-	},
-	variants: {
-		extend: {}
+		extend: {
+			colors: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'].reduce(
+				(obj, item) => {
+					return {
+						...obj,
+						[`base-${item}`]: withOpacity(`--base-${item}`)
+					};
+				},
+				{}
+			)
+		}
 	},
 	plugins: []
 };

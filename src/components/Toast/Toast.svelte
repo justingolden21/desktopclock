@@ -15,7 +15,7 @@
 </script>
 
 <div
-	class="w-80 p-4 flex items-center mb-2 mx-auto border-2 border-gray-300 bg-gray-100 bg-opacity-75 backdrop-blur-sm dark:border-gray-200 dark:bg-gray-800 dark:bg-opacity-75"
+	class="w-80 p-4 flex items-center mb-2 mx-auto border-2 border-base-300 bg-base-100 bg-opacity-75 backdrop-blur-sm dark:border-base-200 dark:bg-base-800 dark:bg-opacity-75"
 	role="alert"
 	transition:fade>
 	<Icon name={type} class="inline w-6 h-6" />
@@ -35,7 +35,7 @@
 
 	{#if timeout}
 		<div
-			class="progress-bar absolute bottom-0 left-0 h-1 bg-gray-600 dark:bg-gray-200"
+			class="progress-bar absolute bottom-0 left-0 h-1 bg-base-600 dark:bg-base-200"
 			style="animation-duration: {timeout / 1000}s;" />
 	{/if}
 </div>

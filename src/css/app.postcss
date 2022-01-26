@@ -38,27 +38,27 @@
 	/* Selection and focus */
 
 	::-moz-selection {
-		@apply bg-gray-300;
+		@apply bg-base-300;
 	}
 	::selection {
-		@apply bg-gray-300;
+		@apply bg-base-300;
 	}
 	.dark ::-moz-selection {
-		@apply bg-gray-500;
+		@apply bg-base-500;
 	}
 	.dark ::selection {
-		@apply bg-gray-500;
+		@apply bg-base-500;
 	}
 	.dark input::-moz-selection {
-		@apply bg-gray-300;
+		@apply bg-base-300;
 	}
 	.dark input::selection {
-		@apply bg-gray-300;
+		@apply bg-base-300;
 	}
 
 	*:focus,
 	button:focus {
-		@apply outline-none ring-2 ring-gray-300;
+		@apply outline-none ring-2 ring-base-300;
 	}
 
 	/* Typography */
@@ -79,11 +79,6 @@
 		@apply sm:text-lg md:text-xl;
 	}
 
-	h3,
-	h4 {
-		@apply font-bold;
-	}
-
 	p {
 		@apply leading-relaxed text-base md:text-lg;
 	}
@@ -93,10 +88,10 @@
 	}
 
 	a:not(nav a) {
-		@apply text-gray-600 hover:underline font-bold;
+		@apply text-base-600 hover:underline font-bold;
 	}
 	.dark a:not(nav a) {
-		@apply text-gray-300;
+		@apply text-base-300;
 	}
 
 	/* Tables */
@@ -106,31 +101,31 @@
 	}
 	table th,
 	table td {
-		@apply p-1 px-2 text-gray-800 dark:text-gray-200;
+		@apply p-1 px-2 text-base-800 dark:text-base-200;
 	}
 	th {
 		@apply font-bold;
 	}
 	th,
 	tr:nth-child(even) {
-		@apply bg-gray-200 dark:bg-gray-800;
+		@apply bg-base-200 dark:bg-base-800;
 	}
 	tr:nth-child(odd) {
-		@apply bg-gray-100 dark:bg-gray-700;
+		@apply bg-base-100 dark:bg-base-700;
 	}
 
 	/* Inputs */
 
 	.btn {
-		@apply p-2 my-2 mr-4 rounded-none text-white bg-gray-600 hover:bg-gray-700;
+		@apply p-2 my-2 mr-4 rounded-none text-white bg-base-600 hover:bg-base-700;
 	}
 	.icon-btn {
-		@apply p-2 rounded-full hover:bg-gray-700 hover:text-white;
+		@apply p-2 rounded-full hover:bg-base-700 hover:text-white;
 	}
 
 	select {
-		@apply cursor-pointer p-2 pr-6 m-2 text-gray-700 bg-gray-50 hover:bg-gray-100 appearance-none;
-		background: #f8fafc
+		@apply cursor-pointer p-2 pr-6 m-2 text-base-700 bg-base-50 hover:bg-base-100 appearance-none;
+		background: rgb(var(--base-50))
 			url("data:image/svg+xml;utf8,<svg fill='none' stroke='currentColor' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
 			no-repeat right center;
 	}
@@ -138,21 +133,20 @@
 		@apply p-1;
 	}
 	select:disabled {
-		@apply bg-gray-200;
+		@apply bg-base-200;
 	}
 	input[type='text'],
 	input[type='number'] {
-		@apply p-2 text-gray-800;
+		@apply p-2 text-base-800;
 	}
 
 	.dark select {
-		@apply bg-gray-500 text-gray-100;
-		/* 'white' works but '#FFFFFF' doesn't and 'currentColor' doesn't, even with 'color' explicitly set above */
-		background: #64748b /*gray-500*/
+		@apply bg-base-500 hover:bg-base-600 text-base-100;
+		background: rgb(var(--base-500))
 			url("data:image/svg+xml;utf8,<svg fill='none' stroke='white' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
 			no-repeat right center;
 	}
 	.dark select:disabled {
-		@apply bg-gray-400;
+		@apply bg-base-400;
 	}
 }
