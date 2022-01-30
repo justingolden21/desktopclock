@@ -82,7 +82,12 @@
 			"Bold",
 			"Extrabold",
 			"Black"
-		]
+		],
+		"Movements": {
+			"sweeping": "Sweeping",
+			"grandfather": "Grandfather",
+			"modern": "Modern"
+		}
 	},
 	"languages": {
 		"en": "English",
@@ -118,6 +123,7 @@
 		"Custom formatting reference": "Custom formatting reference",
 		"Reset datetime formats": "Reset datetime formats",
 		"Primary display font weight:": "Primary display font weight:",
+		"Second hand movement:": "Second hand movement:",
 
 		"Datetime Formatting": "Datetime Formatting",
 

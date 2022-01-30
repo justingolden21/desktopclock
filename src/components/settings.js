@@ -17,7 +17,9 @@ export const defaultSettings = {
 		dateFormat: 'ddd, MMMM D',
 		dateFormatCustom: 'ddd, MMMM D',
 
-		datetimeFontWeight: '300'
+		datetimeFontWeight: '300',
+
+		secondHandMovement: 'sweeping'
 	},
 
 	// appearance
