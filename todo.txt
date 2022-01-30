@@ -6,6 +6,8 @@ resources arent cached until used in service worker
 
 make tailwind vs code extension style `base-` colors in code as if it is `slate-` (showing gray preview square)
 
+clock preview in analog floats weirdly in md screens
+
 ====
 
 future:
