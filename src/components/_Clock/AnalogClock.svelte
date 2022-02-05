@@ -47,7 +47,7 @@
 	$: angles = {
 		hour: (hours + minutes / 60 + seconds / 3600) * 30,
 		minute: (minutes + seconds / 60) * 6,
-		second: 6 * $sweep
+		second: (mode === 'static' ? time.s : $sweep) * 6
 	};
 
 	$: if (movement) changeSweep();
