@@ -2,6 +2,7 @@
 use accent palette across app?
 
 IMPORTANT
+MERGE DEV TO PROD BEFORE RELEASE (lol)
 resources arent cached until used in service worker
 
 make tailwind vs code extension style `base-` colors in code as if it is `slate-` (showing gray preview square)
@@ -42,7 +43,24 @@ prompt "are you sure" before deleting, max of 20 themes, btn to delete all theme
 note:
 when user changes lang, they may also want to change datetime locale. prompt them with a notification?
 
+note:
+too many fonts to cache offline before they're loaded (counting language variants)
+add info about this to FAQs?
+
 "super dark mode" as night clock, background is #000 and text is #444 and enter fullscreen
+
+smaller menu truncate flash line break
+
+top left btns float left when others hidden
+
+implement accent palette (btns toggles etc)
+
+cypress github actions auto test
+
+marketing:
+contact desktop clock people
+post on forums, svelte dev, svelte society
+make video trailer
 
 TOP PRIORITY / MVP:
 ================
