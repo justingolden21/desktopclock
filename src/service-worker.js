@@ -11,6 +11,10 @@ const FILES = `cache${timestamp}`;
 // `files` is an array of everything in the `static` directory
 const to_cache = build.concat(files);
 to_cache.push('/');
+// to_cache.push('/worldclock/');
+// to_cache.push('/stopwatch/');
+// to_cache.push('/timers/');
+
 const staticAssets = new Set(to_cache);
 
 worker.addEventListener('install', (event) => {
