@@ -5,6 +5,8 @@ export const app_url = 'https://desktopclock.app';
 
 export const lightnesses = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'];
 
+export const movements = ['sweeping', 'grandfather', 'modern'];
+
 export const fontFamilies = {
 	'Aldrich': [400],
 	'Arsenal': [400, 700],

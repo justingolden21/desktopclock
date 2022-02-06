@@ -82,7 +82,12 @@
 			"Bold",
 			"Extrabold",
 			"Black"
-		]
+		],
+		"Movements": {
+			"sweeping": "Sweeping",
+			"grandfather": "Grandfather",
+			"modern": "Modern"
+		}
 	},
 	"languages": {
 		"en": "English",
@@ -118,6 +123,7 @@
 		"Custom formatting reference": "Custom formatting reference",
 		"Reset datetime formats": "Reset datetime formats",
 		"Primary display font weight:": "Primary display font weight:",
+		"Second hand movement:": "Second hand movement:",
 
 		"Datetime Formatting": "Datetime Formatting",
 
@@ -195,7 +201,7 @@
 	"about": {
 		"Version": "Version",
 		"Contact": "Contact",
-		"aboutText": "Desktop Clock is a simple, resizable and customizable clock for any device. Features include customizable analog and digital displays, night mode, themes, timezones and more. Desktop Clock is designed to scale perfectly to any screen size and ratio, with no distortion or pixelation. Use Desktop Clock as a clock on your TV, a night clock, or project the time in the classroom. Download on any device for offline use. Desktop Clock is super light-weight, free, ad-free, and always will be. Customize the time, date and more to your liking! Desktop Clock is the all-in-one clock for any of your timekeeping needs! More features coming soon.",
+		"aboutText": "Desktop Clock is a simple, resizable and customizable clock for any device. Features include customizable analog and digital displays, night mode, themes, timezones and more. Desktop Clock is designed to scale perfectly to any screen size and ratio, with no distortion or pixelation. Use Desktop Clock as a clock on your TV, a night clock, or project the time in the classroom. Desktop Clock is super light-weight, works offline, free, ad-free, and always will be. Customize the time, date and more to your liking! Desktop Clock is the all-in-one clock for any of your timekeeping needs! More features coming soon.",
 		"contactText": "Made by {{author}}. Feel free to contact me with any feedback, questions, or requests at {{email}}",
 		"shareText": "If you like this app, consider {{sharing}} it.",
 		"sharing": "sharing",

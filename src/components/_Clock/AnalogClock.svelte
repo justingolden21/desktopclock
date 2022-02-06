@@ -2,6 +2,8 @@
 	import TailwindColors from 'tailwindcss/colors.js';
 
 	import { onMount } from 'svelte';
+	import { tweened } from 'svelte/motion';
+	import { linear, bounceOut, elasticOut } from 'svelte/easing';
 
 	import dayjs from 'dayjs';
 	import utc from 'dayjs/plugin/utc.js';
@@ -16,56 +18,53 @@
 	export let mode = '';
 	// time to display if static
 	export let time = {};
-	// id used to differentiate names for css variables which are global, so they only apply to one specific clock
-	export let clock_id;
 
-	const setAngle = (type, newAngle) => {
-		document.documentElement.style.setProperty(`--${type}-angle-${clock_id}`, `${newAngle}deg`);
+	const movements = { sweeping: linear, grandfather: bounceOut, modern: elasticOut };
+	$: movement = $settings.clock.secondHandMovement;
+
+	// define and set the initial tweening function
+	// note: second hand does not take timezone into account
+	// if they have a timezone with different seconds we're all doomed
+	let sweep = tweened(parseInt((Date.now() / 1000) % 60), {
+		duration: 1000,
+		easing: movements[movement]
+	});
+
+	// for a smooth transition between 59 and 0 seconds
+	let start = Date.now() / 1000 - ((Date.now() / 1000) % 60);
+
+	// these automatically update when `$now` changes
+	// add one second because transition takes one second
+	$: date =
+		mode && mode === 'static'
+			? new dayjs().hour(time.h).minute(time.m).second(time.s)
+			: new dayjs($now).tz($settings.locale.timezone || 'Etc/GMT').add(1, 'second');
+
+	$: hours = date.hour() % 12;
+	$: minutes = date.minute();
+	$: seconds = date.second();
+
+	$: angles = {
+		hour: (hours + minutes / 60 + seconds / 3600) * 30,
+		minute: (minutes + seconds / 60) * 6,
+		second: (mode === 'static' ? time.s : $sweep) * 6
 	};
 
+	$: if (movement) changeSweep();
+
+	// We cannot change easing on a tweening function with a reactive variable
+	// Therefore, we need to redefine the entire tweening function
+	// This function is called when `movement` changes, which is an alias for the setting
+	// See https://svelte.dev/repl/270e83f43e7a48918d8f2d497760904f?version=3.32.1
+	function changeSweep() {
+		sweep = tweened($sweep, {
+			duration: 1000,
+			easing: movements[movement]
+		});
+	}
+
 	function setTime() {
-		if (!document.getElementById('hour-hand')) return; // return if analog clock is not visible
-
-		let date;
-
-		if (mode && mode === 'static') {
-			date = new dayjs().hour(time.h).minute(time.m).second(time.s);
-		} else {
-			// add one second because transition takes one second
-			date = new dayjs($now).tz($settings.locale.timezone || 'Etc/GMT').add(1, 'second');
-		}
-
-		const h = date.hour() % 12;
-		const m = date.minute();
-		const s = date.second();
-
-		let rotations = {
-			second: 6 * s,
-			minute: (m + s / 60) * 6,
-			hour: (h + m / 60 + s / 3600) * 30
-		};
-
-		// check one second's rotation after 0 degrees
-		// because this is when we need to replace the angle with 0 and transition to the next second (rotation % 360)
-		if (rotations['second'] <= 6) rotations['second'] += 360;
-		if (rotations['minute'] <= 0.1) rotations['minute'] += 360;
-		if (rotations['hour'] <= 0.0084) rotations['hour'] += 360;
-
-		// Quickly reset position
-		// See https://stackoverflow.com/q/11131875/4907950
-		for (const handType of ['second', 'minute', 'hour']) {
-			setAngle(handType, rotations[handType]);
-
-			if (rotations[handType] > 360) {
-				let hand = document.getElementById(handType + '-hand');
-				hand.classList.add('notransition');
-				setAngle(handType, 0);
-				// See https://gist.github.com/paulirish/5d52fb081b3570c81e3a#svg
-				hand.getBBox(); // trigger CSS reflow
-				hand.classList.remove('notransition');
-				setAngle(handType, rotations[handType] % 360);
-			}
-		}
+		sweep.set(parseInt(Date.now() / 1000 - start));
 	}
 
 	onMount(() => {
@@ -147,7 +146,7 @@ so when switching to it, it continues moving instantly -->
 			{#each ['hour', 'minute', 'second'] as hand, index}
 				<line
 					id="{hand}-hand"
-					style={`transition: transform 1s linear;transform: rotate(var(--${hand}-angle-${clock_id}));`}
+					transform="rotate({angles[hand]})"
 					y1={-theme.hands[hand].back}
 					y2={theme.hands[hand].length}
 					stroke={getColor(theme.hands[hand].stroke)}
@@ -179,11 +178,5 @@ so when switching to it, it continues moving instantly -->
 	#lg-ticks,
 	#pin {
 		@apply transition duration-200 ease-in-out;
-	}
-
-	:root {
-		--second-angle: 0deg;
-		--minute-angle: 0deg;
-		--hour-angle: 0deg;
 	}
 </style>

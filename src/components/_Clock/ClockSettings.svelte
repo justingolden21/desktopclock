@@ -13,7 +13,7 @@
 	import Toggle from '../Toggle.svelte';
 	import Modal from '../Modal.svelte';
 	import AnalogClock from './AnalogClock.svelte';
-	import { fontFamilies, lightnesses } from '../../data/consts.js';
+	import { fontFamilies, lightnesses, movements } from '../../data/consts.js';
 
 	import defaultTheme from '../../themes/default';
 	import defaultNightTheme from '../../themes/defaultNight';
@@ -75,8 +75,8 @@
 	{#if $settings.clock.displays.primary == 'analog'}
 		<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="2">
 			<div
-				class="float-right fixed right-16 w-32 h-32 p-1 rounded-full bg-opacity-75 bg-base-300 dark:bg-base-500 hidden md:block">
-				<AnalogClock clock_id="1" mode="static" time={{ h: 10, m: 9, s: 0 }} />
+				class="float-right fixed right-1/4 top-1/2 w-32 h-32 p-1 rounded-full bg-opacity-75 bg-base-300 dark:bg-base-500 hidden md:block">
+				<AnalogClock mode="static" time={{ h: 10, m: 9, s: 0 }} />
 			</div>
 			<!-- using stringify for efficient deep clone so original theme object is not mutated -->
 			{#each [defaultTheme, defaultNightTheme, classicTheme, classicNightTheme] as clockTheme}
@@ -96,6 +96,16 @@
 				<Icon name="settings" class="inline w-6 h-6" />
 				{dictionary.clockSettings['Simple Mode']}
 			</button>
+
+			<br />
+
+			<label for="second-hand-movement-select"
+				>{dictionary.clockSettings['Second hand movement:']}</label>
+			<select id="second-hand-movement-select" bind:value={$settings.clock.secondHandMovement}>
+				{#each movements as movement}
+					<option value={movement}>{dictionary.labels['Movements'][movement]}</option>
+				{/each}
+			</select>
 
 			<h3>{dictionary.clockSettings['Face']}</h3>
 
