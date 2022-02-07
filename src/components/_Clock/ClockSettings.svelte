@@ -75,7 +75,7 @@
 	{#if $settings.clock.displays.primary == 'analog'}
 		<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="2">
 			<div
-				class="float-right fixed right-1/4 top-1/2 w-32 h-32 p-1 rounded-full bg-opacity-75 bg-base-300 dark:bg-base-500 hidden md:block">
+				class="float-right fixed right-16 top-72 w-32 h-32 p-1 rounded-full bg-opacity-75 bg-base-300 dark:bg-base-500 hidden md:block">
 				<AnalogClock mode="static" time={{ h: 10, m: 9, s: 0 }} />
 			</div>
 			<!-- using stringify for efficient deep clone so original theme object is not mutated -->
