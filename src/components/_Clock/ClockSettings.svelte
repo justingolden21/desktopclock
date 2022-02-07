@@ -2,7 +2,6 @@
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
 
-	import TailwindColors from 'tailwindcss/colors.js';
 	import dayjs from 'dayjs';
 
 	import { now } from '../../util/now.js';
@@ -13,6 +12,7 @@
 	import Toggle from '../Toggle.svelte';
 	import Modal from '../Modal.svelte';
 	import AnalogClock from './AnalogClock.svelte';
+	import ColorSelector from './ColorSelector.svelte';
 	import { fontFamilies, lightnesses, movements } from '../../data/consts.js';
 
 	import defaultTheme from '../../themes/default';
@@ -28,9 +28,6 @@
 	onMount(() => {
 		batterySupported = navigator && navigator.getBattery;
 	});
-
-	const getColor = (o) => TailwindColors[$settings[o.palette + 'ColorPalette']][o.lightness];
-	$: isOpen = false;
 </script>
 
 <Accordion key="1">
@@ -112,37 +109,7 @@
 
 			<h3>{dictionary.clockSettings['Face']}</h3>
 
-			<button class="btn inline-flex" on:click={() => (isOpen = !isOpen)}>
-				<span
-					style="background-color: {getColor($settings.clock.theme.face.fill)}"
-					class="w-6 h-6 mr-2 rounded inline border-2 border-base-300" />
-				<span>{dictionary.display['Fill color:']}</span>
-			</button>
-			{#if isOpen}
-				<div>
-					{#each ['base', 'accent'] as palette}
-						{#each lightnesses as lightness}
-							<button
-								style="background-color: {getColor({ palette: palette, lightness: lightness })}"
-								class="w-6 h-6 mr-2 inline border-2 border-base-300 {$settings.clock.theme.face.fill
-									.lightness === lightness && $settings.clock.theme.face.fill.palette === palette
-									? 'rounded-full'
-									: 'rounded'}"
-								on:click={() => {
-									$settings.clock.theme.face.fill.lightness = lightness;
-									$settings.clock.theme.face.fill.palette = palette;
-								}} />
-						{/each}
-						<br />
-					{/each}
-					<button
-						class="icon-btn"
-						on:click={() => ($settings.clock.theme.face.fill.lightness = '-1')}
-						title={dictionary.display['Transparent']}>
-						<Icon name="eye_off" class="inline w-6 h-6" />
-					</button>
-				</div>
-			{/if}
+			<ColorSelector colorObj1="face" colorObj2="fill" />
 
 			<div class="block xl:inline">
 				<label for="face-fill-select">{dictionary.display['Fill color:']}</label>
