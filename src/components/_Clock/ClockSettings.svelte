@@ -2,7 +2,6 @@
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
 
-	import TailwindColors from 'tailwindcss/colors.js';
 	import dayjs from 'dayjs';
 
 	import { now } from '../../util/now.js';
