@@ -32,7 +32,7 @@
 
 <Accordion key="1">
 	<AccordionPanel accordionTitle={dictionary.clockSettings['Displays']} key="1">
-		<div class="block xl:inline">
+		<div class="block">
 			<label for="primary-display-select">{dictionary.clockSettings['Primary display:']}</label>
 			<select id="primary-display-select" bind:value={$settings.clock.displays.primary}>
 				<option value="analog">{dictionary.clockSettings['Analog clock']}</option>
@@ -48,7 +48,7 @@
 			{/if}
 		</div>
 
-		<div class="block xl:inline">
+		<div class="block">
 			<label for="secondary-display-select">{dictionary.clockSettings['Secondary display:']}</label>
 			<select id="secondary-display-select" bind:value={$settings.clock.displays.secondary}>
 				<option value="time">{dictionary.clockSettings['Digital time']}</option>
@@ -107,163 +107,182 @@
 				{/each}
 			</select>
 
-			<h3>{dictionary.clockSettings['Face']}</h3>
-
-			<div class="block xl:inline">
-				<ColorSelector bind:colorObj={$settings.clock.theme.face.fill} label="Fill color" />
-			</div>
-			<div class="block xl:inline">
-				<label for="face-stroke-width-select">{dictionary.display['Stroke width:']}</label>
-				<select id="face-stroke-width-select" bind:value={$settings.clock.theme.face.strokeWidth}>
-					{#each Array(6) as _, i}
-						<option value={i}>{i}</option>
-					{/each}
-				</select>
-			</div>
-			{#if $settings.clock.theme.face.strokeWidth !== 0}
-				<div class="block xl:inline">
-					<ColorSelector bind:colorObj={$settings.clock.theme.face.stroke} label="Stroke color" />
-				</div>
-			{/if}
-			<div class="block xl:inline">
-				<label for="face-shape-select">{dictionary.display['Shape:']}</label>
-				<select id="face-shape-select" bind:value={$settings.clock.theme.face.shape}>
-					<option value="circle">{dictionary.display.shapes['Circle']}</option>
-					<option value="rounded">{dictionary.display.shapes['Rounded Square']}</option>
-					<option value="square">{dictionary.display.shapes['Square']}</option>
-				</select>
-			</div>
-
-			<h3>{dictionary.clockSettings['Shadow']}</h3>
-
-			<div class="block xl:inline">
-				<ColorSelector bind:colorObj={$settings.clock.theme.shadow.fill} label="Fill color" />
-			</div>
-
-			<h3>{dictionary.clockSettings['Pin']}</h3>
-
-			<div class="block xl:inline">
-				<label for="pin-size-select">{dictionary.display['Size:']}</label>
-				<select id="pin-size-select" bind:value={$settings.clock.theme.pin.size}>
-					{#each Array(6) as _, i}
-						<option value={i / 2}>{i / 2}</option>
-					{/each}
-				</select>
-			</div>
-			{#if $settings.clock.theme.pin.size !== 0}
-				<div class="block xl:inline">
-					<ColorSelector bind:colorObj={$settings.clock.theme.pin.fill} label="Fill color" />
-				</div>
-				<div class="block xl:inline">
-					<label for="pin-stroke-width-select">{dictionary.display['Stroke width:']}</label>
-					<select id="pin-stroke-width-select" bind:value={$settings.clock.theme.pin.strokeWidth}>
-						{#each Array(7) as _, i}
-							<option value={i / 2}>{i / 2}</option>
-						{/each}
-					</select>
-				</div>
-				{#if $settings.clock.theme.pin.strokeWidth !== 0}
-					<div class="block xl:inline">
-						<ColorSelector bind:colorObj={$settings.clock.theme.pin.stroke} label="Stroke color" />
+			<div class="grid xl:grid-cols-3">
+				<div>
+					<h3>{dictionary.clockSettings['Face']}</h3>
+					<div class="block">
+						<ColorSelector bind:colorObj={$settings.clock.theme.face.fill} label="Fill color" />
 					</div>
-				{/if}
-			{/if}
-
-			<h3>{dictionary.clockSettings['Ticks']}</h3>
-
-			{#each ['sm', 'md', 'lg'] as size, i}
-				<h4>
-					{dictionary.clockSettings[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
-				</h4>
-				<div class="block xl:inline">
-					<ColorSelector
-						bind:colorObj={$settings.clock.theme.ticks[size].stroke}
-						label="Stroke color" />
-				</div>
-				{#if $settings.clock.theme.ticks[size].stroke.lightness !== '-1'}
-					<div class="block xl:inline">
-						<label for="{size}-tick-width-select">{dictionary.display['Width:']}</label>
+					<div class="block">
+						<label for="face-stroke-width-select">{dictionary.display['Stroke width:']}</label>
 						<select
-							id="{size}-tick-width-select"
-							bind:value={$settings.clock.theme.ticks[size].width}>
+							id="face-stroke-width-select"
+							bind:value={$settings.clock.theme.face.strokeWidth}>
 							{#each Array(6) as _, i}
 								<option value={i}>{i}</option>
 							{/each}
 						</select>
 					</div>
-					<div class="block xl:inline">
-						<label for="{size}-tick-height-select">{dictionary.display['Height:']}</label>
-						<select
-							id="{size}-tick-height-select"
-							bind:value={$settings.clock.theme.ticks[size].height}>
+					{#if $settings.clock.theme.face.strokeWidth !== 0}
+						<div class="block">
+							<ColorSelector
+								bind:colorObj={$settings.clock.theme.face.stroke}
+								label="Stroke color" />
+						</div>
+					{/if}
+					<div class="block">
+						<label for="face-shape-select">{dictionary.display['Shape:']}</label>
+						<select id="face-shape-select" bind:value={$settings.clock.theme.face.shape}>
+							<option value="circle">{dictionary.display.shapes['Circle']}</option>
+							<option value="rounded">{dictionary.display.shapes['Rounded Square']}</option>
+							<option value="square">{dictionary.display.shapes['Square']}</option>
+						</select>
+					</div>
+				</div>
+				<div>
+					<h3>{dictionary.clockSettings['Shadow']}</h3>
+					<div class="block">
+						<ColorSelector bind:colorObj={$settings.clock.theme.shadow.fill} label="Fill color" />
+					</div>
+				</div>
+				<div>
+					<h3>{dictionary.clockSettings['Pin']}</h3>
+					<div class="block">
+						<label for="pin-size-select">{dictionary.display['Size:']}</label>
+						<select id="pin-size-select" bind:value={$settings.clock.theme.pin.size}>
 							{#each Array(6) as _, i}
 								<option value={i / 2}>{i / 2}</option>
 							{/each}
 						</select>
 					</div>
-				{/if}
-			{/each}
+					{#if $settings.clock.theme.pin.size !== 0}
+						<div class="block">
+							<ColorSelector bind:colorObj={$settings.clock.theme.pin.fill} label="Fill color" />
+						</div>
+						<div class="block">
+							<label for="pin-stroke-width-select">{dictionary.display['Stroke width:']}</label>
+							<select
+								id="pin-stroke-width-select"
+								bind:value={$settings.clock.theme.pin.strokeWidth}>
+								{#each Array(7) as _, i}
+									<option value={i / 2}>{i / 2}</option>
+								{/each}
+							</select>
+						</div>
+						{#if $settings.clock.theme.pin.strokeWidth !== 0}
+							<div class="block">
+								<ColorSelector
+									bind:colorObj={$settings.clock.theme.pin.stroke}
+									label="Stroke color" />
+							</div>
+						{/if}
+					{/if}
+				</div>
+			</div>
+
+			<h3>{dictionary.clockSettings['Ticks']}</h3>
+
+			<div class="grid xl:grid-cols-3">
+				{#each ['sm', 'md', 'lg'] as size, i}
+					<div>
+						<h4>
+							{dictionary.clockSettings[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
+						</h4>
+						<div class="block">
+							<ColorSelector
+								bind:colorObj={$settings.clock.theme.ticks[size].stroke}
+								label="Stroke color" />
+						</div>
+						{#if $settings.clock.theme.ticks[size].stroke.lightness !== '-1'}
+							<div class="block">
+								<label for="{size}-tick-width-select">{dictionary.display['Width:']}</label>
+								<select
+									id="{size}-tick-width-select"
+									bind:value={$settings.clock.theme.ticks[size].width}>
+									{#each Array(6) as _, i}
+										<option value={i}>{i}</option>
+									{/each}
+								</select>
+							</div>
+							<div class="block">
+								<label for="{size}-tick-height-select">{dictionary.display['Height:']}</label>
+								<select
+									id="{size}-tick-height-select"
+									bind:value={$settings.clock.theme.ticks[size].height}>
+									{#each Array(6) as _, i}
+										<option value={i / 2}>{i / 2}</option>
+									{/each}
+								</select>
+							</div>
+						{/if}
+					</div>
+				{/each}
+			</div>
 
 			<h3>{dictionary.clockSettings['Hands']}</h3>
 
-			{#each ['hour', 'minute', 'second'] as hand, i}
-				<h4>
-					{dictionary.clockSettings[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
-				</h4>
-				<div class="block xl:inline">
-					<ColorSelector
-						bind:colorObj={$settings.clock.theme.hands[hand].stroke}
-						label="Stroke color" />
-				</div>
-				{#if $settings.clock.theme.hands[hand].stroke.lightness !== '-1'}
-					<div class="block xl:inline">
-						<label for="{hand}-hand-stroke-width-select"
-							>{dictionary.display['Stroke width:']}</label>
-						<select
-							id="{hand}-hand-stroke-width-select"
-							bind:value={$settings.clock.theme.hands[hand].strokeWidth}>
-							{#each Array(6) as _, i}
-								<option value={(i + 1) / 2}>{(i + 1) / 2}</option>
-							{/each}
-						</select>
+			<div class="grid xl:grid-cols-3">
+				{#each ['hour', 'minute', 'second'] as hand, i}
+					<div>
+						<h4>
+							{dictionary.clockSettings[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
+						</h4>
+						<div class="block">
+							<ColorSelector
+								bind:colorObj={$settings.clock.theme.hands[hand].stroke}
+								label="Stroke color" />
+						</div>
+						{#if $settings.clock.theme.hands[hand].stroke.lightness !== '-1'}
+							<div class="block">
+								<label for="{hand}-hand-stroke-width-select"
+									>{dictionary.display['Stroke width:']}</label>
+								<select
+									id="{hand}-hand-stroke-width-select"
+									bind:value={$settings.clock.theme.hands[hand].strokeWidth}>
+									{#each Array(6) as _, i}
+										<option value={(i + 1) / 2}>{(i + 1) / 2}</option>
+									{/each}
+								</select>
+							</div>
+							<div class="block">
+								<label for="{hand}-hand-length-select">{dictionary.display['Length:']}</label>
+								<select
+									id="{hand}-hand-length-select"
+									bind:value={$settings.clock.theme.hands[hand].length}>
+									{#each Array(6) as _, i}
+										<option value={i * 3 + 12}>{i * 3 + 12}</option>
+									{/each}
+								</select>
+							</div>
+							<div class="block">
+								<label for="{hand}-hand-back-select">{dictionary.display['Back:']}</label>
+								<select
+									id="{hand}-hand-back-select"
+									bind:value={$settings.clock.theme.hands[hand].back}>
+									{#each Array(10) as _, i}
+										<option value={i}>{i}</option>
+									{/each}
+								</select>
+							</div>
+							<div class="block">
+								<label for="{hand}-hand-linecap-select">{dictionary.display['Linecap:']}</label>
+								<select
+									id="{hand}-hand-linecap-select"
+									bind:value={$settings.clock.theme.hands[hand].linecap}>
+									<option value="round">{dictionary.display.linecaps['Round']}</option>
+									<option value="square">{dictionary.display.linecaps['Square']}</option>
+								</select>
+							</div>
+						{/if}
 					</div>
-					<div class="block xl:inline">
-						<label for="{hand}-hand-length-select">{dictionary.display['Length:']}</label>
-						<select
-							id="{hand}-hand-length-select"
-							bind:value={$settings.clock.theme.hands[hand].length}>
-							{#each Array(6) as _, i}
-								<option value={i * 3 + 12}>{i * 3 + 12}</option>
-							{/each}
-						</select>
-					</div>
-					<div class="block xl:inline">
-						<label for="{hand}-hand-back-select">{dictionary.display['Back:']}</label>
-						<select
-							id="{hand}-hand-back-select"
-							bind:value={$settings.clock.theme.hands[hand].back}>
-							{#each Array(10) as _, i}
-								<option value={i}>{i}</option>
-							{/each}
-						</select>
-					</div>
-					<div class="block xl:inline">
-						<label for="{hand}-hand-linecap-select">{dictionary.display['Linecap:']}</label>
-						<select
-							id="{hand}-hand-linecap-select"
-							bind:value={$settings.clock.theme.hands[hand].linecap}>
-							<option value="round">{dictionary.display.linecaps['Round']}</option>
-							<option value="square">{dictionary.display.linecaps['Square']}</option>
-						</select>
-					</div>
-				{/if}
-			{/each}
+				{/each}
+			</div>
 		</AccordionPanel>
 	{/if}
 	{#if $settings.clock.displays.primary != 'analog' || $settings.clock.displays.secondary != 'none'}
 		<AccordionPanel accordionTitle={dictionary.clockSettings['Digital Datetime']} key="3">
-			<div class="block xl:inline">
-				<div class="block xl:inline">
+			<div class="block">
+				<div class="block">
 					<label for="time-format-select">{dictionary.clockSettings['Time format:']}</label>
 					<select id="time-format-select" bind:value={$settings.clock.timeFormat}>
 						{#each ['H:mm', 'H:mm:ss', 'h:mm A', 'h:mm:ss A', 'H:mm Z', 'H:mm:ss Z', 'h:mm A Z', 'h:mm:ss A Z', 'mm:ss'] as timeFormat}
@@ -293,7 +312,7 @@
 					{/if}
 				</div>
 
-				<div class="block xl:inline">
+				<div class="block">
 					<label for="date-format-select">{dictionary.clockSettings['Date format:']}</label>
 					<select id="date-format-select" bind:value={$settings.clock.dateFormat}>
 						{#each ['MMM D', 'MMM D YYYY', 'ddd, MMMM D', 'ddd, MMMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
