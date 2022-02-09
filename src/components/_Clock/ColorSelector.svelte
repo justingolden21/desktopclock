@@ -6,6 +6,7 @@
 	import { lightnesses } from '../../data/consts.js';
 
 	export let colorObj;
+	export let label;
 
 	$: dictionary = $session.languageDictionary;
 
@@ -21,7 +22,7 @@
 	<span
 		style="background-color: {getColor(colorObj)}"
 		class="w-6 h-6 mr-2 rounded inline border-2 border-base-300" />
-	<span>{dictionary.display['Fill color:']}</span>
+	<span>{dictionary.display[label]}</span>
 </button>
 {#if isOpen}
 	<div>
