@@ -110,7 +110,7 @@
 			<h3>{dictionary.clockSettings['Face']}</h3>
 
 			<div class="block xl:inline">
-				<ColorSelector bind:colorObj={$settings.clock.theme.face.fill} label="Fill color:" />
+				<ColorSelector bind:colorObj={$settings.clock.theme.face.fill} label="Fill color" />
 			</div>
 			<div class="block xl:inline">
 				<label for="face-stroke-width-select">{dictionary.display['Stroke width:']}</label>
@@ -122,7 +122,7 @@
 			</div>
 			{#if $settings.clock.theme.face.strokeWidth !== 0}
 				<div class="block xl:inline">
-					<ColorSelector bind:colorObj={$settings.clock.theme.face.stroke} label="Stroke color:" />
+					<ColorSelector bind:colorObj={$settings.clock.theme.face.stroke} label="Stroke color" />
 				</div>
 			{/if}
 			<div class="block xl:inline">
@@ -137,7 +137,7 @@
 			<h3>{dictionary.clockSettings['Shadow']}</h3>
 
 			<div class="block xl:inline">
-				<ColorSelector bind:colorObj={$settings.clock.theme.shadow.fill} label="Fill color:" />
+				<ColorSelector bind:colorObj={$settings.clock.theme.shadow.fill} label="Fill color" />
 			</div>
 
 			<h3>{dictionary.clockSettings['Pin']}</h3>
@@ -152,7 +152,7 @@
 			</div>
 			{#if $settings.clock.theme.pin.size !== 0}
 				<div class="block xl:inline">
-					<ColorSelector bind:colorObj={$settings.clock.theme.pin.fill} label="Fill color:" />
+					<ColorSelector bind:colorObj={$settings.clock.theme.pin.fill} label="Fill color" />
 				</div>
 				<div class="block xl:inline">
 					<label for="pin-stroke-width-select">{dictionary.display['Stroke width:']}</label>
@@ -164,7 +164,7 @@
 				</div>
 				{#if $settings.clock.theme.pin.strokeWidth !== 0}
 					<div class="block xl:inline">
-						<ColorSelector bind:colorObj={$settings.clock.theme.pin.stroke} label="Stroke color:" />
+						<ColorSelector bind:colorObj={$settings.clock.theme.pin.stroke} label="Stroke color" />
 					</div>
 				{/if}
 			{/if}
@@ -178,7 +178,7 @@
 				<div class="block xl:inline">
 					<ColorSelector
 						bind:colorObj={$settings.clock.theme.ticks[size].stroke}
-						label="Stroke color:" />
+						label="Stroke color" />
 				</div>
 				{#if $settings.clock.theme.ticks[size].stroke.lightness !== '-1'}
 					<div class="block xl:inline">
@@ -213,7 +213,7 @@
 				<div class="block xl:inline">
 					<ColorSelector
 						bind:colorObj={$settings.clock.theme.hands[hand].stroke}
-						label="Stroke color:" />
+						label="Stroke color" />
 				</div>
 				{#if $settings.clock.theme.hands[hand].stroke.lightness !== '-1'}
 					<div class="block xl:inline">

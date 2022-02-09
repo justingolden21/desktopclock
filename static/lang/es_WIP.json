@@ -172,8 +172,8 @@
 		]
 	},
 	"display": {
-		"Stroke color:": "Stroke color:",
-		"Fill color:": "Fill color:",
+		"Stroke color": "Stroke color",
+		"Fill color": "Fill color",
 		"Color:": "Color:",
 		"Stroke width:": "Stroke width:",
 		"Size:": "Size:",
