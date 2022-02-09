@@ -13,7 +13,7 @@
 	import Modal from '../Modal.svelte';
 	import AnalogClock from './AnalogClock.svelte';
 	import ColorSelector from './ColorSelector.svelte';
-	import { fontFamilies, lightnesses, movements } from '../../data/consts.js';
+	import { fontFamilies, movements } from '../../data/consts.js';
 
 	import defaultTheme from '../../themes/default';
 	import defaultNightTheme from '../../themes/defaultNight';
