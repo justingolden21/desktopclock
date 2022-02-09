@@ -122,19 +122,7 @@
 			</div>
 			{#if $settings.clock.theme.face.strokeWidth !== 0}
 				<div class="block xl:inline">
-					<label for="face-stroke-select">{dictionary.display['Stroke color:']}</label>
-					<select id="face-stroke-select" bind:value={$settings.clock.theme.face.stroke.lightness}>
-						{#each lightnesses as lightness}
-							<option value={lightness}>{lightness}</option>
-						{/each}
-						<option value="-1">{dictionary.display['Transparent']}</option>
-					</select>
-					<select
-						id="face-stroke-palette-select"
-						bind:value={$settings.clock.theme.face.stroke.palette}>
-						<option value="base">{dictionary.labels['Base Palette']}</option>
-						<option value="accent">{dictionary.labels['Accent Palette']}</option>
-					</select>
+					<ColorSelector bind:colorObj={$settings.clock.theme.face.stroke} label="Stroke color:" />
 				</div>
 			{/if}
 			<div class="block xl:inline">
