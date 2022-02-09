@@ -12,16 +12,17 @@
 
 	$: isOpen = false;
 
-	const getColor = (o) =>
-		o.lightness === '-1'
-			? 'transparent'
-			: TailwindColors[$settings[o.palette + 'ColorPalette']][o.lightness];
+	const getColor = (o) => TailwindColors[$settings[o.palette + 'ColorPalette']][o.lightness];
 </script>
 
 <button class="btn inline-flex" on:click={() => (isOpen = !isOpen)}>
-	<span
-		style="background-color: {getColor(colorObj)}"
-		class="w-6 h-6 mr-2 rounded inline border-2 border-base-300" />
+	{#if colorObj.lightness === '-1'}
+		<Icon name="eye_off" class="inline w-6 h-6 mr-2" />
+	{:else}
+		<span
+			style="background-color: {getColor(colorObj)}"
+			class="w-6 h-6 mr-2 rounded inline border-2 border-base-300" />
+	{/if}
 	<span>{dictionary.display[label]}</span>
 </button>
 {#if isOpen}
