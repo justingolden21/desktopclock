@@ -109,20 +109,8 @@
 
 			<h3>{dictionary.clockSettings['Face']}</h3>
 
-			<ColorSelector bind:colorObj={$settings.clock.theme.face.fill} label="Fill color:" />
-
 			<div class="block xl:inline">
-				<label for="face-fill-select">{dictionary.display['Fill color:']}</label>
-				<select id="face-fill-select" bind:value={$settings.clock.theme.face.fill.lightness}>
-					{#each lightnesses as lightness}
-						<option value={lightness}>{lightness}</option>
-					{/each}
-					<option value="-1">{dictionary.display['Transparent']}</option>
-				</select>
-				<select id="face-fill-palette-select" bind:value={$settings.clock.theme.face.fill.palette}>
-					<option value="base">{dictionary.labels['Base Palette']}</option>
-					<option value="accent">{dictionary.labels['Accent Palette']}</option>
-				</select>
+				<ColorSelector bind:colorObj={$settings.clock.theme.face.fill} label="Fill color:" />
 			</div>
 			<div class="block xl:inline">
 				<label for="face-stroke-width-select">{dictionary.display['Stroke width:']}</label>
@@ -161,22 +149,7 @@
 			<h3>{dictionary.clockSettings['Shadow']}</h3>
 
 			<div class="block xl:inline">
-				<label for="shadow-fill-select">{dictionary.display['Color:']}</label>
-				<select
-					id="shadow-fill-select"
-					bind:value={$settings.clock.theme.shadow.fill.lightness}
-					disabled={$settings.clock.theme.face.fill.lightness == '-1'}>
-					{#each lightnesses as lightness}
-						<option value={lightness}>{lightness}</option>
-					{/each}
-					<option value="-1">{dictionary.display['Transparent']}</option>
-				</select>
-				<select
-					id="shadow-fill-palette-select"
-					bind:value={$settings.clock.theme.shadow.fill.palette}>
-					<option value="base">{dictionary.labels['Base Palette']}</option>
-					<option value="accent">{dictionary.labels['Accent Palette']}</option>
-				</select>
+				<ColorSelector bind:colorObj={$settings.clock.theme.shadow.fill} label="Fill color:" />
 			</div>
 
 			<h3>{dictionary.clockSettings['Pin']}</h3>
@@ -191,17 +164,7 @@
 			</div>
 			{#if $settings.clock.theme.pin.size !== 0}
 				<div class="block xl:inline">
-					<label for="pin-fill-select">{dictionary.display['Fill color:']}</label>
-					<select id="pin-fill-select" bind:value={$settings.clock.theme.pin.fill.lightness}>
-						{#each lightnesses as lightness}
-							<option value={lightness}>{lightness}</option>
-						{/each}
-						<option value="-1">{dictionary.display['Transparent']}</option>
-					</select>
-					<select id="pin-fill-palette-select" bind:value={$settings.clock.theme.pin.fill.palette}>
-						<option value="base">{dictionary.labels['Base Palette']}</option>
-						<option value="accent">{dictionary.labels['Accent Palette']}</option>
-					</select>
+					<ColorSelector bind:colorObj={$settings.clock.theme.pin.fill} label="Fill color:" />
 				</div>
 				<div class="block xl:inline">
 					<label for="pin-stroke-width-select">{dictionary.display['Stroke width:']}</label>
@@ -213,19 +176,7 @@
 				</div>
 				{#if $settings.clock.theme.pin.strokeWidth !== 0}
 					<div class="block xl:inline">
-						<label for="pin-stroke-select">{dictionary.display['Stroke color:']}</label>
-						<select id="pin-stroke-select" bind:value={$settings.clock.theme.pin.stroke.lightness}>
-							{#each lightnesses as lightness}
-								<option value={lightness}>{lightness}</option>
-							{/each}
-							<option value="-1">{dictionary.display['Transparent']}</option>
-						</select>
-						<select
-							id="pin-stroke-palette-select"
-							bind:value={$settings.clock.theme.pin.stroke.palette}>
-							<option value="base">{dictionary.labels['Base Palette']}</option>
-							<option value="accent">{dictionary.labels['Accent Palette']}</option>
-						</select>
+						<ColorSelector bind:colorObj={$settings.clock.theme.pin.stroke} label="Stroke color:" />
 					</div>
 				{/if}
 			{/if}
@@ -237,23 +188,9 @@
 					{dictionary.clockSettings[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
 				</h4>
 				<div class="block xl:inline">
-					<label for="{size}-tick-stroke-select">
-						{dictionary.display['Stroke color:']}
-					</label>
-					<select
-						id="{size}-tick-stroke-select"
-						bind:value={$settings.clock.theme.ticks[size].stroke.lightness}>
-						{#each lightnesses as lightness}
-							<option value={lightness}>{lightness}</option>
-						{/each}
-						<option value="-1">{dictionary.display['Transparent']}</option>
-					</select>
-					<select
-						id="{size}-tick-stroke-palette-select"
-						bind:value={$settings.clock.theme.ticks[size].stroke.palette}>
-						<option value="base">{dictionary.labels['Base Palette']}</option>
-						<option value="accent">{dictionary.labels['Accent Palette']}</option>
-					</select>
+					<ColorSelector
+						bind:colorObj={$settings.clock.theme.ticks[size].stroke}
+						label="Stroke color:" />
 				</div>
 				{#if $settings.clock.theme.ticks[size].stroke.lightness !== '-1'}
 					<div class="block xl:inline">
@@ -286,23 +223,9 @@
 					{dictionary.clockSettings[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
 				</h4>
 				<div class="block xl:inline">
-					<label for="{hand}-hand-stroke-select">
-						{dictionary.display['Stroke color:']}
-					</label>
-					<select
-						id="{hand}-hand-stroke-select"
-						bind:value={$settings.clock.theme.hands[hand].stroke.lightness}>
-						{#each lightnesses as lightness}
-							<option value={lightness}>{lightness}</option>
-						{/each}
-						<option value="-1">{dictionary.display['Transparent']}</option>
-					</select>
-					<select
-						id="{hand}-hand-stroke-palette-select"
-						bind:value={$settings.clock.theme.hands[hand].stroke.palette}>
-						<option value="base">{dictionary.labels['Base Palette']}</option>
-						<option value="accent">{dictionary.labels['Accent Palette']}</option>
-					</select>
+					<ColorSelector
+						bind:colorObj={$settings.clock.theme.hands[hand].stroke}
+						label="Stroke color:" />
 				</div>
 				{#if $settings.clock.theme.hands[hand].stroke.lightness !== '-1'}
 					<div class="block xl:inline">
