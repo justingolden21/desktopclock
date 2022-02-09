@@ -11,7 +11,10 @@
 
 	$: isOpen = false;
 
-	const getColor = (o) => TailwindColors[$settings[o.palette + 'ColorPalette']][o.lightness];
+	const getColor = (o) =>
+		o.lightness === '-1'
+			? 'transparent'
+			: TailwindColors[$settings[o.palette + 'ColorPalette']][o.lightness];
 </script>
 
 <button class="btn inline-flex" on:click={() => (isOpen = !isOpen)}>
