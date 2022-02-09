@@ -45,6 +45,11 @@
 					<option value="base">{dictionary.labels['Base Palette']}</option>
 					<option value="accent">{dictionary.labels['Accent Palette']}</option>
 				</select>
+				<select bind:value={$settings.clock.displays.primaryFontSize}>
+					{#each ['Small', 'Medium', 'Large'] as size}
+						<option value={size.toLowerCase()}>{dictionary.clockSettings[size]}</option>
+					{/each}
+				</select>
 			{/if}
 		</div>
 
@@ -60,6 +65,11 @@
 				<select bind:value={$settings.clock.displays.secondaryPalette}>
 					<option value="base">{dictionary.labels['Base Palette']}</option>
 					<option value="accent">{dictionary.labels['Accent Palette']}</option>
+				</select>
+				<select bind:value={$settings.clock.displays.secondaryFontSize}>
+					{#each ['Small', 'Medium', 'Large'] as size}
+						<option value={size.toLowerCase()}>{dictionary.clockSettings[size]}</option>
+					{/each}
 				</select>
 			{/if}
 		</div>

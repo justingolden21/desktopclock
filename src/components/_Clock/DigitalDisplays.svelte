@@ -77,7 +77,7 @@
 			.datetimeFontWeight}; color:{displays.primaryPalette === 'base'
 			? baseColorPalette[shade]
 			: accentColorPalette[shade]}"
-		class={displays.primary}>
+		class={displays.primary + ' text-' + displays.primaryFontSize}>
 		{#if displays.primary != 'analog'}
 			<h1>
 				{#if displays.primary == 'time'}
@@ -96,7 +96,8 @@
 		id="secondary-display"
 		style="color:{displays.secondaryPalette === 'base'
 			? baseColorPalette[shade]
-			: accentColorPalette[shade]}">
+			: accentColorPalette[shade]}"
+		class={'text-' + displays.secondaryFontSize}>
 		{#if displays.secondary != 'none'}
 			<h2>
 				{#if displays.secondary == 'time'}
@@ -116,7 +117,7 @@
 {#if displays.battery && batterySupported}
 	<div
 		id="battery-display"
-		class="hidden sm:block"
+		class={'hidden sm:block text-' + displays.secondaryFontSize}
 		style="color:{displays.secondaryPalette === 'base'
 			? baseColorPalette[shade]
 			: accentColorPalette[shade]}">
@@ -137,12 +138,31 @@
 		right: 0%;
 		font-weight: var(--primary-font-weight);
 	}
+
 	#primary-display h1 {
-		@apply text-7xl md:text-8xl lg:text-9xl xl:text-10xl tracking-widest text-center px-8 leading-tight;
+		@apply tracking-widest text-center leading-snug;
+	}
+
+	#primary-display.text-small h1 {
+		@apply text-6xl md:text-7xl lg:text-8xl xl:text-9xl px-8;
+	}
+	#primary-display h1 {
+		@apply text-7xl md:text-8xl lg:text-9xl xl:text-10xl px-8;
+	}
+	#primary-display.text-large h1 {
+		@apply text-8xl md:text-9xl lg:text-10xl xl:text-11xl px-8;
+	}
+
+	#primary-display.datetime.text-small h1 {
+		@apply text-4xl md:text-5xl lg:text-6xl;
 	}
 	#primary-display.datetime h1 {
 		@apply text-5xl md:text-6xl lg:text-7xl;
 	}
+	#primary-display.datetime.text-large h1 {
+		@apply text-6xl md:text-7xl lg:text-8xl;
+	}
+
 	#primary-display,
 	#secondary-display {
 		/* Set numbers to be monospace
@@ -155,10 +175,25 @@
 	#secondary-display {
 		@apply pb-4;
 	}
+
 	#secondary-display h2,
 	#battery-display h2 {
-		@apply text-2xl md:text-3xl lg:text-4xl font-normal tracking-widest text-center;
+		@apply font-normal tracking-widest text-center;
 	}
+
+	#secondary-display.text-small h2,
+	#battery-display.text-small h2 {
+		@apply text-xl md:text-2xl lg:text-3xl;
+	}
+	#secondary-display h2,
+	#battery-display h2 {
+		@apply text-2xl md:text-3xl lg:text-4xl;
+	}
+	#secondary-display.text-large h2,
+	#battery-display.text-large h2 {
+		@apply text-3xl md:text-4xl lg:text-5xl;
+	}
+
 	#secondary-display,
 	#battery-display {
 		@apply absolute bottom-0;
