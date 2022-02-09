@@ -92,7 +92,7 @@
 		<Icon name="primary" class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 	<button
-		class="icon-btn float-left left-54 absolute top-4 z-10 
+		class="icon-btn float-left left-52 absolute top-4 z-10 
         {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-36'}"
 		class:hidden={!$settings.showSecondaryButton}
 		on:click={toggleSecondaryDisplay}
