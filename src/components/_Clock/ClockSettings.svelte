@@ -109,7 +109,7 @@
 
 			<h3>{dictionary.clockSettings['Face']}</h3>
 
-			<ColorSelector colorObj1="face" colorObj2="fill" />
+			<ColorSelector bind:colorObj={$settings.clock.theme.face.fill} />
 
 			<div class="block xl:inline">
 				<label for="face-fill-select">{dictionary.display['Fill color:']}</label>

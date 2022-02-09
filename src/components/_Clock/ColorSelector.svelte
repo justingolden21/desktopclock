@@ -5,7 +5,7 @@
 	import TailwindColors from 'tailwindcss/colors.js';
 	import { lightnesses } from '../../data/consts.js';
 
-	export let colorObj1, colorObj2;
+	export let colorObj;
 
 	$: dictionary = $session.languageDictionary;
 
@@ -16,7 +16,7 @@
 
 <button class="btn inline-flex" on:click={() => (isOpen = !isOpen)}>
 	<span
-		style="background-color: {getColor($settings.clock.theme[colorObj1][colorObj2])}"
+		style="background-color: {getColor(colorObj)}"
 		class="w-6 h-6 mr-2 rounded inline border-2 border-base-300" />
 	<span>{dictionary.display['Fill color:']}</span>
 </button>
@@ -26,22 +26,20 @@
 			{#each lightnesses as lightness}
 				<button
 					style="background-color: {getColor({ palette: palette, lightness: lightness })}"
-					class="w-6 h-6 mr-2 inline border-2 border-base-300 {$settings.clock.theme[colorObj1][
-						colorObj2
-					].lightness === lightness &&
-					$settings.clock.theme[colorObj1][colorObj2].palette === palette
+					class="w-6 h-6 mr-2 inline border-2 border-base-300 {colorObj.lightness === lightness &&
+					colorObj.palette === palette
 						? 'rounded-full'
 						: 'rounded'}"
 					on:click={() => {
-						$settings.clock.theme[colorObj1][colorObj2].lightness = lightness;
-						$settings.clock.theme[colorObj1][colorObj2].palette = palette;
+						colorObj.lightness = lightness;
+						colorObj.palette = palette;
 					}} />
 			{/each}
 			<br />
 		{/each}
 		<button
 			class="icon-btn"
-			on:click={() => ($settings.clock.theme[colorObj1][colorObj2].lightness = '-1')}
+			on:click={() => (colorObj.lightness = '-1')}
 			title={dictionary.display['Transparent']}>
 			<Icon name="eye_off" class="inline w-6 h-6" />
 		</button>
