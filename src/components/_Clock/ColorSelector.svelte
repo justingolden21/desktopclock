@@ -33,8 +33,8 @@
 					style="background-color: {getColor({ palette: palette, lightness: lightness })}"
 					class="w-6 h-6 mr-2 inline border-2 border-base-300 {colorObj.lightness === lightness &&
 					colorObj.palette === palette
-						? 'rounded-full'
-						: 'rounded'}"
+						? 'rounded'
+						: 'rounded-full'}"
 					on:click={() => {
 						colorObj.lightness = lightness;
 						colorObj.palette = palette;
