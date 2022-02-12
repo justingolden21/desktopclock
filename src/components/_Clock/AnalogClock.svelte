@@ -95,6 +95,17 @@
 					$settings[obj.palette == 'accent' ? 'accentColorPalette' : 'baseColorPalette']
 			  ][obj.lightness];
 	}
+
+	const numerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+	const fourNumerals = ['', '', 'III', '', '', 'VI', '', '', 'IX', '', '', 'XII'];
+	const oneNumeral = ['', '', '', '', '', '', '', '', '', '', '', 'XII'];
+	const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+	const fourNumbers = ['', '', '3', '', '', '6', '', '', '9', '', '', '12'];
+	const oneNumber = ['', '', '', '', '', '', '', '', '', '', '', '12'];
+	const none = [];
+
+	// numerals dropdown, default none
+	// if not none, then color picker and font select as well
 </script>
 
 <!-- by using `opacity-0` instead of `hidden` or `{#if}` it ensures the clock continues in the background
@@ -104,6 +115,20 @@ so when switching to it, it continues moving instantly -->
 	id="clock"
 	viewBox="0 0 64 64"
 	class={$settings.clock.displays.primary !== 'analog' ? 'opacity-0' : ''}>
+	<style>
+		@font-face {
+			font-family: 'Bitter';
+			src: local('Bitter');
+		}
+		.numeral {
+			transform-origin: center;
+			font: bold 6px 'Bitter', sans-serif;
+			fill: white;
+			text-anchor: middle;
+			pointer-events: none;
+		}
+	</style>
+
 	<!-- Shadow -->
 	<rect
 		id="shadow"
@@ -128,7 +153,7 @@ so when switching to it, it continues moving instantly -->
 		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0} />
 	<g transform="translate(32,32)">
 		<!-- Ticks -->
-		{#each sizes as { size, r }, index}
+		{#each sizes as { size, r }}
 			<circle
 				id="{size}-ticks"
 				fill="none"
@@ -143,7 +168,7 @@ so when switching to it, it continues moving instantly -->
 
 		<!-- Hands -->
 		<g transform="rotate(180)">
-			{#each ['hour', 'minute', 'second'] as hand, index}
+			{#each ['hour', 'minute', 'second'] as hand}
 				<line
 					id="{hand}-hand"
 					transform="rotate({angles[hand]})"
@@ -162,6 +187,12 @@ so when switching to it, it continues moving instantly -->
 			stroke-width={theme.pin.strokeWidth}
 			r={theme.pin.size} />
 	</g>
+
+	<!-- Numerals -->
+	{#each numerals as numeral, idx}
+		<!-- y is middle of character -->
+		<text transform="rotate({(idx + 1) * 30})" x="32" y="8" class="numeral">{numeral}</text>
+	{/each}
 </svg>
 
 <style lang="postcss">
