@@ -12,6 +12,7 @@
 	dayjs.extend(timezone);
 
 	import { now } from '../../util/now.js';
+	import { numeralStyles } from '../../data/consts.js';
 	import { settings } from '../settings.js';
 
 	// 'static' if the clock displays only one time
@@ -95,17 +96,6 @@
 					$settings[obj.palette == 'accent' ? 'accentColorPalette' : 'baseColorPalette']
 			  ][obj.lightness];
 	}
-
-	const numerals = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
-	const fourNumerals = ['', '', 'III', '', '', 'VI', '', '', 'IX', '', '', 'XII'];
-	const oneNumeral = ['', '', '', '', '', '', '', '', '', '', '', 'XII'];
-	const numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
-	const fourNumbers = ['', '', '3', '', '', '6', '', '', '9', '', '', '12'];
-	const oneNumber = ['', '', '', '', '', '', '', '', '', '', '', '12'];
-	const none = [];
-
-	// numerals dropdown, default none
-	// if not none, then color picker and font select as well
 </script>
 
 <!-- by using `opacity-0` instead of `hidden` or `{#if}` it ensures the clock continues in the background
@@ -115,20 +105,6 @@ so when switching to it, it continues moving instantly -->
 	id="clock"
 	viewBox="0 0 64 64"
 	class={$settings.clock.displays.primary !== 'analog' ? 'opacity-0' : ''}>
-	<style>
-		@font-face {
-			font-family: 'Bitter';
-			src: local('Bitter');
-		}
-		.numeral {
-			transform-origin: center;
-			font: bold 6px 'Bitter', sans-serif;
-			fill: white;
-			text-anchor: middle;
-			pointer-events: none;
-		}
-	</style>
-
 	<!-- Shadow -->
 	<rect
 		id="shadow"
@@ -189,10 +165,20 @@ so when switching to it, it continues moving instantly -->
 	</g>
 
 	<!-- Numerals -->
-	{#each numerals as numeral, idx}
-		<!-- y is middle of character -->
-		<text transform="rotate({(idx + 1) * 30})" x="32" y="8" class="numeral">{numeral}</text>
-	{/each}
+	<g fill={getColor($settings.clock.theme.numerals.fill)}>
+		{#each numeralStyles[$settings.clock.theme.numerals.style] as numeral, idx}
+			<!-- y is middle of character -->
+			<text
+				style="font: 600 6px '{$settings.clock.theme.numerals.fontFamily}', sans-serif;
+					transform-origin: center;
+					text-anchor: middle;
+					pointer-events: none;"
+				transform="rotate({(idx + 1) * 30})"
+				x="32"
+				y="8"
+				class="numeral">{numeral}</text>
+		{/each}
+	</g>
 </svg>
 
 <style lang="postcss">

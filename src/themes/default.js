@@ -30,6 +30,14 @@ const defaultTheme = {
 		strokeWidth: 0.5,
 		size: 1
 	},
+	numerals: {
+		style: 'none',
+		fontFamily: 'Arsenal',
+		fill: {
+			lightness: '700',
+			palette: 'base'
+		}
+	},
 	ticks: {
 		sm: {
 			stroke: {
