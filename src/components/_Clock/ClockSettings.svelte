@@ -146,7 +146,7 @@
 				{/each}
 			</select>
 
-			<div class="grid xl:grid-cols-3">
+			<div class="grid lg:grid-cols-2 xl:grid-cols-3">
 				<div>
 					<h3>{dictionary.clockSettings['Face']}</h3>
 					<div>
@@ -217,43 +217,44 @@
 						{/if}
 					{/if}
 				</div>
-			</div>
-
-			<div>
-				<h3>{dictionary.clockSettings['Numerals']}</h3>
 				<div>
-					<label for="numerals-select">{dictionary.clockSettings['Numeral Style:']}</label>
-					<select
-						id="numerals-select"
-						bind:value={$settings.clock.theme.numerals.style}
-						on:change={numeralsChange}>
-						{#each Object.keys(numeralStyles) as numeralStyle}
-							<option value={numeralStyle}
-								>{dictionary.labels['Numeral Styles'][numeralStyle]}</option>
-						{/each}
-					</select>
-				</div>
-				{#if $settings.clock.theme.numerals.style !== 'none'}
+					<h3>{dictionary.clockSettings['Numerals']}</h3>
 					<div>
-						<ColorSelector bind:colorObj={$settings.clock.theme.numerals.fill} label="Fill color" />
+						<label for="numerals-select">{dictionary.clockSettings['Numeral Style:']}</label>
+						<select
+							id="numerals-select"
+							bind:value={$settings.clock.theme.numerals.style}
+							on:change={numeralsChange}>
+							{#each Object.keys(numeralStyles) as numeralStyle}
+								<option value={numeralStyle}
+									>{dictionary.labels['Numeral Styles'][numeralStyle]}</option>
+							{/each}
+						</select>
 					</div>
+					{#if $settings.clock.theme.numerals.style !== 'none'}
+						<div>
+							<ColorSelector
+								bind:colorObj={$settings.clock.theme.numerals.fill}
+								label="Fill color" />
+						</div>
 
-					<label for="numerals-font-family-select">{dictionary.labels['Font family:']}</label>
-					<select
-						id="numerals-font-family-select"
-						bind:value={$settings.clock.theme.numerals.fontFamily}>
-						{#each Object.keys(fontFamilies) as fontFamily}
-							{#if fontFamily !== ''}
-								<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
-							{/if}
-						{/each}
-					</select>
-				{/if}
+						<label for="numerals-font-family-select">{dictionary.labels['Font family:']}</label>
+						<select
+							id="numerals-font-family-select"
+							bind:value={$settings.clock.theme.numerals.fontFamily}>
+							{#each Object.keys(fontFamilies) as fontFamily}
+								{#if fontFamily !== ''}
+									<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
+								{/if}
+							{/each}
+						</select>
+					{/if}
+				</div>
 			</div>
 
 			<h3>{dictionary.clockSettings['Ticks']}</h3>
 
-			<div class="grid xl:grid-cols-3">
+			<div class="grid lg:grid-cols-2 xl:grid-cols-3">
 				{#each ['sm', 'md', 'lg'] as size}
 					<div>
 						<h4>
@@ -292,7 +293,7 @@
 
 			<h3>{dictionary.clockSettings['Hands']}</h3>
 
-			<div class="grid xl:grid-cols-3">
+			<div class="grid lg:grid-cols-2 xl:grid-cols-3">
 				{#each ['hour', 'minute', 'second'] as hand}
 					<div>
 						<h4>
