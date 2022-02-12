@@ -14,6 +14,26 @@ bug: static time on preview clock not working
 future:
 condence logic for clock settings
 
+timekeeping factoids (carousel/banner or carousel in settings?)
+
+social:
+ability to share clock themes with other people (url param) dialog showing preview and asking if you want to set this or save it
+export and import json for theme (plain text)
+paragraph about tweet at desktopclockapp a screenshot of your creative analog clock for a chance to be featured on twitter
+
+fix email desktop+clock+feedback plus signs are encoded instead of spaces
+
+USER REQUESTS
+====
+numerals on analog clock? (1,2,3 i,ii,iii)
+
+small height screens with title idle, move primary display up
+
+add link to always on top mode english windows instructions: https://docs.google.com/document/d/1tWcvxp2cgEGiMvBGkdxTtrqgnvOrLAZBWHOUUgSSTaM
+add faq doc with all info from email support
+
+====
+
 main todo:
 get linting/formatting on all devices, update readme with instructions for new device
 
