@@ -419,7 +419,7 @@
 					on:mouseout={() => (hoveringContact = false)}
 					on:blur={() => (hoveringContact = false)}
 					on:click={() =>
-						window.open('mailto:contact@justingolden.me?subject=Desktop+Clock+Feedback')}>
+						window.open('mailto:contact@justingolden.me?subject=Desktop%20Clock%20Feedback')}>
 					<Icon name={hoveringContact ? 'envelope_open' : 'envelope'} class="inline w-6 h-6" />
 					{dictionary.labels['Send feedback']}
 				</button>
