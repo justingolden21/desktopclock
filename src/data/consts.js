@@ -7,6 +7,16 @@ export const lightnesses = ['50', '100', '200', '300', '400', '500', '600', '700
 
 export const movements = ['sweeping', 'grandfather', 'modern'];
 
+export const numeralStyles = {
+	numerals: ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'],
+	fourNumerals: ['', '', 'III', '', '', 'VI', '', '', 'IX', '', '', 'XII'],
+	// oneNumeral: ['', '', '', '', '', '', '', '', '', '', '', 'XII'],
+	numbers: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+	fourNumbers: ['', '', '3', '', '', '6', '', '', '9', '', '', '12'],
+	// oneNumber: ['', '', '', '', '', '', '', '', '', '', '', '12'],
+	none: []
+};
+
 export const fontFamilies = {
 	'Aldrich': [400],
 	'Arsenal': [400, 700],

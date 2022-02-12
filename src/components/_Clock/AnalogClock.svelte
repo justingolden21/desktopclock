@@ -12,6 +12,7 @@
 	dayjs.extend(timezone);
 
 	import { now } from '../../util/now.js';
+	import { numeralStyles } from '../../data/consts.js';
 	import { settings } from '../settings.js';
 
 	// 'static' if the clock displays only one time
@@ -128,7 +129,7 @@ so when switching to it, it continues moving instantly -->
 		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0} />
 	<g transform="translate(32,32)">
 		<!-- Ticks -->
-		{#each sizes as { size, r }, index}
+		{#each sizes as { size, r }}
 			<circle
 				id="{size}-ticks"
 				fill="none"
@@ -143,7 +144,7 @@ so when switching to it, it continues moving instantly -->
 
 		<!-- Hands -->
 		<g transform="rotate(180)">
-			{#each ['hour', 'minute', 'second'] as hand, index}
+			{#each ['hour', 'minute', 'second'] as hand}
 				<line
 					id="{hand}-hand"
 					transform="rotate({angles[hand]})"
@@ -161,6 +162,22 @@ so when switching to it, it continues moving instantly -->
 			stroke={getColor(theme.pin.stroke)}
 			stroke-width={theme.pin.strokeWidth}
 			r={theme.pin.size} />
+	</g>
+
+	<!-- Numerals -->
+	<g fill={getColor($settings.clock.theme.numerals.fill)}>
+		{#each numeralStyles[$settings.clock.theme.numerals.style] as numeral, idx}
+			<!-- y is middle of character -->
+			<text
+				style="font: 600 6px '{$settings.clock.theme.numerals.fontFamily}', sans-serif;
+					transform-origin: center;
+					text-anchor: middle;
+					pointer-events: none;"
+				transform="rotate({(idx + 1) * 30})"
+				x="32"
+				y="8"
+				class="numeral">{numeral}</text>
+		{/each}
 	</g>
 </svg>
 

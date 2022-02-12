@@ -13,7 +13,7 @@
 	import Modal from '../Modal.svelte';
 	import AnalogClock from './AnalogClock.svelte';
 	import ColorSelector from './ColorSelector.svelte';
-	import { fontFamilies, movements } from '../../data/consts.js';
+	import { fontFamilies, movements, numeralStyles } from '../../data/consts.js';
 
 	import defaultTheme from '../../themes/default';
 	import defaultNightTheme from '../../themes/defaultNight';
@@ -28,6 +28,35 @@
 	onMount(() => {
 		batterySupported = navigator && navigator.getBattery;
 	});
+
+	// check and hide ticks behind numerals
+	function numeralsChange(evt) {
+		const hideTicks = (size) => {
+			// if face is transparent, don't bother
+			if ($settings.clock.theme.face.fill.lightness === '-1') return;
+
+			// set the ticks to be same color as face
+			// (if we just make it width 0 or lightness -1, the smaller ticks show through)
+			$settings.clock.theme.ticks[size].stroke.lightness =
+				$settings.clock.theme.face.fill.lightness;
+			$settings.clock.theme.ticks[size].stroke.palette = $settings.clock.theme.face.fill.palette;
+
+			// prevent other ticks from showing through
+			$settings.clock.theme.ticks[size].width =
+				Math.max($settings.clock.theme.ticks['md'].width, $settings.clock.theme.ticks['sm'].width) +
+				0.5;
+			$settings.clock.theme.ticks[size].height =
+				Math.max(
+					$settings.clock.theme.ticks['md'].height,
+					$settings.clock.theme.ticks['sm'].height
+				) + 0.5;
+		};
+		const style = evt.target.value;
+		const lgStyles = ['numerals', 'fourNumerals', 'numbers', 'fourNumbers'];
+		const mdStyles = ['numerals', 'numbers'];
+		if (mdStyles.includes(style)) hideTicks('md');
+		if (lgStyles.includes(style)) hideTicks('lg');
+	}
 </script>
 
 <Accordion key="1">
@@ -117,7 +146,7 @@
 				{/each}
 			</select>
 
-			<div class="grid xl:grid-cols-3">
+			<div class="grid lg:grid-cols-2 xl:grid-cols-3">
 				<div>
 					<h3>{dictionary.clockSettings['Face']}</h3>
 					<div>
@@ -188,12 +217,45 @@
 						{/if}
 					{/if}
 				</div>
+				<div>
+					<h3>{dictionary.clockSettings['Numerals']}</h3>
+					<div>
+						<label for="numerals-select">{dictionary.clockSettings['Numeral Style:']}</label>
+						<select
+							id="numerals-select"
+							bind:value={$settings.clock.theme.numerals.style}
+							on:change={numeralsChange}>
+							{#each Object.keys(numeralStyles) as numeralStyle}
+								<option value={numeralStyle}
+									>{dictionary.labels['Numeral Styles'][numeralStyle]}</option>
+							{/each}
+						</select>
+					</div>
+					{#if $settings.clock.theme.numerals.style !== 'none'}
+						<div>
+							<ColorSelector
+								bind:colorObj={$settings.clock.theme.numerals.fill}
+								label="Fill color" />
+						</div>
+
+						<label for="numerals-font-family-select">{dictionary.labels['Font family:']}</label>
+						<select
+							id="numerals-font-family-select"
+							bind:value={$settings.clock.theme.numerals.fontFamily}>
+							{#each Object.keys(fontFamilies) as fontFamily}
+								{#if fontFamily !== ''}
+									<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
+								{/if}
+							{/each}
+						</select>
+					{/if}
+				</div>
 			</div>
 
 			<h3>{dictionary.clockSettings['Ticks']}</h3>
 
-			<div class="grid xl:grid-cols-3">
-				{#each ['sm', 'md', 'lg'] as size, i}
+			<div class="grid lg:grid-cols-2 xl:grid-cols-3">
+				{#each ['sm', 'md', 'lg'] as size}
 					<div>
 						<h4>
 							{dictionary.clockSettings[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
@@ -231,8 +293,8 @@
 
 			<h3>{dictionary.clockSettings['Hands']}</h3>
 
-			<div class="grid xl:grid-cols-3">
-				{#each ['hour', 'minute', 'second'] as hand, i}
+			<div class="grid lg:grid-cols-2 xl:grid-cols-3">
+				{#each ['hour', 'minute', 'second'] as hand}
 					<div>
 						<h4>
 							{dictionary.clockSettings[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
