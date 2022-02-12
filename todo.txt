@@ -22,6 +22,8 @@ submit your clock to be a theme for everyone
 add link to always on top mode english windows instructions: https://docs.google.com/document/d/1tWcvxp2cgEGiMvBGkdxTtrqgnvOrLAZBWHOUUgSSTaM
 add faq doc with all info from email support
 
+need to make a component for generic select with label similar to color picker component (to clean up clock settings)
+
 USER REQUESTS
 ====
 ====
