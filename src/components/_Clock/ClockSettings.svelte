@@ -193,7 +193,7 @@
 			<h3>{dictionary.clockSettings['Ticks']}</h3>
 
 			<div class="grid xl:grid-cols-3">
-				{#each ['sm', 'md', 'lg'] as size, i}
+				{#each ['sm', 'md', 'lg'] as size}
 					<div>
 						<h4>
 							{dictionary.clockSettings[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
@@ -232,7 +232,7 @@
 			<h3>{dictionary.clockSettings['Hands']}</h3>
 
 			<div class="grid xl:grid-cols-3">
-				{#each ['hour', 'minute', 'second'] as hand, i}
+				{#each ['hour', 'minute', 'second'] as hand}
 					<div>
 						<h4>
 							{dictionary.clockSettings[{ hour: 'Hour', minute: 'Minute', second: 'Second' }[hand]]}
