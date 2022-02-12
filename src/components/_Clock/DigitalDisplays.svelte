@@ -132,25 +132,25 @@
 
 <style lang="postcss">
 	#primary-display {
-		position: absolute;
-		top: 25%;
-		left: 0%;
-		right: 0%;
+		@apply top-[15%] short:top-[10%] supershort:top-[0%] tall:top-[20%] absolute left-0 right-0;
 		font-weight: var(--primary-font-weight);
 	}
 
 	#primary-display h1 {
-		@apply tracking-widest text-center leading-snug;
+		@apply tracking-widest text-center leading-snug px-8;
 	}
 
 	#primary-display.text-small h1 {
-		@apply text-6xl md:text-7xl lg:text-8xl xl:text-9xl px-8;
+		@apply text-6xl md:text-7xl lg:text-8xl xl:text-9xl;
+		@apply supershort:text-4xl short:text-5xl supershort:md:text-6xl short:lg:text-7xl;
 	}
 	#primary-display h1 {
-		@apply text-7xl md:text-8xl lg:text-9xl xl:text-10xl px-8;
+		@apply text-7xl md:text-8xl lg:text-9xl xl:text-10xl;
+		@apply supershort:text-5xl short:text-6xl supershort:md:text-7xl short:lg:text-8xl;
 	}
 	#primary-display.text-large h1 {
-		@apply text-8xl md:text-9xl lg:text-10xl xl:text-11xl px-8;
+		@apply text-8xl md:text-9xl lg:text-10xl xl:text-11xl;
+		@apply supershort:text-6xl short:text-7xl supershort:md:text-8xl short:lg:text-9xl;
 	}
 
 	#primary-display.datetime.text-small h1 {
@@ -196,7 +196,7 @@
 
 	#secondary-display,
 	#battery-display {
-		@apply absolute bottom-0;
+		@apply absolute bottom-0 supershort:opacity-0;
 	}
 	#secondary-display {
 		@apply left-0 w-full;

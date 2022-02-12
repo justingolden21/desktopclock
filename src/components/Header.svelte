@@ -60,7 +60,7 @@
 	class="transition-opacity duration-300 
     {$settings.hideTitlebarWhenIdle && ($now - timeSinceMove) / 1000 > $settings.secondsUntilIdle
 		? 'opacity-0'
-		: 'opacity-100'}">
+		: 'opacity-100 supershort:opacity-0'}">
 	<button
 		class="icon-btn float-left absolute top-4 left-4 z-20 {$settings.alwaysCollapseMenu ||
 		isFullscreen
