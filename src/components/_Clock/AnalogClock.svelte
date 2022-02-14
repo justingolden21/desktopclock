@@ -112,9 +112,7 @@ so when switching to it, it continues moving instantly -->
 		y="2"
 		width="60"
 		height="60"
-		fill={theme.face.fill.lightness == '-1' || theme.shadow.fill.lightness == '-1'
-			? 'none'
-			: baseColorPalette[theme.shadow.fill.lightness]}
+		fill={getColor(theme.shadow.fill)}
 		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0} />
 	<!-- Face -->
 	<rect
