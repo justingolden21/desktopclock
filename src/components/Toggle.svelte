@@ -16,11 +16,11 @@
 
 <style lang="postcss">
 	.toggle-checkbox {
-		@apply left-0 absolute block w-6 h-6 rounded-full bg-white border-base-200 border-4 appearance-none cursor-pointer;
+		@apply left-0 absolute block w-6 h-6 rounded-full bg-white border-base-300 border-4 appearance-none cursor-pointer;
 		transition: left 0.25s;
 	}
 	.toggle-checkbox:checked {
-		@apply left-6 border-base-400;
+		@apply left-6 border-base-500;
 	}
 	.toggle-checkbox + .toggle-bg {
 		@apply block overflow-hidden h-6 rounded-full bg-base-300 cursor-pointer transition-colors;
@@ -30,10 +30,10 @@
 	}
 
 	:global(.dark) .toggle-checkbox {
-		@apply bg-base-100 border-base-300;
+		@apply bg-base-100 border-base-400;
 	}
 	:global(.dark) .toggle-checkbox:checked {
-		@apply border-base-500;
+		@apply border-base-600;
 	}
 	:global(.dark) .toggle-checkbox + .toggle-bg {
 		@apply bg-base-400;
