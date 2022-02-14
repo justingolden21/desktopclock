@@ -78,7 +78,7 @@
 		const win = window.open(
 			url,
 			'_blank',
-			`width=${width},height=${height},left=${left},top=${top},titlebar=no,toolbar=no,location=no,status=no`,
+			`width=${width},height=${height},left=${left},top=${top},titlebar=no,toolbar=no,menubar=no,location=no,status=no`,
 			false
 		);
 		win.focus();
@@ -612,6 +612,7 @@
 		<p>
 			{dictionary.about.shareText.split('{{sharing}}')[0]}
 			<button class="font-bold hover:underline" on:click={() => shareApp(dictionary)}>
+				<!-- svelte-ignore a11y-missing-attribute -->
 				<a>{dictionary.about['sharing']}</a>
 			</button>
 			{dictionary.about.shareText.split('{{sharing}}')[1]}
