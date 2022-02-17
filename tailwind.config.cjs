@@ -36,6 +36,11 @@ module.exports = {
 			'11xl': '12rem'
 		},
 		extend: {
+			screens: {
+				supershort: { raw: '(max-height: 240px)' },
+				short: { raw: '(max-height: 480px)' },
+				tall: { raw: '(min-height: 720px)' }
+			},
 			colors: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'].reduce(
 				(obj, item) => {
 					return {

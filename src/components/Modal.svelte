@@ -48,7 +48,7 @@
 		@apply xs:p-3 sm:p-6 md:p-12 fixed left-0 top-0 w-full h-full bg-base-300 bg-opacity-75 z-20;
 	}
 	.modal-content {
-		@apply flex flex-col h-full p-2 xs:p-8 xs:pt-4 relative m-auto w-full md:w-3/4 border-2 border-base-200 bg-base-100 bg-opacity-75 backdrop-blur-sm;
+		@apply flex flex-col max-h-full p-2 xs:p-8 xs:pt-4 relative m-auto w-full md:w-3/4 border-2 border-base-200 bg-base-100 bg-opacity-75 backdrop-blur-sm;
 		animation: animateTop 0.25s;
 		-webkit-animation: animateTop 0.25s;
 	}

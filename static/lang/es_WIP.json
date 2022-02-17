@@ -50,6 +50,7 @@
 		"Seconds until idle:": "Seconds until idle:",
 		"Heading font family:": "Heading font family:",
 		"Body font family:": "Body font family:",
+		"Font family:": "Font family:",
 		"Reset appearance settings": "Reset appearance settings",
 		"Application": "Application",
 		"Shortcuts": "Shortcuts",
@@ -70,6 +71,14 @@
 		"Advanced / Experimental": "Advanced / Experimental",
 		"Keep screen awake": "Keep screen awake",
 		"Delete settings and reload": "Delete settings and reload",
+
+		"Numeral Styles": {
+			"numerals": "Numerals",
+			"fourNumerals": "4 Numerals",
+			"numbers": "Numbers",
+			"fourNumbers": "4 Numbers",
+			"none": "None"
+		},
 
 		"Font Weights": [
 			"",
@@ -127,10 +136,13 @@
 
 		"Datetime Formatting": "Datetime Formatting",
 
+		"Numeral Style:": "Numeral Style:",
+
 		"Face": "Face",
 		"Shadow": "Shadow",
 		"Pin": "Pin",
 		"Ticks": "Ticks",
+		"Numerals": "Numerals",
 		"Hands": "Hands",
 
 		"Small": "Small",
@@ -172,8 +184,8 @@
 		]
 	},
 	"display": {
-		"Stroke color:": "Stroke color:",
-		"Fill color:": "Fill color:",
+		"Stroke color": "Stroke color",
+		"Fill color": "Fill color",
 		"Color:": "Color:",
 		"Stroke width:": "Stroke width:",
 		"Size:": "Size:",

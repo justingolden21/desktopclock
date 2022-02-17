@@ -7,12 +7,28 @@ resources arent cached until used in service worker
 
 make tailwind vs code extension style `base-` colors in code as if it is `slate-` (showing gray preview square)
 
-bug: static time on preview clock not working
+timekeeping factoids (carousel/banner or carousel in settings?)
 
+numerals:
+font weight options?
+option for only one numeral at top? rework tick system?
+
+social:
+ability to share clock themes with other people (url param) dialog showing preview and asking if you want to set this or save it
+export and import json for theme (plain text)
+paragraph about tweet at desktopclockapp a screenshot of your creative analog clock for a chance to be featured on twitter
+submit your clock to be a theme for everyone
+
+add link to always on top mode english windows instructions: https://docs.google.com/document/d/1tWcvxp2cgEGiMvBGkdxTtrqgnvOrLAZBWHOUUgSSTaM
+add faq doc with all info from email support
+
+need to make a component for generic select with label similar to color picker component (to clean up clock settings)
+
+wrap localstorage import in try catch and if it errors then just go to default settings?
+
+USER REQUESTS
 ====
-
-future:
-condence logic for clock settings
+====
 
 main todo:
 get linting/formatting on all devices, update readme with instructions for new device
