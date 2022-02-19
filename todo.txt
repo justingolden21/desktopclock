@@ -471,6 +471,7 @@ misc unsorted:
 Timer, countdown, stopwatch, kitchen/exam/exercise/running, time and date calculations, time since, time until, alarms, svelte, moment
 Sleep cycle, world clock, workout mode (set a number of different timers in a row, for rest and excersize, give them each labels)
 Desktop Clock: calendar, sunrise / sunset info
+countdown until sunrise/sunset
 chess clock, calendar
 Milliseconds option for stopwatch, swim clock option for only mins and sec, Chromecast button
 Quick copy inputs and buttons for date, time, and both in one with formatting options (for entering current date/time in a spreadsheet for example)
