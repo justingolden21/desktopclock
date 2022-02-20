@@ -56,7 +56,7 @@
 				Math.max(
 					$settings.clock.theme.ticks['md'].height,
 					$settings.clock.theme.ticks['sm'].height
-				) + 0.5;
+				) + 1;
 		};
 		const style = evt.target.value;
 		const lgStyles = ['numerals', 'fourNumerals', 'numbers', 'fourNumbers'];
