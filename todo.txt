@@ -28,7 +28,6 @@ wrap localstorage import in try catch and if it errors then just go to default s
 
 CURRENT TODO
 ====
-numerals should be behind hands
 
 remove wrapper divs that arent needed
 

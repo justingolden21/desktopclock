@@ -113,6 +113,7 @@ so when switching to it, it continues moving instantly -->
 		height="60"
 		fill={getColor(theme.shadow.fill)}
 		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0} />
+
 	<!-- Face -->
 	<rect
 		id="face"
@@ -124,8 +125,9 @@ so when switching to it, it continues moving instantly -->
 		stroke={getColor(theme.face.stroke)}
 		stroke-width={theme.face.strokeWidth}
 		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0} />
+
+	<!-- Ticks -->
 	<g transform="translate(32,32)">
-		<!-- Ticks -->
 		{#each sizes as { size, r }}
 			<circle
 				id="{size}-ticks"
@@ -138,27 +140,6 @@ so when switching to it, it continues moving instantly -->
 				stroke-width={theme.ticks[size].width}
 				transform={`rotate(-${theme.ticks[size].height})`} />
 		{/each}
-
-		<!-- Hands -->
-		<g transform="rotate(180)">
-			{#each ['hour', 'minute', 'second'] as hand}
-				<line
-					id="{hand}-hand"
-					transform="rotate({angles[hand]})"
-					y1={-theme.hands[hand].back}
-					y2={theme.hands[hand].length}
-					stroke={getColor(theme.hands[hand].stroke)}
-					stroke-width={theme.hands[hand].strokeWidth}
-					stroke-linecap={theme.hands[hand].linecap} />
-			{/each}
-		</g>
-		<!-- Pin -->
-		<circle
-			id="pin"
-			fill={getColor(theme.pin.fill)}
-			stroke={getColor(theme.pin.stroke)}
-			stroke-width={theme.pin.strokeWidth}
-			r={theme.pin.size} />
 	</g>
 
 	<!-- Numerals -->
@@ -176,6 +157,30 @@ so when switching to it, it continues moving instantly -->
 				class="numeral">{numeral}</text>
 		{/each}
 	</g>
+
+	<!-- Hands -->
+	<g transform="translate(32,32) rotate(180)">
+		{#each ['hour', 'minute', 'second'] as hand}
+			<line
+				id="{hand}-hand"
+				transform="rotate({angles[hand]})"
+				y1={-theme.hands[hand].back}
+				y2={theme.hands[hand].length}
+				stroke={getColor(theme.hands[hand].stroke)}
+				stroke-width={theme.hands[hand].strokeWidth}
+				stroke-linecap={theme.hands[hand].linecap} />
+		{/each}
+	</g>
+
+	<!-- Pin -->
+	<circle
+		cx="32"
+		cy="32"
+		id="pin"
+		fill={getColor(theme.pin.fill)}
+		stroke={getColor(theme.pin.stroke)}
+		stroke-width={theme.pin.strokeWidth}
+		r={theme.pin.size} />
 </svg>
 
 <style lang="postcss">
