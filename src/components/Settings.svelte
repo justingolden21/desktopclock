@@ -153,7 +153,7 @@
 
 	onMount(setupCasting);
 
-	import dayjs, { tz } from 'dayjs';
+	import dayjs from 'dayjs';
 
 	import { setupCasting, castClock, isCastSupported } from '../util/cast.js';
 
