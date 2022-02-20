@@ -12,8 +12,8 @@
 	import Toggle from '../Toggle.svelte';
 	import Modal from '../Modal.svelte';
 	import AnalogClock from './AnalogClock.svelte';
-	import ColorSelector from './ColorSelector.svelte';
 	import { fontFamilies, movements, numeralStyles } from '../../data/consts.js';
+	import ColorSelector from '../ColorSelector.svelte';
 
 	import defaultTheme from '../../themes/default';
 	import defaultNightTheme from '../../themes/defaultNight';
