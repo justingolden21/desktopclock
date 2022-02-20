@@ -42,8 +42,10 @@
 		"Show secondary toggle button": "Show secondary toggle button",
 		"Show cast button": "Show cast button",
 		"Show fullscreen button": "Show fullscreen button",
-		"Base Palette": "Base Palette",
-		"Accent Palette": "Accent Palette",
+		"palettes": {
+			"base": "Base Palette",
+			"accent": "Accent Palette"
+		},
 		"Smaller menu": "Smaller menu",
 		"Always collapse menu": "Always collapse menu",
 		"Hide title bar when idle": "Hide title bar when idle",
@@ -112,11 +114,13 @@
 
 		"Primary display:": "Primary display:",
 		"Secondary display:": "Secondary display:",
-		"Analog clock": "Analog clock",
-		"Digital time": "Digital time",
-		"Date": "Date",
-		"Date + digital time": "Date + digital time",
-		"None": "None",
+		"clockFormats": {
+			"analog": "Analog clock",
+			"time": "Digital time",
+			"date": "Date",
+			"datetime": "Date + digital time",
+			"none": "None"
+		},
 		"Show battery": "Afficher l'information de la batterie",
 
 		"Default Theme": "Default Theme",
@@ -145,9 +149,11 @@
 		"Numerals": "Numerals",
 		"Hands": "Hands",
 
-		"Small": "Small",
-		"Medium": "Medium",
-		"Large": "Large",
+		"sizes": {
+			"small": "Small",
+			"medium": "Medium",
+			"large": "Large"
+		},
 
 		"Hour": "Hour",
 		"Minute": "Minute",
@@ -200,14 +206,14 @@
 		"System default": "System default",
 
 		"shapes": {
-			"Circle": "Circle",
-			"Rounded Square": "Rounded Square",
-			"Square": "Square"
+			"circle": "Circle",
+			"rounded": "Rounded Square",
+			"square": "Square"
 		},
 
 		"linecaps": {
-			"Round": "Round",
-			"Square": "Square"
+			"round": "Round",
+			"square": "Square"
 		}
 	},
 	"about": {

@@ -168,6 +168,7 @@
 	import { Toasts, addToast } from './Toast/_toast.js';
 	import timezones from '../data/timezones';
 	import { keyboardShortcutsList } from './KeyboardShortcuts.svelte';
+	import SettingSelect from './SettingSelect.svelte';
 	import ClockSettings from './_Clock/ClockSettings.svelte';
 	import defaultNightTheme from '../themes/defaultNight';
 
@@ -187,6 +188,16 @@
 	let keyboardShortcutModal;
 
 	let hoveringContact = false;
+
+	function fontFamilyChange(evt) {
+		const family = evt.target.value;
+		const weight = $settings.clock.datetimeFontWeight;
+		// if selected font does not have selected weight
+		if (fontFamilies[family].indexOf(weight) == -1) {
+			// default to first listed weight
+			$settings.clock.datetimeFontWeight = fontFamilies[family][0].toString();
+		}
+	}
 </script>
 
 <!-- dirty trick to cache fonts when opening settings (for PWA) -->
@@ -222,11 +233,11 @@
 	<!-- Appearance -->
 	<TabPanel>
 		<div class="mb-2">
-			<h3>{dictionary.labels['Base Palette']}</h3>
+			<h3>{dictionary.labels.palettes.base}</h3>
 			<ThemeButtons
 				colors={['slate', 'gray', 'zinc', 'neutral', 'stone']}
 				theme="baseColorPalette" />
-			<h3>{dictionary.labels['Accent Palette']}</h3>
+			<h3>{dictionary.labels.palettes.accent}</h3>
 			<ThemeButtons
 				colors={[
 					'rose',
@@ -322,40 +333,22 @@
 			<br />
 		{/if}
 
-		<label for="font-family-select">{dictionary.labels['Heading font family:']}</label>
-		<select
+		<SettingSelect
 			id="font-family-select"
+			selectLabel={dictionary.labels['Heading font family:']}
 			bind:value={$settings.fontFamily}
-			on:change={(e) => {
-				const family = e.target.value;
-				const weight = $settings.clock.datetimeFontWeight;
-				// if selected font does not have selected weight
-				if (fontFamilies[family].indexOf(weight) == -1) {
-					// default to first listed weight
-					$settings.clock.datetimeFontWeight = fontFamilies[family][0].toString();
-				}
-			}}>
-			{#each Object.keys(fontFamilies) as fontFamily}
-				{#if fontFamily !== ''}
-					<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
-				{/if}
-			{/each}
-			<!-- https://tailwindcss.com/docs/font-family -->
-			<option value="" style={systemFontFamilies}>{dictionary.display['System default']}</option>
-		</select>
+			onchange={fontFamilyChange}
+			values={Object.keys(fontFamilies)}
+			dynamicFont={true} />
 
 		<br />
 
-		<label for="font-family-body-select">{dictionary.labels['Body font family:']}</label>
-		<select id="font-family-body-select" bind:value={$settings.fontFamilyBody}>
-			{#each Object.keys(fontFamilies) as fontFamily}
-				{#if fontFamily !== ''}
-					<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
-				{/if}
-			{/each}
-			<!-- https://tailwindcss.com/docs/font-family -->
-			<option value="" style={systemFontFamilies}>{dictionary.display['System default']}</option>
-		</select>
+		<SettingSelect
+			id="font-family-body-select"
+			selectLabel={dictionary.labels['Body font family:']}
+			bind:value={$settings.fontFamilyBody}
+			values={Object.keys(fontFamilies)}
+			dynamicFont={true} />
 
 		<button
 			class="btn undo-btn block"
@@ -517,16 +510,15 @@
 			</AccordionPanel>
 			<AccordionPanel accordionTitle={dictionary.labels['Locale']} key="3">
 				<div class="block mb-2">
-					<label for="language-select">{dictionary.labels['Language:']}</label>
-					<select
+					<SettingSelect
 						id="language-select"
+						selectLabel={dictionary.labels['Language:']}
 						disabled={$settings.locale.automaticLanguage}
 						bind:value={$settings.locale.language}
-						on:change={changeLanguage}>
-						{#each supportedLangs as lang}
-							<option value={lang}>{dictionary.languages[lang]}</option>
-						{/each}
-					</select>
+						onChange={changeLanguage}
+						values={supportedLangs}
+						labels={dictionary.languages} />
+
 					<br class="block lg:hidden" />
 					<Toggle
 						id="auto-detect-language-toggle"
@@ -543,15 +535,13 @@
 						}} />
 				</div>
 				<div class="block mb-2">
-					<label for="datetime-locale-select">{dictionary.labels['Datetime locale:']}</label>
-					<select
+					<SettingSelect
 						id="datetime-locale-select"
+						selectLabel={dictionary.labels['Datetime locale:']}
 						disabled={$settings.locale.automaticDatetime}
-						bind:value={$settings.locale.datetime}>
-						{#each locales as locale}
-							<option value={locale}>{locale}</option>
-						{/each}
-					</select>
+						bind:value={$settings.locale.datetime}
+						values={locales} />
+
 					<br class="block lg:hidden" />
 					<Toggle
 						id="auto-detect-datetime-locale-toggle"

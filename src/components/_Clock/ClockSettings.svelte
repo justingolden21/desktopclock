@@ -12,8 +12,15 @@
 	import Toggle from '../Toggle.svelte';
 	import Modal from '../Modal.svelte';
 	import AnalogClock from './AnalogClock.svelte';
-	import { fontFamilies, movements, numeralStyles } from '../../data/consts.js';
 	import ColorSelector from '../ColorSelector.svelte';
+	import SettingSelect from '../SettingSelect.svelte';
+	import {
+		fontFamilies,
+		movements,
+		numeralStyles,
+		defaultTimeFormats,
+		defaultDateFormats
+	} from '../../data/consts.js';
 
 	import defaultTheme from '../../themes/default';
 	import defaultNightTheme from '../../themes/defaultNight';
@@ -62,44 +69,44 @@
 <Accordion key="1">
 	<AccordionPanel accordionTitle={dictionary.clockSettings['Displays']} key="1">
 		<div>
-			<label for="primary-display-select">{dictionary.clockSettings['Primary display:']}</label>
-			<select id="primary-display-select" bind:value={$settings.clock.displays.primary}>
-				<option value="analog">{dictionary.clockSettings['Analog clock']}</option>
-				<option value="time">{dictionary.clockSettings['Digital time']}</option>
-				<option value="date">{dictionary.clockSettings['Date']}</option>
-				<option value="datetime">{dictionary.clockSettings['Date + digital time']}</option>
-			</select>
+			<SettingSelect
+				id="primary-display-select"
+				selectLabel={dictionary.clockSettings['Primary display:']}
+				bind:value={$settings.clock.displays.primary}
+				values={['analog', 'time', 'date', 'datetime']}
+				labels={dictionary.clockSettings.clockFormats} />
+
 			{#if $settings.clock.displays.primary !== 'analog'}
-				<select bind:value={$settings.clock.displays.primaryPalette}>
-					<option value="base">{dictionary.labels['Base Palette']}</option>
-					<option value="accent">{dictionary.labels['Accent Palette']}</option>
-				</select>
-				<select bind:value={$settings.clock.displays.primaryFontSize}>
-					{#each ['Small', 'Medium', 'Large'] as size}
-						<option value={size.toLowerCase()}>{dictionary.clockSettings[size]}</option>
-					{/each}
-				</select>
+				<SettingSelect
+					bind:value={$settings.clock.displays.primaryPalette}
+					values={['base', 'accent']}
+					labels={dictionary.labels.palettes} />
+
+				<SettingSelect
+					bind:value={$settings.clock.displays.primaryFontSize}
+					values={['small', 'medium', 'large']}
+					labels={dictionary.clockSettings.sizes} />
 			{/if}
 		</div>
 
 		<div>
-			<label for="secondary-display-select">{dictionary.clockSettings['Secondary display:']}</label>
-			<select id="secondary-display-select" bind:value={$settings.clock.displays.secondary}>
-				<option value="time">{dictionary.clockSettings['Digital time']}</option>
-				<option value="date">{dictionary.clockSettings['Date']}</option>
-				<option value="datetime">{dictionary.clockSettings['Date + digital time']}</option>
-				<option value="none">{dictionary.clockSettings['None']}</option>
-			</select>
+			<SettingSelect
+				id="secondary-display-select"
+				selectLabel={dictionary.clockSettings['Secondary display:']}
+				bind:value={$settings.clock.displays.secondary}
+				values={['time', 'date', 'datetime', 'none']}
+				labels={dictionary.clockSettings.clockFormats} />
+
 			{#if $settings.clock.displays.secondary !== 'none'}
-				<select bind:value={$settings.clock.displays.secondaryPalette}>
-					<option value="base">{dictionary.labels['Base Palette']}</option>
-					<option value="accent">{dictionary.labels['Accent Palette']}</option>
-				</select>
-				<select bind:value={$settings.clock.displays.secondaryFontSize}>
-					{#each ['Small', 'Medium', 'Large'] as size}
-						<option value={size.toLowerCase()}>{dictionary.clockSettings[size]}</option>
-					{/each}
-				</select>
+				<SettingSelect
+					bind:value={$settings.clock.displays.secondaryPalette}
+					values={['base', 'accent']}
+					labels={dictionary.labels.palettes} />
+
+				<SettingSelect
+					bind:value={$settings.clock.displays.secondaryFontSize}
+					values={['small', 'medium', 'large']}
+					labels={dictionary.clockSettings.sizes} />
 			{/if}
 		</div>
 
@@ -138,13 +145,12 @@
 
 			<br />
 
-			<label for="second-hand-movement-select"
-				>{dictionary.clockSettings['Second hand movement:']}</label>
-			<select id="second-hand-movement-select" bind:value={$settings.clock.secondHandMovement}>
-				{#each movements as movement}
-					<option value={movement}>{dictionary.labels['Movements'][movement]}</option>
-				{/each}
-			</select>
+			<SettingSelect
+				id="second-hand-movement-select"
+				selectLabel={dictionary.clockSettings['Second hand movement:']}
+				bind:value={$settings.clock.secondHandMovement}
+				values={movements}
+				labels={dictionary.labels['Movements']} />
 
 			<div class="grid lg:grid-cols-2 xl:grid-cols-3">
 				<div>
@@ -153,14 +159,11 @@
 						<ColorSelector bind:colorObj={$settings.clock.theme.face.fill} label="Fill color" />
 					</div>
 					<div>
-						<label for="face-stroke-width-select">{dictionary.display['Stroke width:']}</label>
-						<select
+						<SettingSelect
 							id="face-stroke-width-select"
-							bind:value={$settings.clock.theme.face.strokeWidth}>
-							{#each Array(6) as _, i}
-								<option value={i}>{i}</option>
-							{/each}
-						</select>
+							selectLabel={dictionary.display['Stroke width:']}
+							bind:value={$settings.clock.theme.face.strokeWidth}
+							values={[...Array(6).keys()]} />
 					</div>
 					{#if $settings.clock.theme.face.strokeWidth !== 0}
 						<div>
@@ -170,12 +173,12 @@
 						</div>
 					{/if}
 					<div>
-						<label for="face-shape-select">{dictionary.display['Shape:']}</label>
-						<select id="face-shape-select" bind:value={$settings.clock.theme.face.shape}>
-							<option value="circle">{dictionary.display.shapes['Circle']}</option>
-							<option value="rounded">{dictionary.display.shapes['Rounded Square']}</option>
-							<option value="square">{dictionary.display.shapes['Square']}</option>
-						</select>
+						<SettingSelect
+							id="face-shape-select"
+							selectLabel={dictionary.display['Shape:']}
+							bind:value={$settings.clock.theme.face.shape}
+							values={['circle', 'rounded', 'square']}
+							labels={dictionary.display.shapes} />
 					</div>
 				</div>
 				<div>
@@ -187,26 +190,22 @@
 				<div>
 					<h3>{dictionary.clockSettings['Pin']}</h3>
 					<div>
-						<label for="pin-size-select">{dictionary.display['Size:']}</label>
-						<select id="pin-size-select" bind:value={$settings.clock.theme.pin.size}>
-							{#each Array(6) as _, i}
-								<option value={i / 2}>{i / 2}</option>
-							{/each}
-						</select>
+						<SettingSelect
+							id="pin-size-select"
+							selectLabel={dictionary.display['Size:']}
+							bind:value={$settings.clock.theme.pin.size}
+							values={[...Array(6).keys()].map((x) => x / 2)} />
 					</div>
 					{#if $settings.clock.theme.pin.size !== 0}
 						<div>
 							<ColorSelector bind:colorObj={$settings.clock.theme.pin.fill} label="Fill color" />
 						</div>
 						<div>
-							<label for="pin-stroke-width-select">{dictionary.display['Stroke width:']}</label>
-							<select
+							<SettingSelect
 								id="pin-stroke-width-select"
-								bind:value={$settings.clock.theme.pin.strokeWidth}>
-								{#each Array(7) as _, i}
-									<option value={i / 2}>{i / 2}</option>
-								{/each}
-							</select>
+								selectLabel={dictionary.display['Stroke width:']}
+								bind:value={$settings.clock.theme.pin.strokeWidth}
+								values={[...Array(7).keys()].map((x) => x / 2)} />
 						</div>
 						{#if $settings.clock.theme.pin.strokeWidth !== 0}
 							<div>
@@ -220,16 +219,13 @@
 				<div>
 					<h3>{dictionary.clockSettings['Numerals']}</h3>
 					<div>
-						<label for="numerals-select">{dictionary.clockSettings['Numeral Style:']}</label>
-						<select
+						<SettingSelect
 							id="numerals-select"
+							selectLabel={dictionary.clockSettings['Numeral Style:']}
 							bind:value={$settings.clock.theme.numerals.style}
-							on:change={numeralsChange}>
-							{#each Object.keys(numeralStyles) as numeralStyle}
-								<option value={numeralStyle}
-									>{dictionary.labels['Numeral Styles'][numeralStyle]}</option>
-							{/each}
-						</select>
+							onchange={numeralsChange}
+							values={Object.keys(numeralStyles)}
+							labels={dictionary.labels['Numeral Styles']} />
 					</div>
 					{#if $settings.clock.theme.numerals.style !== 'none'}
 						<div>
@@ -238,16 +234,13 @@
 								label="Fill color" />
 						</div>
 
-						<label for="numerals-font-family-select">{dictionary.labels['Font family:']}</label>
-						<select
+						<SettingSelect
 							id="numerals-font-family-select"
-							bind:value={$settings.clock.theme.numerals.fontFamily}>
-							{#each Object.keys(fontFamilies) as fontFamily}
-								{#if fontFamily !== ''}
-									<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
-								{/if}
-							{/each}
-						</select>
+							selectLabel={dictionary.labels['Font family:']}
+							bind:value={$settings.clock.theme.numerals.fontFamily}
+							onchange={numeralsChange}
+							values={Object.keys(fontFamilies).filter((x) => x !== '')}
+							dynamicFont={true} />
 					{/if}
 				</div>
 			</div>
@@ -258,7 +251,7 @@
 				{#each ['sm', 'md', 'lg'] as size}
 					<div>
 						<h4>
-							{dictionary.clockSettings[{ sm: 'Small', md: 'Medium', lg: 'Large' }[size]]}
+							{dictionary.clockSettings.sizes[{ sm: 'small', md: 'medium', lg: 'large' }[size]]}
 						</h4>
 						<div>
 							<ColorSelector
@@ -267,24 +260,18 @@
 						</div>
 						{#if $settings.clock.theme.ticks[size].stroke.lightness !== '-1'}
 							<div>
-								<label for="{size}-tick-width-select">{dictionary.display['Width:']}</label>
-								<select
+								<SettingSelect
 									id="{size}-tick-width-select"
-									bind:value={$settings.clock.theme.ticks[size].width}>
-									{#each Array(6) as _, i}
-										<option value={i}>{i}</option>
-									{/each}
-								</select>
+									selectLabel={dictionary.display['Width:']}
+									bind:value={$settings.clock.theme.ticks[size].width}
+									values={[...Array(6).keys()]} />
 							</div>
 							<div>
-								<label for="{size}-tick-height-select">{dictionary.display['Height:']}</label>
-								<select
+								<SettingSelect
 									id="{size}-tick-height-select"
-									bind:value={$settings.clock.theme.ticks[size].height}>
-									{#each Array(6) as _, i}
-										<option value={i / 2}>{i / 2}</option>
-									{/each}
-								</select>
+									selectLabel={dictionary.display['Height:']}
+									bind:value={$settings.clock.theme.ticks[size].height}
+									values={[...Array(6).keys()].map((x) => x / 2)} />
 							</div>
 						{/if}
 					</div>
@@ -306,44 +293,33 @@
 						</div>
 						{#if $settings.clock.theme.hands[hand].stroke.lightness !== '-1'}
 							<div>
-								<label for="{hand}-hand-stroke-width-select"
-									>{dictionary.display['Stroke width:']}</label>
-								<select
+								<SettingSelect
 									id="{hand}-hand-stroke-width-select"
-									bind:value={$settings.clock.theme.hands[hand].strokeWidth}>
-									{#each Array(6) as _, i}
-										<option value={(i + 1) / 2}>{(i + 1) / 2}</option>
-									{/each}
-								</select>
+									selectLabel={dictionary.display['Stroke width:']}
+									bind:value={$settings.clock.theme.hands[hand].strokeWidth}
+									values={[...Array(6).keys()].map((x) => (x + 1) / 2)} />
 							</div>
 							<div>
-								<label for="{hand}-hand-length-select">{dictionary.display['Length:']}</label>
-								<select
+								<SettingSelect
 									id="{hand}-hand-length-select"
-									bind:value={$settings.clock.theme.hands[hand].length}>
-									{#each Array(6) as _, i}
-										<option value={i * 3 + 12}>{i * 3 + 12}</option>
-									{/each}
-								</select>
+									selectLabel={dictionary.display['Length:']}
+									bind:value={$settings.clock.theme.hands[hand].length}
+									values={[...Array(6).keys()].map((x) => x * 3 + 12)} />
 							</div>
 							<div>
-								<label for="{hand}-hand-back-select">{dictionary.display['Back:']}</label>
-								<select
+								<SettingSelect
 									id="{hand}-hand-back-select"
-									bind:value={$settings.clock.theme.hands[hand].back}>
-									{#each Array(10) as _, i}
-										<option value={i}>{i}</option>
-									{/each}
-								</select>
+									selectLabel={dictionary.display['Back:']}
+									bind:value={$settings.clock.theme.hands[hand].back}
+									values={[...Array(10).keys()]} />
 							</div>
 							<div>
-								<label for="{hand}-hand-linecap-select">{dictionary.display['Linecap:']}</label>
-								<select
+								<SettingSelect
 									id="{hand}-hand-linecap-select"
-									bind:value={$settings.clock.theme.hands[hand].linecap}>
-									<option value="round">{dictionary.display.linecaps['Round']}</option>
-									<option value="square">{dictionary.display.linecaps['Square']}</option>
-								</select>
+									selectLabel={dictionary.display['Linecap:']}
+									bind:value={$settings.clock.theme.hands[hand].linecap}
+									values={['round', 'square']}
+									labels={dictionary.display.linecaps} />
 							</div>
 						{/if}
 					</div>
@@ -355,17 +331,19 @@
 		<AccordionPanel accordionTitle={dictionary.clockSettings['Digital Datetime']} key="3">
 			<div>
 				<div>
-					<label for="time-format-select">{dictionary.clockSettings['Time format:']}</label>
-					<select id="time-format-select" bind:value={$settings.clock.timeFormat}>
-						{#each ['H:mm', 'H:mm:ss', 'h:mm A', 'h:mm:ss A', 'H:mm Z', 'H:mm:ss Z', 'h:mm A Z', 'h:mm:ss A Z', 'mm:ss'] as timeFormat}
-							<option value={timeFormat}
-								>{new dayjs($now)
-									.tz($settings.locale.timezone || 'Etc/GMT')
-									.locale($settings.locale.datetime)
-									.format?.(timeFormat)}</option>
-						{/each}
-						<option value="custom">{dictionary.clockSettings['Custom']}</option>
-					</select>
+					<SettingSelect
+						id="time-format-select"
+						selectLabel={dictionary.clockSettings['Time format:']}
+						bind:value={$settings.clock.timeFormat}
+						values={defaultTimeFormats}
+						labelMapper={(timeFormat) =>
+							timeFormat === 'custom'
+								? dictionary.clockSettings['Custom']
+								: new dayjs($now)
+										.tz($settings.locale.timezone || 'Etc/GMT')
+										.locale($settings.locale.datetime)
+										.format?.(timeFormat)} />
+
 					{#if $settings.clock.timeFormat === 'custom'}
 						<div class="my-2 ml-8">
 							<input
@@ -385,17 +363,19 @@
 				</div>
 
 				<div>
-					<label for="date-format-select">{dictionary.clockSettings['Date format:']}</label>
-					<select id="date-format-select" bind:value={$settings.clock.dateFormat}>
-						{#each ['MMM D', 'MMM D YYYY', 'ddd, MMMM D', 'ddd, MMMM D YYYY', 'D MMM', 'D MMM YYYY', 'ddd, D MMM', 'ddd, D MMM YYYY'] as dateFormat}
-							<option value={dateFormat}
-								>{new dayjs($now)
-									.tz($settings.locale.timezone || 'Etc/GMT')
-									.locale($settings.locale.datetime)
-									.format?.(dateFormat)}</option>
-						{/each}
-						<option value="custom">{dictionary.clockSettings['Custom']}</option>
-					</select>
+					<SettingSelect
+						id="date-format-select"
+						selectLabel={dictionary.clockSettings['Date format:']}
+						bind:value={$settings.clock.dateFormat}
+						values={defaultDateFormats}
+						labelMapper={(dateFormat) =>
+							dateFormat === 'custom'
+								? dictionary.clockSettings['Custom']
+								: new dayjs($now)
+										.tz($settings.locale.timezone || 'Etc/GMT')
+										.locale($settings.locale.datetime)
+										.format?.(dateFormat)} />
+
 					{#if $settings.clock.dateFormat === 'custom'}
 						<div class="my-2 ml-8">
 							<input
@@ -443,14 +423,13 @@
 				</button>
 
 				{#if $settings.clock.displays.primary != 'analog' && fontFamilies[$settings.fontFamily].length > 1}
-					<label for="datetime-font-weight-select"
-						>{dictionary.clockSettings['Primary display font weight:']}</label>
-					<select id="datetime-font-weight-select" bind:value={$settings.clock.datetimeFontWeight}>
-						{#each fontFamilies[$settings.fontFamily] as weight}
-							<option value={weight.toString()}
-								>{dictionary.labels['Font Weights'][weight / 100]} ({weight / 100})</option>
-						{/each}
-					</select>
+					<SettingSelect
+						id="datetime-font-weight-select"
+						selectLabel={dictionary.clockSettings['Primary display font weight:']}
+						bind:value={$settings.clock.datetimeFontWeight}
+						values={fontFamilies[$settings.fontFamily].map((s) => s.toString())}
+						labelMapper={(weight) =>
+							`${dictionary.labels['Font Weights'][weight / 100]} (${weight / 100})`} />
 				{/if}
 
 				<Modal
