@@ -436,7 +436,8 @@
 						if ($settings.darkMode)
 							$settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme));
 
-						$settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale ?? 'en';
+						$settings.locale.language =
+							Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2) ?? 'en';
 						$settings.locale.datetime =
 							Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2) ?? 'en';
 						$settings.locale.timezone =
