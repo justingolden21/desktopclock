@@ -81,7 +81,6 @@
 	//  ================
 
 	$: theme = $settings.clock.theme;
-	$: baseColorPalette = TailwindColors[$settings.baseColorPalette];
 
 	$: sizes = ['sm', 'md', 'lg'].map((size) => ({ size, r: 27.5 - theme.ticks[size].width / 2 }));
 
