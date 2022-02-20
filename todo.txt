@@ -26,6 +26,9 @@ need to make a component for generic select with label similar to color picker c
 
 wrap localstorage import in try catch and if it errors then just go to default settings?
 
+idea: to fix parts of ticks bleeding through behind numerals,
+add a new "face" circle between each one and hide/show it programmatically
+
 CURRENT TODO
 ====
 
