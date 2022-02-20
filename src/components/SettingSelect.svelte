@@ -1,8 +1,5 @@
 <script>
 	import { systemFontFamilies } from '../data/consts.js';
-	import { session } from '$app/stores';
-
-	$: dictionary = $session.languageDictionary;
 
 	/*
     id: id of select and for label
@@ -36,12 +33,6 @@
 			style={dynamicFont && val === ''
 				? systemFontFamilies
 				: `font-family:${dynamicFont ? val : ''}`}
-			>{dynamicFont && val === ''
-				? dictionary.display['System default']
-				: labelMapper
-				? labelMapper(val)
-				: labels
-				? labels[val]
-				: val}</option>
+			>{labelMapper ? labelMapper(val) : labels ? labels[val] : val}</option>
 	{/each}
 </select>

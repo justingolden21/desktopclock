@@ -339,6 +339,8 @@
 			bind:value={$settings.fontFamily}
 			onchange={fontFamilyChange}
 			values={Object.keys(fontFamilies)}
+			labelMapper={(fontFamily) =>
+				fontFamily === '' ? dictionary.display['System default'] : fontFamily}
 			dynamicFont={true} />
 
 		<br />
@@ -348,6 +350,8 @@
 			selectLabel={dictionary.labels['Body font family:']}
 			bind:value={$settings.fontFamilyBody}
 			values={Object.keys(fontFamilies)}
+			labelMapper={(fontFamily) =>
+				fontFamily === '' ? dictionary.display['System default'] : fontFamily}
 			dynamicFont={true} />
 
 		<button
