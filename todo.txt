@@ -26,6 +26,15 @@ need to make a component for generic select with label similar to color picker c
 
 wrap localstorage import in try catch and if it errors then just go to default settings?
 
+CURRENT TODO
+====
+numerals should be behind hands
+
+remove wrapper divs that arent needed
+
+heading font family system default inherits from body family and doesnt work
+====
+
 USER REQUESTS
 ====
 ====
