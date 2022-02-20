@@ -49,14 +49,18 @@
 			$settings.clock.theme.ticks[size].stroke.palette = $settings.clock.theme.face.fill.palette;
 
 			// prevent other ticks from showing through
-			$settings.clock.theme.ticks[size].width =
+			$settings.clock.theme.ticks[size].width = Math.min(
 				Math.max($settings.clock.theme.ticks['md'].width, $settings.clock.theme.ticks['sm'].width) +
-				0.5;
-			$settings.clock.theme.ticks[size].height =
+					1,
+				5
+			);
+			$settings.clock.theme.ticks[size].height = Math.min(
 				Math.max(
 					$settings.clock.theme.ticks['md'].height,
 					$settings.clock.theme.ticks['sm'].height
-				) + 1;
+				) + 0.5,
+				2.5
+			);
 		};
 		const style = evt.target.value;
 		const lgStyles = ['numerals', 'fourNumerals', 'numbers', 'fourNumbers'];
