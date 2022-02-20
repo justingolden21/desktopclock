@@ -31,7 +31,7 @@ CURRENT TODO
 
 remove wrapper divs that arent needed
 
-heading font family system default inherits from body family and doesnt work
+BUG:heading font family system default inherits from body family and doesnt work
 ====
 
 USER REQUESTS
