@@ -232,130 +232,134 @@
 
 	<!-- Appearance -->
 	<TabPanel>
-		<div class="mb-2">
-			<h3>{dictionary.labels.palettes.base}</h3>
-			<ThemeButtons
-				colors={['slate', 'gray', 'zinc', 'neutral', 'stone']}
-				theme="baseColorPalette" />
-			<h3>{dictionary.labels.palettes.accent}</h3>
-			<ThemeButtons
-				colors={[
-					'rose',
-					'pink',
-					'fuchsia',
-					'purple',
-					'violet',
-					'indigo',
-					'blue',
-					'sky',
-					'cyan',
-					'teal',
-					'emerald',
-					'green',
-					'lime',
-					'yellow',
-					'amber',
-					'orange',
-					'red'
-				]}
-				theme="accentColorPalette" />
-		</div>
-		<div class="block mb-2">
-			<button class="dark-btn btn" on:click={() => ($settings.darkMode = !$settings.darkMode)}>
-				<Icon name="moon" class="inline w-6 h-6" />
-				{dictionary.labels['Dark']}
-			</button>
-		</div>
+		<Accordion key="0">
+			<AccordionPanel accordionTitle={dictionary.labels['Aesthetics']} key="1">
+				<div class="mb-2">
+					<h3 class="mt-0">{dictionary.labels.palettes.base}</h3>
+					<ThemeButtons
+						colors={['slate', 'gray', 'zinc', 'neutral', 'stone']}
+						theme="baseColorPalette" />
+					<h3>{dictionary.labels.palettes.accent}</h3>
+					<ThemeButtons
+						colors={[
+							'rose',
+							'pink',
+							'fuchsia',
+							'purple',
+							'violet',
+							'indigo',
+							'blue',
+							'sky',
+							'cyan',
+							'teal',
+							'emerald',
+							'green',
+							'lime',
+							'yellow',
+							'amber',
+							'orange',
+							'red'
+						]}
+						theme="accentColorPalette" />
+				</div>
+				<div class="block mb-2">
+					<button class="dark-btn btn" on:click={() => ($settings.darkMode = !$settings.darkMode)}>
+						<Icon name="moon" class="inline w-6 h-6" />
+						{dictionary.labels['Dark']}
+					</button>
+				</div>
 
-		<SettingSelect
-			id="font-family-select"
-			selectLabel={dictionary.labels['Heading font family:']}
-			bind:value={$settings.fontFamily}
-			onchange={fontFamilyChange}
-			values={Object.keys(fontFamilies)}
-			labelMapper={(fontFamily) =>
-				fontFamily === '' ? dictionary.display['System default'] : fontFamily}
-			dynamicFont={true} />
+				<SettingSelect
+					id="font-family-select"
+					selectLabel={dictionary.labels['Heading font family:']}
+					bind:value={$settings.fontFamily}
+					onchange={fontFamilyChange}
+					values={Object.keys(fontFamilies)}
+					labelMapper={(fontFamily) =>
+						fontFamily === '' ? dictionary.display['System default'] : fontFamily}
+					dynamicFont={true} />
 
-		<br />
+				<br />
 
-		<SettingSelect
-			id="font-family-body-select"
-			selectLabel={dictionary.labels['Body font family:']}
-			bind:value={$settings.fontFamilyBody}
-			values={Object.keys(fontFamilies)}
-			labelMapper={(fontFamily) =>
-				fontFamily === '' ? dictionary.display['System default'] : fontFamily}
-			dynamicFont={true} />
+				<SettingSelect
+					id="font-family-body-select"
+					selectLabel={dictionary.labels['Body font family:']}
+					bind:value={$settings.fontFamilyBody}
+					values={Object.keys(fontFamilies)}
+					labelMapper={(fontFamily) =>
+						fontFamily === '' ? dictionary.display['System default'] : fontFamily}
+					dynamicFont={true} />
+			</AccordionPanel>
+			<AccordionPanel accordionTitle={dictionary.labels['User Interface']} key="2">
+				<Toggle
+					id="show-dark-btn-toggle"
+					bind:checked={$settings.showDarkButton}
+					labelText={dictionary.labels['Show dark button']} />
 
-		<Toggle
-			id="show-dark-btn-toggle"
-			bind:checked={$settings.showDarkButton}
-			labelText={dictionary.labels['Show dark button']} />
+				<Toggle
+					id="show-primary-btn-toggle"
+					bind:checked={$settings.showPrimaryButton}
+					labelText={dictionary.labels['Show primary toggle button']} />
 
-		<Toggle
-			id="show-primary-btn-toggle"
-			bind:checked={$settings.showPrimaryButton}
-			labelText={dictionary.labels['Show primary toggle button']} />
+				<Toggle
+					id="show-secondary-btn-toggle"
+					bind:checked={$settings.showSecondaryButton}
+					labelText={dictionary.labels['Show secondary toggle button']} />
 
-		<Toggle
-			id="show-secondary-btn-toggle"
-			bind:checked={$settings.showSecondaryButton}
-			labelText={dictionary.labels['Show secondary toggle button']} />
+				<div class:hidden={!castSupported}>
+					<Toggle
+						id="show-cast-btn-toggle"
+						bind:checked={$settings.showCastButton}
+						labelText={dictionary.labels['Show cast button']} />
+				</div>
 
-		<div class:hidden={!castSupported}>
-			<Toggle
-				id="show-cast-btn-toggle"
-				bind:checked={$settings.showCastButton}
-				labelText={dictionary.labels['Show cast button']} />
-		</div>
+				<Toggle
+					id="show-fullscreen-btn-toggle"
+					bind:checked={$settings.showFullscreenButton}
+					labelText={dictionary.labels['Show fullscreen button']} />
 
-		<Toggle
-			id="show-fullscreen-btn-toggle"
-			bind:checked={$settings.showFullscreenButton}
-			labelText={dictionary.labels['Show fullscreen button']} />
+				<hr />
 
-		<hr />
+				<Toggle
+					id="smaller-menu-toggle"
+					bind:checked={$settings.smallerMenu}
+					labelText={dictionary.labels['Smaller menu']} />
 
-		<Toggle
-			id="smaller-menu-toggle"
-			bind:checked={$settings.smallerMenu}
-			labelText={dictionary.labels['Smaller menu']} />
+				<!-- only relevant on larger screens that don't always have the menu collapsed anyway -->
+				<div class="hidden md:block">
+					<Toggle
+						id="always-collapse-menu-toggle"
+						bind:checked={$settings.alwaysCollapseMenu}
+						labelText={dictionary.labels['Always collapse menu']} />
+				</div>
 
-		<!-- only relevant on larger screens that don't always have the menu collapsed anyway -->
-		<div class="hidden md:block">
-			<Toggle
-				id="always-collapse-menu-toggle"
-				bind:checked={$settings.alwaysCollapseMenu}
-				labelText={dictionary.labels['Always collapse menu']} />
-		</div>
+				<Toggle
+					id="hide-titlebar-when-idle-toggle"
+					bind:checked={$settings.hideTitlebarWhenIdle}
+					labelText={dictionary.labels['Hide title bar when idle']} />
 
-		<Toggle
-			id="hide-titlebar-when-idle-toggle"
-			bind:checked={$settings.hideTitlebarWhenIdle}
-			labelText={dictionary.labels['Hide title bar when idle']} />
-
-		{#if $settings.hideTitlebarWhenIdle}
-			<div class="my-2 ml-8">
-				<label for="seconds-until-idle-input">{dictionary.labels['Seconds until idle:']}</label>
-				<input
-					id="seconds-until-idle-input"
-					on:input|preventDefault={(event) => {
-						const value = validate(event.target);
-						$settings.secondsUntilIdle = value;
-						event.target.value = value;
-					}}
-					value={$settings.secondsUntilIdle}
-					type="number"
-					min="1"
-					max="1000"
-					required />
-			</div>
-			<br />
-		{/if}
-
+				{#if $settings.hideTitlebarWhenIdle}
+					<div class="my-2 ml-8">
+						<label for="seconds-until-idle-input">{dictionary.labels['Seconds until idle:']}</label>
+						<input
+							id="seconds-until-idle-input"
+							on:input|preventDefault={(event) => {
+								const value = validate(event.target);
+								$settings.secondsUntilIdle = value;
+								event.target.value = value;
+							}}
+							value={$settings.secondsUntilIdle}
+							type="number"
+							min="1"
+							max="1000"
+							required />
+					</div>
+					<br />
+				{/if}
+			</AccordionPanel>
+		</Accordion>
 		<button
-			class="btn undo-btn block"
+			class="btn undo-btn block mt-4"
 			on:click={() => {
 				for (const option of 'baseColorPalette accentColorPalette darkMode showDarkButton showPrimaryButton showSecondaryButton showCastButton showFullscreenButton smallerMenu alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily fontFamilyBody'.split(
 					' '
