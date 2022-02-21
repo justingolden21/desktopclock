@@ -34,7 +34,7 @@
 	}
 
 	:global(.dark) .tab {
-		@apply bg-base-700 text-base-300 hover:bg-base-600 hover:text-base-300;
+		@apply bg-base-700 text-base-300 hover:bg-base-600 hover:text-base-300 border-base-500;
 	}
 	:global(.dark) .tab.selected {
 		@apply bg-base-600;
