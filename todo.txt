@@ -32,8 +32,6 @@ add a new "face" circle between each one and hide/show it programmatically
 CURRENT TODO
 ====
 
-move toggles 1 unit right (for focus ring)
-
 default to auto close all accordions
 
 organize css (bem or something idk)
