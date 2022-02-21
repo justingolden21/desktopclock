@@ -33,6 +33,7 @@ CURRENT TODO
 ====
 
 organize css (bem or something idk)
+relevant: https://tailwindcss.com/docs/reusing-styles
 
 tab focus in open modals fix
 
