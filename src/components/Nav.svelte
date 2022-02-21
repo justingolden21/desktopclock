@@ -42,7 +42,7 @@
         {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:relative md:translate-x-0'}
         {$settings.smallerMenu ? 'w-32' : 'w-64'}"
 	class:-translate-x-full={!navOpen}>
-	<!-- <a
+	<a
 		class:active={$page.path === '/'}
 		href="/"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
@@ -60,7 +60,7 @@
 			{dictionary.pageNames['worldclock']}
 		{/if}
 	</a>
-	<a
+	<!-- <a
 		class:active={$page.path === '/stopwatch'}
 		href="/stopwatch"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">

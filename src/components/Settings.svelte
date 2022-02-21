@@ -147,7 +147,7 @@
 </script>
 
 <script>
-	import { session } from '$app/stores';
+	import { page, session } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { now } from '../util/now.js';
 
@@ -170,6 +170,7 @@
 	import { keyboardShortcutsList } from './KeyboardShortcuts.svelte';
 	import SettingSelect from './SettingSelect.svelte';
 	import ClockSettings from './_Clock/ClockSettings.svelte';
+	import WorldclockSettings from './_Worldclock/WorldclockSettings.svelte';
 	import defaultNightTheme from '../themes/defaultNight';
 
 	import { version } from '../../package.json';
@@ -208,8 +209,14 @@
 <Tabs>
 	<TabList>
 		<Tab>
-			<Icon name="clock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
-			{dictionary.pageNames['clock']}
+			{#if $page.path === '/'}
+				<Icon name="clock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+				{dictionary.pageNames['clock']}
+			{/if}
+			{#if $page.path === '/worldclock'}
+				<Icon name="worldclock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+				{dictionary.pageNames['worldclock']}
+			{/if}
 		</Tab>
 		<Tab>
 			<Icon name="eye" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
@@ -227,7 +234,12 @@
 
 	<!-- Clock -->
 	<TabPanel>
-		<ClockSettings />
+		{#if $page.path === '/'}
+			<ClockSettings />
+		{/if}
+		{#if $page.path === '/worldclock'}
+			<WorldclockSettings />
+		{/if}
 	</TabPanel>
 
 	<!-- Appearance -->
