@@ -267,6 +267,27 @@
 			</button>
 		</div>
 
+		<SettingSelect
+			id="font-family-select"
+			selectLabel={dictionary.labels['Heading font family:']}
+			bind:value={$settings.fontFamily}
+			onchange={fontFamilyChange}
+			values={Object.keys(fontFamilies)}
+			labelMapper={(fontFamily) =>
+				fontFamily === '' ? dictionary.display['System default'] : fontFamily}
+			dynamicFont={true} />
+
+		<br />
+
+		<SettingSelect
+			id="font-family-body-select"
+			selectLabel={dictionary.labels['Body font family:']}
+			bind:value={$settings.fontFamilyBody}
+			values={Object.keys(fontFamilies)}
+			labelMapper={(fontFamily) =>
+				fontFamily === '' ? dictionary.display['System default'] : fontFamily}
+			dynamicFont={true} />
+
 		<Toggle
 			id="show-dark-btn-toggle"
 			bind:checked={$settings.showDarkButton}
@@ -332,27 +353,6 @@
 			</div>
 			<br />
 		{/if}
-
-		<SettingSelect
-			id="font-family-select"
-			selectLabel={dictionary.labels['Heading font family:']}
-			bind:value={$settings.fontFamily}
-			onchange={fontFamilyChange}
-			values={Object.keys(fontFamilies)}
-			labelMapper={(fontFamily) =>
-				fontFamily === '' ? dictionary.display['System default'] : fontFamily}
-			dynamicFont={true} />
-
-		<br />
-
-		<SettingSelect
-			id="font-family-body-select"
-			selectLabel={dictionary.labels['Body font family:']}
-			bind:value={$settings.fontFamilyBody}
-			values={Object.keys(fontFamilies)}
-			labelMapper={(fontFamily) =>
-				fontFamily === '' ? dictionary.display['System default'] : fontFamily}
-			dynamicFont={true} />
 
 		<button
 			class="btn undo-btn block"
