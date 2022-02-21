@@ -520,7 +520,7 @@
 						selectLabel={dictionary.labels['Language:']}
 						disabled={$settings.locale.automaticLanguage}
 						bind:value={$settings.locale.language}
-						onChange={changeLanguage}
+						onchange={changeLanguage}
 						values={supportedLangs}
 						labels={dictionary.languages} />
 
