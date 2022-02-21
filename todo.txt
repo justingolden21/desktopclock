@@ -34,8 +34,6 @@ CURRENT TODO
 
 organize css (bem or something idk)
 
-hide mouse cursor (transparent png) when idle?
-
 tab focus in open modals fix
 
 remove wrapper divs that arent needed

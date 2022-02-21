@@ -56,6 +56,13 @@
 
 <svelte:window on:mousemove={() => (timeSinceMove = new Date())} />
 
+<!-- hide cursor -->
+<div
+	class="fixed left-0 top-0 w-full h-full z-30 {$settings.hideTitlebarWhenIdle &&
+	($now - timeSinceMove) / 1000 > $settings.secondsUntilIdle
+		? 'cursor-none'
+		: 'hidden'}" />
+
 <header
 	class="transition-opacity duration-300 
     {$settings.hideTitlebarWhenIdle && ($now - timeSinceMove) / 1000 > $settings.secondsUntilIdle
