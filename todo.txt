@@ -36,7 +36,11 @@ organize css (bem or something idk)
 
 tab focus in open modals fix
 
+close color picker when another one is open
+
 remove wrapper divs that arent needed
+
+maybe: rename 'aesthetics' to 'look and feel' or 'theme'
 
 BUG:heading font family system default inherits from body family and doesnt work
 ====
