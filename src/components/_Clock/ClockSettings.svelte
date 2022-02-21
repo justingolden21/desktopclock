@@ -164,6 +164,11 @@
 						<ColorSelector bind:colorObj={$settings.clock.theme.face.fill} label="Fill color" />
 					</div>
 					<div>
+						<ColorSelector
+							bind:colorObj={$settings.clock.theme.shadow.fill}
+							label="Shadow fill color" />
+					</div>
+					<div>
 						<SettingSelect
 							id="face-stroke-width-select"
 							selectLabel={dictionary.display['Stroke width:']}
@@ -184,12 +189,6 @@
 							bind:value={$settings.clock.theme.face.shape}
 							values={['circle', 'rounded', 'square']}
 							labels={dictionary.display.shapes} />
-					</div>
-				</div>
-				<div>
-					<h3>{dictionary.clockSettings['Shadow']}</h3>
-					<div>
-						<ColorSelector bind:colorObj={$settings.clock.theme.shadow.fill} label="Fill color" />
 					</div>
 				</div>
 				<div>

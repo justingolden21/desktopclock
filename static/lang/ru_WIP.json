@@ -145,7 +145,6 @@
 		"Numeral Style:": "Numeral Style:",
 
 		"Face": "Face",
-		"Shadow": "Shadow",
 		"Pin": "Pin",
 		"Ticks": "Ticks",
 		"Numerals": "Numerals",
@@ -194,6 +193,7 @@
 	"display": {
 		"Stroke color": "Stroke color",
 		"Fill color": "Fill color",
+		"Shadow fill color": "Shadow fill color",
 		"Color:": "Color:",
 		"Stroke width:": "Stroke width:",
 		"Size:": "Size:",
