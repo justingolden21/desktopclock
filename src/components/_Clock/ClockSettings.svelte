@@ -70,7 +70,8 @@
 	}
 </script>
 
-<Accordion key="1">
+<!-- key="0" to default to all accordions closed -->
+<Accordion key="0">
 	<AccordionPanel accordionTitle={dictionary.clockSettings['Displays']} key="1">
 		<div>
 			<SettingSelect

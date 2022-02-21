@@ -372,7 +372,8 @@
 
 	<!-- General -->
 	<TabPanel>
-		<Accordion key="1">
+		<!-- key="0" to default to all accordions closed -->
+		<Accordion key="0">
 			<AccordionPanel accordionTitle={dictionary.labels['Application']} key="1">
 				<!-- <button class="btn">Download Settings</button> -->
 				<!-- <button class="btn">Upload Settings</button> -->
