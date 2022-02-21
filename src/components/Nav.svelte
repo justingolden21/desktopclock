@@ -36,9 +36,6 @@
         z-20
         dark:bg-base-700
         dark:bg-opacity-75
-        border-r-2
-        border-base-100
-        dark:border-base-700
         {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:relative md:translate-x-0'}
         {$settings.smallerMenu ? 'w-32' : 'w-64'}"
 	class:-translate-x-full={!navOpen}>
