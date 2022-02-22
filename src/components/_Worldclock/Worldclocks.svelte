@@ -68,3 +68,7 @@
 		</div>
 	</div>
 {/each}
+
+<!-- TODO translate and move to settings -->
+<a class="block mt-4" href="https://en.wikipedia.org/wiki/Lists_of_time_zones" target="_blank"
+	>Timezones on Wikipedia</a>
