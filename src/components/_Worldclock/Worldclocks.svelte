@@ -28,7 +28,7 @@
 </script>
 
 <!-- Home clock -->
-<div class="grid grid-cols-2 gap-4 sm:gap-8 mb-4">
+<div class="grid grid-cols-2 gap-4 lg:gap-8 mb-4">
 	<div class="text-left">
 		<p>{$date}</p>
 		<p class="font-bold text-5xl my-4">{$time}</p>
@@ -44,7 +44,7 @@
 <!-- Other clocks -->
 
 {#each worldclocks.timezones as timezone}
-	<div class="grid grid-cols-2 gap-4 sm:gap-8 border-0 border-t-2 p-4 surface">
+	<div class="grid grid-cols-2 gap-4 lg:gap-8 border-0 border-t-2 p-4 surface">
 		<div class="text-left">
 			<p>{timezone.split('_').join(' ')}</p>
 			<p class="font-bold text-3xl">{$getTime(timezone)}</p>
@@ -69,7 +69,7 @@
 {/each}
 
 <!-- grid clocks -->
-<div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8 mt-8">
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8 mt-8">
 	{#each worldclocks.timezones as timezone}
 		<div class="text-left border-2 surface p-4">
 			<p>{timezone.split('_').join(' ')}</p>
