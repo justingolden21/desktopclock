@@ -74,7 +74,7 @@
 			</button>
 			<!-- dropdown menu -->
 			<ul
-				class="{dropdownOpen ? '' : 'hidden'} w-40 rounded shadow surface mt-2"
+				class="{dropdownOpen ? '' : 'hidden'} w-40 rounded surface mt-2"
 				aria-labelledby="dropdown-btn">
 				<!-- TODO translate -->
 				{#each 'Edit Up Down Delete'.split(' ') as txt}
