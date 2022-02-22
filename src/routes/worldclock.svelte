@@ -1,7 +1,6 @@
 <script>
 	import { session } from '$app/stores';
 
-	import WorldclockHome from '../components/_Worldclock/WorldclockHome.svelte';
 	import Worldclocks from '../components/_Worldclock/Worldclocks.svelte';
 </script>
 
@@ -10,6 +9,5 @@
 </svelte:head>
 
 <section>
-	<WorldclockHome />
 	<Worldclocks />
 </section>
