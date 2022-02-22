@@ -60,13 +60,55 @@
 				<AnalogClock mode="worldclock" {timezone} />
 			</div>
 			<button
-				class="icon-btn absolute top-4 right-4"
+				class="icon-btn absolute top-2 right-2"
 				aria-label={$session.languageDictionary.labels['Menu']}>
 				<Icon name="dots_vertical" class="w-6 h-6" />
 			</button>
 		</div>
 	</div>
 {/each}
+
+<!-- grid clocks -->
+<div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-8 mt-8">
+	{#each worldclocks.timezones as timezone}
+		<div class="text-left border-2 surface p-4">
+			<p>{timezone.split('_').join(' ')}</p>
+			<p class="font-bold text-3xl">{$getTime(timezone)}</p>
+			<p>{$getDate(timezone)}</p>
+			<hr class="w-36" />
+			<p>
+				UTC {$getUtcOffset(timezone)}
+				(<span class="font-bold">{$getHourDiff(timezone)}</span>)
+			</p>
+			<button
+				class="icon-btn absolute top-2 right-2"
+				aria-label={$session.languageDictionary.labels['Menu']}>
+				<Icon name="dots_vertical" class="w-6 h-6" />
+			</button>
+		</div>
+	{/each}
+
+	{#each worldclocks.timezones as timezone}
+		<div class="text-center border-2 surface p-4">
+			<p>{timezone.split('_').join(' ')}</p>
+			<p class="font-bold text-3xl">{$getTime(timezone)}</p>
+			<div class="w-24 h-24 sm:w-32 sm:h-32 relative mx-auto">
+				<AnalogClock mode="worldclock" {timezone} />
+			</div>
+			<p>{$getDate(timezone)}</p>
+			<hr class="w-36" />
+			<p>
+				UTC {$getUtcOffset(timezone)}
+				(<span class="font-bold">{$getHourDiff(timezone)}</span>)
+			</p>
+			<button
+				class="icon-btn absolute top-2 right-2"
+				aria-label={$session.languageDictionary.labels['Menu']}>
+				<Icon name="dots_vertical" class="w-6 h-6" />
+			</button>
+		</div>
+	{/each}
+</div>
 
 <!-- TODO translate and move to settings -->
 <a class="block mt-4" href="https://en.wikipedia.org/wiki/Lists_of_time_zones" target="_blank"
