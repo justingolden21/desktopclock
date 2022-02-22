@@ -41,6 +41,8 @@ better timezone input (typing, autocomplete, type "san diego" or "la" or "los an
 
 fix scrolling in worldclock (make other clocks take up full height, top area is sticky, bottom btns will be sticky, nav will be fine)
 
+worldclock custom date and time format (with toggles) as well as analog theme. analog theme picker component?
+
 tab focus in open modals fix
 
 close color picker when another one is open
