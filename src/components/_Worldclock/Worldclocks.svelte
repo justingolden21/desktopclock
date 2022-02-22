@@ -30,7 +30,7 @@
 <!-- Home clock -->
 <div class="grid grid-cols-2 gap-4 sm:gap-8">
 	<div class="text-left">
-		<p>{$timezone}</p>
+		<p>{$timezone.split('_').join(' ')}</p>
 		<p class="font-bold text-4xl">{$time}</p>
 		<p>{$date}</p>
 		<p>UTC {$utcOffset}</p>
