@@ -17,11 +17,11 @@
 
 	const worldclocks = {
 		timezones: [
-			'Asia/Colombo',
-			'Asia/Hong_Kong',
-			'Europe/London',
+			'America/Los_Angeles',
 			'America/New_York',
-			'America/Los_Angeles'
+			'Europe/London',
+			'Asia/Colombo',
+			'Asia/Tokyo'
 		],
 		style: 'rows'
 	};
@@ -51,8 +51,10 @@
 			<p class="font-bold text-3xl">{$getTime(timezone)}</p>
 			<p>{$getDate(timezone)}</p>
 			<hr class="w-36" />
-			<p>UTC {$getUtcOffset(timezone)}</p>
-			<p class="font-bold">{$getHourDiff(timezone)}</p>
+			<p>
+				UTC {$getUtcOffset(timezone)}
+				(<span class="font-bold">{$getHourDiff(timezone)}</span>)
+			</p>
 		</div>
 		<div>
 			<div class="w-24 h-24 sm:w-32 sm:h-32 relative ml-auto">
