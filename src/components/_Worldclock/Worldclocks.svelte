@@ -32,7 +32,7 @@
 	<div class="text-left">
 		<p>{$date}</p>
 		<p class="font-bold text-5xl my-4">{$time}</p>
-		<p>{$timezone.split('_').join(' ')} &mdash; <span>UTC {$utcOffset}</span></p>
+		<p>{$timezone && $timezone.split('_').join(' ')} &mdash; <span>UTC {$utcOffset}</span></p>
 	</div>
 	<div>
 		<div class="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 relative ml-auto">
