@@ -1,6 +1,6 @@
 import { derived } from 'svelte/store';
-import { settings } from '../settings.js';
-import { now } from '../../util/now.js';
+import { settings } from '../components/settings.js';
+import { now } from './now.js';
 
 import dayjs from 'dayjs';
 // https://day.js.org/docs/en/plugin/timezone
@@ -11,7 +11,7 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 
 // approx 163kb (comment out and compare build sizes in network tab)
-import '../../data/all_locales.js';
+import '../data/all_locales.js';
 
 export const time = derived([now, settings], ([$now, $settings]) => {
 	const timeFormat =

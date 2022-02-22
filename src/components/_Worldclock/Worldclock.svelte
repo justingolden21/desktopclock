@@ -1,5 +1,5 @@
 <script>
-	import { time, date, tz, utcOffset } from '../_Clock/TimeText';
+	import { time, date, tz, utcOffset } from '../../util/timeText';
 	import AnalogClock from '../_Clock/AnalogClock.svelte';
 </script>
 

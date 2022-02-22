@@ -5,7 +5,7 @@
 
 	import { settings } from '../settings.js';
 	import BatteryIcon from './BatteryIcon.svelte';
-	import { time, date } from './TimeText';
+	import { time, date } from '../../util/timeText';
 
 	$: clockSettings = $settings.clock;
 
