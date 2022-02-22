@@ -122,7 +122,7 @@
 				<AnalogClock mode="worldclock" {timezone} />
 			</div>
 			<p>{$getDate(timezone)}</p>
-			<hr class="w-36" />
+			<hr class="w-48 mx-auto" />
 			<p>
 				UTC {$getUtcOffset(timezone)}
 				(<span class="font-bold">{$getHourDiff(timezone)}</span>)
