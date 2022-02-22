@@ -1,6 +1,10 @@
 <script>
-	import { getTime, getDate, getUtcOffset, getHourDiff } from '../../util/timeText';
+	import { session } from '$app/stores';
+
+	import Icon from '../Icon.svelte';
 	import AnalogClock from '../_Clock/AnalogClock.svelte';
+
+	import { getTime, getDate, getUtcOffset, getHourDiff } from '../../util/timeText';
 
 	const worldclocks = {
 		timezones: [
@@ -28,6 +32,11 @@
 			<div class="w-32 h-32 relative">
 				<AnalogClock mode="worldclock" {timezone} />
 			</div>
+			<button
+				class="icon-btn absolute top-4 right-4"
+				aria-label={$session.languageDictionary.labels['Menu']}>
+				<Icon name="dots_vertical" class="w-6 h-6" />
+			</button>
 		</div>
 	</div>
 {/each}
