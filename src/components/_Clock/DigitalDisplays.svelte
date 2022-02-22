@@ -5,47 +5,14 @@
 
 	import { settings } from '../settings.js';
 	import BatteryIcon from './BatteryIcon.svelte';
+	import { time, date } from './TimeText.svelte';
 
-	import dayjs from 'dayjs';
-
-	// https://day.js.org/docs/en/plugin/timezone
-	// https://day.js.org/docs/en/timezone/timezone
-	import utc from 'dayjs/plugin/utc.js';
-	import timezone from 'dayjs/plugin/timezone.js';
-	dayjs.extend(utc);
-	dayjs.extend(timezone);
-
-	import { now } from '../../util/now.js';
-
-	// approx 163kb (comment out and compare build sizes in network tab)
-	import '../../data/all_locales.js';
-
-	$: localeSettings = $settings.locale;
 	$: clockSettings = $settings.clock;
 
 	$: displays = clockSettings.displays;
 
-	$: timeFormat =
-		clockSettings.timeFormat !== 'custom'
-			? clockSettings.timeFormat
-			: clockSettings.timeFormatCustom;
-	$: dateFormat =
-		clockSettings.dateFormat !== 'custom'
-			? clockSettings.dateFormat
-			: clockSettings.dateFormatCustom;
-
 	let batteryLevel, batteryIsCharging;
 	let batterySupported = false;
-
-	// these update automatically with `$now`
-	$: time = new dayjs($now)
-		.tz(localeSettings.timezone || 'Etc/GMT')
-		.locale(localeSettings.datetime || 'en')
-		.format(timeFormat || 'h:mm A');
-	$: date = new dayjs($now)
-		.tz(localeSettings.timezone || 'Etc/GMT')
-		.locale(localeSettings.datetime || 'en')
-		.format(dateFormat || 'ddd, MMMM D');
 
 	// TODO: starts an event listener each time displays.svelte is mounted, can add up
 	// should unmount the event listener, look into svelte window access navigator
@@ -81,13 +48,13 @@
 		{#if displays.primary != 'analog'}
 			<h1>
 				{#if displays.primary == 'time'}
-					{time}
+					{$time}
 				{:else if displays.primary == 'date'}
-					{date}
+					{$date}
 				{:else if displays.primary == 'datetime'}
-					{time}
+					{$time}
 					<br />
-					{date}
+					{$date}
 				{/if}
 			</h1>
 		{/if}
@@ -101,13 +68,13 @@
 		{#if displays.secondary != 'none'}
 			<h2>
 				{#if displays.secondary == 'time'}
-					{time}
+					{$time}
 				{:else if displays.secondary == 'date'}
-					{date}
+					{$date}
 				{:else if displays.secondary == 'datetime'}
-					{time}
+					{$time}
 					<br />
-					{date}
+					{$date}
 				{/if}
 			</h2>
 		{/if}
