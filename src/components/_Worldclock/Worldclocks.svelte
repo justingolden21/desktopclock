@@ -15,7 +15,7 @@
 </script>
 
 {#each worldclocks.timezones as timezone}
-	<div class="grid grid-cols-2 gap-4 sm:gap-8 border-y-2 border-base-500">
+	<div class="grid grid-cols-2 gap-4 sm:gap-8 border-t-2 border-base-500 py-4">
 		<div class="text-left">
 			<p>{$getDate(timezone)}</p>
 			<p>{$getTime(timezone)}</p>
