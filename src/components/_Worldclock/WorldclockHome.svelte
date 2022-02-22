@@ -11,7 +11,7 @@
 		<p>UTC {$utcOffset}</p>
 	</div>
 	<div>
-		<div class="w-32 h-32 relative">
+		<div class="w-24 h-24 sm:w-32 sm:h-32 relative ml-auto">
 			<AnalogClock mode="worldclock" />
 		</div>
 	</div>
