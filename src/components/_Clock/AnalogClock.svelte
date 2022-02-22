@@ -103,7 +103,7 @@ so when switching to it, it continues moving instantly -->
 <svg
 	id="clock"
 	viewBox="0 0 64 64"
-	class={$settings.clock.displays.primary !== 'analog' ? 'opacity-0' : ''}>
+	class={$settings.clock.displays.primary !== 'analog' && mode != 'worldclock' ? 'opacity-0' : ''}>
 	<!-- Shadow -->
 	<rect
 		id="shadow"
