@@ -40,6 +40,8 @@ pass theme inside analog clock (and timezone)
 better timezone input (typing, autocomplete, type "san diego" or "la" or "los angeles" or "pst or "utc8")
 how does india not have any timezones in this list (delhi and mumbai for example)
 
+share prompt on worldclock should be different
+
 fix scrolling in worldclock (make other clocks take up full height, top area is sticky, bottom btns will be sticky, nav will be fine)
 
 worldclock custom date and time format (with toggles) as well as analog theme. analog theme picker component?
