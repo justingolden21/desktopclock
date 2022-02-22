@@ -27,7 +27,7 @@
 	}} />
 
 <div class="modal {shown ? 'block' : 'hidden'}" on:click={() => hide()}>
-	<div class="modal-content surface" on:click|stopPropagation>
+	<div class="modal-content surface rounded" on:click|stopPropagation>
 		<div class="modal-header">
 			<button
 				class="close icon-btn"
