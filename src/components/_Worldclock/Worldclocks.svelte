@@ -25,6 +25,8 @@
 		],
 		style: 'rows'
 	};
+
+	let dropdownOpen = true;
 </script>
 
 <!-- Home clock -->
@@ -59,11 +61,28 @@
 			<div class="w-24 h-24 sm:w-32 sm:h-32 relative ml-auto mr-6">
 				<AnalogClock mode="worldclock" {timezone} />
 			</div>
-			<button
-				class="icon-btn absolute top-2 right-2"
-				aria-label={$session.languageDictionary.labels['Menu']}>
-				<Icon name="dots_vertical" class="w-6 h-6" />
-			</button>
+			<div class="absolute top-2 right-2">
+				<button
+					id="dropdown-btn"
+					class="icon-btn"
+					on:click={() => (dropdownOpen = !dropdownOpen)}
+					aria-label={$session.languageDictionary.labels['Menu']}>
+					<Icon name="dots_vertical" class="w-6 h-6" />
+				</button>
+
+				<!-- dropdown menu -->
+				<div class="{dropdownOpen ? '' : 'hidden'} w-40 rounded shadow surface mt-2">
+					<ul aria-labelledby="dropdown-btn">
+						{#each 'abcd'.split('') as txt}
+							<li
+								class="block cursor-pointer py-2 px-4 text-sm hover:bg-base-300 hover:bg-opacity-75
+								dark:hover:bg-base-600 dark:hover:bg-opacity-75">
+								{txt}
+							</li>
+						{/each}
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 {/each}
@@ -71,7 +90,7 @@
 <!-- grid clocks -->
 <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8 mt-8">
 	{#each worldclocks.timezones as timezone}
-		<div class="text-left border-2 surface p-4">
+		<div class="text-left border-2 surface p-4 rounded">
 			<p>{timezone.split('_').join(' ')}</p>
 			<p class="font-bold text-3xl">{$getTime(timezone)}</p>
 			<p>{$getDate(timezone)}</p>
@@ -89,7 +108,7 @@
 	{/each}
 
 	{#each worldclocks.timezones as timezone}
-		<div class="text-center border-2 surface p-4">
+		<div class="text-center border-2 surface p-4 rounded">
 			<p>{timezone.split('_').join(' ')}</p>
 			<p class="font-bold text-3xl">{$getTime(timezone)}</p>
 			<div class="w-24 h-24 sm:w-32 sm:h-32 relative mx-auto">
