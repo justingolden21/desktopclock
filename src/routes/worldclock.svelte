@@ -1,7 +1,7 @@
 <script>
 	import { session } from '$app/stores';
 
-	import Worldclock from '../components/_Worldclock/Worldclock.svelte';
+	import WorldclockHome from '../components/_Worldclock/WorldclockHome.svelte';
 </script>
 
 <svelte:head>
@@ -9,5 +9,5 @@
 </svelte:head>
 
 <section>
-	<Worldclock />
+	<WorldclockHome />
 </section>

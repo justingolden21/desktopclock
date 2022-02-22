@@ -35,6 +35,8 @@ CURRENT TODO
 organize css (bem or something idk)
 relevant: https://tailwindcss.com/docs/reusing-styles
 
+pass theme inside analog clock (and timezone)
+
 tab focus in open modals fix
 
 close color picker when another one is open
