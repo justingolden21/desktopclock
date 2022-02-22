@@ -14,10 +14,7 @@
 	export let timeout;
 </script>
 
-<div
-	class="w-80 p-4 flex items-center mb-2 mx-auto border-2 border-base-300 bg-base-100 bg-opacity-75 backdrop-blur-sm dark:border-base-200 dark:bg-base-800 dark:bg-opacity-75"
-	role="alert"
-	transition:fade>
+<div class="w-80 p-4 flex items-center mb-2 mx-auto surface" role="alert" transition:fade>
 	<Icon name={type} class="inline w-6 h-6" />
 
 	<div class="ml-4 font-bold">
