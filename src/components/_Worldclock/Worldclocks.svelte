@@ -57,7 +57,7 @@
 			</p>
 		</div>
 		<div>
-			<div class="w-24 h-24 sm:w-32 sm:h-32 relative ml-auto">
+			<div class="w-24 h-24 sm:w-32 sm:h-32 relative ml-auto mr-6">
 				<AnalogClock mode="worldclock" {timezone} />
 			</div>
 			<button
