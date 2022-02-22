@@ -46,23 +46,25 @@
 <!-- Other clocks -->
 
 {#each worldclocks.timezones as timezone}
-	<div class="grid grid-cols-2 gap-4 lg:gap-8 border-0 border-t-2 p-4 surface">
-		<div class="text-left">
-			<p>{timezone.split('_').join(' ')}</p>
-			<p class="font-bold text-3xl">{$getTime(timezone)}</p>
-			<p>{$getDate(timezone)}</p>
-			<hr class="w-36" />
-			<p>
-				UTC {$getUtcOffset(timezone)}
-				(<span class="font-bold">{$getHourDiff(timezone)}</span>)
-			</p>
-		</div>
-		<div>
-			<div class="w-24 h-24 sm:w-32 sm:h-32 relative ml-auto mr-6">
-				<AnalogClock mode="worldclock" {timezone} />
+	<div class="relative">
+		<div class="grid grid-cols-2 gap-4 lg:gap-8 border-0 border-t-2 p-4 surface">
+			<div class="text-left">
+				<p>{timezone.split('_').join(' ')}</p>
+				<p class="font-bold text-3xl">{$getTime(timezone)}</p>
+				<p>{$getDate(timezone)}</p>
+				<hr class="w-36" />
+				<p>
+					UTC {$getUtcOffset(timezone)}
+					(<span class="font-bold">{$getHourDiff(timezone)}</span>)
+				</p>
+			</div>
+			<div>
+				<div class="w-24 h-24 sm:w-32 sm:h-32 relative ml-auto mr-6">
+					<AnalogClock mode="worldclock" {timezone} />
+				</div>
 			</div>
 		</div>
-		<div class="absolute top-2 right-2">
+		<div class="absolute top-2 right-2 z-10">
 			<button
 				id="dropdown-btn"
 				class="icon-btn"
@@ -70,7 +72,6 @@
 				aria-label={$session.languageDictionary.labels['Menu']}>
 				<Icon name="dots_vertical" class="w-6 h-6" />
 			</button>
-
 			<!-- dropdown menu -->
 			<ul
 				class="{dropdownOpen ? '' : 'hidden'} w-40 rounded shadow surface mt-2"
