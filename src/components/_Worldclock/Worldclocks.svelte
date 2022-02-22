@@ -28,15 +28,14 @@
 </script>
 
 <!-- Home clock -->
-<div class="grid grid-cols-2 gap-4 sm:gap-8">
+<div class="grid grid-cols-2 gap-4 sm:gap-8 mb-4">
 	<div class="text-left">
-		<p>{$timezone.split('_').join(' ')}</p>
-		<p class="font-bold text-5xl">{$time}</p>
 		<p>{$date}</p>
-		<p>UTC {$utcOffset}</p>
+		<p class="font-bold text-5xl my-4">{$time}</p>
+		<p>{$timezone.split('_').join(' ')} &mdash; <span>UTC {$utcOffset}</span></p>
 	</div>
 	<div>
-		<div class="w-24 h-24 sm:w-32 sm:h-32 relative ml-auto">
+		<div class="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 relative ml-auto">
 			<AnalogClock mode="worldclock" />
 		</div>
 	</div>
