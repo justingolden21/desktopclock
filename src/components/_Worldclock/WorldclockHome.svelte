@@ -1,5 +1,5 @@
 <script>
-	import { time, date, tz, utcOffset } from '../../util/timeText';
+	import { time, date, timezone, utcOffset } from '../../util/timeText';
 	import AnalogClock from '../_Clock/AnalogClock.svelte';
 </script>
 
@@ -7,8 +7,8 @@
 	<div class="text-left">
 		<p>{$date}</p>
 		<p>{$time}</p>
-		<p>{$tz}</p>
-		<p>{$utcOffset}</p>
+		<p>{$timezone}</p>
+		<p>UTC {$utcOffset}</p>
 	</div>
 	<div>
 		<div class="w-32 h-32 relative">

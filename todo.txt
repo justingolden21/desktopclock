@@ -37,6 +37,8 @@ relevant: https://tailwindcss.com/docs/reusing-styles
 
 pass theme inside analog clock (and timezone)
 
+better timezone input (typing, autocomplete, type "san diego" or "la" or "los angeles" or "pst or "utc8")
+
 tab focus in open modals fix
 
 close color picker when another one is open

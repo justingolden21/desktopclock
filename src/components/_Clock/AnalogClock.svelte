@@ -7,18 +7,20 @@
 
 	import dayjs from 'dayjs';
 	import utc from 'dayjs/plugin/utc.js';
-	import timezone from 'dayjs/plugin/timezone.js';
+	import tz from 'dayjs/plugin/timezone.js';
 	dayjs.extend(utc);
-	dayjs.extend(timezone);
+	dayjs.extend(tz);
 
 	import { now } from '../../util/now.js';
 	import { numeralStyles } from '../../data/consts.js';
 	import { settings } from '../settings.js';
 
-	// 'static' if the clock displays only one time
+	// 'static' if the clock displays only one time, 'worldclock' to have it display regardless of display setting
 	export let mode = '';
 	// time to display if static
 	export let time = {};
+	// timezone, defaults to user's current setting. for use in worldclock
+	export let timezone = undefined;
 
 	const movements = { sweeping: linear, grandfather: bounceOut, modern: elasticOut };
 	$: movement = $settings.clock.secondHandMovement;
@@ -39,7 +41,7 @@
 	$: date =
 		mode && mode === 'static'
 			? new dayjs().hour(time.h).minute(time.m).second(time.s)
-			: new dayjs($now).tz($settings.locale.timezone || 'Etc/GMT').add(1, 'second');
+			: new dayjs($now).tz(timezone || $settings.locale.timezone || 'Etc/GMT').add(1, 'second');
 
 	$: hours = date.hour() % 12;
 	$: minutes = date.minute();
