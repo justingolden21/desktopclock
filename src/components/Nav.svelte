@@ -37,7 +37,7 @@
         dark:bg-base-800
         dark:bg-opacity-75
         {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:relative md:translate-x-0'}
-        {$settings.smallerMenu ? 'w-32' : 'w-64'}"
+        {$settings.smallerMenu ? 'w-32' : 'w-72'}"
 	class:-translate-x-full={!navOpen}>
 	<a
 		class:active={$page.path === '/'}
