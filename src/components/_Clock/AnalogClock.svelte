@@ -152,7 +152,8 @@ so when switching to it, it continues moving instantly -->
 				style="font: 600 6px '{$settings.clock.theme.numerals.fontFamily}', sans-serif;
 					transform-origin: center;
 					text-anchor: middle;
-					pointer-events: none;"
+					pointer-events: none;
+                    user-select: none;"
 				transform="rotate({(idx + 1) * 30})"
 				x="32"
 				y="8"
