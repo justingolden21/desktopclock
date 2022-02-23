@@ -34,9 +34,7 @@
 		<Icon name="dots_vertical" class="w-6 h-6" />
 	</button>
 
-	<ul
-		class="{dropdownOpen ? '' : 'hidden'} w-40 rounded surface mt-2"
-		aria-labelledby="dropdown-btn">
+	<ul class="{dropdownOpen ? '' : 'hidden'} rounded surface mt-2" aria-labelledby="dropdown-btn">
 		{#each options as option}
 			<li>
 				<!-- svelte-ignore a11y-invalid-attribute -->
@@ -44,7 +42,7 @@
 					href=""
 					on:click={() => (dropdownOpen = false)}
 					class="block cursor-pointer hover:no-underline py-2 px-4 text-sm font-bold text-left hover:bg-base-300 hover:bg-opacity-75 dark:hover:bg-base-600 dark:hover:bg-opacity-75">
-					<Icon name={option.icon} class="inline-block w-6 h-6" />
+					<Icon name={option.icon} class="inline-block w-6 h-6 mr-2" />
 					{$session.languageDictionary.labels[option.text]}
 				</a>
 			</li>
