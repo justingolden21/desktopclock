@@ -41,6 +41,9 @@ rare error: range error unspecified time zone null
 
 translate "UTC" text?
 
+Wrong time in GMT timezones when locale is set
+https://github.com/iamkun/dayjs/issues/1813
+
 better timezone input (typing, autocomplete, type "san diego" or "la" or "los angeles" or "pst or "utc8")
 how does india not have any timezones in this list (delhi and mumbai for example)
 
