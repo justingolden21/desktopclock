@@ -67,7 +67,7 @@
 		<div class="absolute top-2 right-2 z-10">
 			<button
 				id="dropdown-btn"
-				class="icon-btn"
+				class="icon-btn ml-auto block"
 				on:click={() => (dropdownOpen = !dropdownOpen)}
 				aria-label={$session.languageDictionary.labels['Menu']}>
 				<Icon name="dots_vertical" class="w-6 h-6" />
