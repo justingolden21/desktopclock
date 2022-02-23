@@ -75,6 +75,10 @@
 		"Advanced / Experimental": "Advanced / Experimental",
 		"Keep screen awake": "Keep screen awake",
 		"Delete settings and reload": "Delete settings and reload",
+		"Edit": "Edit",
+		"Up": "Up",
+		"Down": "Down",
+		"Delete": "Delete",
 
 		"Numeral Styles": {
 			"numerals": "Numerals",

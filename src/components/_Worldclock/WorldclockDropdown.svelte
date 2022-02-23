@@ -18,7 +18,6 @@
 	<ul
 		class="{dropdownOpen ? '' : 'hidden'} w-40 rounded surface mt-2"
 		aria-labelledby="dropdown-btn">
-		<!-- TODO translate -->
 		{#each 'Edit Up Down Delete'.split(' ') as txt}
 			<li>
 				<!-- svelte-ignore a11y-invalid-attribute -->
@@ -27,7 +26,7 @@
 					on:click={() => (dropdownOpen = false)}
 					class="block cursor-pointer py-2 px-4 text-sm font-bold text-left hover:bg-base-300 hover:bg-opacity-75 dark:hover:bg-base-600 dark:hover:bg-opacity-75">
 					<Icon name="close" class="inline-block w-6 h-6" />
-					{txt}
+					{$session.languageDictionary.labels[txt]}
 				</a>
 			</li>
 		{/each}
