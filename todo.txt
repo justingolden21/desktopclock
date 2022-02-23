@@ -37,6 +37,10 @@ relevant: https://tailwindcss.com/docs/reusing-styles
 
 pass theme inside analog clock (and timezone)
 
+rare error: range error unspecified time zone null
+
+translate "UTC" text?
+
 better timezone input (typing, autocomplete, type "san diego" or "la" or "los angeles" or "pst or "utc8")
 how does india not have any timezones in this list (delhi and mumbai for example)
 
