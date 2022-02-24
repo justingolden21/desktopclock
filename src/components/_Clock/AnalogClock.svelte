@@ -21,6 +21,8 @@
 	export let time = {};
 	// timezone, defaults to user's current setting. for use in worldclock
 	export let timezone = undefined;
+	// custom theme, either from clock or worldclock settings
+	export let theme;
 
 	const movements = { sweeping: linear, grandfather: bounceOut, modern: elasticOut };
 	$: movement = $settings.clock.secondHandMovement;
@@ -81,8 +83,6 @@
 	});
 
 	//  ================
-
-	$: theme = $settings.clock.theme;
 
 	$: sizes = ['sm', 'md', 'lg'].map((size) => ({ size, r: 27.5 - theme.ticks[size].width / 2 }));
 

@@ -127,7 +127,7 @@
 		<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="2">
 			<div
 				class="float-right fixed right-16 top-72 w-32 h-32 p-1 rounded-full bg-opacity-75 bg-base-300 dark:bg-base-500 hidden md:block">
-				<AnalogClock mode="static" time={{ h: 10, m: 9, s: 0 }} />
+				<AnalogClock theme={$settings.clock.theme} mode="static" time={{ h: 10, m: 9, s: 0 }} />
 			</div>
 			<!-- using stringify for efficient deep clone so original theme object is not mutated -->
 			{#each [defaultTheme, defaultNightTheme, classicTheme, classicNightTheme] as clockTheme}

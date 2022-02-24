@@ -1,6 +1,8 @@
 <script>
 	import { session } from '$app/stores';
 
+	import { settings } from '../components/settings';
+
 	import Displays from '../components/_Clock/DigitalDisplays.svelte';
 	import AnalogClock from '../components/_Clock/AnalogClock.svelte';
 </script>
@@ -11,5 +13,5 @@
 
 <section>
 	<Displays />
-	<AnalogClock />
+	<AnalogClock theme={$settings.clock.theme} />
 </section>

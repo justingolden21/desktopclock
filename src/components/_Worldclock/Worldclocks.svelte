@@ -25,7 +25,7 @@
 	</div>
 	<div>
 		<div class="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 relative ml-auto">
-			<AnalogClock mode="worldclock" />
+			<AnalogClock theme={$settings.worldclock.theme} mode="worldclock" />
 		</div>
 	</div>
 </div>
@@ -46,7 +46,7 @@
 			</div>
 			<div>
 				<div class="w-24 h-24 sm:w-32 sm:h-32 relative ml-auto mr-6">
-					<AnalogClock mode="worldclock" {timezone} />
+					<AnalogClock theme={$settings.worldclock.theme} mode="worldclock" {timezone} />
 				</div>
 			</div>
 		</div>
@@ -77,7 +77,7 @@
 			<p>{timezone.split('_').join(' ')}</p>
 			<p class="font-bold text-3xl">{$getTime(timezone)}</p>
 			<div class="w-24 h-24 sm:w-32 sm:h-32 relative mx-auto">
-				<AnalogClock mode="worldclock" {timezone} />
+				<AnalogClock theme={$settings.worldclock.theme} mode="worldclock" {timezone} />
 			</div>
 			<p>{$getDate(timezone)}</p>
 			<hr class="w-48 mx-auto" />
