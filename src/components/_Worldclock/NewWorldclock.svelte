@@ -1,4 +1,8 @@
 <script>
+	import { settings } from '../settings.js';
+
+	import Icon from '../Icon.svelte';
+
 	export let newWorldclockModal = null;
 
 	let newTimezoneName, newTimezoneValue;
@@ -17,6 +21,15 @@
 <button
 	class="btn"
 	on:click={() => {
-		console.log('adding timezone', newTimezoneName, newTimezoneValue);
-		newWorldclockModal.hide();
-	}}>YES</button>
+		$settings.worldclock.timezones.push({
+			zone: newTimezoneValue,
+			name: newTimezoneName ?? ''
+		});
+
+		newTimezoneName = '';
+
+		// TODO: doesn't work with HMR?
+		if (newWorldclockModal) newWorldclockModal.hide();
+	}}>
+	<Icon name="plus" class="inline w-6 h-6" />
+	YES</button>
