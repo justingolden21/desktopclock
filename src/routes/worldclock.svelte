@@ -8,6 +8,4 @@
 	<title>{$session.languageDictionary.pageNames.worldclock}</title>
 </svelte:head>
 
-<section>
-	<Worldclocks />
-</section>
+<Worldclocks />
