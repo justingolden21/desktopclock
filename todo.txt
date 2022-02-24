@@ -41,6 +41,8 @@ rare error: range error unspecified time zone null
 
 translate "UTC" text?
 
+worldclock and clock icons in smaller menu nav are wider/larger than settings icon (when hover)
+
 maybe gradient background?
   dark:bg-gradient-to-r dark:from-base-600 dark:to-base-900
 
