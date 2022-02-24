@@ -26,8 +26,7 @@
 			text: 'Delete',
 			icon: 'trash',
 			func: () => {
-				console.log(idx);
-				console.log($settings.worldclock.timezones);
+				$settings.worldclock.timezones = $settings.worldclock.timezones.filter((_, i) => i !== idx);
 			}
 		}
 	];
