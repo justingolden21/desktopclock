@@ -41,6 +41,9 @@ rare error: range error unspecified time zone null
 
 translate "UTC" text?
 
+maybe gradient background?
+  dark:bg-gradient-to-r dark:from-base-600 dark:to-base-900
+
 Wrong time in GMT timezones when locale is set
 https://github.com/iamkun/dayjs/issues/1813
 
