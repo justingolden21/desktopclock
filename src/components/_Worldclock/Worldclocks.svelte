@@ -31,7 +31,7 @@
 </div>
 
 <!-- rows -->
-{#each $settings.worldclock.timezones as timezone}
+{#each $settings.worldclock.timezones as timezone, idx}
 	<div class="relative">
 		<div class="grid grid-cols-2 gap-4 lg:gap-8 border-0 border-t-2 p-4 surface">
 			<div class="text-left">
@@ -57,14 +57,14 @@
 				</div>
 			</div>
 		</div>
-		<WorldclockDropdown />
+		<WorldclockDropdown {idx} />
 	</div>
 {/each}
 
 <!-- grid clocks -->
 <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8 mt-8">
 	<!-- small grid -->
-	{#each $settings.worldclock.timezones as timezone}
+	{#each $settings.worldclock.timezones as timezone, idx}
 		<div class="text-left border-2 surface p-4 rounded">
 			{#if timezone.name !== ''}
 				<p>{timezone.name}</p>
@@ -78,12 +78,12 @@
 				UTC {$getUtcOffset(timezone.zone)}
 				(<span class="font-bold">{$getHourDiff(timezone.zone)}</span>)
 			</p>
-			<WorldclockDropdown />
+			<WorldclockDropdown {idx} />
 		</div>
 	{/each}
 
 	<!-- large grid -->
-	{#each $settings.worldclock.timezones as timezone}
+	{#each $settings.worldclock.timezones as timezone, idx}
 		<div class="text-center border-2 surface p-4 rounded">
 			{#if timezone.name !== ''}
 				<p>{timezone.name}</p>
@@ -103,7 +103,7 @@
 				UTC {$getUtcOffset(timezone.zone)}
 				(<span class="font-bold">{$getHourDiff(timezone.zone)}</span>)
 			</p>
-			<WorldclockDropdown />
+			<WorldclockDropdown {idx} />
 		</div>
 	{/each}
 </div>
