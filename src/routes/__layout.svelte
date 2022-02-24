@@ -219,6 +219,6 @@
 		bind:this={newWorldclockModal}
 		title={$session.languageDictionary.worldclockSettings['New Worldclock']}
 		icon="plus_circle">
-		<NewWorldclock />
+		<NewWorldclock bind:newWorldclockModal />
 	</Modal>
 </div>
