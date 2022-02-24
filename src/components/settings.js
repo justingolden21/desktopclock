@@ -23,6 +23,25 @@ export const defaultSettings = {
 
 		secondHandMovement: 'sweeping'
 	},
+	worldclock: {
+		timezones: [
+			'America/Los_Angeles',
+			'America/New_York',
+			'Europe/London',
+			'Asia/Colombo',
+			'Asia/Tokyo'
+		],
+		displays: {
+			primary: 'combo',
+			secondary: 'rows'
+		},
+		// TODO: override timeFormat and timeFormatCustom in _layout onMount to user device's preference
+		timeFormat: null,
+		timeFormatCustom: null,
+		dateFormat: 'ddd, MMMM D',
+		dateFormatCustom: 'ddd, MMMM D',
+		theme: JSON.parse(JSON.stringify(defaultTheme))
+	},
 
 	// appearance
 	baseColorPalette: 'slate',
