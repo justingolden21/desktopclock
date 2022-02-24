@@ -11,6 +11,11 @@
 		isFullscreen = Screenfull.isFullscreen;
 		Screenfull.on('change', () => (isFullscreen = Screenfull.isFullscreen));
 	});
+
+	// by having these strings in the code, these utility classes are generated
+	// they are dynamically applied to the nav below
+	// in order to make its width the remaining space on the page
+	const unused_vars = ['w-[calc(100%_-_18rem)]', 'w-[calc(100%_-_8rem)]'];
 </script>
 
 <!-- Similar classes to nav in nav.svelte -->
@@ -36,12 +41,9 @@
 		: $settings.smallerMenu
 		? 'md:ml-32'
 		: 'md:ml-72'}
-    w-[calc(100%_-_{$settings.alwaysCollapseMenu || isFullscreen
+    {$settings.alwaysCollapseMenu || isFullscreen
 		? ''
-		: $settings.smallerMenu
-		? 32 / 4
-		: 72 / 4}rem)]    
-        ">
+		: 'w-[calc(100%_-_' + ($settings.smallerMenu ? 32 / 4 : 72 / 4) + 'rem)]'}">
 	<button class="icon-btn mx-auto" on:click={() => 0} aria-label={''} title={''}>
 		<Icon name="plus" class="w-8 h-8" />
 	</button>
