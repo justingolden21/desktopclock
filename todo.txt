@@ -38,10 +38,15 @@ relevant: https://tailwindcss.com/docs/reusing-styles
 pass theme inside analog clock (and timezone)
 
 translate "UTC" text?
+translate GMT text in london nickname?
 
 worldclock and clock icons in smaller menu nav are wider/larger than settings icon (when hover)
 
 maybe: fadeout worldclock when deleted?
+
+if no timezones, show no timezones text and big new timezone btn
+
+delete timezones and reset timezones btns in settings, one deletes all, one resets to defaults
 
 maybe gradient background?
   dark:bg-gradient-to-r dark:from-base-600 dark:to-base-900
