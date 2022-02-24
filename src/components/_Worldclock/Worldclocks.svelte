@@ -13,7 +13,7 @@
 		getHourDiff
 	} from '../../util/timeText';
 
-	const worldclocks = {
+	const worldclockSettings = {
 		timezones: [
 			'America/Los_Angeles',
 			'America/New_York',
@@ -40,7 +40,7 @@
 </div>
 
 <!-- rows -->
-{#each worldclocks.timezones as timezone}
+{#each worldclockSettings.timezones as timezone}
 	<div class="relative">
 		<div class="grid grid-cols-2 gap-4 lg:gap-8 border-0 border-t-2 p-4 surface">
 			<div class="text-left">
@@ -66,7 +66,7 @@
 <!-- grid clocks -->
 <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8 mt-8">
 	<!-- small grid -->
-	{#each worldclocks.timezones as timezone}
+	{#each worldclockSettings.timezones as timezone}
 		<div class="text-left border-2 surface p-4 rounded">
 			<p>{timezone.split('_').join(' ')}</p>
 			<p class="font-bold text-3xl">{$getTime(timezone)}</p>
@@ -81,7 +81,7 @@
 	{/each}
 
 	<!-- large grid -->
-	{#each worldclocks.timezones as timezone}
+	{#each worldclockSettings.timezones as timezone}
 		<div class="text-center border-2 surface p-4 rounded">
 			<p>{timezone.split('_').join(' ')}</p>
 			<p class="font-bold text-3xl">{$getTime(timezone)}</p>
