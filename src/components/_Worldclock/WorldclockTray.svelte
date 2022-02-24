@@ -16,7 +16,6 @@
 <!-- Similar classes to nav in nav.svelte -->
 <nav
 	class="
-    w-full
     p-2
     fixed
     bottom-0
@@ -30,18 +29,25 @@
     dark:bg-base-800
     dark:bg-opacity-75
     h-16
-    {$settings.alwaysCollapseMenu || isFullscreen
+    grid
+    grid-cols-4
+    {$settings.alwaysCollapseMenu || isFullscreen ? '' : $settings.smallerMenu ? 'ml-32' : 'ml-72'}
+    w-[calc(100%_-_{$settings.alwaysCollapseMenu || isFullscreen
 		? ''
 		: $settings.smallerMenu
-		? 'ml-32'
-		: 'ml-72'}">
-	<button class="icon-btn px-24" on:click={() => 0} aria-label={''} title={''}>
+		? 32 / 4
+		: 72 / 4}rem)]    
+        ">
+	<button class="icon-btn mx-auto" on:click={() => 0} aria-label={''} title={''}>
 		<Icon name="plus" class="w-8 h-8" />
 	</button>
-	<button class="icon-btn px-24" on:click={() => 0} aria-label={''} title={''}>
+	<button class="icon-btn mx-auto" on:click={() => 0} aria-label={''} title={''}>
 		<Icon name="plus" class="w-8 h-8" />
 	</button>
-	<button class="icon-btn px-24" on:click={() => 0} aria-label={''} title={''}>
+	<button class="icon-btn mx-auto" on:click={() => 0} aria-label={''} title={''}>
+		<Icon name="plus" class="w-8 h-8" />
+	</button>
+	<button class="icon-btn mx-auto" on:click={() => 0} aria-label={''} title={''}>
 		<Icon name="plus" class="w-8 h-8" />
 	</button>
 </nav>
