@@ -20,6 +20,9 @@
     p-2
     fixed
     bottom-0
+    transition-all
+    duration-200
+    ease-in-out
     z-20
     surface-thin
     border-0
