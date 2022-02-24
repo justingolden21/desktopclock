@@ -120,6 +120,9 @@
 		},
 		'plus': {
 			path: `M12 6v6m0 0v6m0-6h6m-6 0H6`
+		},
+		'switch_horizontal': {
+			path: `M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4`
 		}
 	};
 	$: icon = icons[name];

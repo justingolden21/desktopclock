@@ -46,13 +46,13 @@
 		? ''
 		: 'md:w-[calc(100%_-_' + ($settings.smallerMenu ? 32 / 4 : 72 / 4) + 'rem)]'}">
 	<button class="icon-btn mx-auto" on:click={() => 0} aria-label={''} title={''}>
-		<Icon name="plus" class="w-8 h-8" />
+		<Icon name="table" class="w-8 h-8" />
 	</button>
 	<button class="icon-btn mx-auto" on:click={() => 0} aria-label={''} title={''}>
-		<Icon name="plus" class="w-8 h-8" />
+		<Icon name="switch_horizontal" class="w-8 h-8" />
 	</button>
 	<button class="icon-btn mx-auto" on:click={() => 0} aria-label={''} title={''}>
-		<Icon name="plus" class="w-8 h-8" />
+		<Icon name="pencil" class="w-8 h-8" />
 	</button>
 	<button class="icon-btn mx-auto" on:click={() => 0} aria-label={''} title={''}>
 		<Icon name="plus" class="w-8 h-8" />
