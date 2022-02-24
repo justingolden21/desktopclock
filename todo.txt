@@ -40,6 +40,8 @@ pass theme inside analog clock (and timezone)
 translate "UTC" text?
 translate GMT text in london nickname?
 
+todo: fix overlapping dropdown menu triple dots icons
+
 worldclock and clock icons in smaller menu nav are wider/larger than settings icon (when hover)
 
 maybe: fadeout worldclock when deleted?
