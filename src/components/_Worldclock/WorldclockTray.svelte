@@ -39,7 +39,7 @@
     dark:bg-opacity-75
     h-16
     grid
-    grid-cols-4
+    grid-cols-3
     w-full
     {$settings.alwaysCollapseMenu || isFullscreen
 		? ''
@@ -64,14 +64,6 @@
 		title={dictionary.worldclockSettings['Convert timezones']}>
 		<Icon name="switch_horizontal" class="inline-block w-8 h-8" />
 		<span class="hidden lg:inline">{dictionary.worldclockSettings['Convert']}</span>
-	</button>
-	<button
-		class="btn bg-transparent mx-auto"
-		on:click={() => 0}
-		aria-label={dictionary.worldclockSettings['Edit timezones']}
-		title={dictionary.worldclockSettings['Edit timezones']}>
-		<Icon name="pencil" class="inline-block w-8 h-8" />
-		<span class="hidden lg:inline">{dictionary.labels['Edit']}</span>
 	</button>
 	<button
 		class="btn bg-transparent mx-auto"
