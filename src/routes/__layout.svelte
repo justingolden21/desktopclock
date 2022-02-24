@@ -20,12 +20,13 @@
 	import { now } from '../util/now.js';
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
 	import WorldclockTray from '../components/_Worldclock/WorldclockTray.svelte';
+	import NewWorldclock from '../components/_Worldclock/NewWorldclock.svelte';
 	import { settings } from '../components/settings.js';
 	import { app_url } from '../data/consts.js';
 	import defaultNightTheme from '../themes/defaultNight';
 	import { setupInstall } from '../util/install';
 
-	let settingsModal;
+	let settingsModal, newWorldclockModal;
 
 	let navOpen = false;
 	$: if ($navigating) navOpen = false;
@@ -195,7 +196,7 @@
 
 	<!-- must be above <Nav> -->
 	{#if $page.path === '/worldclock'}
-		<WorldclockTray />
+		<WorldclockTray bind:newWorldclockModal />
 	{/if}
 
 	<Nav bind:navOpen bind:settingsModal />
@@ -212,5 +213,12 @@
 		title={$session.languageDictionary.labels['Settings']}
 		icon="settings">
 		<Settings />
+	</Modal>
+
+	<Modal
+		bind:this={newWorldclockModal}
+		title={$session.languageDictionary.worldclockSettings['New Worldclock']}
+		icon="plus_circle">
+		<NewWorldclock />
 	</Modal>
 </div>

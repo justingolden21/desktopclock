@@ -6,6 +6,8 @@
 	import { settings } from '../settings.js';
 	import Icon from '../Icon.svelte';
 
+	export let newWorldclockModal = null;
+
 	// similar to header
 	let isFullscreen;
 	onMount(() => {
@@ -73,7 +75,7 @@
 	</button>
 	<button
 		class="btn bg-transparent mx-auto"
-		on:click={() => 0}
+		on:click={() => newWorldclockModal.show()}
 		aria-label={dictionary.worldclockSettings['New timezone']}
 		title={dictionary.worldclockSettings['New timezone']}>
 		<Icon name="plus" class="inline-block w-8 h-8" />

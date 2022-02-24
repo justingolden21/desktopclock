@@ -121,6 +121,9 @@
 		'plus': {
 			path: `M12 6v6m0 0v6m0-6h6m-6 0H6`
 		},
+		'plus_circle': {
+			path: `M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z`
+		},
 		'switch_horizontal': {
 			path: `M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4`
 		}
