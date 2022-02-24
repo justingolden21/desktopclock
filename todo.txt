@@ -37,8 +37,6 @@ relevant: https://tailwindcss.com/docs/reusing-styles
 
 pass theme inside analog clock (and timezone)
 
-rare error: range error unspecified time zone null
-
 translate "UTC" text?
 
 worldclock and clock icons in smaller menu nav are wider/larger than settings icon (when hover)

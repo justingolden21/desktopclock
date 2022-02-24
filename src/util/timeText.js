@@ -42,7 +42,7 @@ export const utcOffset = derived([now, settings], ([$now, $settings]) => {
 });
 
 export const timezone = derived(settings, ($settings) => {
-	return $settings.locale.timezone.split('_').join(' ');
+	return ($settings.locale.timezone || 'Etc/GMT').split('_').join(' ');
 });
 
 // getters (other timezones)
@@ -82,7 +82,8 @@ export const getUtcOffset = derived(now, ($now) => {
 
 export const getHourDiff = derived([now, settings], ([$now, $settings]) => {
 	return (timezone) => {
-		const currentUtcOffset = new dayjs($now).tz($settings.locale.timezone).utcOffset() / 60;
+		const currentUtcOffset =
+			new dayjs($now).tz($settings.locale.timezone || 'Etc/GMT').utcOffset() / 60;
 		const tzUtcOffset = new dayjs($now).tz(timezone).utcOffset() / 60;
 		const diff = tzUtcOffset - currentUtcOffset;
 		return (diff >= 0 ? '+' + diff : diff) + 'h';
