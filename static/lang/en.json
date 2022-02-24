@@ -201,9 +201,7 @@
 		"Convert": "Convert",
 		"Convert timezones": "Convert timezones",
 		"Edit timezones": "Edit timezones",
-		"New timezone": "New timezone",
-
-		"New Worldclock": "New Worldclock"
+		"New timezone": "New timezone"
 	},
 	"display": {
 		"Stroke color": "Stroke color",
