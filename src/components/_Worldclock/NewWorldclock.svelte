@@ -1,11 +1,11 @@
 <script>
 	export let newWorldclockModal = null;
 
-	let newTimezoneValue;
+	let newTimezoneName, newTimezoneValue;
 </script>
 
 <label>name</label>
-<input type="text" />
+<input bind:value={newTimezoneName} type="text" />
 
 <label>timezone</label>
 <!-- todo: make component for timezone select -->
@@ -17,6 +17,6 @@
 <button
 	class="btn"
 	on:click={() => {
-		console.log('adding timezone', newTimezoneValue);
+		console.log('adding timezone', newTimezoneName, newTimezoneValue);
 		newWorldclockModal.hide();
 	}}>YES</button>
