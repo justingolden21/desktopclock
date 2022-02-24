@@ -80,6 +80,7 @@
 		"Up": "Up",
 		"Down": "Down",
 		"Delete": "Delete",
+		"Create": "Create",
 
 		"Numeral Styles": {
 			"numerals": "Numerals",
@@ -201,7 +202,8 @@
 		"Convert": "Convert",
 		"Convert timezones": "Convert timezones",
 		"Edit timezones": "Edit timezones",
-		"New timezone": "New timezone"
+		"New timezone": "New timezone",
+		"Timezone nickname:": "Timezone nickname:"
 	},
 	"display": {
 		"Stroke color": "Stroke color",
