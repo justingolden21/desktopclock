@@ -31,7 +31,11 @@
     h-16
     grid
     grid-cols-4
-    {$settings.alwaysCollapseMenu || isFullscreen ? '' : $settings.smallerMenu ? 'ml-32' : 'ml-72'}
+    {$settings.alwaysCollapseMenu || isFullscreen
+		? ''
+		: $settings.smallerMenu
+		? 'md:ml-32'
+		: 'md:ml-72'}
     w-[calc(100%_-_{$settings.alwaysCollapseMenu || isFullscreen
 		? ''
 		: $settings.smallerMenu
