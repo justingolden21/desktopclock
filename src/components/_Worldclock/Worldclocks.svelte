@@ -35,18 +35,25 @@
 	<div class="relative">
 		<div class="grid grid-cols-2 gap-4 lg:gap-8 border-0 border-t-2 p-4 surface">
 			<div class="text-left">
-				<p>{timezone.split('_').join(' ')}</p>
-				<p class="font-bold text-3xl">{$getTime(timezone)}</p>
-				<p>{$getDate(timezone)}</p>
+				{#if timezone.name !== ''}
+					<p>{timezone.name}</p>
+				{:else}
+					<p>{timezone.zone.split('_').join(' ')}</p>
+				{/if}
+				<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
+				<p>{$getDate(timezone.zone)}</p>
 				<hr class="w-36" />
 				<p>
-					UTC {$getUtcOffset(timezone)}
-					(<span class="font-bold">{$getHourDiff(timezone)}</span>)
+					UTC {$getUtcOffset(timezone.zone)}
+					(<span class="font-bold">{$getHourDiff(timezone.zone)}</span>)
 				</p>
 			</div>
 			<div>
 				<div class="w-24 h-24 sm:w-32 sm:h-32 relative ml-auto mr-6">
-					<AnalogClock theme={$settings.worldclock.theme} mode="worldclock" {timezone} />
+					<AnalogClock
+						theme={$settings.worldclock.theme}
+						mode="worldclock"
+						timezone={timezone.zone} />
 				</div>
 			</div>
 		</div>
@@ -59,13 +66,17 @@
 	<!-- small grid -->
 	{#each $settings.worldclock.timezones as timezone}
 		<div class="text-left border-2 surface p-4 rounded">
-			<p>{timezone.split('_').join(' ')}</p>
-			<p class="font-bold text-3xl">{$getTime(timezone)}</p>
-			<p>{$getDate(timezone)}</p>
+			{#if timezone.name !== ''}
+				<p>{timezone.name}</p>
+			{:else}
+				<p>{timezone.zone.split('_').join(' ')}</p>
+			{/if}
+			<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
+			<p>{$getDate(timezone.zone)}</p>
 			<hr class="w-36" />
 			<p>
-				UTC {$getUtcOffset(timezone)}
-				(<span class="font-bold">{$getHourDiff(timezone)}</span>)
+				UTC {$getUtcOffset(timezone.zone)}
+				(<span class="font-bold">{$getHourDiff(timezone.zone)}</span>)
 			</p>
 			<WorldclockDropdown />
 		</div>
@@ -74,16 +85,23 @@
 	<!-- large grid -->
 	{#each $settings.worldclock.timezones as timezone}
 		<div class="text-center border-2 surface p-4 rounded">
-			<p>{timezone.split('_').join(' ')}</p>
-			<p class="font-bold text-3xl">{$getTime(timezone)}</p>
+			{#if timezone.name !== ''}
+				<p>{timezone.name}</p>
+			{:else}
+				<p>{timezone.zone.split('_').join(' ')}</p>
+			{/if}
+			<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
 			<div class="w-24 h-24 sm:w-32 sm:h-32 relative mx-auto">
-				<AnalogClock theme={$settings.worldclock.theme} mode="worldclock" {timezone} />
+				<AnalogClock
+					theme={$settings.worldclock.theme}
+					mode="worldclock"
+					timezone={timezone.zone} />
 			</div>
-			<p>{$getDate(timezone)}</p>
+			<p>{$getDate(timezone.zone)}</p>
 			<hr class="w-48 mx-auto" />
 			<p>
-				UTC {$getUtcOffset(timezone)}
-				(<span class="font-bold">{$getHourDiff(timezone)}</span>)
+				UTC {$getUtcOffset(timezone.zone)}
+				(<span class="font-bold">{$getHourDiff(timezone.zone)}</span>)
 			</p>
 			<WorldclockDropdown />
 		</div>

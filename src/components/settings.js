@@ -25,11 +25,11 @@ export const defaultSettings = {
 	},
 	worldclock: {
 		timezones: [
-			'America/Los_Angeles',
-			'America/New_York',
-			'Europe/London',
-			'Asia/Colombo',
-			'Asia/Tokyo'
+			{ name: '', zone: 'America/Los_Angeles' },
+			{ name: '', zone: 'America/New_York' },
+			{ name: 'GMT', zone: 'Europe/London' },
+			{ name: '', zone: 'Asia/Colombo' },
+			{ name: '', zone: 'Asia/Tokyo' }
 		],
 		displays: {
 			primary: 'combo',
