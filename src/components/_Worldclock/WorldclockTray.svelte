@@ -1,6 +1,7 @@
 <script>
 	import Screenfull from 'screenfull';
 	import { onMount } from 'svelte';
+	import { session } from '$app/stores';
 
 	import { settings } from '../settings.js';
 	import Icon from '../Icon.svelte';
@@ -12,6 +13,8 @@
 		Screenfull.on('change', () => (isFullscreen = Screenfull.isFullscreen));
 	});
 
+	$: dictionary = $session.languageDictionary;
+
 	// by having these strings in the code, these utility classes are generated
 	// they are dynamically applied to the nav below
 	// in order to make its width the remaining space on the page
@@ -21,7 +24,6 @@
 <!-- Similar classes to nav in nav.svelte -->
 <nav
 	class="
-    p-2
     fixed
     bottom-0
     transition-all
@@ -45,16 +47,36 @@
     {$settings.alwaysCollapseMenu || isFullscreen
 		? ''
 		: 'md:w-[calc(100%_-_' + ($settings.smallerMenu ? 32 / 4 : 72 / 4) + 'rem)]'}">
-	<button class="icon-btn mx-auto" on:click={() => 0} aria-label={''} title={''}>
-		<Icon name="table" class="w-8 h-8" />
+	<button
+		class="btn bg-transparent mx-auto"
+		on:click={() => 0}
+		aria-label={dictionary.worldclockSettings['Timetable view']}
+		title={dictionary.worldclockSettings['Timetable view']}>
+		<Icon name="table" class="inline-block w-8 h-8" />
+		<span class="hidden lg:inline">{dictionary.worldclockSettings['Timetable']}</span>
 	</button>
-	<button class="icon-btn mx-auto" on:click={() => 0} aria-label={''} title={''}>
-		<Icon name="switch_horizontal" class="w-8 h-8" />
+	<button
+		class="btn bg-transparent mx-auto"
+		on:click={() => 0}
+		aria-label={dictionary.worldclockSettings['Convert timezones']}
+		title={dictionary.worldclockSettings['Convert timezones']}>
+		<Icon name="switch_horizontal" class="inline-block w-8 h-8" />
+		<span class="hidden lg:inline">{dictionary.worldclockSettings['Convert']}</span>
 	</button>
-	<button class="icon-btn mx-auto" on:click={() => 0} aria-label={''} title={''}>
-		<Icon name="pencil" class="w-8 h-8" />
+	<button
+		class="btn bg-transparent mx-auto"
+		on:click={() => 0}
+		aria-label={dictionary.worldclockSettings['Edit timezones']}
+		title={dictionary.worldclockSettings['Edit timezones']}>
+		<Icon name="pencil" class="inline-block w-8 h-8" />
+		<span class="hidden lg:inline">{dictionary.labels['Edit']}</span>
 	</button>
-	<button class="icon-btn mx-auto" on:click={() => 0} aria-label={''} title={''}>
-		<Icon name="plus" class="w-8 h-8" />
+	<button
+		class="btn bg-transparent mx-auto"
+		on:click={() => 0}
+		aria-label={dictionary.worldclockSettings['New timezone']}
+		title={dictionary.worldclockSettings['New timezone']}>
+		<Icon name="plus" class="inline-block w-8 h-8" />
+		<span class="hidden lg:inline">{dictionary.labels['New']}</span>
 	</button>
 </nav>

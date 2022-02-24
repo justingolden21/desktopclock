@@ -75,6 +75,7 @@
 		"Advanced / Experimental": "Advanced / Experimental",
 		"Keep screen awake": "Keep screen awake",
 		"Delete settings and reload": "Delete settings and reload",
+		"New": "New",
 		"Edit": "Edit",
 		"Up": "Up",
 		"Down": "Down",
@@ -193,6 +194,14 @@
 			["a", "am pm", "The period, lowercase"],
 			["[text]", "text", "Custom text"]
 		]
+	},
+	"worldclockSettings": {
+		"Timetable": "Timetable",
+		"Timetable view": "Timetable view",
+		"Convert": "Convert",
+		"Convert timezones": "Convert timezones",
+		"Edit timezones": "Edit timezones",
+		"New timezone": "New timezone"
 	},
 	"display": {
 		"Stroke color": "Stroke color",
