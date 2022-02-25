@@ -10,15 +10,6 @@
 	$: dictionary = $session.languageDictionary;
 </script>
 
-<!-- 
-primary display
-secondary display
-
-worldclock date format
-worldclock time format (default seconds)
-worldclock analog theme (default simpler, maybe numerals, higher contrast, maybe just default theme with 12 numerals)
- -->
-
 <!-- key="0" to default to all accordions closed -->
 <Accordion key="0">
 	<AccordionPanel accordionTitle={dictionary.clockSettings['Displays']} key="1">
