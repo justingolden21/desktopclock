@@ -18,7 +18,8 @@
 	const options = [
 		{
 			text: 'Edit',
-			icon: 'pencil'
+			icon: 'pencil',
+			func: () => 0
 		},
 		{
 			text: 'Up',
