@@ -26,8 +26,8 @@ worldclock analog theme (default simpler, maybe numerals, higher contrast, maybe
 			<SettingSelect
 				id="primary-display-select"
 				selectLabel={dictionary.clockSettings['Primary display:']}
-				bind:value={$settings.clock.displays.primary}
-				values={['analog', 'time', 'date', 'datetime']}
+				bind:value={$settings.worldclock.displays.primary}
+				values={['analog_digital', 'digital']}
 				labels={dictionary.clockSettings.clockFormats} />
 		</div>
 
@@ -35,8 +35,8 @@ worldclock analog theme (default simpler, maybe numerals, higher contrast, maybe
 			<SettingSelect
 				id="secondary-display-select"
 				selectLabel={dictionary.clockSettings['Secondary display:']}
-				bind:value={$settings.clock.displays.secondary}
-				values={['time', 'date', 'datetime', 'none']}
+				bind:value={$settings.worldclock.displays.secondary}
+				values={['rows', 'analog_grid', 'digital_grid']}
 				labels={dictionary.clockSettings.clockFormats} />
 		</div>
 	</AccordionPanel>

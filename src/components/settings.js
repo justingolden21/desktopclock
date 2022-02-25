@@ -24,7 +24,7 @@ export const defaultSettings = {
 	},
 	worldclock: {
 		displays: {
-			primary: 'combo',
+			primary: 'analog_digital',
 			secondary: 'rows'
 		},
 		timezones: [

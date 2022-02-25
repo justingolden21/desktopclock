@@ -128,7 +128,13 @@
 			"time": "Digital time",
 			"date": "Date",
 			"datetime": "Date + digital time",
-			"none": "None"
+			"none": "None",
+
+			"analog_digital": "Analog + Digital",
+			"digital": "Digital",
+			"rows": "Rows",
+			"analog_grid": "Analog grid",
+			"digital_grid": "Digital grid"
 		},
 		"Show battery": "Show battery",
 
