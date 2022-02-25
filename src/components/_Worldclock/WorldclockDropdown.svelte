@@ -2,6 +2,7 @@
 	import { session } from '$app/stores';
 
 	import { settings } from '../settings.js';
+	import { clickOutside } from '../../util/clickOutside.js';
 
 	import Icon from '../Icon.svelte';
 
@@ -57,9 +58,12 @@
 		id="dropdown-btn"
 		class="icon-btn ml-auto block"
 		on:click={() => (dropdownOpen = !dropdownOpen)}
+		use:clickOutside
+		on:click_outside={() => (dropdownOpen = false)}
 		aria-label={$session.languageDictionary.labels['Menu']}>
 		<Icon name="dots_vertical" class="w-6 h-6" />
 	</button>
+
 	<ul class="{dropdownOpen ? '' : 'hidden'} rounded surface mt-2" aria-labelledby="dropdown-btn">
 		{#each options as option}
 			<!-- don't show up if first or down if last -->
