@@ -38,6 +38,7 @@
     dark:bg-base-800
     dark:bg-opacity-75
     h-16
+    p-2
     grid
     grid-cols-3
     w-full
@@ -50,7 +51,7 @@
 		? ''
 		: 'md:w-[calc(100%_-_' + ($settings.smallerMenu ? 32 / 4 : 72 / 4) + 'rem)]'}">
 	<button
-		class="btn bg-transparent mx-auto"
+		class="icon-btn rounded-none bg-transparent mx-auto"
 		on:click={() => 0}
 		aria-label={dictionary.worldclockSettings['Timetable view']}
 		title={dictionary.worldclockSettings['Timetable view']}>
@@ -58,7 +59,7 @@
 		<span class="hidden lg:inline">{dictionary.worldclockSettings['Timetable']}</span>
 	</button>
 	<button
-		class="btn bg-transparent mx-auto"
+		class="icon-btn rounded-none bg-transparent mx-auto"
 		on:click={() => 0}
 		aria-label={dictionary.worldclockSettings['Convert timezones']}
 		title={dictionary.worldclockSettings['Convert timezones']}>
@@ -66,7 +67,7 @@
 		<span class="hidden lg:inline">{dictionary.worldclockSettings['Convert']}</span>
 	</button>
 	<button
-		class="btn bg-transparent mx-auto"
+		class="icon-btn rounded-none bg-transparent mx-auto"
 		on:click={() => newWorldclockModal.show()}
 		aria-label={dictionary.worldclockSettings['New timezone']}
 		title={dictionary.worldclockSettings['New timezone']}>
