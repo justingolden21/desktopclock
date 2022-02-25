@@ -80,7 +80,7 @@
 	</AccordionPanel>
 	{#if $settings.clock.displays.primary == 'analog'}
 		<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="2">
-			<AnalogClockSettings />
+			<AnalogClockSettings page="clock" />
 		</AccordionPanel>
 	{/if}
 	{#if $settings.clock.displays.primary != 'analog' || $settings.clock.displays.secondary != 'none'}
