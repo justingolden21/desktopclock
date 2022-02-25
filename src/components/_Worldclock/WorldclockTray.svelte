@@ -16,11 +16,6 @@
 	});
 
 	$: dictionary = $session.languageDictionary;
-
-	// by having these strings in the code, these utility classes are generated
-	// they are dynamically applied to the nav below
-	// in order to make its width the remaining space on the page
-	const unused_vars = ['md:w-[calc(100%_-_18rem)]', 'md:w-[calc(100%_-_8rem)]'];
 </script>
 
 <!-- Similar classes to nav in nav.svelte -->
@@ -50,7 +45,9 @@
 		: 'md:ml-72'}
     {$settings.alwaysCollapseMenu || isFullscreen
 		? ''
-		: 'md:w-[calc(100%_-_' + ($settings.smallerMenu ? 32 / 4 : 72 / 4) + 'rem)]'}">
+		: $settings.smallerMenu
+		? 'md:w-[calc(100%_-_8rem)]'
+		: 'md:w-[calc(100%_-_18rem)]'}">
 	<button
 		class="icon-btn rounded-none bg-transparent mx-auto"
 		on:click={() => 0}
