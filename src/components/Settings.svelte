@@ -179,7 +179,7 @@
 
 	const castSupported = isCastSupported();
 
-	import { fontFamilies, systemFontFamilies, locales, supportedLangs } from '../data/consts.js';
+	import { fontFamilies, locales, supportedLangs } from '../data/consts.js';
 	import { installButtonClick, showInstallButton } from '../util/install.js';
 
 	async function changeLanguage() {
