@@ -34,6 +34,7 @@
         surface-thin
         border-0
         border-r-2
+        border-base-200
         dark:bg-base-800
         dark:bg-opacity-75
         {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:relative md:translate-x-0'}

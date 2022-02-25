@@ -35,6 +35,7 @@
     surface-thin
     border-0
     border-t-2
+    border-base-200
     dark:bg-base-800
     dark:bg-opacity-75
     h-16
