@@ -21,7 +21,7 @@
 	$: secondaryDisplay = $settings.worldclock.displays.secondary;
 </script>
 
-<!-- Home clock -->
+<!-- primary / home timezone -->
 <div class="grid grid-cols-2 gap-4 lg:gap-8 mb-4">
 	<div class="text-left {primaryDisplay !== 'analog_digital' ? 'col-span-2' : ''}">
 		<p>{$date}</p>
@@ -37,6 +37,7 @@
 	{/if}
 </div>
 
+<!-- secondary / other timezones -->
 {#if secondaryDisplay === 'rows'}
 	{#each $settings.worldclock.timezones as timezone, idx}
 		<div class="relative">
