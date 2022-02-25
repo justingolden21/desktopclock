@@ -50,7 +50,16 @@ if no timezones, show no timezones text and big new timezone btn
 
 delete timezones and reset timezones btns in settings, one deletes all, one resets to defaults
 
+small horizontal bar that scales based on hour diff from current timezone below worldclock? option in settings?
+
+bai jamjuree puts up a good fight for best default font... change default?
+
+use emoji flags for different timezones (option in settings)
+can just make it simple and give them a selector/search for emoji name and they pick it
+
 timezones reference: https://en.wikipedia.org/wiki/Lists_of_time_zones
+
+rename 'digital datetime' in accordion to 'datetime formats'? also has other digital settings though...
 
 maybe gradient background?
   dark:bg-gradient-to-r dark:from-base-600 dark:to-base-900
