@@ -204,7 +204,11 @@
 		"Convert timezones": "Convert timezones",
 		"New timezone": "New timezone",
 		"Edit timezone": "Edit timezone",
-		"Timezone nickname:": "Timezone nickname:"
+		"Timezone nickname:": "Timezone nickname:",
+
+		"Reset timezones": "Reset timezones",
+		"Delete timezones": "Delete timezones",
+		"Reset worldclock settings": "Reset worldclock settings"
 	},
 	"display": {
 		"Stroke color": "Stroke color",
