@@ -9,6 +9,12 @@
 
 	let dropdownOpen = false;
 
+	// https://stackoverflow.com/a/46351038/4907950
+	function moveItem(data, from, to) {
+		// remove `from` item and insert into position to
+		data.splice(to, 0, data.splice(from, 1)[0]);
+	}
+
 	const options = [
 		{
 			text: 'Edit',
@@ -16,11 +22,17 @@
 		},
 		{
 			text: 'Up',
-			icon: 'chevron_up'
+			icon: 'chevron_up',
+			func: () => {
+				moveItem($settings.worldclock.timezones, idx, idx - 1);
+			}
 		},
 		{
 			text: 'Down',
-			icon: 'chevron_down'
+			icon: 'chevron_down',
+			func: () => {
+				moveItem($settings.worldclock.timezones, idx, idx + 1);
+			}
 		},
 		{
 			text: 'Delete',
