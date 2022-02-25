@@ -41,9 +41,11 @@ worldclock analog theme (default simpler, maybe numerals, higher contrast, maybe
 		</div>
 	</AccordionPanel>
 
-	<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="2">
-		<AnalogClockSettings page="worldclock" />
-	</AccordionPanel>
+	{#if $settings.worldclock.displays.primary !== 'digital' || $settings.worldclock.displays.secondary !== 'digital_grid'}
+		<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="2">
+			<AnalogClockSettings page="worldclock" />
+		</AccordionPanel>
+	{/if}
 
 	<AccordionPanel accordionTitle={dictionary.clockSettings['Digital Datetime']} key="3">
 		<p>{dictionary.messages['Coming soon']}</p>
