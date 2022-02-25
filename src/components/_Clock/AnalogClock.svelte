@@ -1,6 +1,7 @@
 <script>
 	import TailwindColors from 'tailwindcss/colors.js';
 
+	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { tweened } from 'svelte/motion';
 	import { linear, bounceOut, elasticOut } from 'svelte/easing';
@@ -25,7 +26,9 @@
 	export let theme;
 
 	const movements = { sweeping: linear, grandfather: bounceOut, modern: elasticOut };
-	$: movement = $settings.clock.secondHandMovement;
+	$: movement =
+		$settings[mode === 'worldclock' || page.path === 'worldclock' ? 'worldclock' : 'clock']
+			.secondHandMovement;
 
 	// define and set the initial tweening function
 	// note: second hand does not take timezone into account
