@@ -1,5 +1,6 @@
 <script>
 	import { session } from '$app/stores';
+	import { onMount } from 'svelte';
 
 	import { settings } from '../settings.js';
 	import Icon from '../Icon.svelte';
@@ -8,8 +9,16 @@
 	$: dictionary = $session.languageDictionary;
 
 	export let newWorldclockModal = null;
+	export let editIdx = -1;
 
 	let newTimezoneName, newTimezoneValue;
+
+	onMount(() => {
+		if (editIdx !== -1) {
+			newTimezoneName = $settings.worldclock.timezones[editIdx].name;
+			newTimezoneValue = $settings.worldclock.timezones[editIdx].zone;
+		}
+	});
 </script>
 
 <div class="my-4">
@@ -24,16 +33,23 @@
 <button
 	class="btn"
 	on:click={() => {
-		$settings.worldclock.timezones.push({
-			zone: newTimezoneValue,
-			name: newTimezoneName ?? ''
-		});
+		if (editIdx === -1) {
+			$settings.worldclock.timezones.push({
+				zone: newTimezoneValue,
+				name: newTimezoneName ?? ''
+			});
+		} else {
+			$settings.worldclock.timezones[editIdx] = {
+				zone: newTimezoneValue,
+				name: newTimezoneName ?? ''
+			};
+		}
 
 		newTimezoneName = '';
 
 		// TODO: doesn't work with HMR?
 		if (newWorldclockModal) newWorldclockModal.hide();
 	}}>
-	<Icon name="plus" class="inline w-6 h-6" />
-	{dictionary.labels['Create']}
+	<Icon name={editIdx === -1 ? 'plus' : 'check'} class="inline w-6 h-6" />
+	{dictionary.labels[editIdx === -1 ? 'Create' : 'Save']}
 </button>

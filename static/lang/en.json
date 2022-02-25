@@ -77,6 +77,7 @@
 		"Delete settings and reload": "Delete settings and reload",
 		"New": "New",
 		"Edit": "Edit",
+		"Save": "Save",
 		"Up": "Up",
 		"Down": "Down",
 		"Delete": "Delete",
@@ -202,6 +203,7 @@
 		"Convert": "Convert",
 		"Convert timezones": "Convert timezones",
 		"New timezone": "New timezone",
+		"Edit timezone": "Edit timezone",
 		"Timezone nickname:": "Timezone nickname:"
 	},
 	"display": {
