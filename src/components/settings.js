@@ -13,17 +13,20 @@ export const defaultSettings = {
 			battery: false
 		},
 		theme: JSON.parse(JSON.stringify(defaultTheme)),
+		secondHandMovement: 'sweeping',
 
 		timeFormat: null, // overridden in _layout onMount to user device's preference
 		timeFormatCustom: null, // overridden in _layout onMount to user device's preference
 		dateFormat: 'ddd, MMMM D',
 		dateFormatCustom: 'ddd, MMMM D',
 
-		datetimeFontWeight: '300',
-
-		secondHandMovement: 'sweeping'
+		datetimeFontWeight: '300'
 	},
 	worldclock: {
+		displays: {
+			primary: 'combo',
+			secondary: 'rows'
+		},
 		timezones: [
 			{ name: '', zone: 'America/Los_Angeles' },
 			{ name: '', zone: 'America/New_York' },
@@ -31,16 +34,14 @@ export const defaultSettings = {
 			{ name: '', zone: 'Asia/Colombo' },
 			{ name: '', zone: 'Asia/Tokyo' }
 		],
-		displays: {
-			primary: 'combo',
-			secondary: 'rows'
-		},
+		theme: JSON.parse(JSON.stringify(defaultTheme)),
+		secondHandMovement: 'sweeping',
+
 		// TODO: override timeFormat and timeFormatCustom in _layout onMount to user device's preference
 		timeFormat: null,
 		timeFormatCustom: null,
 		dateFormat: 'ddd, MMMM D',
-		dateFormatCustom: 'ddd, MMMM D',
-		theme: JSON.parse(JSON.stringify(defaultTheme))
+		dateFormatCustom: 'ddd, MMMM D'
 	},
 
 	// appearance
