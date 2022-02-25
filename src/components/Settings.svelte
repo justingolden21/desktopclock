@@ -166,9 +166,9 @@
 	import ThemeButtons from './ThemeButtons.svelte';
 	import Modal from './Modal.svelte';
 	import { Toasts, addToast } from './Toast/_toast.js';
-	import timezones from '../data/timezones';
 	import { keyboardShortcutsList } from './KeyboardShortcuts.svelte';
 	import SettingSelect from './SettingSelect.svelte';
+	import TimezoneSelect from './TimezoneSelect.svelte';
 	import ClockSettings from './_Clock/ClockSettings.svelte';
 	import WorldclockSettings from './_Worldclock/WorldclockSettings.svelte';
 	import defaultNightTheme from '../themes/defaultNight';
@@ -581,19 +581,10 @@
 				<!-- todo: search input that finds results containing that string in below select -->
 				<!-- options should look something like "Pacific Daylight Time (GMT-7) Los Angeles, CA" -->
 				<div class="block mb-2">
-					<label for="timezone-select">{dictionary.labels['Timezone:']}</label>
-					<select
+					<TimezoneSelect
 						id="timezone-select"
-						disabled={$settings.locale.automaticTimezone}
-						bind:value={$settings.locale.timezone}>
-						{#each Object.keys(timezones) as zone}
-							<optgroup label={zone}>
-								{#each timezones[zone] as tz}
-									<option value={zone + '/' + tz}>{(zone + '/' + tz).split('_').join(' ')}</option>
-								{/each}
-							</optgroup>
-						{/each}
-					</select>
+						bind:value={$settings.locale.timezone}
+						disabled={$settings.locale.automaticTimezone} />
 					<br class="block lg:hidden" />
 					<Toggle
 						id="auto-detect-timezone-toggle"

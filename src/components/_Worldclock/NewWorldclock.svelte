@@ -3,6 +3,7 @@
 
 	import { settings } from '../settings.js';
 	import Icon from '../Icon.svelte';
+	import TimezoneSelect from '../TimezoneSelect.svelte';
 
 	$: dictionary = $session.languageDictionary;
 
@@ -17,12 +18,7 @@
 </div>
 
 <div class="my-4">
-	<label for="new-timezone-select">{dictionary.labels['Timezone:']}</label>
-	<!-- todo: make component for timezone select -->
-	<select id="new-timezone-select" bind:value={newTimezoneValue}>
-		<option value="America/Los_Angeles">America/Los_Angeles</option>
-		<option value="America/New_York">America/New_York</option>
-	</select>
+	<TimezoneSelect id="new-timezone-select" bind:value={newTimezoneValue} />
 </div>
 
 <button
