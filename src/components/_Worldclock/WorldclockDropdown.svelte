@@ -44,6 +44,13 @@
 	];
 </script>
 
+<svelte:window
+	on:keydown={(e) => {
+		if (e.key == 'Escape') {
+			dropdownOpen = false;
+		}
+	}} />
+
 <div class="absolute top-2 right-2 z-10">
 	<button
 		id="dropdown-btn"
