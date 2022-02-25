@@ -20,7 +20,7 @@
 	<defs>
 		<linearGradient id="fillLevelGradient" y2="0%" x2="0%" y1="100%" x1="0%"
 			><stop stop-color="currentColor" offset={fillLevel + '%'} />
-			<stop stop-color="#FFFF" offset="0%" />
+			<stop stop-color="transparent" offset="0%" />
 		</linearGradient>
 	</defs>
 
