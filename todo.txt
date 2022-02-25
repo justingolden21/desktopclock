@@ -50,6 +50,8 @@ if no timezones, show no timezones text and big new timezone btn
 
 delete timezones and reset timezones btns in settings, one deletes all, one resets to defaults
 
+timezones reference: https://en.wikipedia.org/wiki/Lists_of_time_zones
+
 maybe gradient background?
   dark:bg-gradient-to-r dark:from-base-600 dark:to-base-900
 
