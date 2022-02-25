@@ -16,13 +16,9 @@
 	import { numeralStyles } from '../../data/consts.js';
 	import { settings } from '../settings.js';
 
-	// 'static' if the clock displays only one time, 'worldclock' to have it display regardless of display setting
 	export let mode = '';
-	// time to display if static
 	export let time = {};
-	// timezone, defaults to user's current setting. for use in worldclock
 	export let timezone = undefined;
-	// custom theme, either from clock or worldclock settings
 	export let theme;
 
 	const movements = { sweeping: linear, grandfather: bounceOut, modern: elasticOut };
@@ -101,6 +97,21 @@
 			  ][obj.lightness];
 	}
 </script>
+
+<!--
+@component
+A customizable analog clock
+
+- `mode`: string. 'static' if the clock displays only one time, 'worldclock' to have it display regardless of display setting
+- `theme`: object. custom theme object for clock or worldclock, usually from $settings
+- `time`: object. time to display if static
+- `timezone`: string. defaults to user's current setting. for use in worldclock
+
+- Usage:
+  ```jsx
+  <AnalogClock theme={$settings.clock.theme} mode="static" time={{ h: 10, m: 9, s: 0 }} />
+  ```
+-->
 
 <!-- by using `opacity-0` instead of `hidden` or `{#if}` it ensures the clock continues in the background
 so when switching to it, it continues moving instantly -->
