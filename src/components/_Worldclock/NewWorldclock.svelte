@@ -31,7 +31,7 @@
 </div>
 
 <button
-	class="btn"
+	class="btn float-right"
 	on:click={() => {
 		if (editIdx === -1) {
 			$settings.worldclock.timezones.push({

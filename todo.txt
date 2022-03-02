@@ -61,6 +61,8 @@ timezones reference: https://en.wikipedia.org/wiki/Lists_of_time_zones
 
 rename 'digital datetime' in accordion to 'datetime formats'? also has other digital settings though...
 
+modal disappears when not hovering component (or page in case of rows)
+
 maybe gradient background?
   dark:bg-gradient-to-r dark:from-base-600 dark:to-base-900
 
