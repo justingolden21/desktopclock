@@ -8,7 +8,7 @@
 
 	$: dictionary = $session.languageDictionary;
 
-	export let newWorldclockModal = null;
+	export let modal = null;
 	export let editIdx = -1;
 
 	let newTimezoneName, newTimezoneValue;
@@ -48,7 +48,7 @@
 		newTimezoneName = '';
 
 		// TODO: doesn't work with HMR?
-		if (newWorldclockModal) newWorldclockModal.hide();
+		if (modal) modal.hide();
 	}}>
 	<Icon name={editIdx === -1 ? 'plus' : 'check'} class="inline w-6 h-6" />
 	{dictionary.labels[editIdx === -1 ? 'Create' : 'Save']}
