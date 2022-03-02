@@ -1,5 +1,11 @@
 <script>
+	import { session } from '$app/stores';
+
 	import { settings } from '../settings.js';
+
+	import Modal from '../Modal.svelte';
+	import Icon from '../Icon.svelte';
+	import NewWorldclock from './NewWorldclock.svelte';
 
 	import AnalogClock from '../_Clock/AnalogClock.svelte';
 	import WorldclockDropdown from './WorldclockDropdown.svelte';
@@ -20,6 +26,10 @@
 	$: primaryDisplay = $settings.worldclock.displays.primary;
 	// 'rows', 'analog_grid', or 'digital_grid'
 	$: secondaryDisplay = $settings.worldclock.displays.secondary;
+
+	$: dictionary = $session.languageDictionary;
+
+	let newWorldclockModal;
 </script>
 
 <!-- primary / home timezone -->
@@ -110,4 +120,26 @@
 			</Hoverable>
 		{/each}
 	</div>
+{/if}
+
+{#if $settings.worldclock.timezones.length === 0}
+	<p class="my-4">
+		{dictionary.worldclockSettings["You don't have any other worldclocks. Try adding a new one"]}
+	</p>
+	<!-- copied from worldclock tray: -->
+	<button
+		class="icon-btn rounded-none bg-transparent mx-auto"
+		on:click={() => newWorldclockModal.show()}
+		aria-label={dictionary.worldclockSettings['New timezone']}
+		title={dictionary.worldclockSettings['New timezone']}>
+		<Icon name="plus" class="inline-block w-8 h-8" />
+		<span>{dictionary.labels['New']}</span>
+	</button>
+
+	<Modal
+		bind:this={newWorldclockModal}
+		title={$session.languageDictionary.worldclockSettings['New timezone']}
+		icon="plus_circle">
+		<NewWorldclock bind:modal={newWorldclockModal} />
+	</Modal>
 {/if}
