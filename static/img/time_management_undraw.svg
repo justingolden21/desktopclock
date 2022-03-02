@@ -1,14 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 675.67 631.95">
 <style type="text/css">
-	.st0{fill:#CBD5E1;}
-	.st1{fill:#94A3B8;}
-	.st2{fill:#F8FAFC;}
-	.st3{fill:#64748B;}
+	.st0{fill:#CBD5E1;} /*300*/
+	.st1{fill:#94A3B8;} /*400*/
+	.st2{fill:#F8FAFC;} /*50*/
+	.st3{fill:#64748B;} /*500*/
 	.st4{opacity:0.2;}
-	.st5{fill:#334155;}
-	.st6{fill:#FECACA;}
-	.st7{fill:#1E293B;}
-	.st8{fill:#2F2E41;}
+	.st5{fill:#334155;} /*700*/
+	.st6{fill:#FECACA;} /*red 200*/
+	.st7{fill:#1E293B;} /*800*/
 </style>
 <g class="st0">
 	<circle cx="279" cy="260.87" r="215"/>
