@@ -63,6 +63,8 @@ rename 'digital datetime' in accordion to 'datetime formats'? also has other dig
 
 changing timezone data isn't remembered correctly in local storage
 
+numerals don't work on worldclock analog
+
 modal disappears when not hovering component (or page in case of rows)
 
 default to night analog clock in worldclock if night
