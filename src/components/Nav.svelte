@@ -76,17 +76,19 @@
 			{dictionary.pageNames['timers']}
 		{/if}
 	</a> -->
-	<button
-		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
-		on:click={() => {
-			navOpen = false;
-			settingsModal.show();
-		}}>
-		<Icon name="settings" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
-		{#if !$settings.smallerMenu}
-			{dictionary.labels['Settings']}
-		{/if}
-	</button>
+	{#if ['/', '/worldclock', '/stopwatch', '/timers'].includes($page.path)}
+		<button
+			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
+			on:click={() => {
+				navOpen = false;
+				settingsModal.show();
+			}}>
+			<Icon name="settings" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
+			{#if !$settings.smallerMenu}
+				{dictionary.labels['Settings']}
+			{/if}
+		</button>
+	{/if}
 	<div id="nav-bottom" class="mb-8">
 		{#if $showInstallButton}
 			<button
