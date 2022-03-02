@@ -25,9 +25,13 @@
 	C345.8-9.86,287.33,14.23,236.12,43.88C191.67,69.62,150.66,58.14,104.4,77.33z"/>
 <circle class="st1" cx="521.94" cy="384.41" r="356"/>
 <circle class="st2" cx="521.94" cy="384.41" r="283"/>
-<rect x="538.94" y="374.41" class="st3" width="226" height="20"/>
+<rect x="538.94" y="374.41" class="st3" width="226" height="20">
+	<animateTransform attributeName="transform" type="rotate" values="0 521.94 384.41 ; -10 521.94 384.41 ; 0 521.94 384.41" dur="2s" repeatDur="indefinite"/>
+</rect>
 <circle class="st3" cx="521.94" cy="384.41" r="30"/>
-<polygon class="st3" points="384.36,293.97 521.94,376.22 511.8,394.41 374.21,312.16 "/>
+<polygon class="st3" points="384.36,293.97 521.94,376.22 511.8,394.41 374.21,312.16 ">
+	<animateTransform begin="-0.5s" attributeName="transform" type="rotate" values="0 521.94 384.41 ; -10 521.94 384.41 ; 0 521.94 384.41" dur="2s" repeatDur="indefinite"/>
+</polygon>
 <g class="st4">
 	<path d="M260.92,418.41c0-156.3,126.7-283,283-283c88.94-0.08,172.74,41.73,226.16,112.84
 		c-48.16-87.52-141.16-146.84-248.16-146.84c-156.3,0-283,126.7-283,283c-0.09,61.4,19.88,121.15,56.87,170.16
