@@ -123,6 +123,10 @@
 {/if}
 
 {#if $settings.worldclock.timezones.length === 0}
+	<img
+		src="img/time_management_undraw.svg"
+		alt=""
+		class="border-t-2 border-base-700 w-72 mx-auto pt-4 mt-4" />
 	<p class="my-4">
 		{dictionary.worldclockSettings["You don't have any other worldclocks. Try adding a new one"]}
 	</p>
