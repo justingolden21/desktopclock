@@ -57,7 +57,7 @@ export const defaultSettings = {
 	alwaysCollapseMenu: false,
 	hideTitlebarWhenIdle: false,
 	secondsUntilIdle: 2,
-	fontFamily: 'Comfortaa',
+	fontFamily: 'Bai Jamjuree',
 	fontFamilyBody: 'Bitter',
 
 	// general

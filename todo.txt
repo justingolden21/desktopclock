@@ -52,8 +52,6 @@ delete timezones and reset timezones btns in settings, one deletes all, one rese
 
 small horizontal bar that scales based on hour diff from current timezone below worldclock? option in settings?
 
-bai jamjuree puts up a good fight for best default font... change default?
-
 use emoji flags for different timezones (option in settings)
 can just make it simple and give them a selector/search for emoji name and they pick it
 
