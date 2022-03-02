@@ -25,9 +25,11 @@
 	C345.8-9.86,287.33,14.23,236.12,43.88C191.67,69.62,150.66,58.14,104.4,77.33z"/>
 <circle class="st1" cx="521.94" cy="384.41" r="356"/>
 <circle class="st2" cx="521.94" cy="384.41" r="283"/>
+
 <rect x="538.94" y="378.41" class="st3" width="226" height="20"/>
 <rect x="435.84" y="269.42" transform="matrix(0.4639 -0.8859 0.8859 0.4639 -70.7616 582.4201)" class="st3" width="20" height="160.52"/>
 <circle class="st3" cx="521.94" cy="388.41" r="30"/>
+
 <rect x="538.94" y="374.41" class="st4" width="226" height="20"/>
 <rect x="435.91" y="265.44" transform="matrix(0.4639 -0.8859 0.8859 0.4639 -67.2031 580.3463)" class="st4" width="20" height="160.52"/>
 <circle class="st4" cx="521.94" cy="384.41" r="30"/>
