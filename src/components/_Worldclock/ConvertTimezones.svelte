@@ -5,6 +5,7 @@
 	import TimezoneSelect from '../TimezoneSelect.svelte';
 
 	import { now } from '../../util/now.js';
+	import { convertTimezones } from '../../util/convertTimezones.js';
 	import { settings } from '../settings';
 
 	$: dictionary = $session.languageDictionary;
@@ -13,7 +14,7 @@
 	let timezone1;
 	let timezone2;
 
-	$: time2 = time1 + timezone1 + timezone2 + 'TODO make this work lol';
+	$: time2 = convertTimezones(time1, timezone1, timezone2);
 
 	const reset = () => {
 		time1 = $now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
