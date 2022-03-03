@@ -19,7 +19,6 @@
 	import { fetchLanguage } from '../components/Settings.svelte';
 	import { now } from '../util/now.js';
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
-	import WorldclockTray from '../components/_Worldclock/WorldclockTray.svelte';
 	import { settings } from '../components/settings.js';
 	import { app_url } from '../data/consts.js';
 	import defaultNightTheme from '../themes/defaultNight';
@@ -194,14 +193,9 @@
 	<Nav bind:navOpen />
 	<div class="flex justify-between flex-col flex-1 relative">
 		<Header bind:navOpen />
-		<div class="p-16 flex-1">
+		<div class="flex-1">
 			<slot />
 		</div>
-
-		<!-- TODO: move to page itself -->
-		{#if $page.url.pathname === '/worldclock'}
-			<WorldclockTray />
-		{/if}
 	</div>
 
 	<ModalManager />
