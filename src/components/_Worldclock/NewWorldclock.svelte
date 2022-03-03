@@ -1,6 +1,7 @@
 <script>
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
+	import modal from '../../util/modal.js';
 
 	import { settings } from '../settings.js';
 	import Icon from '../Icon.svelte';
@@ -8,17 +9,17 @@
 
 	$: dictionary = $session.languageDictionary;
 
-	export let modal = null;
-	export let editIdx = -1; // -1 is 'new' mode, else 'edit' mode
-
 	let newTimezoneName, newTimezoneValue;
 
 	onMount(() => {
-		if (editIdx !== -1) {
-			newTimezoneName = $settings.worldclock.timezones[editIdx].name;
-			newTimezoneValue = $settings.worldclock.timezones[editIdx].zone;
+		if (editIndex !== -1) {
+			newTimezoneName = $settings.worldclock.timezones[editIndex].name;
+			newTimezoneValue = $settings.worldclock.timezones[editIndex].zone;
 		}
 	});
+
+	export let data = {};
+	$: editIndex = data.editIndex ?? -1; // -1 is 'new' mode, else 'edit' mode
 </script>
 
 <div class="my-4">
@@ -33,23 +34,21 @@
 <button
 	class="btn float-right"
 	on:click={() => {
-		if (editIdx === -1) {
+		if (editIndex === -1) {
 			$settings.worldclock.timezones.push({
 				zone: newTimezoneValue,
 				name: newTimezoneName ?? ''
 			});
 		} else {
-			$settings.worldclock.timezones[editIdx] = {
+			$settings.worldclock.timezones[editIndex] = {
 				zone: newTimezoneValue,
 				name: newTimezoneName ?? ''
 			};
 		}
 
 		newTimezoneName = '';
-
-		// TODO: doesn't work with HMR?
-		if (modal) modal.hide();
+		$modal = null;
 	}}>
-	<Icon name={editIdx === -1 ? 'plus' : 'check'} class="inline w-6 h-6" />
-	{dictionary.labels[editIdx === -1 ? 'Create' : 'Save']}
+	<Icon name={editIndex === -1 ? 'plus' : 'check'} class="inline w-6 h-6" />
+	{dictionary.labels[editIndex === -1 ? 'Create' : 'Save']}
 </button>

@@ -1,18 +1,16 @@
 <script>
 	import { session } from '$app/stores';
+	import modal from '../../util/modal.js';
 
 	import { settings } from '../settings.js';
 	import { clickOutside } from '../../util/clickOutside.js';
 
 	import EditWorldclock from './NewWorldclock.svelte';
-	import Modal from '../Modal.svelte';
 	import Icon from '../Icon.svelte';
 
 	export let idx = -1;
 
 	let dropdownOpen = false;
-
-	let editWorldclockModal;
 
 	// https://stackoverflow.com/a/46351038/4907950
 	function moveItem(data, from, to) {
@@ -24,7 +22,13 @@
 		{
 			text: 'Edit',
 			icon: 'pencil',
-			func: () => editWorldclockModal.show()
+			func: () =>
+				($modal = {
+					component: EditWorldclock,
+					data: { editIndex: idx },
+					icon: 'pencil',
+					title: $session.languageDictionary.worldclockSettings['Edit timezone']
+				})
 		},
 		{
 			text: 'Up',
@@ -87,10 +91,3 @@
 		{/each}
 	</ul>
 </div>
-
-<Modal
-	bind:this={editWorldclockModal}
-	title={$session.languageDictionary.worldclockSettings['Edit timezone']}
-	icon="pencil">
-	<EditWorldclock bind:modal={editWorldclockModal} editIdx={idx} />
-</Modal>

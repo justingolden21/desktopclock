@@ -12,10 +12,11 @@
 </script>
 
 <script>
-	import { settings } from './settings.js';
-	import { toggleFullscreen } from './Settings.svelte';
+	import modal from '../util/modal.js';
+	import { session } from '$app/stores';
 
-	export let settingsModal = null;
+	import { settings } from './settings.js';
+	import Settings, { toggleFullscreen } from './Settings.svelte';
 </script>
 
 <!-- TODO: let user custom map keys to specific shortcuts -->
@@ -32,7 +33,15 @@
 			$settings.darkMode = !$settings.darkMode;
 		}
 		if (event.code === 'KeyS') {
-			settingsModal.toggle();
+			if ($modal.component) {
+				$modal = null;
+			} else {
+				$modal = {
+					component: Settings,
+					title: $session.languageDictionary.labels['Settings'],
+					icon: 'settings'
+				};
+			}
 		}
 		if (event.code === 'KeyF') {
 			toggleFullscreen();

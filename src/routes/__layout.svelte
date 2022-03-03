@@ -13,21 +13,17 @@
 
 	import GoogleAnalytics from '../components/GoogleAnalytics.svelte';
 	import Loader from '../components/Loader.svelte';
-	import Modal from '../components/Modal.svelte';
+	import ModalManager from '../components/ModalManager.svelte';
 	import Nav from '../components/Nav.svelte';
 	import Header from '../components/Header.svelte';
-	import Settings, { fetchLanguage } from '../components/Settings.svelte';
+	import { fetchLanguage } from '../components/Settings.svelte';
 	import { now } from '../util/now.js';
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
 	import WorldclockTray from '../components/_Worldclock/WorldclockTray.svelte';
-	import NewWorldclock from '../components/_Worldclock/NewWorldclock.svelte';
-	import ConvertTimezones from '../components/_Worldclock/ConvertTimezones.svelte';
 	import { settings } from '../components/settings.js';
 	import { app_url } from '../data/consts.js';
 	import defaultNightTheme from '../themes/defaultNight';
 	import { setupInstall } from '../util/install';
-
-	let settingsModal, newWorldclockModal, convertTimezonesModal;
 
 	let navOpen = false;
 	$: if ($navigating) navOpen = false;
@@ -193,9 +189,9 @@
     {paletteVariablesHTML}">
 	<Loader />
 
-	<KeyboardShortcuts bind:settingsModal />
+	<KeyboardShortcuts />
 
-	<Nav bind:navOpen bind:settingsModal />
+	<Nav bind:navOpen />
 	<div class="flex-1 relative">
 		<Header bind:navOpen />
 		<div class="p-16">
@@ -204,29 +200,9 @@
 
 		<!-- TODO: move to page itself -->
 		{#if $page.url.pathname === '/worldclock'}
-			<WorldclockTray bind:newWorldclockModal bind:convertTimezonesModal />
+			<WorldclockTray />
 		{/if}
 	</div>
 
-	<!-- Modals -->
-	<Modal
-		bind:this={settingsModal}
-		title={$session.languageDictionary.labels['Settings']}
-		icon="settings">
-		<Settings />
-	</Modal>
-
-	<Modal
-		bind:this={newWorldclockModal}
-		title={$session.languageDictionary.worldclockSettings['New timezone']}
-		icon="plus_circle">
-		<NewWorldclock bind:modal={newWorldclockModal} />
-	</Modal>
-
-	<Modal
-		bind:this={convertTimezonesModal}
-		title={$session.languageDictionary.worldclockSettings['Convert timezones']}
-		icon="switch_horizontal">
-		<ConvertTimezones />
-	</Modal>
+	<ModalManager />
 </main>

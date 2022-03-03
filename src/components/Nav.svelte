@@ -5,10 +5,11 @@
 	import Icon from './Icon.svelte';
 	import { shareApp } from './Settings.svelte';
 	import { settings } from './settings.js';
+	import Settings from '../components/Settings.svelte';
 	import { installButtonClick, showInstallButton } from '../util/install.js';
+	import modal from '../util/modal.js';
 
 	export let navOpen;
-	export let settingsModal = null;
 
 	// similar to header
 	let isFullscreen;
@@ -82,7 +83,11 @@
 			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
 			on:click={() => {
 				navOpen = false;
-				settingsModal.show();
+				$modal = {
+					component: Settings,
+					title: $session.languageDictionary.labels['Settings'],
+					icon: 'settings'
+				};
 			}}>
 			<Icon name="settings" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
 			{#if !$settings.smallerMenu}
