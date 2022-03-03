@@ -1,30 +1,55 @@
 <script>
 	import { session } from '$app/stores';
 
-	import modal from '../util/modal.js';
+	import { close, modal } from '../util/modal.js';
 	import Icon from './Icon.svelte';
 
-	$: component = $modal?.component;
+	import Settings from './Settings.svelte';
+	import NewWorldclock from './_Worldclock/NewWorldclock.svelte';
+	import ConvertTimezones from './_Worldclock/ConvertTimezones.svelte';
+
+	const modalData = {
+		'settings': {
+			title: $session.languageDictionary.labels['Settings'],
+			icon: 'settings',
+			component: Settings
+		},
+		'convert-timezones': {
+			title: $session.languageDictionary.worldclockSettings['Convert timezones'],
+			icon: 'switch_horizontal',
+			component: ConvertTimezones
+		},
+		'new-world-clock': {
+			title: $session.languageDictionary.worldclockSettings['New timezone'],
+			icon: 'plus_circle',
+			component: NewWorldclock
+		},
+		'edit-world-clock': {
+			title: $session.languageDictionary.worldclockSettings['Edit timezone'],
+			icon: 'pencil',
+			component: NewWorldclock
+		}
+	};
+
+	$: component = modalData[$modal?.name]?.component;
+	$: title = modalData[$modal?.name]?.title;
+	$: icon = modalData[$modal?.name]?.icon;
 	$: data = $modal?.data || {};
-	$: title = $modal?.title;
-	$: icon = $modal?.icon;
 </script>
 
 <svelte:window
 	on:keydown={(e) => {
 		// TODO: only hide the topmost modal?
-		if (e.key == 'Escape') {
-			$modal = null;
-		}
+		if (e.key == 'Escape') close();
 	}} />
 
 {#if component}
-	<div class="modal" on:click={() => ($modal = null)}>
+	<div class="modal" on:click={close}>
 		<div class="modal-content surface rounded" on:click|stopPropagation>
 			<div class="modal-header">
 				<button
 					class="close icon-btn"
-					on:click={() => ($modal = null)}
+					on:click={close}
 					aria-label={$session.languageDictionary.labels['Close']}>
 					<Icon name="close" class="w-6 h-6" />
 				</button>

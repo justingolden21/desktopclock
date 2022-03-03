@@ -2,10 +2,8 @@
 	import Screenfull from 'screenfull';
 	import { onMount } from 'svelte';
 	import { session } from '$app/stores';
-	import modal from '../../util/modal.js';
+	import { open } from '../../util/modal.js';
 	import Icon from '../Icon.svelte';
-	import NewWorldclock from './NewWorldclock.svelte';
-	import ConvertTimezones from './ConvertTimezones.svelte';
 
 	// similar to header
 	let isFullscreen;
@@ -47,12 +45,7 @@
 	</button>
 	<button
 		class="icon-btn rounded-none bg-transparent mx-auto"
-		on:click={() =>
-			($modal = {
-				component: ConvertTimezones,
-				title: $session.languageDictionary.worldclockSettings['Convert timezones'],
-				icon: 'switch_horizontal'
-			})}
+		on:click={() => open('convert-timezones')}
 		aria-label={dictionary.worldclockSettings['Convert timezones']}
 		title={dictionary.worldclockSettings['Convert timezones']}>
 		<Icon name="switch_horizontal" class="inline-block w-8 h-8" />
@@ -60,12 +53,7 @@
 	</button>
 	<button
 		class="icon-btn rounded-none bg-transparent mx-auto"
-		on:click={() =>
-			($modal = {
-				component: NewWorldclock,
-				title: $session.languageDictionary.worldclockSettings['New timezone'],
-				icon: 'plus_circle'
-			})}
+		on:click={() => open('new-world-clock')}
 		aria-label={dictionary.worldclockSettings['New timezone']}
 		title={dictionary.worldclockSettings['New timezone']}>
 		<Icon name="plus" class="inline-block w-8 h-8" />

@@ -1,11 +1,10 @@
 <script>
 	import { session } from '$app/stores';
-	import modal from '../../util/modal.js';
 
 	import { settings } from '../settings.js';
 	import { clickOutside } from '../../util/clickOutside.js';
+	import { open } from '../../util/modal.js';
 
-	import EditWorldclock from './NewWorldclock.svelte';
 	import Icon from '../Icon.svelte';
 
 	export let idx = -1;
@@ -22,13 +21,7 @@
 		{
 			text: 'Edit',
 			icon: 'pencil',
-			func: () =>
-				($modal = {
-					component: EditWorldclock,
-					data: { editIndex: idx },
-					icon: 'pencil',
-					title: $session.languageDictionary.worldclockSettings['Edit timezone']
-				})
+			func: () => open('edit-world-clock', { editIndex: idx })
 		},
 		{
 			text: 'Up',

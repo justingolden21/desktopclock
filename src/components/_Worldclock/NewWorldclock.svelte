@@ -1,7 +1,7 @@
 <script>
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
-	import modal from '../../util/modal.js';
+	import { close } from '../../util/modal.js';
 
 	import { settings } from '../settings.js';
 	import Icon from '../Icon.svelte';
@@ -47,7 +47,7 @@
 		}
 
 		newTimezoneName = '';
-		$modal = null;
+		close();
 	}}>
 	<Icon name={editIndex === -1 ? 'plus' : 'check'} class="inline w-6 h-6" />
 	{dictionary.labels[editIndex === -1 ? 'Create' : 'Save']}
