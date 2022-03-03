@@ -60,7 +60,7 @@
 <div class="absolute top-2 right-2 z-10">
 	<button
 		id="dropdown-btn"
-		class="icon-btn ml-auto block"
+		class="icon-btn ml-auto hidden group-hover:block"
 		on:click={() => (dropdownOpen = !dropdownOpen)}
 		use:clickOutside
 		on:click_outside={() => (dropdownOpen = false)}
