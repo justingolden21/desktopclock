@@ -9,7 +9,7 @@
 
 	import screenfull from 'screenfull';
 
-	import { version } from '../../package.json';
+	import version from '../data/version.js';
 
 	import GoogleAnalytics from '../components/GoogleAnalytics.svelte';
 	import Loader from '../components/Loader.svelte';
@@ -203,7 +203,7 @@
 		</div>
 
 		<!-- TODO: move to page itself -->
-		{#if $page.path === '/worldclock'}
+		{#if $page.url.pathname === '/worldclock'}
 			<WorldclockTray bind:newWorldclockModal bind:convertTimezonesModal />
 		{/if}
 	</div>

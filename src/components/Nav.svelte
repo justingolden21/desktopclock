@@ -42,7 +42,7 @@
         {$settings.smallerMenu ? 'w-32' : 'w-72'}"
 	class:-translate-x-full={!navOpen}>
 	<a
-		class:active={$page.path === '/'}
+		class:active={$page.url.pathname === '/'}
 		href="/"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
 		<Icon name="clock" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
@@ -51,7 +51,7 @@
 		{/if}
 	</a>
 	<a
-		class:active={$page.path === '/worldclock'}
+		class:active={$page.url.pathname === '/worldclock'}
 		href="/worldclock"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
 		<Icon name="worldclock" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
@@ -60,7 +60,7 @@
 		{/if}
 	</a>
 	<!-- <a
-		class:active={$page.path === '/stopwatch'}
+		class:active={$page.url.pathname === '/stopwatch'}
 		href="/stopwatch"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
 		<Icon name="stopwatch" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
@@ -69,7 +69,7 @@
 		{/if}
 	</a>
 	<a
-		class:active={$page.path === '/timers'}
+		class:active={$page.url.pathname === '/timers'}
 		href="/timers"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
 		<Icon name="timer" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
@@ -77,7 +77,7 @@
 			{dictionary.pageNames['timers']}
 		{/if}
 	</a> -->
-	{#if ['/', '/worldclock', '/stopwatch', '/timers'].includes($page.path)}
+	{#if ['/', '/worldclock', '/stopwatch', '/timers'].includes($page.url.pathname)}
 		<button
 			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
 			on:click={() => {

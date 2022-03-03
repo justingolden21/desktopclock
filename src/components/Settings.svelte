@@ -173,7 +173,7 @@
 	import WorldclockSettings from './_Worldclock/WorldclockSettings.svelte';
 	import defaultNightTheme from '../themes/defaultNight';
 
-	import { version } from '../../package.json';
+	import version from '../data/version.js';
 
 	$: dictionary = $session.languageDictionary;
 
@@ -209,11 +209,11 @@
 <Tabs>
 	<TabList>
 		<Tab>
-			{#if $page.path === '/'}
+			{#if $page.url.pathname === '/'}
 				<Icon name="clock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 				{dictionary.pageNames['clock']}
 			{/if}
-			{#if $page.path === '/worldclock'}
+			{#if $page.url.pathname === '/worldclock'}
 				<Icon name="worldclock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 				{dictionary.pageNames['worldclock']}
 			{/if}
@@ -234,10 +234,10 @@
 
 	<!-- Clock -->
 	<TabPanel>
-		{#if $page.path === '/'}
+		{#if $page.url.pathname === '/'}
 			<ClockSettings />
 		{/if}
-		{#if $page.path === '/worldclock'}
+		{#if $page.url.pathname === '/worldclock'}
 			<WorldclockSettings />
 		{/if}
 	</TabPanel>

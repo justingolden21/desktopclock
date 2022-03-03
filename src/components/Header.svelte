@@ -111,7 +111,7 @@ to hide the cursor when idle -->
 	</button>
 
 	<h1 class="hidden sm:block mx-auto inset-x-1/2 font-normal">
-		{dictionary.pageNames[$page.path.substring(1) || 'home'] || dictionary.error['Error']}
+		{dictionary.pageNames[$page.url.pathname.substring(1) || 'home'] || dictionary.error['Error']}
 	</h1>
 
 	<button
