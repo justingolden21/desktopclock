@@ -6,7 +6,7 @@
 	import { settings } from '../settings.js';
 	import Icon from '../Icon.svelte';
 
-	export let newWorldclockModal = null;
+	export let newWorldclockModal, convertTimezonesModal;
 
 	// similar to header
 	let isFullscreen;
@@ -58,7 +58,7 @@
 	</button>
 	<button
 		class="icon-btn rounded-none bg-transparent mx-auto"
-		on:click={() => 0}
+		on:click={() => convertTimezonesModal.show()}
 		aria-label={dictionary.worldclockSettings['Convert timezones']}
 		title={dictionary.worldclockSettings['Convert timezones']}>
 		<Icon name="switch_horizontal" class="inline-block w-8 h-8" />
