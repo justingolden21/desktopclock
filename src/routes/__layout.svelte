@@ -192,9 +192,9 @@
 	<KeyboardShortcuts />
 
 	<Nav bind:navOpen />
-	<div class="flex-1 relative">
+	<div class="flex justify-between flex-col flex-1 relative">
 		<Header bind:navOpen />
-		<div class="p-16">
+		<div class="p-16 flex-1">
 			<slot />
 		</div>
 
