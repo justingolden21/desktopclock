@@ -5,7 +5,7 @@
 	import TimezoneSelect from '../TimezoneSelect.svelte';
 
 	import { now } from '../../util/now.js';
-	import { convertTimezones } from '../../util/convertTimezones.js';
+	import { convertTimezones, getDiffBetweenTimezones } from '../../util/convertTimezones.js';
 	import { settings } from '../settings';
 
 	$: dictionary = $session.languageDictionary;
@@ -15,7 +15,9 @@
 	let timezone2;
 
 	$: time2 = convertTimezones(time1, timezone1, timezone2);
+	$: offset = getDiffBetweenTimezones(time1, timezone1, timezone2);
 
+	// todo: replace 'en-GB' with $settings.locale.datetime || 'en'
 	const reset = () => {
 		time1 = $now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
 		timezone1 = $settings.locale.timezone;
@@ -35,6 +37,7 @@
 
 <hr />
 <p>{dictionary.worldclockSettings['is']}</p>
+<p>({offset})</p>
 
 <div class="my-4">
 	<h3>{time2}</h3>
@@ -44,8 +47,14 @@
 	<TimezoneSelect id="convert-timezone-2-select" bind:value={timezone2} />
 </div>
 
-<!-- TODO: translate -->
 <button class="btn undo-btn block mt-4" on:click={reset}>
 	<Icon name="undo" class="inline w-6 h-6" />
 	{dictionary.labels['Reset']}
 </button>
+
+<!-- TODO: translate -->
+<p class="mt-8">
+	Note: this conversion takes place on today's date in your location. Daylight savings and other
+	modifications may affect this
+</p>
+<!-- maybe TODO: optional date picker as well -->
