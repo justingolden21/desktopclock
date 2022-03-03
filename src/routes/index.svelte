@@ -13,5 +13,10 @@
 
 <section>
 	<Displays />
-	<AnalogClock theme={$settings.clock.theme} />
+
+	<!-- by using `opacity-0` instead of `hidden` or `{#if}` it ensures the clock continues in the background
+    so when switching to it, it continues moving instantly -->
+	<div class:opacity-0={$settings.clock.displays.primary !== 'analog'}>
+		<AnalogClock theme={$settings.clock.theme} />
+	</div>
 </section>

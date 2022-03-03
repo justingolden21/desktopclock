@@ -113,13 +113,7 @@ A customizable analog clock
   ```
 -->
 
-<!-- by using `opacity-0` instead of `hidden` or `{#if}` it ensures the clock continues in the background
-so when switching to it, it continues moving instantly -->
-
-<svg
-	id="clock"
-	viewBox="0 0 64 64"
-	class={$settings.clock.displays.primary !== 'analog' && mode != 'worldclock' ? 'opacity-0' : ''}>
+<svg id="clock" viewBox="0 0 64 64">
 	<!-- Shadow -->
 	<rect
 		id="shadow"
