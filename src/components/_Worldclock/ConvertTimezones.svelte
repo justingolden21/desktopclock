@@ -3,6 +3,7 @@
 
 	import Icon from '../Icon.svelte';
 	import TimezoneSelect from '../TimezoneSelect.svelte';
+	import TimePicker from '../TimePicker.svelte';
 
 	import { now } from '../../util/now.js';
 	import { convertTimezones, getDiffBetweenTimezones } from '../../util/convertTimezones.js';
@@ -25,6 +26,8 @@
 
 	reset();
 </script>
+
+<TimePicker bind:value={time1} />
 
 <div class="my-4">
 	<label for="convert-time-1-input">{dictionary.labels['Time:']}</label>
