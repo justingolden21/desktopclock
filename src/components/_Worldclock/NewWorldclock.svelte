@@ -9,7 +9,7 @@
 	$: dictionary = $session.languageDictionary;
 
 	export let modal = null;
-	export let editIdx = -1;
+	export let editIdx = -1; // -1 is 'new' mode, else 'edit' mode
 
 	let newTimezoneName, newTimezoneValue;
 
