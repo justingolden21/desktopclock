@@ -22,11 +22,12 @@
 
 <nav
 	class="
-        min-h-screen
+        h-screen
         p-8
         pt-20
-        absolute
+        fixed
         left-0
+        top-0
         transition-all
         duration-200
         ease-in-out
@@ -37,7 +38,7 @@
         border-base-200
         dark:bg-base-800
         dark:bg-opacity-75
-        {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:relative md:translate-x-0'}
+        {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:sticky md:translate-x-0'}
         {$settings.smallerMenu ? 'w-32' : 'w-72'}"
 	class:-translate-x-full={!navOpen}>
 	<a

@@ -21,12 +21,12 @@
 <!-- Similar classes to nav in nav.svelte -->
 <nav
 	class="
-    fixed
+    sticky
     bottom-0
     transition-all
     duration-200
     ease-in-out
-    z-20
+    z-10
     surface-thin
     border-0
     border-t-2
@@ -37,17 +37,7 @@
     p-2
     grid
     grid-cols-3
-    w-full
-    {$settings.alwaysCollapseMenu || isFullscreen
-		? ''
-		: $settings.smallerMenu
-		? 'md:ml-32'
-		: 'md:ml-72'}
-    {$settings.alwaysCollapseMenu || isFullscreen
-		? ''
-		: $settings.smallerMenu
-		? 'md:w-[calc(100%_-_8rem)]'
-		: 'md:w-[calc(100%_-_18rem)]'}">
+    w-full">
 	<button
 		class="icon-btn rounded-none bg-transparent mx-auto"
 		on:click={() => 0}

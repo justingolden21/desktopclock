@@ -186,7 +186,7 @@
 
 <svelte:body on:dblclick={doubleClickFullscreen} />
 
-<div
+<main
 	class="dark:bg-base-900 dark:text-base-200 transition-colors duration-200 ease-linear text-base-900 text-center flex min-h-screen"
 	style="--font-family:{$settings.fontFamily};
     --font-family-body:{$settings.fontFamilyBody};
@@ -195,17 +195,17 @@
 
 	<KeyboardShortcuts bind:settingsModal />
 
-	<!-- must be above <Nav> -->
-	{#if $page.path === '/worldclock'}
-		<WorldclockTray bind:newWorldclockModal bind:convertTimezonesModal />
-	{/if}
-
 	<Nav bind:navOpen bind:settingsModal />
 	<div class="flex-1 relative">
 		<Header bind:navOpen />
 		<div class="p-16">
 			<slot />
 		</div>
+
+		<!-- TODO: move to page itself -->
+		{#if $page.path === '/worldclock'}
+			<WorldclockTray bind:newWorldclockModal bind:convertTimezonesModal />
+		{/if}
 	</div>
 
 	<!-- Modals -->
@@ -229,4 +229,4 @@
 		icon="switch_horizontal">
 		<ConvertTimezones />
 	</Modal>
-</div>
+</main>
