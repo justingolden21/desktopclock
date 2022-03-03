@@ -21,6 +21,7 @@
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
 	import WorldclockTray from '../components/_Worldclock/WorldclockTray.svelte';
 	import NewWorldclock from '../components/_Worldclock/NewWorldclock.svelte';
+	import ConvertTimezones from '../components/_Worldclock/ConvertTimezones.svelte';
 	import { settings } from '../components/settings.js';
 	import { app_url } from '../data/consts.js';
 	import defaultNightTheme from '../themes/defaultNight';
@@ -226,6 +227,6 @@
 		bind:this={convertTimezonesModal}
 		title={$session.languageDictionary.worldclockSettings['Convert timezones']}
 		icon="switch_horizontal">
-		TODO
+		<ConvertTimezones />
 	</Modal>
 </div>

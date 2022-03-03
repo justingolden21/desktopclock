@@ -70,6 +70,7 @@
 		"Datetime locale:": "Datetime locale:",
 		"Automatically detect datetime locale": "Automatically detect datetime locale",
 		"Timezone:": "Timezone:",
+		"Time:": "Time:",
 		"Automatically detect timezone": "Automatically detect timezone",
 		"Timezone offset:": "Timezone offset:",
 		"Advanced / Experimental": "Advanced / Experimental",
@@ -82,6 +83,7 @@
 		"Down": "Down",
 		"Delete": "Delete",
 		"Create": "Create",
+		"Reset": "Reset",
 
 		"Numeral Styles": {
 			"numerals": "Numerals",
@@ -207,6 +209,8 @@
 		"Timetable": "Timetable",
 		"Timetable view": "Timetable view",
 		"Convert": "Convert",
+		"in": "in",
+		"is": "is",
 		"Convert timezones": "Convert timezones",
 		"New timezone": "New timezone",
 		"Edit timezone": "Edit timezone",
