@@ -43,7 +43,7 @@
 	{#each $settings.worldclock.timezones as timezone, idx}
 		<div class="relative group">
 			<div class="grid grid-cols-2 gap-4 lg:gap-8 border-0 border-t-2 p-4 surface">
-				<div class="text-left">
+				<div class="text-left break-words">
 					{#if timezone.name !== ''}
 						<p>{timezone.name}</p>
 					{:else}
@@ -77,7 +77,7 @@
 			<div
 				class="relative group {secondaryDisplay === 'analog_grid'
 					? 'text-center'
-					: 'text-left'} text-center border-2 surface p-4 rounded">
+					: 'text-left'} break-words border-2 surface p-4 rounded">
 				{#if timezone.name !== ''}
 					<p>{timezone.name}</p>
 				{:else}

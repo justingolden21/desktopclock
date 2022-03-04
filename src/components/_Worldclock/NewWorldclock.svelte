@@ -24,7 +24,7 @@
 
 <div class="my-4">
 	<label for="new-timezone-name-input">{dictionary.worldclockSettings['Timezone nickname:']}</label>
-	<input id="new-timezone-name-input" bind:value={newTimezoneName} type="text" />
+	<input id="new-timezone-name-input" bind:value={newTimezoneName} type="text" maxlength="100" />
 </div>
 
 <div class="my-4">
