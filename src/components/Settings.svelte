@@ -511,7 +511,10 @@
 					Reset Keyboard Shortcuts
 				</button> -->
 
-				<Modal bind:this={keyboardShortcutModal} title="Keyboard Shortcuts" icon="table">
+				<Modal
+					bind:this={keyboardShortcutModal}
+					title={dictionary.labels['Keyboard shortcuts']}
+					icon="table">
 					<table>
 						<thead>
 							<tr><th>Key</th><th>Action</th></tr>
