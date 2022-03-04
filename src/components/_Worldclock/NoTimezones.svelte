@@ -14,7 +14,7 @@
 <!-- copied from worldclock tray: -->
 <button
 	class="icon-btn rounded-none bg-transparent mx-auto"
-	on:click={() => open('new-world-clock')}
+	on:click={() => open('new-worldclock')}
 	aria-label={dictionary.worldclockSettings['New timezone']}
 	title={dictionary.worldclockSettings['New timezone']}>
 	<Icon name="plus" class="inline-block w-8 h-8" />

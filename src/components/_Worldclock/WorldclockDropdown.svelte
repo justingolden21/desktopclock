@@ -21,7 +21,7 @@
 		{
 			text: 'Edit',
 			icon: 'pencil',
-			func: () => open('edit-world-clock', { editIndex: idx })
+			func: () => open('edit-worldclock', { editIndex: idx })
 		},
 		{
 			text: 'Up',

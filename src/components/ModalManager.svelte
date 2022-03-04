@@ -21,12 +21,12 @@
 			icon: 'switch_horizontal',
 			component: ConvertTimezones
 		},
-		'new-world-clock': {
+		'new-worldclock': {
 			title: $session.languageDictionary.worldclockSettings['New timezone'],
 			icon: 'plus_circle',
 			component: NewWorldclock
 		},
-		'edit-world-clock': {
+		'edit-worldclock': {
 			title: $session.languageDictionary.worldclockSettings['Edit timezone'],
 			icon: 'pencil',
 			component: NewWorldclock
