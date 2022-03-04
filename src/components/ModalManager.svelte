@@ -6,6 +6,7 @@
 
 	import Settings from './Settings.svelte';
 	import KeyboardShortcutsModal from './KeyboardShortcutsModal.svelte';
+	import DatetimeFormatModal from './_Clock/DatetimeFormatModal.svelte';
 	import NewWorldclock from './_Worldclock/NewWorldclock.svelte';
 	import ConvertTimezones from './_Worldclock/ConvertTimezones.svelte';
 
@@ -35,6 +36,12 @@
 			icon: 'table',
 			previous: 'settings',
 			component: KeyboardShortcutsModal
+		},
+		'datetime-format': {
+			title: $session.languageDictionary.clockSettings['Datetime Formatting'],
+			icon: 'table',
+			previous: 'settings',
+			component: DatetimeFormatModal
 		}
 	};
 
