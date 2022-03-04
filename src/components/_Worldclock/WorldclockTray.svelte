@@ -28,7 +28,7 @@
     w-full">
 	<button
 		class="icon-btn rounded-none bg-transparent mx-auto"
-		on:click={() => 0}
+		on:click={() => open('worldclock-timetable')}
 		aria-label={dictionary.worldclockSettings['Timetable view']}
 		title={dictionary.worldclockSettings['Timetable view']}>
 		<Icon name="table" class="inline-block w-8 h-8" />

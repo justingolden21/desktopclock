@@ -8,6 +8,7 @@
 	import KeyboardShortcutsModal from './KeyboardShortcutsModal.svelte';
 	import DatetimeFormatModal from './_Clock/DatetimeFormatModal.svelte';
 	import NewWorldclock from './_Worldclock/NewWorldclock.svelte';
+	import WorldclockTimetable from './_Worldclock/WorldclockTimetable.svelte';
 	import ConvertTimezones from './_Worldclock/ConvertTimezones.svelte';
 
 	const modalData = {
@@ -42,6 +43,11 @@
 			icon: 'table',
 			previous: 'settings',
 			component: DatetimeFormatModal
+		},
+		'worldclock-timetable': {
+			title: $session.languageDictionary.worldclockSettings['Timetable'],
+			icon: 'table',
+			component: WorldclockTimetable
 		}
 	};
 
