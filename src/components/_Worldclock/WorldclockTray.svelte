@@ -1,16 +1,7 @@
 <script>
-	import Screenfull from 'screenfull';
-	import { onMount } from 'svelte';
 	import { session } from '$app/stores';
 	import { open } from '../../util/modal.js';
 	import Icon from '../Icon.svelte';
-
-	// similar to header
-	let isFullscreen;
-	onMount(() => {
-		isFullscreen = Screenfull.isFullscreen;
-		Screenfull.on('change', () => (isFullscreen = Screenfull.isFullscreen));
-	});
 
 	$: dictionary = $session.languageDictionary;
 </script>
