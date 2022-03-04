@@ -11,7 +11,6 @@
 	import { Accordion, AccordionPanel } from '../Accordion/_accordion.js';
 	import Icon from '../Icon.svelte';
 	import Toggle from '../Toggle.svelte';
-	import Modal from '../Modal.svelte';
 	import AnalogClockSettings from './AnalogClockSettings.svelte';
 	import SettingSelect from '../SettingSelect.svelte';
 	import { fontFamilies, defaultTimeFormats, defaultDateFormats } from '../../data/consts.js';
