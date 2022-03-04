@@ -119,6 +119,10 @@
 		"fr": "French",
 		"ru": "Russian"
 	},
+	"keyboardShortcuts": {
+		"Key": "Key",
+		"Action": "Action"
+	},
 	"clockSettings": {
 		"Displays": "Displays",
 		"Analog": "Analog",

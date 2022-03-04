@@ -5,8 +5,10 @@
 
 <table>
 	<thead>
-		<!-- TODO: translate -->
-		<tr><th>Key</th><th>Action</th></tr>
+		<tr>
+			<th>{$session.languageDictionary.keyboardShortcuts['Key']}</th>
+			<th>{$session.languageDictionary.keyboardShortcuts['Action']}</th>
+		</tr>
 	</thead>
 	<tbody>
 		{#each Object.keys(keyboardShortcutsList) as shortcut}
