@@ -68,6 +68,9 @@
 		'chevron_down': {
 			path: `M19 9l-7 7-7-7`
 		},
+		'arrow_left': {
+			path: `M10 19l-7-7m0 0l7-7m-7 7h18`
+		},
 		'undo': {
 			path: `M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6`
 		},

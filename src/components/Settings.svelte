@@ -156,6 +156,7 @@
 	import dayjs from 'dayjs';
 
 	import { setupCasting, castClock, isCastSupported } from '../util/cast.js';
+	import { open } from '../util/modal.js';
 
 	import { settings, defaultSettings } from './settings.js';
 
@@ -164,9 +165,7 @@
 	import { Tabs, TabList, TabPanel, Tab } from './Tabs/_tabs.js';
 	import { Accordion, AccordionPanel } from './Accordion/_accordion.js';
 	import ThemeButtons from './ThemeButtons.svelte';
-	import Modal from './Modal.svelte';
 	import { Toasts, addToast } from './Toast/_toast.js';
-	import { KeyboardShortcutsModal } from './KeyboardShortcutsModal.svelte';
 	import SettingSelect from './SettingSelect.svelte';
 	import TimezoneSelect from './TimezoneSelect.svelte';
 	import ClockSettings from './_Clock/ClockSettings.svelte';
@@ -185,8 +184,6 @@
 	async function changeLanguage() {
 		$session.languageDictionary = await fetchLanguage($settings.locale.language);
 	}
-
-	let keyboardShortcutModal;
 
 	let hoveringContact = false;
 
@@ -501,22 +498,10 @@
 						labelText={dictionary.labels['Keyboard shortcuts']}
 						bind:checked={$settings.keyboardShortcuts} />
 				</div>
-				<button class="btn" on:click={keyboardShortcutModal.show}>
+				<button class="btn" on:click={() => open('keyboard-shortcuts')}>
 					<Icon name="table" class="inline w-6 h-6" />
 					{dictionary.labels['View keyboard shortcuts']}
 				</button>
-
-				<!-- <button class="btn undo-btn block">
-					<Icon name="undo" class="inline w-6 h-6" />
-					Reset Keyboard Shortcuts
-				</button> -->
-
-				<Modal
-					bind:this={keyboardShortcutModal}
-					title={dictionary.labels['Keyboard shortcuts']}
-					icon="table">
-					<KeyboardShortcutsModal />
-				</Modal>
 			</AccordionPanel>
 			<AccordionPanel accordionTitle={dictionary.labels['Locale']} key="3">
 				<div class="block mb-2">

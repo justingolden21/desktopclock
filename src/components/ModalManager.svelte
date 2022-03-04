@@ -1,10 +1,11 @@
 <script>
 	import { session } from '$app/stores';
 
-	import { close, modal } from '../util/modal.js';
+	import { open, close, modal } from '../util/modal.js';
 	import Icon from './Icon.svelte';
 
 	import Settings from './Settings.svelte';
+	import KeyboardShortcutsModal from './KeyboardShortcutsModal.svelte';
 	import NewWorldclock from './_Worldclock/NewWorldclock.svelte';
 	import ConvertTimezones from './_Worldclock/ConvertTimezones.svelte';
 
@@ -28,27 +29,47 @@
 			title: $session.languageDictionary.worldclockSettings['Edit timezone'],
 			icon: 'pencil',
 			component: NewWorldclock
+		},
+		'keyboard-shortcuts': {
+			title: $session.languageDictionary.labels['Keyboard shortcuts'],
+			icon: 'table',
+			previous: 'settings',
+			component: KeyboardShortcutsModal
 		}
 	};
 
 	$: component = modalData[$modal?.name]?.component;
 	$: title = modalData[$modal?.name]?.title;
 	$: icon = modalData[$modal?.name]?.icon;
+	$: previous = modalData[$modal?.name]?.previous;
 	$: data = $modal?.data || {};
 </script>
 
 <svelte:window
 	on:keydown={(e) => {
-		// TODO: only hide the topmost modal?
-		if (e.key == 'Escape') close();
+		if (e.key !== 'Escape') return;
+
+		if (previous) {
+			open(previous);
+		} else {
+			close();
+		}
 	}} />
 
 {#if component}
 	<div class="modal" on:click={close}>
 		<div class="modal-content surface rounded" on:click|stopPropagation>
 			<div class="modal-header">
+				{#if previous}
+					<button
+						class="icon-btn float-left mr-8"
+						on:click={() => open(previous)}
+						aria-label={$session.languageDictionary.labels['Go back']}>
+						<Icon name="arrow_left" class="w-6 h-6" />
+					</button>
+				{/if}
 				<button
-					class="close icon-btn"
+					class="icon-btn float-right"
 					on:click={close}
 					aria-label={$session.languageDictionary.labels['Close']}>
 					<Icon name="close" class="w-6 h-6" />
@@ -74,8 +95,8 @@
 		animation: animateTop 0.25s;
 		-webkit-animation: animateTop 0.25s;
 	}
-	.modal button.close {
-		@apply z-30 float-right mt-2;
+	.modal-header button {
+		@apply z-30 mt-2;
 	}
 	.modal h1 {
 		@apply text-left mt-4;
