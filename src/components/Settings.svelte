@@ -166,7 +166,7 @@
 	import ThemeButtons from './ThemeButtons.svelte';
 	import Modal from './Modal.svelte';
 	import { Toasts, addToast } from './Toast/_toast.js';
-	import { keyboardShortcutsList } from './KeyboardShortcuts.svelte';
+	import { KeyboardShortcutsModal } from './KeyboardShortcutsModal.svelte';
 	import SettingSelect from './SettingSelect.svelte';
 	import TimezoneSelect from './TimezoneSelect.svelte';
 	import ClockSettings from './_Clock/ClockSettings.svelte';
@@ -515,21 +515,7 @@
 					bind:this={keyboardShortcutModal}
 					title={dictionary.labels['Keyboard shortcuts']}
 					icon="table">
-					<table>
-						<thead>
-							<tr><th>Key</th><th>Action</th></tr>
-						</thead>
-						<tbody>
-							{#each Object.keys(keyboardShortcutsList) as shortcut}
-								{#if shortcut != 'B' || (navigator && navigator.getBattery)}
-									<tr>
-										<td>{shortcut}</td>
-										<td>{dictionary.labels[keyboardShortcutsList[shortcut]]}</td>
-									</tr>
-								{/if}
-							{/each}
-						</tbody>
-					</table>
+					<KeyboardShortcutsModal />
 				</Modal>
 			</AccordionPanel>
 			<AccordionPanel accordionTitle={dictionary.labels['Locale']} key="3">
