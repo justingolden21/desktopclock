@@ -17,7 +17,7 @@
 	:
 
 	<select bind:value={mins}>
-		{#each [...Array(60).keys()].map((idx) => (idx + 1).toString().padStart(2, '0')) as min}
+		{#each [...Array(60).keys()].map((idx) => idx.toString().padStart(2, '0')) as min}
 			<option value={min}>{min}</option>
 		{/each}
 	</select>
