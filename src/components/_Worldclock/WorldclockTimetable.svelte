@@ -37,6 +37,7 @@
 
 		let minsDiff = mins1 - mins2;
 		if (minsDiff < 0) minsDiff += 60 * 24;
+		if (minsDiff > 60 * 24) minsDiff -= 60 * 24;
 
 		return minsDiff;
 	}
@@ -46,6 +47,8 @@
 		const timeMins = objToMins(time);
 
 		let minsSum = timeMins + mins;
+		// if (minsSum < 0) minsSum += 60 * 24;
+		// if (minsSum > 60 * 24) minsSum -= 60 * 24;
 
 		return minsToTimeStr(minsSum, AMPM);
 	}
