@@ -17,14 +17,15 @@
 		getHourDiff
 	} from '../../util/timeText';
 
-	// let times = ['9:00', '12:00', '15:00', '18:00'];
-	let times = [
-		{ hours: 9, mins: 0 },
-		{ hours: 12, mins: 0 },
-		{ hours: 15, mins: 0 },
-		{ hours: 18, mins: 0 }
-	];
 	let AMPM = true;
+	let times = ['9:00 AM', '12:00 PM', '3:00 PM', '6:00 PM'];
+	// let times = ['9:00', '12:00', '15:00', '18:00'];
+	// let times = [
+	// 	{ hours: 9, mins: 0 },
+	// 	{ hours: 12, mins: 0 },
+	// 	{ hours: 15, mins: 0 },
+	// 	{ hours: 18, mins: 0 }
+	// ];
 
 	// in mins
 	function getDiff(time1, time2) {
@@ -34,7 +35,8 @@
 		const mins1 = objToMins(time1);
 		const mins2 = objToMins(time2);
 
-		const minsDiff = Math.abs(mins1 - mins2);
+		let minsDiff = mins1 - mins2;
+		if (minsDiff < 0) minsDiff += 60 * 24;
 
 		return minsToTimeStr(minsDiff, AMPM);
 	}
@@ -80,7 +82,7 @@
 			<th>Name</th>
 			<th>Now</th>
 			{#each times as time}
-				<th><SimpleTimePicker ampm={AMPM} value={objToTimeStr(time, AMPM)} /></th>
+				<th><SimpleTimePicker ampm={AMPM} bind:value={time} /></th>
 			{/each}
 		</tr>
 	</thead>
@@ -110,8 +112,8 @@
 				then add diff to timezone time -->
 					<td
 						>{getDiff(
-							getDiff($getTime($settings.locale.timezone), $getTime(timezone.zone)),
-							time
+							time,
+							getDiff($getTime($settings.locale.timezone), $getTime(timezone.zone))
 						)}</td>
 				{/each}
 			</tr>
