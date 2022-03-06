@@ -85,7 +85,7 @@
 	}
 </script>
 
-<!-- TODO: translate diff, name, now, home -->
+<!-- TODO: translate diff, name, now, home, reset -->
 <table>
 	<thead>
 		<tr>
@@ -132,6 +132,9 @@
 		{/each}
 	</tbody>
 </table>
+
+<button class="btn" on:click={() => (times = ['9:00 AM', '12:00 PM', '3:00 PM', '6:00 PM'])}
+	>Reset</button>
 
 <style lang="postcss">
 	tr {
