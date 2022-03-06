@@ -86,6 +86,7 @@
 </script>
 
 <!-- TODO: translate diff, name, now, home, reset -->
+<!-- TODO: store timetable times in localstorage under worldclock > timetable > times -->
 <table>
 	<thead>
 		<tr>
