@@ -9,7 +9,8 @@
 	<title>{$session.languageDictionary.pageNames.worldclock}</title>
 </svelte:head>
 
-<div class="p-16">
+<!-- 4rem is size of worldclock tray, keeps it stuck to bottom -->
+<div class="p-16 min-h-[calc(100%-4rem)]">
 	<Worldclocks />
 </div>
 <WorldclockTray />
