@@ -1,6 +1,7 @@
 <script>
 	export let value;
 	export let ampm = false;
+	export let classes;
 
 	const times = [];
 
@@ -16,7 +17,7 @@
 	}
 </script>
 
-<select bind:value>
+<select class={classes} bind:value>
 	{#each times as time}
 		<option value={time}>{time}</option>
 	{/each}

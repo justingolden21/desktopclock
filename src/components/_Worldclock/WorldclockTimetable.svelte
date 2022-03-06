@@ -52,6 +52,7 @@
 
 		return minsToTimeStr(minsSum, AMPM);
 	}
+	// time variable conversion
 	function timeStrToObj(timeStr) {
 		const pm = timeStr.toUpperCase().includes('pm');
 		const hours = parseInt(timeStr.split(':')[0]) + (pm ? 12 : 0);
@@ -95,7 +96,7 @@
 			<th>Name</th>
 			<th>Now</th>
 			{#each times as time}
-				<th><SimpleTimePicker ampm={AMPM} bind:value={time} /></th>
+				<th><SimpleTimePicker ampm={AMPM} bind:value={time} classes={'mx-0 my-4'} /></th>
 			{/each}
 		</tr>
 	</thead>
