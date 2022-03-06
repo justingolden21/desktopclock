@@ -2,7 +2,7 @@
 	import { session } from '$app/stores';
 
 	import TimezoneSelect from '../TimezoneSelect.svelte';
-	import TimePicker from '../TimePicker.svelte';
+	import SimpleTimePicker from '../SimpleTimePicker.svelte';
 	import WorldclockDropdown from './WorldclockDropdown.svelte';
 	import { settings } from '../settings.js';
 
@@ -24,21 +24,19 @@
 		{ hours: 15, mins: 0 },
 		{ hours: 18, mins: 0 }
 	];
-	let ampm = false;
+	let AMPM = true;
 
 	// in mins
 	function getDiff(time1, time2) {
-		console.log(time1);
-		console.log(time2);
 		if (typeof time1 === 'string') time1 = timeStrToObj(time1);
 		if (typeof time2 === 'string') time2 = timeStrToObj(time2);
 
 		const mins1 = objToMins(time1);
 		const mins2 = objToMins(time2);
 
-		const minsDiff = mins1 - mins2;
+		const minsDiff = Math.abs(mins1 - mins2);
 
-		return minsToTimeStr(minsDiff, true);
+		return minsToTimeStr(minsDiff, AMPM);
 	}
 	function timeStrToObj(timeStr) {
 		const pm = timeStr.toUpperCase().includes('pm');
@@ -81,8 +79,8 @@
 			<th>Difference</th>
 			<th>Name</th>
 			<th>Now</th>
-			{#each times as { hours, mins }}
-				<th><TimePicker {ampm} bind:hours bind:mins /></th>
+			{#each times as time}
+				<th><SimpleTimePicker ampm={AMPM} value={objToTimeStr(time, AMPM)} /></th>
 			{/each}
 		</tr>
 	</thead>

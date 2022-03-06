@@ -22,8 +22,8 @@
 
 	{#if ampm}
 		<select bind:value={meridiem}>
-			<option value="am">AM</option>
-			<option value="pm">PM</option>
+			<option value="AM">AM</option>
+			<option value="PM">PM</option>
 		</select>
 	{/if}
 </div>
