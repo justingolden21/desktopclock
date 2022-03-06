@@ -38,7 +38,16 @@
 		let minsDiff = mins1 - mins2;
 		if (minsDiff < 0) minsDiff += 60 * 24;
 
-		return minsToTimeStr(minsDiff, AMPM);
+		return minsDiff;
+	}
+	function getSum(time, mins) {
+		if (typeof time === 'string') time = timeStrToObj(time);
+
+		const timeMins = objToMins(time);
+
+		let minsSum = timeMins + mins;
+
+		return minsToTimeStr(minsSum, AMPM);
 	}
 	function timeStrToObj(timeStr) {
 		const pm = timeStr.toUpperCase().includes('pm');
@@ -111,9 +120,9 @@
 					get diff between time selector and current time
 				then add diff to timezone time -->
 					<td
-						>{getDiff(
+						>{getSum(
 							time,
-							getDiff($getTime($settings.locale.timezone), $getTime(timezone.zone))
+							getDiff($getTime(timezone.zone), $getTime($settings.locale.timezone))
 						)}</td>
 				{/each}
 			</tr>
