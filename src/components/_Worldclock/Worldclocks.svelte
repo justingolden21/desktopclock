@@ -66,7 +66,7 @@
 					</div>
 				</div>
 			</div>
-			<WorldclockDropdown {idx} />
+			<WorldclockDropdown {idx} classes="absolute top-2 right-2 z-10" />
 		</div>
 	{/each}
 {/if}
@@ -98,7 +98,7 @@
 					UTC {$getUtcOffset(timezone.zone)}
 					(<span class="font-bold">{$getHourDiff(timezone.zone)}</span>)
 				</p>
-				<WorldclockDropdown {idx} />
+				<WorldclockDropdown {idx} classes="absolute top-2 right-2 z-10" />
 			</div>
 		{/each}
 	</div>

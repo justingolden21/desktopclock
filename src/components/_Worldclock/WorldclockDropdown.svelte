@@ -8,6 +8,7 @@
 	import Icon from '../Icon.svelte';
 
 	export let idx = -1;
+	export let classes;
 
 	let dropdownOpen = false;
 
@@ -54,7 +55,7 @@
 		}
 	}} />
 
-<div class="absolute top-2 right-2 z-10">
+<div class={classes}>
 	<button
 		id="dropdown-btn"
 		class="icon-btn ml-auto hidden group-hover:block"

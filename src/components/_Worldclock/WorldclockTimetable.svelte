@@ -102,9 +102,13 @@
 	</thead>
 	<tbody>
 		{#each [{ name: 'Home', zone: $settings.locale.timezone }].concat($settings.worldclock.timezones) as timezone, idx}
-			<tr>
-				<td class="relative w-12 h-12">
-					<WorldclockDropdown {idx} />
+			<tr class="group">
+				<td class="relative">
+					{#if idx !== 0}
+						<div class="w-12 h-12">
+							<WorldclockDropdown idx={idx - 1} classes="absolute top-0 right-0 z-10" />
+						</div>
+					{/if}
 				</td>
 				<td>
 					{#if idx !== 0}
@@ -112,11 +116,7 @@
 					{/if}
 				</td>
 				<td>
-					{#if timezone.name !== ''}
-						<p>{timezone.name}</p>
-					{:else}
-						<p>{timezone.zone.split('_').join(' ')}</p>
-					{/if}
+					<p>{timezone.name || timezone.zone.split('_').join(' ')}</p>
 					<!-- <TimezoneSelect /> -->
 				</td>
 				<td class:font-bold={idx === 0}>{$getTime(timezone.zone)}</td>
