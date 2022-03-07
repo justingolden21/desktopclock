@@ -13,13 +13,10 @@
 		}
 	};
 
-	function togglePrimaryDisplay() {
+	// displayType is 'primary' or 'secondary'
+	function toggleDisplay(displayType) {
 		let currentPage = getCurrentPage();
-		if (currentPage) toggleDisplay(currentPage, 'primary');
-	}
-	function toggleSecondaryDisplay() {
-		let currentPage = getCurrentPage();
-		if (currentPage) toggleDisplay(currentPage, 'secondary');
+		if (currentPage) toggleDisplaySetting(currentPage, displayType);
 	}
 
 	function getCurrentPage() {
@@ -30,11 +27,11 @@
 		}
 	}
 
-	function toggleDisplay(page, displayType) {
+	function toggleDisplaySetting(page, displayType) {
 		const options = displayOptions[page][displayType];
 		$settings[page].displays[displayType] =
 			options[(options.indexOf($settings[page].displays[displayType]) + 1) % options.length];
 	}
 
-	export { togglePrimaryDisplay, toggleSecondaryDisplay };
+	export { toggleDisplay };
 </script>
