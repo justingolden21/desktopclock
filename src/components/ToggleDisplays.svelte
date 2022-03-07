@@ -24,10 +24,8 @@
 				currentPage = 'worldclock';
 				break;
 			default:
-				currentPage = '';
+				return;
 		}
-
-		if (currentPage === '') return;
 
 		const options = displayOptions[currentPage][displayType];
 		$settings[currentPage].displays[displayType] =
