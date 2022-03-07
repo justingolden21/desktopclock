@@ -15,21 +15,23 @@
 
 	// displayType is 'primary' or 'secondary'
 	function toggleDisplay(displayType) {
-		let currentPage = getCurrentPage();
-		if (!currentPage) return;
+		let currentPage;
+		switch ($page.url.pathname) {
+			case '/':
+				currentPage = 'clock';
+				break;
+			case '/worldclock':
+				currentPage = 'worldclock';
+				break;
+			default:
+				currentPage = '';
+		}
+
+		if (currentPage === '') return;
 
 		const options = displayOptions[currentPage][displayType];
 		$settings[currentPage].displays[displayType] =
 			options[(options.indexOf($settings[currentPage].displays[displayType]) + 1) % options.length];
-	}
-
-	function getCurrentPage() {
-		switch ($page.url.pathname) {
-			case '/':
-				return 'clock';
-			case '/worldclock':
-				return 'worldclock';
-		}
 	}
 
 	export { toggleDisplay };
