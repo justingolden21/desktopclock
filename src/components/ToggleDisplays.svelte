@@ -14,18 +14,22 @@
 	};
 
 	function togglePrimaryDisplay() {
+		let currentPage;
 		if ($page.url.pathname === '/') {
-			toggleDisplay('clock', 'primary');
+			currentPage = 'clock';
 		} else if ($page.url.pathname === '/worldclock') {
-			toggleDisplay('worldclock', 'primary');
+			currentPage = 'worldclock';
 		}
+		if (currentPage) toggleDisplay(currentPage, 'primary');
 	}
 	function toggleSecondaryDisplay() {
+		let currentPage;
 		if ($page.url.pathname === '/') {
-			toggleDisplay('clock', 'secondary');
+			currentPage = 'clock';
 		} else if ($page.url.pathname === '/worldclock') {
-			toggleDisplay('worldclock', 'secondary');
+			currentPage = 'worldclock';
 		}
+		if (currentPage) toggleDisplay(currentPage, 'secondary');
 	}
 
 	function toggleDisplay(page, displayType) {
