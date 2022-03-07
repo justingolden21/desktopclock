@@ -23,8 +23,9 @@
 
 	const movements = { sweeping: linear, grandfather: bounceOut, modern: elasticOut };
 	$: movement =
-		$settings[mode === 'worldclock' || $page.url.pathname === 'worldclock' ? 'worldclock' : 'clock']
-			.secondHandMovement;
+		$settings[
+			mode === 'worldclock' || $page.url.pathname === '/worldclock' ? 'worldclock' : 'clock'
+		].secondHandMovement;
 
 	// define and set the initial tweening function
 	// note: second hand does not take timezone into account
