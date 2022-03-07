@@ -13,19 +13,15 @@
 		}
 	};
 
+	const pages = {
+		'/': 'clock',
+		'/worldclock': 'worldclock'
+	};
+
 	// displayType is 'primary' or 'secondary'
 	function toggleDisplay(displayType) {
-		let currentPage;
-		switch ($page.url.pathname) {
-			case '/':
-				currentPage = 'clock';
-				break;
-			case '/worldclock':
-				currentPage = 'worldclock';
-				break;
-			default:
-				return;
-		}
+		const currentPage = pages[$page.url.pathname];
+		if (!currentPage) return;
 
 		const options = displayOptions[currentPage][displayType];
 		$settings[currentPage].displays[displayType] =
