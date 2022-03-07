@@ -24,10 +24,11 @@
 	}
 
 	function getCurrentPage() {
-		if ($page.url.pathname === '/') {
-			return 'clock';
-		} else if ($page.url.pathname === '/worldclock') {
-			return 'worldclock';
+		switch ($page.url.pathname) {
+			case '/':
+				return 'clock';
+			case '/worldclock':
+				return 'worldclock';
 		}
 	}
 
