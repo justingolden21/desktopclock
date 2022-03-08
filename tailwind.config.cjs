@@ -45,7 +45,8 @@ module.exports = {
 				(obj, item) => {
 					return {
 						...obj,
-						[`base-${item}`]: withOpacity(`--base-${item}`)
+						[`base-${item}`]: withOpacity(`--base-${item}`),
+						[`accent-${item}`]: withOpacity(`--accent-${item}`)
 					};
 				},
 				{}
