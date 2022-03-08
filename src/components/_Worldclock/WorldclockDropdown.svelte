@@ -55,10 +55,10 @@
 		}
 	}} />
 
-<div class={classes}>
+<div class="{classes} hidden group-hover:block">
 	<button
 		id="dropdown-btn"
-		class="icon-btn ml-auto hidden group-hover:block"
+		class="icon-btn ml-auto block"
 		on:click={() => (dropdownOpen = !dropdownOpen)}
 		use:clickOutside
 		on:click_outside={() => (dropdownOpen = false)}
