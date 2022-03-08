@@ -83,7 +83,7 @@
 			<div
 				class="relative group {secondaryDisplay === 'analog_grid'
 					? 'text-center'
-					: 'text-left'} break-words {!hasBorder && 'border-0'} surface p-4">
+					: 'text-left'} break-words {!hasBorder && 'border-0'} rounded surface p-4">
 				{#if timezone.name !== ''}
 					<p>{timezone.name}</p>
 				{:else}
