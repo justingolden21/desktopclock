@@ -20,6 +20,9 @@
 	$: primaryDisplay = $settings.worldclock.displays.primary;
 	// 'rows', 'analog_grid', or 'digital_grid'
 	$: secondaryDisplay = $settings.worldclock.displays.secondary;
+
+	// TODO setting for toggling border
+	const hasBorder = true;
 </script>
 
 <!-- primary / home timezone -->
@@ -42,7 +45,10 @@
 {#if secondaryDisplay === 'rows'}
 	{#each $settings.worldclock.timezones as timezone, idx}
 		<div class="relative group">
-			<div class="grid grid-cols-2 gap-4 lg:gap-8 border-0 border-t-2 p-4 surface">
+			<div
+				class="grid grid-cols-2 gap-4 lg:gap-8 border-0 {hasBorder
+					? 'border-t-2'
+					: 'my-4 sm:my-8'} p-4 surface">
 				<div class="text-left break-words">
 					{#if timezone.name !== ''}
 						<p>{timezone.name}</p>
@@ -77,7 +83,7 @@
 			<div
 				class="relative group {secondaryDisplay === 'analog_grid'
 					? 'text-center'
-					: 'text-left'} break-words border-2 surface p-4 rounded">
+					: 'text-left'} break-words {!hasBorder && 'border-0'} surface p-4">
 				{#if timezone.name !== ''}
 					<p>{timezone.name}</p>
 				{:else}
