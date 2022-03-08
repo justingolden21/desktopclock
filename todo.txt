@@ -32,11 +32,6 @@ add a new "face" circle between each one and hide/show it programmatically
 CURRENT TODO
 ====
 
-organize css (bem or something idk)
-relevant: https://tailwindcss.com/docs/reusing-styles
-
-pass theme inside analog clock (and timezone)
-
 translate "UTC" text?
 translate GMT text in london nickname?
 
@@ -85,6 +80,28 @@ remove wrapper divs that arent needed
 maybe: rename 'aesthetics' to 'look and feel' or 'theme'
 
 BUG:heading font family system default inherits from body family and doesnt work
+
+timetable modal, convert modal working
+
+primary and secondary quick btns should work on worldclock when current page
+
+local storage tzs mutate obj
+$settings.worldclock.timezones
+
+better tz selector
+
+tz select prop for hasLabel boolean
+
+12/24h settings
+
+tz display can be only zone or both, ie "america/los angeles" or "los angeles"
+toggle for display area
+
+scrollbar, make inside overflow scroll/auto to make body not have to scroll
+problem is html/body elements don't have custom css classes and can't have dynamically inserted coe in svelte kit
+
+404 page infinite refresh?
+
 ====
 
 USER REQUESTS
