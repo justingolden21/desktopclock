@@ -43,10 +43,10 @@
 			$settings.clock.displays.battery = !$settings.clock.displays.battery;
 		}
 		if (event.code === 'KeyD') {
-			$settings = ToggleDisplay($page, $settings, 'secondary');
+			ToggleDisplay($page, settings, 'secondary');
 		}
 		if (event.code === 'KeyP') {
-			$settings = ToggleDisplay($page, $settings, 'primary');
+			ToggleDisplay($page, settings, 'primary');
 		}
 
 		// TODO: keyT to toggle themes?

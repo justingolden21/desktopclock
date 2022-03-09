@@ -43,10 +43,10 @@
 	});
 
 	function togglePrimaryDisplay() {
-		$settings = ToggleDisplay($page, $settings, 'primary');
+		ToggleDisplay($page, settings, 'primary');
 	}
 	function toggleSecondaryDisplay() {
-		$settings = ToggleDisplay($page, $settings, 'secondary');
+		ToggleDisplay($page, settings, 'secondary');
 	}
 </script>
 

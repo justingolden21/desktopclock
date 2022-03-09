@@ -15,15 +15,21 @@ const pages = {
 };
 
 // displayType is 'primary' or 'secondary'
-// example usage: `$settings = ToggleDisplay($page, $settings, 'primary');`
+// example usage: `ToggleDisplay($page, settings, 'primary');`
 function toggleDisplay(page, settings, displayType) {
 	const currentPage = pages[page.url.pathname];
 	if (!currentPage) return;
 
-	const options = displayOptions[currentPage][displayType];
-	settings[currentPage].displays[displayType] =
-		options[(options.indexOf(settings[currentPage].displays[displayType]) + 1) % options.length];
-	return settings;
+	settings.update((currentSettings) => {
+		const options = displayOptions[currentPage][displayType];
+
+		const currentType = currentSettings[currentPage].displays[displayType];
+		const newType = options[(options.indexOf(currentType) + 1) % options.length];
+
+		const newSettings = { ...currentSettings };
+		newSettings[currentPage].displays[displayType] = newType;
+		return newSettings;
+	});
 }
 
 export default toggleDisplay;
