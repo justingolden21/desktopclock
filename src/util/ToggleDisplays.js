@@ -23,11 +23,11 @@ function toggleDisplay(page, settings, displayType) {
 	settings.update((currentSettings) => {
 		const options = displayOptions[currentPage][displayType];
 
-		const currentType = currentSettings[currentPage].displays[displayType];
-		const newType = options[(options.indexOf(currentType) + 1) % options.length];
+		const currentDisplay = currentSettings[currentPage].displays[displayType];
+		const newDisplay = options[(options.indexOf(currentDisplay) + 1) % options.length];
 
 		const newSettings = { ...currentSettings };
-		newSettings[currentPage].displays[displayType] = newType;
+		newSettings[currentPage].displays[displayType] = newDisplay;
 		return newSettings;
 	});
 }
