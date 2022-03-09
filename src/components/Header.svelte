@@ -4,8 +4,9 @@
 	import Screenfull from 'screenfull';
 	import { onMount } from 'svelte';
 
-	import { settings } from './settings.js';
 	import { toggleFullscreen } from './Settings.svelte';
+	import { settings } from './settings.js';
+	import ToggleDisplay from '../util/ToggleDisplays';
 	import { setupCasting, castClock, isCastSupported } from '../util/cast.js';
 	import { now } from '../util/now.js';
 
@@ -42,15 +43,10 @@
 	});
 
 	function togglePrimaryDisplay() {
-		// copied from KeyboardShortcuts.svelte
-		const options = ['analog', 'time', 'date', 'datetime'];
-		$settings.clock.displays.primary =
-			options[(options.indexOf($settings.clock.displays.primary) + 1) % options.length];
+		$settings = ToggleDisplay($page, $settings, 'primary');
 	}
 	function toggleSecondaryDisplay() {
-		const options = ['time', 'date', 'datetime', 'none'];
-		$settings.clock.displays.secondary =
-			options[(options.indexOf($settings.clock.displays.secondary) + 1) % options.length];
+		$settings = ToggleDisplay($page, $settings, 'secondary');
 	}
 </script>
 

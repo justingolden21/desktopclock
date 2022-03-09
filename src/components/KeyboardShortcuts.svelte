@@ -12,10 +12,12 @@
 </script>
 
 <script>
-	import { toggle } from '../util/modal.js';
+	import { page } from '$app/stores';
 
-	import { settings } from './settings.js';
 	import { toggleFullscreen } from './Settings.svelte';
+	import { settings } from './settings';
+	import { toggle } from '../util/modal';
+	import ToggleDisplay from '../util/ToggleDisplays';
 </script>
 
 <!-- TODO: let user custom map keys to specific shortcuts -->
@@ -41,26 +43,10 @@
 			$settings.clock.displays.battery = !$settings.clock.displays.battery;
 		}
 		if (event.code === 'KeyD') {
-			// const current = $settings.clock.displays.secondary;
-			// const secondaryOptions = ['time', 'date', 'datetime', 'none'];
-			// let idx = secondaryOptions.indexOf(current);
-			// idx = (idx + 1) % secondaryOptions.length;
-			// $settings.clock.displays.secondary = secondaryOptions[idx];
-
-			const options = ['time', 'date', 'datetime', 'none'];
-			$settings.clock.displays.secondary =
-				options[(options.indexOf($settings.clock.displays.secondary) + 1) % options.length];
+			$settings = ToggleDisplay($page, $settings, 'secondary');
 		}
 		if (event.code === 'KeyP') {
-			// const current = $settings.clock.displays.primary;
-			// const primaryOptions = ['analog', 'time', 'date', 'datetime'];
-			// let idx = primaryOptions.indexOf(current);
-			// idx = (idx + 1) % primaryOptions.length;
-			// $settings.clock.displays.primary = primaryOptions[idx];
-
-			const options = ['analog', 'time', 'date', 'datetime'];
-			$settings.clock.displays.primary =
-				options[(options.indexOf($settings.clock.displays.primary) + 1) % options.length];
+			$settings = ToggleDisplay($page, $settings, 'primary');
 		}
 
 		// TODO: keyT to toggle themes?
