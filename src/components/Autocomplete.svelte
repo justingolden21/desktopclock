@@ -63,6 +63,9 @@
 	let highlightIdx = null;
 
 	const navigateList = (e) => {
+		// if autocomplete input is not focused, return
+		if (document.activeElement !== searchInput) return;
+
 		if (e.key === 'ArrowDown') {
 			if (highlightIdx === null) {
 				highlightIdx = 0;
