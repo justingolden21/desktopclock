@@ -100,7 +100,8 @@ toggle for display area
 scrollbar, make inside overflow scroll/auto to make body not have to scroll
 problem is html/body elements don't have custom css classes and can't have dynamically inserted coe in svelte kit
 
-404 page infinite refresh?
+bug: "s" key for settings often doesn't work even when other keyboard shortcuts do
+bug: default worldclock theme remembers numerals when clicking default theme btn
 
 ====
 
@@ -175,15 +176,11 @@ google analytics:
 second hand moving backwards (switching displays, tabs) thats illegal
 
 before release:
-[x] comment other nav options
 - test everything to hell (devices, browsers, versions, aspect ratios, pixel densities, operating systems, pwa, language, display settings, saving settings)
 - last: get domain, marketing video, para about translate to your lang, ux test
 ================
 
 remember wake lock setting?
-
-bug: "s" key for settings often doesn't work even when other keyboard shortcuts do
-bug: default worldclock theme remembers numerals when clicking default theme btn
 
 zoom in/out buttons?
 if(document.body.style.zoom)
