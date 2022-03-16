@@ -78,6 +78,7 @@ Set up VS code to auto format on save
 	},
 	"eslint.alwaysShowStatus": true,
 	"prettier.singleQuote": true,
+	"editor.detectIndentation": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true
 }
