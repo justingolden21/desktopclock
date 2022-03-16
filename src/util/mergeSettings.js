@@ -23,6 +23,12 @@ function isPrimitiveType(item) {
 	return ['string', 'number', 'boolean'].includes(typeof item);
 }
 
+const validNulls = {
+	timeFormat: 'string',
+	timeFormatCustom: 'string',
+	darkMode: 'boolean'
+};
+
 /**
  * Deep merge two objects
  * @param target
@@ -34,6 +40,8 @@ function isPrimitiveType(item) {
  * as well as functions
  * falsey values such as false, 0, '', [], and {} are vaild
  * the property on the target can be null
+ * but must be in validNulls
+ * so timeFormat cannot be a number or boolean for example
  */
 export function mergeDeep(target, ...sources) {
 	if (!sources.length) {
@@ -75,6 +83,15 @@ export function mergeDeep(target, ...sources) {
 		} else {
 			// console.log('target[key] is not an object');
 
+			if (key === 'timeFormat') {
+				console.log((target[key], source[key]));
+				console.log((typeof target[key], typeof source[key]));
+				console.log(typeof target[key] === typeof source[key]);
+				console.log(typeof target[key] == typeof source[key]);
+				console.log(isSameType(target[key], source[key]));
+				console.log(target[key] === null && source[key] !== null);
+			}
+
 			// only add properties if they are the same type
 			// or if target is null (intentional lack of value) amd source isn't
 			if (isSameType(target[key], source[key])) {
@@ -82,7 +99,12 @@ export function mergeDeep(target, ...sources) {
 				// console.log(target[key], source[key]);
 				target[key] = source[key];
 				// console.log(target[key]);
-			} else if (target[key] === null && source[key] !== null) {
+			} else if (
+				target[key] === null &&
+				source[key] !== null &&
+				Object.keys(validNulls).includes(key) &&
+				typeof source[key] === validNulls[key]
+			) {
 				// console.log('target[key] is null and source[key] is not');
 				target[key] = source[key];
 			} else {
@@ -450,340 +472,6 @@ function test() {
 	};
 
 	const settings = mergeDeep(deepClone(defaultValue), deepClone(incomingValue));
-	// console.log(settings);
-	// console.log(expectedValue);
-	// console.log(JSON.stringify(settings));
-	// console.log(JSON.stringify(expectedValue));
-	// console.log(JSON.stringify(settings) === JSON.stringify(expectedValue));
-}
-
-// test();
-
-function simpleTest() {
-	function deepClone(obj) {
-		return JSON.parse(JSON.stringify(obj));
-	}
-
-	const defaultValue = {
-		clock: {
-			displays: {
-				primary: 'analog',
-				secondary: 'date',
-				primaryPalette: 'base',
-				secondaryPalette: 'base',
-				primaryFontSize: 'medium',
-				secondaryFontSize: 'medium',
-				battery: false
-			},
-			theme: {
-				name: 'Default Night Theme',
-				face: {
-					stroke: { lightness: '700', palette: 'base' },
-					fill: { lightness: '900', palette: 'base' },
-					strokeWidth: 0,
-					shape: 'circle'
-				},
-				shadow: { fill: { lightness: '700', palette: 'base' } },
-				pin: {
-					stroke: { lightness: '700', palette: 'accent' },
-					fill: { lightness: '900', palette: 'base' },
-					strokeWidth: 0.5,
-					size: 1
-				},
-				numerals: {
-					style: 'none',
-					fontFamily: 'Arsenal',
-					fill: { lightness: '300', palette: 'base' }
-				},
-				ticks: {
-					sm: { stroke: { lightness: '-1', palette: 'base' }, height: 0.5, width: 2 },
-					md: { stroke: { lightness: '400', palette: 'base' }, height: 0.5, width: 3 },
-					lg: { stroke: { lightness: '500', palette: 'base' }, height: 0.5, width: 5 }
-				},
-				hands: {
-					hour: {
-						stroke: { lightness: '700', palette: 'base' },
-						strokeWidth: 0.5,
-						length: 15,
-						back: 3,
-						linecap: 'square'
-					},
-					minute: {
-						stroke: { lightness: '500', palette: 'base' },
-						strokeWidth: 0.5,
-						length: 21,
-						back: 3,
-						linecap: 'square'
-					},
-					second: {
-						stroke: { lightness: '700', palette: 'accent' },
-						strokeWidth: 0.5,
-						length: 27,
-						back: 6,
-						linecap: 'square'
-					}
-				}
-			},
-			secondHandMovement: 'sweeping',
-			timeFormat: 'h:mm A',
-			timeFormatCustom: 'h:mm A',
-			dateFormat: 'ddd, MMMM D',
-			dateFormatCustom: 'ddd, MMMM D',
-			datetimeFontWeight: '300'
-		},
-		worldclock: {
-			displays: { primary: 'analog_digital', secondary: 'rows' },
-			timezones: [
-				{ name: '', zone: 'America/Los_Angeles' },
-				{ name: '', zone: 'America/New_York' },
-				{ name: 'GMT', zone: 'Europe/London' },
-				{ name: '', zone: 'Asia/Colombo' },
-				{ name: '', zone: 'Asia/Tokyo' }
-			],
-			theme: {
-				name: 'Default Theme',
-				face: {
-					stroke: { lightness: '700', palette: 'base' },
-					fill: { lightness: '100', palette: 'base' },
-					strokeWidth: 0,
-					shape: 'circle'
-				},
-				shadow: { fill: { lightness: '700', palette: 'base' } },
-				pin: {
-					stroke: { lightness: '700', palette: 'accent' },
-					fill: { lightness: '100', palette: 'base' },
-					strokeWidth: 0.5,
-					size: 1
-				},
-				numerals: {
-					style: 'none',
-					fontFamily: 'Arsenal',
-					fill: { lightness: '700', palette: 'base' }
-				},
-				ticks: {
-					sm: { stroke: { lightness: '-1', palette: 'base' }, height: 0.5, width: 2 },
-					md: { stroke: { lightness: '400', palette: 'base' }, height: 0.5, width: 3 },
-					lg: { stroke: { lightness: '500', palette: 'base' }, height: 0.5, width: 5 }
-				},
-				hands: {
-					hour: {
-						stroke: { lightness: '700', palette: 'base' },
-						strokeWidth: 0.5,
-						length: 15,
-						back: 3,
-						linecap: 'square'
-					},
-					minute: {
-						stroke: { lightness: '500', palette: 'base' },
-						strokeWidth: 0.5,
-						length: 21,
-						back: 3,
-						linecap: 'square'
-					},
-					second: {
-						stroke: { lightness: '700', palette: 'accent' },
-						strokeWidth: 0.5,
-						length: 27,
-						back: 6,
-						linecap: 'square'
-					}
-				}
-			},
-			secondHandMovement: 'sweeping',
-			timeFormat: null,
-			timeFormatCustom: null,
-			dateFormat: 'ddd, MMMM D',
-			dateFormatCustom: 'ddd, MMMM D'
-		},
-		baseColorPalette: 'slate',
-		accentColorPalette: 'red',
-		darkMode: false,
-		showDarkButton: true,
-		showPrimaryButton: true,
-		showSecondaryButton: false,
-		showCastButton: false,
-		showFullscreenButton: true,
-		smallerMenu: false,
-		alwaysCollapseMenu: false,
-		hideTitlebarWhenIdle: false,
-		secondsUntilIdle: 2,
-		fontFamily: 'Bai Jamjuree',
-		fontFamilyBody: 'Bitter',
-		doubleclickFullscreen: false,
-		keyboardShortcuts: true,
-		locale: {
-			datetime: 'en',
-			language: 'en',
-			timezone: 'America/Los_Angeles',
-			automaticDatetime: true,
-			automaticLanguage: true,
-			automaticTimezone: true
-		}
-	};
-
-	const incomingValue = {
-		baseColorPalette: 'stone',
-		accentColorPalette: 'indigo'
-	};
-
-	const expectedValue = {
-		clock: {
-			displays: {
-				primary: 'analog',
-				secondary: 'date',
-				primaryPalette: 'base',
-				secondaryPalette: 'base',
-				primaryFontSize: 'medium',
-				secondaryFontSize: 'medium',
-				battery: false
-			},
-			theme: {
-				name: 'Default Night Theme',
-				face: {
-					stroke: { lightness: '700', palette: 'base' },
-					fill: { lightness: '900', palette: 'base' },
-					strokeWidth: 0,
-					shape: 'circle'
-				},
-				shadow: { fill: { lightness: '700', palette: 'base' } },
-				pin: {
-					stroke: { lightness: '700', palette: 'accent' },
-					fill: { lightness: '900', palette: 'base' },
-					strokeWidth: 0.5,
-					size: 1
-				},
-				numerals: {
-					style: 'none',
-					fontFamily: 'Arsenal',
-					fill: { lightness: '300', palette: 'base' }
-				},
-				ticks: {
-					sm: { stroke: { lightness: '-1', palette: 'base' }, height: 0.5, width: 2 },
-					md: { stroke: { lightness: '400', palette: 'base' }, height: 0.5, width: 3 },
-					lg: { stroke: { lightness: '500', palette: 'base' }, height: 0.5, width: 5 }
-				},
-				hands: {
-					hour: {
-						stroke: { lightness: '700', palette: 'base' },
-						strokeWidth: 0.5,
-						length: 15,
-						back: 3,
-						linecap: 'square'
-					},
-					minute: {
-						stroke: { lightness: '500', palette: 'base' },
-						strokeWidth: 0.5,
-						length: 21,
-						back: 3,
-						linecap: 'square'
-					},
-					second: {
-						stroke: { lightness: '700', palette: 'accent' },
-						strokeWidth: 0.5,
-						length: 27,
-						back: 6,
-						linecap: 'square'
-					}
-				}
-			},
-			secondHandMovement: 'sweeping',
-			timeFormat: 'h:mm A',
-			timeFormatCustom: 'h:mm A',
-			dateFormat: 'ddd, MMMM D',
-			dateFormatCustom: 'ddd, MMMM D',
-			datetimeFontWeight: '300'
-		},
-		worldclock: {
-			displays: { primary: 'analog_digital', secondary: 'rows' },
-			timezones: [
-				{ name: '', zone: 'America/Los_Angeles' },
-				{ name: '', zone: 'America/New_York' },
-				{ name: 'GMT', zone: 'Europe/London' },
-				{ name: '', zone: 'Asia/Colombo' },
-				{ name: '', zone: 'Asia/Tokyo' }
-			],
-			theme: {
-				name: 'Default Theme',
-				face: {
-					stroke: { lightness: '700', palette: 'base' },
-					fill: { lightness: '100', palette: 'base' },
-					strokeWidth: 0,
-					shape: 'circle'
-				},
-				shadow: { fill: { lightness: '700', palette: 'base' } },
-				pin: {
-					stroke: { lightness: '700', palette: 'accent' },
-					fill: { lightness: '100', palette: 'base' },
-					strokeWidth: 0.5,
-					size: 1
-				},
-				numerals: {
-					style: 'none',
-					fontFamily: 'Arsenal',
-					fill: { lightness: '700', palette: 'base' }
-				},
-				ticks: {
-					sm: { stroke: { lightness: '-1', palette: 'base' }, height: 0.5, width: 2 },
-					md: { stroke: { lightness: '400', palette: 'base' }, height: 0.5, width: 3 },
-					lg: { stroke: { lightness: '500', palette: 'base' }, height: 0.5, width: 5 }
-				},
-				hands: {
-					hour: {
-						stroke: { lightness: '700', palette: 'base' },
-						strokeWidth: 0.5,
-						length: 15,
-						back: 3,
-						linecap: 'square'
-					},
-					minute: {
-						stroke: { lightness: '500', palette: 'base' },
-						strokeWidth: 0.5,
-						length: 21,
-						back: 3,
-						linecap: 'square'
-					},
-					second: {
-						stroke: { lightness: '700', palette: 'accent' },
-						strokeWidth: 0.5,
-						length: 27,
-						back: 6,
-						linecap: 'square'
-					}
-				}
-			},
-			secondHandMovement: 'sweeping',
-			timeFormat: null,
-			timeFormatCustom: null,
-			dateFormat: 'ddd, MMMM D',
-			dateFormatCustom: 'ddd, MMMM D'
-		},
-		baseColorPalette: 'stone',
-		accentColorPalette: 'indigo',
-		darkMode: false,
-		showDarkButton: true,
-		showPrimaryButton: true,
-		showSecondaryButton: false,
-		showCastButton: false,
-		showFullscreenButton: true,
-		smallerMenu: false,
-		alwaysCollapseMenu: false,
-		hideTitlebarWhenIdle: false,
-		secondsUntilIdle: 2,
-		fontFamily: 'Bai Jamjuree',
-		fontFamilyBody: 'Bitter',
-		doubleclickFullscreen: false,
-		keyboardShortcuts: true,
-		locale: {
-			datetime: 'en',
-			language: 'en',
-			timezone: 'America/Los_Angeles',
-			automaticDatetime: true,
-			automaticLanguage: true,
-			automaticTimezone: true
-		}
-	};
-
-	const settings = mergeDeep(deepClone(defaultValue), deepClone(incomingValue));
 	console.log(settings);
 	console.log(expectedValue);
 	console.log(JSON.stringify(settings));
@@ -791,4 +479,4 @@ function simpleTest() {
 	console.log(JSON.stringify(settings) === JSON.stringify(expectedValue));
 }
 
-// simpleTest();
+test();
