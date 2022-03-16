@@ -46,12 +46,8 @@
 	// this works. don't touch it.
 	const oldGrays = ['warmGray', 'trueGray', 'gray', 'coolGray', 'blueGray'];
 	const newGrays = ['stone', 'neutral', 'zinc', 'gray', 'slate'];
-	if (!$settings.recentVersion) {
-		if ($settings.baseColorPalette in oldGrays) {
-			$settings.baseColorPalette = newGrays[oldGrays.indexOf($settings.baseColorPalette)];
-		} else {
-			$settings.baseColorPalette = 'slate';
-		}
+	if (!$settings.recentVersion && $settings.baseColorPalette in oldGrays) {
+		$settings.baseColorPalette = newGrays[oldGrays.indexOf($settings.baseColorPalette)];
 	}
 
 	// uncomment to simulate user with old palette setting

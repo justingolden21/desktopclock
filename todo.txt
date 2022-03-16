@@ -180,6 +180,11 @@ before release:
 - last: get domain, marketing video, para about translate to your lang, ux test
 ================
 
+remember wake lock setting?
+
+bug: "s" key for settings often doesn't work even when other keyboard shortcuts do
+bug: default worldclock theme remembers numerals when clicking default theme btn
+
 zoom in/out buttons?
 if(document.body.style.zoom)
 document.body.style.zoom = "80%";
