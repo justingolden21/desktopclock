@@ -126,6 +126,12 @@ When adding a language, add it to `supportedLangs` in `consts.js`
 
 - This repo: https://github.com/justingolden21/desktop-clock
 
+- Netlify:https://app.netlify.com/sites/desktopclock/overview
+
+- Google Analytics: https://analytics.google.com/analytics/web/#/p293529519/reports/intelligenthome
+
+- Sonar Cloud: https://sonarcloud.io/project/overview?id=justingolden21_desktopclock
+
 ### Attribution
 
 404 vector from https://undraw.co/
