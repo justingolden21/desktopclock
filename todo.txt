@@ -32,33 +32,26 @@ add a new "face" circle between each one and hide/show it programmatically
 CURRENT TODO
 ====
 
-todo: fix overlapping dropdown menu triple dots icons
-
-use emoji flags for different timezones (option in settings)
-can just make it simple and give them a selector/search for emoji name and they pick it
-
-timezones reference: https://en.wikipedia.org/wiki/Lists_of_time_zones
-
 rename 'digital datetime' in accordion to 'datetime formats'? also has other digital settings though...
 
 numerals don't work on worldclock analog
 
-modal disappears when not hovering component (or page in case of rows)
-
 default to night analog clock in worldclock if night
+
+worldclock custom date and time format (with toggles) as well as analog theme. analog theme picker component?
+
+scrollbar, make inside overflow scroll/auto to make body not have to scroll
+problem is html/body elements don't have custom css classes and can't have dynamically inserted coe in svelte kit
+
+bug: default worldclock theme remembers numerals when clicking default theme btn
 
 Wrong time in GMT timezones when locale is set
 https://github.com/iamkun/dayjs/issues/1813
 
+!!! timetable modal, convert modal working
+
 better timezone input (typing, autocomplete, type "san diego" or "la" or "los angeles" or "pst or "utc8")
 how does india not have any timezones in this list (delhi and mumbai for example)
-
-worldclock custom date and time format (with toggles) as well as analog theme. analog theme picker component?
-
-timetable modal, convert modal working
-
-local storage tzs mutate obj
-$settings.worldclock.timezones
 
 better tz selector
 
@@ -69,15 +62,18 @@ tz select prop for hasLabel boolean
 tz display can be only zone or both, ie "america/los angeles" or "los angeles"
 toggle for display area
 
-scrollbar, make inside overflow scroll/auto to make body not have to scroll
-problem is html/body elements don't have custom css classes and can't have dynamically inserted coe in svelte kit
+====
 
-bug: default worldclock theme remembers numerals when clicking default theme btn
+todo: fix overlapping dropdown menu triple dots icons
+
+use emoji flags for different timezones (option in settings)
+can just make it simple and give them a selector/search for emoji name and they pick it
+
+timezones reference: https://en.wikipedia.org/wiki/Lists_of_time_zones
 
 should be fixed, test further:
 changing timezone data isn't remembered correctly in local storage
-
-====
+local storage tzs mutate obj $settings.worldclock.timezones
 
 translate "UTC" text?
 translate GMT text in london nickname?
