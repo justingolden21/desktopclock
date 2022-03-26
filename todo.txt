@@ -32,14 +32,7 @@ add a new "face" circle between each one and hide/show it programmatically
 CURRENT TODO
 ====
 
-translate "UTC" text?
-translate GMT text in london nickname?
-
 todo: fix overlapping dropdown menu triple dots icons
-
-maybe: fadeout worldclock when deleted?
-
-small horizontal bar that scales based on hour diff from current timezone below worldclock? option in settings?
 
 use emoji flags for different timezones (option in settings)
 can just make it simple and give them a selector/search for emoji name and they pick it
@@ -48,16 +41,11 @@ timezones reference: https://en.wikipedia.org/wiki/Lists_of_time_zones
 
 rename 'digital datetime' in accordion to 'datetime formats'? also has other digital settings though...
 
-changing timezone data isn't remembered correctly in local storage
-
 numerals don't work on worldclock analog
 
 modal disappears when not hovering component (or page in case of rows)
 
 default to night analog clock in worldclock if night
-
-maybe gradient background?
-  dark:bg-gradient-to-r dark:from-base-600 dark:to-base-900
 
 Wrong time in GMT timezones when locale is set
 https://github.com/iamkun/dayjs/issues/1813
@@ -69,19 +57,9 @@ share prompt on worldclock should be different (don't show share or install on 4
 
 worldclock custom date and time format (with toggles) as well as analog theme. analog theme picker component?
 
-tab focus in open modals fix
-
-close color picker when another one is open
-
-remove wrapper divs that arent needed
-
-maybe: rename 'aesthetics' to 'look and feel' or 'theme'
-
 BUG:heading font family system default inherits from body family and doesnt work
 
 timetable modal, convert modal working
-
-primary and secondary quick btns should work on worldclock when current page
 
 local storage tzs mutate obj
 $settings.worldclock.timezones
@@ -100,6 +78,29 @@ problem is html/body elements don't have custom css classes and can't have dynam
 
 bug: "s" key for settings often doesn't work even when other keyboard shortcuts do
 bug: default worldclock theme remembers numerals when clicking default theme btn
+
+should be fixed, test further:
+changing timezone data isn't remembered correctly in local storage
+
+====
+
+translate "UTC" text?
+translate GMT text in london nickname?
+
+maybe: fadeout worldclock when deleted?
+
+small horizontal bar that scales based on hour diff from current timezone below worldclock? option in settings?
+
+tab focus in open modals fix
+
+close color picker when another one is open
+
+remove wrapper divs that arent needed
+
+maybe: rename 'aesthetics' to 'look and feel' or 'theme'
+
+maybe gradient background?
+  dark:bg-gradient-to-r dark:from-base-600 dark:to-base-900
 
 ====
 
