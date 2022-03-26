@@ -20,7 +20,7 @@
 	import { now } from '../util/now.js';
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
 	import { settings } from '../components/settings.js';
-	import { app_url } from '../data/consts.js';
+	import { app_url, systemFontFamilies } from '../data/consts.js';
 	import defaultNightTheme from '../themes/defaultNight';
 	import { setupInstall } from '../util/install';
 
@@ -179,7 +179,7 @@
 
 <main
 	class="dark:bg-base-900 dark:text-base-200 transition-colors duration-200 ease-linear text-base-900 text-center flex min-h-screen"
-	style="--font-family:{$settings.fontFamily};
+	style="--font-family:{$settings.fontFamily || systemFontFamilies};
     --font-family-body:{$settings.fontFamilyBody};
     {paletteVariablesHTML}">
 	<Loader />

@@ -19,7 +19,7 @@
 	<title>{$session.languageDictionary.pageNames.worldclock}</title>
 </svelte:head>
 
-<Autocomplete options={timezoneArr} />
+<!-- <Autocomplete options={timezoneArr} /> -->
 
 <!-- 4rem is size of worldclock tray, keeps it stuck to bottom -->
 <div class="p-16 min-h-[calc(100%-4rem)]">

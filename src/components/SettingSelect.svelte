@@ -31,7 +31,7 @@
 		<option
 			value={val}
 			style={dynamicFont && val === ''
-				? systemFontFamilies
+				? `font-family:${systemFontFamilies}`
 				: `font-family:${dynamicFont ? val : ''}`}
 			>{labelMapper ? labelMapper(val) : labels ? labels[val] : val}</option>
 	{/each}

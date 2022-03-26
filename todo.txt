@@ -55,8 +55,6 @@ how does india not have any timezones in this list (delhi and mumbai for example
 
 worldclock custom date and time format (with toggles) as well as analog theme. analog theme picker component?
 
-BUG:heading font family system default inherits from body family and doesnt work
-
 timetable modal, convert modal working
 
 local storage tzs mutate obj
