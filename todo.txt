@@ -53,8 +53,6 @@ https://github.com/iamkun/dayjs/issues/1813
 better timezone input (typing, autocomplete, type "san diego" or "la" or "los angeles" or "pst or "utc8")
 how does india not have any timezones in this list (delhi and mumbai for example)
 
-share prompt on worldclock should be different (don't show share or install on 404 page?)
-
 worldclock custom date and time format (with toggles) as well as analog theme. analog theme picker component?
 
 BUG:heading font family system default inherits from body family and doesnt work

@@ -7,6 +7,7 @@
 	import { settings } from './settings.js';
 	import { installButtonClick, showInstallButton } from '../util/install.js';
 	import { open } from '../util/modal.js';
+	import { valid_pages } from '../data/consts.js';
 
 	export let navOpen;
 
@@ -77,7 +78,7 @@
 			{dictionary.pageNames['timers']}
 		{/if}
 	</a> -->
-	{#if ['/', '/worldclock', '/stopwatch', '/timers'].includes($page.url.pathname)}
+	{#if valid_pages.includes($page.url.pathname)}
 		<button
 			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
 			on:click={() => {
@@ -105,7 +106,7 @@
 		<!-- no share-btn class so it isn't animated on hover -->
 		<button
 			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
-			on:click={() => shareApp(dictionary)}>
+			on:click={() => shareApp(dictionary, $page.url.pathname)}>
 			<Icon name="share" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
 			{#if !$settings.smallerMenu}
 				{dictionary.labels['Share']}

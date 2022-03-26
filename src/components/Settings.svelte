@@ -1,7 +1,7 @@
 <script context="module">
 	import Screenfull from 'screenfull';
 
-	import { app_url } from '../data/consts.js';
+	import { app_url, valid_pages } from '../data/consts.js';
 
 	export async function toggleFullscreen() {
 		if (Screenfull.isEnabled) {
@@ -9,13 +9,18 @@
 		}
 	}
 
-	export function shareApp(languageDictionary) {
+	export function shareApp(languageDictionary, pathname) {
 		if (navigator.share) {
+			const isValid = valid_pages.includes(pathname);
 			navigator
 				.share({
-					title: languageDictionary['appName'],
+					title: isValid
+						? languageDictionary.pageNames[pathname.substring(1) || 'clock'] +
+						  ' | ' +
+						  languageDictionary['appName']
+						: languageDictionary['appName'],
 					text: languageDictionary['shareAppDescription'],
-					url: app_url
+					url: isValid ? app_url + pathname : app_url
 				})
 				.then(() => console.log('Successful share'))
 				.catch((err) => console.log('Error sharing', err));
@@ -391,7 +396,7 @@
 				<!-- <button class="btn">Download Settings</button> -->
 				<!-- <button class="btn">Upload Settings</button> -->
 
-				<button class="btn share-btn" on:click={() => shareApp(dictionary)}>
+				<button class="btn share-btn" on:click={() => shareApp(dictionary, $page.url.pathname)}>
 					<Icon name="share" class="inline w-6 h-6" />
 					{dictionary.labels['Share']}
 				</button>
@@ -588,7 +593,9 @@
 		</p>
 		<p>
 			{dictionary.about.shareText.split('{{sharing}}')[0]}
-			<button class="font-bold hover:underline" on:click={() => shareApp(dictionary)}>
+			<button
+				class="font-bold hover:underline"
+				on:click={() => shareApp(dictionary, $page.url.pathname)}>
 				<!-- svelte-ignore a11y-missing-attribute -->
 				<a>{dictionary.about['sharing']}</a>
 			</button>
