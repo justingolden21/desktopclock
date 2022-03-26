@@ -72,7 +72,6 @@ toggle for display area
 scrollbar, make inside overflow scroll/auto to make body not have to scroll
 problem is html/body elements don't have custom css classes and can't have dynamically inserted coe in svelte kit
 
-bug: "s" key for settings often doesn't work even when other keyboard shortcuts do
 bug: default worldclock theme remembers numerals when clicking default theme btn
 
 should be fixed, test further:
