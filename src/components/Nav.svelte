@@ -127,7 +127,7 @@
     */
 	nav a,
 	nav button {
-		@apply block font-normal text-base-700 p-4 hover:bg-base-200 hover:bg-opacity-50 cursor-pointer tracking-widest text-left;
+		@apply block w-full font-normal text-base-700 p-4 hover:bg-base-200 hover:bg-opacity-50 cursor-pointer tracking-widest text-left;
 		/* transition: all 0.25s linear; */
 	}
 	nav a:hover,

@@ -37,8 +37,6 @@ translate GMT text in london nickname?
 
 todo: fix overlapping dropdown menu triple dots icons
 
-worldclock and clock icons in smaller menu nav are wider/larger than settings icon (when hover)
-
 maybe: fadeout worldclock when deleted?
 
 small horizontal bar that scales based on hour diff from current timezone below worldclock? option in settings?
