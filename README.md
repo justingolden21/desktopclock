@@ -130,6 +130,8 @@ When adding a language, add it to `supportedLangs` in `consts.js`
 
 - Google Analytics: https://analytics.google.com/analytics/web/#/p293529519/reports/intelligenthome
 
+- Search console: https://search.google.com/search-console?resource_id=sc-domain:desktopclock.app
+
 - Sonar Cloud: https://sonarcloud.io/project/overview?id=justingolden21_desktopclock
 
 ### Attribution
