@@ -4,7 +4,11 @@
 	export let options;
 	export let placeholder = '';
 	export let value = '';
+	export let disabled = false;
 	export let closeOnClickAway = true;
+
+	// TODO: export a value that is valid (limited to one of the options given)
+	// TODO: support difference between displayed values and actual values under the hood
 
 	// min characters in input for autocomplete to appear
 	export let minChars = 2;
@@ -12,7 +16,6 @@
 	export let maxResults = 20;
 
 	// filter options based on input
-
 	let filteredOptions = [];
 
 	const filterOptions = () => {
@@ -99,6 +102,7 @@
 		autocomplete="off"
 		type="text"
 		class="w-full"
+		{disabled}
 		{placeholder}
 		bind:this={searchInput}
 		bind:value
