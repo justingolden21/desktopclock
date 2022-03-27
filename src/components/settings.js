@@ -37,7 +37,6 @@ export const defaultSettings = {
 		theme: JSON.parse(JSON.stringify(defaultTheme)),
 		secondHandMovement: 'sweeping',
 
-		// TODO: override timeFormat and timeFormatCustom in _layout onMount to user device's preference
 		timeFormat: null,
 		timeFormatCustom: null,
 		dateFormat: 'ddd, MMMM D',

@@ -85,13 +85,17 @@
 			$settings.locale.datetime =
 				Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2) ?? 'en';
 
+		// https://stackoverflow.com/q/27647918/4907950
+		const AMPM =
+			Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions().hourCycle ===
+			'h12';
 		if ($settings.clock.timeFormat === null) {
-			// https://stackoverflow.com/q/27647918/4907950
-			const AMPM =
-				Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions().hourCycle ===
-				'h12';
 			$settings.clock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
 			$settings.clock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
+		}
+		if ($settings.worldclock.timeFormat === null) {
+			$settings.worldclock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
+			$settings.worldclock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
 		}
 
 		gtag('event', 'page-load-settings', {
@@ -100,7 +104,7 @@
 			timezone: $settings.locale.timezone,
 			language: $settings.locale.language,
 			datetime_locale: $settings.locale.datetime,
-			time_format: $settings.timeFormat,
+			time_format: $settings.clock.timeFormat,
 			navigator_language: navigator.language
 		});
 	});
@@ -111,7 +115,10 @@
 		if (dateTimeInterval) clearInterval(dateTimeInterval);
 
 		const ms =
-			$settings.clock.timeFormat === 'custom' && $settings.clock.timeFormatCustom.includes('SSS')
+			($settings.clock.timeFormat === 'custom' &&
+				$settings.clock.timeFormatCustom.includes('SSS')) ||
+			($settings.worldclock.timeFormat === 'custom' &&
+				$settings.worldclock.timeFormatCustom.includes('SSS'))
 				? 50
 				: 1000;
 		dateTimeInterval = setInterval(() => ($now = new Date()), ms);
@@ -123,8 +130,13 @@
 
 		let lastTimeFormatCustom;
 		settings.subscribe(() => {
-			if (lastTimeFormatCustom !== $settings.clock.timeFormatCustom) startInterval();
-			lastTimeFormatCustom = $settings.clock.timeFormatCustom;
+			if (
+				lastTimeFormatCustom !== $settings.clock.timeFormatCustom &&
+				lastTimeFormatCustom !== $settings.worldclock.timeFormatCustom
+			)
+				startInterval();
+			lastTimeFormatCustom =
+				$settings.clock.timeFormatCustom ?? $settings.worldclock.timeFormatCustom;
 		});
 
 		return () => {

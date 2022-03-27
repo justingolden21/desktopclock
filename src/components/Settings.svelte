@@ -467,6 +467,8 @@
 								.hourCycle === 'h12';
 						$settings.clock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
 						$settings.clock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
+						$settings.worldclock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
+						$settings.worldclock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
 					}}>
 					<Icon name="undo" class="inline w-6 h-6" />
 					{dictionary.labels['Reset all settings']}

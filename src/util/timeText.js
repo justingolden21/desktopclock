@@ -13,6 +13,8 @@ dayjs.extend(tz);
 // approx 163kb (comment out and compare build sizes in network tab)
 import '../data/all_locales.js';
 
+// TODO: param for setting for date/time format, default 'clock' (can be 'worldclock')
+
 export const time = derived([now, settings], ([$now, $settings]) => {
 	const timeFormat =
 		$settings.clock.timeFormat !== 'custom'
