@@ -32,22 +32,26 @@ add a new "face" circle between each one and hide/show it programmatically
 CURRENT TODO
 ====
 
-worldclock custom date and time format (with toggles) as well as analog theme. analog theme picker component?
+worldclock custom datetime formats
+  worldclock custom date and time format
 
-Wrong time in GMT timezones when locale is set
-https://github.com/iamkun/dayjs/issues/1813
+dayjs bug
+  Wrong time in GMT timezones when locale is set
+  https://github.com/iamkun/dayjs/issues/1813
 
-!!! timetable modal, convert modal working
+worldclock modals
+  timetable modal, convert modal working
 
-better timezone input (typing, autocomplete, type "san diego" or "la" or "los angeles" or "pst or "utc8")
-how does india not have any timezones in this list (delhi and mumbai for example)
+timezone input
+  better timezone input (typing, autocomplete, type "san diego" or "la" or "los angeles" or "pst or "utc8")
+  how does india not have any timezones in this list (delhi and mumbai for example)
 
-tz select prop for hasLabel boolean
+  tz select prop for hasLabel boolean
 
-12/24h settings worldclock modals
+  12/24h settings worldclock modals
 
-tz display can be only zone or both, ie "america/los angeles" or "los angeles"
-toggle for display area
+  tz display can be only zone or both, ie "america/los angeles" or "los angeles"
+  toggle for display area
 
 ====
 
