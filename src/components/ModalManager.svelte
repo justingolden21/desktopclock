@@ -93,7 +93,11 @@
 				</h1>
 			</div>
 			<div class="modal-body">
-				<svelte:component this={component} {data} />
+				{#if data.length}
+					<svelte:component this={component} {data} />
+				{:else}
+					<svelte:component this={component} />
+				{/if}
 			</div>
 		</div>
 	</div>
