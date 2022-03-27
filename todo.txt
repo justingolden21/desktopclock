@@ -36,8 +36,6 @@ rename 'digital datetime' in accordion to 'datetime formats'? also has other dig
 
 numerals don't work on worldclock analog
 
-default to night analog clock in worldclock if night
-
 worldclock custom date and time format (with toggles) as well as analog theme. analog theme picker component?
 
 scrollbar, make inside overflow scroll/auto to make body not have to scroll
