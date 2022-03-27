@@ -32,8 +32,6 @@ add a new "face" circle between each one and hide/show it programmatically
 CURRENT TODO
 ====
 
-rename 'digital datetime' in accordion to 'datetime formats'? also has other digital settings though...
-
 worldclock custom date and time format (with toggles) as well as analog theme. analog theme picker component?
 
 scrollbar, make inside overflow scroll/auto to make body not have to scroll
@@ -47,16 +45,16 @@ https://github.com/iamkun/dayjs/issues/1813
 better timezone input (typing, autocomplete, type "san diego" or "la" or "los angeles" or "pst or "utc8")
 how does india not have any timezones in this list (delhi and mumbai for example)
 
-better tz selector
-
 tz select prop for hasLabel boolean
 
-12/24h settings
+12/24h settings worldclock modals
 
 tz display can be only zone or both, ie "america/los angeles" or "los angeles"
 toggle for display area
 
 ====
+
+rename 'digital datetime' in accordion to 'datetime formats'? also has other digital settings though...
 
 todo: fix overlapping dropdown menu triple dots icons
 
