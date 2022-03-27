@@ -9,7 +9,7 @@
 
 	import Icon from '../Icon.svelte';
 	import SettingSelect from '../SettingSelect.svelte';
-	import { fontFamilies, defaultTimeFormats, defaultDateFormats } from '../../data/consts.js';
+	import { defaultTimeFormats, defaultDateFormats } from '../../data/consts.js';
 
 	// settings to apply changes to
 	// 'clock' or 'worldclock'
@@ -108,14 +108,4 @@
 		<Icon name="undo" class="inline w-6 h-6" />
 		{dictionary.clockSettings['Reset datetime formats']}
 	</button>
-
-	{#if $settings.clock.displays.primary != 'analog' && fontFamilies[$settings.fontFamily].length > 1}
-		<SettingSelect
-			id="datetime-font-weight-select"
-			selectLabel={dictionary.clockSettings['Primary display font weight:']}
-			bind:value={$settings.clock.datetimeFontWeight}
-			values={fontFamilies[$settings.fontFamily].map((s) => s.toString())}
-			labelMapper={(weight) =>
-				`${dictionary.labels['Font Weights'][weight / 100]} (${weight / 100})`} />
-	{/if}
 </div>
