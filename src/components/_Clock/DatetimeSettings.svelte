@@ -92,7 +92,7 @@
 		class="btn undo-btn block"
 		on:click={() => {
 			for (const format of 'timeFormat timeFormatCustom dateFormat dateFormatCustom'.split(' '))
-				$settings[page][format] = $settings[page][format];
+				$settings[page][format] = defaultSettings[page][format];
 
 			// copied from `_layout.svelte` since `timeFormat` will be null
 			// because it's null in `defaultSettings` because it's overriden in `_layout.svelte` like so:
