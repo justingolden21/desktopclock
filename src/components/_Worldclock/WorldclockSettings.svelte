@@ -5,6 +5,7 @@
 	import Icon from '../Icon.svelte';
 	import { Accordion, AccordionPanel } from './../Accordion/_accordion.js';
 	import AnalogClockSettings from '../_clock/AnalogClockSettings.svelte';
+	import DatetimeSettings from '../_clock/DatetimeSettings.svelte';
 	import SettingSelect from '../SettingSelect.svelte';
 
 	$: dictionary = $session.languageDictionary;
@@ -39,7 +40,7 @@
 	{/if}
 
 	<AccordionPanel accordionTitle={dictionary.clockSettings['Digital Datetime']} key="3">
-		<p>{dictionary.messages['Coming soon']}</p>
+		<DatetimeSettings page="worldclock" />
 	</AccordionPanel>
 </Accordion>
 
