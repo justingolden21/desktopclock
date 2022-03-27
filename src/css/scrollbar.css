@@ -2,9 +2,12 @@
 /*
 the <body> element doesn't have access to the css variables for the color palettes
 and cannot have dynamically inserted code in it from svelte kit (which inserts the css variables into the <main> element)
-therefore, we provide default values for the rgb color for the base gray (not bluegray) palette
+therefore, we provide default values for the rgb color for the normal gray (not bluegray) palette
 for the scrollbar if the variables are not available, as is the case with the body scrollbar
 for example, if you have many worldclocks and have to scroll down in the body element
+the scrollbar may not match the current gray theme perfectly, but the normal gray is a good average across all available themes
+
+TODO: implement a fix where js code injects css inside the body dynamically based off of the current theme (if possible)
 */
 
 *::-webkit-scrollbar {
