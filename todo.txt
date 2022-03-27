@@ -34,14 +34,10 @@ CURRENT TODO
 
 rename 'digital datetime' in accordion to 'datetime formats'? also has other digital settings though...
 
-numerals don't work on worldclock analog
-
 worldclock custom date and time format (with toggles) as well as analog theme. analog theme picker component?
 
 scrollbar, make inside overflow scroll/auto to make body not have to scroll
 problem is html/body elements don't have custom css classes and can't have dynamically inserted coe in svelte kit
-
-bug: default worldclock theme remembers numerals when clicking default theme btn
 
 Wrong time in GMT timezones when locale is set
 https://github.com/iamkun/dayjs/issues/1813

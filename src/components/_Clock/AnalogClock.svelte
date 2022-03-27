@@ -154,11 +154,11 @@ A customizable analog clock
 	</g>
 
 	<!-- Numerals -->
-	<g fill={getColor($settings.clock.theme.numerals.fill)}>
-		{#each numeralStyles[$settings.clock.theme.numerals.style] as numeral, idx}
+	<g fill={getColor(theme.numerals.fill)}>
+		{#each numeralStyles[theme.numerals.style] as numeral, idx}
 			<!-- y is middle of character -->
 			<text
-				style="font: 600 6px '{$settings.clock.theme.numerals.fontFamily}', sans-serif;
+				style="font: 600 6px '{theme.numerals.fontFamily}', sans-serif;
 					transform-origin: center;
 					text-anchor: middle;
 					pointer-events: none;
