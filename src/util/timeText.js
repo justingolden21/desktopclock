@@ -13,7 +13,8 @@ dayjs.extend(tz);
 // approx 163kb (comment out and compare build sizes in network tab)
 import '../data/all_locales.js';
 
-// TODO: param for setting for date/time format, default 'clock' (can be 'worldclock')
+// date and time info for current timezone
+// based on 'clock' date and time formats
 
 export const time = derived([now, settings], ([$now, $settings]) => {
 	const timeFormat =
@@ -47,14 +48,15 @@ export const timezone = derived(settings, ($settings) => {
 	return ($settings.locale.timezone || 'Etc/GMT').split('_').join(' ');
 });
 
-// getters (other timezones)
+// getters for date and time info for other timezones
+// based on 'worldclock' date and time formats
 
 export const getTime = derived([now, settings], ([$now, $settings]) => {
 	return (timezone) => {
 		const timeFormat =
-			$settings.clock.timeFormat !== 'custom'
-				? $settings.clock.timeFormat
-				: $settings.clock.timeFormatCustom;
+			$settings.worldclock.timeFormat !== 'custom'
+				? $settings.worldclock.timeFormat
+				: $settings.worldclock.timeFormatCustom;
 		return new dayjs($now)
 			.tz(timezone)
 			.locale($settings.locale.datetime || 'en')
@@ -65,9 +67,9 @@ export const getTime = derived([now, settings], ([$now, $settings]) => {
 export const getDate = derived([now, settings], ([$now, $settings]) => {
 	return (timezone) => {
 		const dateFormat =
-			$settings.clock.dateFormat !== 'custom'
-				? $settings.clock.dateFormat
-				: $settings.clock.dateFormatCustom;
+			$settings.worldclock.dateFormat !== 'custom'
+				? $settings.worldclock.dateFormat
+				: $settings.worldclock.dateFormatCustom;
 
 		return new dayjs($now)
 			.tz(timezone)
