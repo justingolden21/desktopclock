@@ -32,9 +32,6 @@ add a new "face" circle between each one and hide/show it programmatically
 CURRENT TODO
 ====
 
-worldclock custom datetime formats
-  worldclock custom date and time format
-
 dayjs bug
   Wrong time in GMT timezones when locale is set
   https://github.com/iamkun/dayjs/issues/1813
