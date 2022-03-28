@@ -6,8 +6,6 @@
 	import NoTimezones from './NoTimezones.svelte';
 
 	import {
-		time,
-		date,
 		timezone,
 		utcOffset,
 		getTime,
@@ -28,8 +26,8 @@
 <!-- primary / home timezone -->
 <div class="grid grid-cols-2 gap-4 lg:gap-8 mb-4">
 	<div class="text-left {primaryDisplay !== 'analog_digital' ? 'col-span-2' : ''}">
-		<p>{$date}</p>
-		<p class="font-bold text-5xl my-4">{$time}</p>
+		<p>{$getDate($settings.locale.timezone || 'Etc/GMT')}</p>
+		<p class="font-bold text-5xl my-4">{$getTime($settings.locale.timezone || 'Etc/GMT')}</p>
 		<p>{$timezone && $timezone.split('_').join(' ')} &mdash; <span>UTC {$utcOffset}</span></p>
 	</div>
 	{#if primaryDisplay === 'analog_digital'}
