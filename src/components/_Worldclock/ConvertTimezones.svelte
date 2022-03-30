@@ -6,7 +6,6 @@
 	import TimePicker from '../TimePicker.svelte';
 
 	import { now } from '../../util/now.js';
-	import { convertTimezones, getDiffBetweenTimezones } from '../../util/convertTimezones.js';
 	import { settings } from '../settings';
 
 	$: dictionary = $session.languageDictionary;
@@ -14,6 +13,10 @@
 	let time1;
 	let timezone1;
 	let timezone2;
+
+	// TODO
+	const convertTimezones = () => 0;
+	const getDiffBetweenTimezones = () => 0;
 
 	$: time2 = convertTimezones(time1, timezone1, timezone2);
 	$: offset = getDiffBetweenTimezones(time1, timezone1, timezone2);
@@ -27,15 +30,13 @@
 	reset();
 </script>
 
-<TimePicker bind:value={time1} />
-
 <div class="my-4">
-	<label for="convert-time-1-input">{dictionary.labels['Time:']}</label>
-	<input id="convert-time-1-input" type="time" bind:value={time1} />
+	<TimePicker bind:value={time1} />
 </div>
-<p>{dictionary.worldclockSettings['in']}</p>
+
+<p class="my-4">{dictionary.worldclockSettings['in']}</p>
 <div class="my-4">
-	<TimezoneSelect id="convert-timezone-1-select" bind:value={timezone1} />
+	<TimezoneSelect hasLabel={false} bind:value={timezone1} />
 </div>
 
 <hr />
@@ -47,7 +48,7 @@
 </div>
 <p>{dictionary.worldclockSettings['in']}</p>
 <div class="my-4">
-	<TimezoneSelect id="convert-timezone-2-select" bind:value={timezone2} />
+	<TimezoneSelect hasLabel={false} bind:value={timezone2} />
 </div>
 
 <button class="btn undo-btn block mt-4" on:click={reset}>

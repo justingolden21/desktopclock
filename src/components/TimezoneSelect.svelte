@@ -7,11 +7,14 @@
 
 	export let id,
 		value,
+		hasLabel = true,
 		disabled = false;
 </script>
 
-<label for={id}>{dictionary.labels['Timezone:']}</label>
-<select {id} {disabled} bind:value>
+{#if hasLabel}
+	<label for={id}>{dictionary.labels['Timezone:']}</label>
+{/if}
+<select {id} {disabled} bind:value class:ml-0={!hasLabel}>
 	{#each Object.keys(timezones) as zone}
 		<optgroup label={zone}>
 			{#each timezones[zone] as tz}
