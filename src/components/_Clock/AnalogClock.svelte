@@ -154,19 +154,19 @@ A customizable analog clock
 	</g>
 
 	<!-- Numerals -->
-	<g fill={getColor(theme.numerals.fill)}>
+	<g
+		fill={getColor(theme.numerals.fill)}
+		style="text-anchor: middle; pointer-events: none; user-select: none;">
 		{#each numeralStyles[theme.numerals.style] as numeral, idx}
 			<!-- y is middle of character -->
 			<text
-				style="font: 600 6px '{theme.numerals.fontFamily}', sans-serif;
-					transform-origin: center;
-					text-anchor: middle;
-					pointer-events: none;
-                    user-select: none;"
+				style="font: 600 6px '{theme.numerals.fontFamily}', sans-serif;"
+				transform-origin="center"
 				transform="rotate({(idx + 1) * 30})"
 				x="32"
-				y="8"
-				class="numeral">{numeral}</text>
+				y="8">
+				{numeral}
+			</text>
 		{/each}
 	</g>
 
