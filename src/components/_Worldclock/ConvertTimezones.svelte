@@ -58,7 +58,7 @@
 
 <!-- TODO: translate -->
 <p class="mt-8">
-	Note: this conversion takes place on today's date in your location. Daylight savings and other
-	modifications may affect this
+	Note: this conversion takes place on today's date and time. Daylight savings, historical changes
+	in timezones, and other modifications may affect this
 </p>
 <!-- maybe TODO: optional date picker as well -->
