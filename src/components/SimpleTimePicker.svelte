@@ -3,8 +3,6 @@
 	export let ampm = false;
 	export let classes;
 
-	// TODO: when changing ampm setting, selected val has to update correctly
-
 	function setupTimes(ampm) {
 		const times = [];
 		for (let i = 0; i < 24 * 4; i++) {
@@ -30,7 +28,6 @@
 
 <select class={classes} bind:value>
 	{#each times as time, idx}
-		<!-- TODO: causes hot reload logic problems -->
 		<option value={time}>{displayTimes[idx]}</option>
 	{/each}
 </select>
