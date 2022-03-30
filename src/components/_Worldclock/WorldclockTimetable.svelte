@@ -1,31 +1,20 @@
 <script>
-	import { session } from '$app/stores';
-
-	import TimezoneSelect from '../TimezoneSelect.svelte';
 	import SimpleTimePicker from '../SimpleTimePicker.svelte';
+	import Toggle from '../Toggle.svelte';
 	import WorldclockDropdown from './WorldclockDropdown.svelte';
 	import { settings } from '../settings.js';
+	import { getTime, getHourDiff } from '../../util/timeText';
 
-	import {
-		time,
-		date,
-		timezone,
-		utcOffset,
-		getTime,
-		getDate,
-		getUtcOffset,
-		getHourDiff
-	} from '../../util/timeText';
+	let AMPM, times;
 
-	let AMPM = true;
-	let times = ['9:00 AM', '12:00 PM', '3:00 PM', '6:00 PM'];
-	// let times = ['9:00', '12:00', '15:00', '18:00'];
-	// let times = [
-	// 	{ hours: 9, mins: 0 },
-	// 	{ hours: 12, mins: 0 },
-	// 	{ hours: 15, mins: 0 },
-	// 	{ hours: 18, mins: 0 }
-	// ];
+	function resetTimetableSettings() {
+		AMPM =
+			Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions().hourCycle ===
+			'h12';
+		times = ['9:00', '12:00', '15:00', '18:00'];
+	}
+
+	resetTimetableSettings();
 
 	// in mins
 	function getDiff(time1, time2) {
@@ -36,11 +25,14 @@
 		const mins2 = objToMins(time2);
 
 		let minsDiff = mins1 - mins2;
-		if (minsDiff < 0) minsDiff += 60 * 24;
-		if (minsDiff > 60 * 24) minsDiff -= 60 * 24;
+
+		const minsPerDay = 60 * 24;
+		if (minsDiff < 0) minsDiff += minsPerDay;
+		if (minsDiff > minsPerDay) minsDiff -= minsPerDay;
 
 		return minsDiff;
 	}
+
 	function getSum(time, mins) {
 		if (typeof time === 'string') time = timeStrToObj(time);
 
@@ -52,16 +44,20 @@
 
 		return minsToTimeStr(minsSum, AMPM);
 	}
+
 	// time variable conversion
+
 	function timeStrToObj(timeStr) {
 		const pm = timeStr.toUpperCase().includes('pm');
 		const hours = parseInt(timeStr.split(':')[0]) + (pm ? 12 : 0);
 		const mins = parseInt(timeStr.split(':')[1]);
 		return { hours, mins };
 	}
+
 	function timeStrToMins(timeStr) {
 		return objToMins(timeStrToObj(timeStr));
 	}
+
 	function minsToObj(n) {
 		const h = n / 60;
 		const hours = Math.floor(h);
@@ -72,15 +68,18 @@
 			mins
 		};
 	}
+
 	function objToTimeStr(obj, ampm = false) {
 		let h = obj.hours % (ampm ? 12 : 24);
 		if (ampm && h === 0) h = 12;
 		const m = obj.mins.toString().padStart(2, '0');
 		return `${h}:${m}${ampm ? (obj.hours >= 12 ? ' PM' : ' AM') : ''}`;
 	}
+
 	function minsToTimeStr(n, ampm = false) {
 		return objToTimeStr(minsToObj(n), ampm);
 	}
+
 	function objToMins(obj) {
 		return obj.hours * 60 + obj.mins;
 	}
@@ -88,6 +87,7 @@
 
 <!-- TODO: translate diff, name, now, home, reset -->
 <!-- TODO: store timetable times in localstorage under worldclock > timetable > times -->
+<!-- TODO: note that this doesn't account for daylight savings changes -->
 <table>
 	<thead>
 		<tr>
@@ -117,7 +117,6 @@
 				</td>
 				<td>
 					<p>{timezone.name || timezone.zone.split('_').join(' ')}</p>
-					<!-- <TimezoneSelect /> -->
 				</td>
 				<td class:font-bold={idx === 0}>{$getTime(timezone.zone)}</td>
 				{#each times as time}
@@ -135,8 +134,10 @@
 	</tbody>
 </table>
 
-<button class="btn" on:click={() => (times = ['9:00 AM', '12:00 PM', '3:00 PM', '6:00 PM'])}
-	>Reset</button>
+<button class="btn" on:click={resetTimetableSettings}>Reset</button>
+
+<!-- TODO: translate label text -->
+<Toggle id="timetable-ampm-toggle" bind:checked={AMPM} labelText={'Use AM / PM'} />
 
 <style lang="postcss">
 	tr {
