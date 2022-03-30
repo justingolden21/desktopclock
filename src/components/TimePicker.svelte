@@ -5,7 +5,7 @@
 	export const getTimeString = (ampm) => `${hours}:${mins}${ampm && ' ' + meridiem}`;
 </script>
 
-<div class="inline-block p-2 bg-base-200 dark:bg-base-700 rounded">
+<div class="inline-block p-2 bg-base-100 dark:bg-base-700 rounded">
 	<select bind:value={hours}>
 		{#each [...Array(ampm ? 12 : 24).keys()].map((idx) => idx + (ampm ? 1 : 0)) as hr}
 			<option value={hr}>{hr.toString().padStart(2, '0')}</option>
