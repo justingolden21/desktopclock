@@ -48,7 +48,7 @@
 	// time variable conversion
 
 	function timeStrToObj(timeStr) {
-		const pm = timeStr.toUpperCase().includes('pm');
+		const pm = timeStr.toUpperCase().includes('PM');
 		const hours = parseInt(timeStr.split(':')[0]) + (pm ? 12 : 0);
 		const mins = parseInt(timeStr.split(':')[1]);
 		return { hours, mins };
