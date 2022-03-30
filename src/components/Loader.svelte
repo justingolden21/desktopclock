@@ -1,12 +1,7 @@
 <script>
-	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 
-	let loading = true;
-
-	onMount(() => {
-		setTimeout(() => (loading = false), 500);
-	});
+	export let loading = true;
 </script>
 
 {#if loading}

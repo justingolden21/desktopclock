@@ -88,6 +88,7 @@
 <!-- TODO: translate diff, name, now, home, reset -->
 <!-- TODO: store timetable times in localstorage under worldclock > timetable > times -->
 <!-- TODO: note that this doesn't account for daylight savings changes -->
+<!-- TODO: z index of bottommost dropdown is under toggle -->
 <table>
 	<thead>
 		<tr>

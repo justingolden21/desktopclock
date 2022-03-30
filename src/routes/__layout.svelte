@@ -24,6 +24,7 @@
 	import defaultNightTheme from '../themes/defaultNight';
 	import { setupInstall } from '../util/install';
 
+	let loading = true;
 	let navOpen = false;
 	$: if ($navigating) navOpen = false;
 
@@ -62,6 +63,8 @@
 	$settings.recentVersion = version;
 
 	onMount(async () => {
+		setTimeout(() => (loading = false), 500);
+
 		if ($settings.locale.language) {
 			$session.languageDictionary = await fetchLanguage($settings.locale.language);
 		}
@@ -197,7 +200,7 @@
 	style="--font-family:{$settings.fontFamily || systemFontFamilies};
     --font-family-body:{$settings.fontFamilyBody};
     {paletteVariablesHTML}">
-	<Loader />
+	<Loader {loading} />
 
 	<KeyboardShortcuts />
 
