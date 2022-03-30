@@ -55,7 +55,7 @@
 		}
 	}} />
 
-<div class="{classes} hidden group-hover:block">
+<div class="{classes} z-10 hidden group-hover:block">
 	<button
 		id="dropdown-btn"
 		class="icon-btn ml-auto block"
@@ -66,7 +66,9 @@
 		<Icon name="dots_vertical" class="w-6 h-6" />
 	</button>
 
-	<ul class="{dropdownOpen ? '' : 'hidden'} rounded surface mt-2" aria-labelledby="dropdown-btn">
+	<ul
+		class="{dropdownOpen ? '' : 'hidden'} w-max rounded surface mt-2"
+		aria-labelledby="dropdown-btn">
 		{#each options as option}
 			<!-- don't show up if first or down if last -->
 			{#if !((option.text === 'Up' && idx === 0) || (option.text === 'Down' && idx === $settings.worldclock.timezones.length - 1))}

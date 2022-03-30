@@ -100,13 +100,13 @@
 			{/each}
 		</tr>
 	</thead>
-	<tbody>
+	<tbody class="group">
 		{#each [{ name: 'Home', zone: $settings.locale.timezone }].concat($settings.worldclock.timezones) as timezone, idx}
-			<tr class="group">
-				<td class="relative">
+			<tr>
+				<td>
 					{#if idx !== 0}
 						<div class="w-12 h-12">
-							<WorldclockDropdown idx={idx - 1} classes="absolute top-0 right-0 z-10" />
+							<WorldclockDropdown idx={idx - 1} classes="z-10" />
 						</div>
 					{/if}
 				</td>
