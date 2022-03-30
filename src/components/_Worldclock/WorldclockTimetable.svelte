@@ -106,7 +106,7 @@
 				<td>
 					{#if idx !== 0}
 						<div class="w-12 h-12">
-							<WorldclockDropdown idx={idx - 1} classes="z-10" />
+							<WorldclockDropdown idx={idx - 1} />
 						</div>
 					{/if}
 				</td>
