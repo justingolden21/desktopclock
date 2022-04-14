@@ -611,9 +611,6 @@
 			{import.meta.env.PROD ? 'prod' : 'dev'}
 		</p>
 
-		<!-- <h3>Help</h3>
-		<p>Coming Soon...</p> -->
-
 		<h3>{dictionary.about['Contact']}</h3>
 		<p>
 			{@html dictionary.about.contactText

@@ -1,36 +1,38 @@
 <script>
 	import { session } from '$app/stores';
 
-	import Icon from '../Icon.svelte';
-	import TimezoneSelect from '../TimezoneSelect.svelte';
-	import TimePicker from '../TimePicker.svelte';
+	// import Icon from '../Icon.svelte';
+	// import TimezoneSelect from '../TimezoneSelect.svelte';
+	// import TimePicker from '../TimePicker.svelte';
 
-	import { now } from '../../util/now.js';
-	import { settings } from '../settings';
+	// import { now } from '../../util/now.js';
+	// import { settings } from '../settings';
 
-	$: dictionary = $session.languageDictionary;
+	// $: dictionary = $session.languageDictionary;
 
-	let time1;
-	let timezone1;
-	let timezone2;
+	// let time1;
+	// let timezone1;
+	// let timezone2;
 
-	// TODO
-	const convertTimezones = () => 0;
-	const getDiffBetweenTimezones = () => 0;
+	// // TODO
+	// const convertTimezones = () => 0;
+	// const getDiffBetweenTimezones = () => 0;
 
-	$: time2 = convertTimezones(time1, timezone1, timezone2);
-	$: offset = getDiffBetweenTimezones(time1, timezone1, timezone2);
+	// $: time2 = convertTimezones(time1, timezone1, timezone2);
+	// $: offset = getDiffBetweenTimezones(time1, timezone1, timezone2);
 
-	// todo: replace 'en-GB' with $settings.locale.datetime || 'en'
-	const reset = () => {
-		time1 = $now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-		timezone1 = $settings.locale.timezone;
-	};
+	// // todo: replace 'en-GB' with $settings.locale.datetime || 'en'
+	// const reset = () => {
+	// 	time1 = $now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+	// 	timezone1 = $settings.locale.timezone;
+	// };
 
-	reset();
+	// reset();
 </script>
 
-<div class="my-4">
+<p class="mt-4">{$session.languageDictionary.messages['Coming soon']}</p>
+
+<!-- <div class="my-4">
 	<TimePicker bind:value={time1} />
 </div>
 
@@ -54,11 +56,11 @@
 <button class="btn undo-btn block mt-4" on:click={reset}>
 	<Icon name="undo" class="inline w-6 h-6" />
 	{dictionary.labels['Reset']}
-</button>
+</button> -->
 
 <!-- TODO: translate -->
-<p class="mt-8">
+<!-- <p class="mt-8">
 	Note: this conversion takes place on today's date and time. Daylight savings, historical changes
 	in timezones, and other modifications may affect this
-</p>
+</p> -->
 <!-- maybe TODO: optional date picker as well -->
