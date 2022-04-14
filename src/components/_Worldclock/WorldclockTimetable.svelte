@@ -89,7 +89,7 @@
 </script>
 
 <!-- TODO: note that this doesn't account for daylight savings changes -->
-<!-- TODO: z index of bottommost dropdown is under toggle -->
+<!-- TODO: z index of bottommost dropdown is under toggle. for now using <br> lol -->
 <table>
 	<thead>
 		<tr>
