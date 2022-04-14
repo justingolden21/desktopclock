@@ -1,5 +1,5 @@
 <script>
-	// Data used: AMPM and $settings.worldclock.timetable.times
+	// Data used: $settings.worldclock.timetable.ampm and $settings.worldclock.timetable.times
 
 	import { session } from '$app/stores';
 	import SimpleTimePicker from '../SimpleTimePicker.svelte';
@@ -11,12 +11,11 @@
 
 	$: dictionary = $session.languageDictionary;
 
-	let AMPM =
-		Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions().hourCycle ===
-		'h12';
-
 	function resetTimetableSettings() {
 		$settings.worldclock.timetable.times = ['9:00', '12:00', '15:00', '18:00'];
+		$settings.worldclock.timetable.ampm =
+			Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions().hourCycle ===
+			'h12';
 	}
 
 	// in mins
@@ -45,7 +44,7 @@
 		// if (minsSum < 0) minsSum += 60 * 24;
 		// if (minsSum > 60 * 24) minsSum -= 60 * 24;
 
-		return minsToTimeStr(minsSum, AMPM);
+		return minsToTimeStr(minsSum, $settings.worldclock.timetable.ampm);
 	}
 
 	// time variable conversion
@@ -98,7 +97,12 @@
 			<th>{dictionary.labels['Name']}</th>
 			<th>{dictionary.labels['Now']}</th>
 			{#each $settings.worldclock.timetable.times as time}
-				<th><SimpleTimePicker ampm={AMPM} bind:value={time} classes={'mx-0 my-4'} /></th>
+				<th>
+					<SimpleTimePicker
+						ampm={$settings.worldclock.timetable.ampm}
+						bind:value={time}
+						classes={'mx-0 my-4'} />
+				</th>
 			{/each}
 		</tr>
 	</thead>
@@ -142,7 +146,7 @@
 </button>
 <Toggle
 	id="timetable-ampm-toggle"
-	bind:checked={AMPM}
+	bind:checked={$settings.worldclock.timetable.ampm}
 	labelText={dictionary.labels['Use AM / PM']} />
 
 <style lang="postcss">

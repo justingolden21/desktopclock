@@ -23,10 +23,12 @@ function isPrimitiveType(item) {
 	return ['string', 'number', 'boolean'].includes(typeof item);
 }
 
+// overriden by user default
 const validNulls = {
 	timeFormat: 'string',
 	timeFormatCustom: 'string',
-	darkMode: 'boolean'
+	darkMode: 'boolean',
+	ampm: 'boolean'
 };
 
 /**

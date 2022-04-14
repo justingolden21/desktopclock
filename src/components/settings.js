@@ -43,7 +43,8 @@ export const defaultSettings = {
 		dateFormatCustom: 'ddd, MMMM D',
 
 		timetable: {
-			times: ['9:00', '12:00', '15:00', '18:00']
+			times: ['9:00', '12:00', '15:00', '18:00'],
+			ampm: null
 		}
 	},
 
