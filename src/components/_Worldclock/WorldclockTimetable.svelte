@@ -1,12 +1,15 @@
 <script>
 	// Data used: AMPM and $settings.worldclock.timetable.times
 
+	import { session } from '$app/stores';
 	import SimpleTimePicker from '../SimpleTimePicker.svelte';
 	import Toggle from '../Toggle.svelte';
 	import Icon from '../Icon.svelte';
 	import WorldclockDropdown from './WorldclockDropdown.svelte';
 	import { settings } from '../settings.js';
 	import { getTime, getHourDiff } from '../../util/timeText';
+
+	$: dictionary = $session.languageDictionary;
 
 	let AMPM =
 		Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions().hourCycle ===
@@ -85,24 +88,22 @@
 	}
 </script>
 
-<!-- TODO: translate diff, name, now, home, reset -->
-<!-- TODO: store timetable times in localstorage under worldclock > timetable > times -->
 <!-- TODO: note that this doesn't account for daylight savings changes -->
 <!-- TODO: z index of bottommost dropdown is under toggle -->
 <table>
 	<thead>
 		<tr>
 			<th />
-			<th>Difference</th>
-			<th>Name</th>
-			<th>Now</th>
+			<th>{dictionary.labels['Difference']}</th>
+			<th>{dictionary.labels['Name']}</th>
+			<th>{dictionary.labels['Now']}</th>
 			{#each $settings.worldclock.timetable.times as time}
 				<th><SimpleTimePicker ampm={AMPM} bind:value={time} classes={'mx-0 my-4'} /></th>
 			{/each}
 		</tr>
 	</thead>
 	<tbody class="group">
-		{#each [{ name: 'Home', zone: $settings.locale.timezone }].concat($settings.worldclock.timezones) as timezone, idx}
+		{#each [{ name: dictionary.labels['Home'], zone: $settings.locale.timezone }].concat($settings.worldclock.timezones) as timezone, idx}
 			<tr>
 				<td>
 					{#if idx !== 0}
@@ -123,24 +124,26 @@
 				{#each $settings.worldclock.timetable.times as time}
 					<!-- timetext
 					get diff between time selector and current time
-				then add diff to timezone time -->
-					<td
-						>{getSum(
-							time,
-							getDiff($getTime(timezone.zone), $getTime($settings.locale.timezone))
-						)}</td>
+					then add diff to timezone time -->
+					<td>
+						{getSum(time, getDiff($getTime(timezone.zone), $getTime($settings.locale.timezone)))}
+					</td>
 				{/each}
 			</tr>
 		{/each}
 	</tbody>
 </table>
 
+<br />
+<br />
 <button class="btn undo-btn" on:click={resetTimetableSettings}>
 	<Icon name="undo" class="inline w-6 h-6" />
-	Reset</button>
-
-<!-- TODO: translate label text -->
-<Toggle id="timetable-ampm-toggle" bind:checked={AMPM} labelText={'Use AM / PM'} />
+	{dictionary.labels['Reset']}
+</button>
+<Toggle
+	id="timetable-ampm-toggle"
+	bind:checked={AMPM}
+	labelText={dictionary.labels['Use AM / PM']} />
 
 <style lang="postcss">
 	tr {

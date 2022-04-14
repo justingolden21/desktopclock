@@ -85,6 +85,11 @@
 		"Delete": "Delete",
 		"Create": "Create",
 		"Reset": "Reset",
+		"Use AM / PM": "Use AM / PM",
+		"Difference": "Difference",
+		"Name": "Name",
+		"Now": "Now",
+		"Home": "Home",
 
 		"Numeral Styles": {
 			"numerals": "Numerals",
