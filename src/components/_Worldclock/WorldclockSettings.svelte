@@ -68,6 +68,16 @@
 	class="btn undo-btn mt-4"
 	on:click={() => {
 		$settings.worldclock = JSON.parse(JSON.stringify(defaultSettings.worldclock));
+
+		// TODO: move into centralized location
+		// copied from `_layout.svlete` and `DatetimeSettings.svelte`
+		if ($settings.worldclock.timeFormat === null) {
+			const AMPM =
+				Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions().hourCycle ===
+				'h12';
+			$settings.worldclock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
+			$settings.worldclock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
+		}
 	}}>
 	<Icon name="undo" class="inline w-6 h-6" />
 	{dictionary.worldclockSettings['Reset worldclock settings']}
