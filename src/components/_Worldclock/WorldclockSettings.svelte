@@ -52,7 +52,7 @@
 		);
 	}}>
 	<Icon name="undo" class="inline w-6 h-6" />
-	{dictionary.worldclockSettings['Reset timezones']}
+	{dictionary.worldclockSettings['Reset worldclocks']}
 </button>
 
 <button
@@ -61,7 +61,7 @@
 		$settings.worldclock.timezones = [];
 	}}>
 	<Icon name="trash" class="inline w-6 h-6" />
-	{dictionary.worldclockSettings['Delete timezones']}
+	{dictionary.worldclockSettings['Delete worldclocks']}
 </button>
 
 <button
