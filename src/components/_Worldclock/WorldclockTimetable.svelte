@@ -135,7 +135,9 @@
 	</tbody>
 </table>
 
-<button class="btn" on:click={resetTimetableSettings}>Reset</button>
+<button class="btn undo-btn" on:click={resetTimetableSettings}>
+	<Icon name="undo" class="inline w-6 h-6" />
+	Reset</button>
 
 <!-- TODO: translate label text -->
 <Toggle id="timetable-ampm-toggle" bind:checked={AMPM} labelText={'Use AM / PM'} />
