@@ -1,20 +1,20 @@
 <script>
+	// Data used: AMPM and $settings.worldclock.timetable.times
+
 	import SimpleTimePicker from '../SimpleTimePicker.svelte';
 	import Toggle from '../Toggle.svelte';
+	import Icon from '../Icon.svelte';
 	import WorldclockDropdown from './WorldclockDropdown.svelte';
 	import { settings } from '../settings.js';
 	import { getTime, getHourDiff } from '../../util/timeText';
 
-	let AMPM, times;
+	let AMPM =
+		Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions().hourCycle ===
+		'h12';
 
 	function resetTimetableSettings() {
-		AMPM =
-			Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions().hourCycle ===
-			'h12';
-		times = ['9:00', '12:00', '15:00', '18:00'];
+		$settings.worldclock.timetable.times = ['9:00', '12:00', '15:00', '18:00'];
 	}
-
-	resetTimetableSettings();
 
 	// in mins
 	function getDiff(time1, time2) {
@@ -96,7 +96,7 @@
 			<th>Difference</th>
 			<th>Name</th>
 			<th>Now</th>
-			{#each times as time}
+			{#each $settings.worldclock.timetable.times as time}
 				<th><SimpleTimePicker ampm={AMPM} bind:value={time} classes={'mx-0 my-4'} /></th>
 			{/each}
 		</tr>
@@ -120,7 +120,7 @@
 					<p>{timezone.name || timezone.zone.split('_').join(' ')}</p>
 				</td>
 				<td class:font-bold={idx === 0}>{$getTime(timezone.zone)}</td>
-				{#each times as time}
+				{#each $settings.worldclock.timetable.times as time}
 					<!-- timetext
 					get diff between time selector and current time
 				then add diff to timezone time -->

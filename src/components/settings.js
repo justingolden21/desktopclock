@@ -40,7 +40,11 @@ export const defaultSettings = {
 		timeFormat: null,
 		timeFormatCustom: null,
 		dateFormat: 'ddd, MMMM D',
-		dateFormatCustom: 'ddd, MMMM D'
+		dateFormatCustom: 'ddd, MMMM D',
+
+		timetable: {
+			times: ['9:00', '12:00', '15:00', '18:00']
+		}
 	},
 
 	// appearance
