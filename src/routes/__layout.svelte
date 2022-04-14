@@ -1,7 +1,7 @@
 <script>
 	import '../css/app.postcss';
 
-	import { navigating, page, session } from '$app/stores';
+	import { navigating, session } from '$app/stores';
 	import { browser } from '$app/env';
 	import { onMount } from 'svelte';
 
