@@ -4,8 +4,8 @@
 	import { settings, defaultSettings } from '../settings.js';
 	import Icon from '../Icon.svelte';
 	import { Accordion, AccordionPanel } from './../Accordion/_accordion.js';
-	import AnalogClockSettings from '../_clock/AnalogClockSettings.svelte';
-	import DatetimeSettings from '../_clock/DatetimeSettings.svelte';
+	import AnalogClockSettings from '../_Clock/AnalogClockSettings.svelte';
+	import DatetimeSettings from '../_Clock/DatetimeSettings.svelte';
 	import SettingSelect from '../SettingSelect.svelte';
 
 	$: dictionary = $session.languageDictionary;
