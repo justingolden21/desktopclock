@@ -116,6 +116,8 @@ For issues with building, previewing, and npm packages, try deleting the build, 
 
 When adding a language, add it to `supportedLangs` in `consts.js`
 
+When adding a page, add it to cache in `service-worker.js`
+
 ### Links
 
 - Dev: https://desktopclockdev.netlify.app/
@@ -136,7 +138,7 @@ When adding a language, add it to `supportedLangs` in `consts.js`
 
 ### Attribution
 
-404 vector from https://undraw.co/
+404 and missing clock vectors from https://undraw.co/
 
 Icons from https://heroicons.dev and https://iconoir.com
 
