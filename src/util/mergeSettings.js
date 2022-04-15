@@ -52,7 +52,7 @@ export function mergeDeep(target, ...sources) {
 	const source = sources.shift();
 
 	if (!isObject(target)) {
-		throw 'target must be an object';
+		throw new Error('target must be an object');
 	}
 	if (!isObject(source)) {
 		return target;
@@ -74,13 +74,12 @@ export function mergeDeep(target, ...sources) {
 		} else {
 			// only add properties if they are the same type
 			// or if target is null (intentional lack of value) amd source isn't
-			if (isSameType(target[key], source[key])) {
-				target[key] = source[key];
-			} else if (
-				target[key] === null &&
-				source[key] !== null &&
-				Object.keys(validNulls).includes(key) &&
-				typeof source[key] === validNulls[key]
+			if (
+				isSameType(target[key], source[key]) ||
+				(target[key] === null &&
+					source[key] !== null &&
+					Object.keys(validNulls).includes(key) &&
+					typeof source[key] === validNulls[key])
 			) {
 				target[key] = source[key];
 			}

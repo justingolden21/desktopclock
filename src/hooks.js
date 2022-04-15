@@ -10,7 +10,7 @@ export async function handle({ event, resolve }) {
 	event.locals.lang = event.request.headers.get('accept-language')?.substr(0, 2) || 'en';
 	event.locals.languageDictionary = await getLanguageDictionary(event.locals.lang);
 
-	return await resolve(event);
+	return resolve(event);
 }
 
 export function getSession({ locals }) {

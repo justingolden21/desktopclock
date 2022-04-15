@@ -4,7 +4,7 @@ import { writable } from 'svelte/store';
 
 export const toasts = writable([]);
 
-// addToast({ message, type, dismissible, timeout })}
+// constructor: addToast({ message, type, dismissible, timeout })}
 export const addToast = (toast) => {
 	const id = Math.floor(Math.random() * 10000);
 
