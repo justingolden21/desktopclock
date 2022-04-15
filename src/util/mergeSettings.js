@@ -52,7 +52,7 @@ export function mergeDeep(target, ...sources) {
 	const source = sources.shift();
 
 	if (!isObject(target)) {
-		throw 'target must be an object';
+		throw new Error('target must be an object');
 	}
 	if (!isObject(source)) {
 		return target;
