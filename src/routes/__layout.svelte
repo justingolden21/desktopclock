@@ -101,7 +101,6 @@
 			$settings.worldclock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
 		}
 		if ($settings.worldclock.timetable.ampm === null) {
-			console.log('set it');
 			$settings.worldclock.timetable.ampm = AMPM;
 		}
 
