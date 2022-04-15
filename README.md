@@ -78,6 +78,7 @@ Set up VS code to auto format on save
 	},
 	"eslint.alwaysShowStatus": true,
 	"prettier.singleQuote": true,
+	"editor.detectIndentation": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true
 }
@@ -124,6 +125,14 @@ When adding a language, add it to `supportedLangs` in `consts.js`
 - Prod: https://desktopclock.app
 
 - This repo: https://github.com/justingolden21/desktop-clock
+
+- Netlify:https://app.netlify.com/sites/desktopclock/overview
+
+- Google Analytics: https://analytics.google.com/analytics/web/#/p293529519/reports/intelligenthome
+
+- Search console: https://search.google.com/search-console?resource_id=sc-domain:desktopclock.app
+
+- Sonar Cloud: https://sonarcloud.io/project/overview?id=justingolden21_desktopclock
 
 ### Attribution
 

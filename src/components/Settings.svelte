@@ -1,7 +1,7 @@
 <script context="module">
 	import Screenfull from 'screenfull';
 
-	import { app_url } from '../data/consts.js';
+	import { app_url, valid_pages } from '../data/consts.js';
 
 	export async function toggleFullscreen() {
 		if (Screenfull.isEnabled) {
@@ -9,13 +9,18 @@
 		}
 	}
 
-	export function shareApp(languageDictionary) {
+	export function shareApp(languageDictionary, pathname) {
 		if (navigator.share) {
+			const isValid = valid_pages.includes(pathname);
 			navigator
 				.share({
-					title: languageDictionary['appName'],
+					title: isValid
+						? languageDictionary.pageNames[pathname.substring(1) || 'clock'] +
+						  ' | ' +
+						  languageDictionary['appName']
+						: languageDictionary['appName'],
 					text: languageDictionary['shareAppDescription'],
-					url: app_url
+					url: isValid ? app_url + pathname : app_url
 				})
 				.then(() => console.log('Successful share'))
 				.catch((err) => console.log('Error sharing', err));
@@ -147,15 +152,16 @@
 </script>
 
 <script>
-	import { session } from '$app/stores';
+	import { page, session } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { now } from '../util/now.js';
 
 	onMount(setupCasting);
 
-	import dayjs, { tz } from 'dayjs';
+	import dayjs from 'dayjs';
 
 	import { setupCasting, castClock, isCastSupported } from '../util/cast.js';
+	import { open } from '../util/modal.js';
 
 	import { settings, defaultSettings } from './settings.js';
 
@@ -164,29 +170,37 @@
 	import { Tabs, TabList, TabPanel, Tab } from './Tabs/_tabs.js';
 	import { Accordion, AccordionPanel } from './Accordion/_accordion.js';
 	import ThemeButtons from './ThemeButtons.svelte';
-	import Modal from './Modal.svelte';
 	import { Toasts, addToast } from './Toast/_toast.js';
-	import timezones from '../data/timezones';
-	import { keyboardShortcutsList } from './KeyboardShortcuts.svelte';
+	import SettingSelect from './SettingSelect.svelte';
+	import TimezoneSelect from './TimezoneSelect.svelte';
 	import ClockSettings from './_Clock/ClockSettings.svelte';
+	import WorldclockSettings from './_Worldclock/WorldclockSettings.svelte';
 	import defaultNightTheme from '../themes/defaultNight';
 
-	import { version } from '../../package.json';
+	import version from '../data/version.js';
 
 	$: dictionary = $session.languageDictionary;
 
 	const castSupported = isCastSupported();
 
-	import { fontFamilies, systemFontFamilies, locales, supportedLangs } from '../data/consts.js';
+	import { fontFamilies, locales, supportedLangs } from '../data/consts.js';
 	import { installButtonClick, showInstallButton } from '../util/install.js';
 
 	async function changeLanguage() {
 		$session.languageDictionary = await fetchLanguage($settings.locale.language);
 	}
 
-	let keyboardShortcutModal;
-
 	let hoveringContact = false;
+
+	function fontFamilyChange(evt) {
+		const family = evt.target.value;
+		const weight = $settings.clock.datetimeFontWeight;
+		// if selected font does not have selected weight
+		if (fontFamilies[family].indexOf(weight) == -1) {
+			// default to first listed weight
+			$settings.clock.datetimeFontWeight = fontFamilies[family][0].toString();
+		}
+	}
 </script>
 
 <!-- dirty trick to cache fonts when opening settings (for PWA) -->
@@ -197,8 +211,14 @@
 <Tabs>
 	<TabList>
 		<Tab>
-			<Icon name="clock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
-			{dictionary.pageNames['clock']}
+			{#if $page.url.pathname === '/'}
+				<Icon name="clock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+				{dictionary.pageNames['clock']}
+			{/if}
+			{#if $page.url.pathname === '/worldclock'}
+				<Icon name="worldclock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+				{dictionary.pageNames['worldclock']}
+			{/if}
 		</Tab>
 		<Tab>
 			<Icon name="eye" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
@@ -216,149 +236,144 @@
 
 	<!-- Clock -->
 	<TabPanel>
-		<ClockSettings />
+		{#if $page.url.pathname === '/'}
+			<ClockSettings />
+		{/if}
+		{#if $page.url.pathname === '/worldclock'}
+			<WorldclockSettings />
+		{/if}
 	</TabPanel>
 
 	<!-- Appearance -->
 	<TabPanel>
-		<div class="mb-2">
-			<h3>{dictionary.labels['Base Palette']}</h3>
-			<ThemeButtons
-				colors={['slate', 'gray', 'zinc', 'neutral', 'stone']}
-				theme="baseColorPalette" />
-			<h3>{dictionary.labels['Accent Palette']}</h3>
-			<ThemeButtons
-				colors={[
-					'rose',
-					'pink',
-					'fuchsia',
-					'purple',
-					'violet',
-					'indigo',
-					'blue',
-					'sky',
-					'cyan',
-					'teal',
-					'emerald',
-					'green',
-					'lime',
-					'yellow',
-					'amber',
-					'orange',
-					'red'
-				]}
-				theme="accentColorPalette" />
-		</div>
-		<div class="block mb-2">
-			<button class="dark-btn btn" on:click={() => ($settings.darkMode = !$settings.darkMode)}>
-				<Icon name="moon" class="inline w-6 h-6" />
-				{dictionary.labels['Dark']}
-			</button>
-		</div>
+		<Accordion key="0">
+			<AccordionPanel accordionTitle={dictionary.labels['Aesthetics']} key="1">
+				<div class="mb-2">
+					<h3 class="mt-0">{dictionary.labels.palettes.base}</h3>
+					<ThemeButtons
+						colors={['slate', 'gray', 'zinc', 'neutral', 'stone']}
+						theme="baseColorPalette" />
+					<h3>{dictionary.labels.palettes.accent}</h3>
+					<ThemeButtons
+						colors={[
+							'rose',
+							'pink',
+							'fuchsia',
+							'purple',
+							'violet',
+							'indigo',
+							'blue',
+							'sky',
+							'cyan',
+							'teal',
+							'emerald',
+							'green',
+							'lime',
+							'yellow',
+							'amber',
+							'orange',
+							'red'
+						]}
+						theme="accentColorPalette" />
+				</div>
+				<div class="block mb-2">
+					<button class="dark-btn btn" on:click={() => ($settings.darkMode = !$settings.darkMode)}>
+						<Icon name="moon" class="inline w-6 h-6" />
+						{dictionary.labels['Dark']}
+					</button>
+				</div>
 
-		<Toggle
-			id="show-dark-btn-toggle"
-			bind:checked={$settings.showDarkButton}
-			labelText={dictionary.labels['Show dark button']} />
+				<SettingSelect
+					id="font-family-select"
+					selectLabel={dictionary.labels['Heading font family:']}
+					bind:value={$settings.fontFamily}
+					onchange={fontFamilyChange}
+					values={Object.keys(fontFamilies)}
+					labelMapper={(fontFamily) =>
+						fontFamily === '' ? dictionary.display['System default'] : fontFamily}
+					dynamicFont={true} />
 
-		<Toggle
-			id="show-primary-btn-toggle"
-			bind:checked={$settings.showPrimaryButton}
-			labelText={dictionary.labels['Show primary toggle button']} />
+				<br />
 
-		<Toggle
-			id="show-secondary-btn-toggle"
-			bind:checked={$settings.showSecondaryButton}
-			labelText={dictionary.labels['Show secondary toggle button']} />
+				<SettingSelect
+					id="font-family-body-select"
+					selectLabel={dictionary.labels['Body font family:']}
+					bind:value={$settings.fontFamilyBody}
+					values={Object.keys(fontFamilies)}
+					labelMapper={(fontFamily) =>
+						fontFamily === '' ? dictionary.display['System default'] : fontFamily}
+					dynamicFont={true} />
+			</AccordionPanel>
+			<AccordionPanel accordionTitle={dictionary.labels['User Interface']} key="2">
+				<Toggle
+					id="show-dark-btn-toggle"
+					bind:checked={$settings.showDarkButton}
+					labelText={dictionary.labels['Show dark button']} />
 
-		<div class:hidden={!castSupported}>
-			<Toggle
-				id="show-cast-btn-toggle"
-				bind:checked={$settings.showCastButton}
-				labelText={dictionary.labels['Show cast button']} />
-		</div>
+				<Toggle
+					id="show-primary-btn-toggle"
+					bind:checked={$settings.showPrimaryButton}
+					labelText={dictionary.labels['Show primary toggle button']} />
 
-		<Toggle
-			id="show-fullscreen-btn-toggle"
-			bind:checked={$settings.showFullscreenButton}
-			labelText={dictionary.labels['Show fullscreen button']} />
+				<Toggle
+					id="show-secondary-btn-toggle"
+					bind:checked={$settings.showSecondaryButton}
+					labelText={dictionary.labels['Show secondary toggle button']} />
 
-		<hr />
+				<div class:hidden={!castSupported}>
+					<Toggle
+						id="show-cast-btn-toggle"
+						bind:checked={$settings.showCastButton}
+						labelText={dictionary.labels['Show cast button']} />
+				</div>
 
-		<Toggle
-			id="smaller-menu-toggle"
-			bind:checked={$settings.smallerMenu}
-			labelText={dictionary.labels['Smaller menu']} />
+				<Toggle
+					id="show-fullscreen-btn-toggle"
+					bind:checked={$settings.showFullscreenButton}
+					labelText={dictionary.labels['Show fullscreen button']} />
 
-		<!-- only relevant on larger screens that don't always have the menu collapsed anyway -->
-		<div class="hidden md:block">
-			<Toggle
-				id="always-collapse-menu-toggle"
-				bind:checked={$settings.alwaysCollapseMenu}
-				labelText={dictionary.labels['Always collapse menu']} />
-		</div>
+				<hr />
 
-		<Toggle
-			id="hide-titlebar-when-idle-toggle"
-			bind:checked={$settings.hideTitlebarWhenIdle}
-			labelText={dictionary.labels['Hide title bar when idle']} />
+				<Toggle
+					id="smaller-menu-toggle"
+					bind:checked={$settings.smallerMenu}
+					labelText={dictionary.labels['Smaller menu']} />
 
-		{#if $settings.hideTitlebarWhenIdle}
-			<div class="my-2 ml-8">
-				<label for="seconds-until-idle-input">{dictionary.labels['Seconds until idle:']}</label>
-				<input
-					id="seconds-until-idle-input"
-					on:input|preventDefault={(event) => {
-						const value = validate(event.target);
-						$settings.secondsUntilIdle = value;
-						event.target.value = value;
-					}}
-					value={$settings.secondsUntilIdle}
-					type="number"
-					min="1"
-					max="1000"
-					required />
-			</div>
-			<br />
-		{/if}
+				<!-- only relevant on larger screens that don't always have the menu collapsed anyway -->
+				<div class="hidden md:block">
+					<Toggle
+						id="always-collapse-menu-toggle"
+						bind:checked={$settings.alwaysCollapseMenu}
+						labelText={dictionary.labels['Always collapse menu']} />
+				</div>
 
-		<label for="font-family-select">{dictionary.labels['Heading font family:']}</label>
-		<select
-			id="font-family-select"
-			bind:value={$settings.fontFamily}
-			on:change={(e) => {
-				const family = e.target.value;
-				const weight = $settings.clock.datetimeFontWeight;
-				// if selected font does not have selected weight
-				if (fontFamilies[family].indexOf(weight) == -1) {
-					// default to first listed weight
-					$settings.clock.datetimeFontWeight = fontFamilies[family][0].toString();
-				}
-			}}>
-			{#each Object.keys(fontFamilies) as fontFamily}
-				{#if fontFamily !== ''}
-					<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
+				<Toggle
+					id="hide-titlebar-when-idle-toggle"
+					bind:checked={$settings.hideTitlebarWhenIdle}
+					labelText={dictionary.labels['Hide title bar when idle']} />
+
+				{#if $settings.hideTitlebarWhenIdle}
+					<div class="my-2 ml-8">
+						<label for="seconds-until-idle-input">{dictionary.labels['Seconds until idle:']}</label>
+						<input
+							id="seconds-until-idle-input"
+							on:input|preventDefault={(event) => {
+								const value = validate(event.target);
+								$settings.secondsUntilIdle = value;
+								event.target.value = value;
+							}}
+							value={$settings.secondsUntilIdle}
+							type="number"
+							min="1"
+							max="1000"
+							required />
+					</div>
+					<br />
 				{/if}
-			{/each}
-			<!-- https://tailwindcss.com/docs/font-family -->
-			<option value="" style={systemFontFamilies}>{dictionary.display['System default']}</option>
-		</select>
-
-		<br />
-
-		<label for="font-family-body-select">{dictionary.labels['Body font family:']}</label>
-		<select id="font-family-body-select" bind:value={$settings.fontFamilyBody}>
-			{#each Object.keys(fontFamilies) as fontFamily}
-				{#if fontFamily !== ''}
-					<option value={fontFamily} style="font-family:{fontFamily}">{fontFamily}</option>
-				{/if}
-			{/each}
-			<!-- https://tailwindcss.com/docs/font-family -->
-			<option value="" style={systemFontFamilies}>{dictionary.display['System default']}</option>
-		</select>
-
+			</AccordionPanel>
+		</Accordion>
 		<button
-			class="btn undo-btn block"
+			class="btn undo-btn block mt-4"
 			on:click={() => {
 				for (const option of 'baseColorPalette accentColorPalette darkMode showDarkButton showPrimaryButton showSecondaryButton showCastButton showFullscreenButton smallerMenu alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily fontFamilyBody'.split(
 					' '
@@ -375,12 +390,13 @@
 
 	<!-- General -->
 	<TabPanel>
-		<Accordion key="1">
+		<!-- key="0" to default to all accordions closed -->
+		<Accordion key="0">
 			<AccordionPanel accordionTitle={dictionary.labels['Application']} key="1">
 				<!-- <button class="btn">Download Settings</button> -->
 				<!-- <button class="btn">Upload Settings</button> -->
 
-				<button class="btn share-btn" on:click={() => shareApp(dictionary)}>
+				<button class="btn share-btn" on:click={() => shareApp(dictionary, $page.url.pathname)}>
 					<Icon name="share" class="inline w-6 h-6" />
 					{dictionary.labels['Share']}
 				</button>
@@ -433,10 +449,13 @@
 
 						// auto detect user device preferences (same code as in layout)
 						$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
-						if ($settings.darkMode)
+						if ($settings.darkMode) {
 							$settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme));
+							$settings.worldclock.theme = JSON.parse(JSON.stringify(defaultNightTheme));
+						}
 
-						$settings.locale.language = Intl.DateTimeFormat().resolvedOptions().locale ?? 'en';
+						$settings.locale.language =
+							Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2) ?? 'en';
 						$settings.locale.datetime =
 							Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2) ?? 'en';
 						$settings.locale.timezone =
@@ -448,6 +467,8 @@
 								.hourCycle === 'h12';
 						$settings.clock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
 						$settings.clock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
+						$settings.worldclock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
+						$settings.worldclock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
 					}}>
 					<Icon name="undo" class="inline w-6 h-6" />
 					{dictionary.labels['Reset all settings']}
@@ -486,46 +507,22 @@
 						labelText={dictionary.labels['Keyboard shortcuts']}
 						bind:checked={$settings.keyboardShortcuts} />
 				</div>
-				<button class="btn" on:click={keyboardShortcutModal.show}>
+				<button class="btn" on:click={() => open('keyboard-shortcuts')}>
 					<Icon name="table" class="inline w-6 h-6" />
 					{dictionary.labels['View keyboard shortcuts']}
 				</button>
-
-				<!-- <button class="btn undo-btn block">
-					<Icon name="undo" class="inline w-6 h-6" />
-					Reset Keyboard Shortcuts
-				</button> -->
-
-				<Modal bind:this={keyboardShortcutModal} title="Keyboard Shortcuts" icon="table">
-					<table>
-						<thead>
-							<tr><th>Key</th><th>Action</th></tr>
-						</thead>
-						<tbody>
-							{#each Object.keys(keyboardShortcutsList) as shortcut}
-								{#if shortcut != 'B' || (navigator && navigator.getBattery)}
-									<tr>
-										<td>{shortcut}</td>
-										<td>{dictionary.labels[keyboardShortcutsList[shortcut]]}</td>
-									</tr>
-								{/if}
-							{/each}
-						</tbody>
-					</table>
-				</Modal>
 			</AccordionPanel>
 			<AccordionPanel accordionTitle={dictionary.labels['Locale']} key="3">
 				<div class="block mb-2">
-					<label for="language-select">{dictionary.labels['Language:']}</label>
-					<select
+					<SettingSelect
 						id="language-select"
+						selectLabel={dictionary.labels['Language:']}
 						disabled={$settings.locale.automaticLanguage}
 						bind:value={$settings.locale.language}
-						on:change={changeLanguage}>
-						{#each supportedLangs as lang}
-							<option value={lang}>{dictionary.languages[lang]}</option>
-						{/each}
-					</select>
+						onchange={changeLanguage}
+						values={supportedLangs}
+						labels={dictionary.languages} />
+
 					<br class="block lg:hidden" />
 					<Toggle
 						id="auto-detect-language-toggle"
@@ -542,15 +539,13 @@
 						}} />
 				</div>
 				<div class="block mb-2">
-					<label for="datetime-locale-select">{dictionary.labels['Datetime locale:']}</label>
-					<select
+					<SettingSelect
 						id="datetime-locale-select"
+						selectLabel={dictionary.labels['Datetime locale:']}
 						disabled={$settings.locale.automaticDatetime}
-						bind:value={$settings.locale.datetime}>
-						{#each locales as locale}
-							<option value={locale}>{locale}</option>
-						{/each}
-					</select>
+						bind:value={$settings.locale.datetime}
+						values={locales} />
+
 					<br class="block lg:hidden" />
 					<Toggle
 						id="auto-detect-datetime-locale-toggle"
@@ -569,19 +564,10 @@
 				<!-- todo: search input that finds results containing that string in below select -->
 				<!-- options should look something like "Pacific Daylight Time (GMT-7) Los Angeles, CA" -->
 				<div class="block mb-2">
-					<label for="timezone-select">{dictionary.labels['Timezone:']}</label>
-					<select
+					<TimezoneSelect
 						id="timezone-select"
-						disabled={$settings.locale.automaticTimezone}
-						bind:value={$settings.locale.timezone}>
-						{#each Object.keys(timezones) as zone}
-							<optgroup label={zone}>
-								{#each timezones[zone] as tz}
-									<option value={zone + '/' + tz}>{(zone + '/' + tz).split('_').join(' ')}</option>
-								{/each}
-							</optgroup>
-						{/each}
-					</select>
+						bind:value={$settings.locale.timezone}
+						disabled={$settings.locale.automaticTimezone} />
 					<br class="block lg:hidden" />
 					<Toggle
 						id="auto-detect-timezone-toggle"
@@ -611,7 +597,9 @@
 		</p>
 		<p>
 			{dictionary.about.shareText.split('{{sharing}}')[0]}
-			<button class="font-bold hover:underline" on:click={() => shareApp(dictionary)}>
+			<button
+				class="font-bold hover:underline"
+				on:click={() => shareApp(dictionary, $page.url.pathname)}>
 				<!-- svelte-ignore a11y-missing-attribute -->
 				<a>{dictionary.about['sharing']}</a>
 			</button>
@@ -622,9 +610,6 @@
 			{version}
 			{import.meta.env.PROD ? 'prod' : 'dev'}
 		</p>
-
-		<!-- <h3>Help</h3>
-		<p>Coming Soon...</p> -->
 
 		<h3>{dictionary.about['Contact']}</h3>
 		<p>

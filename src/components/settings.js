@@ -13,15 +13,39 @@ export const defaultSettings = {
 			battery: false
 		},
 		theme: JSON.parse(JSON.stringify(defaultTheme)),
+		secondHandMovement: 'sweeping',
 
 		timeFormat: null, // overridden in _layout onMount to user device's preference
 		timeFormatCustom: null, // overridden in _layout onMount to user device's preference
 		dateFormat: 'ddd, MMMM D',
 		dateFormatCustom: 'ddd, MMMM D',
 
-		datetimeFontWeight: '300',
+		datetimeFontWeight: '300'
+	},
+	worldclock: {
+		displays: {
+			primary: 'analog_digital',
+			secondary: 'rows'
+		},
+		timezones: [
+			{ name: '', zone: 'America/Los_Angeles' },
+			{ name: '', zone: 'America/New_York' },
+			{ name: '', zone: 'Europe/London' },
+			{ name: '', zone: 'Asia/Colombo' },
+			{ name: '', zone: 'Asia/Tokyo' }
+		],
+		theme: JSON.parse(JSON.stringify(defaultTheme)),
+		secondHandMovement: 'sweeping',
 
-		secondHandMovement: 'sweeping'
+		timeFormat: null,
+		timeFormatCustom: null,
+		dateFormat: 'ddd, MMMM D',
+		dateFormatCustom: 'ddd, MMMM D',
+
+		timetable: {
+			times: ['9:00', '12:00', '15:00', '18:00'],
+			ampm: null
+		}
 	},
 
 	// appearance
@@ -37,7 +61,7 @@ export const defaultSettings = {
 	alwaysCollapseMenu: false,
 	hideTitlebarWhenIdle: false,
 	secondsUntilIdle: 2,
-	fontFamily: 'Comfortaa',
+	fontFamily: 'Bai Jamjuree',
 	fontFamilyBody: 'Bitter',
 
 	// general

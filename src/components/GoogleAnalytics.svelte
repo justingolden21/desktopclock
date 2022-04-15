@@ -5,7 +5,7 @@
 	$: {
 		if (typeof gtag !== 'undefined') {
 			gtag('config', 'G-CM722NVXJ9', {
-				page_path: $page.path
+				page_path: $page.url.pathname
 			});
 			gtag('event', 'pwa-install', {
 				display_mode: window.matchMedia('(display-mode: standalone)').matches

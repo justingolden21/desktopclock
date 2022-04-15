@@ -26,7 +26,7 @@
 			on:click={handleToggle}
 			aria-expanded={params.open}>
 			<Icon
-				name="chevron-right"
+				name="chevron_right"
 				class="inline w-6 h-6 transition-transform {params.open ? 'rotate-90' : ''}"
 				aria-hidden="true" />
 			{accordionTitle}

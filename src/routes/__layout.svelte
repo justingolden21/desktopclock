@@ -9,23 +9,22 @@
 
 	import screenfull from 'screenfull';
 
-	import { version } from '../../package.json';
+	import version from '../data/version.js';
 
 	import GoogleAnalytics from '../components/GoogleAnalytics.svelte';
 	import Loader from '../components/Loader.svelte';
-	import Modal from '../components/Modal.svelte';
+	import ModalManager from '../components/ModalManager.svelte';
 	import Nav from '../components/Nav.svelte';
 	import Header from '../components/Header.svelte';
-	import Settings, { fetchLanguage } from '../components/Settings.svelte';
+	import { fetchLanguage } from '../components/Settings.svelte';
 	import { now } from '../util/now.js';
 	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
 	import { settings } from '../components/settings.js';
-	import { app_url } from '../data/consts.js';
+	import { app_url, systemFontFamilies } from '../data/consts.js';
 	import defaultNightTheme from '../themes/defaultNight';
 	import { setupInstall } from '../util/install';
 
-	let settingsModal;
-
+	let loading = true;
 	let navOpen = false;
 	$: if ($navigating) navOpen = false;
 
@@ -48,12 +47,8 @@
 	// this works. don't touch it.
 	const oldGrays = ['warmGray', 'trueGray', 'gray', 'coolGray', 'blueGray'];
 	const newGrays = ['stone', 'neutral', 'zinc', 'gray', 'slate'];
-	if (!$settings.recentVersion) {
-		if ($settings.baseColorPalette in oldGrays) {
-			$settings.baseColorPalette = newGrays[oldGrays.indexOf($settings.baseColorPalette)];
-		} else {
-			$settings.baseColorPalette = 'slate';
-		}
+	if (!$settings.recentVersion && $settings.baseColorPalette in oldGrays) {
+		$settings.baseColorPalette = newGrays[oldGrays.indexOf($settings.baseColorPalette)];
 	}
 
 	// uncomment to simulate user with old palette setting
@@ -68,6 +63,8 @@
 	$settings.recentVersion = version;
 
 	onMount(async () => {
+		setTimeout(() => (loading = false), 500);
+
 		if ($settings.locale.language) {
 			$session.languageDictionary = await fetchLanguage($settings.locale.language);
 		}
@@ -76,7 +73,10 @@
 		if ($settings.darkMode === null) {
 			$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
 			// if darkMode doesn't exist, the user doesn't already have theme settings, it's ok to step on the old theme
-			if ($settings.darkMode) $settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme));
+			if ($settings.darkMode) {
+				$settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme));
+				$settings.worldclock.theme = JSON.parse(JSON.stringify(defaultNightTheme));
+			}
 		}
 		if ($settings.locale.timezone === null) {
 			$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? 'Etc/GMT';
@@ -88,13 +88,21 @@
 			$settings.locale.datetime =
 				Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2) ?? 'en';
 
+		// https://stackoverflow.com/q/27647918/4907950
+		const AMPM =
+			Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions().hourCycle ===
+			'h12';
 		if ($settings.clock.timeFormat === null) {
-			// https://stackoverflow.com/q/27647918/4907950
-			const AMPM =
-				Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions().hourCycle ===
-				'h12';
 			$settings.clock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
 			$settings.clock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
+		}
+		if ($settings.worldclock.timeFormat === null) {
+			$settings.worldclock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
+			$settings.worldclock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
+		}
+		if ($settings.worldclock.timetable.ampm === null) {
+			console.log('set it');
+			$settings.worldclock.timetable.ampm = AMPM;
 		}
 
 		gtag('event', 'page-load-settings', {
@@ -103,7 +111,7 @@
 			timezone: $settings.locale.timezone,
 			language: $settings.locale.language,
 			datetime_locale: $settings.locale.datetime,
-			time_format: $settings.timeFormat,
+			time_format: $settings.clock.timeFormat,
 			navigator_language: navigator.language
 		});
 	});
@@ -114,7 +122,10 @@
 		if (dateTimeInterval) clearInterval(dateTimeInterval);
 
 		const ms =
-			$settings.clock.timeFormat === 'custom' && $settings.clock.timeFormatCustom.includes('SSS')
+			($settings.clock.timeFormat === 'custom' &&
+				$settings.clock.timeFormatCustom.includes('SSS')) ||
+			($settings.worldclock.timeFormat === 'custom' &&
+				$settings.worldclock.timeFormatCustom.includes('SSS'))
 				? 50
 				: 1000;
 		dateTimeInterval = setInterval(() => ($now = new Date()), ms);
@@ -126,8 +137,13 @@
 
 		let lastTimeFormatCustom;
 		settings.subscribe(() => {
-			if (lastTimeFormatCustom !== $settings.clock.timeFormatCustom) startInterval();
-			lastTimeFormatCustom = $settings.clock.timeFormatCustom;
+			if (
+				lastTimeFormatCustom !== $settings.clock.timeFormatCustom &&
+				lastTimeFormatCustom !== $settings.worldclock.timeFormatCustom
+			)
+				startInterval();
+			lastTimeFormatCustom =
+				$settings.clock.timeFormatCustom ?? $settings.worldclock.timeFormatCustom;
 		});
 
 		return () => {
@@ -183,28 +199,22 @@
 
 <svelte:body on:dblclick={doubleClickFullscreen} />
 
-<div
+<main
 	class="dark:bg-base-900 dark:text-base-200 transition-colors duration-200 ease-linear text-base-900 text-center flex min-h-screen"
-	style="--font-family:{$settings.fontFamily};
+	style="--font-family:{$settings.fontFamily || systemFontFamilies};
     --font-family-body:{$settings.fontFamilyBody};
     {paletteVariablesHTML}">
-	<Loader />
+	<Loader {loading} />
 
-	<KeyboardShortcuts bind:settingsModal />
+	<KeyboardShortcuts />
 
-	<Nav bind:navOpen bind:settingsModal />
-	<div class="flex-1 relative">
+	<Nav bind:navOpen />
+	<div class="flex justify-between flex-col flex-1 relative">
 		<Header bind:navOpen />
-		<div class="p-16">
+		<div class="flex-1">
 			<slot />
 		</div>
 	</div>
 
-	<!-- Modals -->
-	<Modal
-		bind:this={settingsModal}
-		title={$session.languageDictionary.labels['Settings']}
-		icon="settings">
-		<Settings />
-	</Modal>
-</div>
+	<ModalManager />
+</main>

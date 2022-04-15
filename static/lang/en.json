@@ -24,6 +24,7 @@
 	"labels": {
 		"Menu": "Menu",
 		"Close": "Close",
+		"Go back": "Go back",
 		"Settings": "Settings",
 		"Install": "Install",
 		"Share": "Share",
@@ -42,8 +43,10 @@
 		"Show secondary toggle button": "Show secondary toggle button",
 		"Show cast button": "Show cast button",
 		"Show fullscreen button": "Show fullscreen button",
-		"Base Palette": "Base Palette",
-		"Accent Palette": "Accent Palette",
+		"palettes": {
+			"base": "Base Palette",
+			"accent": "Accent Palette"
+		},
 		"Smaller menu": "Smaller menu",
 		"Always collapse menu": "Always collapse menu",
 		"Hide title bar when idle": "Hide title bar when idle",
@@ -52,6 +55,8 @@
 		"Body font family:": "Body font family:",
 		"Font family:": "Font family:",
 		"Reset appearance settings": "Reset appearance settings",
+		"Aesthetics": "Aesthetics",
+		"User Interface": "User Interface",
 		"Application": "Application",
 		"Shortcuts": "Shortcuts",
 		"Locale": "Locale",
@@ -66,11 +71,25 @@
 		"Datetime locale:": "Datetime locale:",
 		"Automatically detect datetime locale": "Automatically detect datetime locale",
 		"Timezone:": "Timezone:",
+		"Time:": "Time:",
 		"Automatically detect timezone": "Automatically detect timezone",
 		"Timezone offset:": "Timezone offset:",
 		"Advanced / Experimental": "Advanced / Experimental",
 		"Keep screen awake": "Keep screen awake",
 		"Delete settings and reload": "Delete settings and reload",
+		"New": "New",
+		"Edit": "Edit",
+		"Save": "Save",
+		"Up": "Up",
+		"Down": "Down",
+		"Delete": "Delete",
+		"Create": "Create",
+		"Reset": "Reset",
+		"Use AM / PM": "Use AM / PM",
+		"Difference": "Difference",
+		"Name": "Name",
+		"Now": "Now",
+		"Home": "Home",
 
 		"Numeral Styles": {
 			"numerals": "Numerals",
@@ -105,6 +124,10 @@
 		"fr": "French",
 		"ru": "Russian"
 	},
+	"keyboardShortcuts": {
+		"Key": "Key",
+		"Action": "Action"
+	},
 	"clockSettings": {
 		"Displays": "Displays",
 		"Analog": "Analog",
@@ -112,11 +135,19 @@
 
 		"Primary display:": "Primary display:",
 		"Secondary display:": "Secondary display:",
-		"Analog clock": "Analog clock",
-		"Digital time": "Digital time",
-		"Date": "Date",
-		"Date + digital time": "Date + digital time",
-		"None": "None",
+		"clockFormats": {
+			"analog": "Analog clock",
+			"time": "Digital time",
+			"date": "Date",
+			"datetime": "Date + digital time",
+			"none": "None",
+
+			"analog_digital": "Analog + Digital",
+			"digital": "Digital",
+			"rows": "Rows",
+			"analog_grid": "Analog grid",
+			"digital_grid": "Digital grid"
+		},
 		"Show battery": "Show battery",
 
 		"Default Theme": "Default Theme",
@@ -139,15 +170,16 @@
 		"Numeral Style:": "Numeral Style:",
 
 		"Face": "Face",
-		"Shadow": "Shadow",
 		"Pin": "Pin",
 		"Ticks": "Ticks",
 		"Numerals": "Numerals",
 		"Hands": "Hands",
 
-		"Small": "Small",
-		"Medium": "Medium",
-		"Large": "Large",
+		"sizes": {
+			"small": "Small",
+			"medium": "Medium",
+			"large": "Large"
+		},
 
 		"Hour": "Hour",
 		"Minute": "Minute",
@@ -183,9 +215,27 @@
 			["[text]", "text", "Custom text"]
 		]
 	},
+	"worldclockSettings": {
+		"Timetable": "Timetable",
+		"Timetable view": "Timetable view",
+		"Convert": "Convert",
+		"in": "in",
+		"is": "is",
+		"Convert timezones": "Convert timezones",
+		"New timezone": "New timezone",
+		"Edit timezone": "Edit timezone",
+		"Timezone nickname:": "Timezone nickname:",
+
+		"Reset worldclocks": "Reset worldclocks",
+		"Delete worldclocks": "Delete worldclocks",
+		"Reset worldclock settings": "Reset worldclock settings",
+
+		"You don't have any other worldclocks. Try adding a new one": "You don't have any other worldclocks. Try adding a new one"
+	},
 	"display": {
 		"Stroke color": "Stroke color",
 		"Fill color": "Fill color",
+		"Shadow fill color": "Shadow fill color",
 		"Color:": "Color:",
 		"Stroke width:": "Stroke width:",
 		"Size:": "Size:",
@@ -200,14 +250,14 @@
 		"System default": "System default",
 
 		"shapes": {
-			"Circle": "Circle",
-			"Rounded Square": "Rounded Square",
-			"Square": "Square"
+			"circle": "Circle",
+			"rounded": "Rounded Square",
+			"square": "Square"
 		},
 
 		"linecaps": {
-			"Round": "Round",
-			"Square": "Square"
+			"round": "Round",
+			"square": "Square"
 		}
 	},
 	"about": {

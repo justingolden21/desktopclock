@@ -3,6 +3,7 @@
 .cast-btn svg,
 .external-link-btn svg,
 .undo-btn svg,
+.trash-btn svg,
 .install-btn svg,
 .theme-btn svg,
 .share-btn svg,
@@ -23,6 +24,9 @@
 }
 .undo-btn:hover svg {
 	transform: translateX(-0.25rem);
+}
+.trash-btn:hover svg {
+	transform: rotate(30deg);
 }
 .install-btn:hover svg {
 	transform: translateY(0.25rem);

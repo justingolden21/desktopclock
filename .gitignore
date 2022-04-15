@@ -1,5 +1,10 @@
+# Mac
 .DS_Store
+
+# Packages
 node_modules
+
+# Build
 /build
 /.svelte-kit
 /package

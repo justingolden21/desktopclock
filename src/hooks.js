@@ -6,13 +6,11 @@ async function getLanguageDictionary(lang) {
 	}
 }
 
-export async function handle({ request, resolve }) {
-	request.locals.lang = request.headers
-		? request.headers['accept-language']?.substr(0, 2) ?? 'en'
-		: 'en';
-	request.locals.languageDictionary = await getLanguageDictionary(request.locals.lang);
+export async function handle({ event, resolve }) {
+	event.locals.lang = event.request.headers.get('accept-language')?.substr(0, 2) || 'en';
+	event.locals.languageDictionary = await getLanguageDictionary(event.locals.lang);
 
-	return await resolve(request);
+	return await resolve(event);
 }
 
 export function getSession({ locals }) {

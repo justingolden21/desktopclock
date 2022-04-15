@@ -1,27 +1,31 @@
 <script>
 	import TailwindColors from 'tailwindcss/colors.js';
 
+	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { tweened } from 'svelte/motion';
 	import { linear, bounceOut, elasticOut } from 'svelte/easing';
 
 	import dayjs from 'dayjs';
 	import utc from 'dayjs/plugin/utc.js';
-	import timezone from 'dayjs/plugin/timezone.js';
+	import tz from 'dayjs/plugin/timezone.js';
 	dayjs.extend(utc);
-	dayjs.extend(timezone);
+	dayjs.extend(tz);
 
 	import { now } from '../../util/now.js';
 	import { numeralStyles } from '../../data/consts.js';
 	import { settings } from '../settings.js';
 
-	// 'static' if the clock displays only one time
 	export let mode = '';
-	// time to display if static
 	export let time = {};
+	export let timezone = undefined;
+	export let theme;
 
 	const movements = { sweeping: linear, grandfather: bounceOut, modern: elasticOut };
-	$: movement = $settings.clock.secondHandMovement;
+	$: movement =
+		$settings[
+			mode === 'worldclock' || $page.url.pathname === '/worldclock' ? 'worldclock' : 'clock'
+		].secondHandMovement;
 
 	// define and set the initial tweening function
 	// note: second hand does not take timezone into account
@@ -39,7 +43,7 @@
 	$: date =
 		mode && mode === 'static'
 			? new dayjs().hour(time.h).minute(time.m).second(time.s)
-			: new dayjs($now).tz($settings.locale.timezone || 'Etc/GMT').add(1, 'second');
+			: new dayjs($now).tz(timezone || $settings.locale.timezone || 'Etc/GMT').add(1, 'second');
 
 	$: hours = date.hour() % 12;
 	$: minutes = date.minute();
@@ -80,9 +84,6 @@
 
 	//  ================
 
-	$: theme = $settings.clock.theme;
-	$: baseColorPalette = TailwindColors[$settings.baseColorPalette];
-
 	$: sizes = ['sm', 'md', 'lg'].map((size) => ({ size, r: 27.5 - theme.ticks[size].width / 2 }));
 
 	// return the hex color given a string or object with color information from a theme
@@ -98,13 +99,22 @@
 	}
 </script>
 
-<!-- by using `opacity-0` instead of `hidden` or `{#if}` it ensures the clock continues in the background
-so when switching to it, it continues moving instantly -->
+<!--
+@component
+A customizable analog clock
 
-<svg
-	id="clock"
-	viewBox="0 0 64 64"
-	class={$settings.clock.displays.primary !== 'analog' ? 'opacity-0' : ''}>
+- `mode`: string. 'static' if the clock displays only one time, 'worldclock' to have it display regardless of display setting
+- `theme`: object. custom theme object for clock or worldclock, usually from $settings
+- `time`: object. time to display if static
+- `timezone`: string. defaults to user's current setting. for use in worldclock
+
+- Usage:
+  ```jsx
+  <AnalogClock theme={$settings.clock.theme} mode="static" time={{ h: 10, m: 9, s: 0 }} />
+  ```
+-->
+
+<svg id="clock" viewBox="0 0 64 64">
 	<!-- Shadow -->
 	<rect
 		id="shadow"
@@ -114,6 +124,7 @@ so when switching to it, it continues moving instantly -->
 		height="60"
 		fill={getColor(theme.shadow.fill)}
 		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0} />
+
 	<!-- Face -->
 	<rect
 		id="face"
@@ -125,8 +136,9 @@ so when switching to it, it continues moving instantly -->
 		stroke={getColor(theme.face.stroke)}
 		stroke-width={theme.face.strokeWidth}
 		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0} />
+
+	<!-- Ticks -->
 	<g transform="translate(32,32)">
-		<!-- Ticks -->
 		{#each sizes as { size, r }}
 			<circle
 				id="{size}-ticks"
@@ -139,44 +151,48 @@ so when switching to it, it continues moving instantly -->
 				stroke-width={theme.ticks[size].width}
 				transform={`rotate(-${theme.ticks[size].height})`} />
 		{/each}
-
-		<!-- Hands -->
-		<g transform="rotate(180)">
-			{#each ['hour', 'minute', 'second'] as hand}
-				<line
-					id="{hand}-hand"
-					transform="rotate({angles[hand]})"
-					y1={-theme.hands[hand].back}
-					y2={theme.hands[hand].length}
-					stroke={getColor(theme.hands[hand].stroke)}
-					stroke-width={theme.hands[hand].strokeWidth}
-					stroke-linecap={theme.hands[hand].linecap} />
-			{/each}
-		</g>
-		<!-- Pin -->
-		<circle
-			id="pin"
-			fill={getColor(theme.pin.fill)}
-			stroke={getColor(theme.pin.stroke)}
-			stroke-width={theme.pin.strokeWidth}
-			r={theme.pin.size} />
 	</g>
 
 	<!-- Numerals -->
-	<g fill={getColor($settings.clock.theme.numerals.fill)}>
-		{#each numeralStyles[$settings.clock.theme.numerals.style] as numeral, idx}
+	<g
+		fill={getColor(theme.numerals.fill)}
+		style="text-anchor: middle; pointer-events: none; user-select: none;">
+		{#each numeralStyles[theme.numerals.style] as numeral, idx}
 			<!-- y is middle of character -->
 			<text
-				style="font: 600 6px '{$settings.clock.theme.numerals.fontFamily}', sans-serif;
-					transform-origin: center;
-					text-anchor: middle;
-					pointer-events: none;"
+				style="font: 600 6px '{theme.numerals.fontFamily}', sans-serif;"
+				transform-origin="center"
 				transform="rotate({(idx + 1) * 30})"
 				x="32"
-				y="8"
-				class="numeral">{numeral}</text>
+				y="8">
+				{numeral}
+			</text>
 		{/each}
 	</g>
+
+	<!-- Hands -->
+	<g transform="translate(32,32) rotate(180)">
+		{#each ['hour', 'minute', 'second'] as hand}
+			<line
+				id="{hand}-hand"
+				transform="rotate({angles[hand]})"
+				y1={-theme.hands[hand].back}
+				y2={theme.hands[hand].length}
+				stroke={getColor(theme.hands[hand].stroke)}
+				stroke-width={theme.hands[hand].strokeWidth}
+				stroke-linecap={theme.hands[hand].linecap} />
+		{/each}
+	</g>
+
+	<!-- Pin -->
+	<circle
+		cx="32"
+		cy="32"
+		id="pin"
+		fill={getColor(theme.pin.fill)}
+		stroke={getColor(theme.pin.stroke)}
+		stroke-width={theme.pin.strokeWidth}
+		r={theme.pin.size} />
 </svg>
 
 <style lang="postcss">

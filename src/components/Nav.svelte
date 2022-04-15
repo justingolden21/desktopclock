@@ -6,9 +6,10 @@
 	import { shareApp } from './Settings.svelte';
 	import { settings } from './settings.js';
 	import { installButtonClick, showInstallButton } from '../util/install.js';
+	import { open } from '../util/modal.js';
+	import { valid_pages } from '../data/consts.js';
 
 	export let navOpen;
-	export let settingsModal = null;
 
 	// similar to header
 	let isFullscreen;
@@ -22,28 +23,27 @@
 
 <nav
 	class="
-        min-h-screen
-		bg-base-100
-        bg-opacity-75
+        h-screen
         p-8
         pt-20
-        absolute
+        fixed
         left-0
+        top-0
         transition-all
         duration-200
         ease-in-out
-        backdrop-blur-sm
         z-20
-        dark:bg-base-700
-        dark:bg-opacity-75
+        surface-thin
+        border-0
         border-r-2
-        border-base-100
-        dark:border-base-700
-        {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:relative md:translate-x-0'}
-        {$settings.smallerMenu ? 'w-32' : 'w-64'}"
+        border-base-200
+        dark:bg-base-800
+        dark:bg-opacity-75
+        {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:sticky md:translate-x-0'}
+        {$settings.smallerMenu ? 'w-32' : 'w-72'}"
 	class:-translate-x-full={!navOpen}>
-	<!-- <a
-		class:active={$page.path === '/'}
+	<a
+		class:active={$page.url.pathname === '/'}
 		href="/"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
 		<Icon name="clock" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
@@ -52,7 +52,7 @@
 		{/if}
 	</a>
 	<a
-		class:active={$page.path === '/worldclock'}
+		class:active={$page.url.pathname === '/worldclock'}
 		href="/worldclock"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
 		<Icon name="worldclock" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
@@ -60,8 +60,8 @@
 			{dictionary.pageNames['worldclock']}
 		{/if}
 	</a>
-	<a
-		class:active={$page.path === '/stopwatch'}
+	<!-- <a
+		class:active={$page.url.pathname === '/stopwatch'}
 		href="/stopwatch"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
 		<Icon name="stopwatch" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
@@ -70,7 +70,7 @@
 		{/if}
 	</a>
 	<a
-		class:active={$page.path === '/timers'}
+		class:active={$page.url.pathname === '/timers'}
 		href="/timers"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
 		<Icon name="timer" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
@@ -78,17 +78,19 @@
 			{dictionary.pageNames['timers']}
 		{/if}
 	</a> -->
-	<button
-		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
-		on:click={() => {
-			navOpen = false;
-			settingsModal.show();
-		}}>
-		<Icon name="settings" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
-		{#if !$settings.smallerMenu}
-			{dictionary.labels['Settings']}
-		{/if}
-	</button>
+	{#if valid_pages.includes($page.url.pathname)}
+		<button
+			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
+			on:click={() => {
+				navOpen = false;
+				open('settings');
+			}}>
+			<Icon name="settings" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
+			{#if !$settings.smallerMenu}
+				{dictionary.labels['Settings']}
+			{/if}
+		</button>
+	{/if}
 	<div id="nav-bottom" class="mb-8">
 		{#if $showInstallButton}
 			<button
@@ -104,7 +106,7 @@
 		<!-- no share-btn class so it isn't animated on hover -->
 		<button
 			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
-			on:click={() => shareApp(dictionary)}>
+			on:click={() => shareApp(dictionary, $page.url.pathname)}>
 			<Icon name="share" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
 			{#if !$settings.smallerMenu}
 				{dictionary.labels['Share']}
@@ -126,7 +128,7 @@
     */
 	nav a,
 	nav button {
-		@apply block font-normal text-base-700 p-4 hover:bg-base-200 hover:bg-opacity-50 cursor-pointer tracking-widest text-left;
+		@apply block w-full font-normal text-base-700 p-4 hover:bg-base-200 hover:bg-opacity-50 cursor-pointer tracking-widest text-left;
 		/* transition: all 0.25s linear; */
 	}
 	nav a:hover,

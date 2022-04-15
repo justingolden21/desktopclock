@@ -15,6 +15,15 @@
 <script>
 	export let error;
 	export let status;
+
+	$: {
+		if (typeof gtag !== 'undefined') {
+			gtag('event', 'error-page', {
+				error_message: error.message,
+				status
+			});
+		}
+	}
 </script>
 
 <svelte:head>

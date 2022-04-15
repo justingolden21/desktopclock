@@ -56,9 +56,19 @@
 		@apply bg-base-300;
 	}
 
+	button,
+	select,
+	option {
+		@apply select-none;
+	}
+
 	*:focus,
 	button:focus {
 		@apply outline-none ring-2 ring-base-300;
+	}
+
+	label:not(.toggle-bg) {
+		@apply mr-2;
 	}
 
 	/* Typography */
@@ -84,7 +94,7 @@
 	}
 
 	hr {
-		@apply m-1 max-w-xs;
+		@apply m-1 ml-0 max-w-xs border-base-400 dark:border-base-600;
 	}
 
 	a:not(nav a) {
@@ -108,7 +118,7 @@
 	}
 	th,
 	tr:nth-child(even) {
-		@apply bg-base-200 dark:bg-base-800;
+		@apply bg-base-50 dark:bg-base-800;
 	}
 	tr:nth-child(odd) {
 		@apply bg-base-100 dark:bg-base-700;
@@ -136,7 +146,8 @@
 		@apply bg-base-200;
 	}
 	input[type='text'],
-	input[type='number'] {
+	input[type='number'],
+	input[type='time'] {
 		@apply p-2 text-base-800;
 	}
 
@@ -148,5 +159,12 @@
 	}
 	.dark select:disabled {
 		@apply bg-base-400;
+	}
+
+	.surface {
+		@apply border-2 border-base-300 bg-base-100 bg-opacity-75 backdrop-blur-sm dark:border-base-200 dark:bg-base-800 dark:bg-opacity-75;
+	}
+	.surface-thin {
+		@apply surface border-base-100 dark:border-base-600;
 	}
 }

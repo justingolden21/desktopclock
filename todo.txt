@@ -26,6 +26,65 @@ need to make a component for generic select with label similar to color picker c
 
 wrap localstorage import in try catch and if it errors then just go to default settings?
 
+idea: to fix parts of ticks bleeding through behind numerals,
+add a new "face" circle between each one and hide/show it programmatically
+
+CURRENT TODO
+====
+
+dayjs bug
+  Wrong time in GMT timezones when locale is set
+  https://github.com/iamkun/dayjs/issues/1813
+
+worldclock modals
+  timetable modal, convert modal working
+
+timezone input
+  better timezone input (typing, autocomplete, type "san diego" or "la" or "los angeles" or "pst or "utc8")
+  how does india not have any timezones in this list (delhi and mumbai for example)
+
+  tz select prop for hasLabel boolean
+
+  12/24h settings worldclock modals
+
+  tz display can be only zone or both, ie "america/los angeles" or "los angeles"
+  toggle for display area
+
+====
+
+rename 'digital datetime' in accordion to 'datetime formats'? also has other digital settings though...
+
+todo: fix overlapping dropdown menu triple dots icons
+
+use emoji flags for different timezones (option in settings)
+can just make it simple and give them a selector/search for emoji name and they pick it
+
+timezones reference: https://en.wikipedia.org/wiki/Lists_of_time_zones
+
+should be fixed, test further:
+changing timezone data isn't remembered correctly in local storage
+local storage tzs mutate obj $settings.worldclock.timezones
+
+translate "UTC" text?
+translate GMT text in london nickname?
+
+maybe: fadeout worldclock when deleted?
+
+small horizontal bar that scales based on hour diff from current timezone below worldclock? option in settings?
+
+tab focus in open modals fix
+
+close color picker when another one is open
+
+remove wrapper divs that arent needed
+
+maybe: rename 'aesthetics' to 'look and feel' or 'theme'
+
+maybe gradient background?
+  dark:bg-gradient-to-r dark:from-base-600 dark:to-base-900
+
+====
+
 USER REQUESTS
 ====
 ====
@@ -97,10 +156,11 @@ google analytics:
 second hand moving backwards (switching displays, tabs) thats illegal
 
 before release:
-[x] comment other nav options
 - test everything to hell (devices, browsers, versions, aspect ratios, pixel densities, operating systems, pwa, language, display settings, saving settings)
 - last: get domain, marketing video, para about translate to your lang, ux test
 ================
+
+remember wake lock setting?
 
 zoom in/out buttons?
 if(document.body.style.zoom)
@@ -471,6 +531,7 @@ misc unsorted:
 Timer, countdown, stopwatch, kitchen/exam/exercise/running, time and date calculations, time since, time until, alarms, svelte, moment
 Sleep cycle, world clock, workout mode (set a number of different timers in a row, for rest and excersize, give them each labels)
 Desktop Clock: calendar, sunrise / sunset info
+countdown until sunrise/sunset
 chess clock, calendar
 Milliseconds option for stopwatch, swim clock option for only mins and sec, Chromecast button
 Quick copy inputs and buttons for date, time, and both in one with formatting options (for entering current date/time in a spreadsheet for example)

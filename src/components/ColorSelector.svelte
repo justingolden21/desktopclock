@@ -1,9 +1,9 @@
 <script>
 	import { session } from '$app/stores';
-	import { settings } from '../settings.js';
-	import Icon from '../Icon.svelte';
+	import { settings } from './settings.js';
+	import Icon from './Icon.svelte';
 	import TailwindColors from 'tailwindcss/colors.js';
-	import { lightnesses } from '../../data/consts.js';
+	import { lightnesses } from '../data/consts.js';
 
 	export let colorObj;
 	export let label;

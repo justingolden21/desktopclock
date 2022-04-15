@@ -4,8 +4,9 @@
 	import Screenfull from 'screenfull';
 	import { onMount } from 'svelte';
 
-	import { settings } from './settings.js';
 	import { toggleFullscreen } from './Settings.svelte';
+	import { settings } from './settings.js';
+	import ToggleDisplay from '../util/ToggleDisplays';
 	import { setupCasting, castClock, isCastSupported } from '../util/cast.js';
 	import { now } from '../util/now.js';
 
@@ -42,19 +43,22 @@
 	});
 
 	function togglePrimaryDisplay() {
-		// copied from KeyboardShortcuts.svelte
-		const options = ['analog', 'time', 'date', 'datetime'];
-		$settings.clock.displays.primary =
-			options[(options.indexOf($settings.clock.displays.primary) + 1) % options.length];
+		ToggleDisplay($page, settings, 'primary');
 	}
 	function toggleSecondaryDisplay() {
-		const options = ['time', 'date', 'datetime', 'none'];
-		$settings.clock.displays.secondary =
-			options[(options.indexOf($settings.clock.displays.secondary) + 1) % options.length];
+		ToggleDisplay($page, settings, 'secondary');
 	}
 </script>
 
 <svelte:window on:mousemove={() => (timeSinceMove = new Date())} />
+
+<!-- Cover the page in a div with `cursor-none` that only appears when idle
+to hide the cursor when idle -->
+<div
+	class="fixed left-0 top-0 w-full h-full z-30 {$settings.hideTitlebarWhenIdle &&
+	($now - timeSinceMove) / 1000 > $settings.secondsUntilIdle
+		? 'cursor-none'
+		: 'hidden'}" />
 
 <header
 	class="transition-opacity duration-300 
@@ -103,7 +107,7 @@
 	</button>
 
 	<h1 class="hidden sm:block mx-auto inset-x-1/2 font-normal">
-		{dictionary.pageNames[$page.path.substring(1) || 'home'] || dictionary.error['Error']}
+		{dictionary.pageNames[$page.url.pathname.substring(1) || 'home'] || dictionary.error['Error']}
 	</h1>
 
 	<button

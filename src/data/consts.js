@@ -3,9 +3,36 @@ export const supportedLangs = ['en'];
 
 export const app_url = 'https://desktopclock.app';
 
+export const valid_pages = ['/', '/worldclock', '/stopwatch', '/timers'];
+
 export const lightnesses = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'];
 
 export const movements = ['sweeping', 'grandfather', 'modern'];
+
+export const defaultTimeFormats = [
+	'H:mm',
+	'H:mm:ss',
+	'h:mm A',
+	'h:mm:ss A',
+	'H:mm Z',
+	'H:mm:ss Z',
+	'h:mm A Z',
+	'h:mm:ss A Z',
+	'mm:ss',
+	'custom'
+];
+
+export const defaultDateFormats = [
+	'MMM D',
+	'MMM D YYYY',
+	'ddd, MMMM D',
+	'ddd, MMMM D YYYY',
+	'D MMM',
+	'D MMM YYYY',
+	'ddd, D MMM',
+	'ddd, D MMM YYYY',
+	'custom'
+];
 
 export const numeralStyles = {
 	numerals: ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'],
@@ -38,7 +65,7 @@ export const fontFamilies = {
 };
 
 export const systemFontFamilies =
-	"font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'";
+	"ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'";
 
 export const locales = [
 	'af',
