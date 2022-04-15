@@ -103,10 +103,10 @@
 @component
 A customizable analog clock
 
-- `mode`: string. 'static' if the clock displays only one time, 'worldclock' to have it display regardless of display setting
-- `theme`: object. custom theme object for clock or worldclock, usually from $settings
-- `time`: object. time to display if static
-- `timezone`: string. defaults to user's current setting. for use in worldclock
+ @param {string} mode: 'static' if the clock displays only one time, 'worldclock' to have it display regardless of display setting
+ @param {object} theme: custom theme object for clock or worldclock, usually from $settings
+ @param {object} time: time to display if static
+ @param {string} timezone: defaults to user's current setting. for use in worldclock
 
 - Usage:
   ```jsx
