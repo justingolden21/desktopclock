@@ -30,7 +30,7 @@ export const defaultSettings = {
 		timezones: [
 			{ name: '', zone: 'America/Los_Angeles' },
 			{ name: '', zone: 'America/New_York' },
-			{ name: 'GMT', zone: 'Europe/London' },
+			{ name: '', zone: 'Europe/London' },
 			{ name: '', zone: 'Asia/Colombo' },
 			{ name: '', zone: 'Asia/Tokyo' }
 		],
