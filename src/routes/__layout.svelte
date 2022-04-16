@@ -1,5 +1,5 @@
 <script>
-	import '../css/app.postcss';
+	import '$lib/css/app.postcss';
 
 	import { navigating, session } from '$app/stores';
 	import { browser } from '$app/env';
@@ -9,29 +9,35 @@
 
 	import screenfull from 'screenfull';
 
-	import version from '../data/version.js';
+	import version from '$lib/data/version.js';
 
-	import GoogleAnalytics from '../components/GoogleAnalytics.svelte';
-	import Loader from '../components/Loader.svelte';
-	import ModalManager from '../components/ModalManager.svelte';
-	import Nav from '../components/Nav.svelte';
-	import Header from '../components/Header.svelte';
-	import { fetchLanguage } from '../components/Settings.svelte';
-	import { now } from '../util/now.js';
-	import KeyboardShortcuts from '../components/KeyboardShortcuts.svelte';
-	import { settings } from '../components/settings.js';
-	import { app_url, systemFontFamilies } from '../data/consts.js';
-	import defaultNightTheme from '../themes/defaultNight';
-	import { setupInstall } from '../util/install';
+	import { app_url, systemFontFamilies } from '$lib/data/consts.js';
 
+	/// COMPONENTS ///
+	import GoogleAnalytics from '$lib/components/GoogleAnalytics.svelte';
+	import Loader from '$lib/components/Loader.svelte';
+	import ModalManager from '$lib/components/ModalManager.svelte';
+	import Nav from '$lib/components/Nav.svelte';
+	import Header from '$lib/components/Header.svelte';
+	import KeyboardShortcuts from '$lib/components/KeyboardShortcuts.svelte';
+	import { settings } from '$lib/stores/settings.js';
+
+	/// UTILS ///
+	import { startInterval } from '$lib/util/now.js';
+	import { setupInstall } from '$lib/util/install';
+	import { hexToRgb, initializeSettings } from '$lib/util';
+
+	/// STATE ///
 	let loading = true;
 	let navOpen = false;
+	let dateTimeInterval;
 	$: if ($navigating) navOpen = false;
 
+	/// EVENT HANDLERS ///
 	function doubleClickFullscreen({ target }) {
 		if (!$settings.doubleclickFullscreen) return;
 		if (target.tagName === 'BUTTON' || target.parentNode.tagName === 'BUTTON') return;
-		if (screenfull.isEnabled) screenfull.toggle();
+		screenfull.isEnabled && screenfull.toggle();
 	}
 
 	// check when session changes
@@ -62,47 +68,10 @@
 
 	$settings.recentVersion = version;
 
+	/// LIFECYCLE HOOKS ///
 	onMount(async () => {
 		setTimeout(() => (loading = false), 500);
-
-		if ($settings.locale.language) {
-			$session.languageDictionary = await fetchLanguage($settings.locale.language);
-		}
-
-		// auto detect user device preferences
-		if ($settings.darkMode === null) {
-			$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
-			// if darkMode doesn't exist, the user doesn't already have theme settings, it's ok to step on the old theme
-			if ($settings.darkMode) {
-				$settings.clock.theme = JSON.parse(JSON.stringify(defaultNightTheme));
-				$settings.worldclock.theme = JSON.parse(JSON.stringify(defaultNightTheme));
-			}
-		}
-		if ($settings.locale.timezone === null) {
-			$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone ?? 'Etc/GMT';
-		}
-
-		if ($settings.locale.language === null) $settings.locale.language = $session.lang ?? 'en';
-
-		if ($settings.locale.datetime === null)
-			$settings.locale.datetime =
-				Intl.DateTimeFormat().resolvedOptions().locale.substring(0, 2) ?? 'en';
-
-		// https://stackoverflow.com/q/27647918/4907950
-		const AMPM =
-			Intl.DateTimeFormat(navigator.language, { hour: 'numeric' }).resolvedOptions().hourCycle ===
-			'h12';
-		if ($settings.clock.timeFormat === null) {
-			$settings.clock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
-			$settings.clock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
-		}
-		if ($settings.worldclock.timeFormat === null) {
-			$settings.worldclock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
-			$settings.worldclock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
-		}
-		if ($settings.worldclock.timetable.ampm === null) {
-			$settings.worldclock.timetable.ampm = AMPM;
-		}
+		await initializeSettings($session);
 
 		gtag('event', 'page-load-settings', {
 			non_interaction: true,
@@ -115,48 +84,26 @@
 		});
 	});
 
-	let dateTimeInterval; // browser is optimized anyway, no need to detect seconds
-
-	function startInterval() {
-		if (dateTimeInterval) clearInterval(dateTimeInterval);
-
-		const ms =
-			($settings.clock.timeFormat === 'custom' &&
-				$settings.clock.timeFormatCustom.includes('SSS')) ||
-			($settings.worldclock.timeFormat === 'custom' &&
-				$settings.worldclock.timeFormatCustom.includes('SSS'))
-				? 50
-				: 1000;
-		dateTimeInterval = setInterval(() => ($now = new Date()), ms);
-	}
-
 	onMount(() => {
 		setupInstall();
-		startInterval();
-
-		let lastTimeFormatCustom;
-		settings.subscribe(() => {
-			if (
-				lastTimeFormatCustom !== $settings.clock.timeFormatCustom &&
-				lastTimeFormatCustom !== $settings.worldclock.timeFormatCustom
-			)
-				startInterval();
-			lastTimeFormatCustom =
-				$settings.clock.timeFormatCustom ?? $settings.worldclock.timeFormatCustom;
-		});
-
+		dateTimeInterval = startInterval();
 		return () => {
 			clearInterval(dateTimeInterval);
 		};
 	});
 
-	$: themeColor = TailwindColors[$settings.baseColorPalette][$settings.darkMode ? 900 : 200];
-
-	// https://stackoverflow.com/a/5624139/4907950
-	function hexToRgb(hex) {
-		const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-		return `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`;
+	let lastTimeFormatCustom;
+	$: if (browser) {
+		if (
+			lastTimeFormatCustom !== $settings.clock.timeFormatCustom &&
+			lastTimeFormatCustom !== $settings.worldclock.timeFormatCustom
+		)
+			dateTimeInterval = startInterval();
+		lastTimeFormatCustom =
+			$settings.clock.timeFormatCustom ?? $settings.worldclock.timeFormatCustom;
 	}
+
+	$: themeColor = TailwindColors[$settings.baseColorPalette][$settings.darkMode ? 900 : 200];
 
 	// store numbers as list of rgb values for use in withOpacity in tailwind.config.cjs
 	$: paletteVariablesHTML = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900']
@@ -200,9 +147,9 @@
 
 <main
 	class="dark:bg-base-900 dark:text-base-200 transition-colors duration-200 ease-linear text-base-900 text-center flex min-h-screen"
-	style="--font-family:{$settings.fontFamily || systemFontFamilies};
-    --font-family-body:{$settings.fontFamilyBody};
-    {paletteVariablesHTML}">
+	style:--font-family={$settings.fontFamily || systemFontFamilies}
+	style:--font-family-body={$settings.fontFamilyBody}
+	style={paletteVariablesHTML}>
 	<Loader {loading} />
 
 	<KeyboardShortcuts />

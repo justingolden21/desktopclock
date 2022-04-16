@@ -1,5 +1,5 @@
 <script>
-	import { settings } from '../settings.js';
+	import { settings } from '$lib/stores/settings.js';
 
 	import AnalogClock from '../_Clock/AnalogClock.svelte';
 	import WorldclockDropdown from './WorldclockDropdown.svelte';

@@ -4,7 +4,7 @@
 	import { page, session } from '$app/stores';
 	import Icon from './Icon.svelte';
 	import { shareApp } from './Settings.svelte';
-	import { settings } from './settings.js';
+	import { settings } from '$lib/stores/settings.js';
 	import { installButtonClick, showInstallButton } from '../util/install.js';
 	import { open } from '../util/modal.js';
 	import { valid_pages } from '../data/consts.js';

@@ -6,7 +6,7 @@
 	import Toggle from '../Toggle.svelte';
 	import Icon from '../Icon.svelte';
 	import WorldclockDropdown from './WorldclockDropdown.svelte';
-	import { settings } from '../settings.js';
+	import { settings } from '$lib/stores/settings.js';
 	import { getTime, getHourDiff } from '../../util/timeText';
 
 	$: dictionary = $session.languageDictionary;

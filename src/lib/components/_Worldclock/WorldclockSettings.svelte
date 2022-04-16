@@ -1,9 +1,9 @@
 <script>
 	import { session } from '$app/stores';
 
-	import { settings, defaultSettings } from '../settings.js';
+	import { settings, defaultSettings } from '$lib/stores/settings.js';
 	import Icon from '../Icon.svelte';
-	import { Accordion, AccordionPanel } from './../Accordion/_accordion.js';
+	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 	import AnalogClockSettings from '../_Clock/AnalogClockSettings.svelte';
 	import DatetimeSettings from '../_Clock/DatetimeSettings.svelte';
 	import SettingSelect from '../SettingSelect.svelte';

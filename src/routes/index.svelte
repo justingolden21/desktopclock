@@ -1,10 +1,10 @@
 <script>
 	import { session } from '$app/stores';
 
-	import { settings } from '../components/settings';
+	import { settings } from '$lib/stores/settings';
 
-	import Displays from '../components/_Clock/DigitalDisplays.svelte';
-	import AnalogClock from '../components/_Clock/AnalogClock.svelte';
+	import Displays from '$lib/components/_Clock/DigitalDisplays.svelte';
+	import AnalogClock from '$lib/components/_Clock/AnalogClock.svelte';
 </script>
 
 <svelte:head>

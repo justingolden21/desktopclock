@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte';
 	import { close } from '../../util/modal.js';
 
-	import { settings } from '../settings.js';
+	import { settings } from '$lib/stores/settings.js';
 	import Icon from '../Icon.svelte';
 	import TimezoneSelect from '../TimezoneSelect.svelte';
 

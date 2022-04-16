@@ -1,5 +1,5 @@
 <script>
-	import { clickOutside } from '../util/clickOutside.js';
+	import { clickOutside } from '$lib/util/clickOutside.js';
 
 	export let options;
 	export let placeholder = '';

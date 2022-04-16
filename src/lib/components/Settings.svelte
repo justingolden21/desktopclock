@@ -163,14 +163,14 @@
 	import { setupCasting, castClock, isCastSupported } from '../util/cast.js';
 	import { open } from '../util/modal.js';
 
-	import { settings, defaultSettings } from './settings.js';
+	import { settings, defaultSettings } from '$lib/stores/settings.js';
 
 	import Icon from './Icon.svelte';
 	import Toggle from './Toggle.svelte';
-	import { Tabs, TabList, TabPanel, Tab } from './Tabs/_tabs.js';
-	import { Accordion, AccordionPanel } from './Accordion/_accordion.js';
+	import { Tabs, TabList, TabPanel, Tab } from '$lib/components/Tabs';
+	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 	import ThemeButtons from './ThemeButtons.svelte';
-	import { Toasts, addToast } from './Toast/_toast.js';
+	import { Toasts, addToast } from '$lib/components/Toast';
 	import SettingSelect from './SettingSelect.svelte';
 	import TimezoneSelect from './TimezoneSelect.svelte';
 	import ClockSettings from './_Clock/ClockSettings.svelte';

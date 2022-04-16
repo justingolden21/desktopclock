@@ -1,18 +1,15 @@
 <script>
 	import { session } from '$app/stores';
 
-	import { settings } from '../settings.js';
+	import { settings } from '$lib/stores/settings.js';
 
-	import Icon from '../Icon.svelte';
-	import AnalogClock from './AnalogClock.svelte';
-	import ColorSelector from '../ColorSelector.svelte';
-	import SettingSelect from '../SettingSelect.svelte';
-	import { fontFamilies, movements, numeralStyles } from '../../data/consts.js';
+	import Icon from '$lib/components/Icon.svelte';
+	import AnalogClock from '$lib/components/_Clock/AnalogClock.svelte';
+	import ColorSelector from '$lib/components/ColorSelector.svelte';
+	import SettingSelect from '$lib/components/SettingSelect.svelte';
+	import { fontFamilies, movements, numeralStyles } from '$lib/data/consts.js';
 
-	import defaultTheme from '../../themes/default';
-	import defaultNightTheme from '../../themes/defaultNight';
-	import classicTheme from '../../themes/classic';
-	import classicNightTheme from '../../themes/classicNight';
+	import { defaultTheme, defaultNightTheme, classicTheme, classicNightTheme } from '$lib/themes';
 
 	// settings to apply changes to
 	// 'clock' or 'worldclock'

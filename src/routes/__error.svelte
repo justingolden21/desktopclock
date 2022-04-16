@@ -1,6 +1,6 @@
 <script context="module">
 	import { session } from '$app/stores';
-	import { settings } from '../components/settings.js';
+	import { settings } from '$lib/stores/settings.js';
 
 	export const load = ({ error, status }) => {
 		return {

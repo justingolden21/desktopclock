@@ -3,7 +3,7 @@
 
 	import { onMount } from 'svelte';
 
-	import { settings } from '../settings.js';
+	import { settings } from '$lib/stores/settings.js';
 	import BatteryIcon from './BatteryIcon.svelte';
 	import { time, date } from '../../util/timeText';
 

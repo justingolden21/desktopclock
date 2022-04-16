@@ -5,7 +5,7 @@
 	import { onMount } from 'svelte';
 
 	import { toggleFullscreen } from './Settings.svelte';
-	import { settings } from './settings.js';
+	import { settings } from '$lib/stores/settings.js';
 	import ToggleDisplay from '../util/ToggleDisplays';
 	import { setupCasting, castClock, isCastSupported } from '../util/cast.js';
 	import { now } from '../util/now.js';

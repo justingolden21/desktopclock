@@ -5,7 +5,7 @@
 
 	import { now } from '../../util/now.js';
 	import { open } from '../../util/modal.js';
-	import { settings, defaultSettings } from '../settings.js';
+	import { settings, defaultSettings } from '$lib/stores/settings.js';
 
 	import Icon from '../Icon.svelte';
 	import SettingSelect from '../SettingSelect.svelte';

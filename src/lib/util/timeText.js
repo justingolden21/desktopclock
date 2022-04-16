@@ -1,6 +1,6 @@
 import { derived } from 'svelte/store';
-import { settings } from '../components/settings.js';
-import { now } from './now.js';
+import { settings } from '$lib/stores/settings.js';
+import { now } from '$lib/util/now.js';
 
 import dayjs from 'dayjs';
 // https://day.js.org/docs/en/plugin/timezone

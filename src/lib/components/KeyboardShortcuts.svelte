@@ -15,7 +15,7 @@
 	import { page } from '$app/stores';
 
 	import { toggleFullscreen } from './Settings.svelte';
-	import { settings } from './settings';
+	import { settings } from '$lib/stores/settings';
 	import { toggle } from '../util/modal';
 	import ToggleDisplay from '../util/ToggleDisplays';
 </script>

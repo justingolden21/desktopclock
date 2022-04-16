@@ -1,6 +1,4 @@
 <script>
-	import TailwindColors from 'tailwindcss/colors.js';
-
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { tweened } from 'svelte/motion';
@@ -12,9 +10,10 @@
 	dayjs.extend(utc);
 	dayjs.extend(tz);
 
-	import { now } from '../../util/now.js';
-	import { numeralStyles } from '../../data/consts.js';
-	import { settings } from '../settings.js';
+	import { now } from '$lib/util/now.js';
+	import { numeralStyles } from '$lib/data/consts.js';
+	import { settings } from '$lib/stores/settings.js';
+	import { getColor } from '$lib/util';
 
 	export let mode = '';
 	export let time = {};
@@ -85,18 +84,6 @@
 	//  ================
 
 	$: sizes = ['sm', 'md', 'lg'].map((size) => ({ size, r: 27.5 - theme.ticks[size].width / 2 }));
-
-	// return the hex color given a string or object with color information from a theme
-	// lightness is a string (100, 200, 300) that represents the lightness of the color in the tailwind theme
-	// if falsey or '-1', return 'none' (lack of value or '-1' results in a transparent color)
-	// palette is 'base' unless otherwise specified, 'accent' is the other valid color palette
-	function getColor(obj) {
-		return obj.lightness === '-1'
-			? 'none'
-			: TailwindColors[
-					$settings[obj.palette == 'accent' ? 'accentColorPalette' : 'baseColorPalette']
-			  ][obj.lightness];
-	}
 </script>
 
 <!--

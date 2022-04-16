@@ -1,9 +1,9 @@
 <script>
 	import { session } from '$app/stores';
 
-	import Worldclocks from '../components/_Worldclock/Worldclocks.svelte';
+	import Worldclocks from '$lib/components/_Worldclock/Worldclocks.svelte';
 	// import TimezoneAutocomplete from '../components/TimezoneAutocomplete.svelte';
-	import WorldclockTray from '../components/_Worldclock/WorldclockTray.svelte';
+	import WorldclockTray from '$lib/components/_Worldclock/WorldclockTray.svelte';
 </script>
 
 <svelte:head>

@@ -1,6 +1,6 @@
 <script>
 	import { session } from '$app/stores';
-	import { settings } from './settings.js';
+	import { settings } from '$lib/stores/settings.js';
 	import Icon from './Icon.svelte';
 	import TailwindColors from 'tailwindcss/colors.js';
 	import { lightnesses } from '../data/consts.js';
