@@ -2,12 +2,12 @@
 	import Screenfull from 'screenfull';
 	import { onMount } from 'svelte';
 	import { page, session } from '$app/stores';
-	import Icon from './Icon.svelte';
-	import { shareApp } from './Settings.svelte';
+	import Icon from '$lib/components/Icon.svelte';
+	import { shareApp } from '$lib/components/Settings.svelte';
 	import { settings } from '$lib/stores/settings.js';
-	import { installButtonClick, showInstallButton } from '../util/install.js';
-	import { open } from '../util/modal.js';
-	import { valid_pages } from '../data/consts.js';
+	import { installButtonClick, showInstallButton } from '$lib/util/install.js';
+	import { open } from '$lib/util/modal.js';
+	import { valid_pages } from '$lib/data/consts.js';
 
 	export let navOpen;
 

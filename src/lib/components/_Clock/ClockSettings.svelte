@@ -3,17 +3,20 @@
 	import { onMount } from 'svelte';
 
 	import { settings } from '$lib/stores/settings.js';
+	import { fontFamilies } from '$lib/data/consts.js';
 
+	/// COMPONENTS ///
 	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 	import Toggle from '$lib/components/Toggle.svelte';
 	import AnalogClockSettings from '$lib/components/_Clock/AnalogClockSettings.svelte';
 	import DatetimeSettings from '$lib/components/_Clock/DatetimeSettings.svelte';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
-	import { fontFamilies } from '$lib/data/consts.js';
 
+	/// STATE ///
 	$: dictionary = $session.languageDictionary;
-
 	let batterySupported = false;
+
+	/// LIFECYCLE HOOKS ///
 	onMount(() => {
 		batterySupported = navigator && navigator.getBattery;
 	});

@@ -2,11 +2,11 @@
 	import { session } from '$app/stores';
 
 	import { settings, defaultSettings } from '$lib/stores/settings.js';
-	import Icon from '../Icon.svelte';
+	import Icon from '$lib/components/Icon.svelte';
 	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
-	import AnalogClockSettings from '../_Clock/AnalogClockSettings.svelte';
-	import DatetimeSettings from '../_Clock/DatetimeSettings.svelte';
-	import SettingSelect from '../SettingSelect.svelte';
+	import AnalogClockSettings from '$lib/components/_Clock/AnalogClockSettings.svelte';
+	import DatetimeSettings from '$lib/components/_Clock/DatetimeSettings.svelte';
+	import SettingSelect from '$lib/components/SettingSelect.svelte';
 
 	$: dictionary = $session.languageDictionary;
 </script>

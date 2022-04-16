@@ -1,15 +1,18 @@
 <script>
-	import Icon from '../Icon.svelte';
+	/// COMPONENTS ///
+	import Icon from '$lib/components/Icon.svelte';
 
 	import { getContext } from 'svelte';
 
+	/// STATE ///
 	export let accordionTitle;
 	export let key;
-
 	const store = getContext('accordion');
 	$: params = {
 		open: $store.key === key
 	};
+
+	/// EVENT HANDLERS ///
 	function handleToggle() {
 		if (params.open) {
 			store.update((s) => Object.assign(s, { key: null }));

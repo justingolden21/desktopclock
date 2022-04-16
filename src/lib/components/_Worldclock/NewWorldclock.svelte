@@ -1,25 +1,27 @@
 <script>
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { close } from '../../util/modal.js';
+	import { close } from '$lib/util/modal.js';
 
 	import { settings } from '$lib/stores/settings.js';
-	import Icon from '../Icon.svelte';
-	import TimezoneSelect from '../TimezoneSelect.svelte';
 
+	/// COMPONENTS ///
+	import Icon from '$lib/components/Icon.svelte';
+	import TimezoneSelect from '$lib/components/TimezoneSelect.svelte';
+
+	/// STATE ///
 	$: dictionary = $session.languageDictionary;
-
 	let newTimezoneName, newTimezoneValue;
+	export let data = {};
+	$: editIndex = data.editIndex ?? -1; // -1 is 'new' mode, else 'edit' mode
 
+	/// LIFECYCLE HOOKS ///
 	onMount(() => {
 		if (editIndex !== -1) {
 			newTimezoneName = $settings.worldclock.timezones[editIndex].name;
 			newTimezoneValue = $settings.worldclock.timezones[editIndex].zone;
 		}
 	});
-
-	export let data = {};
-	$: editIndex = data.editIndex ?? -1; // -1 is 'new' mode, else 'edit' mode
 </script>
 
 <div class="my-4">

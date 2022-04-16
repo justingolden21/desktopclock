@@ -4,16 +4,33 @@
 	import { onMount } from 'svelte';
 
 	import { settings } from '$lib/stores/settings.js';
-	import BatteryIcon from './BatteryIcon.svelte';
-	import { time, date } from '../../util/timeText';
 
+	/// COMPONENTS ///
+	import BatteryIcon from '$lib/components/_Clock/BatteryIcon.svelte';
+
+	/// UITLS ///
+	import { time, date } from '$lib/util/timeText';
+
+	/// STATE ?//
 	$: clockSettings = $settings.clock;
-
 	$: displays = clockSettings.displays;
-
 	let batteryLevel, batteryIsCharging;
 	let batterySupported = false;
+	const primaryDisplayMap = {
+		time: $time,
+		date: $date,
+		datetime: `${$time}\n${$date}`
+	};
+	const secondaryDisplayMap = {
+		time: $time,
+		date: $date,
+		datetime: `${$time}\n${$date}`
+	};
+	$: baseColorPalette = TailwindColors[$settings.baseColorPalette];
+	$: accentColorPalette = TailwindColors[$settings.accentColorPalette];
+	$: shade = $settings.darkMode ? 400 : 900;
 
+	/// LIFECYCLE HOOKS ///
 	// TODO: starts an event listener each time displays.svelte is mounted, can add up
 	// should unmount the event listener, look into svelte window access navigator
 	onMount(() => {
@@ -31,44 +48,28 @@
 			});
 		});
 	});
-
-	$: baseColorPalette = TailwindColors[$settings.baseColorPalette];
-	$: accentColorPalette = TailwindColors[$settings.accentColorPalette];
-	$: shade = $settings.darkMode ? 400 : 900;
 </script>
 
 <div class="flex">
 	<h1
 		id="primary-display"
-		style="--primary-font-weight: {$settings.clock
-			.datetimeFontWeight}; color:{displays.primaryPalette === 'base'
+		style:--primary-font-weight={$settings.clock.datetimeFontWeight}
+		style:color={displays.primaryPalette === 'base'
 			? baseColorPalette[shade]
-			: accentColorPalette[shade]}"
+			: accentColorPalette[shade]}
 		class={displays.primary + ' text-' + displays.primaryFontSize}>
-		{#if displays.primary == 'time'}
-			{$time}
-		{:else if displays.primary == 'date'}
-			{$date}
-		{:else if displays.primary == 'datetime'}
-			{$time}
-			<br />
-			{$date}
+		{#if displays.primary !== 'analog'}
+			{primaryDisplayMap[displays.primary]}
 		{/if}
 	</h1>
 	<h2
 		id="secondary-display"
-		style="color:{displays.secondaryPalette === 'base'
+		style:color={displays.secondaryPalette === 'base'
 			? baseColorPalette[shade]
-			: accentColorPalette[shade]}"
+			: accentColorPalette[shade]}
 		class={'m-0 text-' + displays.secondaryFontSize}>
-		{#if displays.secondary == 'time'}
-			{$time}
-		{:else if displays.secondary == 'date'}
-			{$date}
-		{:else if displays.secondary == 'datetime'}
-			{$time}
-			<br />
-			{$date}
+		{#if displays.secondary !== 'none'}
+			{secondaryDisplayMap[displays.secondary]}
 		{/if}
 	</h2>
 </div>
@@ -77,9 +78,9 @@
 	<h2
 		id="battery-display"
 		class={'m-0 hidden sm:block text-' + displays.secondaryFontSize}
-		style="color:{displays.secondaryPalette === 'base'
+		style:color={displays.secondaryPalette === 'base'
 			? baseColorPalette[shade]
-			: accentColorPalette[shade]}">
+			: accentColorPalette[shade]}>
 		<BatteryIcon
 			fillLevel={batteryLevel ? batteryLevel * 100 : 100}
 			charging={batteryIsCharging}

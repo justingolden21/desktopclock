@@ -1,15 +1,16 @@
 <script>
 	import { session } from '$app/stores';
 
-	import { open, close, modal } from '../util/modal.js';
-	import Icon from './Icon.svelte';
+	import { open, close, modal } from '$lib/util/modal.js';
 
-	import Settings from './Settings.svelte';
-	import KeyboardShortcutsModal from './KeyboardShortcutsModal.svelte';
-	import DatetimeFormatModal from './_Clock/DatetimeFormatModal.svelte';
-	import NewWorldclock from './_Worldclock/NewWorldclock.svelte';
-	import WorldclockTimetable from './_Worldclock/WorldclockTimetable.svelte';
-	import ConvertTimezones from './_Worldclock/ConvertTimezones.svelte';
+	/// COMPONENTS ///
+	import Icon from '$lib/components/Icon.svelte';
+	import Settings from '$lib/components/Settings.svelte';
+	import KeyboardShortcutsModal from '$lib/components/KeyboardShortcutsModal.svelte';
+	import DatetimeFormatModal from '$lib/components/_Clock/DatetimeFormatModal.svelte';
+	import NewWorldclock from '$lib/components/_Worldclock/NewWorldclock.svelte';
+	import WorldclockTimetable from '$lib/components/_Worldclock/WorldclockTimetable.svelte';
+	import ConvertTimezones from '$lib/components/_Worldclock/ConvertTimezones.svelte';
 
 	const modalData = {
 		'settings': {

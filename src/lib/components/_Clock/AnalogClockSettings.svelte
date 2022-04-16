@@ -3,20 +3,24 @@
 
 	import { settings } from '$lib/stores/settings.js';
 
-	import Icon from '$lib/components/Icon.svelte';
-	import AnalogClock from '$lib/components/_Clock/AnalogClock.svelte';
-	import ColorSelector from '$lib/components/ColorSelector.svelte';
-	import SettingSelect from '$lib/components/SettingSelect.svelte';
 	import { fontFamilies, movements, numeralStyles } from '$lib/data/consts.js';
 
 	import { defaultTheme, defaultNightTheme, classicTheme, classicNightTheme } from '$lib/themes';
 
+	/// COMPONENTS ///
+	import Icon from '$lib/components/Icon.svelte';
+	import AnalogClock from '$lib/components/_Clock/AnalogClock.svelte';
+	import ColorSelector from '$lib/components/ColorSelector.svelte';
+	import SettingSelect from '$lib/components/SettingSelect.svelte';
+
+	/// STATE ///
 	// settings to apply changes to
 	// 'clock' or 'worldclock'
 	export let page;
 
 	$: dictionary = $session.languageDictionary;
 
+	/// METHODS ///
 	// check and hide ticks behind numerals
 	function numeralsChange(evt) {
 		const hideTicks = (size) => {

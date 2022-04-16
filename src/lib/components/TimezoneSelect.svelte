@@ -1,7 +1,7 @@
 <script>
 	import { session } from '$app/stores';
 
-	import timezones from '../data/timezones';
+	import timezones from '$lib/data/timezones';
 
 	$: dictionary = $session.languageDictionary;
 

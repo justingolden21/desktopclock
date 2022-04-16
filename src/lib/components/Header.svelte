@@ -1,14 +1,14 @@
 <script>
 	import { page, session } from '$app/stores';
-	import Icon from './Icon.svelte';
+	import Icon from '$lib/components/Icon.svelte';
 	import Screenfull from 'screenfull';
 	import { onMount } from 'svelte';
 
-	import { toggleFullscreen } from './Settings.svelte';
+	import { toggleFullscreen } from '$lib/components/Settings.svelte';
 	import { settings } from '$lib/stores/settings.js';
-	import ToggleDisplay from '../util/ToggleDisplays';
-	import { setupCasting, castClock, isCastSupported } from '../util/cast.js';
-	import { now } from '../util/now.js';
+	import ToggleDisplay from '$lib/util/ToggleDisplays';
+	import { setupCasting, castClock, isCastSupported } from '$lib/util/cast.js';
+	import { now } from '$lib/util/now.js';
 
 	export let navOpen;
 

@@ -1,7 +1,7 @@
 <script context="module">
 	import Screenfull from 'screenfull';
 
-	import { app_url, valid_pages } from '../data/consts.js';
+	import { app_url, valid_pages } from '$lib/data/consts.js';
 
 	export async function toggleFullscreen() {
 		if (Screenfull.isEnabled) {

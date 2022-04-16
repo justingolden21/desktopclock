@@ -5,10 +5,11 @@
 	import { createEventDispatcher } from 'svelte';
 	import { fade } from 'svelte/transition';
 
-	import Icon from '../Icon.svelte';
+	import Icon from '$lib/components/Icon.svelte';
 
 	const dispatch = createEventDispatcher();
 
+	/// STATE ///
 	export let type = 'info';
 	export let dismissible = true;
 	export let timeout;

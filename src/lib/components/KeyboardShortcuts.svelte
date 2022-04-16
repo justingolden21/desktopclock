@@ -14,10 +14,10 @@
 <script>
 	import { page } from '$app/stores';
 
-	import { toggleFullscreen } from './Settings.svelte';
+	import { toggleFullscreen } from '$lib/components/Settings.svelte';
 	import { settings } from '$lib/stores/settings';
-	import { toggle } from '../util/modal';
-	import ToggleDisplay from '../util/ToggleDisplays';
+	import { toggle } from '$lib/util/modal';
+	import ToggleDisplay from '$lib/util/ToggleDisplays';
 </script>
 
 <!-- TODO: let user custom map keys to specific shortcuts -->

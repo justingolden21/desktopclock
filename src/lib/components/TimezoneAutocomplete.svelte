@@ -1,7 +1,7 @@
 <script>
-	import Autocomplete from '../components/Autocomplete.svelte';
+	import Autocomplete from '$lib/components/Autocomplete.svelte';
 
-	import timezones from '../data/timezones';
+	import timezones from '$lib/data/timezones';
 
 	const timezoneArr = [];
 	for (const zone of Object.keys(timezones)) {

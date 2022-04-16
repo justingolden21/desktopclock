@@ -1,6 +1,6 @@
 <script>
 	import { session } from '$app/stores';
-	import { keyboardShortcutsList } from './KeyboardShortcuts.svelte';
+	import { keyboardShortcutsList } from '$lib/components/KeyboardShortcuts.svelte';
 </script>
 
 <table>

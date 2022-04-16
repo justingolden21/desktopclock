@@ -3,13 +3,13 @@
 
 	import dayjs from 'dayjs';
 
-	import { now } from '../../util/now.js';
-	import { open } from '../../util/modal.js';
+	import { now } from '$lib/util/now.js';
+	import { open } from '$lib/util/modal.js';
 	import { settings, defaultSettings } from '$lib/stores/settings.js';
 
-	import Icon from '../Icon.svelte';
-	import SettingSelect from '../SettingSelect.svelte';
-	import { defaultTimeFormats, defaultDateFormats } from '../../data/consts.js';
+	import Icon from '$lib/components/Icon.svelte';
+	import SettingSelect from '$lib/components/SettingSelect.svelte';
+	import { defaultTimeFormats, defaultDateFormats } from '$lib/data/consts.js';
 
 	// settings to apply changes to
 	// 'clock' or 'worldclock'

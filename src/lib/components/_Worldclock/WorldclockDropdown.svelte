@@ -2,10 +2,10 @@
 	import { session } from '$app/stores';
 
 	import { settings } from '$lib/stores/settings.js';
-	import { clickOutside } from '../../util/clickOutside.js';
-	import { open } from '../../util/modal.js';
+	import { clickOutside } from '$lib/util/clickOutside.js';
+	import { open } from '$lib/util/modal.js';
 
-	import Icon from '../Icon.svelte';
+	import Icon from '$lib/components/Icon.svelte';
 
 	export let idx = -1;
 	export let classes;

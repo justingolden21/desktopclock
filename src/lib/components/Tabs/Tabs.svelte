@@ -15,34 +15,31 @@
 	setContext(TABS, {
 		registerTab: (tab) => {
 			tabs.push(tab);
-			selectedTab.update((current) => current || tab);
+			$selectedTab = $selectedTab || tab;
 
 			onDestroy(() => {
 				const i = tabs.indexOf(tab);
 				tabs.splice(i, 1);
-				selectedTab.update((current) =>
-					current === tab ? tabs[i] || tabs[tabs.length - 1] : current
-				);
+				$selectedTab = $selectedTab === tab ? tabs[i] || tabs[tabs.length - 1] : $selectedTab;
 			});
 		},
 
 		registerPanel: (panel) => {
 			panels.push(panel);
-			selectedPanel.update((current) => current || panel);
+			$selectedPanel = $selectedPanel || panel;
 
 			onDestroy(() => {
 				const i = panels.indexOf(panel);
 				panels.splice(i, 1);
-				selectedPanel.update((current) =>
-					current === panel ? panels[i] || panels[panels.length - 1] : current
-				);
+				$selectedPanel =
+					$selectedPanel === panel ? panels[i] || panels[panels.length - 1] : $selectedPanel;
 			});
 		},
 
 		selectTab: (tab) => {
 			const i = tabs.indexOf(tab);
-			selectedTab.set(tab);
-			selectedPanel.set(panels[i]);
+			$selectedTab = tab;
+			$selectedPanel = panels[i];
 		},
 
 		selectedTab,

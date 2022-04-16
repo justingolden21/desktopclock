@@ -1,8 +1,8 @@
 <script>
 	import { session } from '$app/stores';
 
-	import { open } from '../../util/modal.js';
-	import Icon from '../Icon.svelte';
+	import { open } from '$lib/util/modal.js';
+	import Icon from '$lib/components/Icon.svelte';
 
 	$: dictionary = $session.languageDictionary;
 </script>

@@ -1,9 +1,9 @@
 <script>
 	import { settings } from '$lib/stores/settings.js';
 
-	import AnalogClock from '../_Clock/AnalogClock.svelte';
-	import WorldclockDropdown from './WorldclockDropdown.svelte';
-	import NoTimezones from './NoTimezones.svelte';
+	import AnalogClock from '$lib/components/_Clock/AnalogClock.svelte';
+	import WorldclockDropdown from '$lib/components/_Worldclock/WorldclockDropdown.svelte';
+	import NoTimezones from '$lib/components/_Worldclock/NoTimezones.svelte';
 
 	import {
 		timezone,
@@ -12,7 +12,7 @@
 		getDate,
 		getUtcOffset,
 		getHourDiff
-	} from '../../util/timeText';
+	} from '$lib/util/timeText';
 
 	// 'analog_digital' or 'digital'
 	$: primaryDisplay = $settings.worldclock.displays.primary;

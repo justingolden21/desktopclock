@@ -10,11 +10,14 @@
 	dayjs.extend(utc);
 	dayjs.extend(tz);
 
-	import { now } from '$lib/util/now.js';
 	import { numeralStyles } from '$lib/data/consts.js';
 	import { settings } from '$lib/stores/settings.js';
+
+	/// UTILS ///
+	import { now } from '$lib/util/now.js';
 	import { getColor } from '$lib/util';
 
+	/// STATE ///
 	export let mode = '';
 	export let time = {};
 	export let timezone = undefined;
@@ -56,6 +59,7 @@
 
 	$: if (movement) changeSweep();
 
+	/// METHODS ///
 	// We cannot change easing on a tweening function with a reactive variable
 	// Therefore, we need to redefine the entire tweening function
 	// This function is called when `movement` changes, which is an alias for the setting
@@ -71,6 +75,7 @@
 		sweep.set(parseInt(Date.now() / 1000 - start));
 	}
 
+	/// LIFECYCLE HOOKS ///
 	onMount(() => {
 		setTime();
 
