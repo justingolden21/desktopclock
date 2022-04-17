@@ -3,6 +3,7 @@
 	import { createEventDispatcher, setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 
+	/// STATE ///
 	export let key = null;
 
 	const dispatch = createEventDispatcher();

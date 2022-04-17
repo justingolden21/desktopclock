@@ -1,5 +1,5 @@
 <script>
-	import Autocomplete from '$lib/components/Autocomplete.svelte';
+	import { Autocomplete } from '$lib/components/Autocomplete';
 
 	import timezones from '$lib/data/timezones';
 

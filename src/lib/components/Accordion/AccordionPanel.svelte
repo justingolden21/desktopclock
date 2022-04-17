@@ -1,8 +1,8 @@
 <script>
+	import { getContext } from 'svelte';
+
 	/// COMPONENTS ///
 	import Icon from '$lib/components/Icon.svelte';
-
-	import { getContext } from 'svelte';
 
 	/// STATE ///
 	export let accordionTitle;
@@ -15,9 +15,9 @@
 	/// EVENT HANDLERS ///
 	function handleToggle() {
 		if (params.open) {
-			store.update((s) => Object.assign(s, { key: null }));
+			$store = { ...$store, key: null };
 		} else {
-			store.update((s) => Object.assign(s, { key }));
+			$store = { ...$store, key };
 		}
 	}
 </script>

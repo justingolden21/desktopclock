@@ -3,6 +3,7 @@
 
 	import { settings } from '$lib/stores/settings';
 
+	/// COMPONENTS ///
 	import Displays from '$lib/components/_Clock/DigitalDisplays.svelte';
 	import AnalogClock from '$lib/components/_Clock/AnalogClock.svelte';
 </script>

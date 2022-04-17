@@ -1,10 +1,12 @@
 <script>
 	import { settings } from '$lib/stores/settings.js';
 
+	/// COMPONENTS ///
 	import AnalogClock from '$lib/components/_Clock/AnalogClock.svelte';
 	import WorldclockDropdown from '$lib/components/_Worldclock/WorldclockDropdown.svelte';
 	import NoTimezones from '$lib/components/_Worldclock/NoTimezones.svelte';
 
+	/// UTILS ///
 	import {
 		timezone,
 		utcOffset,
@@ -14,6 +16,7 @@
 		getHourDiff
 	} from '$lib/util/timeText';
 
+	/// STATE ///
 	// 'analog_digital' or 'digital'
 	$: primaryDisplay = $settings.worldclock.displays.primary;
 	// 'rows', 'analog_grid', or 'digital_grid'
@@ -21,6 +24,11 @@
 
 	// TODO setting for toggling border
 	const hasBorder = true;
+
+	/// METHODS ///
+	function getTimezone(timezone) {
+		return timezone.name !== '' ? timezone.name : timezone.zone.split('_').join(' ');
+	}
 </script>
 
 <!-- primary / home timezone -->
@@ -48,11 +56,7 @@
 					? 'border-t-2'
 					: 'my-4 sm:my-8'} p-4 surface">
 				<div class="text-left break-words">
-					{#if timezone.name !== ''}
-						<p>{timezone.name}</p>
-					{:else}
-						<p>{timezone.zone.split('_').join(' ')}</p>
-					{/if}
+					<p>{getTimezone(timezone)}</p>
 					<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
 					<p>{$getDate(timezone.zone)}</p>
 					<hr class="w-36" />
@@ -73,20 +77,14 @@
 			<WorldclockDropdown {idx} classes="absolute top-2 right-2" />
 		</div>
 	{/each}
-{/if}
-
-{#if secondaryDisplay !== 'rows'}
+{:else}
 	<div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8 mt-8">
 		{#each $settings.worldclock.timezones as timezone, idx}
 			<div
 				class="relative group {secondaryDisplay === 'analog_grid'
 					? 'text-center'
 					: 'text-left'} break-words {!hasBorder && 'border-0'} rounded surface p-4">
-				{#if timezone.name !== ''}
-					<p>{timezone.name}</p>
-				{:else}
-					<p>{timezone.zone.split('_').join(' ')}</p>
-				{/if}
+				<p>{getTimezone(timezone)}</p>
 				<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
 				{#if secondaryDisplay === 'analog_grid'}
 					<div class="w-24 h-24 sm:w-32 sm:h-32 relative mx-auto">

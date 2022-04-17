@@ -1,9 +1,13 @@
 <script>
 	import { session } from '$app/stores';
 
+	/// UTILS ///
 	import { open } from '$lib/util/modal.js';
+
+	/// COMPONENTS ///
 	import Icon from '$lib/components/Icon.svelte';
 
+	/// STATE ///
 	$: dictionary = $session.languageDictionary;
 </script>
 

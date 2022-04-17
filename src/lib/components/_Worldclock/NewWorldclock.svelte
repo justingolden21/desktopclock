@@ -4,39 +4,29 @@
 	import { close } from '$lib/util/modal.js';
 
 	import { settings } from '$lib/stores/settings.js';
+	import { editMode } from '$lib/data/consts.js';
 
 	/// COMPONENTS ///
 	import Icon from '$lib/components/Icon.svelte';
 	import TimezoneSelect from '$lib/components/TimezoneSelect.svelte';
 
 	/// STATE ///
-	$: dictionary = $session.languageDictionary;
-	let newTimezoneName, newTimezoneValue;
 	export let data = {};
-	$: editIndex = data.editIndex ?? -1; // -1 is 'new' mode, else 'edit' mode
+	let newTimezoneName, newTimezoneValue;
+	$: dictionary = $session.languageDictionary;
+	$: editIndex = data.editIndex ?? editMode;
+	$: isEditMode = editIndex === editMode;
 
 	/// LIFECYCLE HOOKS ///
 	onMount(() => {
-		if (editIndex !== -1) {
-			newTimezoneName = $settings.worldclock.timezones[editIndex].name;
-			newTimezoneValue = $settings.worldclock.timezones[editIndex].zone;
-		}
+		if (isEditMode) return;
+		newTimezoneName = $settings.worldclock.timezones[editIndex].name;
+		newTimezoneValue = $settings.worldclock.timezones[editIndex].zone;
 	});
-</script>
 
-<div class="my-4">
-	<label for="new-timezone-name-input">{dictionary.worldclockSettings['Timezone nickname:']}</label>
-	<input id="new-timezone-name-input" bind:value={newTimezoneName} type="text" maxlength="100" />
-</div>
-
-<div class="my-4">
-	<TimezoneSelect id="new-timezone-select" bind:value={newTimezoneValue} />
-</div>
-
-<button
-	class="btn float-right"
-	on:click={() => {
-		if (editIndex === -1) {
+	/// EVENT HANDLERS ///
+	function onSubmit() {
+		if (isEditMode) {
 			$settings.worldclock.timezones.push({
 				zone: newTimezoneValue,
 				name: newTimezoneName ?? ''
@@ -50,7 +40,19 @@
 
 		newTimezoneName = '';
 		close();
-	}}>
-	<Icon name={editIndex === -1 ? 'plus' : 'check'} class="inline w-6 h-6" />
-	{dictionary.labels[editIndex === -1 ? 'Create' : 'Save']}
+	}
+</script>
+
+<div class="my-4">
+	<label for="new-timezone-name-input">{dictionary.worldclockSettings['Timezone nickname:']}</label>
+	<input id="new-timezone-name-input" bind:value={newTimezoneName} type="text" maxlength="100" />
+</div>
+
+<div class="my-4">
+	<TimezoneSelect id="new-timezone-select" bind:value={newTimezoneValue} />
+</div>
+
+<button class="btn float-right" on:click={onSubmit}>
+	<Icon name={isEditMode ? 'plus' : 'check'} class="inline w-6 h-6" />
+	{dictionary.labels[isEditMode ? 'Create' : 'Save']}
 </button>

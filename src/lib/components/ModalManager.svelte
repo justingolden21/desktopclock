@@ -12,6 +12,7 @@
 	import WorldclockTimetable from '$lib/components/_Worldclock/WorldclockTimetable.svelte';
 	import ConvertTimezones from '$lib/components/_Worldclock/ConvertTimezones.svelte';
 
+	/// STATE ///
 	const modalData = {
 		'settings': {
 			title: $session.languageDictionary.labels['Settings'],
@@ -52,15 +53,19 @@
 		}
 	};
 
-	$: component = modalData[$modal?.name]?.component;
-	$: title = modalData[$modal?.name]?.title;
-	$: icon = modalData[$modal?.name]?.icon;
-	$: previous = modalData[$modal?.name]?.previous;
+	let component, title, icon, previous, data;
+	$: {
+		const modalName = $modal?.name;
+		if (modalName) {
+			({ component, title, icon, previous, data } = modalData[modalName]);
+		} else {
+			({ component, title, icon, previous, data } = {});
+		}
+	}
 	$: data = $modal?.data || {};
-</script>
 
-<svelte:window
-	on:keydown={(e) => {
+	/// EVENT HANDLERS ///
+	function onWindowKeyDown(e) {
 		if (e.key !== 'Escape') return;
 
 		if (previous) {
@@ -68,7 +73,10 @@
 		} else {
 			close();
 		}
-	}} />
+	}
+</script>
+
+<svelte:window on:keydown={onWindowKeyDown} />
 
 {#if component}
 	<div class="modal" on:click={close}>

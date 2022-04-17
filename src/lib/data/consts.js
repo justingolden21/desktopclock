@@ -168,3 +168,5 @@ export const locales = [
 	'zh',
 	'et'
 ];
+
+export const editMode = -1;

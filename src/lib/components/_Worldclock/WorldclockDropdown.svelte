@@ -1,22 +1,18 @@
 <script>
 	import { session } from '$app/stores';
 
-	import { settings } from '$lib/stores/settings.js';
+	/// UTILS ///
 	import { clickOutside } from '$lib/util/clickOutside.js';
 	import { open } from '$lib/util/modal.js';
+	import { settings } from '$lib/stores/settings.js';
 
+	/// COMPONENTS ///
 	import Icon from '$lib/components/Icon.svelte';
 
+	/// STATE ///
 	export let idx = -1;
 	export let classes;
-
 	let dropdownOpen = false;
-
-	// https://stackoverflow.com/a/46351038/4907950
-	function moveItem(data, from, to) {
-		// remove `from` item and insert into position to
-		data.splice(to, 0, data.splice(from, 1)[0]);
-	}
 
 	const options = [
 		{
@@ -46,20 +42,33 @@
 			}
 		}
 	];
-</script>
 
-<svelte:window
-	on:keydown={(e) => {
+	/// METHODS ///
+	// https://stackoverflow.com/a/46351038/4907950
+	function moveItem(data, from, to) {
+		// remove `from` item and insert into position to
+		data.splice(to, 0, data.splice(from, 1)[0]);
+	}
+
+	/// EVENT HANDLERS ///
+	function onWindowKeyDown(e) {
 		if (e.key == 'Escape') {
 			dropdownOpen = false;
 		}
-	}} />
+	}
+
+	function toggleMenu() {
+		dropdownOpen = !dropdownOpen;
+	}
+</script>
+
+<svelte:window on:keydown={onWindowKeyDown} />
 
 <div class="{classes} z-10 hidden group-hover:block">
 	<button
 		id="dropdown-btn"
 		class="icon-btn ml-auto block"
-		on:click={() => (dropdownOpen = !dropdownOpen)}
+		on:click={toggleMenu}
 		use:clickOutside
 		on:click_outside={() => (dropdownOpen = false)}
 		aria-label={$session.languageDictionary.labels['Menu']}>
@@ -70,8 +79,12 @@
 		class="{dropdownOpen ? '' : 'hidden'} w-max rounded surface mt-2"
 		aria-labelledby="dropdown-btn">
 		{#each options as option}
-			<!-- don't show up if first or down if last -->
-			{#if !((option.text === 'Up' && idx === 0) || (option.text === 'Down' && idx === $settings.worldclock.timezones.length - 1))}
+			{@const isUp = option.text === 'Up'}
+			{@const isDown = option.text === 'Down'}
+			{@const isFirst = idx === 0}
+			{@const isLast = idx === $settings.worldclock.timezones.length - 1}
+			<!-- don't show up if first item or down if last item -->
+			{#if !((isUp && isFirst) || (isDown && isLast))}
 				<li>
 					<button
 						on:click={() => {

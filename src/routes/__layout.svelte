@@ -9,10 +9,6 @@
 
 	import screenfull from 'screenfull';
 
-	import version from '$lib/data/version.js';
-
-	import { app_url, systemFontFamilies } from '$lib/data/consts.js';
-
 	/// COMPONENTS ///
 	import GoogleAnalytics from '$lib/components/GoogleAnalytics.svelte';
 	import Loader from '$lib/components/Loader.svelte';
@@ -26,6 +22,8 @@
 	import { startInterval } from '$lib/util/now.js';
 	import { setupInstall } from '$lib/util/install';
 	import { hexToRgb, initializeSettings } from '$lib/util';
+	import { app_url, systemFontFamilies } from '$lib/data/consts.js';
+	import version from '$lib/data/version.js';
 
 	/// STATE ///
 	let loading = true;

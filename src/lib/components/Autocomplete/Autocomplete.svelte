@@ -1,6 +1,9 @@
 <script>
+	/// UTILS ///
 	import { clickOutside } from '$lib/util/clickOutside.js';
+	import { removeBold, splitStringThree } from '$lib/util/string';
 
+	/// STATE ///
 	export let options;
 	export let placeholder = '';
 	export let value = '';
@@ -42,12 +45,6 @@
 		filteredOptions = newOptions;
 	};
 
-	const splitStringThree = (str, idx0, idx1, idx2) => [
-		str.substring(idx0, idx1),
-		str.substring(idx1, idx2),
-		str.substring(idx2)
-	];
-
 	// handle user input
 
 	let searchInput;
@@ -58,8 +55,6 @@
 		highlightIdx = null;
 		searchInput.focus();
 	};
-
-	const removeBold = (str) => str?.replace(/<(strong)>/g, '').replace(/<\/(strong)>/g, '');
 
 	// use keyboard to navigate and highlight options
 
