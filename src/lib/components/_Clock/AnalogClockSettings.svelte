@@ -8,9 +8,9 @@
 	import { defaultTheme, defaultNightTheme, classicTheme, classicNightTheme } from '$lib/themes';
 
 	/// COMPONENTS ///
-	import Icon from '$lib/components/Icon.svelte';
-	import AnalogClock from '$lib/components/_Clock/AnalogClock.svelte';
-	import ColorSelector from '$lib/components/ColorSelector.svelte';
+	import AnalogClock from './AnalogClock.svelte';
+	import Icon from '$lib/icons/Icon.svelte';
+	import ColorSelector from '$lib/components/base/ColorSelector.svelte';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
 
 	/// STATE ///

@@ -165,20 +165,23 @@
 
 	import { settings, defaultSettings } from '$lib/stores/settings.js';
 
-	import Icon from './Icon.svelte';
-	import Toggle from './Toggle.svelte';
-	import { Tabs, TabList, TabPanel, Tab } from '$lib/components/Tabs';
-	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
-	import ThemeButtons from './ThemeButtons.svelte';
-	import { Toasts, addToast } from '$lib/components/Toast';
-	import SettingSelect from './SettingSelect.svelte';
-	import TimezoneSelect from './TimezoneSelect.svelte';
-	import ClockSettings from './_Clock/ClockSettings.svelte';
-	import WorldclockSettings from './_Worldclock/WorldclockSettings.svelte';
-	import defaultNightTheme from '../themes/defaultNight';
+	/// COMPONENTS ///
+	import Icon from '$lib/icons/Icon.svelte';
+	import Toggle from '$lib/components/base/Toggle.svelte';
+	import { Tabs, TabList, TabPanel, Tab } from '$lib/components/base/Tabs';
+	import { Accordion, AccordionPanel } from '$lib/components/base/Accordion';
+	import ThemeButtons from '$lib/components/ThemeButtons.svelte';
+	import { Toasts, addToast } from '$lib/components/base/Toast';
+	import SettingSelect from '$lib/components/SettingSelect.svelte';
+	import TimezoneSelect from '$lib/components/TimezoneSelect.svelte';
+	import ClockSettings from '$lib/components/_Clock/ClockSettings.svelte';
+	import WorldclockSettings from '$lib/components/_Worldclock/WorldclockSettings.svelte';
+
+	import { defaultNightTheme } from '$lib/themes';
 
 	import version from '../data/version.js';
 
+	/// STATE ///
 	$: dictionary = $session.languageDictionary;
 
 	const castSupported = isCastSupported();

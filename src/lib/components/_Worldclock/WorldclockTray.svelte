@@ -3,7 +3,7 @@
 	import { open } from '$lib/util/modal.js';
 
 	/// COMPONENTS ///
-	import Icon from '$lib/components/Icon.svelte';
+	import Icon from '$lib/icons/Icon.svelte';
 
 	/// STATE ///
 	$: dictionary = $session.languageDictionary;

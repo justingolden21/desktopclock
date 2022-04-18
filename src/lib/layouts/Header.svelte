@@ -1,15 +1,19 @@
 <script>
 	import { page, session } from '$app/stores';
-	import Icon from '$lib/components/Icon.svelte';
 	import Screenfull from 'screenfull';
 	import { onMount } from 'svelte';
 
+	/// COMPONENTS ///
+	import Icon from '$lib/icons/Icon.svelte';
 	import { toggleFullscreen } from '$lib/components/Settings.svelte';
+
+	/// UTILS ///
 	import { settings } from '$lib/stores/settings.js';
 	import ToggleDisplay from '$lib/util/ToggleDisplays';
 	import { setupCasting, castClock, isCastSupported } from '$lib/util/cast.js';
 	import { now } from '$lib/util/now.js';
 
+	/// STATE ///
 	export let navOpen;
 
 	$: dictionary = $session.languageDictionary;

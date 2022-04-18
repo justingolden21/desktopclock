@@ -1,10 +1,13 @@
 <script>
 	import { session } from '$app/stores';
 	import { settings } from '$lib/stores/settings.js';
-	import Icon from '$lib/components/Icon.svelte';
 	import TailwindColors from 'tailwindcss/colors.js';
 	import { lightnesses } from '$lib/data/consts.js';
 
+	/// COMPONENTS ///
+	import Icon from '$lib/icons/Icon.svelte';
+
+	/// STATE ///
 	export let colorObj;
 	export let label;
 

@@ -1,7 +1,7 @@
 <script>
 	import { session } from '$app/stores';
 
-	// import Icon from '../Icon.svelte';
+	// import Icon from '$lib/icons/Icon.svelte';
 	// import TimezoneSelect from '../TimezoneSelect.svelte';
 	// import TimePicker from '../TimePicker.svelte';
 

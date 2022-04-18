@@ -2,13 +2,18 @@
 	import Screenfull from 'screenfull';
 	import { onMount } from 'svelte';
 	import { page, session } from '$app/stores';
-	import Icon from '$lib/components/Icon.svelte';
+
+	/// COMPONENTS ///
+	import Icon from '$lib/icons/Icon.svelte';
 	import { shareApp } from '$lib/components/Settings.svelte';
+
+	/// UTILS ///
 	import { settings } from '$lib/stores/settings.js';
 	import { installButtonClick, showInstallButton } from '$lib/util/install.js';
 	import { open } from '$lib/util/modal.js';
 	import { valid_pages } from '$lib/data/consts.js';
 
+	/// STATE ///
 	export let navOpen;
 
 	// similar to header

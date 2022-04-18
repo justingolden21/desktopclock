@@ -6,7 +6,7 @@
 	import { settings } from '$lib/stores/settings.js';
 
 	/// COMPONENTS ///
-	import BatteryIcon from '$lib/components/_Clock/BatteryIcon.svelte';
+	import BatteryIcon from '$lib/icons/BatteryIcon.svelte';
 
 	/// UITLS ///
 	import { time, date } from '$lib/util/timeText';
@@ -16,12 +16,13 @@
 	$: displays = clockSettings.displays;
 	let batteryLevel, batteryIsCharging;
 	let batterySupported = false;
-	const primaryDisplayMap = {
+	let listeningToBattery = false;
+	$: primaryDisplayMap = {
 		time: $time,
 		date: $date,
 		datetime: `${$time}\n${$date}`
 	};
-	const secondaryDisplayMap = {
+	$: secondaryDisplayMap = {
 		time: $time,
 		date: $date,
 		datetime: `${$time}\n${$date}`
@@ -31,22 +32,21 @@
 	$: shade = $settings.darkMode ? 400 : 900;
 
 	/// LIFECYCLE HOOKS ///
-	// TODO: starts an event listener each time displays.svelte is mounted, can add up
-	// should unmount the event listener, look into svelte window access navigator
-	onMount(() => {
+	onMount(async () => {
 		// https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery
 		if (!(navigator && navigator.getBattery)) return;
+		if (listeningToBattery) return;
 		batterySupported = true;
-		navigator.getBattery().then(function (battery) {
-			batteryLevel = battery.level;
+		const battery = await navigator.getBattery();
+		batteryLevel = battery.level;
 
-			battery.addEventListener('levelchange', function () {
-				batteryLevel = battery.level;
-			});
-			battery.addEventListener('chargingchange', function () {
-				batteryIsCharging = battery.charging;
-			});
+		battery.addEventListener('levelchange', function () {
+			batteryLevel = battery.level;
 		});
+		battery.addEventListener('chargingchange', function () {
+			batteryIsCharging = battery.charging;
+		});
+		listeningToBattery = true;
 	});
 </script>
 

@@ -5,8 +5,8 @@
 	import { settings, defaultSettings } from '$lib/stores/settings.js';
 
 	/// COMPONENTS ///
-	import Icon from '$lib/components/Icon.svelte';
-	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
+	import Icon from '$lib/icons/Icon.svelte';
+	import { Accordion, AccordionPanel } from '$lib/components/base/Accordion';
 	import AnalogClockSettings from '$lib/components/_Clock/AnalogClockSettings.svelte';
 	import DatetimeSettings from '$lib/components/_Clock/DatetimeSettings.svelte';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';

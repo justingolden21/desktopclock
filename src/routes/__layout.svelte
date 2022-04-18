@@ -11,10 +11,10 @@
 
 	/// COMPONENTS ///
 	import GoogleAnalytics from '$lib/components/GoogleAnalytics.svelte';
-	import Loader from '$lib/components/Loader.svelte';
+	import Loader from '$lib/components/base/Loader.svelte';
 	import ModalManager from '$lib/components/ModalManager.svelte';
-	import Nav from '$lib/components/Nav.svelte';
-	import Header from '$lib/components/Header.svelte';
+	import Nav from '$lib/layouts/Nav.svelte';
+	import Header from '$lib/layouts/Header.svelte';
 	import KeyboardShortcuts from '$lib/components/KeyboardShortcuts.svelte';
 	import { settings } from '$lib/stores/settings.js';
 

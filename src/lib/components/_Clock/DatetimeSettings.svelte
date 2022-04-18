@@ -3,17 +3,18 @@
 
 	import dayjs from 'dayjs';
 
+	/// UTILS ///
 	import { now } from '$lib/util/now.js';
 	import { open } from '$lib/util/modal.js';
 	import { settings, defaultSettings } from '$lib/stores/settings.js';
-
-	import Icon from '$lib/components/Icon.svelte';
-	import SettingSelect from '$lib/components/SettingSelect.svelte';
 	import { defaultTimeFormats, defaultDateFormats } from '$lib/data/consts.js';
 
-	// settings to apply changes to
-	// 'clock' or 'worldclock'
-	export let page;
+	/// COMPONENTS ///
+	import Icon from '$lib/icons/Icon.svelte';
+	import SettingSelect from '$lib/components/SettingSelect.svelte';
+
+	/// STATE ///
+	export let page; // 'clock' or 'worldclock' for settings
 
 	$: dictionary = $session.languageDictionary;
 </script>

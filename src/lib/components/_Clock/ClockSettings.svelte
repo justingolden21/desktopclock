@@ -6,10 +6,10 @@
 	import { fontFamilies } from '$lib/data/consts.js';
 
 	/// COMPONENTS ///
-	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
-	import Toggle from '$lib/components/Toggle.svelte';
-	import AnalogClockSettings from '$lib/components/_Clock/AnalogClockSettings.svelte';
-	import DatetimeSettings from '$lib/components/_Clock/DatetimeSettings.svelte';
+	import AnalogClockSettings from './AnalogClockSettings.svelte';
+	import DatetimeSettings from './DatetimeSettings.svelte';
+	import { Accordion, AccordionPanel } from '$lib/components/base/Accordion';
+	import Toggle from '$lib/components/base/Toggle.svelte';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
 
 	/// STATE ///
