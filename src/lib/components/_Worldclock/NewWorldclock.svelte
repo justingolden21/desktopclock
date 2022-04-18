@@ -7,7 +7,7 @@
 	import { editMode } from '$lib/data/consts.js';
 
 	/// COMPONENTS ///
-	import Icon from '$lib/icons/Icon.svelte';
+	import { Icon } from '$lib/components/icons';
 	import TimezoneSelect from '$lib/components/TimezoneSelect.svelte';
 
 	/// STATE ///

@@ -10,7 +10,7 @@
 	import { defaultTimeFormats, defaultDateFormats } from '$lib/data/consts.js';
 
 	/// COMPONENTS ///
-	import Icon from '$lib/icons/Icon.svelte';
+	import { Icon } from '$lib/components/icons';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
 
 	/// STATE ///

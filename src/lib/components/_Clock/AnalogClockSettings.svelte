@@ -9,7 +9,7 @@
 
 	/// COMPONENTS ///
 	import AnalogClock from './AnalogClock.svelte';
-	import Icon from '$lib/icons/Icon.svelte';
+	import { Icon } from '$lib/components/icons';
 	import ColorSelector from '$lib/components/base/ColorSelector.svelte';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
 

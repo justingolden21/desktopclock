@@ -5,7 +5,7 @@
 	import { lightnesses } from '$lib/data/consts.js';
 
 	/// COMPONENTS ///
-	import Icon from '$lib/icons/Icon.svelte';
+	import { Icon } from '$lib/components/icons';
 
 	/// STATE ///
 	export let colorObj;

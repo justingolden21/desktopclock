@@ -6,7 +6,7 @@
 	import { fade } from 'svelte/transition';
 
 	/// COMPONENTS ///
-	import Icon from '$lib/icons/Icon.svelte';
+	import { Icon } from '$lib/components/icons';
 
 	const dispatch = createEventDispatcher();
 
