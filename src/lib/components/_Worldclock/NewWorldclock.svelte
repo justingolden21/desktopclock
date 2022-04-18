@@ -4,7 +4,6 @@
 	import { close } from '$lib/util/modal.js';
 
 	import { settings } from '$lib/stores/settings.js';
-	import { editMode } from '$lib/data/consts.js';
 
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/icons';
@@ -14,8 +13,8 @@
 	export let data = {};
 	let newTimezoneName, newTimezoneValue;
 	$: dictionary = $session.languageDictionary;
-	$: editIndex = data.editIndex ?? editMode;
-	$: isEditMode = editIndex === editMode;
+	$: editIndex = data.editIndex ?? -1;
+	$: isEditMode = editIndex === -1;
 
 	/// LIFECYCLE HOOKS ///
 	onMount(() => {

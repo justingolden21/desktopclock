@@ -168,6 +168,3 @@ export const locales = [
 	'zh',
 	'et'
 ];
-
-/// if mode is '-1' then worldclock is in edit mode.
-export const editMode = -1;
