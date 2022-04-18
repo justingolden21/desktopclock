@@ -208,7 +208,7 @@
 
 <!-- dirty trick to cache fonts when opening settings (for PWA) -->
 {#each Object.keys(fontFamilies) as fontFamily}
-	<span class="w-0 h-0" style="font-family:{fontFamily}" />
+	<span class="w-0 h-0" style:font-family={fontFamily} />
 {/each}
 
 <Tabs>

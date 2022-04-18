@@ -35,7 +35,7 @@
 	{#if timeout}
 		<div
 			class="progress-bar absolute bottom-0 left-0 h-1 bg-base-600 dark:bg-base-200"
-			style="animation-duration: {timeout / 1000}s;" />
+			style:animation-duration="{timeout / 1000}s" />
 	{/if}
 </div>
 
