@@ -1,0 +1,168 @@
+/* global styles across app */
+
+@import 'scrollbar.css';
+@import 'animatedIcons.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	* {
+		font-weight: 300;
+		/* default to sans-serif, even for serif, cursive, monospace fonts */
+		font-family: var(--font-family-body), sans-serif;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		/* default to sans-serif, even for serif, cursive, monospace fonts */
+		font-family: var(--font-family), sans-serif;
+	}
+
+	/* Mostly for analog clock */
+	.notransition {
+		-webkit-transition: none !important;
+		-moz-transition: none !important;
+		-o-transition: none !important;
+		transition: none !important;
+	}
+
+	/* Selection and focus */
+
+	::-moz-selection {
+		@apply bg-base-300;
+	}
+	::selection {
+		@apply bg-base-300;
+	}
+	.dark ::-moz-selection {
+		@apply bg-base-500;
+	}
+	.dark ::selection {
+		@apply bg-base-500;
+	}
+	.dark input::-moz-selection {
+		@apply bg-base-300;
+	}
+	.dark input::selection {
+		@apply bg-base-300;
+	}
+
+	button,
+	select,
+	option {
+		@apply select-none;
+	}
+
+	*:focus,
+	button:focus {
+		@apply outline-none ring-2 ring-base-300;
+	}
+
+	label:not(.toggle-bg) {
+		@apply mr-2;
+	}
+
+	/* Typography */
+	h1,
+	h2,
+	h3,
+	h4 {
+		@apply tracking-widest mt-8 mb-2;
+	}
+
+	h1,
+	h2,
+	h3 {
+		@apply xs:text-lg sm:text-xl md:text-2xl;
+	}
+
+	h4 {
+		@apply sm:text-lg md:text-xl;
+	}
+
+	p {
+		@apply leading-relaxed text-base md:text-lg;
+	}
+
+	hr {
+		@apply m-1 ml-0 max-w-xs border-base-400 dark:border-base-600;
+	}
+
+	a:not(nav a) {
+		@apply text-base-600 hover:underline font-bold;
+	}
+	.dark a:not(nav a) {
+		@apply text-base-300;
+	}
+
+	/* Tables */
+
+	table {
+		@apply w-full mb-4;
+	}
+	table th,
+	table td {
+		@apply p-1 px-2 text-base-800 dark:text-base-200;
+	}
+	th {
+		@apply font-bold;
+	}
+	th,
+	tr:nth-child(even) {
+		@apply bg-base-50 dark:bg-base-800;
+	}
+	tr:nth-child(odd) {
+		@apply bg-base-100 dark:bg-base-700;
+	}
+
+	/* Inputs */
+
+	.btn {
+		@apply p-2 my-2 mr-4 rounded-none text-white bg-base-600 hover:bg-base-700;
+	}
+	.icon-btn {
+		@apply p-2 rounded-full hover:bg-base-700 hover:text-white;
+	}
+
+	select {
+		@apply cursor-pointer p-2 pr-6 m-2 text-base-700 bg-base-50 hover:bg-base-100 appearance-none;
+		background: rgb(var(--base-50))
+			url("data:image/svg+xml;utf8,<svg fill='none' stroke='currentColor' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
+			no-repeat right center;
+	}
+	option {
+		@apply p-1;
+	}
+	select:disabled {
+		@apply bg-base-200;
+	}
+	input[type='text'],
+	input[type='number'],
+	input[type='time'] {
+		@apply p-2 text-base-800;
+	}
+
+	.dark select {
+		@apply bg-base-500 hover:bg-base-600 text-base-100;
+		background: rgb(var(--base-500))
+			url("data:image/svg+xml;utf8,<svg fill='none' stroke='white' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
+			no-repeat right center;
+	}
+	.dark select:disabled {
+		@apply bg-base-400;
+	}
+
+	.surface {
+		@apply border-2 border-base-300 bg-base-100 bg-opacity-75 backdrop-blur-sm dark:border-base-200 dark:bg-base-800 dark:bg-opacity-75;
+	}
+	.surface-thin {
+		@apply surface border-base-100 dark:border-base-600;
+	}
+}

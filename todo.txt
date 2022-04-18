@@ -1,3 +1,6 @@
+BUG: added worldclock doesn't get added to local storage
+
+Use playwright testing: https://playwright.dev/docs/intro
 
 use accent palette across app?
 
