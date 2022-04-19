@@ -11,7 +11,7 @@
 	/// UITLS ///
 	import { time, date } from '$lib/util/timeText';
 
-	/// STATE ?//
+	/// STATE ///
 	$: clockSettings = $settings.clock;
 	$: displays = clockSettings.displays;
 	let batteryLevel, batteryIsCharging;

@@ -6,7 +6,6 @@
 	import { onMount } from 'svelte';
 
 	import TailwindColors from 'tailwindcss/colors.js';
-
 	import screenfull from 'screenfull';
 
 	/// COMPONENTS ///
