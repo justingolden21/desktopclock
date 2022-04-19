@@ -2,7 +2,7 @@ BUG: added worldclock doesn't get added to local storage
 
 Use playwright testing: https://playwright.dev/docs/intro
 
-unique share dialog for worldclock
+unique seo worldclock
 
 use accent palette across app?
 
