@@ -9,7 +9,7 @@
 
 	/// UTILS ///
 	import { settings } from '$lib/stores/settings.js';
-	import ToggleDisplay from '$lib/util/ToggleDisplays';
+	import ToggleDisplay from '$lib/util/toggleDisplay';
 	import { setupCasting, castClock, isCastSupported } from '$lib/util/cast.js';
 	import { now } from '$lib/util/now.js';
 
