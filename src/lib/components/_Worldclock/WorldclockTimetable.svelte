@@ -87,6 +87,7 @@
 	bind:checked={$settings.worldclock.timetable.ampm}
 	labelText={dictionary.labels['Use AM / PM']} />
 
+<!-- svelte-ignore css-unused-selector -->
 <style lang="postcss">
 	tr {
 		@apply border-b-2 border-base-200 dark:border-base-800;
