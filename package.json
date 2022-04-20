@@ -3,7 +3,7 @@
 	"version": "1.0.5",
 	"description": "A simple, resizable and customizable clock for any device",
 	"scripts": {
-		"dev": "svelte-kit dev",
+		"dev": "svelte-kit dev --open",
 		"build": "svelte-kit build",
 		"preview": "svelte-kit preview",
 		"buildpreview": "svelte-kit build && svelte-kit preview",
