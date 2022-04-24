@@ -6,7 +6,10 @@
 </script>
 
 <svelte:head>
-	<title>{$session.languageDictionary.pageNames.worldclock}</title>
+	<title
+		>{$session.languageDictionary.pageNames.worldclock} - {$session.languageDictionary[
+			'appName'
+		]}</title>
 </svelte:head>
 
 <!-- 4rem is size of worldclock tray, keeps it stuck to bottom -->
