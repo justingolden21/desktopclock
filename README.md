@@ -2,7 +2,7 @@
 
 ### About
 
-A simple, resizable and customizable clock for any device
+A simple, resizable customizable, installable clock for any device!
 
 ### Codebase
 
