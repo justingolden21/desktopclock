@@ -23,6 +23,7 @@
 	$: secondaryDisplay = $settings.worldclock.displays.secondary;
 
 	// TODO setting for toggling border
+	// TODO setting for toggling background color / transparent
 	const hasBorder = true;
 
 	/// METHODS ///
