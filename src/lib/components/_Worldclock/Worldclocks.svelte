@@ -27,9 +27,8 @@
 	const hasBorder = true;
 
 	/// METHODS ///
-	function getTimezone(timezone) {
-		return timezone.name !== '' ? timezone.name : timezone.zone.split('_').join(' ');
-	}
+	const getTimezone = (timezone) =>
+		timezone.name !== '' ? timezone.name : timezone.zone.split('_').join(' ');
 </script>
 
 <!-- primary / home timezone -->
