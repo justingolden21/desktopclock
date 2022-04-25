@@ -75,28 +75,28 @@
 		<Icon name="dots_vertical" class="w-6 h-6" />
 	</button>
 
-	<ul
-		class="{dropdownOpen ? '' : 'hidden'} w-max rounded surface mt-2"
-		aria-labelledby="dropdown-btn">
-		{#each options as option}
-			{@const isUp = option.text === 'Up'}
-			{@const isDown = option.text === 'Down'}
-			{@const isFirst = idx === 0}
-			{@const isLast = idx === $settings.worldclock.timezones.length - 1}
-			<!-- don't show up if first item or down if last item -->
-			{#if !((isUp && isFirst) || (isDown && isLast))}
-				<li>
-					<button
-						on:click={() => {
-							dropdownOpen = false;
-							option.func();
-						}}
-						class="w-full py-2 px-4 text-sm font-bold text-left hover:bg-base-300 hover:bg-opacity-75 dark:hover:bg-base-600 dark:hover:bg-opacity-75">
-						<Icon name={option.icon} class="inline-block w-6 h-6 mr-2" />
-						{$session.languageDictionary.labels[option.text]}
-					</button>
-				</li>
-			{/if}
-		{/each}
-	</ul>
+	{#if dropdownOpen}
+		<ul class="w-max rounded surface mt-2" aria-labelledby="dropdown-btn">
+			{#each options as option}
+				{@const isUp = option.text === 'Up'}
+				{@const isDown = option.text === 'Down'}
+				{@const isFirst = idx === 0}
+				{@const isLast = idx === $settings.worldclock.timezones.length - 1}
+				<!-- don't show up if first item or down if last item -->
+				{#if !((isUp && isFirst) || (isDown && isLast))}
+					<li>
+						<button
+							on:click={() => {
+								dropdownOpen = false;
+								option.func();
+							}}
+							class="w-full py-2 px-4 text-sm font-bold text-left hover:bg-base-300 hover:bg-opacity-75 dark:hover:bg-base-600 dark:hover:bg-opacity-75">
+							<Icon name={option.icon} class="inline-block w-6 h-6 mr-2" />
+							{$session.languageDictionary.labels[option.text]}
+						</button>
+					</li>
+				{/if}
+			{/each}
+		</ul>
+	{/if}
 </div>
