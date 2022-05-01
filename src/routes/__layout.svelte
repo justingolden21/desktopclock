@@ -12,7 +12,6 @@
 	import GoogleAnalytics from '$lib/components/GoogleAnalytics.svelte';
 	import Loader from '$lib/components/base/Loader.svelte';
 	import ModalManager from '$lib/components/ModalManager.svelte';
-	import SEO from '$lib/components/SEO.svelte';
 	import Nav from '$lib/layouts/Nav.svelte';
 	import Header from '$lib/layouts/Header.svelte';
 	import KeyboardShortcuts from '$lib/components/KeyboardShortcuts.svelte';
@@ -112,8 +111,6 @@
 		)
 		.join('');
 </script>
-
-<SEO />
 
 <svelte:head>
 	<meta name="apple-mobile-web-app-status-bar" content={themeColor} />

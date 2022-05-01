@@ -16,6 +16,8 @@
 
 <!-- custom SEO based off of pathname -->
 <svelte:head>
+	<title>{seo.name}</title>
+
 	<meta name="title" content={seo.name} />
 	<meta name="description" content={seo.description} />
 	<meta name="keywords" content={seo.keywords} />
