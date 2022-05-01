@@ -1,1 +1,4 @@
 src/js/lib
+.netlify/
+.svelte-kit/
+build/
