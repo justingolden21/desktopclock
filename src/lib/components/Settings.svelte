@@ -167,11 +167,11 @@
 
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/icons';
-	import Toggle from '$lib/components/base/Toggle.svelte';
-	import { Tabs, TabList, TabPanel, Tab } from '$lib/components/base/Tabs';
-	import { Accordion, AccordionPanel } from '$lib/components/base/Accordion';
+	import Toggle from '$lib/components/Toggle.svelte';
+	import { Tabs, TabList, TabPanel, Tab } from '$lib/components/Tabs';
+	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 	import ThemeButtons from '$lib/components/ThemeButtons.svelte';
-	import { Toasts, addToast } from '$lib/components/base/Toast';
+	import { Toasts, addToast } from '$lib/components/Toast';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
 	import TimezoneSelect from '$lib/components/TimezoneSelect.svelte';
 	import ClockSettings from '$lib/components/_Clock/ClockSettings.svelte';

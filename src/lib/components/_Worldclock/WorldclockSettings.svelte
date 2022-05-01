@@ -6,7 +6,7 @@
 
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/icons';
-	import { Accordion, AccordionPanel } from '$lib/components/base/Accordion';
+	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 	import AnalogClockSettings from '$lib/components/_Clock/AnalogClockSettings.svelte';
 	import DatetimeSettings from '$lib/components/_Clock/DatetimeSettings.svelte';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';

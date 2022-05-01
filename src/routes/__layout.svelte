@@ -10,7 +10,7 @@
 
 	/// COMPONENTS ///
 	import GoogleAnalytics from '$lib/components/GoogleAnalytics.svelte';
-	import Loader from '$lib/components/base/Loader.svelte';
+	import Loader from '$lib/components/Loader.svelte';
 	import ModalManager from '$lib/components/ModalManager.svelte';
 	import Nav from '$lib/layouts/Nav.svelte';
 	import Header from '$lib/layouts/Header.svelte';
