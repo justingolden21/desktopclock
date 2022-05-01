@@ -31,6 +31,8 @@
 	let isFullscreen;
 	let oldHideTitlebarWhenIdle;
 	onMount(() => {
+		if (!Screenfull.isEnabled) return;
+
 		isFullscreen = Screenfull.isFullscreen;
 
 		Screenfull.on('change', () => {

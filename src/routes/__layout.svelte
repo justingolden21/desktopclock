@@ -6,7 +6,7 @@
 	import { onMount } from 'svelte';
 
 	import TailwindColors from 'tailwindcss/colors.js';
-	import screenfull from 'screenfull';
+	import Screenfull from 'screenfull';
 
 	/// COMPONENTS ///
 	import GoogleAnalytics from '$lib/components/GoogleAnalytics.svelte';
@@ -34,7 +34,7 @@
 	function doubleClickFullscreen({ target }) {
 		if (!$settings.doubleclickFullscreen) return;
 		if (target.tagName === 'BUTTON' || target.parentNode.tagName === 'BUTTON') return;
-		screenfull.isEnabled && screenfull.toggle();
+		Screenfull.isEnabled && Screenfull.toggle();
 	}
 
 	// check when session changes

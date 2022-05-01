@@ -17,6 +17,8 @@ https://github.com/sveltejs/kit/issues/1142
 
 performance fixes for font loading
 
+ios safari fix (screenful or local storage?)
+
 ====
 
 use accent palette across app?

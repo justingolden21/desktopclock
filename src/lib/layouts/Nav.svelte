@@ -19,6 +19,7 @@
 	// similar to header
 	let isFullscreen;
 	onMount(() => {
+		if (!Screenfull.isEnabled) return;
 		isFullscreen = Screenfull.isFullscreen;
 		Screenfull.on('change', () => (isFullscreen = Screenfull.isFullscreen));
 	});

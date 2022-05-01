@@ -3,9 +3,9 @@
 
 	import { app_url, valid_pages } from '$lib/data/consts.js';
 
-	export async function toggleFullscreen() {
+	export function toggleFullscreen() {
 		if (Screenfull.isEnabled) {
-			await Screenfull.toggle();
+			Screenfull.toggle();
 		}
 	}
 
