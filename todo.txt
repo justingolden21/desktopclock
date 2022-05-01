@@ -10,6 +10,8 @@ performance fixes for font loading
 
 autocomplete timezone picker
 
+doc components: https://github.com/sveltejs/language-tools/blob/master/docs/README.md#documenting-components
+
 ====
 
 use accent palette across app?
