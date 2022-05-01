@@ -19,7 +19,7 @@
 						  ' | ' +
 						  languageDictionary['appName']
 						: languageDictionary['appName'],
-					text: languageDictionary['shareAppDescription'],
+					text: languageDictionary.seo.clock.shareDescription,
 					url: isValid ? app_url + pathname : app_url
 				})
 				.then(() => console.log('Successful share'))

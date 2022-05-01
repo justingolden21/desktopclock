@@ -1,7 +1,7 @@
 <script>
 	import '$lib/css/app.postcss';
 
-	import { navigating, session } from '$app/stores';
+	import { navigating, page, session } from '$app/stores';
 	import { browser } from '$app/env';
 	import { onMount } from 'svelte';
 
@@ -29,6 +29,7 @@
 	let navOpen = false;
 	let dateTimeInterval;
 	$: if ($navigating) navOpen = false;
+	$: dictionary = $session.languageDictionary;
 
 	/// EVENT HANDLERS ///
 	function doubleClickFullscreen({ target }) {
@@ -113,24 +114,37 @@
 </script>
 
 <svelte:head>
-	<meta name="title" content={$session.languageDictionary['appName']} />
-	<meta name="description" content={$session.languageDictionary['appDescription']} />
-	<meta name="keywords" content={$session.languageDictionary['appKeywords']} />
+	<!-- TODO: custom SEO based off of pathname
+	needs translation
+	should eventually be extrapolated to SEO component -->
+
+	{#if $page.url.pathname === '/'}
+		{dictionary.pageNames['clock']}
+	{/if}
+	{#if $page.url.pathname === '/worldclock'}
+		{dictionary.pageNames['worldclock']}
+	{/if}
+
+	<meta name="title" content={$session.languageDictionary.seo.clock.name} />
+	<meta name="description" content={$session.languageDictionary.seo.clock.description} />
+	<meta name="keywords" content={$session.languageDictionary.seo.clock.keywords} />
 
 	<meta property="og:image:height" content="292" />
 	<meta property="og:image:width" content="558" />
-	<meta property="og:description" content={$session.languageDictionary['appDescription']} />
-	<meta property="og:title" content={$session.languageDictionary['appName']} />
-	<meta property="og:url" content={app_url} />
+	<meta property="og:description" content={$session.languageDictionary.seo.clock.description} />
+	<meta property="og:title" content={$session.languageDictionary.seo.clock.name} />
+	<meta property="og:url" content={app_url + $page.url.pathname} />
 	<meta property="og:image" content="img/icons/og-image.jpg" />
 	<meta property="og:type" content="website" />
-	<meta property="og:site_name" content={$session.languageDictionary['appName']} />
+	<meta property="og:site_name" content={$session.languageDictionary.seo.clock.name} />
 
-	<meta name="twitter:title" content={$session.languageDictionary['appName']} />
-	<meta name="twitter:description" content={$session.languageDictionary['appDescription']} />
-	<meta name="twitter:image" content={app_url + '/img/screenshot.png'} />
+	<meta name="twitter:title" content={$session.languageDictionary.seo.clock.name} />
+	<meta name="twitter:description" content={$session.languageDictionary.seo.clock.description} />
+	<meta
+		name="twitter:image"
+		content={app_url + '/img/' + $session.languageDictionary.seo.clock.screenshot} />
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta property="twitter:url" content={app_url} />
+	<meta property="twitter:url" content={app_url + $page.url.pathname} />
 
 	<meta name="apple-mobile-web-app-status-bar" content={themeColor} />
 	<meta name="theme-color" content={themeColor} />

@@ -1,9 +1,24 @@
 {
 	"appName": "Desktop Clock",
 	"appShortName": "Desktop Clock",
-	"appDescription": "A simple, resizable customizable, installable clock for any device!",
-	"shareAppDescription": "I thought you might enjoy Desktop Clock, a simple, resizable and customizable clock app and website.",
-	"appKeywords": "clock, desktop clock, clock app, analog clock, digital clock, customizable clock, free clock, simple clock, date and time, clock with date, fullscreen clock, bedtime clock, resizable clock, clock for windows, clock for mac, clock for chrome, clock for android, clock for ios",
+	"seo": {
+		"clock": {
+			"name": "Desktop Clock",
+			"description": "A simple, resizable customizable, installable clock for any device!",
+			"shareDescription": "I thought you might enjoy Desktop Clock, a simple, resizable and customizable clock app and website.",
+			"keywords": "clock, desktop clock, clock app, analog clock, digital clock, customizable clock, free clock, simple clock, date and time, clock with date, fullscreen clock, bedtime clock, resizable clock, clock for windows, clock for mac, clock for chrome, clock for android, clock for ios",
+			"screenshot": "screenshot.png"
+		},
+		"worldclock": {
+			"name": "Worldclock - Desktop Clock",
+			"description": "A simple, elegant, feature-rich worldclock with analog and digital displays, hundreds of timezones, and a timetable",
+			"shareDescription": "Try Worldclock from Desktop Clock",
+			"keywords": "worldclock, time tables, convert timezones, analog worldclock, digital worldclock, multiple timezones clock, worldclock online, worldclock offline, free worldclock, best worldclock",
+			"screenshot": "screenshot-worldclock-en.png"
+		},
+		"stopwatch": {},
+		"timers": {}
+	},
 	"pageNames": {
 		"home": "Desktop Clock",
 		"clock": "Clock",

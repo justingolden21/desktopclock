@@ -4,7 +4,7 @@ export async function get({ locals }) {
 		body: {
 			name: locals.languageDictionary.appName,
 			short_name: locals.languageDictionary.appShortName,
-			description: locals.languageDictionary.appDescription,
+			description: locals.languageDictionary.seo.clock.description,
 			categories: ['utilities', 'productivity', 'travel'],
 			start_url: '/',
 			display: 'standalone',
