@@ -4,20 +4,11 @@ Use playwright testing: https://playwright.dev/docs/intro
 
 worldclock primary display none option
 
-unique seo worldclock
-
-longer title and description seo
-
 social share icons in about section
 
 improve css bundle shipped
 
-sitemap, robots
-https://github.com/sveltejs/kit/issues/1142
-
 performance fixes for font loading
-
-ios safari fix (screenful or local storage?)
 
 ====
 
