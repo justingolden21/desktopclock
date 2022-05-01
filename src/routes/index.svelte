@@ -1,6 +1,4 @@
 <script>
-	import { session } from '$app/stores';
-
 	import { settings } from '$lib/stores/settings';
 
 	import SEO from '$lib/components/SEO.svelte';
