@@ -21,6 +21,8 @@
 	<meta name="title" content={seo.name} />
 	<meta name="description" content={seo.description} />
 	<meta name="keywords" content={seo.keywords} />
+	<meta name="robots" content="index" />
+	<meta name="googlebot" content="index" />
 
 	<meta property="og:image:height" content="292" />
 	<meta property="og:image:width" content="558" />
@@ -36,4 +38,6 @@
 	<meta name="twitter:image" content={app_url + '/img/' + seo.screenshot} />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta property="twitter:url" content={app_url + $page.url.pathname} />
+
+	<link rel="canonical" href={app_url + $page.url.pathname} />
 </svelte:head>
