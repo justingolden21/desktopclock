@@ -4,7 +4,7 @@ const displayOptions = {
 		secondary: ['time', 'date', 'datetime', 'none']
 	},
 	worldclock: {
-		primary: ['analog_digital', 'digital'],
+		primary: ['analog_digital', 'digital', 'none'],
 		secondary: ['rows', 'analog_grid', 'digital_grid']
 	}
 };

@@ -2,13 +2,13 @@ BUG: added worldclock doesn't get added to local storage
 
 Use playwright testing: https://playwright.dev/docs/intro
 
-worldclock primary display none option
-
 social share icons in about section
 
 improve css bundle shipped
 
 performance fixes for font loading
+
+autocomplete timezone picker
 
 ====
 

@@ -23,7 +23,7 @@
 				id="primary-display-select"
 				selectLabel={dictionary.clockSettings['Primary display:']}
 				bind:value={$settings.worldclock.displays.primary}
-				values={['analog_digital', 'digital']}
+				values={['analog_digital', 'digital', 'none']}
 				labels={dictionary.clockSettings.clockFormats} />
 		</div>
 
@@ -37,7 +37,7 @@
 		</div>
 	</AccordionPanel>
 
-	{#if $settings.worldclock.displays.primary !== 'digital' || $settings.worldclock.displays.secondary !== 'digital_grid'}
+	{#if $settings.worldclock.displays.primary === 'analog_digital' || $settings.worldclock.displays.secondary !== 'digital_grid'}
 		<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="2">
 			<AnalogClockSettings page="worldclock" />
 		</AccordionPanel>
