@@ -113,9 +113,9 @@
 		.join('');
 </script>
 
-<svelte:head>
-	<SEO />
+<SEO />
 
+<svelte:head>
 	<meta name="apple-mobile-web-app-status-bar" content={themeColor} />
 	<meta name="theme-color" content={themeColor} />
 	<meta name="msapplication-TileColor" content={themeColor} />
