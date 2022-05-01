@@ -25,6 +25,7 @@
 <!-- key="0" to default to all accordions closed -->
 <Accordion key="0">
 	<AccordionPanel accordionTitle={dictionary.clockSettings['Displays']} key="1">
+		<!-- @see displayOptions in util/toggleDisplay -->
 		<div>
 			<SettingSelect
 				id="primary-display-select"

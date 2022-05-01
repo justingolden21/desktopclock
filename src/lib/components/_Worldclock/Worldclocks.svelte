@@ -17,9 +17,8 @@
 	} from '$lib/util/timeText';
 
 	/// STATE ///
-	// 'analog_digital', 'digital', or 'none'
+	// @see displayOptions in util/toggleDisplay
 	$: primaryDisplay = $settings.worldclock.displays.primary;
-	// 'rows', 'analog_grid', or 'digital_grid'
 	$: secondaryDisplay = $settings.worldclock.displays.secondary;
 
 	// TODO setting for toggling border
