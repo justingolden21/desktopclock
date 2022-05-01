@@ -4,7 +4,7 @@
 	import { page, session } from '$app/stores';
 
 	/// COMPONENTS ///
-	import { Icon } from '$lib/components/icons';
+	import { Icon } from '$lib/components/Icon';
 	import { shareApp } from '$lib/components/Settings.svelte';
 
 	/// UTILS ///

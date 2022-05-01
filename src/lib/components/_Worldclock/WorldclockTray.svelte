@@ -3,7 +3,7 @@
 	import { open } from '$lib/util/modal.js';
 
 	/// COMPONENTS ///
-	import { Icon } from '$lib/components/icons';
+	import { Icon } from '$lib/components/Icon';
 
 	/// STATE ///
 	$: dictionary = $session.languageDictionary;

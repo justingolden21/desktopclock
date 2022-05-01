@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 
 	/// COMPONENTS ///
-	import { Icon } from '$lib/components/icons';
+	import { Icon } from '$lib/components/Icon';
 	import { toggleFullscreen } from '$lib/components/Settings.svelte';
 
 	/// UTILS ///

@@ -6,7 +6,7 @@
 	import { settings } from '$lib/stores/settings.js';
 
 	/// COMPONENTS ///
-	import { Icon } from '$lib/components/icons';
+	import { Icon } from '$lib/components/Icon';
 	import TimezoneSelect from '$lib/components/TimezoneSelect.svelte';
 
 	/// STATE ///

@@ -6,7 +6,7 @@
 	import { settings } from '$lib/stores/settings.js';
 
 	/// COMPONENTS ///
-	import { BatteryIcon, Icon } from '$lib/components/icons';
+	import { BatteryIcon, Icon } from '$lib/components/Icon';
 
 	/// UITLS ///
 	import { time, date } from '$lib/util/timeText';

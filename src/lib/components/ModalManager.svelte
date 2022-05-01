@@ -4,7 +4,7 @@
 	import { open, close, modal } from '$lib/util/modal.js';
 
 	/// COMPONENTS ///
-	import { Icon } from '$lib/components/icons';
+	import { Icon } from '$lib/components/Icon';
 	import Settings from '$lib/components/Settings.svelte';
 	import KeyboardShortcutsModal from '$lib/components/KeyboardShortcutsModal.svelte';
 	import DatetimeFormatModal from '$lib/components/_Clock/DatetimeFormatModal.svelte';

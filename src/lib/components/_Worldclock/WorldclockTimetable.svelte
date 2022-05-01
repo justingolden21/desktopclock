@@ -9,7 +9,7 @@
 	/// COMPONENTS ///
 	import SimpleTimePicker from '$lib/components/SimpleTimePicker.svelte';
 	import Toggle from '$lib/components/Toggle.svelte';
-	import { Icon } from '$lib/components/icons';
+	import { Icon } from '$lib/components/Icon';
 	import WorldclockDropdown from '$lib/components/_Worldclock/WorldclockDropdown.svelte';
 	import { getDiff, getSum } from '$lib/util/min';
 
