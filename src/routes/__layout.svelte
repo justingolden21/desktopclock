@@ -29,7 +29,18 @@
 	let navOpen = false;
 	let dateTimeInterval;
 	$: if ($navigating) navOpen = false;
+
 	$: dictionary = $session.languageDictionary;
+	const pageNameMapper = {
+		'/': 'clock',
+		'/worldclock': 'worldclock',
+		'/stopwatch': 'stopwatch',
+		'/timers': 'timers'
+	};
+	const pageName = pageNameMapper[$page.url.pathname];
+	$: seo = dictionary.seo[pageName];
+
+	console.log($page.url.pathname);
 
 	/// EVENT HANDLERS ///
 	function doubleClickFullscreen({ target }) {
@@ -114,33 +125,25 @@
 </script>
 
 <svelte:head>
-	<!-- TODO: custom SEO based off of pathname
-	needs translation
+	<!-- custom SEO based off of pathname
 	should eventually be extrapolated to SEO component -->
 
-	{#if $page.url.pathname === '/'}
-		{dictionary.pageNames['clock']}
-	{/if}
-	{#if $page.url.pathname === '/worldclock'}
-		{dictionary.pageNames['worldclock']}
-	{/if}
-
-	<meta name="title" content={dictionary.seo.clock.name} />
-	<meta name="description" content={dictionary.seo.clock.description} />
-	<meta name="keywords" content={dictionary.seo.clock.keywords} />
+	<meta name="title" content={seo.name} />
+	<meta name="description" content={seo.description} />
+	<meta name="keywords" content={seo.keywords} />
 
 	<meta property="og:image:height" content="292" />
 	<meta property="og:image:width" content="558" />
-	<meta property="og:description" content={dictionary.seo.clock.description} />
-	<meta property="og:title" content={dictionary.seo.clock.name} />
+	<meta property="og:description" content={seo.description} />
+	<meta property="og:title" content={seo.name} />
 	<meta property="og:url" content={app_url + $page.url.pathname} />
 	<meta property="og:image" content="img/icons/og-image.jpg" />
 	<meta property="og:type" content="website" />
-	<meta property="og:site_name" content={dictionary.seo.clock.name} />
+	<meta property="og:site_name" content={seo.name} />
 
-	<meta name="twitter:title" content={dictionary.seo.clock.name} />
-	<meta name="twitter:description" content={dictionary.seo.clock.description} />
-	<meta name="twitter:image" content={app_url + '/img/' + dictionary.seo.clock.screenshot} />
+	<meta name="twitter:title" content={seo.name} />
+	<meta name="twitter:description" content={seo.description} />
+	<meta name="twitter:image" content={app_url + '/img/' + seo.screenshot} />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta property="twitter:url" content={app_url + $page.url.pathname} />
 
