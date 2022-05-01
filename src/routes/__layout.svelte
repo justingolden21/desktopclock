@@ -125,24 +125,22 @@
 		{dictionary.pageNames['worldclock']}
 	{/if}
 
-	<meta name="title" content={$session.languageDictionary.seo.clock.name} />
-	<meta name="description" content={$session.languageDictionary.seo.clock.description} />
-	<meta name="keywords" content={$session.languageDictionary.seo.clock.keywords} />
+	<meta name="title" content={dictionary.seo.clock.name} />
+	<meta name="description" content={dictionary.seo.clock.description} />
+	<meta name="keywords" content={dictionary.seo.clock.keywords} />
 
 	<meta property="og:image:height" content="292" />
 	<meta property="og:image:width" content="558" />
-	<meta property="og:description" content={$session.languageDictionary.seo.clock.description} />
-	<meta property="og:title" content={$session.languageDictionary.seo.clock.name} />
+	<meta property="og:description" content={dictionary.seo.clock.description} />
+	<meta property="og:title" content={dictionary.seo.clock.name} />
 	<meta property="og:url" content={app_url + $page.url.pathname} />
 	<meta property="og:image" content="img/icons/og-image.jpg" />
 	<meta property="og:type" content="website" />
-	<meta property="og:site_name" content={$session.languageDictionary.seo.clock.name} />
+	<meta property="og:site_name" content={dictionary.seo.clock.name} />
 
-	<meta name="twitter:title" content={$session.languageDictionary.seo.clock.name} />
-	<meta name="twitter:description" content={$session.languageDictionary.seo.clock.description} />
-	<meta
-		name="twitter:image"
-		content={app_url + '/img/' + $session.languageDictionary.seo.clock.screenshot} />
+	<meta name="twitter:title" content={dictionary.seo.clock.name} />
+	<meta name="twitter:description" content={dictionary.seo.clock.description} />
+	<meta name="twitter:image" content={app_url + '/img/' + dictionary.seo.clock.screenshot} />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta property="twitter:url" content={app_url + $page.url.pathname} />
 
