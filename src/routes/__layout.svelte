@@ -1,7 +1,7 @@
 <script>
 	import '$lib/css/app.postcss';
 
-	import { navigating, page, session } from '$app/stores';
+	import { navigating, session } from '$app/stores';
 	import { browser } from '$app/env';
 	import { onMount } from 'svelte';
 
@@ -12,6 +12,7 @@
 	import GoogleAnalytics from '$lib/components/GoogleAnalytics.svelte';
 	import Loader from '$lib/components/base/Loader.svelte';
 	import ModalManager from '$lib/components/ModalManager.svelte';
+	import SEO from '$lib/components/SEO.svelte';
 	import Nav from '$lib/layouts/Nav.svelte';
 	import Header from '$lib/layouts/Header.svelte';
 	import KeyboardShortcuts from '$lib/components/KeyboardShortcuts.svelte';
@@ -21,7 +22,7 @@
 	import { startInterval } from '$lib/util/now.js';
 	import { setupInstall } from '$lib/util/install';
 	import { hexToRgb, initializeSettings } from '$lib/util';
-	import { app_url, systemFontFamilies } from '$lib/data/consts.js';
+	import { systemFontFamilies } from '$lib/data/consts.js';
 	import version from '$lib/data/version.js';
 
 	/// STATE ///
@@ -29,18 +30,6 @@
 	let navOpen = false;
 	let dateTimeInterval;
 	$: if ($navigating) navOpen = false;
-
-	$: dictionary = $session.languageDictionary;
-	const pageNameMapper = {
-		'/': 'clock',
-		'/worldclock': 'worldclock',
-		'/stopwatch': 'stopwatch',
-		'/timers': 'timers'
-	};
-	const pageName = pageNameMapper[$page.url.pathname];
-	$: seo = dictionary.seo[pageName];
-
-	console.log($page.url.pathname);
 
 	/// EVENT HANDLERS ///
 	function doubleClickFullscreen({ target }) {
@@ -125,27 +114,7 @@
 </script>
 
 <svelte:head>
-	<!-- custom SEO based off of pathname
-	should eventually be extrapolated to SEO component -->
-
-	<meta name="title" content={seo.name} />
-	<meta name="description" content={seo.description} />
-	<meta name="keywords" content={seo.keywords} />
-
-	<meta property="og:image:height" content="292" />
-	<meta property="og:image:width" content="558" />
-	<meta property="og:description" content={seo.description} />
-	<meta property="og:title" content={seo.name} />
-	<meta property="og:url" content={app_url + $page.url.pathname} />
-	<meta property="og:image" content="img/icons/og-image.jpg" />
-	<meta property="og:type" content="website" />
-	<meta property="og:site_name" content={seo.name} />
-
-	<meta name="twitter:title" content={seo.name} />
-	<meta name="twitter:description" content={seo.description} />
-	<meta name="twitter:image" content={app_url + '/img/' + seo.screenshot} />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta property="twitter:url" content={app_url + $page.url.pathname} />
+	<SEO />
 
 	<meta name="apple-mobile-web-app-status-bar" content={themeColor} />
 	<meta name="theme-color" content={themeColor} />
