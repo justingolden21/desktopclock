@@ -27,7 +27,7 @@
 </script>
 
 <svelte:head>
-	<title>{$session.languageDictionary.error['Error']}</title>
+	<title>{$session.languageDictionary.error['Error'] + (status === 404 ? ' 404' : '')}</title>
 </svelte:head>
 
 <div class="m-16 text-center">
