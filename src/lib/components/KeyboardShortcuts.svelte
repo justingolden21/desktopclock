@@ -20,8 +20,6 @@
 	import ToggleDisplay from '$lib/util/toggleDisplay';
 </script>
 
-<!-- TODO: let user custom map keys to specific shortcuts -->
-
 <svelte:window
 	on:keydown={(event) => {
 		// return if setting not enabled or if the active element is an input the user can type in

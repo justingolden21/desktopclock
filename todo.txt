@@ -1,395 +1,29 @@
-BUG: added worldclock doesn't get added to local storage
 
-Use playwright testing: https://playwright.dev/docs/intro
-
-social share icons in about section
-
-improve css bundle shipped
-
-performance fixes for font loading
-
-autocomplete timezone picker
-
-doc components: https://github.com/sveltejs/language-tools/blob/master/docs/README.md#documenting-components
-
-====
-
-use accent palette across app?
-
-IMPORTANT
-MERGE DEV TO PROD BEFORE RELEASE (lol)
-resources arent cached until used in service worker
-
-make tailwind vs code extension style `base-` colors in code as if it is `slate-` (showing gray preview square)
-
-timekeeping factoids (carousel/banner or carousel in settings?)
-
-numerals:
-font weight options?
-option for only one numeral at top? rework tick system?
-
-social:
-ability to share clock themes with other people (url param) dialog showing preview and asking if you want to set this or save it
-export and import json for theme (plain text)
-paragraph about tweet at desktopclockapp a screenshot of your creative analog clock for a chance to be featured on twitter
-submit your clock to be a theme for everyone
-
-add link to always on top mode english windows instructions: https://docs.google.com/document/d/1tWcvxp2cgEGiMvBGkdxTtrqgnvOrLAZBWHOUUgSSTaM
-add faq doc with all info from email support
-
-need to make a component for generic select with label similar to color picker component (to clean up clock settings)
-
-wrap localstorage import in try catch and if it errors then just go to default settings?
-
-idea: to fix parts of ticks bleeding through behind numerals,
-add a new "face" circle between each one and hide/show it programmatically
-
-CURRENT TODO
-====
-
-dayjs bug
-  Wrong time in GMT timezones when locale is set
-  https://github.com/iamkun/dayjs/issues/1813
-
-worldclock modals
-  timetable modal, convert modal working
-
-timezone input
-  better timezone input (typing, autocomplete, type "san diego" or "la" or "los angeles" or "pst or "utc8")
-  how does india not have any timezones in this list (delhi and mumbai for example)
-
-  tz select prop for hasLabel boolean
-
-  12/24h settings worldclock modals
-
-  tz display can be only zone or both, ie "america/los angeles" or "los angeles"
-  toggle for display area
-
-====
-
-rename 'digital datetime' in accordion to 'datetime formats'? also has other digital settings though...
-
-todo: fix overlapping dropdown menu triple dots icons
-
-use emoji flags for different timezones (option in settings)
-can just make it simple and give them a selector/search for emoji name and they pick it
-
-timezones reference: https://en.wikipedia.org/wiki/Lists_of_time_zones
-
-should be fixed, test further:
-changing timezone data isn't remembered correctly in local storage
-local storage tzs mutate obj $settings.worldclock.timezones
-
-translate "UTC" text?
-translate GMT text in london nickname?
-
-maybe: fadeout worldclock when deleted?
-
-small horizontal bar that scales based on hour diff from current timezone below worldclock? option in settings?
-
-tab focus in open modals fix
-
-close color picker when another one is open
-
-remove wrapper divs that arent needed
-
-maybe: rename 'aesthetics' to 'look and feel' or 'theme'
-
-maybe gradient background?
-  dark:bg-gradient-to-r dark:from-base-600 dark:to-base-900
-
-====
-
-USER REQUESTS
-====
-====
-
-main todo:
-get linting/formatting on all devices, update readme with instructions for new device
-
-auto detect locale (datetime locale) (each toggle has a reset/automatically determine btn)
-
-fix margin on primary display date/time/datetime, too large/overflow
-formatting options for date/time/datetime, should also support short or long names for month, weekday, other locales
-
-show cast btn only if device supports it (navigator.presentation ?)
-
-pinning cast button: https://support.google.com/chromecast/answer/7249696
-cast a tab: https://support.google.com/chromecast/answer/3228332
-add link to faqs/help
-
-zen mode btn: top of clock settings, click to go fullscreen, no menu, no buttons, no title, just primary and secondary display
-
-dark theme update app theme colors, favicon? do similar for other themes?
-
-link to browse all colors at justingolden.me/tailwind-colors ?
-
-presentation api todo:
-make the receiver a page that just has the clock with no menu or buttons, and then the user can change the settings and it sends a signal to the receiver to display those changes on the tv. eventually will want to support worldclock etc
-
-btn to add new theme, new theme shows up as btn with small x to right to delete it
-prompt "are you sure" before deleting, max of 20 themes, btn to delete all themes appears if more than 5
-
-note:
-when user changes lang, they may also want to change datetime locale. prompt them with a notification?
-
-note:
-too many fonts to cache offline before they're loaded (counting language variants)
-add info about this to FAQs?
-
-"super dark mode" as night clock, background is #000 and text is #444 and enter fullscreen
-
-smaller menu truncate flash line break
-
-top left btns float left when others hidden
-
-implement accent palette (btns toggles etc)
-
-cypress github actions auto test
-
-marketing:
-contact desktop clock people
-post on forums, svelte dev, svelte society
-make video trailer
-
-TOP PRIORITY / MVP:
-================
-
-google analytics:
-- make sure page view works
-- user device type
-- number of seconds user is on page
-- user country, lang
-- pwa prompt shown, pwa prompt clicked and success or fail, prompt from browser or not
-- user opens app in pwa
-- offline analytics?
-- which page user was on when installed app
-- which pages users spend most time on
-- !!! track when certain buttons are clicked (like primary btn, settings btn)
-- !!! track which settings users have? firebase and auth to store settings across devices? eh... future
-
-second hand moving backwards (switching displays, tabs) thats illegal
-
-before release:
-- test everything to hell (devices, browsers, versions, aspect ratios, pixel densities, operating systems, pwa, language, display settings, saving settings)
-- last: get domain, marketing video, para about translate to your lang, ux test
-================
-
-remember wake lock setting?
-
-zoom in/out buttons?
-if(document.body.style.zoom)
-document.body.style.zoom = "80%";
-https://stackoverflow.com/a/12603229/4907950
-
-fix teleport clock hands (if diff is more than 2 seconds from old time then no transition)
-
-important:
-turn off screen lock option?
-test in other langs
-test lodash merge local storage in depth
-- support localStore adding new settings in future (NEEDS TESTING)
-determine final structure for clock theme settings (will be hard to change after launch)
-
-MVP consider:
-different seo data, meta tags, social meta tags for different pages (worldclock, stopwatch, etc)
-if hovered then pause timeout to dismiss toast?
-remember theme preset name rather than each individual setting?
-??? only store settings when they differ from defaults?
-add option to add any text to main screen?
-translate timezones?
-option to turn off and option to reset local storage, see notes
-??? clean code, fix linting errors (check svelte kit repo package json)
-minor bug: clock freezes for one second before continuing
-- hour hand also teleports, probably because of timezone detection
-PWA testing, browser and platform testing, ux testing
-inner modals should be same size as outter modals?
-- interior modal full width (formatting table, eventually view shortcuts modal) move modal outside of settings modal (settings component)
-- settings component could include modal wrapper
-??? cache fonts offline?
-translate numbers? (other locales with different counting systems for timezone hours difference, etc)
-??? website not working in messenger?
-flipclock (component) https://codepen.io/shshaw/pen/vKzoLL
-primary and secondary theme color options
-dropdown for each tailwind color (needs translation) for analog clock parts, default to primary palette color if not specified (dropdown with "primary" as display and value of "")
-
-date calculator:
-find difference between two dates
-chose one date and add or subtract days/time
-find out how long ago or how long until certain day from today
-
-option to display battery on primary or secondary?
-
-worldclock:
-main time / your timezone at top, horizontal row, other timezones below in grid. options for analog clock, digital clock, or analog with digital below
-option to display date above
-option to delete, edit/rename/change location/timezone, and move
-view settings for comfy or compact, more rows with larger screens, quick fullscreen btn as well
-save multiple layouts, each layout like a folder/list that can have multiple clocks, use arrows or dropdown to switch layouts, delete layouts
-share link to worldclock with layouts in url params (list of timezones in order)
-option to show seconds or not
-timetable option like kanga
-see options offered in google app, microsoft app, timeandate app
-
-future: each analog clock part will be able to be in the primary or secondary color
-future: translate color names
-
-on open modal, focus close btn? or focus somewhere inside modal?
-
-code organizaiton:
-??? one centralized place for $now with .tz() and others so redundant code doesn't have to be supported
-
-BONUS / NEXT:
-theme color(s) (primary and secondary/accent colors) used across entire UI (use css variables and tailwind colors in script to handle app color theme?)
-option to display timezone name (string selected in dropdown as opposed to utc code)
-better selection methods and displays for timezone dropdown (display utc, autocomplete input)
-settings should only show clock settings if clock open, show worldclock settings if worldclock open, etc.
-
-future settings adjustments:
-- send feedback can open modal prompt with subject and body and send btn opens mailto
-- implenent langs, locales, timezones, update ui with reset btns next to them and auto detect toggle
-- finalize keyboard shortcuts
-- maybe turn on and off specific shortcuts, change keys (each item has a toggle and input for key)
-display toast if update is available (click to restart/install) (option to turn this off?)
-
-```
-window.isUpdateAvailable = new Promise(function (resolve, reject) {
-    navigator.serviceWorker
-      .register("service-worker.js")
-      .then((reg) => {
-        reg.onupdatefound = () => {
-          const installingWorker = reg.installing;
-          installingWorker.onstatechange = () => {
-            switch (installingWorker.state) {
-              case "installed":
-                if (navigator.serviceWorker.controller) {
-                  // new update available
-                  resolve(true);
-                } else {
-                  // no update available
-                  resolve(false);
-                }
-                break;
-            }
-          };
-        };
-      })
-      .catch((err) => console.error("[SW ERROR]", err));
-});
-```
-
-redirect /index.html to /
-
-maybe:
-remember which tab and accordion are open in local storage?
-
-more folders for components? (toast, tabs in their own, components for only one page (clock, worldclock) should also have their own folders)
-
-better detection for default system language?
-
-https://github.com/kangabru/whats-the-time/blob/master/src/utils/utils.ts
-`window.navigator.languages ? window.navigator.languages[0] : window.navigator.language;`
-should instead check default navigator.language and if not in available languages then loop through navigator.languages
-in order until finding a hard match (en-US vs en-US) and if not then loop through until finding a soft match (en vs en-US or en-UK vs en-US)
-if no matches are found, default to en-US
-
-font weight and font size settings for both primary and secondary displays?
-make sure fonts are served offline
-reduce file size of fonts loaded
-
-pop out settings modal (into new window) button?
-
-varying font size based off of length of string for custom date/time/datetime format (primary display only)
-
-get version from package.json in about section
-command to automatically build for production (update sw cache name) and update version number in package json?
-
-bug: app doesn't work in messenger in browser
-
-"convert" menu section
-
-idea:
-custom date and time formats default to the most recent selection before custom was selected
-
-next:
-!!! : ) dropdown for color in additon to lightness for each item in analog theme. option for "primary color" and "accent color" which can be chosen in general settings
-review font families again?
-test casting api
-add more icons to settings?
-check meta tags, make sure it works on google,fb,twitter, etc, maybe add similar to sharethis?
-https://metatags.io/
-implement automated testing?
-save settings automatically toggle?
-
-settings.svelte is a MESS, needs to be broken down, translated, etc.
-next: clean settings and nav, implement spanish translations, implement way for user to change language (currently has no effect), clean :global(.dark) to dark:
 
 preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
-ability to have multiple timers/countdowns in 3hrs/3years, name them, delete them, share them (url params)
-multiple timers can count time since or time until, or for set amount of time. can split into multiple sections each with simple ui
-
-preset themes (choose from maybe five or ten, preview images or clocks maybe?)
-save your own themes and load them?
-
-live update clock preview in settings on static float right when changing analog display settings?
 
 future:
 timezone input with autocomplete select
 primary or secondary input: timezone (name, location, utc... pick which ones), greeting ("good morning/afternoon/evening/night, {name}"), custom (custom text)
-test presentation, share, and pwa
-calendar page
-flutter mobile apps, port to watch and tv
-option to change datetime order to date then time or time then date
 centralized "card"/"surface" styles for nav, modal, toast, tabs, etc, with similar backdrop blur, colors, night colors, padding, opacity, etc
-list in android store and windows store (twa) https://youtu.be/7JDFjeMvxos
 
 settings ui:
-version number should be moved from applicaiton to about. way to automatically update each commit?
-all 3 locale settings should have reset btns next to them and auto detect toggles next to them
 download and upload settings (json, human readable) should be in advanced settings? maybe not
-add confirmation prompt to reset settings or just to reset all settings? simple prompt component?
-save old settings and add btn to undo/go back to those settings?
-some btns could use icons next to them
-clock tab is replaced with worldclock tab when worldclock is open, etc
 
-https://youtu.be/Xbo3uZ5Ge10
-- offline fallback
-- google analytics
-
-themes:
-reset display settings/theme btn
-other theme defaults, save theme profiles
-export and share themes
-
-setting to hide title bar after time (10s, etc) of inactivity, mouse move to make it reappear
 
 ux:
 monospace/fix kerning for numbers in time so they do not shift
 - https://stackoverflow.com/questions/10149330/force-non-monospace-font-into-fixed-width-using-css
 
-reset settings btn, save settings to browser local storage
-let user chose primary and secondary color/palette, also chose specific color for hands, ticks, etc
-
 low priority:
 can add shortcut icons for pwa manifest shortcuts
-
-more settings:
-tick hands
-modal for steps to add to taskbar, apps, mobile, etc for each os with details/summary
-select font size for digital displays
-save settings in local storage toggle that on change if off clears local storage, clear local storage btn that's disabled if local storage is empty
-- after local storage is cleared/off, toast prompt offering to refresh website / reset settings? too confusing?
-add about section for help translating to your language
-titles for icon buttons, maybe tooltips, should be translated
 
 ----------------
 
 later:
-searchable settings? (search bar on modal title area)
 save time history in stopwatch (can print, share, download, etc)
 show internet strength, weather, link to spotify options
 music playback options secondary display with spotify (p/p, ff, rw, song and artist name)
-always on top mode is not possible. write about this in FAQs or help, and then mention ways of doing this on different operating systems.
 dark mode styles for <table>
 
 worldclocks with weather and music at bottom lots of customizability
@@ -397,41 +31,15 @@ worldclocks with weather and music at bottom lots of customizability
 big stopwatch in center, smaller ones below, or mode to have all of them smaller, change size of stopwatches/worldclocks and choose a primary one or not to have one
 
 
-presentation API
-https://developer.mozilla.org/en-US/docs/Web/API/Navigator/presentation
-https://developer.mozilla.org/en-US/docs/Web/API/Presentation_API
-https://developers.google.com/web/updates/2018/04/present-web-pages-to-secondary-attached-displays#samples_and_demos
-https://googlechrome.github.io/samples/presentation-api/
-icon ideas: present, tv, cast, chromecast, projector, arrow, external link
-
-wake lock
-https://whatpwacando.today/wake-lock
-https://developer.mozilla.org/en-US/docs/Web/API/Screen_Wake_Lock_API
-https://web.dev/wake-lock/
-https://wake-lock-demo.glitch.me/
-
 vibration for alarms
 https://whatpwacando.today/vibration
 
 audio on lockscreen (for alarms)
 https://whatpwacando.today/audio
 
-bugs:
-pinpoint seconds in analog/digital time
-dbl click on btn shouldnt toggle fullscreen
 
 not bugs (hydration issues, fixed in build/preview)
 install btn disappears when changing to night mode?
-
-needs testing:
-casting
-pwa, auto update, offline
-
-visual bugs:
-battery fill when charging in night mode doesn't turn unfilled part dark (transparent)
-
-development bugs:
-fix auto format for hooks.js
 
 tmp bug fixes:
 nav links are underline despite styless.css
@@ -440,11 +48,7 @@ nav links are underline despite styless.css
     possible solutions: parent-child selectors such as > or +
     solution: nav a:hover {text-decoration: none}
 
-performance:
-
 maybe:
-give them option to swap order of date and time?
-ability to turn off setting to live preview time format in dropdown (advanced setting?)
 nav: click away or esc to close nav?
 nah: different face appearance for night mode settings
 documents.fonts.entries() and give user choice of any font on their system
@@ -466,7 +70,6 @@ https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API
 
 alarm clock using empty audio element that replaces it at right time and works if user navigates away? notification api for timer? ask for test notification first, can go to settings to change
 
-flipclock like https://onlineclock.net/flip/ ?
 
 more later:
 integrate with spotify for media controls?
@@ -506,15 +109,11 @@ play whitenoise / "sounds" as well, rain, wind, fireplace, birds, etc
 
 way future: custom images, audio, slideshow, playlist options?
 
-speak time/date btn
-
 sleep clock
 
 calendar
 reminders
 birthdays
-
-blinking colon mode :
 
 Convert timestamp to readable date time, get date for "next Tuesday" "last Monday" "Thanksgiving" etc, July 18 last year, day of week for March 2nd 2025, etc. Natural language like time.lol
 
@@ -530,12 +129,6 @@ support for daylight savings (reminders, option to turn off, detect locale/locat
 localizing numbers: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
 instructions for if time is off, based on system time, how to synx system time, windows, android, etc
 windows: date&time > sync now
-
-console check theme settings:
-JSON.parse(localStorage.settings).clock.theme
-
-setting to turn off transitions? (tick second hands)
-- sweep second hand but not transition wildly when switching tabs
 
 custom icons:
 'digital': {
