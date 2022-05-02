@@ -112,9 +112,11 @@ When adding a page, add it to cache in `service-worker.js`
 
 - Google Analytics: https://analytics.google.com/analytics/web/#/p293529519/reports/intelligenthome
 
-- Search console: https://search.google.com/search-console?resource_id=sc-domain:desktopclock.app
+- Search Console: https://search.google.com/search-console?resource_id=sc-domain:desktopclock.app
 
 - Sonar Cloud: https://sonarcloud.io/project/overview?id=justingolden21_desktopclock
+
+- Jira Board: https://justingolden.atlassian.net/jira/software/projects/DC/boards/1
 
 ### Attribution
 

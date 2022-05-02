@@ -34,6 +34,7 @@
 	function doubleClickFullscreen({ target }) {
 		if (!$settings.doubleclickFullscreen) return;
 		if (target.tagName === 'BUTTON' || target.parentNode.tagName === 'BUTTON') return;
+		if (target.tagName === 'A' || target.parentNode.tagName === 'A') return;
 		Screenfull.isEnabled && Screenfull.toggle();
 	}
 
@@ -77,7 +78,9 @@
 			language: $settings.locale.language,
 			datetime_locale: $settings.locale.datetime,
 			time_format: $settings.clock.timeFormat,
-			navigator_language: navigator.language
+			navigator_language: navigator.language,
+			font_family: $settings.fontFamily,
+			font_family_body: $settings.fontFamilyBody
 		});
 	});
 
