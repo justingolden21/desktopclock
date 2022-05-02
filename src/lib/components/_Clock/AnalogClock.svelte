@@ -152,7 +152,7 @@ A customizable analog clock
 		{#each numeralStyles[theme.numerals.style] as numeral, idx}
 			<!-- y is middle of character -->
 			<text
-				style:font="600 6px '{theme.numerals.fontFamily}', sans-serif;"
+				style="font: 600 6px '{theme.numerals.fontFamily}', sans-serif;"
 				transform-origin="center"
 				transform="rotate({(idx + 1) * 30})"
 				x="32"

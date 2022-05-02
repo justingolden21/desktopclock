@@ -8,8 +8,8 @@
 
 	/// COMPONENTS ///
 	import SimpleTimePicker from '$lib/components/SimpleTimePicker.svelte';
-	import Toggle from '$lib/components/base/Toggle.svelte';
-	import { Icon } from '$lib/components/icons';
+	import Toggle from '$lib/components/Toggle.svelte';
+	import { Icon } from '$lib/components/Icon';
 	import WorldclockDropdown from '$lib/components/_Worldclock/WorldclockDropdown.svelte';
 	import { getDiff, getSum } from '$lib/util/min';
 
@@ -87,6 +87,7 @@
 	bind:checked={$settings.worldclock.timetable.ampm}
 	labelText={dictionary.labels['Use AM / PM']} />
 
+<!-- svelte-ignore css-unused-selector -->
 <style lang="postcss">
 	tr {
 		@apply border-b-2 border-base-200 dark:border-base-800;

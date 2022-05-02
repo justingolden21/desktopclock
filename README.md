@@ -2,7 +2,7 @@
 
 ### About
 
-A simple, resizable and customizable clock for any device
+A simple, resizable customizable, installable clock for any device!
 
 ### Codebase
 
@@ -62,27 +62,7 @@ Set up VS code to auto format on save
 
 2. Preferences: Open Settings (JSON)
 
-3. Add the following to your `settings.json`:
-
-```json
-{
-	"prettier.tabWidth": 4,
-	"prettier.useTabs": true,
-	"[javascript]": {
-		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[svelte]": {
-		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "svelte.svelte-vscode"
-	},
-	"eslint.alwaysShowStatus": true,
-	"prettier.singleQuote": true,
-	"editor.detectIndentation": true,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.formatOnSave": true
-}
-```
+3. Update your `settings.json`. See `.vscode/settings.json` for reference.
 
 Recommended keyboard shortcuts (ctrl+shift+P > keyboard shortcuts):
 

@@ -4,12 +4,12 @@
 	import { onMount } from 'svelte';
 
 	/// COMPONENTS ///
-	import { Icon } from '$lib/components/icons';
+	import { Icon } from '$lib/components/Icon';
 	import { toggleFullscreen } from '$lib/components/Settings.svelte';
 
 	/// UTILS ///
 	import { settings } from '$lib/stores/settings.js';
-	import ToggleDisplay from '$lib/util/ToggleDisplays';
+	import ToggleDisplay from '$lib/util/toggleDisplay';
 	import { setupCasting, castClock, isCastSupported } from '$lib/util/cast.js';
 	import { now } from '$lib/util/now.js';
 
@@ -31,6 +31,8 @@
 	let isFullscreen;
 	let oldHideTitlebarWhenIdle;
 	onMount(() => {
+		if (!Screenfull.isEnabled) return;
+
 		isFullscreen = Screenfull.isFullscreen;
 
 		Screenfull.on('change', () => {

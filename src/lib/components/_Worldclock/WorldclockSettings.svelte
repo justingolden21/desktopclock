@@ -5,8 +5,8 @@
 	import { settings, defaultSettings } from '$lib/stores/settings.js';
 
 	/// COMPONENTS ///
-	import { Icon } from '$lib/components/icons';
-	import { Accordion, AccordionPanel } from '$lib/components/base/Accordion';
+	import { Icon } from '$lib/components/Icon';
+	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 	import AnalogClockSettings from '$lib/components/_Clock/AnalogClockSettings.svelte';
 	import DatetimeSettings from '$lib/components/_Clock/DatetimeSettings.svelte';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
@@ -18,12 +18,13 @@
 <!-- key="0" to default to all accordions closed -->
 <Accordion key="0">
 	<AccordionPanel accordionTitle={dictionary.clockSettings['Displays']} key="1">
+		<!-- @see displayOptions in util/toggleDisplay -->
 		<div>
 			<SettingSelect
 				id="primary-display-select"
 				selectLabel={dictionary.clockSettings['Primary display:']}
 				bind:value={$settings.worldclock.displays.primary}
-				values={['analog_digital', 'digital']}
+				values={['analog_digital', 'digital', 'none']}
 				labels={dictionary.clockSettings.clockFormats} />
 		</div>
 
@@ -37,7 +38,7 @@
 		</div>
 	</AccordionPanel>
 
-	{#if $settings.worldclock.displays.primary !== 'digital' || $settings.worldclock.displays.secondary !== 'digital_grid'}
+	{#if $settings.worldclock.displays.primary === 'analog_digital' || $settings.worldclock.displays.secondary !== 'digital_grid'}
 		<AccordionPanel accordionTitle={dictionary.clockSettings['Analog']} key="2">
 			<AnalogClockSettings page="worldclock" />
 		</AccordionPanel>

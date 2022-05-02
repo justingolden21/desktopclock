@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 
 	/// COMPONENTS ///
-	import { Icon } from '$lib/components/icons';
+	import { Icon } from '$lib/components/Icon';
 
 	/// STATE ///
 	export let accordionTitle;

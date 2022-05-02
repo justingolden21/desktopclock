@@ -17,35 +17,36 @@
 	} from '$lib/util/timeText';
 
 	/// STATE ///
-	// 'analog_digital' or 'digital'
+	// @see displayOptions in util/toggleDisplay
 	$: primaryDisplay = $settings.worldclock.displays.primary;
-	// 'rows', 'analog_grid', or 'digital_grid'
 	$: secondaryDisplay = $settings.worldclock.displays.secondary;
 
 	// TODO setting for toggling border
+	// TODO setting for toggling background color / transparent
 	const hasBorder = true;
 
 	/// METHODS ///
-	function getTimezone(timezone) {
-		return timezone.name !== '' ? timezone.name : timezone.zone.split('_').join(' ');
-	}
+	const getTimezone = (timezone) =>
+		timezone.name !== '' ? timezone.name : timezone.zone.split('_').join(' ');
 </script>
 
 <!-- primary / home timezone -->
-<div class="grid grid-cols-2 gap-4 lg:gap-8 mb-4">
-	<div class="text-left {primaryDisplay !== 'analog_digital' ? 'col-span-2' : ''}">
-		<p>{$getDate($settings.locale.timezone || 'Etc/GMT')}</p>
-		<p class="font-bold text-5xl my-4">{$getTime($settings.locale.timezone || 'Etc/GMT')}</p>
-		<p>{$timezone && $timezone.split('_').join(' ')} &mdash; <span>UTC {$utcOffset}</span></p>
-	</div>
-	{#if primaryDisplay === 'analog_digital'}
-		<div>
-			<div class="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 relative ml-auto">
-				<AnalogClock theme={$settings.worldclock.theme} mode="worldclock" />
-			</div>
+{#if primaryDisplay !== 'none'}
+	<div class="grid grid-cols-2 gap-4 lg:gap-8 mb-4">
+		<div class="text-left {primaryDisplay !== 'analog_digital' ? 'col-span-2' : ''}">
+			<p>{$getDate($settings.locale.timezone || 'Etc/GMT')}</p>
+			<p class="font-bold text-5xl my-4">{$getTime($settings.locale.timezone || 'Etc/GMT')}</p>
+			<p>{$timezone && $timezone.split('_').join(' ')} &mdash; <span>UTC {$utcOffset}</span></p>
 		</div>
-	{/if}
-</div>
+		{#if primaryDisplay === 'analog_digital'}
+			<div>
+				<div class="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 relative ml-auto">
+					<AnalogClock theme={$settings.worldclock.theme} mode="worldclock" />
+				</div>
+			</div>
+		{/if}
+	</div>
+{/if}
 
 <!-- secondary / other timezones -->
 {#if secondaryDisplay === 'rows'}

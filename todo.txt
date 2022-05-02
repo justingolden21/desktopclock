@@ -2,6 +2,18 @@ BUG: added worldclock doesn't get added to local storage
 
 Use playwright testing: https://playwright.dev/docs/intro
 
+social share icons in about section
+
+improve css bundle shipped
+
+performance fixes for font loading
+
+autocomplete timezone picker
+
+doc components: https://github.com/sveltejs/language-tools/blob/master/docs/README.md#documenting-components
+
+====
+
 use accent palette across app?
 
 IMPORTANT

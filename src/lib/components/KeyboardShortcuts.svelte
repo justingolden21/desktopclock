@@ -17,7 +17,7 @@
 	import { toggleFullscreen } from '$lib/components/Settings.svelte';
 	import { settings } from '$lib/stores/settings';
 	import { toggle } from '$lib/util/modal';
-	import ToggleDisplay from '$lib/util/ToggleDisplays';
+	import ToggleDisplay from '$lib/util/toggleDisplay';
 </script>
 
 <!-- TODO: let user custom map keys to specific shortcuts -->

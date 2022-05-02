@@ -3,9 +3,9 @@
 
 	import { app_url, valid_pages } from '$lib/data/consts.js';
 
-	export async function toggleFullscreen() {
+	export function toggleFullscreen() {
 		if (Screenfull.isEnabled) {
-			await Screenfull.toggle();
+			Screenfull.toggle();
 		}
 	}
 
@@ -19,7 +19,7 @@
 						  ' | ' +
 						  languageDictionary['appName']
 						: languageDictionary['appName'],
-					text: languageDictionary['shareAppDescription'],
+					text: languageDictionary.seo.clock.shareDescription,
 					url: isValid ? app_url + pathname : app_url
 				})
 				.then(() => console.log('Successful share'))
@@ -166,12 +166,12 @@
 	import { settings, defaultSettings } from '$lib/stores/settings.js';
 
 	/// COMPONENTS ///
-	import { Icon } from '$lib/components/icons';
-	import Toggle from '$lib/components/base/Toggle.svelte';
-	import { Tabs, TabList, TabPanel, Tab } from '$lib/components/base/Tabs';
-	import { Accordion, AccordionPanel } from '$lib/components/base/Accordion';
+	import { Icon } from '$lib/components/Icon';
+	import Toggle from '$lib/components/Toggle.svelte';
+	import { Tabs, TabList, TabPanel, Tab } from '$lib/components/Tabs';
+	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 	import ThemeButtons from '$lib/components/ThemeButtons.svelte';
-	import { Toasts, addToast } from '$lib/components/base/Toast';
+	import { Toasts, addToast } from '$lib/components/Toast';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
 	import TimezoneSelect from '$lib/components/TimezoneSelect.svelte';
 	import ClockSettings from '$lib/components/_Clock/ClockSettings.svelte';

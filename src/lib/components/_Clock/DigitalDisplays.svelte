@@ -6,17 +6,20 @@
 	import { settings } from '$lib/stores/settings.js';
 
 	/// COMPONENTS ///
-	import { BatteryIcon, Icon } from '$lib/components/icons';
+	import { BatteryIcon, Icon } from '$lib/components/Icon';
 
 	/// UITLS ///
 	import { time, date } from '$lib/util/timeText';
 
-	/// STATE ?//
+	/// STATE ///
 	$: clockSettings = $settings.clock;
 	$: displays = clockSettings.displays;
+
 	let batteryLevel, batteryIsCharging;
 	let batterySupported = false;
 	let listeningToBattery = false;
+
+	// @see displayOptions in util/toggleDisplay
 	$: primaryDisplayMap = {
 		time: $time,
 		date: $date,
@@ -27,6 +30,7 @@
 		date: $date,
 		datetime: `${$time}\n${$date}`
 	};
+
 	$: baseColorPalette = TailwindColors[$settings.baseColorPalette];
 	$: accentColorPalette = TailwindColors[$settings.accentColorPalette];
 	$: shade = $settings.darkMode ? 400 : 900;

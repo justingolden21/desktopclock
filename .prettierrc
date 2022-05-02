@@ -4,5 +4,6 @@
 	"quoteProps": "consistent",
 	"singleQuote": true,
 	"trailingComma": "none",
-	"useTabs": true
+	"useTabs": true,
+	"endOfLine": "crlf"
 }

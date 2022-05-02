@@ -8,8 +8,8 @@
 	/// COMPONENTS ///
 	import AnalogClockSettings from './AnalogClockSettings.svelte';
 	import DatetimeSettings from './DatetimeSettings.svelte';
-	import { Accordion, AccordionPanel } from '$lib/components/base/Accordion';
-	import Toggle from '$lib/components/base/Toggle.svelte';
+	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
+	import Toggle from '$lib/components/Toggle.svelte';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
 
 	/// STATE ///
@@ -25,6 +25,7 @@
 <!-- key="0" to default to all accordions closed -->
 <Accordion key="0">
 	<AccordionPanel accordionTitle={dictionary.clockSettings['Displays']} key="1">
+		<!-- @see displayOptions in util/toggleDisplay -->
 		<div>
 			<SettingSelect
 				id="primary-display-select"

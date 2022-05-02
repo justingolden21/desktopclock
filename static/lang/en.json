@@ -1,9 +1,24 @@
 {
 	"appName": "Desktop Clock",
 	"appShortName": "Desktop Clock",
-	"appDescription": "A simple, resizable and customizable clock for any device!",
-	"shareAppDescription": "I thought you might enjoy Desktop Clock, a simple, resizable and customizable clock app and website.",
-	"appKeywords": "clock, desktop clock, clock app, analog clock, digital clock, customizable clock, free clock, simple clock, date and time, clock with date, fullscreen clock, bedtime clock, resizable clock, clock for windows, clock for mac, clock for chrome, clock for android, clock for ios",
+	"seo": {
+		"clock": {
+			"name": "Desktop Clock",
+			"description": "A simple, resizable customizable, installable clock for any device!",
+			"shareDescription": "I thought you might enjoy Desktop Clock, a simple, resizable and customizable clock app and website.",
+			"keywords": "clock, desktop clock, clock app, analog clock, digital clock, customizable clock, free clock, simple clock, date and time, clock with date, fullscreen clock, bedtime clock, resizable clock, clock for windows, clock for mac, clock for chrome, clock for android, clock for ios",
+			"screenshot": "screenshot.png"
+		},
+		"worldclock": {
+			"name": "Worldclock - Desktop Clock",
+			"description": "A simple, elegant, feature-rich worldclock with analog and digital displays, hundreds of timezones, and a timetable",
+			"shareDescription": "Try Worldclock from Desktop Clock",
+			"keywords": "worldclock, time tables, convert timezones, analog worldclock, digital worldclock, multiple timezones clock, worldclock online, worldclock offline, free worldclock, best worldclock",
+			"screenshot": "screenshot-worldclock-en.png"
+		},
+		"stopwatch": {},
+		"timers": {}
+	},
 	"pageNames": {
 		"home": "Desktop Clock",
 		"clock": "Clock",
@@ -263,7 +278,7 @@
 	"about": {
 		"Version": "Version",
 		"Contact": "Contact",
-		"aboutText": "Desktop Clock is a simple, resizable and customizable clock for any device. Features include customizable analog and digital displays, night mode, themes, timezones and more. Desktop Clock is designed to scale perfectly to any screen size and ratio, with no distortion or pixelation. Use Desktop Clock as a clock on your TV, a night clock, or project the time in the classroom. Desktop Clock is super light-weight, works offline, free, ad-free, and always will be. Customize the time, date and more to your liking! Desktop Clock is the all-in-one clock for any of your timekeeping needs! More features coming soon.",
+		"aboutText": "Desktop Clock is a simple, resizable, customizable, installable clock for any device. Features include customizable analog and digital displays, night mode, themes, timezones and more. Desktop Clock is designed to scale perfectly to any screen size and ratio, with no distortion or pixelation. Use Desktop Clock as a clock on your TV, a night clock, or project the time in the classroom. Desktop Clock is super light-weight, works offline, free, ad-free, and always will be. Customize the time, date and more to your liking! Desktop Clock is the all-in-one clock for any of your timekeeping needs! More features coming soon.",
 		"contactText": "Made by {{author}}. Feel free to contact me with any feedback, questions, or requests at {{email}}",
 		"shareText": "If you like this app, consider {{sharing}} it.",
 		"sharing": "sharing",

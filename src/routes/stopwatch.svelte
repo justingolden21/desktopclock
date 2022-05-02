@@ -1,9 +1,8 @@
 <script>
 	import { session } from '$app/stores';
+
+	// import SEO from '$lib/components/SEO.svelte';
 </script>
 
-<svelte:head>
-	<title>{$session.languageDictionary.pageNames.stopwatch}</title>
-</svelte:head>
-
+<!-- <SEO/> -->
 <h1 class="mt-16 text-3xl">{$session.languageDictionary.messages['Coming soon']}</h1>

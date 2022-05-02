@@ -4,7 +4,7 @@
 	import { page, session } from '$app/stores';
 
 	/// COMPONENTS ///
-	import { Icon } from '$lib/components/icons';
+	import { Icon } from '$lib/components/Icon';
 	import { shareApp } from '$lib/components/Settings.svelte';
 
 	/// UTILS ///
@@ -19,6 +19,7 @@
 	// similar to header
 	let isFullscreen;
 	onMount(() => {
+		if (!Screenfull.isEnabled) return;
 		isFullscreen = Screenfull.isFullscreen;
 		Screenfull.on('change', () => (isFullscreen = Screenfull.isFullscreen));
 	});
