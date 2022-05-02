@@ -34,6 +34,7 @@
 	function doubleClickFullscreen({ target }) {
 		if (!$settings.doubleclickFullscreen) return;
 		if (target.tagName === 'BUTTON' || target.parentNode.tagName === 'BUTTON') return;
+		if (target.tagName === 'A' || target.parentNode.tagName === 'A') return;
 		Screenfull.isEnabled && Screenfull.toggle();
 	}
 
