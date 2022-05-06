@@ -1,6 +1,8 @@
 
 preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
 
+replace IDs with classes in analogclock so that multiple clock pages such as worldclock have valid html structure for seo
+
 future:
 timezone input with autocomplete select
 primary or secondary input: timezone (name, location, utc... pick which ones), greeting ("good morning/afternoon/evening/night, {name}"), custom (custom text)
