@@ -290,6 +290,7 @@
 		"Coming soon": "Coming soon",
 		"Wake lock was activated successfully": "Wake lock was activated successfully",
 		"Wake lock was deactivated successfully": "Wake lock was deactivated successfully",
-		"Wake lock failure": "Wake lock failure"
+		"Wake lock failure": "Wake lock failure",
+		"Too many worldclocks": "Too many worldclocks"
 	}
 }

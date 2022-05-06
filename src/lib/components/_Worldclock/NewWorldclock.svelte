@@ -8,6 +8,7 @@
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/Icon';
 	import TimezoneSelect from '$lib/components/TimezoneSelect.svelte';
+	import { addToast } from '$lib/components/Toast';
 
 	/// STATE ///
 	export let data = {};
@@ -26,6 +27,15 @@
 	/// EVENT HANDLERS ///
 	function onSubmit() {
 		if (!isEditMode) {
+			// max 100 worldclocks
+			if ($settings.worldclock.timezones.length >= 100) {
+				const message = dictionary.messages['Too many worldclocks'];
+				const type = 'error';
+				const dismissible = true;
+				const timeout = 2000;
+				addToast({ message, type, dismissible, timeout });
+				return;
+			}
 			$settings.worldclock.timezones.push({
 				zone: newTimezoneValue,
 				name: newTimezoneName ?? ''

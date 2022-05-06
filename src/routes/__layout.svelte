@@ -15,6 +15,7 @@
 	import Nav from '$lib/layouts/Nav.svelte';
 	import Header from '$lib/layouts/Header.svelte';
 	import KeyboardShortcuts from '$lib/components/KeyboardShortcuts.svelte';
+	import { Toasts } from '$lib/components/Toast';
 	import { settings } from '$lib/stores/settings.js';
 
 	/// UTILS ///
@@ -134,6 +135,8 @@
 	<Loader {loading} />
 
 	<KeyboardShortcuts />
+
+	<Toasts />
 
 	<Nav bind:navOpen />
 	<div class="flex justify-between flex-col flex-1 relative">

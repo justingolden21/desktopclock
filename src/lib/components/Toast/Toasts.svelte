@@ -7,7 +7,7 @@
 </script>
 
 {#if $toasts}
-	<section class="fixed inset-x-0 bottom-4 w-full flex justify-center flex-col">
+	<section class="z-30 fixed inset-x-0 bottom-4 w-full flex justify-center flex-col">
 		{#each $toasts as toast (toast.id)}
 			<Toast
 				type={toast.type}

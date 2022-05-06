@@ -1,6 +1,9 @@
 
 preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
 
+
+translation for "Too many worldclocks" needed in spanish afterwards
+
 replace IDs with classes in analogclock so that multiple clock pages such as worldclock have valid html structure for seo
 
 future:

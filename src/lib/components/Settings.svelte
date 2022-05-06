@@ -171,7 +171,7 @@
 	import { Tabs, TabList, TabPanel, Tab } from '$lib/components/Tabs';
 	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 	import ThemeButtons from '$lib/components/ThemeButtons.svelte';
-	import { Toasts, addToast } from '$lib/components/Toast';
+	import { addToast } from '$lib/components/Toast';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
 	import TimezoneSelect from '$lib/components/TimezoneSelect.svelte';
 	import ClockSettings from '$lib/components/_Clock/ClockSettings.svelte';
@@ -628,5 +628,3 @@
 		</p>
 	</TabPanel>
 </Tabs>
-
-<Toasts />
