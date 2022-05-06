@@ -14,18 +14,18 @@
 	let newTimezoneName, newTimezoneValue;
 	$: dictionary = $session.languageDictionary;
 	$: editIndex = data.editIndex ?? -1;
-	$: isEditMode = editIndex === -1;
+	$: isEditMode = editIndex !== -1;
 
 	/// LIFECYCLE HOOKS ///
 	onMount(() => {
-		if (isEditMode) return;
+		if (!isEditMode) return;
 		newTimezoneName = $settings.worldclock.timezones[editIndex].name;
 		newTimezoneValue = $settings.worldclock.timezones[editIndex].zone;
 	});
 
 	/// EVENT HANDLERS ///
 	function onSubmit() {
-		if (isEditMode) {
+		if (!isEditMode) {
 			$settings.worldclock.timezones.push({
 				zone: newTimezoneValue,
 				name: newTimezoneName ?? ''
@@ -52,6 +52,6 @@
 </div>
 
 <button class="btn float-right" on:click={onSubmit}>
-	<Icon name={isEditMode ? 'plus' : 'check'} class="inline w-6 h-6" />
-	{dictionary.labels[isEditMode ? 'Create' : 'Save']}
+	<Icon name={isEditMode ? 'check' : 'plus'} class="inline w-6 h-6" />
+	{dictionary.labels[isEditMode ? 'Save' : 'Create']}
 </button>
