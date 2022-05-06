@@ -7,6 +7,5 @@
 		}
 	},
 	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte"],
-	"exclude": ["node_modules"],
-	"extends": "./.svelte-kit/tsconfig.json"
+	"exclude": ["node_modules"]
 }
