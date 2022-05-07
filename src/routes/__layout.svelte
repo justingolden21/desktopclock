@@ -21,6 +21,7 @@
 	/// UTILS ///
 	import { startInterval } from '$lib/util/now.js';
 	import { setupInstall } from '$lib/util/install';
+	import { loadFonts } from '$lib/util/fontController';
 	import { hexToRgb, initializeSettings } from '$lib/util';
 	import { systemFontFamilies } from '$lib/data/consts.js';
 	import version from '$lib/data/version.js';
@@ -83,6 +84,8 @@
 			font_family: $settings.fontFamily,
 			font_family_body: $settings.fontFamilyBody
 		});
+
+		loadFonts();
 	});
 
 	onMount(() => {

@@ -45,22 +45,22 @@ export const numeralStyles = {
 };
 
 export const fontFamilies = {
-	'Aldrich': [400],
+	'Aldrich': [],
 	'Arsenal': [400, 700],
 	'Bai Jamjuree': [300, 500, 700],
 	'Bitter': [300, 500, 700],
 	'Comfortaa': [300, 400, 500, 600, 700],
 	'Josefin Sans': [300, 500, 700],
-	'Julius Sans One': [400],
+	'Julius Sans One': [],
 	'Jura': [300, 500, 700],
 	'K2D': [300, 500, 700],
 	'KoHo': [300, 500, 700],
 	'Libre Baskerville': [400, 700],
-	'Limelight': [400],
-	'Major Mono Display': [400],
+	'Limelight': [],
+	'Major Mono Display': [],
 	'Montserrat Alternates': [300, 600, 900],
 	'Orbitron': [400, 600, 800],
-	'Yatra One': [300, 500, 700],
+	'Yatra One': [],
 	'': [100, 200, 300, 400, 500, 600, 700, 800, 900]
 };
 
