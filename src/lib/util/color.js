@@ -1,6 +1,6 @@
 import TailwindColors from 'tailwindcss/colors';
-import { settings } from '$lib/stores/settings';
 import { get } from 'svelte/store';
+import { settings } from '$lib/stores/settings';
 
 // https://stackoverflow.com/a/5624139/4907950
 export function hexToRgb(hex) {
@@ -13,6 +13,6 @@ export function hexToRgb(hex) {
 // if falsey or '-1', return 'none' (lack of value or '-1' results in a transparent color)
 // palette is 'base' unless otherwise specified, 'accent' is the other valid color palette
 export function getColor(obj) {
-	const palette = obj.palette == 'accent' ? 'accentColorPalette' : 'baseColorPalette';
+	const palette = obj.palette === 'accent' ? 'accentColorPalette' : 'baseColorPalette';
 	return obj.lightness === '-1' ? 'none' : TailwindColors[get(settings)[palette]][obj.lightness];
 }
