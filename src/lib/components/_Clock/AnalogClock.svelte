@@ -15,7 +15,7 @@
 
 	/// UTILS ///
 	import { now } from '$lib/util/now';
-	import { getColor } from '$lib/util';
+	import { getColor } from '$lib/util/color';
 
 	/// STATE ///
 	export let mode = '';
