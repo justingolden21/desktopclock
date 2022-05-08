@@ -21,7 +21,8 @@
 	/// UTILS ///
 	import { startInterval } from '$lib/util/now';
 	import { setupInstall } from '$lib/util/install';
-	import { hexToRgb, initializeSettings } from '$lib/util';
+	import { hexToRgb } from '$lib/util';
+	import initializeSettings from '$lib/util/initializeSettings';
 	import { systemFontFamilies } from '$lib/data/consts';
 	import version from '$lib/data/version';
 
