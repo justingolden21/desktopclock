@@ -398,8 +398,8 @@ export default timezones;
 
 export function testTimezones() {
 	for (const area in timezones) {
-		for (const timezone in timezones[area]) {
-			const tz = `${area}/${timezones[area][timezone]}`;
+		for (const zone in timezones[area]) {
+			const tz = `${area}/${timezones[area][zone]}`;
 			try {
 				new dayjs().tz(tz);
 				console.log(tz, 'works dayjs');
