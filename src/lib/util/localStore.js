@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { mergeDeep } from './mergeSettings';
+import mergeDeep from './mergeSettings';
 
 export function localStore(key, defaultValue) {
 	const store = writable(defaultValue);

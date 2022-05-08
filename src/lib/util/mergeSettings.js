@@ -45,7 +45,7 @@ const validNulls = {
  * but must be in validNulls
  * so timeFormat cannot be a number or boolean for example
  */
-export function mergeDeep(target, ...sources) {
+const mergeDeep = (target, ...sources) => {
 	if (!sources.length) {
 		return target;
 	}
@@ -85,4 +85,6 @@ export function mergeDeep(target, ...sources) {
 	}
 
 	return mergeDeep(target, ...sources);
-}
+};
+
+export default mergeDeep;
