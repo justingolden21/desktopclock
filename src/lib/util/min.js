@@ -63,7 +63,7 @@ export function getSum(time, mins) {
 
 	const timeMins = objToMins(time);
 
-	let minsSum = timeMins + mins;
+	const minsSum = timeMins + mins;
 	// if (minsSum < 0) minsSum += 60 * 24;
 	// if (minsSum > 60 * 24) minsSum -= 60 * 24;
 
