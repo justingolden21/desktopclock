@@ -34,7 +34,7 @@ function castClock() {
 			console.log(`Connected to ${connection.url}, id: ${connection.id}`);
 		})
 		.catch((error) => {
-			console.log(error.name + ': ' + error.message);
+			console.log(`${error.name}: ${error.message}`);
 		});
 }
 
