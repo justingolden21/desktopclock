@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 import mergeDeep from './mergeSettings';
 
-export function localStore(key, defaultValue) {
+const localStore = (key, defaultValue) => {
 	const store = writable(defaultValue);
 
 	if (typeof localStorage !== 'undefined') {
@@ -15,4 +15,6 @@ export function localStore(key, defaultValue) {
 	}
 
 	return store;
-}
+};
+
+export default localStore;
