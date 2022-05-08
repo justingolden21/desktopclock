@@ -2,7 +2,7 @@
 	import { session } from '$app/stores';
 
 	/// UTILS ///
-	import { clickOutside } from '$lib/util/clickOutside';
+	import clickOutside from '$lib/util/clickOutside';
 	import { open } from '$lib/util/modal';
 	import { settings } from '$lib/stores/settings';
 
