@@ -2,7 +2,7 @@
 	import { session } from '$app/stores';
 
 	/// UTILS ///
-	import { settings, defaultSettings } from '$lib/stores/settings.js';
+	import { settings, defaultSettings } from '$lib/stores/settings';
 
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/Icon';

@@ -2,7 +2,7 @@
 // can be converted to a dayjs object for timezone, locale, etc.
 
 import { writable, get } from 'svelte/store';
-import { settings } from '$lib/stores/settings.js';
+import { settings } from '$lib/stores/settings';
 
 export const now = writable(new Date());
 

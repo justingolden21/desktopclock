@@ -1,7 +1,7 @@
 <script>
 	import { page, session } from '$app/stores';
 
-	import { appURL } from '$lib/data/consts.js';
+	import { appURL } from '$lib/data/consts';
 
 	$: dictionary = $session.languageDictionary;
 	const pageNameMapper = {

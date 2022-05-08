@@ -1,7 +1,7 @@
 <script>
 	import { session } from '$app/stores';
 
-	import { open, close, modal } from '$lib/util/modal.js';
+	import { open, close, modal } from '$lib/util/modal';
 
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/Icon';

@@ -1,5 +1,5 @@
 <script>
-	import { systemFontFamilies } from '$lib/data/consts.js';
+	import { systemFontFamilies } from '$lib/data/consts';
 
 	/*
     id: id of select and for label

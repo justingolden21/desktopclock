@@ -1,7 +1,7 @@
 <script>
-	import { settings } from '$lib/stores/settings.js';
+	import { settings } from '$lib/stores/settings';
 
-	import TailwindColors from 'tailwindcss/colors.js';
+	import TailwindColors from 'tailwindcss/colors';
 
 	export let colors;
 	export let theme;

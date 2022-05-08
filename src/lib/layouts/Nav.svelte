@@ -8,10 +8,10 @@
 	import { shareApp } from '$lib/components/Settings.svelte';
 
 	/// UTILS ///
-	import { settings } from '$lib/stores/settings.js';
-	import { installButtonClick, showInstallButton } from '$lib/util/install.js';
-	import { open } from '$lib/util/modal.js';
-	import { validPages } from '$lib/data/consts.js';
+	import { settings } from '$lib/stores/settings';
+	import { installButtonClick, showInstallButton } from '$lib/util/install';
+	import { open } from '$lib/util/modal';
+	import { validPages } from '$lib/data/consts';
 
 	/// STATE ///
 	export let navOpen;

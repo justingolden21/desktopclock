@@ -1,9 +1,9 @@
 <script>
-	import TailwindColors from 'tailwindcss/colors.js';
+	import TailwindColors from 'tailwindcss/colors';
 
 	import { onMount } from 'svelte';
 
-	import { settings } from '$lib/stores/settings.js';
+	import { settings } from '$lib/stores/settings';
 
 	/// COMPONENTS ///
 	import { BatteryIcon, Icon } from '$lib/components/Icon';

@@ -1,6 +1,6 @@
 <script>
 	/// UTILS ///
-	import { clickOutside } from '$lib/util/clickOutside.js';
+	import { clickOutside } from '$lib/util/clickOutside';
 	import { removeBold, splitStringThree } from '$lib/util/string';
 
 	/// STATE ///

@@ -1,7 +1,7 @@
 <script>
 	import { session } from '$app/stores';
 
-	import { settings } from '$lib/stores/settings.js';
+	import { settings } from '$lib/stores/settings';
 </script>
 
 <table>

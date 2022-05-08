@@ -1,4 +1,4 @@
-import TailwindColors from 'tailwindcss/colors.js';
+import TailwindColors from 'tailwindcss/colors';
 import defaultNightTheme from '$lib/themes/defaultNight';
 import { fetchLanguage } from '$lib/components/Settings.svelte';
 import { settings } from '$lib/stores/settings';
