@@ -9,8 +9,8 @@ export function localStore(key, defaultValue) {
 
 		if (value !== null) store.set(value);
 
-		store.subscribe((value) => {
-			localStorage.setItem(key, JSON.stringify(value));
+		store.subscribe((val) => {
+			localStorage.setItem(key, JSON.stringify(val));
 		});
 	}
 
