@@ -71,18 +71,16 @@ export function mergeDeep(target, ...sources) {
 			if (isObject(source[key])) {
 				mergeDeep(target[key], source[key]);
 			}
-		} else {
 			// only add properties if they are the same type
 			// or if target is null (intentional lack of value) amd source isn't
-			if (
-				isSameType(target[key], source[key]) ||
-				(target[key] === null &&
-					source[key] !== null &&
-					Object.keys(validNulls).includes(key) &&
-					typeof source[key] === validNulls[key])
-			) {
-				target[key] = source[key];
-			}
+		} else if (
+			isSameType(target[key], source[key]) ||
+			(target[key] === null &&
+				source[key] !== null &&
+				Object.keys(validNulls).includes(key) &&
+				typeof source[key] === validNulls[key])
+		) {
+			target[key] = source[key];
 		}
 	}
 
