@@ -11,7 +11,7 @@
 	import { settings } from '$lib/stores/settings.js';
 	import { installButtonClick, showInstallButton } from '$lib/util/install.js';
 	import { open } from '$lib/util/modal.js';
-	import { valid_pages } from '$lib/data/consts.js';
+	import { validPages } from '$lib/data/consts.js';
 
 	/// STATE ///
 	export let navOpen;
@@ -84,7 +84,7 @@
 			{dictionary.pageNames['timers']}
 		{/if}
 	</a> -->
-	{#if valid_pages.includes($page.url.pathname)}
+	{#if validPages.includes($page.url.pathname)}
 		<button
 			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
 			on:click={() => {

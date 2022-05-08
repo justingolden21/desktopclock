@@ -1,7 +1,7 @@
 <script context="module">
 	import Screenfull from 'screenfull';
 
-	import { appURL, valid_pages } from '$lib/data/consts.js';
+	import { appURL, validPages } from '$lib/data/consts.js';
 
 	export function toggleFullscreen() {
 		if (Screenfull.isEnabled) {
@@ -11,7 +11,7 @@
 
 	export function shareApp(languageDictionary, pathname) {
 		if (navigator.share) {
-			const isValid = valid_pages.includes(pathname);
+			const isValid = validPages.includes(pathname);
 			navigator
 				.share({
 					title: isValid
