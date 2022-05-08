@@ -1,7 +1,7 @@
 export const supportedLangs = ['en'];
 // export const supportedLangs = ['en', 'es'];
 
-export const app_url = 'https://desktopclock.app';
+export const appURL = 'https://desktopclock.app';
 
 export const valid_pages = ['/', '/worldclock', '/stopwatch', '/timers'];
 

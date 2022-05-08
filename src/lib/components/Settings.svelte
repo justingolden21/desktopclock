@@ -1,7 +1,7 @@
 <script context="module">
 	import Screenfull from 'screenfull';
 
-	import { app_url, valid_pages } from '$lib/data/consts.js';
+	import { appURL, valid_pages } from '$lib/data/consts.js';
 
 	export function toggleFullscreen() {
 		if (Screenfull.isEnabled) {
@@ -20,7 +20,7 @@
 						  languageDictionary['appName']
 						: languageDictionary['appName'],
 					text: languageDictionary.seo.clock.shareDescription,
-					url: isValid ? app_url + pathname : app_url
+					url: isValid ? appURL + pathname : appURL
 				})
 				.then(() => console.log('Successful share'))
 				.catch((err) => console.log('Error sharing', err));

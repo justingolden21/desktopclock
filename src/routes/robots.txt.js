@@ -1,6 +1,6 @@
 // http://localhost:3000/robots.txt
 
-import { app_url } from '$lib/data/consts';
+import { appURL } from '$lib/data/consts';
 
 export async function get() {
 	return {
@@ -10,6 +10,6 @@ export async function get() {
 		},
 		body: `User-agent: *
 Disallow:
-Sitemap: ${app_url}/sitemap.xml`.trim()
+Sitemap: ${appURL}/sitemap.xml`.trim()
 	};
 }

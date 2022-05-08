@@ -2,7 +2,7 @@
 
 // http://localhost:3000/sitemap.xml
 
-import { app_url } from '$lib/data/consts';
+import { appURL } from '$lib/data/consts';
 
 const encodeXML = (str) =>
 	str
@@ -34,7 +34,7 @@ export async function get() {
 			.map(
 				(page) =>
 					`<url>
-			<loc>${app_url}/${page.url}</loc>
+			<loc>${appURL}/${page.url}</loc>
 			<changefreq>monthly</changefreq>
 			<priority>${page.priority ?? 0.5}</priority>
 		  </url>`
