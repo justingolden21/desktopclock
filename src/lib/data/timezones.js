@@ -4,7 +4,7 @@ import timezone from 'dayjs/plugin/timezone.js';
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-//github.com/kangabru/whats-the-time/blob/master/src/data/timezones.ts
+// github.com/kangabru/whats-the-time/blob/master/src/data/timezones.ts
 const timezones = {
 	Etc: [
 		'GMT-14',

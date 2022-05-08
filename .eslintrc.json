@@ -19,7 +19,7 @@
 	"rules": {
 		"prettier/prettier": "error",
 		"indent": ["warn", "tab"],
-		"quotes": ["warn", "single"],
+		"quotes": ["warn", "single", { "avoidEscape": true }],
 		"no-unused-vars": "warn",
 		"no-console": "off",
 		"no-tabs": "off",
