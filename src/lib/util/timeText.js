@@ -1,17 +1,18 @@
 import { derived } from 'svelte/store';
+
+import '../data/all_locales'; // approx 163kb (comment out and compare build sizes in network tab)
+
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import tz from 'dayjs/plugin/timezone';
+
 import { settings } from '$lib/stores/settings';
 import { now } from '$lib/util/now';
 
-import dayjs from 'dayjs';
 // https://day.js.org/docs/en/plugin/timezone
 // https://day.js.org/docs/en/timezone/timezone
-import utc from 'dayjs/plugin/utc';
-import tz from 'dayjs/plugin/timezone';
 dayjs.extend(utc);
 dayjs.extend(tz);
-
-// approx 163kb (comment out and compare build sizes in network tab)
-import '../data/all_locales';
 
 // date and time info for current timezone
 // based on 'clock' date and time formats
