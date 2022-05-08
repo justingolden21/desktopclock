@@ -25,6 +25,7 @@
 		"no-tabs": "off",
 		"no-restricted-syntax": "off",
 		"func-names": "off",
-		"quote-props": ["error", "consistent-as-needed"]
+		"quote-props": ["error", "consistent-as-needed"],
+		"guard-for-in": "off"
 	}
 }

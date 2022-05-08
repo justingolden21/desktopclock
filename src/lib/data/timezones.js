@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc.js';
-import timezone from 'dayjs/plugin/timezone.js';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
@@ -396,9 +397,9 @@ const timezones = {
 export default timezones;
 
 export function testTimezones() {
-	for (let area in timezones) {
-		for (let timezone in timezones[area]) {
-			const tz = area + '/' + timezones[area][timezone];
+	for (const area in timezones) {
+		for (const timezone in timezones[area]) {
+			const tz = `${area}/${timezones[area][timezone]}`;
 			try {
 				new dayjs().tz(tz);
 				console.log(tz, 'works dayjs');
