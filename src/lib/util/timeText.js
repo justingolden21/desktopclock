@@ -91,6 +91,6 @@ export const getHourDiff = derived([now, settings], ([$now, $settings]) => {
 			new dayjs($now).tz($settings.locale.timezone || 'Etc/GMT').utcOffset() / 60;
 		const tzUtcOffset = new dayjs($now).tz(timezone).utcOffset() / 60;
 		const diff = tzUtcOffset - currentUtcOffset;
-		return (diff >= 0 && '+') + diff + 'h';
+		return `${diff >= 0 ? '+' : ''}${diff}h`;
 	};
 });
