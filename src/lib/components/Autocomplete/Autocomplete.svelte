@@ -1,7 +1,7 @@
 <script>
 	/// UTILS ///
 	import { clickOutside } from '$lib/util/clickOutside';
-	import { removeBold, splitStringThree } from '$lib/util/string';
+	import { removeBold, splitStringThree } from './string';
 
 	/// STATE ///
 	export let options;
