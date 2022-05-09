@@ -6,7 +6,7 @@
 	},
 	"extends": ["airbnb-base", "prettier"],
 	"parserOptions": {
-		"ecmaVersion": 2019,
+		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
 	"plugins": ["prettier", "svelte3"],
