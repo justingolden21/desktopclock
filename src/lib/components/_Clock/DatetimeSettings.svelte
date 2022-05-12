@@ -4,10 +4,10 @@
 	import dayjs from 'dayjs';
 
 	/// UTILS ///
-	import { now } from '$lib/util/now.js';
-	import { open } from '$lib/util/modal.js';
-	import { settings, defaultSettings } from '$lib/stores/settings.js';
-	import { defaultTimeFormats, defaultDateFormats } from '$lib/data/consts.js';
+	import { now } from '$lib/util/now';
+	import { open } from '$lib/util/modal';
+	import { settings, defaultSettings } from '$lib/stores/settings';
+	import { defaultTimeFormats, defaultDateFormats } from '$lib/data/consts';
 
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/Icon';

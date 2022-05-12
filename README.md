@@ -96,7 +96,7 @@ For issues with building, previewing, and npm packages, try deleting the build, 
 
 When adding a language, add it to `supportedLangs` in `consts.js`
 
-When adding a page, add it to cache in `service-worker.js`
+When adding a page, add it to cache in `service-worker.js` and validPages in `data/consts.js`
 
 ### Links
 

@@ -1,9 +1,9 @@
 <script>
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { close } from '$lib/util/modal.js';
+	import { close } from '$lib/util/modal';
 
-	import { settings } from '$lib/stores/settings.js';
+	import { settings } from '$lib/stores/settings';
 
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/Icon';

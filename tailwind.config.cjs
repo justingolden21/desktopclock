@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors.js');
+const colors = require('tailwindcss/colors');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 // https://stackoverflow.com/a/70480061/4907950
@@ -42,13 +42,11 @@ module.exports = {
 				tall: { raw: '(min-height: 720px)' }
 			},
 			colors: ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'].reduce(
-				(obj, item) => {
-					return {
-						...obj,
-						[`base-${item}`]: withOpacity(`--base-${item}`),
-						[`accent-${item}`]: withOpacity(`--accent-${item}`)
-					};
-				},
+				(obj, item) => ({
+					...obj,
+					[`base-${item}`]: withOpacity(`--base-${item}`),
+					[`accent-${item}`]: withOpacity(`--accent-${item}`)
+				}),
 				{}
 			)
 		}

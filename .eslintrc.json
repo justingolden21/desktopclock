@@ -6,7 +6,7 @@
 	},
 	"extends": ["airbnb-base", "prettier"],
 	"parserOptions": {
-		"ecmaVersion": 2019,
+		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
 	"plugins": ["prettier", "svelte3"],
@@ -19,12 +19,13 @@
 	"rules": {
 		"prettier/prettier": "error",
 		"indent": ["warn", "tab"],
-		"quotes": ["warn", "single"],
+		"quotes": ["warn", "single", { "avoidEscape": true }],
 		"no-unused-vars": "warn",
 		"no-console": "off",
 		"no-tabs": "off",
 		"no-restricted-syntax": "off",
 		"func-names": "off",
-		"quote-props": ["error", "always"]
+		"quote-props": ["error", "consistent-as-needed"],
+		"guard-for-in": "off"
 	}
 }

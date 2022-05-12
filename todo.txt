@@ -1,8 +1,15 @@
 
 preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
 
+rebuild script that deletes these and runs build and preview
+.netlify
+.svelte-kit
+build
 
 translation for "Too many worldclocks" needed in spanish afterwards
+
+script that updates version in version.js and runs npm patch (updates package.json version)
+https://aboutbits.it/blog/2021-03-11-using-github-actions-to-perfom-npm-version-increment
 
 replace IDs with classes in analogclock so that multiple clock pages such as worldclock have valid html structure for seo
 

@@ -5,7 +5,7 @@
 	// import TimezoneSelect from '../TimezoneSelect.svelte';
 	// import TimePicker from '../TimePicker.svelte';
 
-	// import { now } from '../../util/now.js';
+	// import { now } from '../../util/now';
 	// import { settings } from '../settings';
 
 	// $: dictionary = $session.languageDictionary;

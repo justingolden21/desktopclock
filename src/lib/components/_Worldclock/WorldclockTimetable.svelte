@@ -3,7 +3,7 @@
 
 	import { session } from '$app/stores';
 
-	import { settings } from '$lib/stores/settings.js';
+	import { settings } from '$lib/stores/settings';
 	import { getTime, getHourDiff } from '$lib/util/timeText';
 
 	/// COMPONENTS ///

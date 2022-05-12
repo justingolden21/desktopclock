@@ -1,7 +1,7 @@
 <script context="module">
 	import Screenfull from 'screenfull';
 
-	import { app_url, valid_pages } from '$lib/data/consts.js';
+	import { appURL, validPages } from '$lib/data/consts';
 
 	export function toggleFullscreen() {
 		if (Screenfull.isEnabled) {
@@ -11,7 +11,7 @@
 
 	export function shareApp(languageDictionary, pathname) {
 		if (navigator.share) {
-			const isValid = valid_pages.includes(pathname);
+			const isValid = validPages.includes(pathname);
 			navigator
 				.share({
 					title: isValid
@@ -20,7 +20,7 @@
 						  languageDictionary['appName']
 						: languageDictionary['appName'],
 					text: languageDictionary.seo.clock.shareDescription,
-					url: isValid ? app_url + pathname : app_url
+					url: isValid ? appURL + pathname : appURL
 				})
 				.then(() => console.log('Successful share'))
 				.catch((err) => console.log('Error sharing', err));
@@ -154,16 +154,16 @@
 <script>
 	import { page, session } from '$app/stores';
 	import { onMount } from 'svelte';
-	import { now } from '../util/now.js';
+	import { now } from '../util/now';
 
 	onMount(setupCasting);
 
 	import dayjs from 'dayjs';
 
-	import { setupCasting, castClock, isCastSupported } from '../util/cast.js';
-	import { open } from '../util/modal.js';
+	import { setupCasting, castClock, isCastSupported } from '../util/cast';
+	import { open } from '../util/modal';
 
-	import { settings, defaultSettings } from '$lib/stores/settings.js';
+	import { settings, defaultSettings } from '$lib/stores/settings';
 
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/Icon';
@@ -179,15 +179,15 @@
 
 	import { defaultNightTheme } from '$lib/themes';
 
-	import version from '../data/version.js';
+	import version from '../data/version';
 
 	/// STATE ///
 	$: dictionary = $session.languageDictionary;
 
 	const castSupported = isCastSupported();
 
-	import { fontFamilies, locales, supportedLangs } from '../data/consts.js';
-	import { installButtonClick, showInstallButton } from '../util/install.js';
+	import { fontFamilies, locales, supportedLangs } from '../data/consts';
+	import { installButtonClick, showInstallButton } from '../util/install';
 
 	async function changeLanguage() {
 		$session.languageDictionary = await fetchLanguage($settings.locale.language);

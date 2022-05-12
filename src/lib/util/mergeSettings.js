@@ -45,7 +45,7 @@ const validNulls = {
  * but must be in validNulls
  * so timeFormat cannot be a number or boolean for example
  */
-export function mergeDeep(target, ...sources) {
+const mergeDeep = (target, ...sources) => {
 	if (!sources.length) {
 		return target;
 	}
@@ -71,20 +71,20 @@ export function mergeDeep(target, ...sources) {
 			if (isObject(source[key])) {
 				mergeDeep(target[key], source[key]);
 			}
-		} else {
 			// only add properties if they are the same type
 			// or if target is null (intentional lack of value) amd source isn't
-			if (
-				isSameType(target[key], source[key]) ||
-				(target[key] === null &&
-					source[key] !== null &&
-					Object.keys(validNulls).includes(key) &&
-					typeof source[key] === validNulls[key])
-			) {
-				target[key] = source[key];
-			}
+		} else if (
+			isSameType(target[key], source[key]) ||
+			(target[key] === null &&
+				source[key] !== null &&
+				Object.keys(validNulls).includes(key) &&
+				typeof source[key] === validNulls[key])
+		) {
+			target[key] = source[key];
 		}
 	}
 
 	return mergeDeep(target, ...sources);
-}
+};
+
+export default mergeDeep;

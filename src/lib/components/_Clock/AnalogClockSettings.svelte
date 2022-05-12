@@ -1,9 +1,9 @@
 <script>
 	import { session } from '$app/stores';
 
-	import { settings } from '$lib/stores/settings.js';
+	import { settings } from '$lib/stores/settings';
 
-	import { fontFamilies, movements, numeralStyles } from '$lib/data/consts.js';
+	import { fontFamilies, movements, numeralStyles } from '$lib/data/consts';
 
 	import { defaultTheme, defaultNightTheme, classicTheme, classicNightTheme } from '$lib/themes';
 

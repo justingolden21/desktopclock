@@ -1,17 +1,18 @@
 import { derived } from 'svelte/store';
-import { settings } from '$lib/stores/settings.js';
-import { now } from '$lib/util/now.js';
+
+import '../data/all_locales'; // approx 163kb (comment out and compare build sizes in network tab)
 
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import tz from 'dayjs/plugin/timezone';
+
+import { settings } from '$lib/stores/settings';
+import { now } from '$lib/util/now';
+
 // https://day.js.org/docs/en/plugin/timezone
 // https://day.js.org/docs/en/timezone/timezone
-import utc from 'dayjs/plugin/utc.js';
-import tz from 'dayjs/plugin/timezone.js';
 dayjs.extend(utc);
 dayjs.extend(tz);
-
-// approx 163kb (comment out and compare build sizes in network tab)
-import '../data/all_locales.js';
 
 // date and time info for current timezone
 // based on 'clock' date and time formats
@@ -90,6 +91,6 @@ export const getHourDiff = derived([now, settings], ([$now, $settings]) => {
 			new dayjs($now).tz($settings.locale.timezone || 'Etc/GMT').utcOffset() / 60;
 		const tzUtcOffset = new dayjs($now).tz(timezone).utcOffset() / 60;
 		const diff = tzUtcOffset - currentUtcOffset;
-		return (diff >= 0 && '+') + diff + 'h';
+		return `${diff >= 0 ? '+' : ''}${diff}h`;
 	};
 });

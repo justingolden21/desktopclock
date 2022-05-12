@@ -5,7 +5,7 @@
 // change settings toggle label to say "show (if casting is available)" as opposed to just "show" for the main button
 // TODO: on leave clear the presentation request so no error upon refresh?
 
-let presentationConnection, presentationRequest;
+let presentationRequest;
 
 function isCastSupported() {
 	return typeof PresentationRequest !== 'undefined';
@@ -34,7 +34,7 @@ function castClock() {
 			console.log(`Connected to ${connection.url}, id: ${connection.id}`);
 		})
 		.catch((error) => {
-			console.log(error.name + ': ' + error.message);
+			console.log(`${error.name}: ${error.message}`);
 		});
 }
 

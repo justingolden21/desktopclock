@@ -5,17 +5,17 @@
 	import { linear, bounceOut, elasticOut } from 'svelte/easing';
 
 	import dayjs from 'dayjs';
-	import utc from 'dayjs/plugin/utc.js';
-	import tz from 'dayjs/plugin/timezone.js';
+	import utc from 'dayjs/plugin/utc';
+	import tz from 'dayjs/plugin/timezone';
 	dayjs.extend(utc);
 	dayjs.extend(tz);
 
-	import { numeralStyles } from '$lib/data/consts.js';
-	import { settings } from '$lib/stores/settings.js';
+	import { numeralStyles } from '$lib/data/consts';
+	import { settings } from '$lib/stores/settings';
 
 	/// UTILS ///
-	import { now } from '$lib/util/now.js';
-	import { getColor } from '$lib/util';
+	import { now } from '$lib/util/now';
+	import { getColor } from '$lib/util/color';
 
 	/// STATE ///
 	export let mode = '';
