@@ -32,7 +32,7 @@
 		"prettier": "^2.5.1",
 		"prettier-plugin-svelte": "^2.5.1",
 		"pwa-asset-generator": "^4.1.1",
-		"svelte-preprocess": "^4.9.8"
+		"svelte-preprocess": "^4.10.6"
 	},
 	"type": "module",
 	"dependencies": {
