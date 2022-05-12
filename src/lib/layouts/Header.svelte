@@ -88,7 +88,7 @@ to hide the cursor when idle -->
 		on:click={() => ($settings.darkMode = !$settings.darkMode)}
 		aria-label={dictionary.labels['Toggle dark mode']}
 		title={dictionary.labels['Toggle dark mode'] + ($settings.keyboardShortcuts ? ' (N)' : '')}>
-		<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
+		<Icon name={$settings.darkMode ? 'moon' : 'sun'} class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 
 	<button

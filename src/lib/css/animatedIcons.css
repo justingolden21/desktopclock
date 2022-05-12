@@ -10,8 +10,11 @@
 .link-btn svg {
 	transition: transform 0.25s;
 }
-.dark-btn:hover svg {
+.dark-btn:hover svg.icon-moon {
 	transform: scale(-1, -1);
+}
+.dark-btn:hover svg.icon-sun {
+	transform: scale(1.2);
 }
 .fullscreen-btn:hover svg {
 	transform: scale(-1, 1);
