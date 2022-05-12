@@ -26,6 +26,7 @@
 		"no-restricted-syntax": "off",
 		"func-names": "off",
 		"quote-props": ["error", "consistent-as-needed"],
-		"guard-for-in": "off"
+		"guard-for-in": "off",
+		"import/extensions": ["warn", { "js": "ignorePackages" }]
 	}
 }

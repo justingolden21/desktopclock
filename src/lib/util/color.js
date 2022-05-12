@@ -1,4 +1,4 @@
-import TailwindColors from 'tailwindcss/colors';
+import TailwindColors from 'tailwindcss/colors.js';
 import { get } from 'svelte/store';
 import { settings } from '$lib/stores/settings.js';
 

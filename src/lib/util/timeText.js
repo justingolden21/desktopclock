@@ -3,8 +3,8 @@ import { derived } from 'svelte/store';
 import '../data/all_locales'; // approx 163kb (comment out and compare build sizes in network tab)
 
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
-import tz from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc.js';
+import tz from 'dayjs/plugin/timezone.js';
 
 import { settings } from '$lib/stores/settings';
 import { now } from '$lib/util/now';
