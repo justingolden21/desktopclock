@@ -24,7 +24,7 @@ export function setupInstall() {
 		showInstallButton.set(true);
 
 		// Optionally, send analytics event that PWA install promo was shown.
-		console.log(`'beforeinstallprompt' event was fired.`);
+		console.log("'beforeinstallprompt' event was fired.");
 
 		gtag('event', 'pwa-install', {
 			event_action: 'promo-shown',

@@ -15,14 +15,16 @@
 	import Nav from '$lib/layouts/Nav.svelte';
 	import Header from '$lib/layouts/Header.svelte';
 	import KeyboardShortcuts from '$lib/components/KeyboardShortcuts.svelte';
-	import { settings } from '$lib/stores/settings.js';
+	import { Toasts } from '$lib/components/Toast';
+	import { settings } from '$lib/stores/settings';
 
 	/// UTILS ///
-	import { startInterval } from '$lib/util/now.js';
+	import { startInterval } from '$lib/util/now';
 	import { setupInstall } from '$lib/util/install';
-	import { hexToRgb, initializeSettings } from '$lib/util';
-	import { systemFontFamilies } from '$lib/data/consts.js';
-	import version from '$lib/data/version.js';
+	import { hexToRgb } from '$lib/util/color';
+	import initializeSettings from '$lib/util/initializeSettings';
+	import { systemFontFamilies } from '$lib/data/consts';
+	import version from '$lib/data/version';
 
 	/// STATE ///
 	let loading = true;
@@ -134,6 +136,8 @@
 	<Loader {loading} />
 
 	<KeyboardShortcuts />
+
+	<Toasts />
 
 	<Nav bind:navOpen />
 	<div class="flex justify-between flex-col flex-1 relative">

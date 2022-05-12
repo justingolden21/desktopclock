@@ -1,45 +1,38 @@
 
-
 preset buttons that you click for specific settings/modes, for example, "swim clock" which has mins and sec only
+
+rebuild script that deletes these and runs build and preview
+.netlify
+.svelte-kit
+build
+
+translation for "Too many worldclocks" needed in spanish afterwards
+
+script that updates version in version.js and runs npm patch (updates package.json version)
+https://aboutbits.it/blog/2021-03-11-using-github-actions-to-perfom-npm-version-increment
+
+replace IDs with classes in analogclock so that multiple clock pages such as worldclock have valid html structure for seo
 
 future:
 timezone input with autocomplete select
 primary or secondary input: timezone (name, location, utc... pick which ones), greeting ("good morning/afternoon/evening/night, {name}"), custom (custom text)
-centralized "card"/"surface" styles for nav, modal, toast, tabs, etc, with similar backdrop blur, colors, night colors, padding, opacity, etc
-
-settings ui:
-download and upload settings (json, human readable) should be in advanced settings? maybe not
-
-
-ux:
-monospace/fix kerning for numbers in time so they do not shift
-- https://stackoverflow.com/questions/10149330/force-non-monospace-font-into-fixed-width-using-css
 
 low priority:
 can add shortcut icons for pwa manifest shortcuts
 
 ----------------
-
-later:
+stopwatch:
 save time history in stopwatch (can print, share, download, etc)
-show internet strength, weather, link to spotify options
-music playback options secondary display with spotify (p/p, ff, rw, song and artist name)
-dark mode styles for <table>
-
-worldclocks with weather and music at bottom lots of customizability
-
 big stopwatch in center, smaller ones below, or mode to have all of them smaller, change size of stopwatches/worldclocks and choose a primary one or not to have one
 
+Stopwatch has previous lap as circle and tick marks for laps before, green means before, yellow means after, red means after + at least 1. Can configure number of previous laps to display, default 5, and if the opacity goes down for each previous lap.
+Show lap number, lap time and cumulative time, show small bar / graph on side (optional) and can name them, store notes, store date, and have folders for them.
 
-vibration for alarms
-https://whatpwacando.today/vibration
+option to show digital time on top or bottom of stopwatch
 
-audio on lockscreen (for alarms)
-https://whatpwacando.today/audio
-
-
-not bugs (hydration issues, fixed in build/preview)
-install btn disappears when changing to night mode?
+Stopwatch with change display quick btn: switch to workout / running mode, other quick btns hidden by default such as chess mode, sports mode, cooking mode etc. Set workout routines, recipes etc. Convert running laps automatically if you tell it how far a lap is.
+stopwatch speaks time when you hit lap, extra large lap button
+----------------
 
 tmp bug fixes:
 nav links are underline despite styless.css
@@ -48,57 +41,13 @@ nav links are underline despite styless.css
     possible solutions: parent-child selectors such as > or +
     solution: nav a:hover {text-decoration: none}
 
-maybe:
-nav: click away or esc to close nav?
-nah: different face appearance for night mode settings
-documents.fonts.entries() and give user choice of any font on their system
-binary clock option? Two or three rows for hrs, mins, sec
-
 notes:
-changing the face fill to transparent (-1) will disable the shadow fill and shadow input
 node -v is 14.17.5
-
-get user geolocation (browser asks them)
-https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#watching_the_current_position
-const watchID = navigator.geolocation.watchPosition((position) => {
-  console.log(position.coords.latitude, position.coords.longitude);
-});
-
-use picture in picture with clock as video element to keep always on top / its own window on pc or phone?
-https://css-tricks.com/an-introduction-to-the-picture-in-picture-web-api/
-https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API
-
-alarm clock using empty audio element that replaces it at right time and works if user navigates away? notification api for timer? ask for test notification first, can go to settings to change
-
-
-more later:
-integrate with spotify for media controls?
-- https://developer.spotify.com/documentation/web-api/quick-start/
-weather api?
-- https://www.weatherapi.com/pricing.aspx
-- astronomy api for sunrise/set https://www.weatherapi.com/docs/
-- user choses F or C (default to location), ask user for location in toast
-- multiple toggles for display temp, feels like, wind, air quality, etc.
-save custom date/time formats in dropdown, remove default formats, etc
-
 
 links:
 https://tc39.es/ecma402/#table-datetimeformat-components
 
 https://deviceshots.com/
-
-misc:
-Stopwatch has previous lap as circle and tick marks for laps before, green means before, yellow means after, red means after + at least 1. Can configure number of previous laps to display, default 5, and if the opacity goes down for each previous lap.
-Show lap number, lap time and cumulative time, show small bar / graph on side (optional) and can name them, store notes, store date, and have folders for them.
-Worldclock: analog clock with digital time below, then date below, then utc +- below
-Above is timezone drop-down and name of timezone/time (custom text input)
-Top row has icons on left for drag, move, and right for delete, edit.
-Button to delete all worldclocks, options to open presets (lists of worldclocks for different uses) can be organized into tabs maybe?
-Day, night theme but also theme that changes sky background color based on time of day (can show sunrise and sunset). Function that takes in time (ms since epoch) and location (long/lat) and spit out next sunrise and sunset? Offline?
-Trailer video with bouncy pop music that shows off lots of features quickly
-
-future maybe:
-support smart watches, android auto, smart tv, etc, mobile port
 
 datetime utility:
 converter for 2.2 billion hours to years for example
@@ -107,142 +56,38 @@ speech recognition: https://whatpwacando.today/speech-recognition
 
 play whitenoise / "sounds" as well, rain, wind, fireplace, birds, etc
 
-way future: custom images, audio, slideshow, playlist options?
-
-sleep clock
-
-calendar
-reminders
-birthdays
-
 Convert timestamp to readable date time, get date for "next Tuesday" "last Monday" "Thanksgiving" etc, July 18 last year, day of week for March 2nd 2025, etc. Natural language like time.lol
-
-Select date and time picker for countdown timers, count time since or time until, chose which units displayed (sec,min,hour,day, etc)
-
-worldclock timetable option like in https://whats-the-time.netlify.app/
-
-schedule option with notes (events with fixed time or date or time range or date range)
 
 support for daylight savings (reminders, option to turn off, detect locale/locateion before giving reminder toast)
 - reminders option, modal to check when whch timezones enter or leave daylight savings
-
-localizing numbers: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
-instructions for if time is off, based on system time, how to synx system time, windows, android, etc
-windows: date&time > sync now
 
 custom icons:
 'digital': {
 	path: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 3v6m0 2h0h0v6m2 2v0h6v0m2-2v-6m0-2v-6m-2-2h-6m0 9h6"/>`
 },
 
-misc unsorted:
-Timer, countdown, stopwatch, kitchen/exam/exercise/running, time and date calculations, time since, time until, alarms, svelte, moment
-Sleep cycle, world clock, workout mode (set a number of different timers in a row, for rest and excersize, give them each labels)
-Desktop Clock: calendar, sunrise / sunset info
+timers/stopwatch:
+Timer, countdown, stopwatch, kitchen/exam/exercise/running, time and date calculations, time since, time until, alarms
+workout mode (set a number of different timers in a row, for rest and excersize, give them each labels)
+Cooking timer mode for listing different steps. Label timers then click a button to go to next timer.
+Cooking timer/Workout timer: sequential timers with names, click when one ends and click again to start the next one
+
+sunrise / sunset info
 countdown until sunrise/sunset
-chess clock, calendar
-Milliseconds option for stopwatch, swim clock option for only mins and sec, Chromecast button
+
+Milliseconds option for stopwatch, swim clock option for only mins and sec
 Quick copy inputs and buttons for date, time, and both in one with formatting options (for entering current date/time in a spreadsheet for example)
 Clock: multiple countdowns on a row, bus stop clock display, tournament organizer display with room for displaying text, custom text at bottom option for default clock
-4 ticks 12 ticks and 60 ticks display large medium small or none. Clock face and ticks and hands colors between white light, medium, dark, and black. Hand display is large medium small or none. Clock face can be circle, square, or rounded.
-Main display can be analog, digital, or date, and sub display can be digital or date
-worldclocks in row or grid, as analog or digital?
-save settings to browser local storage, option to download and upload (as json)
-pop out window button
 reminder notificaiton at time or day
-stay awake mode, localization, multiple date and time modes, store settings, reset settings, keyboard shortcuts
-always on top, chromecast, battery, theme colors, luxon
-installable in android play store https://developer.chrome.com/docs/android/trusted-web-activity/overview/
-sleep calculator, timezone list with reset to current/device btn
-New mode "programming" for listing utc string, iso string, mills since epoch, enter one and convert to the other, subtract dates, etc
+New mode "programming" clock utility for listing utc string, iso string, mills since epoch, enter one and convert to the other, subtract dates, etc
 
 Days until
 Countdown to a time and day
 save a list of time/dates
-calendar, birthday tracker (with reminders)
-maybe later: weather
-Blockers: Changeable lang, Google analytics
-Next: Translate to Spanish, testing, inline check for Lang for dayjs docs modal
-Finally: marketing, seo, launch trailer
 Note: update about description, mention more modes coming soon, all in one clock
-Port to extension
-font options, background image, clock size settings
-primary display: calendar and clock, or just clock, or just calendar
-ticking sound option
+background image, clock size settings
 chess clock / game clock, add multiple players, pause, resume options, change defaults. clocks for sports with quarters/halves and mins length, add timeouts feature that can be tracked (how many used), add kitchen timers with names
-ask kanga about converting timezones idea adding to desktop clock?
-Sharable calendar links for scheduling
-Show battery and device wifi / data signal
-Last degrees = [0,0,0] then rotate back by last degrees and set last degrees to new degrees in setTime
-Above secondary display, have "install" btn in dark gray and long rounded, next to it a question mark small btn that opens a modal and explains you can install for offline use, app is free with no ads or tracking, small file size, light weight, etc. Can explain about PWAs and how to open on your device (detect device?)
-display timezone on bottom option
-metronome
-custom sweep or tick, custom font
-mode for detect bpm (tap or click at frequency and determine bpm of music, heartrate, etc)
-Digital / analog swap quick button (like night Fullscreen etc) icon of clock or of ":" colon check if colon is used internationally.
-Options for analog or digital for each section (clock, stopwatch, game clock, etc) option for both in some (stopwatch and game clock can have both)
 
-Option to have digital time on the bottom right of the app in different modes such as stopwatch
-Always on top mode for timer / stopwatch.
-Cooking timer mode for listing different steps. Label timers then click a button to go to next timer.
-Todos: standard Todo mvc app, but also includes checkbox/radio for in progress, and sort by name, date added, status etc. Optional "more" section to expand on bottom with small caret icon: includes time task takes and start date and time. Will show up in calendar. Option to add to calendar app or set reminder.
-Calendar: standard calendar, can have tasks such as meetings, but also shows todos. Also integrates with birthdays.
-Birthdays: store names and birthdays, and importance level. Option to see birthdays on homescreen of clock, can chose which importance level and see how many days advance reminder before their birthday.
-
-Integrate clock homescreen with Spotify option in settings. Btn to log in with Spotify. Requires backend to store API key...
-Free, and pro features free for first 10k users (create email login)
-
-
-Show slideshow option (between time date and other displays) choose slideshow seconds per slide
-Display timezone option, option for utc gmt location name or timezone name
-Weather using geolocation with icon and temperature maybe forecast. Option to use current location of set manually, same as timezone options
-Show wifi signal
-Picture in picture clock? Embed svg inside video element?
-Sunrise sunset options
-Game clock option
-Binary option clock
-Flipcard clock, blinking colon
-Datetime options and region
-Calendar?
-Notification API, stay awake API
 Opacity on analog svg paths and shapes, background blur always true
-Reset settings, clear storage btns, do not store checkbox
-Share btn defaults to quick btn but can remove
-In about modal, like the clock? Instead of donating to the developer, please donate to one of the following charities instead (list links) feel free to tweet out your donation with the tag #desktopclock
-If calendar show upcoming items in main screen. Option to remind x mins before and show notification y mins before. Sync with system calendar? Sync with system alarms? Is there an alarms API? Store stopwatch progress, delete history, organize items in labels and folders.
-Worldclock show current time and date in local timezone in large heading on top, option for media controls below as well
-Setting for default tab (clock, worldclock etc) to open on startup
-Set reminders using an API?
-Todos?
-Countdown timer?
-Pop out btn for desktop (new window frameless)
 
-Bpm calculator for heart rate or song
-Metronome
 Game clock (sports, board game, etc) chess presets, other presets for sports
-Cooking timer
-Workout timer, sequential timers with names, click when one ends and click again to start the next one
-Clock android advertise/features:
-Very large display, nightstand clock, custom colors, portrait and landscape, widget, system alarms, custom photo background, custom alarm sounds
-
-Clock alarms calendar
-
-Future: date picker and time picker (dropdown for hour, min, sec, year, mon, day)?
-screensaver
-
-Stopwatch with quick buttons like night, Fullscreen, change display: switch to workout / running mode, other quick btns hidden by default such as chess mode, sports mode, cooking mode etc. Set workout routines, recipes etc. Convert running laps automatically if you tell it how far a lap is.
-stopwatch speaks time when you hit lap, extra large lap button
-Worldclock options like those in kanga's app, in world clock app by timeanddate.com
-For use as night clock on computer or phone, can be cast
-About section: what features would you like to see in desktop clock? (Contact btn)
-Button to speak. Interval to speak
-similar marketing to https://play.google.com/store/apps/details?id=hdesign.theclock
-
-Many preset clocks to chose from, different svg / css patterns, live preview.
-Date and time, battery, weather, music, calendar
-
-dev warnings: unused css selectors in nav
-warnings are because no <a> are in nav, will be fixed with new items
-can add:
-<a class="active hidden" href="#test">test</a>
-but this will be fixed in future anyway, and hidden class is overriden by <a> styling, so not worth the effort when this will be fixed in future

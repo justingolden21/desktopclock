@@ -2,9 +2,9 @@
 	import { session } from '$app/stores';
 
 	/// UTILS ///
-	import { clickOutside } from '$lib/util/clickOutside.js';
-	import { open } from '$lib/util/modal.js';
-	import { settings } from '$lib/stores/settings.js';
+	import clickOutside from '$lib/util/clickOutside';
+	import { open } from '$lib/util/modal';
+	import { settings } from '$lib/stores/settings';
 
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/Icon';

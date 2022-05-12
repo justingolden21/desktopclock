@@ -7,15 +7,17 @@
 		"build": "svelte-kit build",
 		"preview": "svelte-kit preview",
 		"buildpreview": "svelte-kit build && svelte-kit preview",
-		"lint": "prettier --ignore-path .gitignore --ignore-path .prettierignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-		"format": "prettier --ignore-path .gitignore --ignore-path .prettierignore --write --plugin-search-dir=. .",
+		"format": "prettier --ignore-path .gitignore --check .",
+		"formatfix": "prettier --ignore-path .gitignore --write .",
+		"lint": "eslint . --ext .js --ignore-path .gitignore .",
+		"lintfix": "eslint . --ext .js --ignore-path .gitignore . --fix",
 		"generate-assets": "pwa-asset-generator static/img/icons/icon.svg static/img/icons --favicon --mstile --icon-only --opaque true"
 	},
 	"author": "Justin Golden",
 	"private": "true",
 	"devDependencies": {
-		"@sveltejs/adapter-netlify": "^1.0.0-next.32",
-		"@sveltejs/kit": "1.0.0-next.288",
+		"@sveltejs/adapter-netlify": "1.0.0-next.49",
+		"@sveltejs/kit": "1.0.0-next.291",
 		"autoprefixer": "^10.4.2",
 		"cssnano": "^5.0.6",
 		"eslint": "^7.22.0",
@@ -30,14 +32,14 @@
 		"prettier": "^2.5.1",
 		"prettier-plugin-svelte": "^2.5.1",
 		"pwa-asset-generator": "^4.1.1",
-		"screenfull": "^5.1.0",
-		"svelte": "^3.43.1",
-		"svelte-preprocess": "^4.9.8",
-		"tailwindcss": "^3.0.13"
+		"svelte-preprocess": "^4.9.8"
 	},
 	"type": "module",
 	"dependencies": {
 		"dayjs": "^1.10.7",
-		"lodash.merge": "^4.6.2"
+		"lodash.merge": "^4.6.2",
+		"screenfull": "^5.1.0",
+		"svelte": "^3.43.1",
+		"tailwindcss": "^3.0.13"
 	}
 }

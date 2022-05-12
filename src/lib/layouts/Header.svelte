@@ -8,10 +8,10 @@
 	import { toggleFullscreen } from '$lib/components/Settings.svelte';
 
 	/// UTILS ///
-	import { settings } from '$lib/stores/settings.js';
+	import { settings } from '$lib/stores/settings';
 	import ToggleDisplay from '$lib/util/toggleDisplay';
-	import { setupCasting, castClock, isCastSupported } from '$lib/util/cast.js';
-	import { now } from '$lib/util/now.js';
+	import { setupCasting, castClock, isCastSupported } from '$lib/util/cast';
+	import { now } from '$lib/util/now';
 
 	/// STATE ///
 	export let navOpen;
