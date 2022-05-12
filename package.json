@@ -40,6 +40,6 @@
 		"lodash.merge": "^4.6.2",
 		"screenfull": "^5.1.0",
 		"svelte": "^3.43.1",
-		"tailwindcss": "^3.0.13"
+		"tailwindcss": "^3.0.24"
 	}
 }
