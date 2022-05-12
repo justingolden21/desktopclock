@@ -30,7 +30,7 @@
 		"postcss-import": "^14.0.2",
 		"postcss-load-config": "^3.1.0",
 		"prettier": "^2.5.1",
-		"prettier-plugin-svelte": "^2.5.1",
+		"prettier-plugin-svelte": "^2.7.0",
 		"pwa-asset-generator": "^4.1.1",
 		"svelte-preprocess": "^4.9.8"
 	},
