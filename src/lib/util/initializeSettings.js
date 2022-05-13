@@ -1,7 +1,8 @@
+import { get } from 'svelte/store';
+
 import defaultNightTheme from '$lib/themes/defaultNight';
 import { fetchLanguage } from '$lib/components/Settings.svelte';
 import { settings } from '$lib/stores/settings';
-import { get } from 'svelte/store';
 
 const initializeSettings = async (session) => {
 	const s = get(settings);

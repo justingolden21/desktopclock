@@ -1,3 +1,5 @@
+/* eslint-disable no-continue */
+
 /**
  * Check if param is a non array, non null object
  * @param item
@@ -78,6 +80,8 @@ const mergeDeep = (target, ...sources) => {
 			(target[key] === null &&
 				source[key] !== null &&
 				Object.keys(validNulls).includes(key) &&
+				// the strings 'string', 'boolean', etc. are defined above:
+				// eslint-disable-next-line valid-typeof
 				typeof source[key] === validNulls[key])
 		) {
 			target[key] = source[key];

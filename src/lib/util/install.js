@@ -1,3 +1,5 @@
+// `gtag` is in scope and works fine, disabling the no-undef rule only for those lines
+
 import { writable } from 'svelte/store';
 
 export const showInstallButton = new writable(false);
@@ -26,6 +28,7 @@ export function setupInstall() {
 		// Optionally, send analytics event that PWA install promo was shown.
 		console.log("'beforeinstallprompt' event was fired.");
 
+		// eslint-disable-next-line no-undef
 		gtag('event', 'pwa-install', {
 			event_action: 'promo-shown',
 			non_interaction: true
@@ -45,10 +48,12 @@ export function setupInstall() {
 		// Ignore if the page is hidden
 		if (document.visibilityState !== 'visible') return;
 
+		// eslint-disable-next-line no-undef
 		gtag('event', 'pwa-install', {
 			event_action: 'installed',
 			install_source: installSource || 'browser'
 		});
+		// eslint-disable-next-line no-undef
 		gtag('event', 'pwa-install', { display_mode: 'standalone' });
 	});
 }
@@ -70,6 +75,7 @@ export async function installButtonClick() {
 
 	// Google Analytics
 	installSource = 'installButton';
+	// eslint-disable-next-line no-undef
 	gtag('event', 'pwa-install', {
 		event_action: 'promo-clicked',
 		install_source: installSource,
