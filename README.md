@@ -108,7 +108,7 @@ When adding a page, add it to cache in `service-worker.js` and validPages in `da
 
 - This repo: https://github.com/justingolden21/desktop-clock
 
-- Netlify:https://app.netlify.com/sites/desktopclock/overview
+- Netlify: https://app.netlify.com/sites/desktopclock/overview
 
 - Google Analytics: https://analytics.google.com/analytics/web/#/p293529519/reports/intelligenthome
 
