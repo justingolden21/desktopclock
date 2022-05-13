@@ -30,6 +30,8 @@
 		"import/extensions": "off",
 		"new-cap": "off",
 		"import/no-extraneous-dependencies": "off",
-		"no-param-reassign": "off"
+		"no-param-reassign": "off",
+		// until sveltekit gets everything figured out for $lib imports:
+		"import/no-unresolved": "off"
 	}
 }

@@ -1,3 +1,6 @@
+// returning a function is confusing enough without obfuscating it further with nested arrow functions:
+/* eslint-disable arrow-body-style */
+
 import { derived } from 'svelte/store';
 
 import '../data/all_locales'; // approx 163kb (comment out and compare build sizes in network tab)

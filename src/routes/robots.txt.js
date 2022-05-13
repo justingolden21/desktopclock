@@ -2,6 +2,7 @@
 
 import { appURL } from '$lib/data/consts';
 
+// eslint-disable-next-line import/prefer-default-export
 export async function get() {
 	return {
 		headers: {

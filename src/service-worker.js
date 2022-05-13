@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-await-in-loop */
 // https://dev.to/100lvlmaster/create-a-pwa-with-sveltekit-svelte-a36
 
 /// <reference lib="webworker" />
