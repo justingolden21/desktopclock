@@ -32,6 +32,7 @@
 		"import/no-extraneous-dependencies": "off",
 		"no-param-reassign": "off",
 		// until sveltekit gets everything figured out for $lib imports:
-		"import/no-unresolved": "off"
+		"import/no-unresolved": "off",
+		"radix": "off"
 	}
 }
