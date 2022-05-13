@@ -27,6 +27,7 @@
 		"func-names": "off",
 		"quote-props": ["error", "consistent-as-needed"],
 		"guard-for-in": "off",
-		"import/extensions": ["warn", { "js": "ignorePackages" }]
+		"import/extensions": ["warn", { "js": "ignorePackages" }],
+		"new-cap": "off"
 	}
 }
