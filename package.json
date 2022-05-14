@@ -18,8 +18,10 @@
 	"devDependencies": {
 		"@sveltejs/adapter-netlify": "1.0.0-next.49",
 		"@sveltejs/kit": "1.0.0-next.291",
+		"@testing-library/jest-dom": "^5.16.4",
 		"@testing-library/svelte": "^3.1.1",
 		"autoprefixer": "^10.4.2",
+		"babel-jest": "^28.1.0",
 		"cssnano": "^5.0.6",
 		"eslint": "^7.22.0",
 		"eslint-config-airbnb-base": "^14.2.1",
@@ -34,6 +36,7 @@
 		"prettier": "^2.5.1",
 		"prettier-plugin-svelte": "^2.5.1",
 		"pwa-asset-generator": "^4.1.1",
+		"svelte-jester": "^2.3.2",
 		"svelte-preprocess": "^4.9.8"
 	},
 	"type": "module",
