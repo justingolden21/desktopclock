@@ -16,6 +16,7 @@
 	"author": "Justin Golden",
 	"private": "true",
 	"devDependencies": {
+		"@babel/preset-env": "^7.17.10",
 		"@sveltejs/adapter-netlify": "1.0.0-next.49",
 		"@sveltejs/kit": "1.0.0-next.291",
 		"@testing-library/jest-dom": "^5.16.4",
