@@ -7,7 +7,7 @@
 
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/Icon';
-	import TimezoneSelect from '$lib/components/TimezoneSelect.svelte';
+	import TimezoneAutocomplete from '$lib/components/TimezoneAutocomplete.svelte';
 	import { addToast } from '$lib/components/Toast';
 
 	/// STATE ///
@@ -73,7 +73,7 @@
 </div>
 
 <div class="my-4">
-	<TimezoneSelect id="new-timezone-select" bind:value={newTimezoneValue} />
+	<TimezoneAutocomplete bind:value={newTimezoneValue} />
 </div>
 
 <button class="btn float-right" on:click={onSubmit}>

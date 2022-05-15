@@ -10,9 +10,6 @@
 	export let disabled = false;
 	export let closeOnClickAway = true;
 
-	// TODO: export a value that is valid (limited to one of the options given)
-	// TODO: support difference between displayed values and actual values under the hood
-
 	// min characters in input for autocomplete to appear
 	export let minChars = 2;
 	// max results to show at a time
@@ -21,8 +18,17 @@
 	// filter options based on input
 	let filteredOptions = [];
 
+	/**
+	 * inputValue is the value used for the component
+	 * we export a value back to the consumer only if it's valid (if it's included in the given options)
+	 *
+	 * make new variable for inputValue and on inputValue change set value to it only if it's one of the options
+	 */
+	let inputValue = value;
+	$: if (options.includes(inputValue)) value = inputValue;
+
 	const filterOptions = () => {
-		if (!value || value.length < minChars) {
+		if (!inputValue || inputValue.length < minChars) {
 			filteredOptions = [];
 			highlightIdx = null;
 			return;
@@ -30,9 +36,9 @@
 		let newOptions = [];
 		let numResults = 0;
 		for (const option of options) {
-			const foundIdx = option.toLowerCase().indexOf(value.toLowerCase());
+			const foundIdx = option.toLowerCase().indexOf(inputValue.toLowerCase());
 			if (foundIdx !== -1) {
-				const splitString = splitStringThree(option, 0, foundIdx, foundIdx + value.length);
+				const splitString = splitStringThree(option, 0, foundIdx, foundIdx + inputValue.length);
 				const boldString = `${splitString[0]}<strong>${splitString[1]}</strong>${splitString[2]}`;
 				newOptions.push(boldString);
 
@@ -50,7 +56,7 @@
 	let searchInput;
 
 	const setInputVal = (optionName) => {
-		value = removeBold(optionName);
+		inputValue = removeBold(optionName);
 		filteredOptions = [];
 		highlightIdx = null;
 		searchInput.focus();
@@ -93,14 +99,16 @@
 <svelte:window on:keydown={navigateList} />
 
 <div class="relative inline-block w-64">
+	{value}
 	<input
+		spellcheck="false"
 		autocomplete="off"
 		type="text"
 		class="w-full"
 		{disabled}
 		{placeholder}
 		bind:this={searchInput}
-		bind:value
+		bind:value={inputValue}
 		on:input={filterOptions} />
 	{#if filteredOptions.length > 0}
 		<ul
