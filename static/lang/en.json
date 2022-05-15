@@ -161,6 +161,7 @@
 			"digital": "Digital",
 			"rows": "Rows",
 			"analog_grid": "Analog grid",
+			"compact_rows": "Compact rows",
 			"digital_grid": "Digital grid"
 		},
 		"Show battery": "Show battery",
