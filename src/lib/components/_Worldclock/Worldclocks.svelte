@@ -26,7 +26,7 @@
 	const hasBorder = true;
 
 	/// METHODS ///
-	const getTimezone = (timezone) =>
+	const getTimezoneName = (timezone) =>
 		timezone.name !== '' ? timezone.name : timezone.zone.split('_').join(' ');
 </script>
 
@@ -50,14 +50,14 @@
 
 <!-- secondary / other timezones -->
 {#if secondaryDisplay === 'rows' || secondaryDisplay === 'compact_rows'}
-	{#each $settings.worldclock.timezones as timezone, idx}
+	{#each $settings.worldclock.timezones as timezone, idx (`${timezone.zone}-${timezone.name}`)}
 		<div class="relative group">
 			<div
 				class="grid grid-cols-2 gap-4 lg:gap-8 border-0 {hasBorder
 					? 'border-t-2'
 					: 'my-4 sm:my-8'} p-4 surface">
 				<div class="text-left break-words">
-					<p>{getTimezone(timezone)}</p>
+					<p>{getTimezoneName(timezone)}</p>
 					{#if secondaryDisplay === 'rows'}
 						<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
 						<p>{$getDate(timezone.zone)}</p>
@@ -87,12 +87,12 @@
 	{/each}
 {:else}
 	<div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8 mt-8">
-		{#each $settings.worldclock.timezones as timezone, idx}
+		{#each $settings.worldclock.timezones as timezone, idx (`${timezone.zone}-${timezone.name}`)}
 			<div
 				class="relative group {secondaryDisplay === 'analog_grid'
 					? 'text-center'
 					: 'text-left'} break-words {!hasBorder && 'border-0'} rounded surface p-4">
-				<p>{getTimezone(timezone)}</p>
+				<p>{getTimezoneName(timezone)}</p>
 				<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
 				{#if secondaryDisplay === 'analog_grid'}
 					<div class="w-24 h-24 sm:w-32 sm:h-32 relative mx-auto">
