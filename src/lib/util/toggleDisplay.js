@@ -5,7 +5,7 @@ const displayOptions = {
 	},
 	worldclock: {
 		primary: ['analog_digital', 'digital', 'none'],
-		secondary: ['rows', 'analog_grid', 'digital_grid']
+		secondary: ['rows', 'compact_rows', 'analog_grid', 'digital_grid']
 	}
 };
 

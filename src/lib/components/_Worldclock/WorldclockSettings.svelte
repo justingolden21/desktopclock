@@ -33,7 +33,7 @@
 				id="secondary-display-select"
 				selectLabel={dictionary.clockSettings['Secondary display:']}
 				bind:value={$settings.worldclock.displays.secondary}
-				values={['rows', 'analog_grid', 'digital_grid']}
+				values={['rows', 'compact_rows', 'analog_grid', 'digital_grid']}
 				labels={dictionary.clockSettings.clockFormats} />
 		</div>
 	</AccordionPanel>
