@@ -201,7 +201,8 @@
 		// if selected font does not have selected weight
 		if (fontFamilies[family].indexOf(weight) == -1) {
 			// default to first listed weight
-			$settings.clock.datetimeFontWeight = fontFamilies[family][0].toString();
+			fontFamilies[family].length &&
+				($settings.clock.datetimeFontWeight = fontFamilies[family][0].toString());
 		}
 	}
 </script>
