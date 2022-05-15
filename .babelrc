@@ -1,0 +1,4 @@
+{
+	// for testing
+	"presets": [["@babel/preset-env", { "targets": { "node": "current" } }]]
+}
