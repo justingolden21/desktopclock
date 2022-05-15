@@ -292,6 +292,7 @@
 		"Wake lock was activated successfully": "Wake lock was activated successfully",
 		"Wake lock was deactivated successfully": "Wake lock was deactivated successfully",
 		"Wake lock failure": "Wake lock failure",
-		"Too many worldclocks": "Too many worldclocks"
+		"Too many worldclocks": "Too many worldclocks",
+		"Cannot have duplicate timezones with same name": "Cannot have duplicate timezones with same name"
 	}
 }

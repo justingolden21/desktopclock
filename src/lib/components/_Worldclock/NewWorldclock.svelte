@@ -36,6 +36,21 @@
 				addToast({ message, type, dismissible, timeout });
 				return;
 			}
+
+			for (const timezone of $settings.worldclock.timezones) {
+				// can't have duplicate zone and name
+				// because this is the key used in the `#each` loop in `Worldclocks.svelte`
+				// for correctly rehydrating the worldclocks
+				if (timezone.name === (newTimezoneName ?? '') && timezone.zone === newTimezoneValue) {
+					const message = dictionary.messages['Cannot have duplicate timezones with same name'];
+					const type = 'error';
+					const dismissible = true;
+					const timeout = 2000;
+					addToast({ message, type, dismissible, timeout });
+					return;
+				}
+			}
+
 			$settings.worldclock.timezones.push({
 				zone: newTimezoneValue,
 				name: newTimezoneName ?? ''
