@@ -26,7 +26,7 @@
 	const hasBorder = true;
 
 	/// METHODS ///
-	const getTimezone = (timezone) =>
+	const getTimezoneName = (timezone) =>
 		timezone.name !== '' ? timezone.name : timezone.zone.split('_').join(' ');
 </script>
 
@@ -57,7 +57,7 @@
 					? 'border-t-2'
 					: 'my-4 sm:my-8'} p-4 surface">
 				<div class="text-left break-words">
-					<p>{getTimezone(timezone)}</p>
+					<p>{getTimezoneName(timezone)}</p>
 					{#if secondaryDisplay === 'rows'}
 						<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
 						<p>{$getDate(timezone.zone)}</p>
@@ -92,7 +92,7 @@
 				class="relative group {secondaryDisplay === 'analog_grid'
 					? 'text-center'
 					: 'text-left'} break-words {!hasBorder && 'border-0'} rounded surface p-4">
-				<p>{getTimezone(timezone)}</p>
+				<p>{getTimezoneName(timezone)}</p>
 				<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
 				{#if secondaryDisplay === 'analog_grid'}
 					<div class="w-24 h-24 sm:w-32 sm:h-32 relative mx-auto">
