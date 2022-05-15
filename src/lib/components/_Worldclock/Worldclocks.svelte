@@ -49,7 +49,7 @@
 {/if}
 
 <!-- secondary / other timezones -->
-{#if secondaryDisplay === 'rows'}
+{#if secondaryDisplay === 'rows' || secondaryDisplay === 'compact_rows'}
 	{#each $settings.worldclock.timezones as timezone, idx}
 		<div class="relative group">
 			<div
@@ -58,21 +58,28 @@
 					: 'my-4 sm:my-8'} p-4 surface">
 				<div class="text-left break-words">
 					<p>{getTimezone(timezone)}</p>
-					<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
-					<p>{$getDate(timezone.zone)}</p>
-					<hr class="w-36" />
+					{#if secondaryDisplay === 'rows'}
+						<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
+						<p>{$getDate(timezone.zone)}</p>
+						<hr class="w-36" />
+					{/if}
 					<p>
 						UTC {$getUtcOffset(timezone.zone)}
 						(<span class="font-bold">{$getHourDiff(timezone.zone)}</span>)
 					</p>
 				</div>
 				<div>
-					<div class="w-24 h-24 sm:w-32 sm:h-32 relative ml-auto mr-6">
-						<AnalogClock
-							theme={$settings.worldclock.theme}
-							mode="worldclock"
-							timezone={timezone.zone} />
-					</div>
+					{#if secondaryDisplay === 'rows'}
+						<div class="w-24 h-24 sm:w-32 sm:h-32 relative ml-auto mr-6">
+							<AnalogClock
+								theme={$settings.worldclock.theme}
+								mode="worldclock"
+								timezone={timezone.zone} />
+						</div>
+					{:else}
+						<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
+						<p>{$getDate(timezone.zone)}</p>
+					{/if}
 				</div>
 			</div>
 			<WorldclockDropdown {idx} classes="absolute top-2 right-2" />
