@@ -16,7 +16,7 @@
 	"author": "Justin Golden",
 	"private": "true",
 	"devDependencies": {
-		"@sveltejs/adapter-netlify": "1.0.0-next.49",
+		"@sveltejs/adapter-netlify": "1.0.0-next.57",
 		"@sveltejs/kit": "1.0.0-next.291",
 		"autoprefixer": "^10.4.2",
 		"cssnano": "^5.0.6",
