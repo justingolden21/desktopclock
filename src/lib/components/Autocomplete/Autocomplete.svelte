@@ -9,6 +9,7 @@
 	export let value = '';
 	export let disabled = false;
 	export let closeOnClickAway = true;
+	export let id = '';
 
 	// min characters in input for autocomplete to appear
 	export let minChars = 2;
@@ -101,6 +102,7 @@
 <div class="relative inline-block w-64">
 	{value}
 	<input
+		{id}
 		spellcheck="false"
 		autocomplete="off"
 		type="text"

@@ -73,7 +73,7 @@
 </div>
 
 <div class="my-4">
-	<TimezoneAutocomplete bind:value={newTimezoneValue} />
+	<TimezoneAutocomplete labelID="new-timezone-input" bind:value={newTimezoneValue} />
 </div>
 
 <button class="btn float-right" on:click={onSubmit}>

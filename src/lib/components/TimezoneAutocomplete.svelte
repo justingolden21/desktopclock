@@ -1,7 +1,11 @@
 <script>
 	// TODO: more values for timezones
 
+	import { session } from '$app/stores';
+
 	import Autocomplete from '$lib/components/Autocomplete';
+
+	$: dictionary = $session.languageDictionary;
 
 	import timezones from '$lib/data/timezones';
 
@@ -18,7 +22,11 @@
 
 	export let value,
 		disabled = false,
-		placeholder = '';
+		placeholder = '',
+		labelID = false;
 </script>
 
-<Autocomplete bind:value {placeholder} {disabled} options={timezoneArr} />
+{#if labelID}
+	<label for={labelID}>{dictionary.labels['Timezone:']}</label>
+{/if}
+<Autocomplete id={labelID} bind:value {placeholder} {disabled} options={timezoneArr} />
