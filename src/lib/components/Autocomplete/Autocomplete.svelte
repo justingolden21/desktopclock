@@ -118,7 +118,7 @@
 		on:input={filterOptions} />
 	{#if filteredOptions.length > 0}
 		<ul
-			class="absolute w-full max-h-64 overflow-y-auto z-10"
+			class="absolute min-w-full max-h-64 overflow-y-auto z-10"
 			use:clickOutside
 			on:click_outside={() => {
 				if (closeOnClickAway) filteredOptions = [];
