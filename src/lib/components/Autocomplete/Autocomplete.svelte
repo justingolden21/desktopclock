@@ -76,7 +76,7 @@
 			} else {
 				highlightIdx--;
 			}
-		} else if (e.key === 'Enter') {
+		} else if (e.key === 'Enter' && filteredOptions.length > 0) {
 			if (highlightIdx !== null) {
 				setInputVal(filteredOptions[highlightIdx]);
 			} else if (filterOptions) {
