@@ -100,7 +100,7 @@
 		if (highlightIdx < 0) highlightIdx = filteredOptions.length - 1;
 
 		if (highlightIdx !== null) {
-			document.querySelectorAll('.autocomplete-item')[highlightIdx].scrollIntoView();
+			document.querySelectorAll('.autocomplete-item')[highlightIdx]?.scrollIntoView();
 		}
 	};
 </script>
