@@ -37,7 +37,11 @@
 		let newOptions = [];
 		let numResults = 0;
 		for (const option of options) {
-			const foundIdx = option.toLowerCase().indexOf(inputValue.toLowerCase());
+			// replace spaces with underscores for timezone input
+			const foundIdx = option
+				.toLowerCase()
+				.replace(/ /g, '_')
+				.indexOf(inputValue.toLowerCase().replace(/ /g, '_'));
 			if (foundIdx !== -1) {
 				const splitString = splitStringThree(option, 0, foundIdx, foundIdx + inputValue.length);
 				const boldString = `${splitString[0]}<strong>${splitString[1]}</strong>${splitString[2]}`;
