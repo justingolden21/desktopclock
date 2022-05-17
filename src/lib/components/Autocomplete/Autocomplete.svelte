@@ -98,6 +98,10 @@
 		}
 		if (highlightIdx >= filteredOptions.length) highlightIdx = 0;
 		if (highlightIdx < 0) highlightIdx = filteredOptions.length - 1;
+
+		if (highlightIdx !== null) {
+			document.querySelectorAll('.autocomplete-item')[highlightIdx].scrollIntoView();
+		}
 	};
 </script>
 
