@@ -21,6 +21,7 @@
 	/// LIFECYCLE HOOKS ///
 	onMount(() => {
 		if (!isEditMode) return;
+		// TODO: setting `newTimezoneValue` in `onMount` doesn't update the value inside the `TimezoneAutocomplete`
 		newTimezoneName = $settings.worldclock.timezones[editIndex].name;
 		newTimezoneValue = $settings.worldclock.timezones[editIndex].zone;
 	});
