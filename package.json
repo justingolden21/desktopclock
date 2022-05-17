@@ -11,7 +11,8 @@
 		"formatfix": "prettier --ignore-path .gitignore --write .",
 		"lint": "eslint . --ext .js --ignore-path .gitignore .",
 		"lintfix": "eslint . --ext .js --ignore-path .gitignore . --fix",
-		"generate-assets": "pwa-asset-generator static/img/icons/icon.svg static/img/icons --favicon --mstile --icon-only --opaque true"
+		"generate-assets": "pwa-asset-generator static/img/icons/icon.svg static/img/icons --favicon --mstile --icon-only --opaque true",
+		"clean": "node infrastructure/clean.js"
 	},
 	"author": "Justin Golden",
 	"private": "true",
