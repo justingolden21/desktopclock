@@ -79,8 +79,8 @@
 <svelte:window on:keydown={onWindowKeyDown} />
 
 {#if component}
-	<div class="modal" on:click={close}>
-		<div class="modal-content surface rounded" on:click|stopPropagation>
+	<div class="modal" on:mousedown={close}>
+		<div class="modal-content surface rounded" on:mousedown|stopPropagation>
 			<div class="modal-header">
 				{#if previous}
 					<button
