@@ -68,12 +68,16 @@
 </script>
 
 <div class="my-4">
-	<label for="new-timezone-name-input">{dictionary.worldclockSettings['Timezone nickname:']}</label>
+	<label for="new-timezone-name-input" class="block"
+		>{dictionary.worldclockSettings['Timezone nickname:']}</label>
 	<input id="new-timezone-name-input" bind:value={newTimezoneName} type="text" maxlength="100" />
 </div>
 
 <div class="my-4">
-	<TimezoneAutocomplete labelID="new-timezone-input" bind:value={newTimezoneValue} />
+	<TimezoneAutocomplete
+		bind:value={newTimezoneValue}
+		labelID="new-timezone-input"
+		blockLabel={true} />
 </div>
 
 <button class="btn float-right md:absolute md:bottom-0 md:right-0" on:click={onSubmit}>

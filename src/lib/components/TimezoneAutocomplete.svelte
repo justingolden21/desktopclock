@@ -23,11 +23,12 @@
 	export let value,
 		disabled = false,
 		placeholder = '',
-		labelID = false;
+		labelID = false,
+		blockLabel = false;
 </script>
 
 {#if labelID}
-	<label for={labelID}>{dictionary.labels['Timezone:']}</label>
+	<label class:block={blockLabel} for={labelID}>{dictionary.labels['Timezone:']}</label>
 {/if}
 <Autocomplete
 	id={labelID}
