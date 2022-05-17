@@ -22,12 +22,3 @@
 		{/each}
 	</tbody>
 </table>
-<!-- Note: only exists in en and few other langs -->
-{#if $settings?.locale?.language?.substring(0, 2) == 'en'}
-	<p>
-		{@html $session.languageDictionary.about['madeWithText'].replace(
-			'{{Day JS}}',
-			'<a rel="noopener" href="https://day.js.org/docs/en/display/format" target="_blank">Day JS</a>'
-		)}
-	</p>
-{/if}
