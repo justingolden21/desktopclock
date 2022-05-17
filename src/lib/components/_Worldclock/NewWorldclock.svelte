@@ -12,7 +12,8 @@
 
 	/// STATE ///
 	export let data = {};
-	let newTimezoneName, newTimezoneValue;
+	let newTimezoneName,
+		newTimezoneValue = 'Etc/GMT';
 	$: dictionary = $session.languageDictionary;
 	$: editIndex = data.editIndex ?? -1;
 	$: isEditMode = editIndex !== -1;
