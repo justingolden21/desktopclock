@@ -570,6 +570,7 @@
 					<!-- TODO: when binding disabled, since locale.automaticTimezone updates before locale.timezone,
 						the timezone autocomplete displays the wrong value -->
 					<TimezoneAutocomplete
+						labelID="user-timezone-input"
 						bind:value={$settings.locale.timezone}
 						disabled={$settings.locale.automaticTimezone} />
 					<br class="block lg:hidden" />

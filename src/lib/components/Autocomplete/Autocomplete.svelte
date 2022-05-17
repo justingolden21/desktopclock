@@ -44,7 +44,7 @@
 				newOptions.push(boldString);
 
 				numResults++;
-				if (numResults >= maxResults) {
+				if (maxResults && numResults >= maxResults) {
 					break;
 				}
 			}
@@ -114,14 +114,14 @@
 		on:input={filterOptions} />
 	{#if filteredOptions.length > 0}
 		<ul
-			class="absolute w-fit min-w-full z-10"
+			class="absolute w-full max-h-64 overflow-y-auto z-10"
 			use:clickOutside
 			on:click_outside={() => {
 				if (closeOnClickAway) filteredOptions = [];
 			}}>
 			{#each filteredOptions as option, i}
 				<li
-					class="autocomplete-item p-2 cursor-pointer border-2 border-t-0 border-base-200 dark:border-base-700
+					class="block autocomplete-item p-2 cursor-pointer border-2 border-t-0 border-base-200 dark:border-base-700
                     hover:bg-accent-600 hover:dark:bg-accent-500 hover:text-white {i ===
 					highlightIdx
 						? 'bg-accent-200 dark:bg-accent-800'

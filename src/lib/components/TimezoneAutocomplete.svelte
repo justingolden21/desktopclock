@@ -29,4 +29,10 @@
 {#if labelID}
 	<label for={labelID}>{dictionary.labels['Timezone:']}</label>
 {/if}
-<Autocomplete id={labelID} bind:value {placeholder} {disabled} options={timezoneArr} />
+<Autocomplete
+	id={labelID}
+	bind:value
+	{placeholder}
+	{disabled}
+	options={timezoneArr}
+	maxResults={false} />
