@@ -623,7 +623,7 @@
 				)
 				.replace(
 					'{{email}}',
-					'<a href="mailto:contact@justingolden.me?subject=Desktop+Clock" target="_blank">contact@justingolden.me</a>'
+					'<a href="mailto:contact@justingolden.me?subject=Desktop%20Clock" target="_blank">contact@justingolden.me</a>'
 				)}
 		</p>
 	</TabPanel>
