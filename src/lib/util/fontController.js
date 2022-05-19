@@ -18,7 +18,7 @@ const addFontsStylesheets = (fonts) => {
 				: ''
 		)
 		.join('');
-	addStylesheetURL(`https://fonts.googleapis.com/css2?${fontsURL}display=optional`);
+	addStylesheetURL(`https://fonts.googleapis.com/css2?${fontsURL}display=swap`);
 };
 
 export const loadFonts = () => {
