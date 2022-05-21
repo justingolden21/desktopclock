@@ -563,17 +563,19 @@
 							}
 						}} />
 				</div>
-				<!-- todo: display gmt offset to the side -->
-				<!-- todo: search input that finds results containing that string in below select -->
-				<!-- options should look something like "Pacific Daylight Time (GMT-7) Los Angeles, CA" -->
+				<!-- TODO options should look something like "Pacific Daylight Time (GMT-7) Los Angeles, CA" -->
 				<div class="block mb-2">
-					<!-- TODO: when binding disabled, since locale.automaticTimezone updates before locale.timezone,
-						the timezone autocomplete displays the wrong value -->
-					<TimezoneAutocomplete
-						labelID="user-timezone-input"
-						bind:value={$settings.locale.timezone}
-						disabled={$settings.locale.automaticTimezone} />
-					<br class="block lg:hidden" />
+					{#if $settings.locale.automaticTimezone}
+						<span>
+							{dictionary.labels['Timezone:']}
+							{$settings.locale.timezone.replace(/_/g, ' ')}
+						</span>
+					{:else}
+						<TimezoneAutocomplete
+							labelID="user-timezone-input"
+							bind:value={$settings.locale.timezone} />
+						<br class="block lg:hidden" />
+					{/if}
 					<Toggle
 						id="auto-detect-timezone-toggle"
 						labelText={dictionary.labels['Automatically detect timezone']}
