@@ -173,7 +173,7 @@
 	import ThemeButtons from '$lib/components/ThemeButtons.svelte';
 	import { addToast } from '$lib/components/Toast';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
-	import TimezoneSelect from '$lib/components/TimezoneSelect.svelte';
+	import TimezoneAutocomplete from '$lib/components/TimezoneAutocomplete.svelte';
 	import ClockSettings from '$lib/components/_Clock/ClockSettings.svelte';
 	import WorldclockSettings from '$lib/components/_Worldclock/WorldclockSettings.svelte';
 
@@ -567,8 +567,10 @@
 				<!-- todo: search input that finds results containing that string in below select -->
 				<!-- options should look something like "Pacific Daylight Time (GMT-7) Los Angeles, CA" -->
 				<div class="block mb-2">
-					<TimezoneSelect
-						id="timezone-select"
+					<!-- TODO: when binding disabled, since locale.automaticTimezone updates before locale.timezone,
+						the timezone autocomplete displays the wrong value -->
+					<TimezoneAutocomplete
+						labelID="user-timezone-input"
 						bind:value={$settings.locale.timezone}
 						disabled={$settings.locale.automaticTimezone} />
 					<br class="block lg:hidden" />
