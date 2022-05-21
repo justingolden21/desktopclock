@@ -1,3 +1,4 @@
+<!-- Currently unused, but may use in the future, so keeping for now -->
 <script>
 	import { session } from '$app/stores';
 

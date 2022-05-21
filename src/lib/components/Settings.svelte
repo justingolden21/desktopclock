@@ -173,7 +173,7 @@
 	import ThemeButtons from '$lib/components/ThemeButtons.svelte';
 	import { addToast } from '$lib/components/Toast';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
-	import TimezoneSelect from '$lib/components/TimezoneSelect.svelte';
+	import TimezoneAutocomplete from '$lib/components/TimezoneAutocomplete.svelte';
 	import ClockSettings from '$lib/components/_Clock/ClockSettings.svelte';
 	import WorldclockSettings from '$lib/components/_Worldclock/WorldclockSettings.svelte';
 
@@ -563,15 +563,23 @@
 							}
 						}} />
 				</div>
-				<!-- todo: display gmt offset to the side -->
-				<!-- todo: search input that finds results containing that string in below select -->
-				<!-- options should look something like "Pacific Daylight Time (GMT-7) Los Angeles, CA" -->
+				<!-- TODO options should look something like "Pacific Daylight Time (GMT-7) Los Angeles, CA" -->
 				<div class="block mb-2">
-					<TimezoneSelect
-						id="timezone-select"
-						bind:value={$settings.locale.timezone}
-						disabled={$settings.locale.automaticTimezone} />
-					<br class="block lg:hidden" />
+					{#if $settings.locale.automaticTimezone}
+						<span>
+							{dictionary.labels['Timezone:']}
+							{$settings.locale.timezone.replace(/_/g, ' ')}
+						</span>
+					{:else}
+						<TimezoneAutocomplete
+							labelID="user-timezone-input"
+							bind:value={$settings.locale.timezone} />
+					{/if}
+					<br />
+					<span>
+						{dictionary.labels['Timezone offset:']}
+						{new dayjs($now).tz($settings.locale.timezone).utcOffset() / 60}
+					</span>
 					<Toggle
 						id="auto-detect-timezone-toggle"
 						labelText={dictionary.labels['Automatically detect timezone']}
@@ -582,10 +590,7 @@
 								$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 							}
 						}} />
-					<p>
-						{dictionary.labels['Timezone offset:']}
-						{new dayjs($now).tz($settings.locale.timezone).utcOffset() / 60}
-					</p>
+
 					<!-- TODO: btn to reset all locale settings, onclick toggles all auto to on which resets others -->
 				</div>
 			</AccordionPanel>
