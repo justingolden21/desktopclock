@@ -10,8 +10,6 @@
 	export let disabled = false;
 	export let closeOnClickAway = true;
 	export let id = '';
-	// mapper function to display different values to the user than the values used underneath
-	export let displayMapper = (str) => str;
 
 	// min characters in input for autocomplete to appear
 	export let minChars = 2;
@@ -27,7 +25,7 @@
 	 *
 	 * make new variable for inputValue and on inputValue change set value to it only if it's one of the options
 	 */
-	let inputValue = displayMapper(value);
+	let inputValue = value;
 	$: if (options.includes(inputValue)) value = inputValue;
 
 	const filterOptions = () => {
@@ -39,14 +37,9 @@
 		let newOptions = [];
 		let numResults = 0;
 		for (const option of options) {
-			const foundIdx = displayMapper(option).toLowerCase().indexOf(inputValue.toLowerCase());
+			const foundIdx = option.toLowerCase().indexOf(inputValue.toLowerCase());
 			if (foundIdx !== -1) {
-				const splitString = splitStringThree(
-					displayMapper(option),
-					0,
-					foundIdx,
-					foundIdx + inputValue.length
-				);
+				const splitString = splitStringThree(option, 0, foundIdx, foundIdx + inputValue.length);
 				const boldString = `${splitString[0]}<strong>${splitString[1]}</strong>${splitString[2]}`;
 				newOptions.push(boldString);
 
