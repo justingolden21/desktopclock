@@ -574,8 +574,12 @@
 						<TimezoneAutocomplete
 							labelID="user-timezone-input"
 							bind:value={$settings.locale.timezone} />
-						<br class="block lg:hidden" />
 					{/if}
+					<br />
+					<span>
+						{dictionary.labels['Timezone offset:']}
+						{new dayjs($now).tz($settings.locale.timezone).utcOffset() / 60}
+					</span>
 					<Toggle
 						id="auto-detect-timezone-toggle"
 						labelText={dictionary.labels['Automatically detect timezone']}
@@ -586,10 +590,7 @@
 								$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 							}
 						}} />
-					<p>
-						{dictionary.labels['Timezone offset:']}
-						{new dayjs($now).tz($settings.locale.timezone).utcOffset() / 60}
-					</p>
+
 					<!-- TODO: btn to reset all locale settings, onclick toggles all auto to on which resets others -->
 				</div>
 			</AccordionPanel>
