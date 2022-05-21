@@ -12,18 +12,34 @@
 
 	/// STATE ///
 	export let data = {};
-	let newTimezoneName,
-		newTimezoneValue = 'Etc/GMT';
+	let newTimezoneName, newTimezoneValue;
 	$: dictionary = $session.languageDictionary;
 	$: editIndex = data.editIndex ?? -1;
 	$: isEditMode = editIndex !== -1;
 
+	/**
+	 * By default, setting `newTimezoneValue` in `onMount` updates the value
+	 * but not the `inputValue` in `Autocomplete`.
+	 * Even if we set `inputValue = value` inside `onMount` in `Autocomplete`,
+	 * because `onMount` runs first in the child components,
+	 * it will run and not have a value before `onMount` in this component.
+	 * It has to be inside `onMount` in this component because it depends on `data` and `$settings`.
+	 * We can't set a listener to `value` changing inside `Autocomplete` since it would be a circular dependency.
+	 * So by conditionally rendering the `Autocomplete` after this component mounted,
+	 * we ensure `inputValue` is set to `value` **after** we set `newTimezoneValue` below, so the correct value is displayed.
+	 */
+	let loaded = false;
+
 	/// LIFECYCLE HOOKS ///
 	onMount(() => {
-		if (!isEditMode) return;
-		// TODO: setting `newTimezoneValue` in `onMount` doesn't update the value inside the `TimezoneAutocomplete`
-		newTimezoneName = $settings.worldclock.timezones[editIndex].name;
-		newTimezoneValue = $settings.worldclock.timezones[editIndex].zone;
+		if (isEditMode) {
+			newTimezoneName = $settings.worldclock.timezones[editIndex].name;
+			newTimezoneValue = $settings.worldclock.timezones[editIndex].zone;
+		} else {
+			newTimezoneValue = 'Etc/GMT';
+		}
+
+		loaded = true;
 	});
 
 	/// EVENT HANDLERS ///
@@ -70,16 +86,18 @@
 </script>
 
 <div class="my-4">
-	<label for="new-timezone-name-input" class="block"
-		>{dictionary.worldclockSettings['Timezone nickname:']}</label>
+	<label for="new-timezone-name-input" class="block">
+		{dictionary.worldclockSettings['Timezone nickname:']}</label>
 	<input id="new-timezone-name-input" bind:value={newTimezoneName} type="text" maxlength="100" />
 </div>
 
 <div class="my-4">
-	<TimezoneAutocomplete
-		bind:value={newTimezoneValue}
-		labelID="new-timezone-input"
-		blockLabel={true} />
+	{#if loaded}
+		<TimezoneAutocomplete
+			bind:value={newTimezoneValue}
+			labelID="new-timezone-input"
+			blockLabel={true} />
+	{/if}
 </div>
 
 <button class="btn float-right md:absolute md:bottom-0 md:right-0" on:click={onSubmit}>
