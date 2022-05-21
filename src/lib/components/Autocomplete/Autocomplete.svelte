@@ -10,6 +10,8 @@
 	export let disabled = false;
 	export let closeOnClickAway = true;
 	export let id = '';
+	// mapper function to display different values to the user than the values used underneath
+	export let displayMapper = (str) => str;
 
 	// min characters in input for autocomplete to appear
 	export let minChars = 2;
@@ -25,7 +27,7 @@
 	 *
 	 * make new variable for inputValue and on inputValue change set value to it only if it's one of the options
 	 */
-	let inputValue = value;
+	let inputValue = displayMapper(value);
 	$: if (options.includes(inputValue)) value = inputValue;
 
 	const filterOptions = () => {
@@ -37,13 +39,14 @@
 		let newOptions = [];
 		let numResults = 0;
 		for (const option of options) {
-			// replace spaces with underscores for timezone input
-			const foundIdx = option
-				.toLowerCase()
-				.replace(/ /g, '_')
-				.indexOf(inputValue.toLowerCase().replace(/ /g, '_'));
+			const foundIdx = displayMapper(option).toLowerCase().indexOf(inputValue.toLowerCase());
 			if (foundIdx !== -1) {
-				const splitString = splitStringThree(option, 0, foundIdx, foundIdx + inputValue.length);
+				const splitString = splitStringThree(
+					displayMapper(option),
+					0,
+					foundIdx,
+					foundIdx + inputValue.length
+				);
 				const boldString = `${splitString[0]}<strong>${splitString[1]}</strong>${splitString[2]}`;
 				newOptions.push(boldString);
 

@@ -25,6 +25,9 @@
 		placeholder = '',
 		labelID = false,
 		blockLabel = false;
+
+	// replace underscores with spaces
+	const displayMapper = (str) => str.replace(/_/g, ' ');
 </script>
 
 {#if labelID}
@@ -36,4 +39,5 @@
 	{placeholder}
 	{disabled}
 	options={timezoneArr}
-	maxResults={false} />
+	maxResults={false}
+	{displayMapper} />
