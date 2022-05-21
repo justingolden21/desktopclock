@@ -36,4 +36,6 @@
 	{placeholder}
 	{disabled}
 	options={timezoneArr}
-	maxResults={false} />
+	maxResults={false}
+	selectOnFocus={true}
+	selectOnClick={true} />

@@ -10,6 +10,8 @@
 	export let disabled = false;
 	export let closeOnClickAway = true;
 	export let id = '';
+	export let selectOnClick = false;
+	export let selectOnFocus = false;
 
 	// min characters in input for autocomplete to appear
 	export let minChars = 2;
@@ -118,7 +120,9 @@
 		{placeholder}
 		bind:this={searchInput}
 		bind:value={inputValue}
-		on:input={filterOptions} />
+		on:input={filterOptions}
+		on:focus={(event) => selectOnFocus && event.target.select()}
+		on:click={(event) => selectOnClick && event.target.select()} />
 	{#if filteredOptions.length > 0}
 		<ul
 			class="absolute min-w-full max-h-64 overflow-y-auto z-10"
