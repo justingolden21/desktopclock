@@ -47,6 +47,9 @@ export const defaultSettings = {
 			ampm: null
 		}
 	},
+	stopwatch: {
+		stopwatches: []
+	},
 
 	// appearance
 	baseColorPalette: 'slate',

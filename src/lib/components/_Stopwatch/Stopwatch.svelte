@@ -1,5 +1,7 @@
 <script>
 	/** stopwatch todo
+logic for adding new laps
+extended ui for laps
 seo in en.json for stopwatch
 size stopwatches based off of how many there are
   if only one, it's huge, if two theyre each half, so on
@@ -7,28 +9,67 @@ size stopwatches based off of how many there are
 
 floating action btn at bottom right "new" for new stopwatch, stopwatches have x on top right to delete them
 stopwatches have fullscreen btn on top to make that one fullscreen
-*/
 
-	console.log('stopwatch');
+limit user to 100 stopwatches
+delete all stopwatches btn, ui similar to worldclock if no stopwatches are present
+setting for "auto start" stopwatch upon creating it
+allow user to name stopwatches
+*/
 
 	import { session } from '$app/stores';
 
 	import { Icon } from '$lib/components/Icon';
-	// import { settings } from '$lib/stores/settings';
+	import { settings } from '$lib/stores/settings';
 
-	$: dictionary = $session.languageDictionary;
+	import { getNetMs, msToStr } from '$lib/util/stopwatch';
 
-	let currentTime = '88:88';
 	let currentLap = '8:88';
 	let lapNumber = 1;
 	let running = false;
 
-	const start = () => {
+	export let idx;
+
+	$: dictionary = $session.languageDictionary;
+	$: currentStopwatch = $settings.stopwatch.stopwatches[idx];
+
+	// total running time as a string, displayed to user
+	$: currentTime = currentStopwatch?.times.length
+		? msToStr(getNetMs(currentStopwatch.times), { displayMs: false })
+		: '00:00';
+
+	// Hacky way of updating the currentTime on an interval
+	// otherwise it doesn't know to rehydrate
+	// and doesn't call `getNetMs` again which gets a different result if the stopwatch is running
+	// since `Date.now()` is changing (to show the stopwatch time increasing)
+	// NOTE: could be a performance problem with many stopwatches. Monitor.
+	setInterval(() => {
+		currentStopwatch = currentStopwatch;
+	}, 100);
+
+	const toggleStart = () => {
 		running = !running;
+		// currentStopwatch.times.push(Date.now());
+		currentStopwatch.times = [...currentStopwatch.times, Date.now()];
+		// console.log(currentStopwatch.times);
+		// console.log(currentTime);
+	};
+
+	const addLap = () => {
+		// currentStopwatch.laps.push(Date.now());
+		currentStopwatch.laps = [...currentStopwatch.laps, Date.now()];
+	};
+
+	const removeStopwatch = () => {
+		// splice idx from stopwatch list
+		// similar to code in worldclock dropdown
+		$settings.stopwatch.stopwatches = $settings.stopwatch.stopwatches.filter((_, i) => i !== idx);
 	};
 </script>
 
 <div class="inline-block p-2 m-2 surface border-0">
+	<button class="icon-btn top-2 left-2 absolute" on:click={removeStopwatch}>
+		<Icon name="close" class="inline w-6 h-6" />
+	</button>
 	<div class="stopwatch">
 		<div class="stopwatch__inner">
 			<p class="top-text">{currentLap}</p>
@@ -37,16 +78,15 @@ stopwatches have fullscreen btn on top to make that one fullscreen
 		</div>
 	</div>
 	<div class="stopwatch__buttons">
-		<button class="ml-2 btn" on:click={() => console.log('it worked')}>
+		<button class="ml-2 btn {true && 'invisible'}">
 			<Icon name="stop" class="inline w-6 h-6" />
 			{dictionary.labels['Stop']}
 		</button>
-		<button class="ml-2 btn btn-lg align-bottom" on:click={start}>
+		<button class="ml-2 btn btn-lg align-bottom" on:click={toggleStart}>
 			<Icon name={running ? 'pause' : 'play'} class="inline w-6 h-6" />
 			{dictionary.labels[running ? 'Pause' : 'Start']}
 		</button>
-
-		<button class="ml-2 btn" on:click={() => console.log('it worked')}>
+		<button class="ml-2 btn {!running && 'invisible'}" on:click={addLap}>
 			<Icon name="plus" class="inline w-6 h-6" />
 			{dictionary.labels['Lap']}
 		</button>
