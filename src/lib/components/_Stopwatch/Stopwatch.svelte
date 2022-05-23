@@ -80,7 +80,7 @@ only show delete "x" if hovering stopwatch?
 	<div class="stopwatch__buttons">
 		<button class="ml-2 btn btn-lg align-bottom" on:click={toggleStart}>
 			<Icon name={running ? 'pause' : 'play'} class="inline w-6 h-6" />
-			{dictionary.labels[running ? 'Pause' : 'Start']}
+			{dictionary.labels[running ? 'Pause' : data.times.length ? 'Resume' : 'Start']}
 		</button>
 		<button class="ml-2 btn {!running && 'invisible'}" on:click={addLap}>
 			<Icon name="plus" class="inline w-6 h-6" />
