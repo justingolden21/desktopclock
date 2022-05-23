@@ -25,9 +25,13 @@
 		// since `Date.now()` is changing (to show the stopwatch time increasing)
 		// NOTE: could be a performance problem with many stopwatches. Monitor.
 		// Doing this in here instead of in each individual Stopwatch for performance
-		setInterval(() => {
+		const stopwatchInterval = setInterval(() => {
 			$settings.stopwatch.stopwatches = $settings.stopwatch.stopwatches;
 		}, 100);
+
+		return () => {
+			clearInterval(stopwatchInterval);
+		};
 	});
 </script>
 
