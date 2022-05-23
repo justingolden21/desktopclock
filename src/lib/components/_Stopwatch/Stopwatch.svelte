@@ -11,6 +11,7 @@ floating action btn at bottom right "new" for new stopwatch, stopwatches have x 
 stopwatches have fullscreen btn on top to make that one fullscreen
 
 limit user to 100 stopwatches
+max of 1000 laps?
 delete all stopwatches btn, ui similar to worldclock if no stopwatches are present
 setting for "auto start" stopwatch upon creating it
 allow user to name stopwatches
@@ -22,7 +23,8 @@ only show delete "x" if hovering stopwatch?
 	import { Icon } from '$lib/components/Icon';
 	import { settings } from '$lib/stores/settings';
 
-	import { getNetMs, msToStr, getCurrentLapTime } from '$lib/util/stopwatch';
+	import { getNetMs, msToStr, getCurrentLapTime, getLapTimes } from '$lib/util/stopwatch';
+	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 
 	export let idx;
 	export let data;
@@ -30,7 +32,11 @@ only show delete "x" if hovering stopwatch?
 	$: dictionary = $session.languageDictionary;
 	$: running = data.times.length % 2 == 1; // odd number of times
 	$: lapNumber = data.laps.length + 1;
-	$: currentLap = data?.laps.length ? getCurrentLapTime(data.times, data.laps) : '';
+	$: currentLap = data.laps.length
+		? msToStr(getCurrentLapTime(data.times, data.laps), { displayMs: false })
+		: '';
+	$: lapTimes = data.laps.length ? getLapTimes(data.times, data.laps) : '';
+	// const lapTimes = [];
 
 	// total running time as a string, displayed to user
 	$: currentTime = data?.times.length
@@ -77,6 +83,33 @@ only show delete "x" if hovering stopwatch?
 			<Icon name="plus" class="inline w-6 h-6" />
 			{dictionary.labels['Lap']}
 		</button>
+	</div>
+	<div class="stopwatch__laps">
+		<!-- TODO: update accordion style, remove bg color and bottom border, set max height and scroll vertical -->
+		<Accordion>
+			<AccordionPanel accordionTitle={dictionary.labels['Laps']}>
+				<table>
+					<tr>
+						<th>{dictionary.labels['Lap']}</th>
+						<th>{dictionary.labels['Time']}</th>
+						<th>{dictionary.labels['Total']}</th>
+					</tr>
+					{#each lapTimes as lapTime, idx}
+						<tr>
+							<!-- TODO: fix this and `getLapTimes`
+                                TODO: first lap isn't shown
+                                TODO: half the laps are missing?
+                                TODO: total column is backwards
+                            TODO: this kills performance -->
+							<th>{lapTimes.length - idx}</th>
+							<th>{msToStr(lapTime.current, { displayMs: true })}</th>
+							<!-- <th>{idx + 1}</th> -->
+							<th>{msToStr(lapTime.total, { displayMs: true })}</th>
+						</tr>
+					{/each}
+				</table>
+			</AccordionPanel>
+		</Accordion>
 	</div>
 </div>
 

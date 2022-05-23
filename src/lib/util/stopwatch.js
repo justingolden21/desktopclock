@@ -30,7 +30,7 @@ const timeObjToStr = ({ hours, minutes, seconds, milliseconds }, displaySettings
 		!displaySettings?.displayMs ? '' : `:${milliseconds.toString().padStart(3, '0')}`
 	}`;
 
-export const msToStr = (ms) => timeObjToStr(msToTimeObj(ms));
+export const msToStr = (ms, displaySettings) => timeObjToStr(msToTimeObj(ms), displaySettings);
 
 // ==== Laps ====
 
@@ -64,5 +64,26 @@ export const getCurrentLapTime = (times, laps) => {
 	relevantTimes.reverse(); // un-reverse now that we finished the loop
 	relevantTimes[0] = mostRecentLap; // the first time doesn't matter since it's before the most recent lap, we move it up to the most recent lap
 
-	return msToStr(getNetMs(relevantTimes));
+	return getNetMs(relevantTimes);
+};
+
+// TODO: FIXME
+// get all lap times
+// use `getCurrentLapTime` and splice off last lap each time
+// then subtract from the cumulative total
+export const getLapTimes = (times, laps) => {
+	const lapsClone = [...laps];
+	lapsClone.unshift(times[0]); // add first time to beginning of lap array, to count the lap before the lap button was pressed
+	const lapTimes = [];
+	let total = 0;
+	for (let i = 0; i < lapsClone.length; i++) {
+		const currentLapTime = getCurrentLapTime(times, lapsClone) - total;
+		total += currentLapTime;
+		lapTimes.push({
+			current: currentLapTime,
+			total
+		});
+		lapsClone.pop();
+	}
+	return lapTimes;
 };

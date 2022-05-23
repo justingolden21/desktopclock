@@ -111,6 +111,9 @@
 		"Stop": "Stop",
 		"Lap": "Lap",
 		"LapNumber": "Lap",
+		"Laps": "Laps",
+		"Time": "Time",
+		"Total": "Total",
 		"New stopwatch": "New stopwatch",
 
 		"Numeral Styles": {
