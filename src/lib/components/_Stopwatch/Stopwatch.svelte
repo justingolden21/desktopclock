@@ -16,6 +16,7 @@ limit user to 100 stopwatches
 delete all stopwatches btn, ui similar to worldclock if no stopwatches are present
 setting for "auto start" stopwatch upon creating it
 allow user to name stopwatches
+only show delete "x" if hovering stopwatch?
 */
 
 	import { session } from '$app/stores';
@@ -68,7 +69,7 @@ allow user to name stopwatches
 	};
 </script>
 
-<div class="inline-block p-2 m-2 surface border-0">
+<div class="inline-block p-2 m-4 surface border-0">
 	<button class="icon-btn top-2 left-2 absolute" on:click={removeStopwatch}>
 		<Icon name="close" class="inline w-6 h-6" />
 	</button>

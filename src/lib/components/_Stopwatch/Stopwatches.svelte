@@ -25,6 +25,7 @@
 	<Stopwatch {idx} />
 {/each}
 
+<br />
 <button
 	class="icon-btn rounded-none bg-transparent mx-auto"
 	on:click={makeNewStopwatch}
