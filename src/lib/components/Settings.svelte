@@ -176,6 +176,7 @@
 	import TimezoneAutocomplete from '$lib/components/TimezoneAutocomplete.svelte';
 	import ClockSettings from '$lib/components/_Clock/ClockSettings.svelte';
 	import WorldclockSettings from '$lib/components/_Worldclock/WorldclockSettings.svelte';
+	import StopwatchSettings from '$lib/components/_Stopwatch/StopwatchSettings.svelte';
 
 	import { defaultNightTheme } from '$lib/themes';
 
@@ -222,6 +223,10 @@
 				<Icon name="worldclock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 				{dictionary.pageNames['worldclock']}
 			{/if}
+			{#if $page.url.pathname === '/stopwatch'}
+				<Icon name="stopwatch" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+				{dictionary.pageNames['stopwatch']}
+			{/if}
 		</Tab>
 		<Tab>
 			<Icon name="eye" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
@@ -244,6 +249,9 @@
 		{/if}
 		{#if $page.url.pathname === '/worldclock'}
 			<WorldclockSettings />
+		{/if}
+		{#if $page.url.pathname === '/stopwatch'}
+			<StopwatchSettings />
 		{/if}
 	</TabPanel>
 
