@@ -22,16 +22,15 @@ only show delete "x" if hovering stopwatch?
 	import { Icon } from '$lib/components/Icon';
 	import { settings } from '$lib/stores/settings';
 
-	import { getNetMs, msToStr } from '$lib/util/stopwatch';
-
-	let currentLap = '8:88';
-	let lapNumber = 1;
+	import { getNetMs, msToStr, getCurrentLapTime } from '$lib/util/stopwatch';
 
 	export let idx;
 	export let data;
 
 	$: dictionary = $session.languageDictionary;
 	$: running = data.times.length % 2 == 1; // odd number of times
+	$: lapNumber = data.laps.length + 1;
+	$: currentLap = data?.laps.length ? getCurrentLapTime(data.times, data.laps) : '';
 
 	// total running time as a string, displayed to user
 	$: currentTime = data?.times.length

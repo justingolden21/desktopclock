@@ -31,3 +31,9 @@ const timeObjToStr = ({ hours, minutes, seconds, milliseconds }, displaySettings
 	}`;
 
 export const msToStr = (ms) => timeObjToStr(msToTimeObj(ms));
+
+// ==== Laps ====
+
+export const getCurrentLapTime = (times, laps) => {
+	return '8:88';
+};
