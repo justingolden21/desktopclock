@@ -30,14 +30,14 @@ only show delete "x" if hovering stopwatch?
 	let lapNumber = 1;
 
 	export let idx;
+	export let data;
 
 	$: dictionary = $session.languageDictionary;
-	$: currentStopwatch = $settings.stopwatch.stopwatches[idx];
-	$: running = currentStopwatch.times.length % 2 == 1; // odd number of times
+	$: running = data.times.length % 2 == 1; // odd number of times
 
 	// total running time as a string, displayed to user
-	$: currentTime = currentStopwatch?.times.length
-		? msToStr(getNetMs(currentStopwatch.times), { displayMs: false })
+	$: currentTime = data?.times.length
+		? msToStr(getNetMs(data.times), { displayMs: false })
 		: '00:00';
 
 	// Hacky way of updating the currentTime on an interval
@@ -46,20 +46,20 @@ only show delete "x" if hovering stopwatch?
 	// since `Date.now()` is changing (to show the stopwatch time increasing)
 	// NOTE: could be a performance problem with many stopwatches. Monitor.
 	setInterval(() => {
-		currentStopwatch = currentStopwatch;
+		data = data;
 	}, 100);
 
 	const toggleStart = () => {
 		running = !running;
-		// currentStopwatch.times.push(Date.now());
-		currentStopwatch.times = [...currentStopwatch.times, Date.now()];
-		// console.log(currentStopwatch.times);
+		// data.times.push(Date.now());
+		data.times = [...data.times, Date.now()];
+		// console.log(data.times);
 		// console.log(currentTime);
 	};
 
 	const addLap = () => {
-		// currentStopwatch.laps.push(Date.now());
-		currentStopwatch.laps = [...currentStopwatch.laps, Date.now()];
+		// data.laps.push(Date.now());
+		data.laps = [...data.laps, Date.now()];
 	};
 
 	const removeStopwatch = () => {
