@@ -37,15 +37,6 @@ only show delete "x" if hovering stopwatch?
 		? msToStr(getNetMs(data.times), { displayMs: false })
 		: '00:00';
 
-	// Hacky way of updating the currentTime on an interval
-	// otherwise it doesn't know to rehydrate
-	// and doesn't call `getNetMs` again which gets a different result if the stopwatch is running
-	// since `Date.now()` is changing (to show the stopwatch time increasing)
-	// NOTE: could be a performance problem with many stopwatches. Monitor.
-	setInterval(() => {
-		data = data;
-	}, 100);
-
 	const toggleStart = () => {
 		running = !running;
 		// data.times.push(Date.now());

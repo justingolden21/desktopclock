@@ -4,6 +4,7 @@
 	import Stopwatch from '$lib/components/_Stopwatch/Stopwatch.svelte';
 	import { settings } from '$lib/stores/settings';
 	import { Icon } from '$lib/components/Icon';
+	import { onMount } from 'svelte';
 
 	$: dictionary = $session.languageDictionary;
 
@@ -16,6 +17,18 @@
 			}
 		];
 	};
+
+	onMount(() => {
+		// Hacky way of updating the currentTime on an interval
+		// otherwise it doesn't know to rehydrate
+		// and doesn't call `getNetMs` again which gets a different result if the stopwatch is running
+		// since `Date.now()` is changing (to show the stopwatch time increasing)
+		// NOTE: could be a performance problem with many stopwatches. Monitor.
+		// Doing this in here instead of in each individual Stopwatch for performance
+		setInterval(() => {
+			$settings.stopwatch.stopwatches = $settings.stopwatch.stopwatches;
+		}, 100);
+	});
 </script>
 
 <!-- give stopwatches a unique identifier in `each` loop so that upon removing one, the page maintains state correctly
