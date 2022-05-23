@@ -105,6 +105,11 @@
 		"Name": "Name",
 		"Now": "Now",
 		"Home": "Home",
+		"Start": "Start",
+		"Pause": "Pause",
+		"Stop": "Stop",
+		"Lap": "Lap",
+		"LapNumber": "Lap",
 
 		"Numeral Styles": {
 			"numerals": "Numerals",
