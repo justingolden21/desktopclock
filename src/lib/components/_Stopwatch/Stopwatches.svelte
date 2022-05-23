@@ -22,7 +22,7 @@
 		stopwatches can be uniquely determined by a combination of their times and their index
 		we need index since intially the times are all the same (an empty array) -->
 {#each $settings.stopwatch.stopwatches as stopwatch, idx (`${idx}-${stopwatch.times.join(',')}`)}
-	<Stopwatch data={stopwatch} {idx} />
+	<Stopwatch bind:data={stopwatch} {idx} />
 {/each}
 
 <br />
