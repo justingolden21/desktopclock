@@ -35,5 +35,34 @@ export const msToStr = (ms) => timeObjToStr(msToTimeObj(ms));
 // ==== Laps ====
 
 export const getCurrentLapTime = (times, laps) => {
-	return '8:88';
+	/**
+	 * We only care about the most recent time in `laps` and the current time,
+	 * as well as any times in `times` that fall between that
+	 *
+	 * We want to get the `getNetMs` of the `times` up to one before the last `laps` item
+	 * and move the first one to the time of `laps`
+	 *
+	 * This works in part because lap btn can only be pressed while stopwatch is running,
+	 * in other words, while time is increasing, or while there are an odd number of `times`
+	 *
+	 * Visual timeline of what we are accomplishing:
+	 * stopwatch time:     ____   _______     _____    ____   ___
+	 * times:              |   |  |      |    |    |   |   | |   NOW
+	 * laps:                         |          |
+	 * relevant times:                          |  |   |   | |
+	 * current lap time:                         __    ____   ___
+	 */
+	const mostRecentLap = laps[laps.length - 1];
+	const relevantTimes = [];
+	const reversedTimes = [...times].reverse(); // a shallow clone, reversed (so we don't mutate original when reversing)
+
+	// push all times after mostRecentLap and then one more
+	for (let i = 0; i < reversedTimes.length; i++) {
+		relevantTimes.push(reversedTimes[i]);
+		if (reversedTimes[i] < mostRecentLap) break;
+	}
+	relevantTimes.reverse(); // un-reverse now that we finished the loop
+	relevantTimes[0] = mostRecentLap; // the first time doesn't matter since it's before the most recent lap, we move it up to the most recent lap
+
+	return msToStr(getNetMs(relevantTimes));
 };
