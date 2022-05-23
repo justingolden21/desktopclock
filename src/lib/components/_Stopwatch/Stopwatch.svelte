@@ -25,12 +25,12 @@ allow user to name stopwatches
 
 	let currentLap = '8:88';
 	let lapNumber = 1;
-	let running = false;
 
 	export let idx;
 
 	$: dictionary = $session.languageDictionary;
 	$: currentStopwatch = $settings.stopwatch.stopwatches[idx];
+	$: running = currentStopwatch.times.length % 2 == 1; // odd number of times
 
 	// total running time as a string, displayed to user
 	$: currentTime = currentStopwatch?.times.length
