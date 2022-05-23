@@ -22,7 +22,10 @@
 <SEO />
 
 <div class="p-4 pt-16 sm:p-16 ">
-	{#each $settings.stopwatch.stopwatches as _, idx}
+	<!-- give stopwatches a unique identifier in `each` loop so that upon removing one, the page maintains state correctly
+		stopwatches can be uniquely determined by a combination of their times and their index
+		we need index since intially the times are all the same (an empty array) -->
+	{#each $settings.stopwatch.stopwatches as stopwatch, idx (`${idx}-${stopwatch.times.join(',')}`)}
 		<Stopwatch {idx} />
 	{/each}
 
