@@ -73,7 +73,7 @@ only show delete "x" if hovering stopwatch?
 	<button class="icon-btn top-2 left-2 absolute" on:click={removeStopwatch}>
 		<Icon name="close" class="inline w-6 h-6" />
 	</button>
-	<div class="stopwatch">
+	<div class="stopwatch" on:click={toggleStart}>
 		<div class="stopwatch__inner">
 			<p class="top-text">{currentLap}</p>
 			<p class="middle-text">{currentTime}</p>
@@ -94,10 +94,10 @@ only show delete "x" if hovering stopwatch?
 
 <style lang="postcss">
 	.stopwatch {
-		@apply bg-base-200 rounded-full w-48 h-48 p-4 inline-block m-4;
+		@apply bg-base-200 rounded-full w-48 h-48 p-4 inline-block m-4 hover:bg-base-300 cursor-pointer;
 	}
 	:global(.dark) .stopwatch {
-		@apply bg-base-700;
+		@apply bg-base-700 hover:bg-base-600;
 	}
 	.stopwatch__inner {
 		@apply w-full h-full relative;
