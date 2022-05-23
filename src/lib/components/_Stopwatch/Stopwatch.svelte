@@ -1,5 +1,6 @@
 <script>
 	/** stopwatch todo
+BUG: pausing / unpausing an existing stopwatch and refreshing doesn't remember that it's running (doesn't add the timestamp to `times` in `localStorage`)
 logic for adding new laps
 extended ui for laps
 seo in en.json for stopwatch
