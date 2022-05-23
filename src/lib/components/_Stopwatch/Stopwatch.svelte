@@ -78,10 +78,6 @@ allow user to name stopwatches
 		</div>
 	</div>
 	<div class="stopwatch__buttons">
-		<button class="ml-2 btn {true && 'invisible'}">
-			<Icon name="stop" class="inline w-6 h-6" />
-			{dictionary.labels['Stop']}
-		</button>
 		<button class="ml-2 btn btn-lg align-bottom" on:click={toggleStart}>
 			<Icon name={running ? 'pause' : 'play'} class="inline w-6 h-6" />
 			{dictionary.labels[running ? 'Pause' : 'Start']}
