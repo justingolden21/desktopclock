@@ -16,7 +16,6 @@ max of 1000 laps?
 delete all stopwatches btn, ui similar to worldclock if no stopwatches are present
 setting for "auto start" stopwatch upon creating it
 allow user to name stopwatches
-only show delete "x" if hovering stopwatch?
 option to reverse order of laps (toggle in ui, boolean if true then call .reverse() in #each loop for <table>)
 */
 
@@ -65,8 +64,10 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 	};
 </script>
 
-<div class="inline-block p-2 m-4 surface border-0">
-	<button class="icon-btn top-2 left-2 absolute" on:click={removeStopwatch}>
+<div class="inline-block p-2 m-4 surface border-0 group">
+	<button
+		class="icon-btn top-2 left-2 absolute hidden group-hover:block"
+		on:click={removeStopwatch}>
 		<Icon name="close" class="inline w-6 h-6" />
 	</button>
 	<div class="stopwatch" on:click={toggleStart}>
