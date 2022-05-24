@@ -24,7 +24,7 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 	import { Icon } from '$lib/components/Icon';
 	import { settings } from '$lib/stores/settings';
 
-	import { getNetMs, msToStr, getCurrentLapTime, getLapTimes } from '$lib/util/stopwatch';
+	import { getNetMs, msToStr, getLapTimes } from '$lib/util/stopwatch';
 	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 
 	export let idx;
@@ -33,10 +33,10 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 	$: dictionary = $session.languageDictionary;
 	$: running = data.times.length % 2 == 1; // odd number of times
 	$: lapNumber = data.laps.length + 1;
-	$: currentLap = data.laps.length
-		? msToStr(getCurrentLapTime(data.times, data.laps), { displayMs: false })
-		: '';
 	$: lapTimes = data.laps.length ? getLapTimes(data.times, data.laps) : '';
+	$: currentLap = data.laps.length
+		? msToStr(lapTimes[lapTimes.length - 1].current, { displayMs: false })
+		: '';
 	// const lapTimes = [];
 
 	// total running time as a string, displayed to user
