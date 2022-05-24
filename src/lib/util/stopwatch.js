@@ -85,6 +85,8 @@ export const getLapTimes = (times, laps) => {
 	// sort by timestamp
 	allTimes.sort((a, b) => a.time - b.time);
 
+	// ================
+
 	const lapTimes = [];
 
 	// when starting/resuming, note the time
