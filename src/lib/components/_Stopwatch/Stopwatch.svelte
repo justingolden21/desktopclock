@@ -61,7 +61,7 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 	};
 </script>
 
-<div class="inline-block p-2 m-4 surface border-0 group">
+<div class="inline-block align-top p-2 m-4 surface border-0 group">
 	<button
 		class="icon-btn top-2 left-2 absolute hidden group-hover:block"
 		on:click={removeStopwatch}>
