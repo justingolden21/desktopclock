@@ -67,27 +67,6 @@ export const getCurrentLapTime = (times, laps) => {
 	return getNetMs(relevantTimes);
 };
 
-// TODO: FIXME
-// get all lap times
-// use `getCurrentLapTime` and splice off last lap each time
-// then subtract from the cumulative total
-export const getLapTimes2 = (times, laps) => {
-	const lapsClone = [...laps];
-	lapsClone.unshift(times[0]); // add first time to beginning of lap array, to count the lap before the lap button was pressed
-	const lapTimes = [];
-	let total = 0;
-	for (let i = 0; i < lapsClone.length; i += 1) {
-		const currentLapTime = getCurrentLapTime(times, lapsClone) - total;
-		total += currentLapTime;
-		lapTimes.push({
-			current: currentLapTime,
-			total
-		});
-		lapsClone.pop();
-	}
-	return lapTimes;
-};
-
 export const getLapTimes = (times, laps) => {
 	const allTimes = [];
 	for (const time of times) {
