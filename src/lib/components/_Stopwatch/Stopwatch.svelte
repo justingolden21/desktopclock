@@ -8,7 +8,7 @@ size stopwatches based off of how many there are
 
 floating action btn at bottom right "new" for new stopwatch, stopwatches have x on top right to delete them
 stopwatches have fullscreen btn on top to make that one fullscreen
-
+bug: clicking pause/resume closes accordion
 limit user to 100 stopwatches
 max of 1000 laps?
 delete all stopwatches btn, ui similar to worldclock if no stopwatches are present
