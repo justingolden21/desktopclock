@@ -45,7 +45,6 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 		: '00:00';
 
 	const toggleStart = () => {
-		running = !running;
 		// data.times.push(Date.now());
 		data.times = [...data.times, Date.now()];
 		// console.log(data.times);
