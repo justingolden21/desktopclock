@@ -1,7 +1,5 @@
 <script>
 	/** stopwatch todo
-logic for adding new laps
-extended ui for laps
 seo in en.json for stopwatch
 size stopwatches based off of how many there are
   if only one, it's huge, if two theyre each half, so on
