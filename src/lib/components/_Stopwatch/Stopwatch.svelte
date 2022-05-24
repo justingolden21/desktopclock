@@ -88,11 +88,11 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 		</button>
 	</div>
 	<div class="stopwatch__laps">
-		<!-- TODO: update accordion style, remove bg color and bottom border, set max height and scroll vertical -->
+		<!-- TODO: update accordion style, remove bg color and bottom border -->
 		{#if lapNumber > 1}
 			<Accordion>
 				<AccordionPanel accordionTitle={dictionary.labels['Laps']}>
-					<table>
+					<table class="max-h-64 block overflow-y-auto">
 						<tr>
 							<th>{dictionary.labels['Lap']}</th>
 							<th>{dictionary.labels['Time']}</th>
