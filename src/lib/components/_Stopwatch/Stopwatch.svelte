@@ -99,7 +99,6 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 						</tr>
 						{#each lapTimes as lapTime, idx}
 							<tr>
-								<!-- TODO: fix this and `getLapTimes` -->
 								<th>{idx + 1}</th>
 								<th>{msToStr(lapTime.current, { displayMs: true })}</th>
 								<th>{msToStr(lapTime.total, { displayMs: true })}</th>
