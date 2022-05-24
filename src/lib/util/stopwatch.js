@@ -103,15 +103,20 @@ export const getLapTimes = (times, laps) => {
 		});
 	}
 
+	// sort by timestamp
+	allTimes.sort((a, b) => a.time - b.time);
+
 	const lapTimes = [];
 
 	// when starting/resuming, note the time
 	// when pausing, add the difference between the previously noted time and current time to the lap and total times
 	// when hitting lap, add the lap and total times, then reset the lap time
-	let timeIntoCurrentLap = 0;
-	let previousTime = 0;
-	let totalTime = 0;
+	let timeIntoCurrentLap = 0; // ms
+	let previousTime = 0; // timestamp ms
+	let totalTime = 0; // ms
 	let isRunning = false;
+
+	// all laps other than current lap
 	for (const currentTime of allTimes) {
 		if (!currentTime.isLap) {
 			isRunning = !isRunning;
@@ -136,6 +141,7 @@ export const getLapTimes = (times, laps) => {
 		}
 	}
 
+	// current lap
 	if (isRunning) {
 		timeIntoCurrentLap += Date.now() - allTimes[allTimes.length - 1].time;
 		totalTime += Date.now() - allTimes[allTimes.length - 1].time;
