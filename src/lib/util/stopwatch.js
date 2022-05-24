@@ -71,7 +71,7 @@ export const getCurrentLapTime = (times, laps) => {
 // get all lap times
 // use `getCurrentLapTime` and splice off last lap each time
 // then subtract from the cumulative total
-export const getLapTimes = (times, laps) => {
+export const getLapTimes2 = (times, laps) => {
 	const lapsClone = [...laps];
 	lapsClone.unshift(times[0]); // add first time to beginning of lap array, to count the lap before the lap button was pressed
 	const lapTimes = [];
@@ -85,5 +85,72 @@ export const getLapTimes = (times, laps) => {
 		});
 		lapsClone.pop();
 	}
+	return lapTimes;
+};
+
+export const getLapTimes = (times, laps) => {
+	const allTimes = [];
+	for (const time of times) {
+		allTimes.push({
+			time,
+			isLap: false
+		});
+	}
+	for (const lap of laps) {
+		allTimes.push({
+			time: lap,
+			isLap: true
+		});
+	}
+
+	const lapTimes = [];
+
+	// when starting/resuming, note the time
+	// when pausing, add the difference between the previously noted time and current time to the lap and total times
+	// when hitting lap, add the lap and total times, then reset the lap time
+	let timeIntoCurrentLap = 0;
+	let previousTime = 0;
+	let totalTime = 0;
+	let isRunning = false;
+	for (const currentTime of allTimes) {
+		if (!currentTime.isLap) {
+			isRunning = !isRunning;
+			if (isRunning) {
+				// START / RESUME
+				previousTime = currentTime.time;
+			} else {
+				// PAUSE
+				timeIntoCurrentLap += currentTime.time - previousTime;
+				totalTime += currentTime.time - previousTime;
+			}
+		} else {
+			// LAP
+			// timeIntoCurrentLap += currentTime.time - previousTime;
+			// totalTime += currentTime.time - previousTime;
+			lapTimes.push({
+				current: timeIntoCurrentLap,
+				total: totalTime
+			});
+			previousTime = currentTime.time;
+			timeIntoCurrentLap = 0;
+		}
+	}
+
+	if (isRunning) {
+		timeIntoCurrentLap += Date.now() - allTimes[allTimes.length - 1].time;
+		totalTime += Date.now() - allTimes[allTimes.length - 1].time;
+		lapTimes.push({
+			current: timeIntoCurrentLap,
+			total: totalTime
+		});
+	} else {
+		timeIntoCurrentLap += allTimes[allTimes.length - 1].time - previousTime;
+		totalTime += allTimes[allTimes.length - 1].time - previousTime;
+		lapTimes.push({
+			current: timeIntoCurrentLap,
+			total: totalTime
+		});
+	}
+
 	return lapTimes;
 };
