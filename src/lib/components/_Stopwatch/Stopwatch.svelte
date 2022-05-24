@@ -17,6 +17,7 @@ delete all stopwatches btn, ui similar to worldclock if no stopwatches are prese
 setting for "auto start" stopwatch upon creating it
 allow user to name stopwatches
 only show delete "x" if hovering stopwatch?
+option to reverse order of laps (toggle in ui, boolean if true then call .reverse() in #each loop for <table>)
 */
 
 	import { session } from '$app/stores';
