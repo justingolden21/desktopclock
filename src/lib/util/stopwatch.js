@@ -57,7 +57,7 @@ export const getCurrentLapTime = (times, laps) => {
 	const reversedTimes = [...times].reverse(); // a shallow clone, reversed (so we don't mutate original when reversing)
 
 	// push all times after mostRecentLap and then one more
-	for (let i = 0; i < reversedTimes.length; i++) {
+	for (let i = 0; i < reversedTimes.length; i += 1) {
 		relevantTimes.push(reversedTimes[i]);
 		if (reversedTimes[i] < mostRecentLap) break;
 	}
@@ -76,7 +76,7 @@ export const getLapTimes2 = (times, laps) => {
 	lapsClone.unshift(times[0]); // add first time to beginning of lap array, to count the lap before the lap button was pressed
 	const lapTimes = [];
 	let total = 0;
-	for (let i = 0; i < lapsClone.length; i++) {
+	for (let i = 0; i < lapsClone.length; i += 1) {
 		const currentLapTime = getCurrentLapTime(times, lapsClone) - total;
 		total += currentLapTime;
 		lapTimes.push({
