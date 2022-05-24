@@ -70,7 +70,7 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 	<div class="stopwatch" on:click={toggleStart}>
 		<div class="stopwatch__inner">
 			<p class="top-text">{currentLap}</p>
-			<p class="middle-text">{currentTime}</p>
+			<h2 class="middle-text">{currentTime}</h2>
 			<p class="bottom-text">{dictionary.labels['LapNumber']} {lapNumber}</p>
 		</div>
 	</div>
@@ -135,6 +135,6 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 		@apply bottom-0;
 	}
 	.middle-text {
-		@apply top-1/2 relative -translate-y-1/2 text-5xl;
+		@apply top-1/2 relative -translate-y-1/2 text-5xl m-0 p-0;
 	}
 </style>
