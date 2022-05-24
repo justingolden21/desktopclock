@@ -129,8 +129,6 @@ export const getLapTimes = (times, laps) => {
 			total: totalTime
 		});
 	} else {
-		timeIntoCurrentLap += allTimes[allTimes.length - 1].time - previousTime;
-		totalTime += allTimes[allTimes.length - 1].time - previousTime;
 		lapTimes.push({
 			current: timeIntoCurrentLap,
 			total: totalTime
