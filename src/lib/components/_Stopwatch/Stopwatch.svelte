@@ -87,30 +87,27 @@ only show delete "x" if hovering stopwatch?
 	</div>
 	<div class="stopwatch__laps">
 		<!-- TODO: update accordion style, remove bg color and bottom border, set max height and scroll vertical -->
-		<Accordion>
-			<AccordionPanel accordionTitle={dictionary.labels['Laps']}>
-				<table>
-					<tr>
-						<th>{dictionary.labels['Lap']}</th>
-						<th>{dictionary.labels['Time']}</th>
-						<th>{dictionary.labels['Total']}</th>
-					</tr>
-					{#each lapTimes as lapTime, idx}
+		{#if lapNumber > 1}
+			<Accordion>
+				<AccordionPanel accordionTitle={dictionary.labels['Laps']}>
+					<table>
 						<tr>
-							<!-- TODO: fix this and `getLapTimes`
-                                TODO: first lap isn't shown
-                                TODO: half the laps are missing?
-                                TODO: total column is backwards
-                            TODO: this kills performance -->
-							<th>{lapTimes.length - idx}</th>
-							<th>{msToStr(lapTime.current, { displayMs: true })}</th>
-							<!-- <th>{idx + 1}</th> -->
-							<th>{msToStr(lapTime.total, { displayMs: true })}</th>
+							<th>{dictionary.labels['Lap']}</th>
+							<th>{dictionary.labels['Time']}</th>
+							<th>{dictionary.labels['Total']}</th>
 						</tr>
-					{/each}
-				</table>
-			</AccordionPanel>
-		</Accordion>
+						{#each lapTimes as lapTime, idx}
+							<tr>
+								<!-- TODO: fix this and `getLapTimes` -->
+								<th>{idx + 1}</th>
+								<th>{msToStr(lapTime.current, { displayMs: true })}</th>
+								<th>{msToStr(lapTime.total, { displayMs: true })}</th>
+							</tr>
+						{/each}
+					</table>
+				</AccordionPanel>
+			</Accordion>
+		{/if}
 	</div>
 </div>
 
