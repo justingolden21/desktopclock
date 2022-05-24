@@ -71,7 +71,9 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 		<div class="stopwatch__inner">
 			<p class="top-text">{currentLap}</p>
 			<h2 class="middle-text">{currentTime}</h2>
-			<p class="bottom-text">{dictionary.labels['LapNumber']} {lapNumber}</p>
+			{#if lapNumber > 1}
+				<p class="bottom-text">{dictionary.labels['LapNumber']} {lapNumber}</p>
+			{/if}
 		</div>
 	</div>
 	<div class="stopwatch__buttons">
