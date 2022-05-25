@@ -152,4 +152,11 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 		content: '';
 		margin-right: -100%;
 	}
+
+	tr,
+	th,
+	:global(.dark) tr,
+	:global(.dark) th {
+		@apply bg-transparent !important;
+	}
 </style>
