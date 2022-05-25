@@ -16,7 +16,13 @@
 			"keywords": "worldclock, time tables, convert timezones, analog worldclock, digital worldclock, multiple timezones clock, worldclock online, worldclock offline, free worldclock, best worldclock",
 			"screenshot": "screenshot-worldclock-en.png"
 		},
-		"stopwatch": {},
+		"stopwatch": {
+			"name": "Stopwatch - Desktop Clock",
+			"description": "A simple, sleek stopwatch that supports laps, multiple stopwatches, and customizability",
+			"shareDescription": "Try Stopwatch from Desktop Clock",
+			"keywords": "stopwatch, stopwatch online, stopwatch offline, free stopwatch, multiple stopwatches, multiple stopwatches online, multiple stopwatches free, best stopwatch, stopwatch with laps, lap stopwatch",
+			"screenshot": "screenshot-stopwatch-en.png"
+		},
 		"timers": {}
 	},
 	"pageNames": {
