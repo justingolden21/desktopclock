@@ -27,7 +27,7 @@ const timeObjToStr = ({ hours, minutes, seconds, milliseconds }, displaySettings
 	`${hours === 0 ? '' : `${hours.toString().padStart(2, '0')}:`}${minutes
 		.toString()
 		.padStart(2, '0')}:${seconds.toString().padStart(2, '0')}${
-		!displaySettings?.displayMs ? '' : `:${milliseconds.toString().padStart(3, '0')}`
+		!displaySettings?.displayMs ? '' : `.${milliseconds.toString().padStart(3, '0')}`
 	}`;
 
 export const msToStr = (ms, displaySettings) => timeObjToStr(msToTimeObj(ms), displaySettings);
