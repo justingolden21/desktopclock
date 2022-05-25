@@ -121,7 +121,7 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 		@apply bg-base-700 hover:bg-base-600;
 	}
 	.stopwatch__inner {
-		@apply w-full h-full relative;
+		@apply w-full h-full relative select-none;
 	}
 	.top-text,
 	.middle-text,
