@@ -20,6 +20,10 @@
 		];
 	};
 
+	const deleteAllStopwatches = () => {
+		$settings.stopwatch.stopwatches = [];
+	};
+
 	onMount(() => {
 		// Hacky way of updating the currentTime on an interval
 		// otherwise it doesn't know to rehydrate
@@ -62,3 +66,10 @@
 	<Icon name="plus" class="inline-block w-8 h-8" />
 	<span>{dictionary.labels['New']}</span>
 </button>
+
+{#if $settings.stopwatch.stopwatches.length > 4}
+	<button class="ml-4 icon-btn rounded-none bg-transparent mx-auto" on:click={deleteAllStopwatches}>
+		<Icon name="trash" class="inline-block w-8 h-8" />
+		<span>{dictionary.labels['Delete all']}</span>
+	</button>
+{/if}
