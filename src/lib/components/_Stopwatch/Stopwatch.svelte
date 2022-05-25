@@ -61,7 +61,7 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 	};
 </script>
 
-<div class="inline-block align-top p-2 m-4 surface border-0 group">
+<div class="inline-block align-top m-4 surface border-0 group">
 	<button
 		class="icon-btn top-2 left-2 absolute hidden group-hover:block"
 		on:click={removeStopwatch}>
@@ -76,39 +76,37 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 			{/if}
 		</div>
 	</div>
-	<div class="stopwatch__buttons">
-		<button class="ml-2 btn btn-lg align-bottom" on:click={toggleStart}>
+	<div>
+		<button class="m-0 mr-4 mb-4 btn btn-lg align-bottom" on:click={toggleStart}>
 			<Icon name={running ? 'pause' : 'play'} class="inline w-6 h-6" />
 			{dictionary.labels[running ? 'Pause' : data.times.length ? 'Resume' : 'Start']}
 		</button>
-		<button class="ml-2 btn {!running && 'invisible'}" on:click={addLap}>
+		<button class="m-0 mb-4 btn {!running && 'invisible'}" on:click={addLap}>
 			<Icon name="plus" class="inline w-6 h-6" />
 			{dictionary.labels['Lap']}
 		</button>
 	</div>
-	<div class="stopwatch__laps">
-		<!-- TODO: update accordion style, remove bg color and bottom border -->
-		{#if lapNumber > 1}
-			<Accordion>
-				<AccordionPanel accordionTitle={dictionary.labels['Laps']}>
-					<table class="max-h-64 overflow-y-auto mb-0">
+
+	{#if lapNumber > 1}
+		<Accordion>
+			<AccordionPanel accordionTitle={dictionary.labels['Laps']}>
+				<table class="max-h-64 overflow-y-auto mb-0">
+					<tr>
+						<th>{dictionary.labels['Lap']}</th>
+						<th>{dictionary.labels['Time']}</th>
+						<th>{dictionary.labels['Total']}</th>
+					</tr>
+					{#each lapTimes as lapTime, idx}
 						<tr>
-							<th>{dictionary.labels['Lap']}</th>
-							<th>{dictionary.labels['Time']}</th>
-							<th>{dictionary.labels['Total']}</th>
+							<th>{idx + 1}</th>
+							<th>{msToStr(lapTime.current, { displayMs: true })}</th>
+							<th>{msToStr(lapTime.total, { displayMs: true })}</th>
 						</tr>
-						{#each lapTimes as lapTime, idx}
-							<tr>
-								<th>{idx + 1}</th>
-								<th>{msToStr(lapTime.current, { displayMs: true })}</th>
-								<th>{msToStr(lapTime.total, { displayMs: true })}</th>
-							</tr>
-						{/each}
-					</table>
-				</AccordionPanel>
-			</Accordion>
-		{/if}
-	</div>
+					{/each}
+				</table>
+			</AccordionPanel>
+		</Accordion>
+	{/if}
 </div>
 
 <style lang="postcss">
