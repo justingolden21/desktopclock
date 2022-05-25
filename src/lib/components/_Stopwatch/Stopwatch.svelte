@@ -90,20 +90,24 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 	{#if lapNumber > 1}
 		<Accordion>
 			<AccordionPanel accordionTitle={dictionary.labels['Laps']}>
-				<table class="max-h-64 overflow-y-auto mb-0">
-					<tr>
-						<th>{dictionary.labels['Lap']}</th>
-						<th>{dictionary.labels['Time']}</th>
-						<th>{dictionary.labels['Total']}</th>
-					</tr>
-					{#each lapTimes as lapTime, idx}
+				<!-- div wrapping table so we can have overflow scroll and the alignment of display:table
+					https://stackoverflow.com/a/29156151/4907950 -->
+				<div class="max-h-64 overflow-auto">
+					<table class="mb-0">
 						<tr>
-							<th>{idx + 1}</th>
-							<th>{msToStr(lapTime.current, { displayMs: true })}</th>
-							<th>{msToStr(lapTime.total, { displayMs: true })}</th>
+							<th>{dictionary.labels['Lap']}</th>
+							<th>{dictionary.labels['Time']}</th>
+							<th>{dictionary.labels['Total']}</th>
 						</tr>
-					{/each}
-				</table>
+						{#each lapTimes as lapTime, idx}
+							<tr>
+								<th>{idx + 1}</th>
+								<th>{msToStr(lapTime.current, { displayMs: true })}</th>
+								<th>{msToStr(lapTime.total, { displayMs: true })}</th>
+							</tr>
+						{/each}
+					</table>
+				</div>
 			</AccordionPanel>
 		</Accordion>
 	{/if}
