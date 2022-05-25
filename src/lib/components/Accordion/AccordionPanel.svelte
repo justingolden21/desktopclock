@@ -38,7 +38,10 @@
 
 <style lang="postcss">
 	.details {
-		@apply bg-base-50 border-b-2 border-base-200 bg-opacity-25;
+		@apply bg-base-50 bg-opacity-25;
+	}
+	.details:not(:first-child) {
+		@apply border-t-2 border-base-200;
 	}
 	:global(.dark) .details {
 		@apply bg-base-700 bg-opacity-25;
