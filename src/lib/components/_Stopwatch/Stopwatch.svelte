@@ -140,11 +140,15 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 		@apply top-1/2 relative -translate-y-1/2 text-5xl m-0 p-0;
 	}
 	/* https://stackoverflow.com/a/28233945/4907950 */
-	.middle-text:before {
+	.top-text:before,
+	.middle-text:before,
+	.bottom-text:before {
 		content: '';
 		margin-left: -100%;
 	}
-	.middle-text:after {
+	.top-text:after,
+	.middle-text:after,
+	.bottom-text:after {
 		content: '';
 		margin-right: -100%;
 	}
