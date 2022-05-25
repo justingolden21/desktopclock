@@ -38,9 +38,11 @@
 <!-- give stopwatches a unique identifier in `each` loop so that upon removing one, the page maintains state correctly
 		stopwatches can be uniquely determined by a combination of their times and their index
 		we need index since intially the times are all the same (an empty array) -->
-{#each $settings.stopwatch.stopwatches as stopwatch, idx (`${idx}-${stopwatch.times.join(',')}`)}
-	<Stopwatch bind:data={stopwatch} {idx} />
-{/each}
+<div class="grid  lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+	{#each $settings.stopwatch.stopwatches as stopwatch, idx (`${idx}-${stopwatch.times.join(',')}`)}
+		<Stopwatch bind:data={stopwatch} {idx} />
+	{/each}
+</div>
 
 <br />
 <button
