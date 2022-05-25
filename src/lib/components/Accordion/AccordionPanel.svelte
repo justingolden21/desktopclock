@@ -23,18 +23,17 @@
 </script>
 
 <div class="details">
-	<div class="summary">
-		<button
-			class="w-full text-left cursor-pointer p-2 hover:bg-base-50 focus:bg-base-100 font-normal text-lg dark:hover:bg-base-600 dark:focus:bg-base-600 bg-opacity-25 dark:bg-base-700 dark:bg-opacity-50"
-			on:click={handleToggle}
-			aria-expanded={params.open}>
-			<Icon
-				name="chevron_right"
-				class="inline w-6 h-6 transition-transform {params.open ? 'rotate-90' : ''}"
-				aria-hidden="true" />
-			{accordionTitle}
-		</button>
-	</div>
+	<button
+		class="w-full text-left cursor-pointer p-2 hover:bg-base-50 focus:bg-base-100 font-normal text-lg dark:hover:bg-base-600 dark:focus:bg-base-600 bg-opacity-25 dark:bg-base-700 dark:bg-opacity-50"
+		on:click={handleToggle}
+		aria-expanded={params.open}>
+		<Icon
+			name="chevron_right"
+			class="inline w-6 h-6 transition-transform {params.open ? 'rotate-90' : ''}"
+			aria-hidden="true" />
+		{accordionTitle}
+	</button>
+
 	<div class="details-content" class:open={params.open}>
 		<slot />
 	</div>
