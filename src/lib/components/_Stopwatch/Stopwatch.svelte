@@ -1,17 +1,14 @@
 <script>
 	/** stopwatch todo
-seo in en.json for stopwatch
 size stopwatches based off of how many there are
   if only one, it's huge, if two theyre each half, so on
   first one is huge and next ones under it are smaller
   if only one and large width, show time on left and laps on right (or just time in center without laps before lap btn has been pressed)
 
-floating action btn at bottom right "new" for new stopwatch, stopwatches have x on top right to delete them
 stopwatches have fullscreen btn on top to make that one fullscreen
 bug: clicking pause/resume closes accordion
 limit user to 100 stopwatches
 max of 1000 laps?
-delete all stopwatches btn, ui similar to worldclock if no stopwatches are present
 setting for "auto start" stopwatch upon creating it
 allow user to name stopwatches
 option to reverse order of laps (toggle in ui, boolean if true then call .reverse() in #each loop for <table>)
