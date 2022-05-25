@@ -91,7 +91,7 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 		{#if lapNumber > 1}
 			<Accordion>
 				<AccordionPanel accordionTitle={dictionary.labels['Laps']}>
-					<table class="max-h-64 block overflow-y-auto">
+					<table class="max-h-64 overflow-y-auto mb-0">
 						<tr>
 							<th>{dictionary.labels['Lap']}</th>
 							<th>{dictionary.labels['Time']}</th>
