@@ -264,6 +264,9 @@
 
 		"You don't have any other worldclocks. Try adding a new one": "You don't have any other worldclocks. Try adding a new one"
 	},
+	"stopwatchSettings": {
+		"You don't have any stopwatches. Try adding a new one": "You don't have any stopwatches. Try adding a new one"
+	},
 	"display": {
 		"Stroke color": "Stroke color",
 		"Fill color": "Fill color",

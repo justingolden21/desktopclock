@@ -1,10 +1,12 @@
 <script>
 	import { session } from '$app/stores';
-
-	import Stopwatch from '$lib/components/_Stopwatch/Stopwatch.svelte';
-	import { settings } from '$lib/stores/settings';
-	import { Icon } from '$lib/components/Icon';
 	import { onMount } from 'svelte';
+
+	import Stopwatch from './Stopwatch.svelte';
+	import NoStopwatches from './NoStopwatches.svelte';
+
+	import { Icon } from '$lib/components/Icon';
+	import { settings } from '$lib/stores/settings';
 
 	$: dictionary = $session.languageDictionary;
 
@@ -45,6 +47,13 @@
 </div>
 
 <br />
+
+{#if $settings.stopwatch.stopwatches.length === 0}
+	<NoStopwatches />
+{/if}
+
+<br />
+
 <button
 	class="icon-btn rounded-none bg-transparent mx-auto"
 	on:click={makeNewStopwatch}
