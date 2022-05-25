@@ -40,13 +40,12 @@
 	.details {
 		@apply bg-base-50 border-b-2 border-base-200 bg-opacity-25;
 	}
-	/* prevent white flash when opening details in dark mode */
 	:global(.dark) .details {
 		@apply bg-base-700 bg-opacity-25;
 	}
 
 	.details__summary {
-		@apply w-full text-left cursor-pointer p-2 hover:bg-base-50 focus:bg-base-100 font-normal text-lg bg-opacity-25;
+		@apply w-full text-left cursor-pointer p-2 hover:bg-base-50 focus:bg-base-50 font-normal text-lg bg-opacity-25;
 	}
 	:global(.dark) .details__summary {
 		@apply hover:bg-base-600 focus:bg-base-600 bg-base-700 bg-opacity-50;
