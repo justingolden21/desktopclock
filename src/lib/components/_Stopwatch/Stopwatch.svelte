@@ -126,12 +126,12 @@ dashboard view that opens a modal with a table of all stopwatches, names, and ti
 								<th
 									>{msToStr(lapTime.current, {
 										alwaysShowHours: false,
-										digitsAfterSeconds: 3
+										digitsAfterSeconds: $settings.stopwatch.digitsAfterSecondsLapList
 									})}</th>
 								<th
 									>{msToStr(lapTime.total, {
 										alwaysShowHours: false,
-										digitsAfterSeconds: 3
+										digitsAfterSeconds: $settings.stopwatch.digitsAfterSecondsLapList
 									})}</th>
 							</tr>
 						{/each}

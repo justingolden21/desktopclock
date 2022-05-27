@@ -57,6 +57,7 @@ export const defaultSettings = {
 		],
 		alwaysShowHours: false,
 		digitsAfterSeconds: 1,
+		digitsAfterSecondsLapList: 3,
 		showResetButton: false,
 		reverseOrderLaps: false,
 		autoStartStopwatches: false

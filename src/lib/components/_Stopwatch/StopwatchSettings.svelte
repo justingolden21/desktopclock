@@ -50,6 +50,12 @@
 	bind:value={$settings.stopwatch.digitsAfterSeconds}
 	values={[...Array(4).keys()]} />
 
+<SettingSelect
+	id="digits-after-seconds-lap-list-select"
+	selectLabel={dictionary.stopwatchSettings['Digits after seconds in lap list']}
+	bind:value={$settings.stopwatch.digitsAfterSecondsLapList}
+	values={[...Array(4).keys()]} />
+
 <hr />
 
 <Toggle
