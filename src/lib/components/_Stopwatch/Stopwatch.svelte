@@ -13,6 +13,7 @@ limit user to 100 stopwatches
 max of 1000 laps?
 setting for "auto start" stopwatch upon creating it
 allow user to name stopwatches
+dashboard view that opens a modal with a table of all stopwatches, names, and times, super compact for many stopwatches
 option to reverse order of laps (toggle in ui, boolean if true then call .reverse() in #each loop for <table>)
 */
 

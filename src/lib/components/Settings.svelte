@@ -136,7 +136,7 @@
 		addToast({ message, type, dismissible, timeout });
 	};
 
-	export function validate(input) {
+	export function validateInt(input) {
 		const min = input.min;
 		const max = input.max;
 		const val = input.value;
@@ -369,7 +369,7 @@
 						<input
 							id="seconds-until-idle-input"
 							on:input|preventDefault={(event) => {
-								const value = validate(event.target);
+								const value = validateInt(event.target);
 								$settings.secondsUntilIdle = value;
 								event.target.value = value;
 							}}
