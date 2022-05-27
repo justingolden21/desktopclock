@@ -17,7 +17,8 @@ stopwatches take some time to save, if user quickly starts/stops/laps and closes
   this also affects "delete all settings and reload" which doesn't delete stopwatches
 dashboard view that opens a modal with a table of all stopwatches, names, and times, super compact for many stopwatches
 option to reverse order of laps (toggle in ui, boolean if true then call .reverse() in #each loop for <table>)
-*/
+stopwatch settings btns for pause all (that arent) resume all (that arent)
+	*/
 
 	import { session } from '$app/stores';
 
