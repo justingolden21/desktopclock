@@ -5,6 +5,8 @@ size stopwatches based off of how many there are
   first one is huge and next ones under it are smaller
   if only one and large width, show time on left and laps on right (or just time in center without laps before lap btn has been pressed)
 
+  triple dots menu for: delete, fullscreen, rename stopwatch
+option (default off) for show reset btn
 stopwatches have fullscreen btn on top to make that one fullscreen
 bug: clicking pause/resume closes accordion
 limit user to 100 stopwatches
@@ -56,6 +58,11 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 		// similar to code in worldclock dropdown
 		$settings.stopwatch.stopwatches = $settings.stopwatch.stopwatches.filter((_, i) => i !== idx);
 	};
+
+	const resetStopwatch = () => {
+		data.laps = [];
+		data.times = [];
+	};
 </script>
 
 <div class="inline-block align-top m-4 surface border-0 group" class:col-span-full={idx === 0}>
@@ -82,6 +89,10 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 			<Icon name="plus" class="inline w-6 h-6" />
 			{dictionary.labels['Lap']}
 		</button>
+		<!-- <button class="m-0 btn undo-btn {running && 'invisible'}" on:click={resetStopwatch}>
+			<Icon name="undo" class="inline w-6 h-6" />
+			{dictionary.labels['Reset']}
+		</button> -->
 	</div>
 
 	{#if lapNumber > 1}
