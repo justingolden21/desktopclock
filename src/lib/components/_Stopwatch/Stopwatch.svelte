@@ -10,12 +10,10 @@ stopwatches have fullscreen btn on top to make that one fullscreen
 bug: clicking pause/resume closes accordion
 limit user to 100 stopwatches
 max of 1000 laps?
-setting for "auto start" stopwatch upon creating it
 allow user to name stopwatches
 stopwatches take some time to save, if user quickly starts/stops/laps and closes tab, it will be "out dated"
   this also affects "delete all settings and reload" which doesn't delete stopwatches
 dashboard view that opens a modal with a table of all stopwatches, names, and times, super compact for many stopwatches
-stopwatch settings btns for pause all (that arent) resume all (that arent)
 	*/
 
 	import { session } from '$app/stores';
