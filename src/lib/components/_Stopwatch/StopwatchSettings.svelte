@@ -70,6 +70,11 @@
 	bind:checked={$settings.stopwatch.reverseOrderLaps}
 	labelText={dictionary.stopwatchSettings['Reverse lap order']} />
 
+<Toggle
+	id="larget-first-stopwatch-toggle"
+	bind:checked={$settings.stopwatch.largerFirstStopwatch}
+	labelText={dictionary.stopwatchSettings['First stopwatch is larger']} />
+
 <h3>{dictionary.stopwatchSettings['Behavior']}</h3>
 
 <Toggle

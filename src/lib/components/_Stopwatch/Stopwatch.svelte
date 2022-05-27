@@ -68,7 +68,9 @@ bug: stopwatches take some time to save, if user quickly starts/stops/laps and c
 	};
 </script>
 
-<div class="inline-block align-top m-4 surface border-0 group" class:col-span-full={idx === 0}>
+<div
+	class="inline-block align-top m-4 surface border-0 group"
+	class:col-span-full={idx === 0 && $settings.stopwatch.largerFirstStopwatch}>
 	<button
 		class="icon-btn top-2 left-2 absolute hidden group-hover:block"
 		on:click={removeStopwatch}>
