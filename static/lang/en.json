@@ -266,6 +266,18 @@
 		"You don't have any other worldclocks. Try adding a new one": "You don't have any other worldclocks. Try adding a new one"
 	},
 	"stopwatchSettings": {
+		"Display": "Display",
+		"Behavior": "Behavior",
+
+		"Always show hours": "Always show hours",
+		"Digits after seconds": "Digits after seconds",
+		"Show reset stopwatch button": "Show reset stopwatch button",
+		"Reverse lap order": "Reverse lap order",
+		"Automatically start new stopwatches": "Automatically start new stopwatches",
+		"Start all paused stopwatches": "Start all paused stopwatches",
+		"Stop all running stopwatches": "Stop all running stopwatches",
+		"Reset stopwatch settings": "Reset stopwatch settings",
+
 		"Simultaneous start": "Simultaneous start",
 		"Simultaneous Start": "Simultaneous Start",
 		"Number of stopwatches to start at the same time:": "Number of stopwatches to start at the same time:",

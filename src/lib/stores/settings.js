@@ -54,7 +54,12 @@ export const defaultSettings = {
 				times: [],
 				laps: []
 			}
-		]
+		],
+		alwaysShowHours: false,
+		digitsAfterSeconds: 1,
+		showResetButton: false,
+		reverseOrderLaps: false,
+		autoStartStopwatches: false
 	},
 
 	// appearance
