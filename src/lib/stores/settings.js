@@ -48,7 +48,13 @@ export const defaultSettings = {
 		}
 	},
 	stopwatch: {
-		stopwatches: []
+		stopwatches: [
+			// initialize the user with one new stopwatch
+			{
+				times: [],
+				laps: []
+			}
+		]
 	},
 
 	// appearance
