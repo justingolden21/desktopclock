@@ -50,6 +50,8 @@
 	bind:value={$settings.stopwatch.digitsAfterSeconds}
 	values={[...Array(4).keys()]} />
 
+<br />
+
 <SettingSelect
 	id="digits-after-seconds-lap-list-select"
 	selectLabel={dictionary.stopwatchSettings['Digits after seconds in lap list']}
