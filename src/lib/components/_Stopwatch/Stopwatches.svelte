@@ -16,7 +16,7 @@
 		$settings.stopwatch.stopwatches = [
 			...$settings.stopwatch.stopwatches,
 			{
-				times: [],
+				times: $settings.stopwatch.autoStartStopwatches ? [Date.now()] : [],
 				laps: []
 			}
 		];
