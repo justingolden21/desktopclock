@@ -73,12 +73,12 @@ option to reverse order of laps (toggle in ui, boolean if true then call .revers
 			{/if}
 		</div>
 	</div>
-	<div>
-		<button class="m-0 mr-4 mb-4 btn btn-lg align-bottom" on:click={toggleStart}>
+	<div class="grid grid-cols-2 gap-4 m-4 mt-0">
+		<button class="m-0 btn {!running && 'col-span-2'}" on:click={toggleStart}>
 			<Icon name={running ? 'pause' : 'play'} class="inline w-6 h-6" />
 			{dictionary.labels[running ? 'Pause' : data.times.length ? 'Resume' : 'Start']}
 		</button>
-		<button class="m-0 mb-4 btn {!running && 'invisible'}" on:click={addLap}>
+		<button class="m-0 btn {!running && 'hidden'}" on:click={addLap}>
 			<Icon name="plus" class="inline w-6 h-6" />
 			{dictionary.labels['Lap']}
 		</button>
