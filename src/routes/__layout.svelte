@@ -25,6 +25,7 @@
 	import initializeSettings from '$lib/util/initializeSettings';
 	import { systemFontFamilies } from '$lib/data/consts';
 	import version from '$lib/data/version';
+	import Pattern from '$lib/components/Pattern.svelte';
 
 	/// STATE ///
 	let loading = true;
@@ -144,6 +145,7 @@
 		<Header bind:navOpen />
 		<div class="flex-1">
 			<slot />
+			<Pattern />
 		</div>
 	</div>
 
