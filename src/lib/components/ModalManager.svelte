@@ -11,6 +11,7 @@
 	import NewWorldclock from '$lib/components/_Worldclock/NewWorldclock.svelte';
 	import WorldclockTimetable from '$lib/components/_Worldclock/WorldclockTimetable.svelte';
 	import ConvertTimezones from '$lib/components/_Worldclock/ConvertTimezones.svelte';
+	import SimultaneousStart from '$lib/components/_Stopwatch/SimultaneousStart.svelte';
 
 	/// STATE ///
 	const modalData = {
@@ -50,6 +51,11 @@
 			title: $session.languageDictionary.worldclockSettings['Timetable'],
 			icon: 'table',
 			component: WorldclockTimetable
+		},
+		'simultaneous-start': {
+			title: $session.languageDictionary.stopwatchSettings['Simultaneous Start'],
+			icon: 'stopwatch',
+			component: SimultaneousStart
 		}
 	};
 

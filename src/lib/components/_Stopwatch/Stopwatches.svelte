@@ -2,6 +2,8 @@
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
 
+	import { open } from '$lib/util/modal';
+
 	import Stopwatch from './Stopwatch.svelte';
 	import NoStopwatches from './NoStopwatches.svelte';
 
@@ -73,3 +75,10 @@
 		<span>{dictionary.labels['Delete all']}</span>
 	</button>
 {/if}
+
+<button
+	class="ml-4 icon-btn rounded-none bg-transparent mx-auto"
+	on:click={() => open('simultaneous-start')}>
+	<Icon name="stopwatch" class="inline-block w-8 h-8" />
+	<span>{dictionary.stopwatchSettings['Simultaneous start']}</span>
+</button>
