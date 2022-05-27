@@ -6,7 +6,6 @@ size stopwatches based off of how many there are
   if only one and large width, show time on left and laps on right (or just time in center without laps before lap btn has been pressed)
 
 triple dots menu for: delete, fullscreen, rename stopwatch
-option (default off) for show reset btn
 stopwatches have fullscreen btn on top to make that one fullscreen
 bug: clicking pause/resume closes accordion
 limit user to 100 stopwatches
@@ -85,18 +84,22 @@ stopwatch settings btns for pause all (that arent) resume all (that arent)
 		</div>
 	</div>
 	<div class="grid grid-cols-2 gap-4 m-4 mt-0">
-		<button class="m-0 btn {!running && 'col-span-2'}" on:click={toggleStart}>
+		<button
+			class="m-0 btn {!running && !$settings.stopwatch.showResetButton ? 'col-span-2' : ''}"
+			on:click={toggleStart}>
 			<Icon name={running ? 'pause' : 'play'} class="inline w-6 h-6" />
 			{dictionary.labels[running ? 'Pause' : data.times.length ? 'Resume' : 'Start']}
 		</button>
-		<button class="m-0 btn {!running && 'hidden'}" on:click={addLap}>
+		<button class="m-0 btn {running ? '' : 'hidden'}" on:click={addLap}>
 			<Icon name="plus" class="inline w-6 h-6" />
 			{dictionary.labels['Lap']}
 		</button>
-		<!-- <button class="m-0 btn undo-btn {running && 'invisible'}" on:click={resetStopwatch}>
+		<button
+			class="m-0 btn undo-btn {!running && $settings.stopwatch.showResetButton ? '' : 'hidden'}"
+			on:click={resetStopwatch}>
 			<Icon name="undo" class="inline w-6 h-6" />
 			{dictionary.labels['Reset']}
-		</button> -->
+		</button>
 	</div>
 
 	{#if lapNumber > 1}
