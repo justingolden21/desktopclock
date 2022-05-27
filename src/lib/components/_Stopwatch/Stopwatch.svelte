@@ -5,7 +5,7 @@ size stopwatches based off of how many there are
   first one is huge and next ones under it are smaller
   if only one and large width, show time on left and laps on right (or just time in center without laps before lap btn has been pressed)
 
-  triple dots menu for: delete, fullscreen, rename stopwatch
+triple dots menu for: delete, fullscreen, rename stopwatch
 option (default off) for show reset btn
 stopwatches have fullscreen btn on top to make that one fullscreen
 bug: clicking pause/resume closes accordion
@@ -13,6 +13,9 @@ limit user to 100 stopwatches
 max of 1000 laps?
 setting for "auto start" stopwatch upon creating it
 allow user to name stopwatches
+stopwatches take some time to save, if user quickly starts/stops/laps and closes tab, it will be "out dated"
+  this also affects "delete all settings and reload" which doesn't delete stopwatches
+dashboard view that opens a modal with a table of all stopwatches, names, and times, super compact for many stopwatches
 option to reverse order of laps (toggle in ui, boolean if true then call .reverse() in #each loop for <table>)
 */
 
