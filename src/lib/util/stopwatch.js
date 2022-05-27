@@ -23,11 +23,20 @@ const msToTimeObj = (ms) => ({
 	milliseconds: ms % 1000
 });
 
-const timeObjToStr = ({ hours, minutes, seconds, milliseconds }, displaySettings) =>
-	`${hours === 0 ? '' : `${hours.toString().padStart(2, '0')}:`}${minutes
+const sliceMilliseconds = (ms, digits) => {
+	const str = `.${ms.toString().padStart(3, '0')}`;
+	const digitsToCut = 3 - digits;
+	return str.substring(0, str.length - digitsToCut);
+};
+
+const timeObjToStr = (
+	{ hours, minutes, seconds, milliseconds },
+	{ digitsAfterSeconds, alwaysShowHours }
+) =>
+	`${hours === 0 && !alwaysShowHours ? '' : `${hours.toString().padStart(2, '0')}:`}${minutes
 		.toString()
 		.padStart(2, '0')}:${seconds.toString().padStart(2, '0')}${
-		!displaySettings?.displayMs ? '' : `.${milliseconds.toString().padStart(3, '0')}`
+		digitsAfterSeconds === 0 ? '' : sliceMilliseconds(milliseconds, digitsAfterSeconds)
 	}`;
 
 export const msToStr = (ms, displaySettings) => timeObjToStr(msToTimeObj(ms), displaySettings);

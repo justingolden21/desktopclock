@@ -32,7 +32,10 @@ dashboard view that opens a modal with a table of all stopwatches, names, and ti
 	$: lapNumber = data.laps.length + 1;
 	$: lapTimes = data.laps.length ? getLapTimes(data.times, data.laps) : '';
 	$: currentLap = data.laps.length
-		? msToStr(lapTimes[lapTimes.length - 1].current, { displayMs: false })
+		? msToStr(lapTimes[lapTimes.length - 1].current, {
+				alwaysShowHours: $settings.stopwatch.alwaysShowHours,
+				digitsAfterSeconds: $settings.stopwatch.digitsAfterSeconds
+		  })
 		: '';
 
 	// spread operator to not mutate original array
@@ -40,14 +43,15 @@ dashboard view that opens a modal with a table of all stopwatches, names, and ti
 
 	// total running time as a string, displayed to user
 	$: currentTime = data?.times.length
-		? msToStr(getNetMs(data.times), { displayMs: false })
+		? msToStr(getNetMs(data.times), {
+				alwaysShowHours: $settings.stopwatch.alwaysShowHours,
+				digitsAfterSeconds: $settings.stopwatch.digitsAfterSeconds
+		  })
 		: '00:00';
 
 	const toggleStart = () => {
 		// data.times.push(Date.now());
 		data.times = [...data.times, Date.now()];
-		// console.log(data.times);
-		// console.log(currentTime);
 	};
 
 	const addLap = () => {
@@ -119,8 +123,16 @@ dashboard view that opens a modal with a table of all stopwatches, names, and ti
 									>{$settings.stopwatch.reverseOrderLaps
 										? displayedLapTimes.length - idx
 										: idx + 1}</th>
-								<th>{msToStr(lapTime.current, { displayMs: true })}</th>
-								<th>{msToStr(lapTime.total, { displayMs: true })}</th>
+								<th
+									>{msToStr(lapTime.current, {
+										alwaysShowHours: false,
+										digitsAfterSeconds: 3
+									})}</th>
+								<th
+									>{msToStr(lapTime.total, {
+										alwaysShowHours: false,
+										digitsAfterSeconds: 3
+									})}</th>
 							</tr>
 						{/each}
 					</table>
