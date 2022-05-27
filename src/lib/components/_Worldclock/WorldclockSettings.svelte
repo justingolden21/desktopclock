@@ -72,7 +72,9 @@
 <button
 	class="btn undo-btn mt-4"
 	on:click={() => {
+		const userWorldclocks = JSON.parse(JSON.stringify($settings.worldclock.timezones));
 		$settings.worldclock = JSON.parse(JSON.stringify(defaultSettings.worldclock));
+		$settings.worldclock.timezones = userWorldclocks;
 
 		// TODO: move into centralized location
 		// copied from `_layout.svlete` and `DatetimeSettings.svelte`

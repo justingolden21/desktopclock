@@ -456,7 +456,15 @@
 				<button
 					class="btn undo-btn"
 					on:click={() => {
+						// save user's worldclocks and stopwatches
+						const userWorldclocks = JSON.parse(JSON.stringify($settings.worldclock.timezones));
+						const userStopwatches = JSON.parse(JSON.stringify($settings.stopwatch.stopwatches));
+
 						$settings = JSON.parse(JSON.stringify(defaultSettings));
+
+						// load user's worldclocks and stopwatches
+						$settings.worldclock.timezones = userWorldclocks;
+						$settings.stopwatch.stopwatches = userStopwatches;
 
 						// auto detect user device preferences (same code as in layout)
 						$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
