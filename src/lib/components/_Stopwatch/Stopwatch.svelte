@@ -7,7 +7,7 @@ size stopwatches based off of how many there are
 
 triple dots menu for: delete, fullscreen, rename stopwatch
 
-bug: clicking pause/resume closes accordion
+bug: clicking pause/resume closes accordion, exits stopwatch fullscreen
 bug: stopwatches take some time to save, if user quickly starts/stops/laps and closes tab, it will be "out dated"
   this also affects "delete all settings and reload" which doesn't delete stopwatches
 	*/
@@ -189,7 +189,7 @@ bug: stopwatches take some time to save, if user quickly starts/stops/laps and c
 		@apply bg-base-200 rounded-full w-48 h-48 p-4 inline-block m-4 hover:bg-base-300 cursor-pointer;
 	}
 	.fullscreen .stopwatch {
-		@apply m-4 md:mt-16 lg:mt-32 w-64 h-64 md:w-96 md:h-96 lg:w-[32rem] lg:h-[32rem];
+		@apply m-4 md:mt-16 lg:mt-24 w-64 h-64 md:w-96 md:h-96 lg:w-[32rem] lg:h-[32rem];
 	}
 	:global(.dark) .stopwatch {
 		@apply bg-base-700 hover:bg-base-600;
