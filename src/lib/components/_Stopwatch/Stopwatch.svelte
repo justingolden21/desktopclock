@@ -6,7 +6,6 @@ size stopwatches based off of how many there are
   if only one and large width, show time on left and laps on right (or just time in center without laps before lap btn has been pressed)
 
 triple dots menu for: delete, fullscreen, rename stopwatch
-stopwatches have fullscreen btn on top to make that one fullscreen
 
 bug: clicking pause/resume closes accordion
 bug: stopwatches take some time to save, if user quickly starts/stops/laps and closes tab, it will be "out dated"
@@ -14,6 +13,9 @@ bug: stopwatches take some time to save, if user quickly starts/stops/laps and c
 	*/
 
 	import { session } from '$app/stores';
+	import { onMount } from 'svelte';
+
+	import Screenfull from 'screenfull';
 
 	import { Icon } from '$lib/components/Icon';
 	import { settings } from '$lib/stores/settings';
@@ -46,6 +48,17 @@ bug: stopwatches take some time to save, if user quickly starts/stops/laps and c
 		  })
 		: '00:00';
 
+	let stopwatchIsFullscreen = false;
+	let wasPreviouslyFullscreen = false;
+
+	// if the user exits fullscreen, exit fullscreen stopwatch
+	onMount(() => {
+		if (!Screenfull.isEnabled) return;
+		Screenfull.on('change', () => {
+			if (!Screenfull.isFullscreen) stopwatchIsFullscreen = false;
+		});
+	});
+
 	const toggleStart = () => {
 		// data.times.push(Date.now());
 		data.times = [...data.times, Date.now()];
@@ -62,6 +75,21 @@ bug: stopwatches take some time to save, if user quickly starts/stops/laps and c
 		$settings.stopwatch.stopwatches = $settings.stopwatch.stopwatches.filter((_, i) => i !== idx);
 	};
 
+	const fullscreenStopwatch = () => {
+		stopwatchIsFullscreen = !stopwatchIsFullscreen;
+
+		if (!Screenfull.isEnabled) return;
+
+		if (stopwatchIsFullscreen) {
+			wasPreviouslyFullscreen = Screenfull.isFullscreen;
+			// enter fullscreen if not fullscreen
+			if (!Screenfull.isFullscreen) Screenfull.toggle();
+		} else if (!wasPreviouslyFullscreen) {
+			// restore to normal if was previously not fullscreen
+			if (Screenfull.isFullscreen) Screenfull.toggle();
+		}
+	};
+
 	const resetStopwatch = () => {
 		data.laps = [];
 		data.times = [];
@@ -69,12 +97,17 @@ bug: stopwatches take some time to save, if user quickly starts/stops/laps and c
 </script>
 
 <div
-	class="inline-block align-top m-4 surface border-0 group"
+	class="stopwatch__outer surface group {stopwatchIsFullscreen && 'fullscreen'}"
 	class:col-span-full={idx === 0 && $settings.stopwatch.largerFirstStopwatch}>
 	<button
-		class="icon-btn top-2 left-2 absolute hidden group-hover:block"
+		class="icon-btn top-2 left-2 absolute hidden {!stopwatchIsFullscreen && 'group-hover:block'}"
 		on:click={removeStopwatch}>
 		<Icon name="close" class="inline w-6 h-6" />
+	</button>
+	<button
+		class="icon-btn top-2 right-2 absolute hidden group-hover:block"
+		on:click={fullscreenStopwatch}>
+		<Icon name="fullscreen" class="inline w-6 h-6" />
 	</button>
 	<div class="stopwatch" on:click={toggleStart}>
 		<div class="stopwatch__inner">
@@ -85,65 +118,78 @@ bug: stopwatches take some time to save, if user quickly starts/stops/laps and c
 			{/if}
 		</div>
 	</div>
-	<div class="grid grid-cols-2 gap-4 m-4 mt-0">
-		<button
-			class="m-0 btn {!running && !$settings.stopwatch.showResetButton ? 'col-span-2' : ''}"
-			on:click={toggleStart}>
-			<Icon name={running ? 'pause' : 'play'} class="inline w-6 h-6" />
-			{dictionary.labels[running ? 'Pause' : data.times.length ? 'Resume' : 'Start']}
-		</button>
-		<button class="m-0 btn {running ? '' : 'hidden'}" on:click={addLap}>
-			<Icon name="plus" class="inline w-6 h-6" />
-			{dictionary.labels['Lap']}
-		</button>
-		<button
-			class="m-0 btn undo-btn {!running && $settings.stopwatch.showResetButton ? '' : 'hidden'}"
-			on:click={resetStopwatch}>
-			<Icon name="undo" class="inline w-6 h-6" />
-			{dictionary.labels['Reset']}
-		</button>
-	</div>
-
-	{#if lapNumber > 1}
-		<Accordion>
-			<AccordionPanel accordionTitle={dictionary.labels['Laps']}>
-				<!-- div wrapping table so we can have overflow scroll and the alignment of display:table
-					https://stackoverflow.com/a/29156151/4907950 -->
-				<div class="max-h-64 overflow-auto">
-					<table class="mb-0">
-						<tr>
-							<th>{dictionary.labels['Lap']}</th>
-							<th>{dictionary.labels['Time']}</th>
-							<th>{dictionary.labels['Total']}</th>
-						</tr>
-						{#each displayedLapTimes as lapTime, idx}
+	<div class="stopwatch__bottom">
+		<div class="grid grid-cols-2 gap-4 m-4 mt-0">
+			<button
+				class="m-0 btn {!running && !$settings.stopwatch.showResetButton ? 'col-span-2' : ''}"
+				on:click={toggleStart}>
+				<Icon name={running ? 'pause' : 'play'} class="inline w-6 h-6" />
+				{dictionary.labels[running ? 'Pause' : data.times.length ? 'Resume' : 'Start']}
+			</button>
+			<button class="m-0 btn {running ? '' : 'hidden'}" on:click={addLap}>
+				<Icon name="plus" class="inline w-6 h-6" />
+				{dictionary.labels['Lap']}
+			</button>
+			<button
+				class="m-0 btn undo-btn {!running && $settings.stopwatch.showResetButton ? '' : 'hidden'}"
+				on:click={resetStopwatch}>
+				<Icon name="undo" class="inline w-6 h-6" />
+				{dictionary.labels['Reset']}
+			</button>
+		</div>
+		{#if lapNumber > 1}
+			<Accordion>
+				<AccordionPanel accordionTitle={dictionary.labels['Laps']}>
+					<!-- div wrapping table so we can have overflow scroll and the alignment of display:table
+						https://stackoverflow.com/a/29156151/4907950 -->
+					<div class="max-h-64 overflow-auto">
+						<table class="mb-0">
 							<tr>
-								<th
-									>{$settings.stopwatch.reverseOrderLaps
-										? displayedLapTimes.length - idx
-										: idx + 1}</th>
-								<th
-									>{msToStr(lapTime.current, {
-										alwaysShowHours: false,
-										digitsAfterSeconds: $settings.stopwatch.digitsAfterSecondsLapList
-									})}</th>
-								<th
-									>{msToStr(lapTime.total, {
-										alwaysShowHours: false,
-										digitsAfterSeconds: $settings.stopwatch.digitsAfterSecondsLapList
-									})}</th>
+								<th>{dictionary.labels['Lap']}</th>
+								<th>{dictionary.labels['Time']}</th>
+								<th>{dictionary.labels['Total']}</th>
 							</tr>
-						{/each}
-					</table>
-				</div>
-			</AccordionPanel>
-		</Accordion>
-	{/if}
+							{#each displayedLapTimes as lapTime, idx}
+								<tr>
+									<th
+										>{$settings.stopwatch.reverseOrderLaps
+											? displayedLapTimes.length - idx
+											: idx + 1}</th>
+									<th
+										>{msToStr(lapTime.current, {
+											alwaysShowHours: false,
+											digitsAfterSeconds: $settings.stopwatch.digitsAfterSecondsLapList
+										})}</th>
+									<th
+										>{msToStr(lapTime.total, {
+											alwaysShowHours: false,
+											digitsAfterSeconds: $settings.stopwatch.digitsAfterSecondsLapList
+										})}</th>
+								</tr>
+							{/each}
+						</table>
+					</div>
+				</AccordionPanel>
+			</Accordion>
+		{/if}
+	</div>
 </div>
 
 <style lang="postcss">
+	.stopwatch__outer {
+		@apply inline-block align-top border-0;
+	}
+	.stopwatch__outer.fullscreen {
+		@apply w-screen h-screen z-50 fixed top-0 left-0 m-0;
+	}
+	.stopwatch__outer:not(.fullscreen) {
+		@apply m-4;
+	}
 	.stopwatch {
 		@apply bg-base-200 rounded-full w-48 h-48 p-4 inline-block m-4 hover:bg-base-300 cursor-pointer;
+	}
+	.fullscreen .stopwatch {
+		@apply m-4 md:mt-16 lg:mt-32 w-64 h-64 md:w-96 md:h-96 lg:w-[32rem] lg:h-[32rem];
 	}
 	:global(.dark) .stopwatch {
 		@apply bg-base-700 hover:bg-base-600;
@@ -160,6 +206,10 @@ bug: stopwatches take some time to save, if user quickly starts/stops/laps and c
 	.bottom-text {
 		@apply absolute font-bold text-xl;
 	}
+	.fullscreen .top-text,
+	.fullscreen .bottom-text {
+		@apply text-4xl md:text-5xl lg:text-6xl;
+	}
 	.top-text {
 		@apply top-0;
 	}
@@ -168,6 +218,9 @@ bug: stopwatches take some time to save, if user quickly starts/stops/laps and c
 	}
 	.middle-text {
 		@apply top-1/2 relative -translate-y-1/2 text-5xl m-0 p-0;
+	}
+	.fullscreen .middle-text {
+		@apply text-7xl md:text-9xl lg:text-11xl;
 	}
 	/* https://stackoverflow.com/a/28233945/4907950 */
 	.top-text:before,
@@ -182,7 +235,9 @@ bug: stopwatches take some time to save, if user quickly starts/stops/laps and c
 		content: '';
 		margin-right: -100%;
 	}
-
+	.fullscreen .stopwatch__bottom {
+		@apply bottom-0 absolute w-full;
+	}
 	tr,
 	th,
 	:global(.dark) tr,
