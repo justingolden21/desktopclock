@@ -45,7 +45,7 @@
 		</tr>
 	</thead>
 	<tbody class="group">
-		{#each [{ name: dictionary.labels['Home'], zone: $settings.locale.timezone }].concat($settings.worldclock.timezones) as timezone, idx}
+		{#each [{ name: dictionary.labels['Home'], zone: $settings.locale.timezone }].concat($settings.worldclock.timezones) as timezone, idx (`${timezone.zone}-${timezone.name}`)}
 			<tr>
 				<td>
 					{#if idx !== 0}
