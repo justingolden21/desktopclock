@@ -66,7 +66,7 @@
 
 <div class="{classes} z-10 hidden group-hover:block">
 	<button
-		id="dropdown-btn"
+		id="dropdown-btn-${idx}"
 		class="icon-btn ml-auto block"
 		on:click={toggleMenu}
 		use:clickOutside
@@ -75,7 +75,9 @@
 		<Icon name="dots_vertical" class="w-6 h-6" />
 	</button>
 
-	<ul class="w-max rounded surface mt-2 {!dropdownOpen && 'hidden'}" aria-labelledby="dropdown-btn">
+	<ul
+		class="w-max rounded surface mt-2 {!dropdownOpen && 'hidden'}"
+		aria-labelledby="dropdown-btn-${idx}">
 		{#each options as option}
 			<!-- don't show up if first item or down if last item -->
 			{#if !((option.text === 'Up' && idx === 0) || (option.text === 'Down' && idx === $settings.worldclock.timezones.length - 1))}
