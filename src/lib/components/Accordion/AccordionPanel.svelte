@@ -8,13 +8,11 @@
 	export let accordionTitle;
 	export let key;
 	const store = getContext('accordion');
-	$: params = {
-		open: $store.key === key
-	};
+	$: open = $store.key === key;
 
 	/// EVENT HANDLERS ///
 	function handleToggle() {
-		if (params.open) {
+		if (open) {
 			$store = { ...$store, key: null };
 		} else {
 			$store = { ...$store, key };
@@ -23,15 +21,15 @@
 </script>
 
 <div class="details">
-	<button class="details__summary" on:click={handleToggle} aria-expanded={params.open}>
+	<button class="details__summary" on:click={handleToggle} aria-expanded={open}>
 		<Icon
 			name="chevron_right"
-			class="inline w-6 h-6 transition-transform {params.open ? 'rotate-90' : ''}"
+			class="inline w-6 h-6 transition-transform {open ? 'rotate-90' : ''}"
 			aria-hidden="true" />
 		{accordionTitle}
 	</button>
 
-	<div class="details__content" class:open={params.open}>
+	<div class="details__content" class:open>
 		<slot />
 	</div>
 </div>
