@@ -105,6 +105,9 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 		on:click={fullscreenStopwatch}>
 		<Icon name="fullscreen" class="inline w-6 h-6" />
 	</button>
+	{#if data.name}
+		<h3>{data.name}</h3>
+	{/if}
 	<div class="stopwatch" on:click={toggleStart}>
 		<div class="stopwatch__inner">
 			<p class="top-text">{currentLap}</p>
