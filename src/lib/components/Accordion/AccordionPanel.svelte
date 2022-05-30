@@ -12,11 +12,7 @@
 
 	/// EVENT HANDLERS ///
 	function handleToggle() {
-		if (open) {
-			$store = { ...$store, key: null };
-		} else {
-			$store = { ...$store, key };
-		}
+		$store = { ...$store, key: open ? null : key };
 	}
 </script>
 
