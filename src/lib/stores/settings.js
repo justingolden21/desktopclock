@@ -56,6 +56,7 @@ export const defaultSettings = {
 				times: [],
 				laps: [],
 				id: uid(),
+				name: ''
 			}
 		],
 		alwaysShowHours: false,

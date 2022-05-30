@@ -20,6 +20,7 @@
 				times: $settings.stopwatch.autoStartStopwatches ? [Date.now()] : [],
 				laps: [],
 				id: uid(),
+				name: ''
 			}
 		];
 	};

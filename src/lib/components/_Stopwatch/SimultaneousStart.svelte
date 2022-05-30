@@ -18,6 +18,7 @@
 			times: [Date.now()],
 			laps: [],
 			id: uid(),
+			name: ''
 		}));
 
 		$settings.stopwatch.stopwatches = [...$settings.stopwatch.stopwatches, ...newStopwatches];
