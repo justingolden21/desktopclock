@@ -66,6 +66,11 @@
 	labelText={dictionary.stopwatchSettings['Show reset stopwatch button']} />
 
 <Toggle
+	id="namable-stopwatches-toggle"
+	bind:checked={$settings.stopwatch.namableStopwatches}
+	labelText={dictionary.stopwatchSettings['Namable stopwatches']} />
+
+<Toggle
 	id="reverse-order-laps-toggle"
 	bind:checked={$settings.stopwatch.reverseOrderLaps}
 	labelText={dictionary.stopwatchSettings['Reverse lap order']} />

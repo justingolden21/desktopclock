@@ -105,9 +105,11 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 		on:click={fullscreenStopwatch}>
 		<Icon name="fullscreen" class="inline w-6 h-6" />
 	</button>
-	{#if data.name}
-		<h3>{data.name}</h3>
+
+	{#if $settings.stopwatch.namableStopwatches}
+		<input bind:value={data.name} type="text" class="stopwatch__name" maxlength="100" />
 	{/if}
+
 	<div class="stopwatch" on:click={toggleStart}>
 		<div class="stopwatch__inner">
 			<p class="top-text">{currentLap}</p>
@@ -193,6 +195,14 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 	:global(.dark) .stopwatch {
 		@apply bg-base-700 hover:bg-base-600;
 	}
+
+	.stopwatch__name {
+		@apply bg-transparent border-2 border-transparent hover:border-base-400 mt-4 block mx-auto text-center;
+	}
+	:global(.dark) .stopwatch__name {
+		@apply text-base-200;
+	}
+
 	.stopwatch__inner {
 		@apply w-full h-full relative select-none;
 	}
