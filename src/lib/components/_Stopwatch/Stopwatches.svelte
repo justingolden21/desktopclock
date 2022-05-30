@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 
 	import { open } from '$lib/util/modal';
+	import uid from '$lib/util/uid';
 
 	import Stopwatch from './Stopwatch.svelte';
 	import NoStopwatches from './NoStopwatches.svelte';
@@ -17,7 +18,8 @@
 			...$settings.stopwatch.stopwatches,
 			{
 				times: $settings.stopwatch.autoStartStopwatches ? [Date.now()] : [],
-				laps: []
+				laps: [],
+				id: uid(),
 			}
 		];
 	};
@@ -47,7 +49,7 @@
 		stopwatches can be uniquely determined by a combination of their times and their index
 		we need index since intially the times are all the same (an empty array) -->
 <div class="grid  lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-	{#each $settings.stopwatch.stopwatches as stopwatch, idx (`${idx}-${stopwatch.times.join(',')}`)}
+	{#each $settings.stopwatch.stopwatches as stopwatch, idx (stopwatch.id)}
 		<Stopwatch bind:data={stopwatch} {idx} />
 	{/each}
 </div>

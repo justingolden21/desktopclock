@@ -6,11 +6,7 @@ size stopwatches based off of how many there are
   if only one and large width, show time on left and laps on right (or just time in center without laps before lap btn has been pressed)
 
 triple dots menu for: delete, fullscreen, rename stopwatch
-
-bug: clicking pause/resume closes accordion, exits stopwatch fullscreen
-bug: stopwatches take some time to save, if user quickly starts/stops/laps and closes tab, it will be "out dated"
-  this also affects "delete all settings and reload" which doesn't delete stopwatches
-	*/
+*/
 
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
