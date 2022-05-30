@@ -176,7 +176,7 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 
 <style lang="postcss">
 	.stopwatch__outer {
-		@apply inline-block align-top border-0;
+		@apply inline-block align-top border-0 relative;
 	}
 	.stopwatch__outer.fullscreen {
 		@apply w-screen h-screen z-50 fixed top-0 left-0 m-0;
