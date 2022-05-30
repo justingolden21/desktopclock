@@ -32,6 +32,7 @@
 		{dictionary.stopwatchSettings['Number of stopwatches to start at the same time:']}</label>
 	<input
 		id="simultaneous-stopwatches-input"
+		class="mt-4 text-lg"
 		on:input|preventDefault={(event) => {
 			const value = validateInt(event.target);
 			numberSimultaneous = value;
