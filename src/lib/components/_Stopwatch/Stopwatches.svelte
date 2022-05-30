@@ -66,8 +66,8 @@
 <button
 	class="icon-btn rounded-none bg-transparent mx-auto"
 	on:click={makeNewStopwatch}
-	aria-label={dictionary.labels['New stopwatch']}
-	title={dictionary.labels['New stopwatch']}>
+	aria-label={dictionary.stopwatchSettings['New stopwatch']}
+	title={dictionary.stopwatchSettings['New stopwatch']}>
 	<Icon name="plus" class="inline-block w-8 h-8" />
 	<span>{dictionary.labels['New']}</span>
 </button>

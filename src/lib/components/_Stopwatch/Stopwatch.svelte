@@ -115,7 +115,7 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 			<p class="top-text">{currentLap}</p>
 			<p class="middle-text">{currentTime}</p>
 			{#if lapNumber > 1}
-				<p class="bottom-text">{dictionary.labels['LapNumber']} {lapNumber}</p>
+				<p class="bottom-text">{dictionary.stopwatchSettings['LapNumber']} {lapNumber}</p>
 			{/if}
 		</div>
 	</div>
@@ -125,11 +125,11 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 				class="m-0 btn {!running && !$settings.stopwatch.showResetButton ? 'col-span-2' : ''}"
 				on:click={toggleStart}>
 				<Icon name={running ? 'pause' : 'play'} class="inline w-6 h-6" />
-				{dictionary.labels[running ? 'Pause' : data.times.length ? 'Resume' : 'Start']}
+				{dictionary.stopwatchSettings[running ? 'Pause' : data.times.length ? 'Resume' : 'Start']}
 			</button>
 			<button class="m-0 btn {running ? '' : 'hidden'}" on:click={addLap}>
 				<Icon name="plus" class="inline w-6 h-6" />
-				{dictionary.labels['Lap']}
+				{dictionary.stopwatchSettings['Lap']}
 			</button>
 			<button
 				class="m-0 btn undo-btn {!running && $settings.stopwatch.showResetButton ? '' : 'hidden'}"
@@ -140,15 +140,15 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 		</div>
 		{#if lapNumber > 1}
 			<Accordion>
-				<AccordionPanel accordionTitle={dictionary.labels['Laps']} key="1">
+				<AccordionPanel accordionTitle={dictionary.stopwatchSettings['Laps']} key="1">
 					<!-- div wrapping table so we can have overflow scroll and the alignment of display:table
 						https://stackoverflow.com/a/29156151/4907950 -->
 					<div class="max-h-64 overflow-auto">
 						<table class="mb-0">
 							<tr>
-								<th>{dictionary.labels['Lap']}</th>
-								<th>{dictionary.labels['Time']}</th>
-								<th>{dictionary.labels['Total']}</th>
+								<th>{dictionary.stopwatchSettings['Lap']}</th>
+								<th>{dictionary.stopwatchSettings['Time']}</th>
+								<th>{dictionary.stopwatchSettings['Total']}</th>
 							</tr>
 							{#each displayedLapTimes as lapTime, idx}
 								<tr>

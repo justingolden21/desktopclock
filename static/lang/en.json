@@ -112,16 +112,6 @@
 		"Name": "Name",
 		"Now": "Now",
 		"Home": "Home",
-		"Start": "Start",
-		"Resume": "Resume",
-		"Pause": "Pause",
-		"Stop": "Stop",
-		"Lap": "Lap",
-		"LapNumber": "Lap",
-		"Laps": "Laps",
-		"Time": "Time",
-		"Total": "Total",
-		"New stopwatch": "New stopwatch",
 
 		"Numeral Styles": {
 			"numerals": "Numerals",
@@ -266,6 +256,16 @@
 		"You don't have any other worldclocks. Try adding a new one": "You don't have any other worldclocks. Try adding a new one"
 	},
 	"stopwatchSettings": {
+		"Start": "Start",
+		"Resume": "Resume",
+		"Pause": "Pause",
+		"Lap": "Lap",
+		"LapNumber": "Lap",
+		"Laps": "Laps",
+		"Time": "Time",
+		"Total": "Total",
+		"New stopwatch": "New stopwatch",
+
 		"Display": "Display",
 		"Behavior": "Behavior",
 

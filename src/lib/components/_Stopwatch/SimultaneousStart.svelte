@@ -45,5 +45,5 @@
 
 <button class="btn float-right md:absolute md:bottom-0 md:right-0" on:click={onSubmit}>
 	<Icon name="stopwatch" class="inline w-6 h-6" />
-	{dictionary.labels['Start']}
+	{dictionary.stopwatchSettings['Start']}
 </button>
