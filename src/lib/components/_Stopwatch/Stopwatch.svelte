@@ -140,7 +140,7 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 		</div>
 		{#if lapNumber > 1}
 			<Accordion>
-				<AccordionPanel accordionTitle={dictionary.labels['Laps']}>
+				<AccordionPanel accordionTitle={dictionary.labels['Laps']} key="1">
 					<!-- div wrapping table so we can have overflow scroll and the alignment of display:table
 						https://stackoverflow.com/a/29156151/4907950 -->
 					<div class="max-h-64 overflow-auto">
