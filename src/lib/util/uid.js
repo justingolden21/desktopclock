@@ -1,5 +1,5 @@
-// https://dev.to/roblevintennis/comment/1ol48
-const uid = () => String(Date.now().toString(32) + Math.random().toString(16)).replace(/\./g, '');
+// https://stackoverflow.com/a/44078785
+const uid = () => Date.now().toString(36) + Math.random().toString(36).substring(2);
 
 const test = () => {
 	const size = 1_000_000;
