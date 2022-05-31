@@ -4,6 +4,7 @@
 
 	import { open } from '$lib/util/modal';
 	import uid from '$lib/util/uid';
+	import checkTooManyStopwatches from '$lib/util/checkTooManyStopwatches';
 
 	import Stopwatch from './Stopwatch.svelte';
 	import NoStopwatches from './NoStopwatches.svelte';
@@ -14,6 +15,9 @@
 	$: dictionary = $session.languageDictionary;
 
 	const makeNewStopwatch = () => {
+		const tooMany = checkTooManyStopwatches(dictionary, $settings.stopwatch.stopwatches.length, 1);
+		if (tooMany) return;
+
 		$settings.stopwatch.stopwatches = [
 			...$settings.stopwatch.stopwatches,
 			{

@@ -3,6 +3,7 @@
 
 	import { close } from '$lib/util/modal';
 	import uid from '$lib/util/uid';
+	import checkTooManyStopwatches from '$lib/util/checkTooManyStopwatches';
 	import { settings } from '$lib/stores/settings';
 	import Icon from '../Icon/Icon.svelte';
 	import { validateInt } from '$lib/components/Settings.svelte';
@@ -13,6 +14,13 @@
 
 	/// EVENT HANDLERS ///
 	function onSubmit() {
+		const tooMany = checkTooManyStopwatches(
+			dictionary,
+			$settings.stopwatch.stopwatches.length,
+			numberSimultaneous
+		);
+		if (tooMany) return;
+
 		// setting the first time to current timestamp starts the stopwatches
 		const newStopwatches = Array.from({ length: numberSimultaneous }, () => ({
 			times: [Date.now()],
