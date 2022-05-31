@@ -197,7 +197,7 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 	}
 
 	.stopwatch__name {
-		@apply bg-transparent border-2 border-transparent hover:border-base-400 mt-4 block mx-auto text-center;
+		@apply bg-transparent border-2 border-transparent group-hover:border-base-400 mt-4 block mx-auto text-center w-3/5;
 	}
 	:global(.dark) .stopwatch__name {
 		@apply text-base-200;
