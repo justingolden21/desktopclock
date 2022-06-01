@@ -19,8 +19,8 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 	import { getNetMs, msToStr, getLapTimes } from '$lib/util/stopwatch';
 	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 
-	export let idx;
 	export let data;
+	export let isFirst;
 
 	$: dictionary = $session.languageDictionary;
 	$: running = data.times.length % 2 == 1; // odd number of times
@@ -66,9 +66,9 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 	};
 
 	const removeStopwatch = () => {
-		// splice idx from stopwatch list
-		// similar to code in worldclock dropdown
-		$settings.stopwatch.stopwatches = $settings.stopwatch.stopwatches.filter((_, i) => i !== idx);
+		$settings.stopwatch.stopwatches = $settings.stopwatch.stopwatches.filter(
+			(s) => s.id !== data.id
+		);
 	};
 
 	const fullscreenStopwatch = () => {
@@ -94,7 +94,7 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 
 <div
 	class="stopwatch__outer surface group {stopwatchIsFullscreen && 'fullscreen'}"
-	class:col-span-full={idx === 0 && $settings.stopwatch.largerFirstStopwatch}>
+	class:col-span-full={isFirst && $settings.stopwatch.largerFirstStopwatch}>
 	<button
 		class="icon-btn top-2 left-2 absolute hidden {!stopwatchIsFullscreen && 'group-hover:block'}"
 		on:click={removeStopwatch}>

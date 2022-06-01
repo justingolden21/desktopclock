@@ -55,7 +55,7 @@
 		we need index since intially the times are all the same (an empty array) -->
 <div class="grid  lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
 	{#each $settings.stopwatch.stopwatches as stopwatch, idx (stopwatch.id)}
-		<Stopwatch bind:data={stopwatch} {idx} />
+		<Stopwatch bind:data={stopwatch} isFirst={idx === 0} />
 	{/each}
 </div>
 
