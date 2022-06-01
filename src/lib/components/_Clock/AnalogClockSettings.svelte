@@ -5,7 +5,13 @@
 
 	import { fontFamilies, movements, numeralStyles } from '$lib/data/consts';
 
-	import { defaultTheme, defaultNightTheme, classicTheme, classicNightTheme } from '$lib/themes';
+	import {
+		defaultTheme,
+		defaultNightTheme,
+		classicTheme,
+		classicNightTheme,
+		minimalTheme
+	} from '$lib/themes';
 
 	/// COMPONENTS ///
 	import AnalogClock from './AnalogClock.svelte';
@@ -60,7 +66,7 @@
 	<AnalogClock theme={$settings[page].theme} mode="static" time={{ h: 10, m: 9, s: 0 }} />
 </div>
 <!-- using stringify for efficient deep clone so original theme object is not mutated -->
-{#each [defaultTheme, defaultNightTheme, classicTheme, classicNightTheme] as clockTheme}
+{#each [defaultTheme, defaultNightTheme, classicTheme, classicNightTheme, minimalTheme] as clockTheme}
 	<button
 		class="btn theme-btn"
 		on:click={() => ($settings[page].theme = JSON.parse(JSON.stringify(clockTheme)))}>
