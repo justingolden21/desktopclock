@@ -14,7 +14,7 @@
 
 	const stopAllStopwatches = () => {
 		for (const stopwatch of $settings.stopwatch.stopwatches) {
-			if (stopwatch.times.length % 2 === 0) {
+			if (stopwatch.times.length % 2 !== 0) {
 				// if starting, then stop it
 				stopwatch.times.push(Date.now());
 			}
