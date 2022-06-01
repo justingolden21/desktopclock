@@ -3,6 +3,7 @@
 
 // eslint-disable-next-line import/prefer-default-export
 export async function get({ locals }) {
+	// https://web.dev/app-shortcuts/
 	return {
 		status: 200,
 		body: {
@@ -18,19 +19,23 @@ export async function get({ locals }) {
 			shortcuts: [
 				{
 					name: locals.languageDictionary.pageNames['clock'],
-					url: '/'
+					url: '/',
+					icons: [{ src: '/img/pages/clock192.png', sizes: '192x192' }]
 				},
 				{
 					name: locals.languageDictionary.pageNames['worldclock'],
-					url: '/worldclock'
+					url: '/worldclock',
+					icons: [{ src: '/img/pages/worldclock192.png', sizes: '192x192' }]
 				},
 				{
 					name: locals.languageDictionary.pageNames['stopwatch'],
-					url: '/stopwatch'
+					url: '/stopwatch',
+					icons: [{ src: '/img/pages/stopwatch192.png', sizes: '192x192' }]
 				}
 				// {
 				// 	name: locals.languageDictionary.pageNames['timers'],
-				// 	url: '/timers'
+				// 	url: '/timers',
+				// 	icons: [{ src: '/img/pages/timer192.png', sizes: '192x192' }]
 				// }
 			],
 			icons: [
