@@ -66,7 +66,7 @@
 			{dictionary.pageNames['worldclock']}
 		{/if}
 	</a>
-	<!-- <a
+	<a
 		class:active={$page.url.pathname === '/stopwatch'}
 		href="/stopwatch"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
@@ -75,7 +75,7 @@
 			{dictionary.pageNames['stopwatch']}
 		{/if}
 	</a>
-	<a
+	<!-- <a
 		class:active={$page.url.pathname === '/timers'}
 		href="/timers"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">

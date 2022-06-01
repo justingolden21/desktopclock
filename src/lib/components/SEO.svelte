@@ -24,12 +24,12 @@
 	<meta name="robots" content="index" />
 	<meta name="googlebot" content="index" />
 
-	<meta property="og:image:height" content="292" />
-	<meta property="og:image:width" content="558" />
+	<meta property="og:image:height" content="720" />
+	<meta property="og:image:width" content="720" />
 	<meta property="og:description" content={seo.description} />
 	<meta property="og:title" content={seo.name} />
 	<meta property="og:url" content={appURL + $page.url.pathname} />
-	<meta property="og:image" content="img/icons/og-image.jpg" />
+	<meta property="og:image" content={appURL + '/img/' + seo.screenshot} />
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" content={seo.name} />
 

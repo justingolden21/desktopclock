@@ -92,7 +92,7 @@
 	let wakeLock;
 
 	// https://developer.mozilla.org/en-US/docs/Web/API/WakeLock/request
-	export async function requestWakeLock(languageDictionary) {
+	async function requestWakeLock(languageDictionary) {
 		let success = true;
 		try {
 			wakeLock = await navigator.wakeLock.request('screen');
@@ -116,7 +116,7 @@
 	}
 
 	// https://phpnews.io/feeditem/have-a-web-page-prevent-your-screen-computer-from-dimming-sleeping-with-the-wake-lock-api
-	const releaseWakeLock = async (languageDictionary) => {
+	async function releaseWakeLock(languageDictionary) {
 		let success = true;
 		if (!wakeLock) return;
 		try {
@@ -134,9 +134,9 @@
 		const dismissible = true;
 		const timeout = 2000;
 		addToast({ message, type, dismissible, timeout });
-	};
+	}
 
-	export function validate(input) {
+	export function validateInt(input) {
 		const min = input.min;
 		const max = input.max;
 		const val = input.value;
@@ -176,6 +176,7 @@
 	import TimezoneAutocomplete from '$lib/components/TimezoneAutocomplete.svelte';
 	import ClockSettings from '$lib/components/_Clock/ClockSettings.svelte';
 	import WorldclockSettings from '$lib/components/_Worldclock/WorldclockSettings.svelte';
+	import StopwatchSettings from '$lib/components/_Stopwatch/StopwatchSettings.svelte';
 
 	import { defaultNightTheme } from '$lib/themes';
 
@@ -222,6 +223,10 @@
 				<Icon name="worldclock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 				{dictionary.pageNames['worldclock']}
 			{/if}
+			{#if $page.url.pathname === '/stopwatch'}
+				<Icon name="stopwatch" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+				{dictionary.pageNames['stopwatch']}
+			{/if}
 		</Tab>
 		<Tab>
 			<Icon name="eye" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
@@ -237,13 +242,16 @@
 		</Tab>
 	</TabList>
 
-	<!-- Clock -->
+	<!-- Current Page -->
 	<TabPanel>
 		{#if $page.url.pathname === '/'}
 			<ClockSettings />
 		{/if}
 		{#if $page.url.pathname === '/worldclock'}
 			<WorldclockSettings />
+		{/if}
+		{#if $page.url.pathname === '/stopwatch'}
+			<StopwatchSettings />
 		{/if}
 	</TabPanel>
 
@@ -313,15 +321,18 @@
 					bind:checked={$settings.showDarkButton}
 					labelText={dictionary.labels['Show dark button']} />
 
-				<Toggle
-					id="show-primary-btn-toggle"
-					bind:checked={$settings.showPrimaryButton}
-					labelText={dictionary.labels['Show primary toggle button']} />
+				<!-- only show setting to toggle display on pages with toggleable displays -->
+				{#if ['/', '/worldclock'].includes($page.url.pathname)}
+					<Toggle
+						id="show-primary-btn-toggle"
+						bind:checked={$settings.showPrimaryButton}
+						labelText={dictionary.labels['Show primary toggle button']} />
 
-				<Toggle
-					id="show-secondary-btn-toggle"
-					bind:checked={$settings.showSecondaryButton}
-					labelText={dictionary.labels['Show secondary toggle button']} />
+					<Toggle
+						id="show-secondary-btn-toggle"
+						bind:checked={$settings.showSecondaryButton}
+						labelText={dictionary.labels['Show secondary toggle button']} />
+				{/if}
 
 				<div class:hidden={!castSupported}>
 					<Toggle
@@ -361,7 +372,7 @@
 						<input
 							id="seconds-until-idle-input"
 							on:input|preventDefault={(event) => {
-								const value = validate(event.target);
+								const value = validateInt(event.target);
 								$settings.secondsUntilIdle = value;
 								event.target.value = value;
 							}}
@@ -448,7 +459,15 @@
 				<button
 					class="btn undo-btn"
 					on:click={() => {
+						// save user's worldclocks and stopwatches
+						const userWorldclocks = JSON.parse(JSON.stringify($settings.worldclock.timezones));
+						const userStopwatches = JSON.parse(JSON.stringify($settings.stopwatch.stopwatches));
+
 						$settings = JSON.parse(JSON.stringify(defaultSettings));
+
+						// load user's worldclocks and stopwatches
+						$settings.worldclock.timezones = userWorldclocks;
+						$settings.stopwatch.stopwatches = userStopwatches;
 
 						// auto detect user device preferences (same code as in layout)
 						$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -492,7 +511,7 @@
 					on:click={() => {
 						localStorage.clear();
 						location.reload();
-					}}>{dictionary.labels['Delete settings and reload']}</button>
+					}}>{dictionary.labels['Delete all data and reload']}</button>
 
 				<!-- <button class="btn">Multiple Clock Settings</button>
 		        <button class="btn">Quick Resize Settings</button> -->
