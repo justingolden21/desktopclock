@@ -108,7 +108,7 @@ When adding a page, add it to cache in `service-worker.js` and validPages in `da
 
 - Prod: https://desktopclock.app
 
-- This repo: https://github.com/justingolden21/desktop-clock
+- This repo: https://github.com/justingolden21/desktopclock
 
 - Netlify: https://app.netlify.com/sites/desktopclock/overview
 
