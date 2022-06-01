@@ -55,9 +55,13 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 		});
 	});
 
+	let startButton;
+
 	const toggleStart = () => {
 		// data.times.push(Date.now());
 		data.times = [...data.times, Date.now()];
+
+		startButton.focus();
 	};
 
 	const addLap = () => {
@@ -122,6 +126,7 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 	<div class="stopwatch__bottom">
 		<div class="grid grid-cols-2 gap-4 m-4 mt-0">
 			<button
+				bind:this={startButton}
 				class="m-0 btn {!running && !$settings.stopwatch.showResetButton ? 'col-span-2' : ''}"
 				on:click={toggleStart}>
 				<Icon name={running ? 'pause' : 'play'} class="inline w-6 h-6" />
