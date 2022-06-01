@@ -321,15 +321,18 @@
 					bind:checked={$settings.showDarkButton}
 					labelText={dictionary.labels['Show dark button']} />
 
-				<Toggle
-					id="show-primary-btn-toggle"
-					bind:checked={$settings.showPrimaryButton}
-					labelText={dictionary.labels['Show primary toggle button']} />
+				<!-- only show setting to toggle display on pages with toggleable displays -->
+				{#if ['/', '/worldclock'].includes($page.url.pathname)}
+					<Toggle
+						id="show-primary-btn-toggle"
+						bind:checked={$settings.showPrimaryButton}
+						labelText={dictionary.labels['Show primary toggle button']} />
 
-				<Toggle
-					id="show-secondary-btn-toggle"
-					bind:checked={$settings.showSecondaryButton}
-					labelText={dictionary.labels['Show secondary toggle button']} />
+					<Toggle
+						id="show-secondary-btn-toggle"
+						bind:checked={$settings.showSecondaryButton}
+						labelText={dictionary.labels['Show secondary toggle button']} />
+				{/if}
 
 				<div class:hidden={!castSupported}>
 					<Toggle
