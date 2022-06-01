@@ -27,11 +27,11 @@ export async function get({ locals }) {
 				{
 					name: locals.languageDictionary.pageNames['stopwatch'],
 					url: '/stopwatch'
-				},
-				{
-					name: locals.languageDictionary.pageNames['timers'],
-					url: '/timers'
 				}
+				// {
+				// 	name: locals.languageDictionary.pageNames['timers'],
+				// 	url: '/timers'
+				// }
 			],
 			icons: [
 				{
