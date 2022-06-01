@@ -65,7 +65,7 @@ export const defaultSettings = {
 		showResetButton: false,
 		namableStopwatches: false,
 		reverseOrderLaps: false,
-		largerFirstStopwatch: false,
+		largerFirstStopwatch: true,
 		autoStartStopwatches: false
 	},
 
