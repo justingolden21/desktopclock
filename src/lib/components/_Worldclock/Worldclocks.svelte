@@ -50,7 +50,7 @@
 
 <!-- secondary / other timezones -->
 {#if secondaryDisplay === 'rows' || secondaryDisplay === 'compact_rows'}
-	{#each $settings.worldclock.timezones as timezone, idx (`${timezone.zone}-${timezone.name}`)}
+	{#each $settings.worldclock.timezones as timezone, idx (`${idx}-${timezone.zone}-${timezone.name}`)}
 		<div class="relative group">
 			<div
 				class="grid grid-cols-2 gap-4 lg:gap-8 border-0 {hasBorder
@@ -87,7 +87,7 @@
 	{/each}
 {:else}
 	<div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8 mt-8">
-		{#each $settings.worldclock.timezones as timezone, idx (`${timezone.zone}-${timezone.name}`)}
+		{#each $settings.worldclock.timezones as timezone, idx (`${idx}-${timezone.zone}-${timezone.name}`)}
 			<div
 				class="relative group {secondaryDisplay === 'analog_grid'
 					? 'text-center'

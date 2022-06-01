@@ -16,7 +16,13 @@
 			"keywords": "worldclock, time tables, convert timezones, analog worldclock, digital worldclock, multiple timezones clock, worldclock online, worldclock offline, free worldclock, best worldclock",
 			"screenshot": "screenshot-worldclock-en.png"
 		},
-		"stopwatch": {},
+		"stopwatch": {
+			"name": "Stopwatch - Desktop Clock",
+			"description": "A simple, sleek stopwatch that supports laps, multiple stopwatches, and customizability",
+			"shareDescription": "Try Stopwatch from Desktop Clock",
+			"keywords": "stopwatch, stopwatch online, stopwatch offline, free stopwatch, multiple stopwatches, multiple stopwatches online, multiple stopwatches free, best stopwatch, stopwatch with laps, lap stopwatch",
+			"screenshot": "screenshot-stopwatch-en.png"
+		},
 		"timers": {}
 	},
 	"pageNames": {
@@ -91,13 +97,14 @@
 		"Timezone offset:": "Timezone offset:",
 		"Advanced / Experimental": "Advanced / Experimental",
 		"Keep screen awake": "Keep screen awake",
-		"Delete settings and reload": "Delete settings and reload",
+		"Delete all data and reload": "Delete all data and reload",
 		"New": "New",
 		"Edit": "Edit",
 		"Save": "Save",
 		"Up": "Up",
 		"Down": "Down",
 		"Delete": "Delete",
+		"Delete all": "Delete all",
 		"Create": "Create",
 		"Reset": "Reset",
 		"Use AM / PM": "Use AM / PM",
@@ -248,6 +255,37 @@
 
 		"You don't have any other worldclocks. Try adding a new one": "You don't have any other worldclocks. Try adding a new one"
 	},
+	"stopwatchSettings": {
+		"Start": "Start",
+		"Resume": "Resume",
+		"Pause": "Pause",
+		"Lap": "Lap",
+		"LapNumber": "Lap",
+		"Laps": "Laps",
+		"Time": "Time",
+		"Total": "Total",
+		"New stopwatch": "New stopwatch",
+
+		"Display": "Display",
+		"Behavior": "Behavior",
+
+		"Always show hours": "Always show hours",
+		"Digits after seconds": "Digits after seconds",
+		"Digits after seconds in lap list": "Digits after seconds in lap list",
+		"Show reset stopwatch button": "Show reset stopwatch button",
+		"Namable stopwatches": "Namable stopwatches",
+		"Reverse lap order": "Reverse lap order",
+		"First stopwatch is larger": "First stopwatch is larger",
+		"Automatically start new stopwatches": "Automatically start new stopwatches",
+		"Start all paused stopwatches": "Start all paused stopwatches",
+		"Stop all running stopwatches": "Stop all running stopwatches",
+		"Reset stopwatch settings": "Reset stopwatch settings",
+
+		"Simultaneous start": "Simultaneous start",
+		"Simultaneous Start": "Simultaneous Start",
+		"Number of stopwatches to start at the same time:": "Number of stopwatches to start at the same time:",
+		"You don't have any stopwatches. Try adding a new one": "You don't have any stopwatches. Try adding a new one"
+	},
 	"display": {
 		"Stroke color": "Stroke color",
 		"Fill color": "Fill color",
@@ -292,6 +330,7 @@
 		"Wake lock was deactivated successfully": "Wake lock was deactivated successfully",
 		"Wake lock failure": "Wake lock failure",
 		"Too many worldclocks": "Too many worldclocks",
+		"Too many stopwatches": "Too many stopwatches",
 		"Cannot have duplicate timezones with same name": "Cannot have duplicate timezones with same name"
 	}
 }
