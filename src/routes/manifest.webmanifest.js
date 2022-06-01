@@ -20,22 +20,22 @@ export async function get({ locals }) {
 				{
 					name: locals.languageDictionary.pageNames['clock'],
 					url: '/',
-					icons: [{ src: '/img/pages/clock192.png', sizes: '192x192' }]
+					icons: [{ src: '/img/pages/clock.png', sizes: '192x192' }]
 				},
 				{
 					name: locals.languageDictionary.pageNames['worldclock'],
 					url: '/worldclock',
-					icons: [{ src: '/img/pages/worldclock192.png', sizes: '192x192' }]
+					icons: [{ src: '/img/pages/worldclock.png', sizes: '192x192' }]
 				},
 				{
 					name: locals.languageDictionary.pageNames['stopwatch'],
 					url: '/stopwatch',
-					icons: [{ src: '/img/pages/stopwatch192.png', sizes: '192x192' }]
+					icons: [{ src: '/img/pages/stopwatch.png', sizes: '192x192' }]
 				}
 				// {
 				// 	name: locals.languageDictionary.pageNames['timers'],
 				// 	url: '/timers',
-				// 	icons: [{ src: '/img/pages/timer192.png', sizes: '192x192' }]
+				// 	icons: [{ src: '/img/pages/timer.png', sizes: '192x192' }]
 				// }
 			],
 			icons: [
