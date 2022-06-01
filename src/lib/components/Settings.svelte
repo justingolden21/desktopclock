@@ -242,7 +242,7 @@
 		</Tab>
 	</TabList>
 
-	<!-- Clock -->
+	<!-- Current Page -->
 	<TabPanel>
 		{#if $page.url.pathname === '/'}
 			<ClockSettings />
