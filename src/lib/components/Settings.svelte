@@ -92,7 +92,7 @@
 	let wakeLock;
 
 	// https://developer.mozilla.org/en-US/docs/Web/API/WakeLock/request
-	export async function requestWakeLock(languageDictionary) {
+	async function requestWakeLock(languageDictionary) {
 		let success = true;
 		try {
 			wakeLock = await navigator.wakeLock.request('screen');
@@ -116,7 +116,7 @@
 	}
 
 	// https://phpnews.io/feeditem/have-a-web-page-prevent-your-screen-computer-from-dimming-sleeping-with-the-wake-lock-api
-	const releaseWakeLock = async (languageDictionary) => {
+	async function releaseWakeLock(languageDictionary) {
 		let success = true;
 		if (!wakeLock) return;
 		try {
@@ -134,7 +134,7 @@
 		const dismissible = true;
 		const timeout = 2000;
 		addToast({ message, type, dismissible, timeout });
-	};
+	}
 
 	export function validateInt(input) {
 		const min = input.min;
