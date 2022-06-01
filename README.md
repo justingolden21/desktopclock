@@ -98,7 +98,7 @@ For issues with building, previewing, and npm packages, try deleting the build, 
 
 When adding a language, add it to `supportedLangs` in `consts.js`
 
-When adding a page, add it to cache in `service-worker.js` and validPages in `data/consts.js`
+When adding a page, add it to cache in `service-worker.js` and validPages in `data/consts.js`. Also add SEO data and add it to `Nav`. Add shortcut to `manifest.webmanifest.js`.
 
 ### Links
 
@@ -108,7 +108,7 @@ When adding a page, add it to cache in `service-worker.js` and validPages in `da
 
 - Prod: https://desktopclock.app
 
-- This repo: https://github.com/justingolden21/desktop-clock
+- This repo: https://github.com/justingolden21/desktopclock
 
 - Netlify: https://app.netlify.com/sites/desktopclock/overview
 
