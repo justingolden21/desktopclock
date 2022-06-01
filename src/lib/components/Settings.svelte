@@ -511,7 +511,7 @@
 					on:click={() => {
 						localStorage.clear();
 						location.reload();
-					}}>{dictionary.labels['Delete settings and reload']}</button>
+					}}>{dictionary.labels['Delete all data and reload']}</button>
 
 				<!-- <button class="btn">Multiple Clock Settings</button>
 		        <button class="btn">Quick Resize Settings</button> -->
