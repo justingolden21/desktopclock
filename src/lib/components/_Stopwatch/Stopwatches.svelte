@@ -60,8 +60,8 @@
 	{#each $settings.stopwatch.stopwatches as stopwatch, idx (stopwatch.id)}
 		<div
 			animate:flip={{ duration: 250 }}
-			in:scale
-			out:scale
+			in:scale|local
+			out:scale|local
 			class:col-span-full={idx === 0 && $settings.stopwatch.largerFirstStopwatch}>
 			<Stopwatch bind:data={stopwatch} />
 		</div>
