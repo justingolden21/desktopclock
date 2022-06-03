@@ -12,28 +12,8 @@
 	import { Icon } from '$lib/components/Icon';
 	import { settings } from '$lib/stores/settings';
 
-	import { quintOut } from 'svelte/easing';
-	import { crossfade } from 'svelte/transition';
+	import { scale } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
-
-	// https://svelte.dev/tutorial/animate
-	const [send, receive] = crossfade({
-		duration: (d) => Math.sqrt(d * 200),
-
-		fallback(node, params) {
-			const style = getComputedStyle(node);
-			const transform = style.transform === 'none' ? '' : style.transform;
-
-			return {
-				duration: 600,
-				easing: quintOut,
-				css: (t) => `
-					transform: ${transform} scale(${t});
-					opacity: ${t}
-				`
-			};
-		}
-	});
 
 	$: dictionary = $session.languageDictionary;
 
@@ -79,9 +59,9 @@
 <div class="grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
 	{#each $settings.stopwatch.stopwatches as stopwatch, idx (stopwatch.id)}
 		<div
-			in:receive={{ key: stopwatch.id }}
-			out:send={{ key: stopwatch.id }}
-			animate:flip={{ duration: 200 }}
+			animate:flip={{ duration: 250 }}
+			in:scale
+			out:scale
 			class:col-span-full={idx === 0 && $settings.stopwatch.largerFirstStopwatch}>
 			<Stopwatch bind:data={stopwatch} />
 		</div>
