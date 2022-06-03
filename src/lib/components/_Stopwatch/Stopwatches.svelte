@@ -12,7 +12,7 @@
 	import { Icon } from '$lib/components/Icon';
 	import { settings } from '$lib/stores/settings';
 
-	import { scale } from 'svelte/transition';
+	import { scale, fade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 
 	$: dictionary = $session.languageDictionary;
@@ -57,7 +57,8 @@
 	{#each $settings.stopwatch.stopwatches as stopwatch, idx (stopwatch.id)}
 		<div
 			animate:flip={{ duration: 250 }}
-			transition:scale|local
+			in:scale|local
+			out:fade|local
 			class:col-span-full={idx === 0 && $settings.stopwatch.largerFirstStopwatch}>
 			<Stopwatch bind:data={stopwatch} />
 		</div>
