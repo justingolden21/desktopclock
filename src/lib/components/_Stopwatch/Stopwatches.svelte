@@ -12,6 +12,29 @@
 	import { Icon } from '$lib/components/Icon';
 	import { settings } from '$lib/stores/settings';
 
+	import { quintOut } from 'svelte/easing';
+	import { crossfade } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
+
+	// https://svelte.dev/tutorial/animate
+	const [send, receive] = crossfade({
+		duration: (d) => Math.sqrt(d * 200),
+
+		fallback(node, params) {
+			const style = getComputedStyle(node);
+			const transform = style.transform === 'none' ? '' : style.transform;
+
+			return {
+				duration: 600,
+				easing: quintOut,
+				css: (t) => `
+					transform: ${transform} scale(${t});
+					opacity: ${t}
+				`
+			};
+		}
+	});
+
 	$: dictionary = $session.languageDictionary;
 
 	const makeNewStopwatch = () => {
@@ -53,9 +76,15 @@
 <!-- give stopwatches a unique identifier in `each` loop so that upon removing one, the page maintains state correctly
 		stopwatches can be uniquely determined by a combination of their times and their index
 		we need index since intially the times are all the same (an empty array) -->
-<div class="grid  lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+<div class="grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
 	{#each $settings.stopwatch.stopwatches as stopwatch, idx (stopwatch.id)}
-		<Stopwatch bind:data={stopwatch} isFirst={idx === 0} />
+		<div
+			in:receive={{ key: stopwatch.id }}
+			out:send={{ key: stopwatch.id }}
+			animate:flip={{ duration: 200 }}
+			class:col-span-full={idx === 0 && $settings.stopwatch.largerFirstStopwatch}>
+			<Stopwatch bind:data={stopwatch} />
+		</div>
 	{/each}
 </div>
 
