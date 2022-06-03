@@ -53,9 +53,6 @@
 	});
 </script>
 
-<!-- give stopwatches a unique identifier in `each` loop so that upon removing one, the page maintains state correctly
-		stopwatches can be uniquely determined by a combination of their times and their index
-		we need index since intially the times are all the same (an empty array) -->
 <div class="grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
 	{#each $settings.stopwatch.stopwatches as stopwatch, idx (stopwatch.id)}
 		<div
