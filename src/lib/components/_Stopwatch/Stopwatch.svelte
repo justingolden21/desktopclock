@@ -20,7 +20,6 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 
 	export let data;
-	export let isFirst;
 
 	$: dictionary = $session.languageDictionary;
 	$: running = data.times.length % 2 == 1; // odd number of times
@@ -96,9 +95,7 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 	};
 </script>
 
-<div
-	class="stopwatch__outer surface group {stopwatchIsFullscreen && 'fullscreen'}"
-	class:col-span-full={isFirst && $settings.stopwatch.largerFirstStopwatch}>
+<div class="stopwatch__outer surface group {stopwatchIsFullscreen && 'fullscreen'}">
 	<button
 		class="icon-btn top-2 left-2 absolute hidden {!stopwatchIsFullscreen && 'group-hover:block'}"
 		on:click={removeStopwatch}>
@@ -183,7 +180,7 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 
 <style lang="postcss">
 	.stopwatch__outer {
-		@apply inline-block align-top border-0 relative;
+		@apply align-top border-0 relative;
 	}
 	.stopwatch__outer.fullscreen {
 		@apply w-screen h-screen z-50 fixed top-0 left-0 m-0;
