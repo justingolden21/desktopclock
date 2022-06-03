@@ -54,7 +54,7 @@
 <!-- secondary / other timezones -->
 {#if secondaryDisplay === 'rows' || secondaryDisplay === 'compact_rows'}
 	{#each $settings.worldclock.timezones as timezone, idx (`${idx}-${timezone.zone}-${timezone.name}`)}
-		<div animate:flip={{ duration: 250 }} in:scale|local out:scale|local class="relative group">
+		<div animate:flip={{ duration: 250 }} transition:scale|local class="relative group">
 			<div
 				class="grid grid-cols-2 gap-4 lg:gap-8 border-0 {hasBorder
 					? 'border-t-2'
@@ -93,8 +93,7 @@
 		{#each $settings.worldclock.timezones as timezone, idx (`${idx}-${timezone.zone}-${timezone.name}`)}
 			<div
 				animate:flip={{ duration: 250 }}
-				in:scale|local
-				out:scale|local
+				transition:scale|local
 				class="relative group {secondaryDisplay === 'analog_grid'
 					? 'text-center'
 					: 'text-left'} break-words {!hasBorder && 'border-0'} rounded surface p-4">
