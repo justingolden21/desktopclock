@@ -8,7 +8,8 @@
 		'/': 'clock',
 		'/worldclock': 'worldclock',
 		'/stopwatch': 'stopwatch',
-		'/timers': 'timers'
+		'/timers': 'timers',
+		'/flipclock': 'flipclock'
 	};
 	const pageName = pageNameMapper[$page.url.pathname];
 	$: seo = dictionary.seo[pageName];

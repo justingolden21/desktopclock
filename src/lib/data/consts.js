@@ -3,7 +3,7 @@ export const supportedLangs = ['en'];
 
 export const appURL = 'https://desktopclock.app';
 
-export const validPages = ['/', '/worldclock', '/stopwatch', '/timers'];
+export const validPages = ['/', '/worldclock', '/stopwatch', '/timers', '/flipclock'];
 
 export const lightnesses = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'];
 

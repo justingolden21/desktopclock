@@ -227,6 +227,7 @@
 				<Icon name="stopwatch" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 				{dictionary.pageNames['stopwatch']}
 			{/if}
+			<!-- TODO flipclock -->
 		</Tab>
 		<Tab>
 			<Icon name="eye" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />

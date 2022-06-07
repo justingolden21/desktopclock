@@ -75,6 +75,7 @@
 			{dictionary.pageNames['stopwatch']}
 		{/if}
 	</a>
+	<!-- TODO: flipclock -->
 	<!-- <a
 		class:active={$page.url.pathname === '/timers'}
 		href="/timers"

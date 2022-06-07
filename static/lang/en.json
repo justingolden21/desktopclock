@@ -23,6 +23,13 @@
 			"keywords": "stopwatch, stopwatch online, stopwatch offline, free stopwatch, multiple stopwatches, multiple stopwatches online, multiple stopwatches free, best stopwatch, stopwatch with laps, lap stopwatch",
 			"screenshot": "screenshot-stopwatch-en.png"
 		},
+		"flipclock": {
+			"name": "Flipclock - Desktop Clock",
+			"description": "A simple, bold flipclock",
+			"shareDescription": "Try Flipclock from Desktop Clock",
+			"keywords": "flipclock, flipclock online, flipclock bold, flipclock free",
+			"screenshot": "screenshot.png"
+		},
 		"timers": {}
 	},
 	"pageNames": {
@@ -30,7 +37,8 @@
 		"clock": "Clock",
 		"worldclock": "Worldclock",
 		"stopwatch": "Stopwatch",
-		"timers": "Timers"
+		"timers": "Timers",
+		"flipclock": "Flipclock"
 	},
 	"settingsTabs": {
 		"Appearance": "Appearance",
