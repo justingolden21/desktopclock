@@ -149,6 +149,14 @@
 		const result = await fetch(`/lang/${language}.json`);
 		return await result.json();
 	}
+
+	const downloadSettings = () => {
+		console.log('download settings');
+	};
+
+	const uploadSettings = () => {
+		console.log('upload settings');
+	};
 </script>
 
 <script>
@@ -454,7 +462,15 @@
 					{dictionary.labels['Send feedback']}
 				</button>
 
-				<br />
+				<button class="btn" on:click={downloadSettings}>
+					<Icon name="download" class="inline w-6 h-6" />
+					{dictionary.labels['Download settings']}
+				</button>
+
+				<button class="btn" on:click={uploadSettings}>
+					<Icon name="upload" class="inline w-6 h-6" />
+					{dictionary.labels['Upload settings']}
+				</button>
 
 				<button
 					class="btn undo-btn"
