@@ -150,8 +150,18 @@
 		return await result.json();
 	}
 
+	function download(filename, text) {
+		const el = document.createElement('a');
+		el.setAttribute('download', filename);
+		el.setAttribute('href', 'data:text/plain;charset=utf-8, ' + encodeURIComponent(text));
+		document.body.appendChild(el);
+		el.click();
+		document.body.removeChild(el);
+	}
+
 	const downloadSettings = () => {
 		console.log('download settings');
+		download('settings.txt', 'hello');
 	};
 
 	const uploadSettings = () => {
