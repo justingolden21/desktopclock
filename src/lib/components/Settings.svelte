@@ -151,6 +151,7 @@
 	}
 
 	function download(filename, text) {
+		// https://www.geeksforgeeks.org/how-to-trigger-a-file-download-when-clicking-an-html-button-or-javascript/
 		const el = document.createElement('a');
 		el.setAttribute('download', filename);
 		el.setAttribute('href', 'data:text/plain;charset=utf-8, ' + encodeURIComponent(text));
@@ -160,12 +161,19 @@
 	}
 
 	const downloadSettings = () => {
-		console.log('download settings');
 		download('settings.txt', 'hello');
 	};
 
-	const uploadSettings = () => {
-		console.log('upload settings');
+	const uploadSettings = (evt) => {
+		const file = evt.target.files[0];
+
+		// https://stackoverflow.com/a/44161989/4907950
+		const reader = new FileReader();
+		reader.onerror = (err) => console.error(`Error reading file: ${err}`);
+		reader.onload = (event) => {
+			console.log(event.target.result);
+		};
+		reader.readAsText(file);
 	};
 </script>
 
@@ -425,9 +433,6 @@
 		<!-- key="0" to default to all accordions closed -->
 		<Accordion key="0">
 			<AccordionPanel accordionTitle={dictionary.labels['Application']} key="1">
-				<!-- <button class="btn">Download Settings</button> -->
-				<!-- <button class="btn">Upload Settings</button> -->
-
 				<button class="btn share-btn" on:click={() => shareApp(dictionary, $page.url.pathname)}>
 					<Icon name="share" class="inline w-6 h-6" />
 					{dictionary.labels['Share']}
@@ -477,7 +482,13 @@
 					{dictionary.labels['Download settings']}
 				</button>
 
-				<button class="btn" on:click={uploadSettings}>
+				<input
+					id="settings-upload"
+					type="file"
+					accept=".txt"
+					class="hidden"
+					on:change={uploadSettings} />
+				<button class="btn" on:click={() => document.getElementById('settings-upload').click()}>
 					<Icon name="upload" class="inline w-6 h-6" />
 					{dictionary.labels['Upload settings']}
 				</button>
