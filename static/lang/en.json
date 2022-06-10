@@ -201,7 +201,8 @@
 		"sizes": {
 			"small": "Small",
 			"medium": "Medium",
-			"large": "Large"
+			"large": "Large",
+			"extralarge": "Extra Large"
 		},
 
 		"Hour": "Hour",

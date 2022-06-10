@@ -42,7 +42,7 @@
 
 				<SettingSelect
 					bind:value={$settings.clock.displays.primaryFontSize}
-					values={['small', 'medium', 'large']}
+					values={['small', 'medium', 'large', 'extralarge']}
 					labels={dictionary.clockSettings.sizes} />
 			{/if}
 		</div>
@@ -63,7 +63,7 @@
 
 				<SettingSelect
 					bind:value={$settings.clock.displays.secondaryFontSize}
-					values={['small', 'medium', 'large']}
+					values={['small', 'medium', 'large', 'extralarge']}
 					labels={dictionary.clockSettings.sizes} />
 			{/if}
 		</div>

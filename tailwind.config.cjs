@@ -33,7 +33,9 @@ module.exports = {
 		fontSize: {
 			...defaultTheme.fontSize,
 			'10xl': '10rem',
-			'11xl': '12rem'
+			'11xl': '12rem',
+			'12xl': '16rem',
+			'13xl': '20rem'
 		},
 		extend: {
 			screens: {

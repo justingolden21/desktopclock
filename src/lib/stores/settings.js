@@ -10,8 +10,8 @@ export const defaultSettings = {
 			secondary: 'date', // time, date, datetime, none
 			primaryPalette: 'base',
 			secondaryPalette: 'base',
-			primaryFontSize: 'medium',
-			secondaryFontSize: 'medium',
+			primaryFontSize: 'large',
+			secondaryFontSize: 'large',
 			battery: false
 		},
 		theme: JSON.parse(JSON.stringify(defaultTheme)),

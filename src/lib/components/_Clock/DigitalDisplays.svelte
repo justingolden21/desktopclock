@@ -61,7 +61,7 @@
 		style:color={displays.primaryPalette === 'base'
 			? baseColorPalette[shade]
 			: accentColorPalette[shade]}
-		class={displays.primary + ' text-' + displays.primaryFontSize}>
+		class={displays.primary + ' m-0 text-' + displays.primaryFontSize}>
 		{#if displays.primary !== 'analog'}
 			{primaryDisplayMap[displays.primary]}
 		{/if}
@@ -105,26 +105,33 @@
 	}
 
 	#primary-display.text-small {
-		@apply text-6xl md:text-7xl lg:text-8xl xl:text-9xl;
+		@apply text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-10xl;
 		@apply supershort:text-4xl short:text-5xl supershort:md:text-6xl short:lg:text-7xl;
 	}
 	#primary-display {
-		@apply text-7xl md:text-8xl lg:text-9xl xl:text-10xl;
+		@apply text-7xl md:text-8xl lg:text-9xl xl:text-10xl 2xl:text-11xl;
 		@apply supershort:text-5xl short:text-6xl supershort:md:text-7xl short:lg:text-8xl;
 	}
 	#primary-display.text-large {
-		@apply text-8xl md:text-9xl lg:text-10xl xl:text-11xl;
+		@apply text-8xl md:text-9xl lg:text-10xl xl:text-11xl 2xl:text-12xl;
 		@apply supershort:text-6xl short:text-7xl supershort:md:text-8xl short:lg:text-9xl;
+	}
+	#primary-display.text-extralarge {
+		@apply text-9xl md:text-10xl lg:text-11xl xl:text-12xl 2xl:text-13xl;
+		@apply supershort:text-7xl short:text-8xl supershort:md:text-9xl short:lg:text-10xl;
 	}
 
 	#primary-display.datetime.text-small {
-		@apply text-4xl md:text-5xl lg:text-6xl;
+		@apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
 	}
 	#primary-display.datetime {
-		@apply text-5xl md:text-6xl lg:text-7xl;
+		@apply text-5xl md:text-6xl lg:text-7xl xl:text-8xl;
 	}
 	#primary-display.datetime.text-large {
-		@apply text-6xl md:text-7xl lg:text-8xl;
+		@apply text-6xl md:text-7xl lg:text-8xl xl:text-9xl;
+	}
+	#primary-display.datetime.text-extralarge {
+		@apply text-8xl md:text-9xl lg:text-10xl xl:text-10xl;
 	}
 
 	#primary-display,
@@ -148,6 +155,10 @@
 	#secondary-display.text-large,
 	#battery-display.text-large {
 		@apply text-3xl md:text-4xl lg:text-5xl;
+	}
+	#secondary-display.text-extralarge,
+	#battery-display.text-extralarge {
+		@apply text-4xl md:text-5xl lg:text-6xl;
 	}
 
 	#secondary-display,
