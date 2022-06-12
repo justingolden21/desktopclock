@@ -283,6 +283,8 @@
 
 		"Simultaneous start": "Simultaneous start",
 		"Simultaneous Start": "Simultaneous Start",
+		"Enter list of names": "Enter list of names",
+		"Stopwatch names (one per line):": "Stopwatch names (one per line):",
 		"Number of stopwatches to start at the same time:": "Number of stopwatches to start at the same time:",
 		"You don't have any stopwatches. Try adding a new one": "You don't have any stopwatches. Try adding a new one"
 	},
@@ -331,6 +333,7 @@
 		"Wake lock failure": "Wake lock failure",
 		"Too many worldclocks": "Too many worldclocks",
 		"Too many stopwatches": "Too many stopwatches",
+		"Please enter at least 1 stopwatch name": "Please enter at least 1 stopwatch name",
 		"Cannot have duplicate timezones with same name": "Cannot have duplicate timezones with same name"
 	}
 }

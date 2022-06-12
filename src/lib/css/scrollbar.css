@@ -27,3 +27,8 @@ TODO: implement a fix where js code injects css inside the body dynamically base
 *::-webkit-scrollbar-thumb:hover {
 	background-color: rgb(var(--base-600, 82, 82, 91));
 }
+
+/* https://stackoverflow.com/a/59244343/4907950 */
+textarea {
+	cursor: auto;
+}
