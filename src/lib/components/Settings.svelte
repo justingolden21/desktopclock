@@ -298,6 +298,8 @@
 					</div>
 				{/if}
 
+				<!-- TODO: maybe make it a dropdown with three options (light, dark, pitch black) -->
+
 				<!-- TODO maybe: auto go fullscreen and close settings, open a (bright) toast that says
 				'hit esc to quit pitch black mode' and upon exiting fullscreen exit pitch black mode? -->
 				{#if $settings.darkMode}
