@@ -287,12 +287,25 @@
 						]}
 						theme="accentColorPalette" />
 				</div>
-				<div class="block mb-2">
-					<button class="dark-btn btn" on:click={() => ($settings.darkMode = !$settings.darkMode)}>
-						<Icon name={$settings.darkMode ? 'moon' : 'sun'} class="inline w-6 h-6" />
-						{dictionary.labels['Dark']}
-					</button>
-				</div>
+				{#if !$settings.pitchBlackMode}
+					<div class="block mb-2">
+						<button
+							class="dark-btn btn"
+							on:click={() => ($settings.darkMode = !$settings.darkMode)}>
+							<Icon name={$settings.darkMode ? 'moon' : 'sun'} class="inline w-6 h-6" />
+							{dictionary.labels['Dark']}
+						</button>
+					</div>
+				{/if}
+
+				<!-- TODO maybe: auto go fullscreen and close settings, open a (bright) toast that says
+				'hit esc to quit pitch black mode' and upon exiting fullscreen exit pitch black mode? -->
+				{#if $settings.darkMode}
+					<Toggle
+						id="pitch-black-toggle"
+						bind:checked={$settings.pitchBlackMode}
+						labelText={dictionary.labels['Pitch black mode']} />
+				{/if}
 
 				<SettingSelect
 					id="font-family-select"
@@ -389,7 +402,7 @@
 		<button
 			class="btn undo-btn block mt-4"
 			on:click={() => {
-				for (const option of 'baseColorPalette accentColorPalette darkMode showDarkButton showPrimaryButton showSecondaryButton showCastButton showFullscreenButton smallerMenu alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily fontFamilyBody'.split(
+				for (const option of 'baseColorPalette accentColorPalette darkMode showDarkButton showPrimaryButton showSecondaryButton showCastButton showFullscreenButton smallerMenu alwaysCollapseMenu hideTitlebarWhenIdle secondsUntilIdle fontFamily fontFamilyBody pitchBlackMode'.split(
 					' '
 				))
 					$settings[option] = defaultSettings[option];

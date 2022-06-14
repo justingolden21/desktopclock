@@ -163,4 +163,14 @@
 	.surface-thin {
 		@apply surface border-base-100 dark:border-base-600;
 	}
+
+	/* Pitch black mode */
+	.pitch-black,
+	.pitch-black * {
+		background: #000 !important;
+		@apply text-base-700 !important;
+	}
+	.pitch-black .clock {
+		opacity: 0.25;
+	}
 }

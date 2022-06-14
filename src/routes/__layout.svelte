@@ -129,7 +129,8 @@
 <svelte:body on:dblclick={doubleClickFullscreen} />
 
 <main
-	class="dark:bg-base-900 dark:text-base-200 transition-colors duration-200 ease-linear text-base-900 text-center flex min-h-screen"
+	class={`dark:bg-base-900 dark:text-base-200 transition-colors duration-200 ease-linear text-base-900 text-center flex min-h-screen 
+		${$settings.pitchBlackMode ? 'pitch-black' : ''} `}
 	style:--font-family={$settings.fontFamily || systemFontFamilies}
 	style:--font-family-body={$settings.fontFamilyBody}
 	style={paletteVariablesHTML}>

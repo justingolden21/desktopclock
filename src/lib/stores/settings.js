@@ -73,6 +73,7 @@ export const defaultSettings = {
 	baseColorPalette: 'slate',
 	accentColorPalette: 'red',
 	darkMode: null, // overridden in _layout onMount to user device's preference
+	pitchBlackMode: false,
 	showDarkButton: true,
 	showPrimaryButton: true,
 	showSecondaryButton: false,
