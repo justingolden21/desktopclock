@@ -22,9 +22,10 @@
 	import { startInterval } from '$lib/util/now';
 	import { setupInstall } from '$lib/util/install';
 	import { loadFonts } from '$lib/util/fontController';
-	import { hexToRgb, initializeSettings } from '$lib/util';
-	import { systemFontFamilies } from '$lib/data/consts.js';
-	import version from '$lib/data/version.js';
+	import { hexToRgb } from '$lib/util/color';
+	import initializeSettings from '$lib/util/initializeSettings';
+	import { systemFontFamilies } from '$lib/data/consts';
+	import version from '$lib/data/version';
 
 	/// STATE ///
 	let loading = true;
