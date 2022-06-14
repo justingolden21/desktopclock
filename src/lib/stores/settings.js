@@ -12,8 +12,7 @@ export const defaultSettings = {
 			secondaryPalette: 'base',
 			primaryFontSize: 'medium',
 			secondaryFontSize: 'medium',
-			battery: false,
-			primarySevenSegment: false
+			battery: false
 		},
 		theme: JSON.parse(JSON.stringify(defaultTheme)),
 		secondHandMovement: 'sweeping',
