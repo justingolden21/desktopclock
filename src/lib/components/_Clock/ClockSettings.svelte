@@ -44,6 +44,11 @@
 					bind:value={$settings.clock.displays.primaryFontSize}
 					values={['small', 'medium', 'large']}
 					labels={dictionary.clockSettings.sizes} />
+
+				<Toggle
+					id="seven-segment-toggle"
+					bind:checked={$settings.clock.displays.primarySevenSegment}
+					labelText={dictionary.clockSettings['Seven segment display']} />
 			{/if}
 		</div>
 

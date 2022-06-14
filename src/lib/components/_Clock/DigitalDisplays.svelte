@@ -61,7 +61,10 @@
 		style:color={displays.primaryPalette === 'base'
 			? baseColorPalette[shade]
 			: accentColorPalette[shade]}
-		class={displays.primary + ' text-' + displays.primaryFontSize}>
+		class={displays.primary +
+			' text-' +
+			displays.primaryFontSize +
+			(displays.primarySevenSegment ? ' seven-segment' : '')}>
 		{#if displays.primary !== 'analog'}
 			{primaryDisplayMap[displays.primary]}
 		{/if}
@@ -159,5 +162,20 @@
 	}
 	#battery-display {
 		@apply right-8;
+	}
+
+	@font-face {
+		font-family: '7segment';
+		src: url('/font/7segment/7segment.woff') format('woff');
+	}
+
+	@font-face {
+		font-family: 'technology';
+		src: url('/font/technology/Technology-Bold.ttf') format('truetype');
+	}
+
+	.seven-segment {
+		font-family: '7segment';
+		font-family: 'technology';
 	}
 </style>
