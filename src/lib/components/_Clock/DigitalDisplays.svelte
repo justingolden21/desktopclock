@@ -160,13 +160,4 @@
 	#battery-display {
 		@apply right-8;
 	}
-
-	@font-face {
-		font-family: 'technology';
-		src: url('/font/technology/Technology-Bold.ttf') format('truetype');
-	}
-
-	.seven-segment {
-		font-family: 'technology';
-	}
 </style>
