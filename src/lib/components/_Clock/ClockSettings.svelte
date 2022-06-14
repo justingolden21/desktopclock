@@ -2,8 +2,8 @@
 	import { session } from '$app/stores';
 	import { onMount } from 'svelte';
 
-	import { settings } from '$lib/stores/settings.js';
-	import { fontFamilies } from '$lib/data/consts.js';
+	import { settings } from '$lib/stores/settings';
+	import { fontFamilies } from '$lib/data/consts';
 
 	/// COMPONENTS ///
 	import AnalogClockSettings from './AnalogClockSettings.svelte';

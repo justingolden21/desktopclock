@@ -8,10 +8,10 @@
 	import { toggleFullscreen } from '$lib/components/Settings.svelte';
 
 	/// UTILS ///
-	import { settings } from '$lib/stores/settings.js';
+	import { settings } from '$lib/stores/settings';
 	import ToggleDisplay from '$lib/util/toggleDisplay';
-	import { setupCasting, castClock, isCastSupported } from '$lib/util/cast.js';
-	import { now } from '$lib/util/now.js';
+	import { setupCasting, castClock, isCastSupported } from '$lib/util/cast';
+	import { now } from '$lib/util/now';
 
 	/// STATE ///
 	export let navOpen;
@@ -88,29 +88,32 @@ to hide the cursor when idle -->
 		on:click={() => ($settings.darkMode = !$settings.darkMode)}
 		aria-label={dictionary.labels['Toggle dark mode']}
 		title={dictionary.labels['Toggle dark mode'] + ($settings.keyboardShortcuts ? ' (N)' : '')}>
-		<Icon name="moon" class="w-6 h-6 md:w-8 md:h-8" />
+		<Icon name={$settings.darkMode ? 'moon' : 'sun'} class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 
-	<button
-		class="icon-btn float-left left-36 absolute top-4 z-10 
-        {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-20'}"
-		class:hidden={!$settings.showPrimaryButton}
-		on:click={togglePrimaryDisplay}
-		aria-label={dictionary.labels['Toggle primary display']}
-		title={dictionary.labels['Toggle primary display'] +
-			($settings.keyboardShortcuts ? ' (P)' : '')}>
-		<Icon name="primary" class="w-6 h-6 md:w-8 md:h-8" />
-	</button>
-	<button
-		class="icon-btn float-left left-52 absolute top-4 z-10 
-        {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-36'}"
-		class:hidden={!$settings.showSecondaryButton}
-		on:click={toggleSecondaryDisplay}
-		aria-label={dictionary.labels['Toggle secondary display']}
-		title={dictionary.labels['Toggle secondary display'] +
-			($settings.keyboardShortcuts ? ' (D)' : '')}>
-		<Icon name="secondary" class="w-6 h-6 md:w-8 md:h-8" />
-	</button>
+	<!-- only show toggle display buttons on pages with toggleable displays -->
+	{#if ['/', '/worldclock'].includes($page.url.pathname)}
+		<button
+			class="icon-btn float-left left-36 absolute top-4 z-10 
+			{$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-20'}"
+			class:hidden={!$settings.showPrimaryButton}
+			on:click={togglePrimaryDisplay}
+			aria-label={dictionary.labels['Toggle primary display']}
+			title={dictionary.labels['Toggle primary display'] +
+				($settings.keyboardShortcuts ? ' (P)' : '')}>
+			<Icon name="primary" class="w-6 h-6 md:w-8 md:h-8" />
+		</button>
+		<button
+			class="icon-btn float-left left-52 absolute top-4 z-10 
+			{$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-36'}"
+			class:hidden={!$settings.showSecondaryButton}
+			on:click={toggleSecondaryDisplay}
+			aria-label={dictionary.labels['Toggle secondary display']}
+			title={dictionary.labels['Toggle secondary display'] +
+				($settings.keyboardShortcuts ? ' (D)' : '')}>
+			<Icon name="secondary" class="w-6 h-6 md:w-8 md:h-8" />
+		</button>
+	{/if}
 
 	<h1 class="hidden sm:block mx-auto inset-x-1/2 font-normal">
 		{dictionary.pageNames[$page.url.pathname.substring(1) || 'home'] || dictionary.error['Error']}

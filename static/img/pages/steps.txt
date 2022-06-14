@@ -1,0 +1,7 @@
+Add to package.json:
+
+```
+"generate-page-assets": "pwa-asset-generator static/img/pages/timer.svg static/img/pages/png --icon-only --opaque true"
+```
+
+replace `timer` with name of the icon and copy over the one named `manifest-icon-192` and rename it

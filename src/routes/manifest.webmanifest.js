@@ -1,4 +1,10 @@
+// for readability:
+/* eslint-disable dot-notation */
+
+// eslint-disable-next-line import/prefer-default-export
 export async function get({ locals }) {
+	// https://web.dev/app-shortcuts/
+	// `?utm_source=manifest_shortcut` is for analytics
 	return {
 		status: 200,
 		body: {
@@ -14,20 +20,24 @@ export async function get({ locals }) {
 			shortcuts: [
 				{
 					name: locals.languageDictionary.pageNames['clock'],
-					url: '/'
+					url: '/?utm_source=manifest_shortcut',
+					icons: [{ src: '/img/pages/clock.png', sizes: '192x192' }]
 				},
 				{
 					name: locals.languageDictionary.pageNames['worldclock'],
-					url: '/worldclock'
+					url: '/worldclock?utm_source=manifest_shortcut',
+					icons: [{ src: '/img/pages/worldclock.png', sizes: '192x192' }]
 				},
 				{
 					name: locals.languageDictionary.pageNames['stopwatch'],
-					url: '/stopwatch'
-				},
-				{
-					name: locals.languageDictionary.pageNames['timers'],
-					url: '/timers'
+					url: '/stopwatch?utm_source=manifest_shortcut',
+					icons: [{ src: '/img/pages/stopwatch.png', sizes: '192x192' }]
 				}
+				// {
+				// 	name: locals.languageDictionary.pageNames['timers'],
+				// 	url: '/timers?utm_source=manifest_shortcut',
+				// 	icons: [{ src: '/img/pages/timer.png', sizes: '192x192' }]
+				// }
 			],
 			icons: [
 				{

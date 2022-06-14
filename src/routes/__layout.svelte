@@ -16,10 +16,10 @@
 	import Header from '$lib/layouts/Header.svelte';
 	import KeyboardShortcuts from '$lib/components/KeyboardShortcuts.svelte';
 	import { Toasts } from '$lib/components/Toast';
-	import { settings } from '$lib/stores/settings.js';
+	import { settings } from '$lib/stores/settings';
 
 	/// UTILS ///
-	import { startInterval } from '$lib/util/now.js';
+	import { startInterval } from '$lib/util/now';
 	import { setupInstall } from '$lib/util/install';
 	import { loadFonts } from '$lib/util/fontController';
 	import { hexToRgb, initializeSettings } from '$lib/util';

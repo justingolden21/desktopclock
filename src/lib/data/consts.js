@@ -1,9 +1,9 @@
 export const supportedLangs = ['en'];
 // export const supportedLangs = ['en', 'es'];
 
-export const app_url = 'https://desktopclock.app';
+export const appURL = 'https://desktopclock.app';
 
-export const valid_pages = ['/', '/worldclock', '/stopwatch', '/timers'];
+export const validPages = ['/', '/worldclock', '/stopwatch', '/timers'];
 
 export const lightnesses = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'];
 

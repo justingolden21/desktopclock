@@ -1,7 +1,7 @@
 <script>
 	import { session } from '$app/stores';
 
-	import { open, close, modal } from '$lib/util/modal.js';
+	import { open, close, modal } from '$lib/util/modal';
 
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/Icon';
@@ -11,6 +11,7 @@
 	import NewWorldclock from '$lib/components/_Worldclock/NewWorldclock.svelte';
 	import WorldclockTimetable from '$lib/components/_Worldclock/WorldclockTimetable.svelte';
 	import ConvertTimezones from '$lib/components/_Worldclock/ConvertTimezones.svelte';
+	import SimultaneousStart from '$lib/components/_Stopwatch/SimultaneousStart.svelte';
 
 	/// STATE ///
 	const modalData = {
@@ -50,6 +51,11 @@
 			title: $session.languageDictionary.worldclockSettings['Timetable'],
 			icon: 'table',
 			component: WorldclockTimetable
+		},
+		'simultaneous-start': {
+			title: $session.languageDictionary.stopwatchSettings['Simultaneous Start'],
+			icon: 'stopwatch',
+			component: SimultaneousStart
 		}
 	};
 
@@ -79,8 +85,8 @@
 <svelte:window on:keydown={onWindowKeyDown} />
 
 {#if component}
-	<div class="modal" on:click={close}>
-		<div class="modal-content surface rounded" on:click|stopPropagation>
+	<div class="modal" on:mousedown={close}>
+		<div class="modal-content surface rounded" on:mousedown|stopPropagation>
 			<div class="modal-header">
 				{#if previous}
 					<button
@@ -113,7 +119,7 @@
 		@apply xs:p-3 sm:p-6 md:p-12 fixed left-0 top-0 w-full h-full bg-base-300 bg-opacity-75 z-20;
 	}
 	.modal-content {
-		@apply flex flex-col max-h-full p-2 xs:p-8 xs:pt-4 relative m-auto w-full md:w-3/4;
+		@apply flex flex-col h-full p-2 xs:p-8 xs:pt-4 relative m-auto w-full md:w-3/4;
 		animation: animateTop 0.25s;
 		-webkit-animation: animateTop 0.25s;
 	}

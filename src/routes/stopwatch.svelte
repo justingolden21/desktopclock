@@ -1,8 +1,10 @@
 <script>
-	import { session } from '$app/stores';
-
-	// import SEO from '$lib/components/SEO.svelte';
+	import SEO from '$lib/components/SEO.svelte';
+	import Stopwatches from '$lib/components/_Stopwatch/Stopwatches.svelte';
 </script>
 
-<!-- <SEO/> -->
-<h1 class="mt-16 text-3xl">{$session.languageDictionary.messages['Coming soon']}</h1>
+<SEO />
+
+<div class="p-4 pt-16 sm:p-16 ">
+	<Stopwatches />
+</div>

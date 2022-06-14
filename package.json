@@ -3,13 +3,17 @@
 	"version": "1.0.5",
 	"description": "A simple, resizable customizable, installable clock for any device!",
 	"scripts": {
-		"dev": "svelte-kit dev --open",
+		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
 		"preview": "svelte-kit preview",
 		"buildpreview": "svelte-kit build && svelte-kit preview",
-		"lint": "prettier --ignore-path .gitignore --ignore-path .prettierignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-		"format": "prettier --ignore-path .gitignore --ignore-path .prettierignore --write --plugin-search-dir=. .",
-		"generate-assets": "pwa-asset-generator static/img/icons/icon.svg static/img/icons --favicon --mstile --icon-only --opaque true"
+		"format": "prettier --ignore-path .gitignore --check .",
+		"formatfix": "prettier --ignore-path .gitignore --write .",
+		"lint": "eslint . --ext .js --ignore-path .gitignore .",
+		"lintfix": "eslint . --ext .js --ignore-path .gitignore . --fix",
+		"generate-assets": "pwa-asset-generator static/img/icons/icon.svg static/img/icons --favicon --mstile --icon-only --opaque true",
+		"clean": "node infrastructure/clean.js",
+		"cleanbuild": "npm run clean && npm install && npm run build && npm run preview"
 	},
 	"author": "Justin Golden",
 	"private": "true",
@@ -23,21 +27,20 @@
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-prettier": "^4.0.0",
-		"eslint-plugin-svelte3": "^3.4.1",
-		"postcss": "^8.4.14",
-		"postcss-import": "^14.1.0",
-		"postcss-load-config": "^3.1.4",
-		"prettier": "^2.6.2",
-		"prettier-plugin-svelte": "^2.7.0",
-		"pwa-asset-generator": "^4.3.9",
-		"screenfull": "^5.2.0",
-		"svelte": "^3.48.0",
-		"svelte-preprocess": "^4.10.6",
-		"tailwindcss": "^3.0.24"
+		"eslint-plugin-svelte3": "^3.2.0",
+		"postcss": "^8.4.5",
+		"postcss-import": "^14.0.2",
+		"postcss-load-config": "^3.1.0",
+		"prettier": "^2.5.1",
+		"prettier-plugin-svelte": "^2.5.1",
+		"pwa-asset-generator": "^4.1.1",
+		"svelte-preprocess": "^4.9.8"
 	},
 	"type": "module",
 	"dependencies": {
-		"dayjs": "^1.11.2",
-		"lodash.merge": "^4.6.2"
+		"dayjs": "^1.10.7",
+		"screenfull": "^5.1.0",
+		"svelte": "^3.43.1",
+		"tailwindcss": "^3.0.13"
 	}
 }

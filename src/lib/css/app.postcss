@@ -13,6 +13,11 @@
 		/* default to sans-serif, even for serif, cursive, monospace fonts */
 		font-family: var(--font-family-body), sans-serif;
 		-webkit-tap-highlight-color: transparent;
+
+		/* Set numbers to be monospace
+		only works on: Bitter, Montserrat Alternatives, Major Mono Display
+		https://stackoverflow.com/a/56266636/4907950 */
+		font-variant-numeric: tabular-nums;
 	}
 
 	h1,
@@ -23,14 +28,6 @@
 	h6 {
 		/* default to sans-serif, even for serif, cursive, monospace fonts */
 		font-family: var(--font-family), sans-serif;
-	}
-
-	/* Mostly for analog clock */
-	.notransition {
-		-webkit-transition: none !important;
-		-moz-transition: none !important;
-		-o-transition: none !important;
-		transition: none !important;
 	}
 
 	/* Selection and focus */

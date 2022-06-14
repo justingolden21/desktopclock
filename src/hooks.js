@@ -2,7 +2,7 @@ async function getLanguageDictionary(lang) {
 	try {
 		return (await import(`../static/lang/${lang}.json`)).default;
 	} catch (error) {
-		return (await import(`../static/lang/en.json`)).default;
+		return (await import('../static/lang/en.json')).default;
 	}
 }
 

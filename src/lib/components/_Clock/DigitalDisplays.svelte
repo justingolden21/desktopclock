@@ -3,7 +3,7 @@
 
 	import { onMount } from 'svelte';
 
-	import { settings } from '$lib/stores/settings.js';
+	import { settings } from '$lib/stores/settings';
 
 	/// COMPONENTS ///
 	import { BatteryIcon, Icon } from '$lib/components/Icon';
@@ -129,11 +129,6 @@
 
 	#primary-display,
 	#secondary-display {
-		/* Set numbers to be monospace
-		only works on: Bitter, Montserrat Alternatives, Major Mono Display
-		https://stackoverflow.com/a/56266636/4907950 */
-		font-variant-numeric: tabular-nums;
-
 		white-space: break-spaces;
 	}
 

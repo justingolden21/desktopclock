@@ -26,6 +26,8 @@ export function objToTimeStr(obj, ampm = false) {
 	let h = obj.hours % (ampm ? 12 : 24);
 	if (ampm && h === 0) h = 12;
 	const m = obj.mins.toString().padStart(2, '0');
+	// it beats breaking it into if statements...
+	// eslint-disable-next-line no-nested-ternary
 	return `${h}:${m}${ampm ? (obj.hours >= 12 ? ' PM' : ' AM') : ''}`;
 }
 
@@ -63,7 +65,7 @@ export function getSum(time, mins) {
 
 	const timeMins = objToMins(time);
 
-	let minsSum = timeMins + mins;
+	const minsSum = timeMins + mins;
 	// if (minsSum < 0) minsSum += 60 * 24;
 	// if (minsSum > 60 * 24) minsSum -= 60 * 24;
 

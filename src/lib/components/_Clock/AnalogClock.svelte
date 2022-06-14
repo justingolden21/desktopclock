@@ -10,12 +10,12 @@
 	dayjs.extend(utc);
 	dayjs.extend(tz);
 
-	import { numeralStyles } from '$lib/data/consts.js';
-	import { settings } from '$lib/stores/settings.js';
+	import { numeralStyles } from '$lib/data/consts';
+	import { settings } from '$lib/stores/settings';
 
 	/// UTILS ///
-	import { now } from '$lib/util/now.js';
-	import { getColor } from '$lib/util';
+	import { now } from '$lib/util/now';
+	import { getColor } from '$lib/util/color';
 
 	/// STATE ///
 	export let mode = '';
@@ -106,10 +106,9 @@ A customizable analog clock
   ```
 -->
 
-<svg id="clock" viewBox="0 0 64 64">
+<svg class="clock" viewBox="0 0 64 64">
 	<!-- Shadow -->
 	<rect
-		id="shadow"
 		x="4"
 		y="2"
 		width="60"
@@ -119,7 +118,6 @@ A customizable analog clock
 
 	<!-- Face -->
 	<rect
-		id="face"
 		x="2"
 		y="2"
 		width="60"
@@ -133,7 +131,7 @@ A customizable analog clock
 	<g transform="translate(32,32)">
 		{#each sizes as { size, r }}
 			<circle
-				id="{size}-ticks"
+				class="{size}-ticks"
 				fill="none"
 				{r}
 				stroke-dasharray={`${theme.ticks[size].height},${
@@ -166,7 +164,7 @@ A customizable analog clock
 	<g transform="translate(32,32) rotate(180)">
 		{#each ['hour', 'minute', 'second'] as hand}
 			<line
-				id="{hand}-hand"
+				class="{hand}-hand"
 				transform="rotate({angles[hand]})"
 				y1={-theme.hands[hand].back}
 				y2={theme.hands[hand].length}
@@ -180,7 +178,7 @@ A customizable analog clock
 	<circle
 		cx="32"
 		cy="32"
-		id="pin"
+		class="pin"
 		fill={getColor(theme.pin.fill)}
 		stroke={getColor(theme.pin.stroke)}
 		stroke-width={theme.pin.strokeWidth}
@@ -188,7 +186,7 @@ A customizable analog clock
 </svg>
 
 <style lang="postcss">
-	#clock {
+	.clock {
 		position: absolute;
 		top: 12.5%;
 		left: 12.5%;
@@ -196,10 +194,10 @@ A customizable analog clock
 		width: 75%;
 	}
 
-	#sm-ticks,
-	#md-ticks,
-	#lg-ticks,
-	#pin {
+	.sm-ticks,
+	.md-ticks,
+	.lg-ticks,
+	.pin {
 		@apply transition duration-200 ease-in-out;
 	}
 </style>

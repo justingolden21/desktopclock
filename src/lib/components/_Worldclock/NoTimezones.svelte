@@ -2,7 +2,7 @@
 	import { session } from '$app/stores';
 
 	/// UTILS ///
-	import { open } from '$lib/util/modal.js';
+	import { open } from '$lib/util/modal';
 
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/Icon';

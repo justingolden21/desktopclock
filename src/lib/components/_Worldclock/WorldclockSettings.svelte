@@ -2,7 +2,7 @@
 	import { session } from '$app/stores';
 
 	/// UTILS ///
-	import { settings, defaultSettings } from '$lib/stores/settings.js';
+	import { settings, defaultSettings } from '$lib/stores/settings';
 
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/Icon';
@@ -33,7 +33,7 @@
 				id="secondary-display-select"
 				selectLabel={dictionary.clockSettings['Secondary display:']}
 				bind:value={$settings.worldclock.displays.secondary}
-				values={['rows', 'analog_grid', 'digital_grid']}
+				values={['rows', 'compact_rows', 'analog_grid', 'digital_grid']}
 				labels={dictionary.clockSettings.clockFormats} />
 		</div>
 	</AccordionPanel>
@@ -72,7 +72,9 @@
 <button
 	class="btn undo-btn mt-4"
 	on:click={() => {
+		const userWorldclocks = JSON.parse(JSON.stringify($settings.worldclock.timezones));
 		$settings.worldclock = JSON.parse(JSON.stringify(defaultSettings.worldclock));
+		$settings.worldclock.timezones = userWorldclocks;
 
 		// TODO: move into centralized location
 		// copied from `_layout.svlete` and `DatetimeSettings.svelte`

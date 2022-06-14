@@ -1,5 +1,7 @@
 import defaultTheme from '../themes/default';
-import { localStore } from '../util/localStore';
+import localStore from '../util/localStore';
+
+import uid from '$lib/util/uid';
 
 export const defaultSettings = {
 	clock: {
@@ -46,6 +48,25 @@ export const defaultSettings = {
 			times: ['9:00', '12:00', '15:00', '18:00'],
 			ampm: null
 		}
+	},
+	stopwatch: {
+		stopwatches: [
+			// initialize the user with one new stopwatch
+			{
+				times: [],
+				laps: [],
+				id: uid(),
+				name: ''
+			}
+		],
+		alwaysShowHours: false,
+		digitsAfterSeconds: 1,
+		digitsAfterSecondsLapList: 3,
+		showResetButton: false,
+		namableStopwatches: false,
+		reverseOrderLaps: false,
+		largerFirstStopwatch: true,
+		autoStartStopwatches: false
 	},
 
 	// appearance

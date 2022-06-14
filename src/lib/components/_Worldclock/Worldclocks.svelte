@@ -1,5 +1,8 @@
 <script>
-	import { settings } from '$lib/stores/settings.js';
+	import { scale, fade } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
+
+	import { settings } from '$lib/stores/settings';
 
 	/// COMPONENTS ///
 	import AnalogClock from '$lib/components/_Clock/AnalogClock.svelte';
@@ -26,7 +29,7 @@
 	const hasBorder = true;
 
 	/// METHODS ///
-	const getTimezone = (timezone) =>
+	const getTimezoneName = (timezone) =>
 		timezone.name !== '' ? timezone.name : timezone.zone.split('_').join(' ');
 </script>
 
@@ -49,30 +52,37 @@
 {/if}
 
 <!-- secondary / other timezones -->
-{#if secondaryDisplay === 'rows'}
-	{#each $settings.worldclock.timezones as timezone, idx}
-		<div class="relative group">
+{#if secondaryDisplay === 'rows' || secondaryDisplay === 'compact_rows'}
+	{#each $settings.worldclock.timezones as timezone, idx (`${idx}-${timezone.zone}-${timezone.name}`)}
+		<div animate:flip={{ duration: 250 }} in:scale|local out:fade|local class="relative group">
 			<div
 				class="grid grid-cols-2 gap-4 lg:gap-8 border-0 {hasBorder
 					? 'border-t-2'
 					: 'my-4 sm:my-8'} p-4 surface">
 				<div class="text-left break-words">
-					<p>{getTimezone(timezone)}</p>
-					<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
-					<p>{$getDate(timezone.zone)}</p>
-					<hr class="w-36" />
+					<p>{getTimezoneName(timezone)}</p>
+					{#if secondaryDisplay === 'rows'}
+						<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
+						<p>{$getDate(timezone.zone)}</p>
+						<hr class="w-36" />
+					{/if}
 					<p>
 						UTC {$getUtcOffset(timezone.zone)}
 						(<span class="font-bold">{$getHourDiff(timezone.zone)}</span>)
 					</p>
 				</div>
 				<div>
-					<div class="w-24 h-24 sm:w-32 sm:h-32 relative ml-auto mr-6">
-						<AnalogClock
-							theme={$settings.worldclock.theme}
-							mode="worldclock"
-							timezone={timezone.zone} />
-					</div>
+					{#if secondaryDisplay === 'rows'}
+						<div class="w-24 h-24 sm:w-32 sm:h-32 relative ml-auto mr-6">
+							<AnalogClock
+								theme={$settings.worldclock.theme}
+								mode="worldclock"
+								timezone={timezone.zone} />
+						</div>
+					{:else}
+						<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
+						<p>{$getDate(timezone.zone)}</p>
+					{/if}
 				</div>
 			</div>
 			<WorldclockDropdown {idx} classes="absolute top-2 right-2" />
@@ -80,12 +90,15 @@
 	{/each}
 {:else}
 	<div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8 mt-8">
-		{#each $settings.worldclock.timezones as timezone, idx}
+		{#each $settings.worldclock.timezones as timezone, idx (`${idx}-${timezone.zone}-${timezone.name}`)}
 			<div
+				animate:flip={{ duration: 250 }}
+				in:scale|local
+				out:fade|local
 				class="relative group {secondaryDisplay === 'analog_grid'
 					? 'text-center'
 					: 'text-left'} break-words {!hasBorder && 'border-0'} rounded surface p-4">
-				<p>{getTimezone(timezone)}</p>
+				<p>{getTimezoneName(timezone)}</p>
 				<p class="font-bold text-3xl">{$getTime(timezone.zone)}</p>
 				{#if secondaryDisplay === 'analog_grid'}
 					<div class="w-24 h-24 sm:w-32 sm:h-32 relative mx-auto">

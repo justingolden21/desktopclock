@@ -1,5 +1,5 @@
 <script>
-	import { settings } from '$lib/stores/settings.js';
+	import { settings } from '$lib/stores/settings';
 
 	import TailwindColors from 'tailwindcss/colors.js';
 

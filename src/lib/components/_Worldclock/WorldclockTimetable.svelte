@@ -3,7 +3,7 @@
 
 	import { session } from '$app/stores';
 
-	import { settings } from '$lib/stores/settings.js';
+	import { settings } from '$lib/stores/settings';
 	import { getTime, getHourDiff } from '$lib/util/timeText';
 
 	/// COMPONENTS ///
@@ -45,7 +45,7 @@
 		</tr>
 	</thead>
 	<tbody class="group">
-		{#each [{ name: dictionary.labels['Home'], zone: $settings.locale.timezone }].concat($settings.worldclock.timezones) as timezone, idx}
+		{#each [{ name: dictionary.labels['Home'], zone: $settings.locale.timezone }].concat($settings.worldclock.timezones) as timezone, idx (`${timezone.zone}-${timezone.name}`)}
 			<tr>
 				<td>
 					{#if idx !== 0}
