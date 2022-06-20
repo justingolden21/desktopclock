@@ -114,29 +114,29 @@
 		"Home": "घर",
 
 		"Numeral Styles": {
-			"numerals": "Numerals",
-			"fourNumerals": "4 Numerals",
-			"numbers": "Numbers",
-			"fourNumbers": "4 Numbers",
-			"none": "None"
+			"numerals": "अंक",
+			"fourNumerals": "4 अंक",
+			"numbers": "नंबर",
+			"fourNumbers": "4 नंबर",
+			"none": "कोई भी नहीं"
 		},
 
 		"Font Weights": [
 			"",
-			"Thin",
-			"Extralight",
-			"Light",
-			"Normal",
-			"Medium",
-			"Semibold",
-			"Bold",
-			"Extrabold",
-			"Black"
+			"पतला",
+			"अतिरिक्त हल्का",
+			"हल्का",
+			"सामान्य",
+			"मध्यम",
+			"अर्ध भारी",
+			"भारी",
+			"अधिक भारी",
+			"काला"
 		],
 		"Movements": {
-			"sweeping": "Sweeping",
-			"grandfather": "Grandfather",
-			"modern": "Modern"
+			"sweeping": "व्यापक",
+			"grandfather": "दादा",
+			"modern": "आधुनिक"
 		}
 	},
 	"languages": {
@@ -144,16 +144,17 @@
 		"es": "Spanish",
 		"de": "German",
 		"fr": "French",
-		"ru": "Russian"
+		"ru": "Russian",
+		"hi": "Hindi"
 	},
 	"keyboardShortcuts": {
-		"Key": "Key",
-		"Action": "Action"
+		"Key": "कुंजी",
+		"Action": "कार्य"
 	},
 	"clockSettings": {
-		"Displays": "Displays",
-		"Analog": "Analog",
-		"Digital Datetime": "Digital Datetime",
+		"Displays": "डिस्प्ले",
+		"Analog": "एनालॉग",
+		"Digital Datetime": "डिजिटल तिथि समय",
 
 		"Primary display:": "Primary display:",
 		"Secondary display:": "Secondary display:",
