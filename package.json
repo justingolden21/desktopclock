@@ -39,7 +39,7 @@
 	"type": "module",
 	"dependencies": {
 		"dayjs": "^1.10.7",
-		"screenfull": "^5.1.0",
+		"screenfull": "^6.0.2",
 		"svelte": "^3.43.1",
 		"tailwindcss": "^3.0.13"
 	}
