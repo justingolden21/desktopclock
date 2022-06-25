@@ -1,0 +1,337 @@
+{
+	"appName": "डेस्कटॉप घड़ी",
+	"appShortName": "डेस्कटॉप घड़ी",
+	"seo": {
+		"clock": {
+			"name": "डेस्कटॉप घड़ी",
+			"description": "किसी भी डिवाइस के लिए एक सरल, आकार बदलने योग्य, अनुकूलन योग्य, इंस्टॉल करने योग्य घड़ी!",
+			"shareDescription": "आप डेस्कटॉप घड़ी का आनंद ले सकते हैं, एक सरल, आकार बदलने योग्य और अनुकूलन योग्य घड़ी ऐप और वेबसाइट।",
+			"keywords": "घड़ी, डेस्कटॉप घड़ी, घड़ी ऐप, एनालॉग घड़ी, डिजिटल घड़ी, अनुकूलन योग्य घड़ी, मुफ्त घड़ी, साधारण घड़ी, तिथि और समय, तारीख के साथ घड़ी, फुलस्क्रीन घड़ी, सोने के समय की घड़ी, आकार बदलने योग्य घड़ी, खिड़कियों के लिए घड़ी, मैक के लिए घड़ी, के लिए घड़ी क्रोम, एंड्रॉइड के लिए घड़ी, आईओएस के लिए घड़ी",
+			"screenshot": "screenshot.png"
+		},
+		"worldclock": {
+			"name": "विश्व घड़ी - डेस्कटॉप घड़ी",
+			"description": "एनालॉग और डिजिटल डिस्प्ले, सैकड़ों टाइमज़ोन और एक समय सारिणी के साथ एक सरल, सुरुचिपूर्ण, सुविधा संपन्न विश्व घड़ी",
+			"shareDescription": "डेस्कटॉप घड़ी से विश्व घड़ी आज़माएं",
+			"keywords": "विश्व घड़ी, समय सारिणी, समयक्षेत्र परिवर्तित, एनालॉग विश्व घड़ी, डिजिटल विश्व घड़ी, एकाधिक समयक्षेत्र घड़ी, विश्व घड़ी ऑनलाइन, विश्व घड़ी ऑफ़लाइन, मुक्त विश्व घड़ी, सर्वोत्तम विश्व घड़ी",
+			"screenshot": "screenshot-worldclock-en.png"
+		},
+		"stopwatch": {
+			"name": "स्टॉपवॉच - डेस्कटॉप घड़ी",
+			"description": "एक सरल, आकर्षक स्टॉपवॉच जो लैप्स, एकाधिक स्टॉपवॉच, और अनुकूलन क्षमता का समर्थन करती है",
+			"shareDescription": "डेस्कटॉप घड़ी से स्टॉपवॉच आज़माएं",
+			"keywords": "स्टॉपवॉच, स्टॉपवॉच ऑनलाइन, स्टॉपवॉच ऑफलाइन, मुफ्त स्टॉपवॉच, कई स्टॉपवॉच, कई स्टॉपवॉच ऑनलाइन, कई स्टॉपवॉच मुफ्त, सर्वश्रेष्ठ स्टॉपवॉच, लैप्स के साथ स्टॉपवॉच, लैप स्टॉपवॉच",
+			"screenshot": "screenshot-stopwatch-en.png"
+		},
+		"timers": {}
+	},
+	"pageNames": {
+		"home": "डेस्कटॉप घड़ी",
+		"clock": "घड़ी",
+		"worldclock": "विश्व घड़ी",
+		"stopwatch": "स्टॉपवॉच",
+		"timers": "टाइमर्स"
+	},
+	"settingsTabs": {
+		"Appearance": "दिखावट",
+		"General": "जनरल",
+		"About": "बारे में"
+	},
+	"error": {
+		"The resource could not be found": "संसाधन नहीं मिल सका",
+		"Go back to the homepage": "होमपेज पर वापस जाएं",
+		"Error": "समस्या"
+	},
+	"labels": {
+		"Menu": "मेन्यू",
+		"Close": "बंद",
+		"Go back": "वापस जाओ",
+		"Settings": "सेटिंग्स",
+		"Install": "इंस्टॉल",
+		"Share": "शेयर",
+		"Cast": "कास्ट",
+		"Dark": "डार्क",
+		"Fullscreen": "फ़ुलस्क्रीन",
+		"Cast clock": "कास्ट घड़ी",
+		"Toggle secondary display": "द्वितीयक प्रदर्शन टॉगल करें",
+		"Toggle primary display": "प्राथमिक प्रदर्शन टॉगल करें",
+		"Toggle battery display": "बैटरी प्रदर्शन टॉगल करें",
+		"Toggle dark mode": "डार्क मोड टॉगल करें",
+		"Toggle fullscreen": "पूर्ण स्क्रीन टॉगल करें",
+		"Doubleclick fullscreen": "फ़ुलस्क्रीन के लिए डबलक्लिक",
+		"Show dark button": "डार्क मोड बटन दिखाएं",
+		"Show primary toggle button": "प्राथमिक टॉगल बटन दिखाएं",
+		"Show secondary toggle button": "द्वितीयक टॉगल बटन दिखाएं",
+		"Show cast button": "कास्ट बटन दिखाएं",
+		"Show fullscreen button": "पूर्णस्क्रीन बटन दिखाएं",
+		"palettes": {
+			"base": "बेस पैलेट",
+			"accent": "एक्सेंट पैलेट"
+		},
+		"Smaller menu": "छोटा मेनू",
+		"Always collapse menu": "मेन्यू को हमेशा छोटा करें",
+		"Hide title bar when idle": "निष्क्रिय होने पर टाइटल बार छुपाएं",
+		"Seconds until idle:": "निष्क्रिय होने तक के सेकंड:",
+		"Heading font family:": "शीर्षक फ़ॉन्ट परिवार:",
+		"Body font family:": "बॉडी फॉन्ट परिवार:",
+		"Font family:": "फ़ॉन्ट परिवार:",
+		"Reset appearance settings": "प्रकटन सेटिंग रीसेट करें",
+		"Aesthetics": "सौंदर्यशास्र",
+		"User Interface": "प्रयोक्ता इंटरफ़ेस",
+		"Application": "एप्लीकेशन",
+		"Shortcuts": "शॉर्टकट्स",
+		"Locale": "लोकेल",
+		"Copy website link": "वेबसाइट लिंक कॉपी करें",
+		"Open another clock": "एक और घड़ी खोलें",
+		"Send feedback": "प्रतिक्रिया भेजें",
+		"Reset all settings": "सभी सेटिंग्स रीसेट करें",
+		"Keyboard shortcuts": "कीबोर्ड शॉर्टकट",
+		"View keyboard shortcuts": "कीबोर्ड शॉर्टकट देखें",
+		"Language:": "भाषा:",
+		"Automatically detect language": "स्वचालित रूप से भाषा का पता लगाएं",
+		"Datetime locale:": "दिनांक समय स्थान:",
+		"Automatically detect datetime locale": "स्वचालित रूप से दिनांक समय स्थान का पता लगाएं",
+		"Timezone:": "समय क्षेत्र:",
+		"Time:": "समय:",
+		"Automatically detect timezone": "स्वचालित रूप से समय क्षेत्र का पता लगाएं",
+		"Timezone offset:": "समय क्षेत्र ऑफसेट:",
+		"Advanced / Experimental": "उन्नत / प्रायोगिक",
+		"Keep screen awake": "स्क्रीन को चालू रखें",
+		"Delete all data and reload": "सभी डेटा हटाएं और पुनः लोड करें",
+		"New": "नया",
+		"Edit": "संपादित करें",
+		"Save": "सेव ",
+		"Up": "ऊपर",
+		"Down": "नीचे",
+		"Delete": "हटाएं",
+		"Delete all": "सभी हटा दो",
+		"Create": "बनाएं",
+		"Reset": "रीसेट",
+		"Use AM / PM": "एएम / पीएम . का प्रयोग करें",
+		"Difference": "अंतर",
+		"Name": "नाम",
+		"Now": "अभी",
+		"Home": "घर",
+
+		"Numeral Styles": {
+			"numerals": "अंक",
+			"fourNumerals": "4 अंक",
+			"numbers": "नंबर",
+			"fourNumbers": "4 नंबर",
+			"none": "कोई भी नहीं"
+		},
+
+		"Font Weights": [
+			"",
+			"पतला",
+			"अतिरिक्त हल्का",
+			"हल्का",
+			"सामान्य",
+			"मध्यम",
+			"अर्ध भारी",
+			"भारी",
+			"अधिक भारी",
+			"काला"
+		],
+		"Movements": {
+			"sweeping": "व्यापक",
+			"grandfather": "दादा",
+			"modern": "आधुनिक"
+		}
+	},
+	"languages": {
+		"en": "English",
+		"es": "Spanish",
+		"de": "German",
+		"fr": "French",
+		"ru": "Russian",
+		"hi": "Hindi"
+	},
+	"keyboardShortcuts": {
+		"Key": "कुंजी",
+		"Action": "कार्य"
+	},
+	"clockSettings": {
+		"Displays": "डिस्प्ले",
+		"Analog": "एनालॉग",
+		"Digital Datetime": "डिजिटल तिथि समय",
+
+		"Primary display:": "प्राथमिक प्रदर्शन:",
+		"Secondary display:": "माध्यमिक प्रदर्शन:",
+		"clockFormats": {
+			"analog": "एनालॉग घड़ी",
+			"time": "डिजिटल समय",
+			"date": "दिनांक",
+			"datetime": "दिनांक + डिजिटल समय",
+			"none": "कोई भी नहीं",
+
+			"analog_digital": "एनालॉग + डिजिटल",
+			"digital": "डिजिटल",
+			"rows": "पंक्तियाँ",
+			"analog_grid": "एनालॉग ग्रिड",
+			"compact_rows": "संक्षिप्त पंक्तियाँ",
+			"digital_grid": "डिजिटल ग्रिड"
+		},
+		"Show battery": "बैटरी दिखाएं",
+
+		"Default Theme": "डिफ़ॉल्ट थीम",
+		"Default Night Theme": "डिफ़ॉल्ट नाइट थीम",
+		"Classic Theme": "क्लासिक थीम",
+		"Classic Night Theme": "क्लासिक नाइट थीम",
+		"Simple Mode": "सरल मोड",
+
+		"Time format:": "समय प्रारूप:",
+		"Date format:": "तारिख का प्रारूप:",
+		"Custom": "कस्टम",
+		"Preview:": "पूर्वावलोकन करें:",
+		"Custom formatting reference": "कस्टम स्वरूपण संदर्भ",
+		"Reset datetime formats": "डेटाटाइम प्रारूप रीसेट करें",
+		"Primary display font weight:": "प्राथमिक प्रदर्शन फ़ॉन्ट वजन:",
+		"Second hand movement:": "सेकेंड हैंड मूवमेंट:",
+
+		"Datetime Formatting": "दिनांक समय स्वरूपण",
+
+		"Numeral Style:": "अंक शैली:",
+
+		"Face": "शकल",
+		"Pin": "पिन",
+		"Ticks": "टिक्स",
+		"Numerals": "अंक",
+		"Hands": "हाथ",
+
+		"sizes": {
+			"small": "छोटा",
+			"medium": "मध्यम",
+			"large": "विशाल"
+		},
+
+		"Hour": "घंटा",
+		"Minute": "मिनट",
+		"Second": "सेकंड",
+
+		"datetimeFormatTableHeadings": ["प्रारूप", "उत्पादन", "विवरण"],
+		"datetimeFormatTable": [
+			["YY", "18", "दो अंकों का वर्ष"],
+			["YYYY", "2018", "चार अंकों का वर्ष"],
+			["M", "1-12", "महीना, 1 . से शुरू"],
+			["MM", "01-12", "महीना, 2 अंक"],
+			["MMM", "Jan-Dec", "संक्षिप्त महीने का नाम"],
+			["MMMM", "January-December", "पूरे महीने का नाम"],
+			["D", "1-31", "महीने का दिन"],
+			["DD", "01-31", "महीने का दिन, दो अंक"],
+			["d", "0-6", "सप्ताह का दिन, रविवार को 0 . के रूप में"],
+			["dd", "Su-Sa", "सप्ताह के दिन का न्यूनतम नाम"],
+			["ddd", "Sun-Sat", "सप्ताह के दिन का संक्षिप्त नाम"],
+			["dddd", "Sunday-Saturday", "सप्ताह के दिन का नाम"],
+			["H", "0-23", "घंटा"],
+			["HH", "00-23", "घंटा, दो अंक"],
+			["h", "1-12", "घंटा, 12 घंटे की घड़ी"],
+			["hh", "01-12", "घंटा, 12 घंटे की घड़ी, दो अंक"],
+			["m", "0-59", "मिनट"],
+			["mm", "00-59", "मिनट, दो अंक"],
+			["s", "0-59", "सेकंड"],
+			["ss", "00-59", "दूसरा, दो अंक"],
+			["SSS", "000-999", "मिलीसेकंड, 3 अंक"],
+			["Z", "+05:00", "UTC . से ऑफ़सेट, ±HH:mm"],
+			["ZZ", "+0500", "UTC . से ऑफ़सेट, ±HHmm"],
+			["A", "AM PM", "अवधि"],
+			["a", "am pm", "अवधि, लोअरकेस"],
+			["[text]", "text", "कस्टम टेक्स्ट"]
+		]
+	},
+	"worldclockSettings": {
+		"Timetable": "समय सारणी",
+		"Timetable view": "समय सारिणी दृश्य",
+		"Convert": "कन्वर्ट",
+		"in": "में",
+		"is": "है",
+		"Convert timezones": "समय क्षेत्र बदलें",
+		"New timezone": "नया समयक्षेत्र",
+		"Edit timezone": "समय क्षेत्र संपादित करें",
+		"Timezone nickname:": "समयक्षेत्र उपनाम:",
+
+		"Reset worldclocks": "विश्व घड़ी रीसेट करें",
+		"Delete worldclocks": "विश्व घड़ी हटाएं",
+		"Reset worldclock settings": "विश्व घड़ी सेटिंग रीसेट करें",
+
+		"You don't have any other worldclocks. Try adding a new one": "आपके पास कोई अन्य विश्व घड़ी नहीं है। एक नया जोड़ने का प्रयास करें"
+	},
+	"stopwatchSettings": {
+		"Start": "शुरू",
+		"Resume": "फिर से शुरू",
+		"Pause": "रोकें",
+		"Lap": "लैप",
+		"LapNumber": "लैपनंबर",
+		"Laps": "लैप्स",
+		"Time": "समय",
+		"Total": "कुल",
+		"New stopwatch": "नई स्टॉपवॉच",
+
+		"Display": "डिस्प्ले",
+		"Behavior": "व्‍यवहार",
+
+		"Always show hours": "हमेशा घंटे दिखाएं",
+		"Digits after seconds": "सेकंड के बाद अंक",
+		"Digits after seconds in lap list": "लैप सूची में सेकंड के बाद अंक",
+		"Show reset stopwatch button": "रीसेट स्टॉपवॉच बटन दिखाएं",
+		"Namable stopwatches": "नामी स्टॉपवॉच",
+		"Reverse lap order": "रिवर्स लैप ऑर्डर",
+		"First stopwatch is larger": "पहली स्टॉपवॉच बड़ी है",
+		"Automatically start new stopwatches": "नई स्टॉपवॉच स्वचालित रूप से प्रारंभ करें",
+		"Start all paused stopwatches": "सभी रुकी हुई स्टॉपवॉच शुरू करें",
+		"Stop all running stopwatches": "सभी चल रही स्टॉपवॉच बंद करो",
+		"Reset stopwatch settings": "स्टॉपवॉच सेटिंग रीसेट करें",
+
+		"Simultaneous start": "एक साथ शुरुआत",
+		"Simultaneous Start": "एक साथ प्रारंभ",
+		"Number of stopwatches to start at the same time:": "एक ही समय में शुरू होने वाली स्टॉपवॉच की संख्या:",
+		"You don't have any stopwatches. Try adding a new one": "आपके पास कोई स्टॉपवॉच नहीं है। एक नया जोड़ने का प्रयास करें"
+	},
+	"display": {
+		"Stroke color": "स्ट्रोक का रंग",
+		"Fill color": "भरा रंग",
+		"Shadow fill color": "छाया भरण रंग",
+		"Color:": "रंग:",
+		"Stroke width:": "रेखा की चौड़ाई:",
+		"Size:": "लंबाई:":,
+		"Shape:": "आकार:",
+		"Width:": "चौड़ाई:",
+		"Height:": "कद:",
+		"Length:": "लंबाई:",
+		"Back:": "पीछे:",
+		"Linecap:": "लाइनकैप:",
+
+		"Transparent": "पारदर्शी",
+		"System default": "सिस्टम डिफ़ॉल्ट",
+
+		"shapes": {
+			"circle": "सर्कल",
+			"rounded": "गोल स्क्वायर",
+			"square": "स्क्वायर"
+		},
+
+		"linecaps": {
+			"round": "गोल",
+			"square": "स्क्वायर"
+		}
+	},
+	"about": {
+		"Version": "संस्करण",
+		"Contact": "संपर्क",
+		"aboutText": "डेस्कटॉप क्लॉक किसी भी डिवाइस के लिए एक सरल, आकार बदलने योग्य, अनुकूलन योग्य, इंस्टॉल करने योग्य घड़ी है। सुविधाओं में अनुकूलन योग्य एनालॉग और डिजिटल डिस्प्ले, नाइट मोड, थीम, टाइमज़ोन और बहुत कुछ शामिल हैं। डेस्कटॉप घड़ी को बिना किसी विकृति या पिक्सेलेशन के किसी भी स्क्रीन आकार और अनुपात में पूरी तरह से स्केल करने के लिए डिज़ाइन किया गया है। अपने टीवी पर एक घड़ी के रूप में डेस्कटॉप घड़ी का उपयोग करें, एक रात की घड़ी, या कक्षा में समय को प्रोजेक्ट करें। डेस्कटॉप क्लॉक सुपर लाइट-वेट है, ऑफ़लाइन काम करती है, मुफ़्त, विज्ञापन-मुक्त, और हमेशा रहेगी। अपनी पसंद के अनुसार समय, तिथि और बहुत कुछ अनुकूलित करें! डेस्कटॉप क्लॉक आपकी किसी भी टाइमकीपिंग की जरूरत के लिए ऑल-इन-वन क्लॉक है! अधिक सुविधाएँ जल्द ही आ रही हैं।",
+		"contactText": "{{author}} द्वारा निर्मित. किसी भी प्रतिक्रिया, प्रश्न या अनुरोध के लिए मुझसे बेझिझक {{email}} पर संपर्क करें",
+		"shareText": "यदि आप इस ऐप को पसंद करते हैं, तो इसे {{sharing}} पर विचार करें।",
+		"sharing": "बंटवारे"
+	},
+	"messages": {
+		"Copied successfully": "सफलतापूर्वक कॉपी किया गया",
+		"Failed to copy": "कॉपी विफल",
+		"Coming soon": "जल्द आ रहा है",
+		"Wake lock was activated successfully": "वेक लॉक सफलतापूर्वक सक्रिय किया गया",
+		"Wake lock was deactivated successfully": "वेक लॉक सफलतापूर्वक निष्क्रिय कर दिया गया",
+		"Wake lock failure": "जागो लॉक विफलता",
+		"Too many worldclocks": "बहुत सारी विश्व घड़ी",
+		"Too many stopwatches": "बहुत अधिक स्टॉपवॉच",
+		"Cannot have duplicate timezones with same name": "एक ही नाम के साथ डुप्लीकेट टाइमज़ोन नहीं हो सकते"
+	}
+}
