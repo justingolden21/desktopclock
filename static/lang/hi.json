@@ -140,12 +140,12 @@
 		}
 	},
 	"languages": {
-		"en": "English",
-		"es": "Spanish",
-		"de": "German",
-		"fr": "French",
-		"ru": "Russian",
-		"hi": "Hindi"
+		"en": "अंग्रेज़ी",
+		"es": "स्पैनिश",
+		"de": "जर्मन",
+		"fr": "फ्रेंच",
+		"ru": "रूसी",
+		"hi": "हिन्दी"
 	},
 	"keyboardShortcuts": {
 		"Key": "कुंजी",
