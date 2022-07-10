@@ -30,6 +30,7 @@ const validNulls = {
 	timeFormat: 'string',
 	timeFormatCustom: 'string',
 	darkMode: 'boolean',
+	language: 'string',
 	ampm: 'boolean'
 };
 

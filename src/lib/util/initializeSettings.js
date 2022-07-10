@@ -1,14 +1,16 @@
 import { get } from 'svelte/store';
 
 import defaultNightTheme from '$lib/themes/defaultNight';
-import { fetchLanguage } from '$lib/components/Settings.svelte';
+// import { fetchLanguage } from '$lib/components/Settings.svelte';
 import { settings } from '$lib/stores/settings';
 
 const initializeSettings = async (session) => {
 	const s = get(settings);
-	if (s.locale.language) {
-		s.languageDictionary = await fetchLanguage(s.locale.language);
-	}
+
+	// this code doesn't work for some reason. it's instead implemented in __layout.svelte, similar to Settings.svelte
+	// if (s.locale.language) {
+	// 	session.languageDictionary = await fetchLanguage(s.locale.language);
+	// }
 
 	// auto detect user device preferences
 	if (s.darkMode === null) {
