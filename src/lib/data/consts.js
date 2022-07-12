@@ -1,4 +1,4 @@
-export const supportedLangs = ['en', 'hi'];
+export const supportedLangs = ['en', 'fr', 'hi'];
 
 export const appURL = 'https://desktopclock.app';
 
