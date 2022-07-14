@@ -111,7 +111,7 @@
 		"Difference": "Différence",
 		"Name": "Étiquette",
 		"Now": "Maintenant",
-		"Home": "Acceuil",
+		"Home": "Accueil",
 
 		"Numeral Styles": {
 			"numerals": "Chiffres",
@@ -219,10 +219,10 @@
 			["MMMM", "January-December", "Nom du mois"],
 			["D", "1-31", "Le jour du mois"],
 			["DD", "01-31", "Le jour du mois en 2 chiffres"],
-			["d", "0-6", "The day of the week, with Sunday as 0"],
-			["dd", "Su-Sa", "The min name of the day of the week"],
-			["ddd", "Sun-Sat", "The short name of the day of the week"],
-			["dddd", "Sunday-Saturday", "The name of the day of the week"],
+			["d", "0-6", "Le jour de la semaine, prenant le dimanche comme 0"],
+			["dd", "Su-Sa", "Le nom minimal du jour de la semaine"],
+			["ddd", "Sun-Sat", "Le nom raccourci du jour de la semaine"],
+			["dddd", "Sunday-Saturday", "Le nom du jour de la semaine"],
 			["H", "0-23", "L'Heure"],
 			["HH", "00-23", "L'Heure en 2 chiffres"],
 			["h", "1-12", "L'Heure sur l'horloge de 12 heures"],
@@ -319,7 +319,7 @@
 		"Version": "Version",
 		"Contact": "Contacter",
 		"aboutText": "Horloge de bureau est une horloge simple, redimensionnable, et personnalisable, qui peut être installée sur n'importe quel appareil. Sont comprises dans les fonctions: des affichages personnalisables en analogique comme en numérique, une mode nuit, des thèmes, des fuseaux horaires, et bien plus encore. L'Horloge de bureau est conçue pour une mise à l'échelle parfaite sur les écrans de toute taille et de tout rapport d'aspect, sans se déformer ou se pixelliser. Utiliser l'Horloge de bureau sur votre télé, en tant qu'horloge de nuit, ou pour projeter l'heure dans la salle de classe. L'Horloge de bureau est de conception légère, elle fonctionne hors connexion, elle est libre, gratuite, et sans pubs, et elle le sera pour toujours. Personnalisez l'heure, la date, et bien plus, selon vos goûts. Horloge de bureau est l'horloge complète qui remplit tous vos besoins de comptabilisation! Des fonctions additionnelles à venir bientôt.",
-		"contactText": "Crée par {{author}}. N'hésitez pas à me contacter avec des commentaires, questions, ou demandes à {{email}}",
+		"contactText": "Créé par {{author}}. N'hésitez pas à me contacter avec des commentaires, questions, ou demandes à {{email}}",
 		"shareText": "Si vous aimez cette appli, vous pourriez la {{sharing}}.",
 		"sharing": "partage"
 	},
