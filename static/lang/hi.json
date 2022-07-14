@@ -323,8 +323,8 @@
 		"contactText": "{{author}} द्वारा निर्मित. किसी भी प्रतिक्रिया, प्रश्न या अनुरोध के लिए मुझसे बेझिझक {{email}} पर संपर्क करें",
 		"shareText": "यदि आप इस ऐप को पसंद करते हैं, तो इसे {{sharing}} पर विचार करें।",
 		"sharing": "बंटवारे",
-		"suggestBetterTranslation": "",
-		"translationCredit": ""
+		"suggestBetterTranslation": "बेहतर अनुवाद का सुझाव देने के लिए, मुझे यहां ईमेल करें {{email}}",
+		"translationCredit": "रकीबुद्दीन अजीज द्वारा अनुवादित"
 	},
 	"messages": {
 		"Copied successfully": "सफलतापूर्वक कॉपी किया गया",
