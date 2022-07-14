@@ -65,7 +65,7 @@
 	</h2>
 {/if}
 
-<style lang="postcss">
+<style>
 	#primary-display {
 		@apply top-[15%] short:top-[10%] supershort:top-[0%] tall:top-[20%] absolute left-0 right-0;
 		font-weight: var(--primary-font-weight);

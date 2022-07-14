@@ -14,7 +14,7 @@
 	</label>
 </div>
 
-<style lang="postcss">
+<style>
 	.toggle-checkbox {
 		@apply left-0 absolute block w-6 h-6 rounded-full bg-white border-base-300 border-4 appearance-none cursor-pointer;
 		transition: left 0.25s;

@@ -114,7 +114,7 @@
 	</div>
 {/if}
 
-<style lang="postcss">
+<style>
 	.modal {
 		@apply xs:p-3 sm:p-6 md:p-12 fixed left-0 top-0 w-full h-full bg-base-300 bg-opacity-75 z-20;
 	}

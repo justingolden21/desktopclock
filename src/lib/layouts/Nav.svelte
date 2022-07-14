@@ -121,7 +121,7 @@
 	</div>
 </nav>
 
-<style lang="postcss">
+<style>
 	@media (min-height: 640px) {
 		#nav-bottom {
 			@apply absolute bottom-0;

@@ -3,7 +3,7 @@
 	<div class="presentation-slider" role="presentation" />
 </div>
 
-<style lang="postcss">
+<style>
 	.tab-list {
 		@apply mb-8 mx-auto md:sticky md:top-0 bg-base-50 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 z-20;
 	}

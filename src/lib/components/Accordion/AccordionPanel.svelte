@@ -30,7 +30,7 @@
 	</div>
 </div>
 
-<style lang="postcss">
+<style>
 	.details {
 		@apply bg-base-50 bg-opacity-25;
 	}
