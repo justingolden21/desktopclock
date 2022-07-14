@@ -318,10 +318,13 @@
 	"about": {
 		"Version": "Version",
 		"Contact": "Contacter",
+		"Translation": "Traduction",
 		"aboutText": "Horloge de bureau est une horloge simple, redimensionnable, et personnalisable, qui peut être installée sur n'importe quel appareil. Sont comprises dans les fonctions: des affichages personnalisables en analogique comme en numérique, une mode nuit, des thèmes, des fuseaux horaires, et bien plus encore. L'Horloge de bureau est conçue pour une mise à l'échelle parfaite sur les écrans de toute taille et de tout rapport d'aspect, sans se déformer ou se pixelliser. Utiliser l'Horloge de bureau sur votre télé, en tant qu'horloge de nuit, ou pour projeter l'heure dans la salle de classe. L'Horloge de bureau est de conception légère, elle fonctionne hors connexion, elle est libre, gratuite, et sans pubs, et elle le sera pour toujours. Personnalisez l'heure, la date, et bien plus, selon vos goûts. Horloge de bureau est l'horloge complète qui remplit tous vos besoins de comptabilisation! Des fonctions additionnelles à venir bientôt.",
 		"contactText": "Créé par {{author}}. N'hésitez pas à me contacter avec des commentaires, questions, ou demandes à {{email}}",
 		"shareText": "Si vous aimez cette appli, vous pourriez la {{sharing}}.",
-		"sharing": "partage"
+		"sharing": "partage",
+		"suggestBetterTranslation": "Pour suggérer une meilleure traduction, envoyez-moi un courriel à {{email}}",
+		"translationCredit": "Traduit en français par Sabine."
 	},
 	"messages": {
 		"Copied successfully": "Réussite à copier le message",

@@ -449,7 +449,12 @@
 					on:mouseout={() => (hoveringContact = false)}
 					on:blur={() => (hoveringContact = false)}
 					on:click={() =>
-						window.open('mailto:contact@justingolden.me?subject=Desktop%20Clock%20Feedback')}>
+						// using English for email subject
+						// English name is generally what the app is known for, also makes it easier for me to know what an email is about
+						// this function is defined on page load anyway, making this a more difficult problem than is worth the time
+						window.open(
+							'mailto:contact@justingolden.me?subject=' + encodeURIComponent('Desktop Clock')
+						)}>
 					<Icon name={hoveringContact ? 'envelope_open' : 'envelope'} class="inline w-6 h-6" />
 					{dictionary.labels['Send feedback']}
 				</button>
@@ -639,6 +644,19 @@
 			{version}
 			{import.meta.env.PROD ? 'prod' : 'dev'}
 		</p>
+
+		{#if (dictionary.about.suggestBetterTranslation !== '' || dictionary.about.translationCredit !== '') && $settings.locale.language !== 'en'}
+			<h3>{dictionary.about['Translation']}</h3>
+			<p>
+				{@html dictionary.about.suggestBetterTranslation.replace(
+					'{{email}}',
+					'<a href="mailto:contact@justingolden.me?subject=Desktop%20Clock" target="_blank">contact@justingolden.me</a>'
+				)}
+			</p>
+			<p>
+				{dictionary.about.translationCredit}
+			</p>
+		{/if}
 
 		<h3>{dictionary.about['Contact']}</h3>
 		<p>

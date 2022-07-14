@@ -318,10 +318,13 @@
 	"about": {
 		"Version": "Versión",
 		"Contact": "Contacto",
+		"Translation": "Traducción",
 		"aboutText": "Reloj Sencillo es un reloj simple, redimensionable, personalizable e instalable para cualquier dispositivo. Las características incluyen pantallas analógicas y digitales personalizables, modo nocturno, temas, zonas horarias y más. Reloj Sencillo está diseñado para escalar perfectamente a cualquier tamaño y relación de pantalla, sin distorsión ni pixelación. Use Reloj Sencillo como un reloj en su televisor, un reloj nocturno o proyecte la hora en el aula. Reloj Sencillo es súper liviano, funciona sin conexión, es gratuito, sin anuncios y siempre lo será. ¡Personaliza la hora, la fecha y más a tu gusto! Reloj Sencillo es el reloj todo en uno para cualquiera de sus necesidades de cronometraje. Más características próximamente.",
 		"contactText": "Hecho por {{author}}. No dude en ponerse en contacto conmigo con cualquier comentario, pregunta o solicitud en {{email}}",
 		"shareText": "Si te gusta esta aplicación, considera {{sharing}}.",
-		"sharing": "compartirla"
+		"sharing": "compartirla",
+		"suggestBetterTranslation": "Para sugerir una mejor traducción, envíeme un correo electrónico a {{email}}",
+		"translationCredit": "Traducido por Ricardo."
 	},
 	"messages": {
 		"Copied successfully": "Copiado con éxito",
