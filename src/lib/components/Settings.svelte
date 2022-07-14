@@ -180,7 +180,7 @@
 
 	import { defaultNightTheme } from '$lib/themes';
 
-	import version from '../data/version';
+	import { version } from '$lib/data/consts';
 
 	/// STATE ///
 	$: dictionary = $session.languageDictionary;

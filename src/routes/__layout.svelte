@@ -9,35 +9,34 @@
 <script>
 	import '$lib/css/app.postcss';
 
-	import { navigating, session } from '$app/stores';
 	import { browser } from '$app/env';
+	import { navigating, session } from '$app/stores';
 	import { onMount } from 'svelte';
 
-	import TailwindColors from 'tailwindcss/colors.js';
 	import Screenfull from 'screenfull';
+	import TailwindColors from 'tailwindcss/colors.js';
 
 	/// COMPONENTS ///
 	import GoogleAnalytics from '$lib/components/GoogleAnalytics.svelte';
+	import Header from '$lib/layouts/Header.svelte';
+	import KeyboardShortcuts from '$lib/components/KeyboardShortcuts.svelte';
 	import Loader from '$lib/components/Loader.svelte';
 	import ModalManager from '$lib/components/ModalManager.svelte';
 	import Nav from '$lib/layouts/Nav.svelte';
-	import Header from '$lib/layouts/Header.svelte';
-	import KeyboardShortcuts from '$lib/components/KeyboardShortcuts.svelte';
-	import { Toasts } from '$lib/components/Toast';
 	import { settings } from '$lib/stores/settings';
+	import { Toasts } from '$lib/components/Toast';
 
 	/// UTILS ///
-	import { startInterval } from '$lib/util/now';
-	import { setupInstall } from '$lib/util/install';
+	import { systemFontFamilies, version } from '$lib/data/consts';
 	import { hexToRgb } from '$lib/util/color';
 	import initializeSettings from '$lib/util/initializeSettings';
-	import { systemFontFamilies } from '$lib/data/consts';
-	import version from '$lib/data/version';
+	import { setupInstall } from '$lib/util/install';
+	import { startInterval } from '$lib/util/now';
 
 	/// STATE ///
 	let loading = true;
 	let navOpen = false;
-	let dateTimeInterval;
+	let dateTimeInterval; // TODO: what is this?
 	$: if ($navigating) navOpen = false;
 
 	/// EVENT HANDLERS ///

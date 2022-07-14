@@ -2,6 +2,8 @@ export const supportedLangs = ['en', 'es', 'fr', 'hi'];
 
 export const appURL = 'https://desktopclock.app';
 
+export const version = '1.0.6'; // TODO update with package.json version
+
 export const validPages = ['/', '/worldclock', '/stopwatch', '/timers'];
 
 export const lightnesses = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900'];

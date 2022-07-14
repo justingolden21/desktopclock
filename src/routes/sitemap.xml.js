@@ -1,7 +1,5 @@
 // https://www.sitemaps.org/protocol.html
 
-// http://localhost:3000/sitemap.xml
-
 import { appURL } from '$lib/data/consts';
 
 const encodeXML = (str) =>
@@ -19,6 +17,9 @@ const pages = [
 	},
 	{
 		url: 'worldclock'
+	},
+	{
+		url: 'stopwatch'
 	}
 ];
 

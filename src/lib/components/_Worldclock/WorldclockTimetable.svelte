@@ -11,7 +11,7 @@
 	import Toggle from '$lib/components/Toggle.svelte';
 	import { Icon } from '$lib/components/Icon';
 	import WorldclockDropdown from '$lib/components/_Worldclock/WorldclockDropdown.svelte';
-	import { getDiff, getSum } from '$lib/util/min';
+	import { getDiff, getSum } from '$lib/util/timetableDiff';
 
 	/// STATE ///
 	$: dictionary = $session.languageDictionary;

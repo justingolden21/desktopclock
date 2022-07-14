@@ -9,9 +9,9 @@
 
 	/// UTILS ///
 	import { settings } from '$lib/stores/settings';
-	import ToggleDisplay from '$lib/util/toggleDisplay';
 	import { setupCasting, castClock, isCastSupported } from '$lib/util/cast';
 	import { now } from '$lib/util/now';
+	import ToggleDisplay from '$lib/util/toggleDisplay';
 
 	/// STATE ///
 	export let navOpen;

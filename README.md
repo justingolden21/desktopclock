@@ -84,7 +84,7 @@ For issues with building, previewing, and npm packages, try running `npm run cle
 
 When adding a language, add it to `supportedLangs` in `consts.js` (and also add screenshots). Also, the language name must be added to each other language json file.
 
-When adding a page, add it to cache in `service-worker.js` and validPages in `data/consts.js`. Also add SEO data and add it to `Nav`. Add shortcut to `manifest.webmanifest.js`.
+When adding a page, add it to cache in `service-worker.js` and validPages in `data/consts.js`. Also add SEO data and add it to `Nav`. Add shortcut to `manifest.webmanifest.js`. Add page to `sitemap.xml.js`.
 
 ### Enviornments
 

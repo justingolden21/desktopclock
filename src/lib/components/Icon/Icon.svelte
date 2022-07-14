@@ -1,6 +1,5 @@
 <script>
 	export let name;
-	export let focusable = false;
 
 	// https://heroicons.dev/
 	// other clock icons, primary, secondary icons made by Justin Golden
@@ -149,7 +148,6 @@
 
 <svg
 	class={$$props.class + ` icon-${name}`}
-	{focusable}
 	stroke={icon.fill ? 'none' : 'currentColor'}
 	fill={icon.fill ? 'currentColor' : 'none'}
 	xmlns="http://www.w3.org/2000/svg"

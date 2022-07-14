@@ -2,19 +2,16 @@
 	import { session } from '$app/stores';
 	import { settings } from '$lib/stores/settings';
 
-	export const load = ({ error, status }) => {
-		return {
-			props: {
-				error,
-				status
-			}
-		};
-	};
+	export const load = ({ error, status }) => ({
+		props: {
+			error,
+			status
+		}
+	});
 </script>
 
 <script>
-	export let error;
-	export let status;
+	export let error, status;
 
 	$: {
 		if (typeof gtag !== 'undefined') {
