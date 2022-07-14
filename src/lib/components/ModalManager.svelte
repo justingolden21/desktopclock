@@ -102,10 +102,10 @@
 					aria-label={$session.languageDictionary.labels['Close']}>
 					<Icon name="close" class="w-6 h-6" />
 				</button>
-				<h1>
+				<h2>
 					<Icon name={icon} class="w-6 h-6 inline mr-2" />
 					{$session.languageDictionary[title[0]][title[1]]}
-				</h1>
+				</h2>
 			</div>
 			<div class="modal-body">
 				<svelte:component this={component} {data} />
@@ -126,7 +126,7 @@
 	.modal-header button {
 		@apply z-30 mt-2;
 	}
-	.modal h1 {
+	.modal h2 {
 		@apply text-left mt-4;
 	}
 	.modal-header {

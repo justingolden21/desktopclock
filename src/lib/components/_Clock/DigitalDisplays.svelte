@@ -31,7 +31,7 @@
 </script>
 
 <div class="flex">
-	<h1
+	<h2
 		id="primary-display"
 		style:--primary-font-weight={$settings.clock.datetimeFontWeight}
 		style:color={displays.primaryPalette === 'base'
@@ -41,7 +41,7 @@
 		{#if displays.primary !== 'analog'}
 			{primaryDisplayMap[displays.primary]}
 		{/if}
-	</h1>
+	</h2>
 	<h2
 		id="secondary-display"
 		style:color={displays.secondaryPalette === 'base'
