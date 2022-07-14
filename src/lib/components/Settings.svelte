@@ -491,6 +491,8 @@
 						$settings.clock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
 						$settings.worldclock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
 						$settings.worldclock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
+
+						changeLanguage();
 					}}>
 					<Icon name="undo" class="inline w-6 h-6" />
 					{dictionary.labels['Reset all settings']}
