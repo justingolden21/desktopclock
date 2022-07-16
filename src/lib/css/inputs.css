@@ -1,40 +1,41 @@
 /* Styles for inputs and buttons */
+@layer base {
+	.btn {
+		@apply p-2 my-2 mr-4 rounded-none text-white bg-base-600 hover:bg-base-700;
+	}
+	.icon-btn {
+		@apply p-2 rounded-full hover:bg-base-700 hover:text-white;
+	}
 
-.btn {
-	@apply p-2 my-2 mr-4 rounded-none text-white bg-base-600 hover:bg-base-700;
-}
-.icon-btn {
-	@apply p-2 rounded-full hover:bg-base-700 hover:text-white;
-}
+	select {
+		@apply cursor-pointer p-2 pr-6 m-2 text-base-700 bg-base-50 hover:bg-base-100 appearance-none;
+		background: rgb(var(--base-50))
+			url("data:image/svg+xml;utf8,<svg fill='none' stroke='currentColor' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
+			no-repeat right center;
+	}
+	option {
+		@apply p-1;
+	}
+	select:disabled {
+		@apply bg-base-200;
+	}
+	input[type='text'],
+	input[type='number'],
+	input[type='time'] {
+		@apply p-2 text-base-800;
+	}
 
-select {
-	@apply cursor-pointer p-2 pr-6 m-2 text-base-700 bg-base-50 hover:bg-base-100 appearance-none;
-	background: rgb(var(--base-50))
-		url("data:image/svg+xml;utf8,<svg fill='none' stroke='currentColor' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
-		no-repeat right center;
-}
-option {
-	@apply p-1;
-}
-select:disabled {
-	@apply bg-base-200;
-}
-input[type='text'],
-input[type='number'],
-input[type='time'] {
-	@apply p-2 text-base-800;
-}
+	label:not(.toggle-bg) {
+		@apply mr-2;
+	}
 
-label:not(.toggle-bg) {
-	@apply mr-2;
-}
-
-.dark select {
-	@apply bg-base-500 hover:bg-base-600 text-base-100;
-	background: rgb(var(--base-500))
-		url("data:image/svg+xml;utf8,<svg fill='none' stroke='white' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
-		no-repeat right center;
-}
-.dark select:disabled {
-	@apply bg-base-400;
+	.dark select {
+		@apply bg-base-500 hover:bg-base-600 text-base-100;
+		background: rgb(var(--base-500))
+			url("data:image/svg+xml;utf8,<svg fill='none' stroke='white' height='24' width='24' viewBox='-6 -6 36 36' xmlns='http://www.w3.org/2000/svg'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'></path></svg>")
+			no-repeat right center;
+	}
+	.dark select:disabled {
+		@apply bg-base-400;
+	}
 }
