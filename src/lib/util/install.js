@@ -1,8 +1,12 @@
-// `gtag` is in scope and works fine, disabling the no-undef rule only for those lines
+// Handles logic for installing PWA on user's device
+
+// Note: `gtag` is in scope and works fine, disabling the no-undef rule only for those lines
 
 import { writable } from 'svelte/store';
 
-export const showInstallButton = new writable(false);
+// Whether or not to show the install button
+// `false` if the user already has the PWA installed
+const showInstallButton = new writable(false);
 
 // Initialize deferredPrompt for use later to show browser install prompt.
 let deferredPrompt;
@@ -12,7 +16,8 @@ let installSource;
 
 // Google Analytics PWA: https://youtu.be/Xbo3uZ5Ge10?t=458
 
-export function setupInstall() {
+// Called `onMount` in `__layout` to prepare installation prompts
+function setupInstall() {
 	// https://web.dev/customize-install/
 
 	window.addEventListener('beforeinstallprompt', (e) => {
@@ -58,7 +63,8 @@ export function setupInstall() {
 	});
 }
 
-export async function installButtonClick() {
+// Called when install button is click to attempt to install PWA
+async function installButtonClick() {
 	console.log(deferredPrompt);
 
 	// Show the install prompt
@@ -85,3 +91,5 @@ export async function installButtonClick() {
 		installSource = null;
 	}
 }
+
+export { showInstallButton, setupInstall, installButtonClick };

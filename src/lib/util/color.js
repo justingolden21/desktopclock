@@ -1,9 +1,13 @@
+// Color utility functions
+// Used for conversion and to get the hex color string of a color object in theme settings
+
 import TailwindColors from 'tailwindcss/colors.js';
 import { get } from 'svelte/store';
 import { settings } from '$lib/stores/settings.js';
 
-// https://stackoverflow.com/a/5624139/4907950
-export const hexToRgb = (hex) => {
+// Used in `__layout` to generate color palette variables inside HTML
+const hexToRgb = (hex) => {
+	// https://stackoverflow.com/a/5624139/4907950
 	const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 	return `${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)}`;
 };
@@ -16,7 +20,9 @@ export const hexToRgb = (hex) => {
  * @param {string} palette: 'base' unless otherwise specified, 'accent' is the other valid color palette
  * @returns hex color string or 'none'
  */
-export const getColor = (obj) =>
+const getColor = (obj) =>
 	obj.lightness === '-1'
 		? 'none'
 		: TailwindColors[get(settings)[`${obj.palette}ColorPalette`]][obj.lightness];
+
+export { hexToRgb, getColor };

@@ -1,3 +1,5 @@
+// Creates a store that is tied to (reads and updates) localStorage
+
 import { writable } from 'svelte/store';
 import mergeDeep from './mergeSettings';
 

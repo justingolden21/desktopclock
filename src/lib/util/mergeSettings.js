@@ -1,3 +1,6 @@
+// Custom logic to handle merging local settings with default settings
+// Has special edge cases in case settings have changed and in case local settings are partially invalid
+
 /* eslint-disable no-continue */
 
 /**
