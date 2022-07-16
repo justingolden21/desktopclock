@@ -1,7 +1,6 @@
 // for readability:
 /* eslint-disable dot-notation */
 
-// eslint-disable-next-line import/prefer-default-export
 export async function get({ locals }) {
 	// https://web.dev/app-shortcuts/
 	// `?utm_source=manifest_shortcut` is for analytics

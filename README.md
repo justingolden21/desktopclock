@@ -6,7 +6,7 @@ A simple, resizable customizable, installable clock for any device!
 
 ### Codebase
 
-This project is made with Svelte (using Svelte kit, bundled with Vite) and TailwindCSS. It uses Hero Icons and postCSS/purgeCSS for Tailwind. It is hosted on Netlify and has no backend currently. It uses day.js for date/time logic, and uses Prettier, ESLint, and the AirBNB Javascript Style guide for code formatting and style (VS Code is recommended). Desktop Clock is a PWA and can handle many timezones, date and time formats, locales, and languages.
+This project is made with Svelte (using Svelte kit, bundled with Vite) and TailwindCSS. It uses Hero Icons and postCSS/purgeCSS for Tailwind. It is hosted on Netlify and has no backend currently. It uses day.js for date/time logic, and uses Prettier and ESLint for code formatting and style (VS Code is recommended). Desktop Clock is a PWA and can handle many timezones, date and time formats, locales, and languages.
 
 Requires [NodeJS/npm](https://nodejs.org/en/download/)
 
@@ -36,7 +36,7 @@ Location of service worker: `view-source:http://localhost:3000/service-worker.js
 
 ### Styleguide and Linting
 
-This project uses ESLint, Prettier for VS code, and the AirBNB Javascript style guide.
+This project uses ESLint and Prettier for VS code.
 
 VS Code Extensions:
 
