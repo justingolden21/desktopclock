@@ -120,7 +120,7 @@
 
 	$: themeColor = TailwindColors[$settings.baseColorPalette][$settings.darkMode ? 900 : 200];
 
-	// store numbers as list of rgb values for use in withOpacity in tailwind.config.cjs
+	// we store numbers as list of rgb values for use in withOpacity in tailwind.config.cjs
 	$: paletteVariablesHTML = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900']
 		.map(
 			(lightness) =>
@@ -153,6 +153,7 @@
 	<Toasts />
 
 	<Nav bind:navOpen />
+
 	<div class="flex justify-between flex-col flex-1 relative">
 		<Header bind:navOpen />
 		<div class="flex-1">
