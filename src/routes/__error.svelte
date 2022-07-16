@@ -13,13 +13,11 @@
 <script>
 	export let error, status;
 
-	$: {
-		if (typeof gtag !== 'undefined') {
-			gtag('event', 'error-page', {
-				error_message: error.message,
-				status
-			});
-		}
+	$: if (typeof gtag !== 'undefined') {
+		gtag('event', 'error-page', {
+			error_message: error.message,
+			status
+		});
 	}
 </script>
 
