@@ -19,26 +19,29 @@
 			status
 		});
 	}
+
+	$: dictionary = $session.languageDictionary;
 </script>
 
 <svelte:head>
-	<title>{$session.languageDictionary.error['Error'] + (status === 404 ? ' 404' : '')}</title>
+	<title>{dictionary.error['Error'] + (status === 404 ? ' 404' : '')}</title>
 </svelte:head>
 
 <div class="m-16 text-center">
 	{#if status === 404}
 		<img src="img/404_undraw.svg" alt="" class="w-96 mx-auto my-8" />
-		<h2>{$session.languageDictionary.error['The resource could not be found']}</h2>
+		<h2>{dictionary.error['The resource could not be found']}</h2>
 	{/if}
 	<h2 class="my-4">{error.name} {status}</h2>
 
-	<!-- show error message only if lang is english (error message is in english) -->
+	<!-- show error message (which is English) only if language is English -->
 	{#if $settings?.locale?.language?.substring(0, 2) == 'en'}
 		<p>{error.message}</p>
 	{:else}
-		<p>{$session.languageDictionary.error['Error']}</p>
+		<p>{dictionary.error['Error']}</p>
 	{/if}
 
-	<a href="/" class="btn block mt-8 hover:no-underline"
-		>{$session.languageDictionary.error['Go back to the homepage']}</a>
+	<a href="/" class="btn block mt-8 hover:no-underline">
+		{dictionary.error['Go back to the homepage']}
+	</a>
 </div>
