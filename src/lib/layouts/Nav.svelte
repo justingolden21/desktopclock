@@ -109,7 +109,7 @@
 			</button>
 		{/if}
 
-		<!-- no share-btn class so it isn't animated on hover -->
+		<!-- omit share-btn class so it isn't animated on hover -->
 		<button
 			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
 			on:click={() => shareApp(dictionary, $page.url.pathname)}>
@@ -130,7 +130,7 @@
 
 	/* notes
     nav links and icon btns have same hover colors (both normal and dark)
-    nav and modal have same bg colors, opacities, and shadows
+    nav and modal have same bg colors and opacities
     */
 	nav a,
 	nav button {
