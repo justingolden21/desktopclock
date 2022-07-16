@@ -25,7 +25,7 @@
 
 	onMount(setupCasting);
 
-	// Minor bug: user has hideTitlebarWhenIdle off, then enters fullscreen, then turns it on, then leavews fullscreen, the setting will be turned off
+	// Minor bug: user has hideTitlebarWhenIdle off, then enters fullscreen, then turns it on, then leaves fullscreen, the setting will be turned off
 	// Fix: when the user changes the setting in fullscreen, update oldHideTitlebarWhenIdle
 
 	let isFullscreen;
