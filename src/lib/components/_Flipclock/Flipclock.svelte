@@ -14,9 +14,21 @@
 	};
 
 	onMount(() => {
-		const secIntvl = setInterval(() => updateCard('sec'), 1000);
-		const minIntvl = setInterval(() => updateCard('min'), 1000 * 60);
-		const hrIntvl = setInterval(() => updateCard('hour'), 1000 * 60 * 60);
+		let secIntvl, minIntvl, hrIntvl;
+
+		secIntvl = setInterval(() => updateCard('sec'), 1000);
+
+		// update mins every 60s starting in current seconds left
+		setTimeout(() => {
+			updateCard('min');
+			minIntvl = setInterval(() => updateCard('min'), 1000 * 60);
+		}, cards.sec.num * 1000);
+
+		// update hours every 60mins starting in current minutes and seconds left
+		setTimeout(() => {
+			updateCard('hour');
+			minIntvl = setInterval(() => updateCard('hour'), 1000 * 60 * 60);
+		}, cards.sec.num * 1000 + cards.min.num * 1000 * 60);
 
 		return () => {
 			clearInterval(secIntvl);
@@ -26,9 +38,9 @@
 	});
 
 	const cards = {
-		hour: { num: 33, flip: false },
-		min: { num: 22, flip: false },
-		sec: { num: 11, flip: false }
+		hour: { num: 3, flip: false },
+		min: { num: 2, flip: false },
+		sec: { num: 4, flip: false }
 	};
 </script>
 
