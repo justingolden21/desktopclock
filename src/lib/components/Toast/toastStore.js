@@ -2,6 +2,8 @@
 
 import { writable } from 'svelte/store';
 
+import uid from '$lib/util/uid';
+
 export const toasts = writable([]);
 
 export const dismissToast = (id) => {
@@ -10,7 +12,7 @@ export const dismissToast = (id) => {
 
 // constructor: addToast({ message, type, dismissible, timeout })}
 export const addToast = (toast) => {
-	const id = Math.floor(Math.random() * 10000);
+	const id = uid();
 
 	// TODO: default timeout not working
 	const defaults = {
