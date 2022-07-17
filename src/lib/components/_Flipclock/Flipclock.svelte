@@ -1,4 +1,6 @@
 <script>
+	import { onMount } from 'svelte';
+
 	import Flipcard from './Flipcard.svelte';
 
 
@@ -12,9 +14,17 @@
 		}, 750);
 	};
 
-	setInterval(() => updateCard(cards.sec), 1000);
-	setInterval(() => updateCard(cards.min), 1000 * 60);
-	setInterval(() => updateCard(cards.hour), 1000 * 60 * 60);
+	onMount(() => {
+		const secIntvl = setInterval(() => updateCard(cards.sec), 1000);
+		const minIntvl = setInterval(() => updateCard(cards.min), 1000 * 60);
+		const hrIntvl = setInterval(() => updateCard(cards.hour), 1000 * 60 * 60);
+
+		return () => {
+			clearInterval(secIntvl);
+			clearInterval(minIntvl);
+			clearInterval(hrIntvl);
+		};
+	});
 
 	const cards = {
 		hour: { num: 33, flip: true },
@@ -23,11 +33,13 @@
 	};
 </script>
 
-<Flipcard {...cards.hour} />
+<Flipcard bind:num={cards.hour.num} bind:flip={cards.hour.flip} />
 <span class="colon">:</span>
-<Flipcard {...cards.min} />
+<Flipcard bind:num={cards.min.num} bind:flip={cards.min.flip} />
 <span class="colon">:</span>
-<Flipcard {...cards.sec} />
+<Flipcard bind:num={cards.sec.num} bind:flip={cards.sec.flip} />
+
+{cards.sec.num}
 
 <style lang="postcss">
 	.colon {
