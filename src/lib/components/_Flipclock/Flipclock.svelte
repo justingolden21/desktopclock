@@ -4,7 +4,19 @@
 	import Flipcard from './Flipcard.svelte';
 
 
-	const updateCard = (name) => {
+	let done = false;
+
+	const updateCard = (name, override = false) => {
+		if (cards.hour.num === 0 && cards.min.num === 0 && cards.sec.num === 1 && !override) {
+			done = true;
+			updateCard('sec', true);
+
+			clearInterval(secIntvl);
+			clearInterval(minIntvl);
+			clearInterval(hrIntvl);
+		}
+
+		if (done && !override) return;
 		if (cards[name].num === 0) cards[name].num = 59;
 		else cards[name].num--;
 		cards[name].flip = true;
@@ -13,22 +25,23 @@
 		}, 750);
 	};
 
+	let secIntvl, minIntvl, hrIntvl;
 	onMount(() => {
-		let secIntvl, minIntvl, hrIntvl;
-
 		secIntvl = setInterval(() => updateCard('sec'), 1000);
 
 		// update mins every 60s starting in current seconds left
 		setTimeout(() => {
 			updateCard('min');
 			minIntvl = setInterval(() => updateCard('min'), 1000 * 60);
-		}, cards.sec.num * 1000);
+		}, cards.sec.num * 1000 + 100);
 
 		// update hours every 60mins starting in current minutes and seconds left
 		setTimeout(() => {
 			updateCard('hour');
 			minIntvl = setInterval(() => updateCard('hour'), 1000 * 60 * 60);
-		}, cards.sec.num * 1000 + cards.min.num * 1000 * 60);
+		}, cards.sec.num * 1000 + cards.min.num * 1000 * 60 + 200);
+
+		// we add 100ms and 200ms to ensure seconds flip first, that way end condition isn't met prematurely
 
 		return () => {
 			clearInterval(secIntvl);
@@ -38,9 +51,9 @@
 	});
 
 	const cards = {
-		hour: { num: 3, flip: false },
-		min: { num: 2, flip: false },
-		sec: { num: 4, flip: false }
+		hour: { num: 0, flip: false },
+		min: { num: 1, flip: false },
+		sec: { num: 3, flip: false }
 	};
 </script>
 
