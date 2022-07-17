@@ -160,6 +160,8 @@
 		document.body.removeChild(el);
 	}
 
+	// maybe TODO: 'settings' filename based on language?
+	// maybe TODO: add date to file name?
 	const downloadSettings = (settingsObj) => {
 		// remove unwanted settings
 		const clone = { ...settingsObj };
@@ -514,6 +516,8 @@
 
 						// BUG: currently, settings.locale.timezone is set to null
 						// after merging defaultSettings with mergeDeep
+
+						// SEE 'Reset all settings' button logic
 
 						// similar to `localStore`
 						console.log(JSON.parse(result).locale.timezone);
