@@ -85,7 +85,10 @@ to hide the cursor when idle -->
 		class="dark-btn icon-btn float-left left-20 absolute top-4 z-10
         {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-4'}"
 		class:hidden={!$settings.showDarkButton}
-		on:click={() => ($settings.darkMode = !$settings.darkMode)}
+		on:click={() => {
+			$settings.darkMode = !$settings.darkMode;
+			$settings.pitchBlackMode = false;
+		}}
 		aria-label={dictionary.labels['Toggle dark mode']}
 		title={dictionary.labels['Toggle dark mode'] + ($settings.keyboardShortcuts ? ' (N)' : '')}>
 		<Icon name={$settings.darkMode ? 'moon' : 'sun'} class="w-6 h-6 md:w-8 md:h-8" />

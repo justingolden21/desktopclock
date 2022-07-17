@@ -30,6 +30,7 @@
 			return;
 		if (event.code === 'KeyN') {
 			$settings.darkMode = !$settings.darkMode;
+			$settings.pitchBlackMode = false;
 		}
 		if (event.code === 'KeyS') {
 			toggle('settings');

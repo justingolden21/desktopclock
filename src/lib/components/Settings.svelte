@@ -291,7 +291,10 @@
 					<div class="block mb-2">
 						<button
 							class="dark-btn btn"
-							on:click={() => ($settings.darkMode = !$settings.darkMode)}>
+							on:click={() => {
+								$settings.darkMode = !$settings.darkMode;
+								$settings.pitchBlackMode = false;
+							}}>
 							<Icon name={$settings.darkMode ? 'moon' : 'sun'} class="inline w-6 h-6" />
 							{dictionary.labels['Dark']}
 						</button>
