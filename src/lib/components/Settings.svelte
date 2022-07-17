@@ -1,4 +1,5 @@
 <script context="module">
+	import LZString from 'lz-string';
 	import Screenfull from 'screenfull';
 
 	import { appURL, validPages } from '$lib/data/consts';
@@ -161,7 +162,9 @@
 	}
 
 	const downloadSettings = () => {
-		download('settings.txt', 'hello');
+		const str = LZString.compress('hello world');
+
+		download('settings.txt', str);
 	};
 
 	const uploadSettings = (evt) => {
@@ -172,6 +175,7 @@
 		reader.onerror = (err) => console.error(`Error reading file: ${err}`);
 		reader.onload = (event) => {
 			console.log(event.target.result);
+			console.log(LZString.decompress(event.target.result));
 		};
 		reader.readAsText(file);
 	};
