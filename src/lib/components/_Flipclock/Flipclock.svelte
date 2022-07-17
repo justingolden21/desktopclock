@@ -1,23 +1,32 @@
 <script>
 	import Flipcard from './Flipcard.svelte';
 
-	let num = 59;
-	let flip = true;
 
-	setInterval(() => {
-		if (num === 1) num = 59;
-		else num--;
-		flip = true;
+	const updateCard = (card) => {
+		console.log(card);
+		if (card.num === 0) card.num = 59;
+		else card.num--;
+		card.flip = true;
 		setTimeout(() => {
-			flip = false;
+			card.flip = false;
 		}, 750);
-	}, 1000);
+	};
+
+	setInterval(() => updateCard(cards.sec), 1000);
+	setInterval(() => updateCard(cards.min), 1000 * 60);
+	setInterval(() => updateCard(cards.hour), 1000 * 60 * 60);
+
+	const cards = {
+		hour: { num: 33, flip: true },
+		min: { num: 22, flip: true },
+		sec: { num: 11, flip: true }
+	};
 </script>
 
 <!-- https://codepen.io/shshaw/pen/vKzoLL -->
-{#each [...Array(3).keys()] as i}
+{#each [cards.hour, cards.min, cards.sec] as { num, flip }, idx}
 	<Flipcard {flip} {num} />
-	{#if i !== 2}
+	{#if idx !== 2}
 		<span class="colon">:</span>
 	{/if}
 {/each}
