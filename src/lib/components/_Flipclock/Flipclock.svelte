@@ -3,6 +3,7 @@
 
 	import Flipcard from './Flipcard.svelte';
 
+	export let countdown;
 
 	let done = false;
 
@@ -51,9 +52,9 @@
 	});
 
 	const cards = {
-		hour: { num: 0, flip: false },
-		min: { num: 1, flip: false },
-		sec: { num: 3, flip: false }
+		hour: { num: countdown.hour, flip: false },
+		min: { num: countdown.min, flip: false },
+		sec: { num: countdown.sec, flip: false }
 	};
 </script>
 

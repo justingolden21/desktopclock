@@ -7,5 +7,5 @@
 
 <section>
 	<br />
-	<Flipclock />
+	<Flipclock countdown={{ hour: 0, min: 1, sec: 3 }} />
 </section>
