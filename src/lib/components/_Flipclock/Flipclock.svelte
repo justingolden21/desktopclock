@@ -26,9 +26,9 @@
 	});
 
 	const cards = {
-		hour: { num: 33, flip: true },
-		min: { num: 22, flip: true },
-		sec: { num: 11, flip: true }
+		hour: { num: 33, flip: false },
+		min: { num: 22, flip: false },
+		sec: { num: 11, flip: false }
 	};
 </script>
 
