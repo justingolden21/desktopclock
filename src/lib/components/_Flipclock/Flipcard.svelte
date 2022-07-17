@@ -1,7 +1,7 @@
 <script>
 	export let flip, num;
 
-	$: displayNext = (num - 1).toString().padStart(2, '0');
+	$: displayNext = (num !== 0 ? num - 1 : 59).toString().padStart(2, '0');
 	$: displayNum = num.toString().padStart(2, '0');
 </script>
 
