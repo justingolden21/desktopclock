@@ -23,13 +23,11 @@
 	};
 </script>
 
-<!-- https://codepen.io/shshaw/pen/vKzoLL -->
-{#each [cards.hour, cards.min, cards.sec] as { num, flip }, idx}
-	<Flipcard {flip} {num} />
-	{#if idx !== 2}
-		<span class="colon">:</span>
-	{/if}
-{/each}
+<Flipcard {...cards.hour} />
+<span class="colon">:</span>
+<Flipcard {...cards.min} />
+<span class="colon">:</span>
+<Flipcard {...cards.sec} />
 
 <style lang="postcss">
 	.colon {

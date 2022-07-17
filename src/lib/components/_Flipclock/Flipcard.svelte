@@ -5,6 +5,8 @@
 	$: displayNum = num.toString().padStart(2, '0');
 </script>
 
+<!-- https://codepen.io/shshaw/pen/vKzoLL -->
+
 <span class="card {flip ? 'flip' : ''}">
 	<span class="card__top">{displayNext}</span>
 	<span class="card__bottom" data-value={displayNum} />
