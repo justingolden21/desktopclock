@@ -180,8 +180,6 @@
 
 	import { defaultNightTheme } from '$lib/themes';
 
-	import { version } from '$lib/data/consts';
-
 	/// STATE ///
 	$: dictionary = $session.languageDictionary;
 
@@ -649,7 +647,7 @@
 		</p>
 		<p class="mt-2">
 			{dictionary.about['Version']}
-			{version}
+			{__version__}
 			{import.meta.env.PROD ? 'prod' : 'dev'}
 		</p>
 

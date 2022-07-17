@@ -1,6 +1,6 @@
 {
 	"name": "desktop-clock",
-	"version": "1.0.5",
+	"version": "1.0.7",
 	"description": "A simple, resizable customizable, installable clock for any device!",
 	"scripts": {
 		"dev": "svelte-kit dev",

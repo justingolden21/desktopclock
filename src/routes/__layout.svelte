@@ -27,7 +27,7 @@
 	import { Toasts } from '$lib/components/Toast';
 
 	/// UTILS ///
-	import { systemFontFamilies, version } from '$lib/data/consts';
+	import { systemFontFamilies } from '$lib/data/consts';
 	import { hexToRgb } from '$lib/util/color';
 	import initializeSettings from '$lib/util/initializeSettings';
 	import { setupInstall } from '$lib/util/install';
@@ -73,7 +73,7 @@
 
 	// ================
 
-	$settings.recentVersion = version;
+	$settings.recentVersion = __version__;
 
 	// Same code as in Settings.svelte
 	async function changeLanguage() {
