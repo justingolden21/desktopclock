@@ -168,7 +168,7 @@
 		delete clone.languageDictionary;
 		delete clone.stopwatch.stopwatches;
 
-		const settingsStr = JSON.stringify(clone);
+		const settingsStr = JSON.stringify(clone, null, 2); // spacing level = 2
 		download('settings.txt', settingsStr);
 	};
 
