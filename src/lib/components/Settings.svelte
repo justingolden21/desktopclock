@@ -154,7 +154,7 @@
 		// https://www.geeksforgeeks.org/how-to-trigger-a-file-download-when-clicking-an-html-button-or-javascript/
 		const el = document.createElement('a');
 		el.setAttribute('download', filename);
-		el.setAttribute('href', 'data:text/plain;charset=utf-8, ' + encodeURIComponent(text));
+		el.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
 		document.body.appendChild(el);
 		el.click();
 		document.body.removeChild(el);
