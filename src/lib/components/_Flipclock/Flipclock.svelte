@@ -4,20 +4,19 @@
 	import Flipcard from './Flipcard.svelte';
 
 
-	const updateCard = (card) => {
-		console.log(card);
-		if (card.num === 0) card.num = 59;
-		else card.num--;
-		card.flip = true;
+	const updateCard = (name) => {
+		if (cards[name].num === 0) cards[name].num = 59;
+		else cards[name].num--;
+		cards[name].flip = true;
 		setTimeout(() => {
-			card.flip = false;
+			cards[name].flip = false;
 		}, 750);
 	};
 
 	onMount(() => {
-		const secIntvl = setInterval(() => updateCard(cards.sec), 1000);
-		const minIntvl = setInterval(() => updateCard(cards.min), 1000 * 60);
-		const hrIntvl = setInterval(() => updateCard(cards.hour), 1000 * 60 * 60);
+		const secIntvl = setInterval(() => updateCard('sec'), 1000);
+		const minIntvl = setInterval(() => updateCard('min'), 1000 * 60);
+		const hrIntvl = setInterval(() => updateCard('hour'), 1000 * 60 * 60);
 
 		return () => {
 			clearInterval(secIntvl);
