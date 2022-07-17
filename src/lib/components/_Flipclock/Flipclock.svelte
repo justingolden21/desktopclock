@@ -50,8 +50,6 @@
 <span class="colon">:</span>
 <Flipcard bind:num={cards.sec.num} bind:flip={cards.sec.flip} />
 
-{cards.sec.num}
-
 <style lang="postcss">
 	.colon {
 		@apply text-6xl font-bold mx-2 inline-block h-full align-middle;
