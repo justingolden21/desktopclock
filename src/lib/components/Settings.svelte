@@ -160,20 +160,37 @@
 		document.body.removeChild(el);
 	}
 
-	const downloadSettings = () => {
-		download('settings.txt', 'hello');
+	const downloadSettings = (settingsObj) => {
+		// remove unwanted settings
+		const clone = { ...settingsObj };
+		delete clone.languageDictionary;
+		delete clone.stopwatch.stopwatches;
+
+		const settingsStr = JSON.stringify(clone);
+		download('settings.txt', settingsStr);
 	};
 
-	const uploadSettings = (evt) => {
+	const uploadSettings = async (evt) => {
 		const file = evt.target.files[0];
 
-		// https://stackoverflow.com/a/44161989/4907950
-		const reader = new FileReader();
-		reader.onerror = (err) => console.error(`Error reading file: ${err}`);
-		reader.onload = (event) => {
-			console.log(event.target.result);
-		};
-		reader.readAsText(file);
+		// https://jsshowcase.com/question/how-do-i-wait-for-filereader-onload-to-complete-first
+		return new Promise((resolve, reject) => {
+			// https://stackoverflow.com/a/44161989/4907950
+			const reader = new FileReader();
+
+			reader.onload = (evt) => {
+				const result = evt.target.result;
+				console.log(`File contents: ${result}`);
+				resolve(result);
+			};
+
+			reader.onerror = (err) => {
+				console.error(`Error reading file: ${err}`);
+				reject(true);
+			};
+
+			reader.readAsText(file);
+		});
 	};
 </script>
 
@@ -188,6 +205,7 @@
 
 	import { setupCasting, castClock, isCastSupported } from '../util/cast';
 	import { open } from '../util/modal';
+	import mergeDeep from '$lib/util/mergeSettings';
 
 	import { settings, defaultSettings } from '$lib/stores/settings';
 
@@ -477,7 +495,7 @@
 					{dictionary.labels['Send feedback']}
 				</button>
 
-				<button class="btn" on:click={downloadSettings}>
+				<button class="btn" on:click={() => downloadSettings($settings)}>
 					<Icon name="download" class="inline w-6 h-6" />
 					{dictionary.labels['Download settings']}
 				</button>
@@ -487,7 +505,25 @@
 					type="file"
 					accept=".txt"
 					class="hidden"
-					on:change={uploadSettings} />
+					on:change={async (evt) => {
+						const result = await uploadSettings(evt);
+						console.log(result);
+
+						// TODO: move stopwatches from `settings` to separate local store? same with worldclocks
+						// needs legacy code support so if they exist to copy them then remove them
+
+						// BUG: currently, settings.locale.timezone is set to null
+						// after merging defaultSettings with mergeDeep
+
+						// similar to `localStore`
+						console.log(JSON.parse(result).locale.timezone);
+						const valueWithStopwatches = mergeDeep($settings, JSON.parse(result));
+						console.log(valueWithStopwatches.locale.timezone);
+						const value = mergeDeep(defaultSettings, valueWithStopwatches);
+						console.log(value);
+						console.log(value.locale.timezone);
+						// if (value !== null) $settings = value;
+					}} />
 				<button class="btn" on:click={() => document.getElementById('settings-upload').click()}>
 					<Icon name="upload" class="inline w-6 h-6" />
 					{dictionary.labels['Upload settings']}

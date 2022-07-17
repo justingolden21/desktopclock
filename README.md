@@ -12,6 +12,16 @@ Requires [NodeJS/npm](https://nodejs.org/en/download/)
 
 (`SET PATH=C:\Program Files\Nodejs;%PATH%`)
 
+### Setup
+
+Install Node JS (if not already present)
+
+Recommended: Install VS Code.
+
+`npm i`
+
+Recommended: check Network -> Disable Cache in dev tools
+
 ### Development
 
 Install: `npm i`
@@ -89,6 +99,8 @@ ESLint rules: https://eslint.org/docs/rules/
 `alt+shift+F` to format current file with prettier
 
 ### Debugging
+
+Ensure Network -> Disable Cache is checked in dev tools to see your changes update live.
 
 For changes not appearing or hydration bugs, try killing the server and restarting, as well as hard refreshing (ctrl+shift+R) the page
 
