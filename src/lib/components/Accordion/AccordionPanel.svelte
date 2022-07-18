@@ -30,28 +30,22 @@
 	</div>
 </div>
 
-<style>
-	.details {
-		@apply bg-base-50 bg-opacity-25;
+<style global>
+	:local(.details) {
+		@apply bg-base-50 bg-opacity-25 dark:bg-base-700 dark:bg-opacity-25;
 	}
-	.details:not(:first-child) {
+	:local(.details):not(:first-child) {
 		@apply border-t-2 border-base-200;
 	}
-	:global(.dark) .details {
-		@apply bg-base-700 bg-opacity-25;
+
+	:local(.details__summary) {
+		@apply w-full text-left cursor-pointer p-2 hover:bg-base-50 focus:bg-base-50 font-normal text-lg bg-opacity-25 dark:hover:bg-base-600 dark:focus:bg-base-600 dark:bg-base-700 dark:bg-opacity-50;
 	}
 
-	.details__summary {
-		@apply w-full text-left cursor-pointer p-2 hover:bg-base-50 focus:bg-base-50 font-normal text-lg bg-opacity-25;
-	}
-	:global(.dark) .details__summary {
-		@apply hover:bg-base-600 focus:bg-base-600 bg-base-700 bg-opacity-50;
-	}
-
-	.details__content {
+	:local(.details__content) {
 		@apply p-4 hidden;
 	}
-	.details__content.open {
+	:local(.details__content.open) {
 		@apply block;
 		animation: sweep 0.5s ease-in-out;
 	}

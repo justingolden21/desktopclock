@@ -114,33 +114,26 @@
 	</div>
 {/if}
 
-<style>
-	.modal {
-		@apply xs:p-3 sm:p-6 md:p-12 fixed left-0 top-0 w-full h-full bg-base-300 bg-opacity-75 z-20;
+<style global>
+	:local(.modal) {
+		@apply xs:p-3 sm:p-6 md:p-12 fixed left-0 top-0 w-full h-full bg-base-300 bg-opacity-75 dark:bg-base-700 dark:bg-opacity-75 z-20;
 	}
-	.modal-content {
+	:local(.modal-content) {
 		@apply flex flex-col h-full p-2 xs:p-8 xs:pt-4 relative m-auto w-full md:w-3/4;
 		animation: animateTop 0.25s;
 		-webkit-animation: animateTop 0.25s;
 	}
-	.modal-header button {
+	:local(.modal-header) :local(button) {
 		@apply z-30 mt-2;
 	}
-	.modal h2 {
+	:local(.modal) :local(h2) {
 		@apply text-left mt-4;
 	}
-	.modal-header {
-		@apply border-b-2 border-base-300 pb-4;
+	:local(.modal-header) {
+		@apply border-b-2 border-base-300 pb-4 dark:border-base-200;
 	}
-	.modal-body {
+	:local(.modal-body) {
 		@apply text-left relative flex-1 overflow-auto;
-	}
-
-	:global(.dark) .modal {
-		@apply bg-base-700 bg-opacity-75;
-	}
-	:global(.dark) .modal-header {
-		@apply border-base-200;
 	}
 
 	@keyframes animateTop {

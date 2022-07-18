@@ -14,31 +14,18 @@
 	</label>
 </div>
 
-<style>
-	.toggle-checkbox {
-		@apply left-0 absolute block w-6 h-6 rounded-full bg-white border-base-300 border-4 appearance-none cursor-pointer;
+<style global>
+	:local(.toggle-checkbox) {
+		@apply left-0 absolute block w-6 h-6 rounded-full bg-white border-base-300 border-4 appearance-none cursor-pointer dark:bg-base-100 dark:border-base-400;
 		transition: left 0.25s;
 	}
-	.toggle-checkbox:checked {
-		@apply left-6 border-base-500;
+	:local(.toggle-checkbox):checked {
+		@apply left-6 border-base-500 dark:border-base-600;
 	}
-	.toggle-checkbox + .toggle-bg {
-		@apply block overflow-hidden h-6 rounded-full bg-base-300 cursor-pointer transition-colors;
+	:local(.toggle-checkbox) + :local(.toggle-bg) {
+		@apply block overflow-hidden h-6 rounded-full bg-base-300 cursor-pointer transition-colors dark:bg-base-400;
 	}
-	.toggle-checkbox:checked + .toggle-bg {
-		@apply bg-base-500;
-	}
-
-	:global(.dark) .toggle-checkbox {
-		@apply bg-base-100 border-base-400;
-	}
-	:global(.dark) .toggle-checkbox:checked {
-		@apply border-base-600;
-	}
-	:global(.dark) .toggle-checkbox + .toggle-bg {
-		@apply bg-base-400;
-	}
-	:global(.dark) .toggle-checkbox:checked + .toggle-bg {
-		@apply bg-base-600;
+	:local(.toggle-checkbox):checked + :local(.toggle-bg) {
+		@apply bg-base-500 dark:bg-base-600;
 	}
 </style>
