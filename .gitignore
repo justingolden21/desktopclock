@@ -9,3 +9,4 @@ node_modules
 /.svelte-kit
 /package
 /.netlify
+src/lib/.pnpm-debug.log
