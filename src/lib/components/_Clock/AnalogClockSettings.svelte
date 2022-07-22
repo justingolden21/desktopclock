@@ -160,6 +160,7 @@
 				<ColorSelector bind:colorObj={$settings[page].theme.numerals.fill} label="Fill color" />
 			</div>
 
+			<!-- Since numerals are Latin characters, user's language doesn't matter, unlike font selection elsewhere -->
 			<SettingSelect
 				id="numerals-font-family-select"
 				selectLabel={dictionary.labels['Font family:']}

@@ -323,7 +323,7 @@
 		"contactText": "Créé par {{author}}. N'hésitez pas à me contacter avec des commentaires, questions, ou demandes à {{email}}",
 		"shareText": "Si vous aimez cette appli, vous pourriez la {{sharing}}.",
 		"sharing": "partage",
-		"suggestBetterTranslation": "Pour suggérer une meilleure traduction, envoyez-moi un courriel à {{email}}",
+		"suggestBetterTranslation": "Pour proposer une meilleure traduction, envoyez-moi un courriel à {{email}}",
 		"translationCredit": "Traduit en français par Sabine."
 	},
 	"messages": {

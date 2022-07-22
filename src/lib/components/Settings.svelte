@@ -188,6 +188,10 @@
 	import { fontFamilies, locales, supportedLangs } from '../data/consts';
 	import { installButtonClick, showInstallButton } from '../util/install';
 
+	$: validFontFamilies = Object.keys(fontFamilies).filter(
+		(font) => $settings.locale.language !== 'hi' || font === 'Yatra One' || font === ''
+	);
+
 	async function changeLanguage() {
 		$session.languageDictionary = await fetchLanguage($settings.locale.language);
 	}
@@ -297,7 +301,7 @@
 					selectLabel={dictionary.labels['Heading font family:']}
 					bind:value={$settings.fontFamily}
 					onchange={fontFamilyChange}
-					values={Object.keys(fontFamilies)}
+					values={validFontFamilies}
 					labelMapper={(fontFamily) =>
 						fontFamily === '' ? dictionary.display['System default'] : fontFamily}
 					dynamicFont={true} />
@@ -308,7 +312,7 @@
 					id="font-family-body-select"
 					selectLabel={dictionary.labels['Body font family:']}
 					bind:value={$settings.fontFamilyBody}
-					values={Object.keys(fontFamilies)}
+					values={validFontFamilies}
 					labelMapper={(fontFamily) =>
 						fontFamily === '' ? dictionary.display['System default'] : fontFamily}
 					dynamicFont={true} />
