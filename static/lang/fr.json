@@ -1,0 +1,340 @@
+{
+	"appName": "Horloge de bureau",
+	"appShortName": "Horloge de bureau",
+	"seo": {
+		"clock": {
+			"name": "Horloge de bureau",
+			"description": "Une horloge simple, personnalisable, redimensionnable et installable sur n'importe quel appareil!",
+			"shareDescription": "Je pensais que vous aimeriez peut-être Desktop Clock, une appli d'horloge simple, redimensionnable et installable.",
+			"keywords": "horloge, horloge de bureau, appli horloge, horloge analogique, horloge numérique, horloge personnalisable, horloge gratuite, horloge simple, date et heure, horloge avec date, horloge plein écran, horloge coucher, horloge redimensionnable, horloge pour windows, horloge pour mac, horloge pour chrome, horloge pour android, horloge pour ios",
+			"screenshot": "screenshot.png"
+		},
+		"worldclock": {
+			"name": "Horloge mondiale - Horloge de bureau",
+			"description": "Une horloge mondiale qui est simple, élégante, et riche en fonctions, avec des affichages analogique et numérique, des centaines de fuseaux horaires, et une charte de conversions",
+			"shareDescription": "Essayez Horloge mondiale de l'Horloge de bureau",
+			"keywords": "horloge mondiale, chartes de conversion, convertir fuseaux horaires, horloge mondiale analogique, horloge mondiale numérique, horloge avec multiples fuseaux horaires, horloge mondiale en ligne, horloge mondiale hors ligne, horloge mondiale gratuite, meilleure horloge mondiale",
+			"screenshot": "screenshot-worldclock-en.png"
+		},
+		"stopwatch": {
+			"name": "Chronomètre - Horloge de bureau",
+			"description": "Un chronomètre simple et élégant, qui supporte des tours de piste, des chronos multiples, et des options de personnalisation",
+			"shareDescription": "Essayer le Chronomètre de l'Horloge de Bureau",
+			"keywords": "chronomètre, chronomètre en ligne, chronomètre hors ligne, chronomètre gratuit, chronomètres multiples, chronomètres multiples en ligne, chronomètres multiples gratuit, meilleur chronomètre, chronomètre avec tours de piste, chronomètre tours de piste",
+			"screenshot": "screenshot-stopwatch-en.png"
+		},
+		"timers": {}
+	},
+	"pageNames": {
+		"home": "Horloge de bureau",
+		"clock": "Horloge",
+		"worldclock": "Horloge mondiale",
+		"stopwatch": "Chronomètre",
+		"timers": "Minuteurs"
+	},
+	"settingsTabs": {
+		"Appearance": "Aspect",
+		"General": "Général",
+		"About": "À propos"
+	},
+	"error": {
+		"The resource could not be found": "La ressource n'a pas pu être trouvée",
+		"Go back to the homepage": "Revenir sur la page d'accueil",
+		"Error": "Erreur"
+	},
+	"labels": {
+		"Menu": "Menu",
+		"Close": "Fermer",
+		"Go back": "Revenir",
+		"Settings": "Paramètres",
+		"Install": "Installer",
+		"Share": "Partager",
+		"Cast": "Projeter",
+		"Dark": "Sombre",
+		"Fullscreen": "Plein écran",
+		"Cast clock": "Horloge projetée",
+		"Toggle secondary display": "Basculer l'affichage secondaire",
+		"Toggle primary display": "Basculer l'affichage principal",
+		"Toggle battery display": "Basculer l'affichage de la batterie",
+		"Toggle dark mode": "Basculer en mode sombre",
+		"Toggle fullscreen": "Basculer en mode plein écran",
+		"Doubleclick fullscreen": "Double-cliquer pour mode plein écran",
+		"Show dark button": "Montrer touche sombre",
+		"Show primary toggle button": "Montrer la touche de commutation principale",
+		"Show secondary toggle button": "Montrer la touche de commutation secondaire",
+		"Show cast button": "Montrer la touche de projection",
+		"Show fullscreen button": "Montrer la touche plein écran",
+		"palettes": {
+			"base": "Palette de base",
+			"accent": "Palette d'accentuation"
+		},
+		"Smaller menu": "Menu plus petit",
+		"Always collapse menu": "Toujours réduire le menu",
+		"Hide title bar when idle": "Cacher la barre de titre lorsqu'elle est inactive",
+		"Seconds until idle:": "secondes précédant l'inactivité:",
+		"Heading font family:": "Famille de polices rubrique:",
+		"Body font family:": "Famille de polices corps:",
+		"Font family:": "Famille de polices de caractères:",
+		"Reset appearance settings": "Réinitialiser les paramètres d'affichage",
+		"Aesthetics": "Esthétique",
+		"User Interface": "Interface utilisateur",
+		"Application": "Application",
+		"Shortcuts": "Raccourcis",
+		"Locale": "Localité",
+		"Copy website link": "Copier le lien du site web",
+		"Open another clock": "Ouvrir une autre horloge",
+		"Send feedback": "Envoyer des commentaires",
+		"Reset all settings": "Réinitialiser tous les paramètres",
+		"Keyboard shortcuts": "Raccourcis clavier",
+		"View keyboard shortcuts": "Voir les raccourcis clavier",
+		"Language:": "Langue:",
+		"Automatically detect language": "Détection automatique de la langue",
+		"Datetime locale:": "Localité date-heure:",
+		"Automatically detect datetime locale": "Détection automatique de la localité date-heure",
+		"Timezone:": "Fuseau horaire:",
+		"Time:": "Heure:",
+		"Automatically detect timezone": "Détection automatique du fuseau horaire",
+		"Timezone offset:": "Décalage du fuseau horaire:",
+		"Advanced / Experimental": "Avancé / Expérimental",
+		"Keep screen awake": "Retenir éveillé l'écran",
+		"Delete all data and reload": "Supprimer toutes les données et recharger",
+		"New": "Nouveau",
+		"Edit": "Modifier",
+		"Save": "Sauvegarder",
+		"Up": "Déplacer vers le haut",
+		"Down": "Déplacer vers le bas",
+		"Delete": "Supprimer",
+		"Delete all": "Tout supprimer",
+		"Create": "Créer",
+		"Reset": "Réinitialiser",
+		"Use AM / PM": "Utiliser le format de 12 heures",
+		"Difference": "Différence",
+		"Name": "Étiquette",
+		"Now": "Maintenant",
+		"Home": "Accueil",
+
+		"Numeral Styles": {
+			"numerals": "Chiffres",
+			"fourNumerals": "4 Chiffres",
+			"numbers": "Numéros",
+			"fourNumbers": "4 Numéros",
+			"none": "Pas de chiffres"
+		},
+
+		"Font Weights": [
+			"",
+			"Thin",
+			"Extralight",
+			"Light",
+			"Normal",
+			"Medium",
+			"Semibold",
+			"Bold",
+			"Extrabold",
+			"Black"
+		],
+		"Movements": {
+			"sweeping": "Continu",
+			"grandfather": "Horloge comtoise",
+			"modern": "Moderne"
+		}
+	},
+	"languages": {
+		"en": "Anglais",
+		"es": "Espagnol",
+		"de": "Allemand",
+		"fr": "Français",
+		"ru": "Russe",
+		"hi": "Hindi"
+	},
+	"keyboardShortcuts": {
+		"Key": "Clé",
+		"Action": "Action"
+	},
+	"clockSettings": {
+		"Displays": "Affichages",
+		"Analog": "analogique",
+		"Digital Datetime": "Date/Heure Numérique",
+
+		"Primary display:": "Affichage principal:",
+		"Secondary display:": "Affichage secondaire:",
+		"clockFormats": {
+			"analog": "Horloge analogique",
+			"time": "Heure numérique",
+			"date": "Date",
+			"datetime": "Date + heure numérique",
+			"none": "Aucun",
+
+			"analog_digital": "Analogique + numérique",
+			"digital": "Numérique",
+			"rows": "Rangées",
+			"analog_grid": "Grille analogique",
+			"compact_rows": "Rangées compactes",
+			"digital_grid": "Grille numérique"
+		},
+		"Show battery": "Montrer la batterie",
+
+		"Default Theme": "Thème de défaut",
+		"Default Night Theme": "Thème nuit de défaut",
+		"Classic Theme": "Thème classique",
+		"Classic Night Theme": "Thème nuit classique",
+		"Simple Mode": "Mode simple",
+
+		"Time format:": "Format de l'heure:",
+		"Date format:": "Format de la date:",
+		"Custom": "Personnalisé",
+		"Preview:": "Aperçu:",
+		"Custom formatting reference": "Référence pour le format personnalisé",
+		"Reset datetime formats": "Réinitialiser les formats date-heure",
+		"Primary display font weight:": "poids de police de l'affichage principal:",
+		"Second hand movement:": "Mouvement de l'aiguille des secondes:",
+
+		"Datetime Formatting": "Formatage date/heure",
+
+		"Numeral Style:": "Style des chiffres:",
+
+		"Face": "Cadran",
+		"Pin": "Broche",
+		"Ticks": "Marques",
+		"Numerals": "Chiffres",
+		"Hands": "Aiguilles",
+
+		"sizes": {
+			"small": "Petit",
+			"medium": "Moyen",
+			"large": "Grand"
+		},
+
+		"Hour": "Heure",
+		"Minute": "Minute",
+		"Second": "Seconde",
+
+		"datetimeFormatTableHeadings": ["Format", "Exemple", "Description"],
+		"datetimeFormatTable": [
+			["YY", "18", "Année en 2 chiffres"],
+			["YYYY", "2018", "Année en 4 chiffres"],
+			["M", "1-12", "Le mois, en commençant par 1"],
+			["MM", "01-12", "Le mois en 2 chiffres"],
+			["MMM", "Jan-Dec", "Abréviation du nom du mois"],
+			["MMMM", "January-December", "Nom du mois"],
+			["D", "1-31", "Le jour du mois"],
+			["DD", "01-31", "Le jour du mois en 2 chiffres"],
+			["d", "0-6", "Le jour de la semaine, prenant le dimanche comme 0"],
+			["dd", "Su-Sa", "Le nom minimal du jour de la semaine"],
+			["ddd", "Sun-Sat", "Le nom raccourci du jour de la semaine"],
+			["dddd", "Sunday-Saturday", "Le nom du jour de la semaine"],
+			["H", "0-23", "L'Heure"],
+			["HH", "00-23", "L'Heure en 2 chiffres"],
+			["h", "1-12", "L'Heure sur l'horloge de 12 heures"],
+			["hh", "01-12", "L'Heure en 2 chiffres sur l'horloge de 12 heures"],
+			["m", "0-59", "La minute"],
+			["mm", "00-59", "La minute en 2 chiffres"],
+			["s", "0-59", "La second"],
+			["ss", "00-59", "La second en 2 chiffres"],
+			["SSS", "000-999", "La milliseconde en 3 chiffres"],
+			["Z", "+05:00", "Le décalage UTC, ±HH:mm"],
+			["ZZ", "+0500", "Le décalage UTC, ±HHmm"],
+			["A", "AM PM", "La période"],
+			["a", "am pm", "La période en minuscules"],
+			["[text]", "text", "Texte personnalisé"]
+		]
+	},
+	"worldclockSettings": {
+		"Timetable": "Tableau",
+		"Timetable view": "Vue de Tableau",
+		"Convert": "Convertir",
+		"in": "à",
+		"is": "est",
+		"Convert timezones": "Convertir les fuseaux horaires",
+		"New timezone": "Nouveau fuseau horaire",
+		"Edit timezone": "Modifier le fuseau horaire",
+		"Timezone nickname:": "Surnom du fuseau horaire:",
+
+		"Reset worldclocks": "Réinitialiser les horloges mondiales",
+		"Delete worldclocks": "Supprimer les horloges mondiales",
+		"Reset worldclock settings": "Réinitialiser les paramètres horloge mondiale",
+
+		"You don't have any other worldclocks. Try adding a new one": "Vous n'avez aucune autre horloge mondiale. En ajouter une nouvelle?"
+	},
+	"stopwatchSettings": {
+		"Start": "Commencer",
+		"Resume": "Reprendre",
+		"Pause": "Mettre en pause",
+		"Lap": "Tour de piste",
+		"LapNumber": "Numéro du tour de piste",
+		"Laps": "Tours de piste",
+		"Time": "Temps",
+		"Total": "Total",
+		"New stopwatch": "Nouveau chronomètre",
+
+		"Display": "Affichage",
+		"Behavior": "Comportement",
+
+		"Always show hours": "Toujours afficher les heures",
+		"Digits after seconds": "Chiffres après la seconde",
+		"Digits after seconds in lap list": "Chiffres après la seconde dans la liste des tours",
+		"Show reset stopwatch button": "Montrer la touche à réinitialisation du chronomètre",
+		"Namable stopwatches": "Chronomètres capables d'être surnommés",
+		"Reverse lap order": "Renverser l'ordre des tours de piste",
+		"First stopwatch is larger": "Premier chrono plus grand",
+		"Automatically start new stopwatches": "Commencer automatiquement les nouveaux chronos",
+		"Start all paused stopwatches": "Reprendre tous les chronos en pause",
+		"Stop all running stopwatches": "Arrêter tous les chronos en cours",
+		"Reset stopwatch settings": "Réinitialiser les paramètres du chrono",
+
+		"Simultaneous start": "Démarrage simultané",
+		"Simultaneous Start": "Démarrage simultané",
+		"Number of stopwatches to start at the same time:": "Nombre de chronos à commencer simultanément:",
+		"You don't have any stopwatches. Try adding a new one": "Vous n'avez aucun chronomètre. En ajouter un nouveau?"
+	},
+	"display": {
+		"Stroke color": "Couleur de trait",
+		"Fill color": "Couleur de remplissage",
+		"Shadow fill color": "Couleur de remplissage de l'ombre",
+		"Color:": "Couleur:",
+		"Stroke width:": "Largeur du trait:",
+		"Size:": "Taille:",
+		"Shape:": "Forme:",
+		"Width:": "Largeur:",
+		"Height:": "Hauteur:",
+		"Length:": "Longueur:",
+		"Back:": "Revenir:",
+		"Linecap:": "Capacité des lignes:",
+
+		"Transparent": "Transparent",
+		"System default": "Défaut de système",
+
+		"shapes": {
+			"circle": "Cercle",
+			"rounded": "Carré arrondi",
+			"square": "Carré"
+		},
+
+		"linecaps": {
+			"round": "Arrondi",
+			"square": "Carré"
+		}
+	},
+	"about": {
+		"Version": "Version",
+		"Contact": "Contacter",
+		"Translation": "Traduction",
+		"aboutText": "Horloge de bureau est une horloge simple, redimensionnable, et personnalisable, qui peut être installée sur n'importe quel appareil. Sont comprises dans les fonctions: des affichages personnalisables en analogique comme en numérique, une mode nuit, des thèmes, des fuseaux horaires, et bien plus encore. L'Horloge de bureau est conçue pour une mise à l'échelle parfaite sur les écrans de toute taille et de tout rapport d'aspect, sans se déformer ou se pixelliser. Utiliser l'Horloge de bureau sur votre télé, en tant qu'horloge de nuit, ou pour projeter l'heure dans la salle de classe. L'Horloge de bureau est de conception légère, elle fonctionne hors connexion, elle est libre, gratuite, et sans pubs, et elle le sera pour toujours. Personnalisez l'heure, la date, et bien plus, selon vos goûts. Horloge de bureau est l'horloge complète qui remplit tous vos besoins de comptabilisation! Des fonctions additionnelles à venir bientôt.",
+		"contactText": "Créé par {{author}}. N'hésitez pas à me contacter avec des commentaires, questions, ou demandes à {{email}}",
+		"shareText": "Si vous aimez cette appli, vous pourriez la {{sharing}}.",
+		"sharing": "partage",
+		"suggestBetterTranslation": "Pour proposer une meilleure traduction, envoyez-moi un courriel à {{email}}",
+		"translationCredit": "Traduit en français par Sabine."
+	},
+	"messages": {
+		"Copied successfully": "Réussite à copier le message",
+		"Failed to copy": "La copie à échoué",
+		"Coming soon": "À venir bientôt",
+		"Wake lock was activated successfully": "Réussite à activer le verrouillage veille",
+		"Wake lock was deactivated successfully": "Réussite à désactiver le verrouillage veille",
+		"Wake lock failure": "Échec du verrouillage veille",
+		"Too many worldclocks": "Nombre trop élevé d'horloges mondiales",
+		"Too many stopwatches": "Nombre trop élevé de chronomètres",
+		"Cannot have duplicate timezones with same name": "Impossible d'avoir des fuseaux horaires à double exemplaire avec la même étiquette"
+	}
+}

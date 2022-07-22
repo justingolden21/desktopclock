@@ -21,15 +21,16 @@ const isValid = (item) => item !== undefined && item !== null;
  */
 const isSameType = (item1, item2) => typeof item1 === typeof item2;
 
-function isPrimitiveType(item) {
-	return ['string', 'number', 'boolean'].includes(typeof item);
-}
+const isPrimitiveType = (item) => ['string', 'number', 'boolean'].includes(typeof item);
 
 // overriden by user default
 const validNulls = {
 	timeFormat: 'string',
 	timeFormatCustom: 'string',
 	darkMode: 'boolean',
+	language: 'string',
+	datetime: 'string',
+	timezone: 'string',
 	ampm: 'boolean'
 };
 
