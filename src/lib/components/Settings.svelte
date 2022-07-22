@@ -92,7 +92,7 @@
 	let wakeLock;
 
 	// https://developer.mozilla.org/en-US/docs/Web/API/WakeLock/request
-	export async function requestWakeLock(languageDictionary) {
+	async function requestWakeLock(languageDictionary) {
 		let success = true;
 		try {
 			wakeLock = await navigator.wakeLock.request('screen');
@@ -116,7 +116,7 @@
 	}
 
 	// https://phpnews.io/feeditem/have-a-web-page-prevent-your-screen-computer-from-dimming-sleeping-with-the-wake-lock-api
-	const releaseWakeLock = async (languageDictionary) => {
+	async function releaseWakeLock(languageDictionary) {
 		let success = true;
 		if (!wakeLock) return;
 		try {
@@ -134,9 +134,9 @@
 		const dismissible = true;
 		const timeout = 2000;
 		addToast({ message, type, dismissible, timeout });
-	};
+	}
 
-	export function validate(input) {
+	export function validateInt(input) {
 		const min = input.min;
 		const max = input.max;
 		const val = input.value;
@@ -173,9 +173,10 @@
 	import ThemeButtons from '$lib/components/ThemeButtons.svelte';
 	import { addToast } from '$lib/components/Toast';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
-	import TimezoneSelect from '$lib/components/TimezoneSelect.svelte';
+	import TimezoneAutocomplete from '$lib/components/TimezoneAutocomplete.svelte';
 	import ClockSettings from '$lib/components/_Clock/ClockSettings.svelte';
 	import WorldclockSettings from '$lib/components/_Worldclock/WorldclockSettings.svelte';
+	import StopwatchSettings from '$lib/components/_Stopwatch/StopwatchSettings.svelte';
 
 	import { defaultNightTheme } from '$lib/themes';
 
@@ -188,6 +189,10 @@
 
 	import { fontFamilies, locales, supportedLangs } from '../data/consts';
 	import { installButtonClick, showInstallButton } from '../util/install';
+
+	$: validFontFamilies = Object.keys(fontFamilies).filter(
+		(font) => $settings.locale.language !== 'hi' || font === 'Yatra One' || font === ''
+	);
 
 	async function changeLanguage() {
 		$session.languageDictionary = await fetchLanguage($settings.locale.language);
@@ -222,6 +227,10 @@
 				<Icon name="worldclock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 				{dictionary.pageNames['worldclock']}
 			{/if}
+			{#if $page.url.pathname === '/stopwatch'}
+				<Icon name="stopwatch" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+				{dictionary.pageNames['stopwatch']}
+			{/if}
 		</Tab>
 		<Tab>
 			<Icon name="eye" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
@@ -237,13 +246,16 @@
 		</Tab>
 	</TabList>
 
-	<!-- Clock -->
+	<!-- Current Page -->
 	<TabPanel>
 		{#if $page.url.pathname === '/'}
 			<ClockSettings />
 		{/if}
 		{#if $page.url.pathname === '/worldclock'}
 			<WorldclockSettings />
+		{/if}
+		{#if $page.url.pathname === '/stopwatch'}
+			<StopwatchSettings />
 		{/if}
 	</TabPanel>
 
@@ -291,7 +303,7 @@
 					selectLabel={dictionary.labels['Heading font family:']}
 					bind:value={$settings.fontFamily}
 					onchange={fontFamilyChange}
-					values={Object.keys(fontFamilies)}
+					values={validFontFamilies}
 					labelMapper={(fontFamily) =>
 						fontFamily === '' ? dictionary.display['System default'] : fontFamily}
 					dynamicFont={true} />
@@ -302,7 +314,7 @@
 					id="font-family-body-select"
 					selectLabel={dictionary.labels['Body font family:']}
 					bind:value={$settings.fontFamilyBody}
-					values={Object.keys(fontFamilies)}
+					values={validFontFamilies}
 					labelMapper={(fontFamily) =>
 						fontFamily === '' ? dictionary.display['System default'] : fontFamily}
 					dynamicFont={true} />
@@ -313,15 +325,18 @@
 					bind:checked={$settings.showDarkButton}
 					labelText={dictionary.labels['Show dark button']} />
 
-				<Toggle
-					id="show-primary-btn-toggle"
-					bind:checked={$settings.showPrimaryButton}
-					labelText={dictionary.labels['Show primary toggle button']} />
+				<!-- only show setting to toggle display on pages with toggleable displays -->
+				{#if ['/', '/worldclock'].includes($page.url.pathname)}
+					<Toggle
+						id="show-primary-btn-toggle"
+						bind:checked={$settings.showPrimaryButton}
+						labelText={dictionary.labels['Show primary toggle button']} />
 
-				<Toggle
-					id="show-secondary-btn-toggle"
-					bind:checked={$settings.showSecondaryButton}
-					labelText={dictionary.labels['Show secondary toggle button']} />
+					<Toggle
+						id="show-secondary-btn-toggle"
+						bind:checked={$settings.showSecondaryButton}
+						labelText={dictionary.labels['Show secondary toggle button']} />
+				{/if}
 
 				<div class:hidden={!castSupported}>
 					<Toggle
@@ -361,7 +376,7 @@
 						<input
 							id="seconds-until-idle-input"
 							on:input|preventDefault={(event) => {
-								const value = validate(event.target);
+								const value = validateInt(event.target);
 								$settings.secondsUntilIdle = value;
 								event.target.value = value;
 							}}
@@ -438,7 +453,12 @@
 					on:mouseout={() => (hoveringContact = false)}
 					on:blur={() => (hoveringContact = false)}
 					on:click={() =>
-						window.open('mailto:contact@justingolden.me?subject=Desktop%20Clock%20Feedback')}>
+						// using English for email subject
+						// English name is generally what the app is known for, also makes it easier for me to know what an email is about
+						// this function is defined on page load anyway, making this a more difficult problem than is worth the time
+						window.open(
+							'mailto:contact@justingolden.me?subject=' + encodeURIComponent('Desktop Clock')
+						)}>
 					<Icon name={hoveringContact ? 'envelope_open' : 'envelope'} class="inline w-6 h-6" />
 					{dictionary.labels['Send feedback']}
 				</button>
@@ -448,7 +468,15 @@
 				<button
 					class="btn undo-btn"
 					on:click={() => {
+						// save user's worldclocks and stopwatches
+						const userWorldclocks = JSON.parse(JSON.stringify($settings.worldclock.timezones));
+						const userStopwatches = JSON.parse(JSON.stringify($settings.stopwatch.stopwatches));
+
 						$settings = JSON.parse(JSON.stringify(defaultSettings));
+
+						// load user's worldclocks and stopwatches
+						$settings.worldclock.timezones = userWorldclocks;
+						$settings.stopwatch.stopwatches = userStopwatches;
 
 						// auto detect user device preferences (same code as in layout)
 						$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -472,6 +500,8 @@
 						$settings.clock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
 						$settings.worldclock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
 						$settings.worldclock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
+
+						changeLanguage();
 					}}>
 					<Icon name="undo" class="inline w-6 h-6" />
 					{dictionary.labels['Reset all settings']}
@@ -492,7 +522,7 @@
 					on:click={() => {
 						localStorage.clear();
 						location.reload();
-					}}>{dictionary.labels['Delete settings and reload']}</button>
+					}}>{dictionary.labels['Delete all data and reload']}</button>
 
 				<!-- <button class="btn">Multiple Clock Settings</button>
 		        <button class="btn">Quick Resize Settings</button> -->
@@ -522,7 +552,15 @@
 						selectLabel={dictionary.labels['Language:']}
 						disabled={$settings.locale.automaticLanguage}
 						bind:value={$settings.locale.language}
-						onchange={changeLanguage}
+						onchange={(e) => {
+							changeLanguage();
+
+							// change locale when changing language
+							if (locales.includes(e.target.value)) {
+								$settings.locale.automaticDatetime = false;
+								$settings.locale.datetime = e.target.value;
+							}
+						}}
 						values={supportedLangs}
 						labels={dictionary.languages} />
 
@@ -563,15 +601,23 @@
 							}
 						}} />
 				</div>
-				<!-- todo: display gmt offset to the side -->
-				<!-- todo: search input that finds results containing that string in below select -->
-				<!-- options should look something like "Pacific Daylight Time (GMT-7) Los Angeles, CA" -->
+				<!-- TODO options should look something like "Pacific Daylight Time (GMT-7) Los Angeles, CA" -->
 				<div class="block mb-2">
-					<TimezoneSelect
-						id="timezone-select"
-						bind:value={$settings.locale.timezone}
-						disabled={$settings.locale.automaticTimezone} />
-					<br class="block lg:hidden" />
+					{#if $settings.locale.automaticTimezone}
+						<span>
+							{dictionary.labels['Timezone:']}
+							{$settings.locale.timezone.replace(/_/g, ' ')}
+						</span>
+					{:else}
+						<TimezoneAutocomplete
+							labelID="user-timezone-input"
+							bind:value={$settings.locale.timezone} />
+					{/if}
+					<br />
+					<span>
+						{dictionary.labels['Timezone offset:']}
+						{new dayjs($now).tz($settings.locale.timezone).utcOffset() / 60}
+					</span>
 					<Toggle
 						id="auto-detect-timezone-toggle"
 						labelText={dictionary.labels['Automatically detect timezone']}
@@ -582,10 +628,7 @@
 								$settings.locale.timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 							}
 						}} />
-					<p>
-						{dictionary.labels['Timezone offset:']}
-						{new dayjs($now).tz($settings.locale.timezone).utcOffset() / 60}
-					</p>
+
 					<!-- TODO: btn to reset all locale settings, onclick toggles all auto to on which resets others -->
 				</div>
 			</AccordionPanel>
@@ -614,6 +657,19 @@
 			{import.meta.env.PROD ? 'prod' : 'dev'}
 		</p>
 
+		{#if (dictionary.about.suggestBetterTranslation !== '' || dictionary.about.translationCredit !== '') && $settings.locale.language !== 'en'}
+			<h3>{dictionary.about['Translation']}</h3>
+			<p>
+				{@html dictionary.about.suggestBetterTranslation.replace(
+					'{{email}}',
+					'<a href="mailto:contact@justingolden.me?subject=Desktop%20Clock" target="_blank">contact@justingolden.me</a>'
+				)}
+			</p>
+			<p>
+				{dictionary.about.translationCredit}
+			</p>
+		{/if}
+
 		<h3>{dictionary.about['Contact']}</h3>
 		<p>
 			{@html dictionary.about.contactText
@@ -623,7 +679,7 @@
 				)
 				.replace(
 					'{{email}}',
-					'<a href="mailto:contact@justingolden.me?subject=Desktop+Clock" target="_blank">contact@justingolden.me</a>'
+					'<a href="mailto:contact@justingolden.me?subject=Desktop%20Clock" target="_blank">contact@justingolden.me</a>'
 				)}
 		</p>
 	</TabPanel>

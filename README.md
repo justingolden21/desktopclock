@@ -8,7 +8,9 @@ A simple, resizable customizable, installable clock for any device!
 
 This project is made with Svelte (using Svelte kit) and TailwindCSS. It uses Hero Icons and postCSS/purgeCSS for Tailwind. Vite is the bundler used under the hood for Svelte kit. It is hosted on Netlify and has no backend currently. It uses day.js for date/time logic, and uses Prettier, ESLint, and the AirBNB Javascript Style guide for code formatting and style. Desktop Clock is a PWA and can handle many timezones, date and time formats and locales, and languages.
 
-Requires NodeJS/npm
+Requires [NodeJS/npm](https://nodejs.org/en/download/)
+
+(`SET PATH=C:\Program Files\Nodejs;%PATH%`)
 
 ### Development
 
@@ -94,9 +96,9 @@ For issues with building, previewing, and npm packages, try deleting the build, 
 
 ### Other
 
-When adding a language, add it to `supportedLangs` in `consts.js`
+When adding a language, add it to `supportedLangs` in `consts.js` (and also add screenshots). Also, the language name must be added to each other language json file.
 
-When adding a page, add it to cache in `service-worker.js` and validPages in `data/consts.js`
+When adding a page, add it to cache in `service-worker.js` and validPages in `data/consts.js`. Also add SEO data and add it to `Nav`. Add shortcut to `manifest.webmanifest.js`.
 
 ### Links
 
@@ -106,7 +108,7 @@ When adding a page, add it to cache in `service-worker.js` and validPages in `da
 
 - Prod: https://desktopclock.app
 
-- This repo: https://github.com/justingolden21/desktop-clock
+- This repo: https://github.com/justingolden21/desktopclock
 
 - Netlify: https://app.netlify.com/sites/desktopclock/overview
 

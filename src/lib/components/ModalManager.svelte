@@ -11,45 +11,51 @@
 	import NewWorldclock from '$lib/components/_Worldclock/NewWorldclock.svelte';
 	import WorldclockTimetable from '$lib/components/_Worldclock/WorldclockTimetable.svelte';
 	import ConvertTimezones from '$lib/components/_Worldclock/ConvertTimezones.svelte';
+	import SimultaneousStart from '$lib/components/_Stopwatch/SimultaneousStart.svelte';
 
 	/// STATE ///
 	const modalData = {
 		'settings': {
-			title: $session.languageDictionary.labels['Settings'],
+			title: ['labels', 'Settings'],
 			icon: 'settings',
 			component: Settings
 		},
 		'convert-timezones': {
-			title: $session.languageDictionary.worldclockSettings['Convert timezones'],
+			title: ['worldclockSettings', 'Convert timezones'],
 			icon: 'switch_horizontal',
 			component: ConvertTimezones
 		},
 		'new-worldclock': {
-			title: $session.languageDictionary.worldclockSettings['New timezone'],
+			title: ['worldclockSettings', 'New timezone'],
 			icon: 'plus_circle',
 			component: NewWorldclock
 		},
 		'edit-worldclock': {
-			title: $session.languageDictionary.worldclockSettings['Edit timezone'],
+			title: ['worldclockSettings', 'Edit timezone'],
 			icon: 'pencil',
 			component: NewWorldclock
 		},
 		'keyboard-shortcuts': {
-			title: $session.languageDictionary.labels['Keyboard shortcuts'],
+			title: ['labels', 'Keyboard shortcuts'],
 			icon: 'table',
 			previous: 'settings',
 			component: KeyboardShortcutsModal
 		},
 		'datetime-format': {
-			title: $session.languageDictionary.clockSettings['Datetime Formatting'],
+			title: ['clockSettings', 'Datetime Formatting'],
 			icon: 'table',
 			previous: 'settings',
 			component: DatetimeFormatModal
 		},
 		'worldclock-timetable': {
-			title: $session.languageDictionary.worldclockSettings['Timetable'],
+			title: ['worldclockSettings', 'Timetable'],
 			icon: 'table',
 			component: WorldclockTimetable
+		},
+		'simultaneous-start': {
+			title: ['stopwatchSettings', 'Simultaneous Start'],
+			icon: 'stopwatch',
+			component: SimultaneousStart
 		}
 	};
 
@@ -79,8 +85,8 @@
 <svelte:window on:keydown={onWindowKeyDown} />
 
 {#if component}
-	<div class="modal" on:click={close}>
-		<div class="modal-content surface rounded" on:click|stopPropagation>
+	<div class="modal" on:mousedown={close}>
+		<div class="modal-content surface rounded" on:mousedown|stopPropagation>
 			<div class="modal-header">
 				{#if previous}
 					<button
@@ -98,7 +104,7 @@
 				</button>
 				<h1>
 					<Icon name={icon} class="w-6 h-6 inline mr-2" />
-					{title}
+					{$session.languageDictionary[title[0]][title[1]]}
 				</h1>
 			</div>
 			<div class="modal-body">
@@ -113,7 +119,7 @@
 		@apply xs:p-3 sm:p-6 md:p-12 fixed left-0 top-0 w-full h-full bg-base-300 bg-opacity-75 z-20;
 	}
 	.modal-content {
-		@apply flex flex-col max-h-full p-2 xs:p-8 xs:pt-4 relative m-auto w-full md:w-3/4;
+		@apply flex flex-col h-full p-2 xs:p-8 xs:pt-4 relative m-auto w-full md:w-3/4;
 		animation: animateTop 0.25s;
 		-webkit-animation: animateTop 0.25s;
 	}

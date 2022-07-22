@@ -6,6 +6,8 @@ const localStore = (key, defaultValue) => {
 
 	if (typeof localStorage !== 'undefined') {
 		const value = mergeDeep(defaultValue, JSON.parse(localStorage.getItem(key)));
+		// const lsVal = JSON.parse(localStorage.getItem(key)) ?? {};
+		// const value = { ...defaultValue, ...lsVal };
 
 		if (value !== null) store.set(value);
 

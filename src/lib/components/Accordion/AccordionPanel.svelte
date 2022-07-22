@@ -8,46 +8,50 @@
 	export let accordionTitle;
 	export let key;
 	const store = getContext('accordion');
-	$: params = {
-		open: $store.key === key
-	};
+	$: open = $store.key === key;
 
 	/// EVENT HANDLERS ///
 	function handleToggle() {
-		if (params.open) {
-			$store = { ...$store, key: null };
-		} else {
-			$store = { ...$store, key };
-		}
+		$store = { ...$store, key: open ? null : key };
 	}
 </script>
 
 <div class="details">
-	<div class="summary">
-		<button
-			class="w-full text-left cursor-pointer p-2 hover:bg-base-100 focus:bg-base-100 font-normal text-lg dark:hover:bg-base-600 dark:focus:bg-base-600 bg-opacity-25 dark:bg-base-700 dark:bg-opacity-50"
-			on:click={handleToggle}
-			aria-expanded={params.open}>
-			<Icon
-				name="chevron_right"
-				class="inline w-6 h-6 transition-transform {params.open ? 'rotate-90' : ''}"
-				aria-hidden="true" />
-			{accordionTitle}
-		</button>
-	</div>
-	<div class="details-content" class:open={params.open}>
+	<button class="details__summary" on:click={handleToggle} aria-expanded={open}>
+		<Icon
+			name="chevron_right"
+			class="inline w-6 h-6 transition-transform {open ? 'rotate-90' : ''}"
+			aria-hidden="true" />
+		{accordionTitle}
+	</button>
+
+	<div class="details__content" class:open>
 		<slot />
 	</div>
 </div>
 
 <style lang="postcss">
 	.details {
-		@apply bg-base-50 border-b-2 border-base-200 bg-opacity-25;
+		@apply bg-base-50 bg-opacity-25;
 	}
-	.details .details-content {
-		@apply p-4 hidden dark:bg-base-700 dark:bg-opacity-50;
+	.details:not(:first-child) {
+		@apply border-t-2 border-base-200;
 	}
-	.details-content.open {
+	:global(.dark) .details {
+		@apply bg-base-700 bg-opacity-25;
+	}
+
+	.details__summary {
+		@apply w-full text-left cursor-pointer p-2 hover:bg-base-50 focus:bg-base-50 font-normal text-lg bg-opacity-25;
+	}
+	:global(.dark) .details__summary {
+		@apply hover:bg-base-600 focus:bg-base-600 bg-base-700 bg-opacity-50;
+	}
+
+	.details__content {
+		@apply p-4 hidden;
+	}
+	.details__content.open {
 		@apply block;
 		animation: sweep 0.5s ease-in-out;
 	}
@@ -61,10 +65,5 @@
 			opacity: 1;
 			transform: translateX(0);
 		}
-	}
-
-	/* prevent white flash when opening details in dark mode */
-	:global(.dark) .details {
-		@apply bg-base-700 bg-opacity-25;
 	}
 </style>

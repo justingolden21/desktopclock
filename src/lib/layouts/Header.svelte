@@ -91,26 +91,29 @@ to hide the cursor when idle -->
 		<Icon name={$settings.darkMode ? 'moon' : 'sun'} class="w-6 h-6 md:w-8 md:h-8" />
 	</button>
 
-	<button
-		class="icon-btn float-left left-36 absolute top-4 z-10 
-        {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-20'}"
-		class:hidden={!$settings.showPrimaryButton}
-		on:click={togglePrimaryDisplay}
-		aria-label={dictionary.labels['Toggle primary display']}
-		title={dictionary.labels['Toggle primary display'] +
-			($settings.keyboardShortcuts ? ' (P)' : '')}>
-		<Icon name="primary" class="w-6 h-6 md:w-8 md:h-8" />
-	</button>
-	<button
-		class="icon-btn float-left left-52 absolute top-4 z-10 
-        {$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-36'}"
-		class:hidden={!$settings.showSecondaryButton}
-		on:click={toggleSecondaryDisplay}
-		aria-label={dictionary.labels['Toggle secondary display']}
-		title={dictionary.labels['Toggle secondary display'] +
-			($settings.keyboardShortcuts ? ' (D)' : '')}>
-		<Icon name="secondary" class="w-6 h-6 md:w-8 md:h-8" />
-	</button>
+	<!-- only show toggle display buttons on pages with toggleable displays -->
+	{#if ['/', '/worldclock'].includes($page.url.pathname)}
+		<button
+			class="icon-btn float-left left-36 absolute top-4 z-10 
+			{$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-20'}"
+			class:hidden={!$settings.showPrimaryButton}
+			on:click={togglePrimaryDisplay}
+			aria-label={dictionary.labels['Toggle primary display']}
+			title={dictionary.labels['Toggle primary display'] +
+				($settings.keyboardShortcuts ? ' (P)' : '')}>
+			<Icon name="primary" class="w-6 h-6 md:w-8 md:h-8" />
+		</button>
+		<button
+			class="icon-btn float-left left-52 absolute top-4 z-10 
+			{$settings.alwaysCollapseMenu || isFullscreen ? '' : 'md:left-36'}"
+			class:hidden={!$settings.showSecondaryButton}
+			on:click={toggleSecondaryDisplay}
+			aria-label={dictionary.labels['Toggle secondary display']}
+			title={dictionary.labels['Toggle secondary display'] +
+				($settings.keyboardShortcuts ? ' (D)' : '')}>
+			<Icon name="secondary" class="w-6 h-6 md:w-8 md:h-8" />
+		</button>
+	{/if}
 
 	<h1 class="hidden sm:block mx-auto inset-x-1/2 font-normal">
 		{dictionary.pageNames[$page.url.pathname.substring(1) || 'home'] || dictionary.error['Error']}

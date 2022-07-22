@@ -1,3 +1,4 @@
+<!-- Coming soon component -->
 <script>
 	import { session } from '$app/stores';
 

@@ -1,4 +1,7 @@
 <script>
+	import { scale, fade } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
+
 	import { settings } from '$lib/stores/settings';
 
 	/// COMPONENTS ///
@@ -50,8 +53,8 @@
 
 <!-- secondary / other timezones -->
 {#if secondaryDisplay === 'rows' || secondaryDisplay === 'compact_rows'}
-	{#each $settings.worldclock.timezones as timezone, idx (`${timezone.zone}-${timezone.name}`)}
-		<div class="relative group">
+	{#each $settings.worldclock.timezones as timezone, idx (`${idx}-${timezone.zone}-${timezone.name}`)}
+		<div animate:flip={{ duration: 250 }} in:scale|local out:fade|local class="relative group">
 			<div
 				class="grid grid-cols-2 gap-4 lg:gap-8 border-0 {hasBorder
 					? 'border-t-2'
@@ -87,8 +90,11 @@
 	{/each}
 {:else}
 	<div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-8 mt-8">
-		{#each $settings.worldclock.timezones as timezone, idx (`${timezone.zone}-${timezone.name}`)}
+		{#each $settings.worldclock.timezones as timezone, idx (`${idx}-${timezone.zone}-${timezone.name}`)}
 			<div
+				animate:flip={{ duration: 250 }}
+				in:scale|local
+				out:fade|local
 				class="relative group {secondaryDisplay === 'analog_grid'
 					? 'text-center'
 					: 'text-left'} break-words {!hasBorder && 'border-0'} rounded surface p-4">

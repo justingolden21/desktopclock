@@ -1,8 +1,6 @@
 <script>
 	import TailwindColors from 'tailwindcss/colors.js';
 
-	import { onMount } from 'svelte';
-
 	import { settings } from '$lib/stores/settings';
 
 	/// COMPONENTS ///
@@ -14,10 +12,6 @@
 	/// STATE ///
 	$: clockSettings = $settings.clock;
 	$: displays = clockSettings.displays;
-
-	let batteryLevel, batteryIsCharging;
-	let batterySupported = false;
-	let listeningToBattery = false;
 
 	// @see displayOptions in util/toggleDisplay
 	$: primaryDisplayMap = {
@@ -34,24 +28,6 @@
 	$: baseColorPalette = TailwindColors[$settings.baseColorPalette];
 	$: accentColorPalette = TailwindColors[$settings.accentColorPalette];
 	$: shade = $settings.darkMode ? 400 : 900;
-
-	/// LIFECYCLE HOOKS ///
-	onMount(async () => {
-		// https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery
-		if (!(navigator && navigator.getBattery)) return;
-		if (listeningToBattery) return;
-		batterySupported = true;
-		const battery = await navigator.getBattery();
-		batteryLevel = battery.level;
-
-		battery.addEventListener('levelchange', function () {
-			batteryLevel = battery.level;
-		});
-		battery.addEventListener('chargingchange', function () {
-			batteryIsCharging = battery.charging;
-		});
-		listeningToBattery = true;
-	});
 </script>
 
 <div class="flex">
@@ -78,19 +54,14 @@
 	</h2>
 </div>
 
-{#if displays.battery && batterySupported}
+{#if displays.battery}
 	<h2
 		id="battery-display"
 		class={'m-0 hidden sm:block text-' + displays.secondaryFontSize}
 		style:color={displays.secondaryPalette === 'base'
 			? baseColorPalette[shade]
 			: accentColorPalette[shade]}>
-		<BatteryIcon
-			fillLevel={batteryLevel ? batteryLevel * 100 : 100}
-			charging={batteryIsCharging}
-			class="inline w-6 h-6 md:w-8 md:h-8" />
-
-		{Math.round(batteryLevel * 100)}%
+		<BatteryIcon />
 	</h2>
 {/if}
 
@@ -129,11 +100,6 @@
 
 	#primary-display,
 	#secondary-display {
-		/* Set numbers to be monospace
-		only works on: Bitter, Montserrat Alternatives, Major Mono Display
-		https://stackoverflow.com/a/56266636/4907950 */
-		font-variant-numeric: tabular-nums;
-
 		white-space: break-spaces;
 	}
 
