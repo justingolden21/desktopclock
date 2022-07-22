@@ -1,3 +1,11 @@
+<script context="module">
+	// Same code as in Settings.svelte
+	export async function fetchLanguage(language) {
+		const result = await fetch(`/lang/${language}.json`);
+		return await result.json();
+	}
+</script>
+
 <script>
 	import '$lib/css/app.postcss';
 
@@ -68,10 +76,16 @@
 
 	$settings.recentVersion = version;
 
+	// Same code as in Settings.svelte
+	async function changeLanguage() {
+		$session.languageDictionary = await fetchLanguage($settings.locale.language);
+	}
+
 	/// LIFECYCLE HOOKS ///
 	onMount(async () => {
 		setTimeout(() => (loading = false), 500);
 		await initializeSettings($session);
+		changeLanguage();
 
 		gtag('event', 'page-load-settings', {
 			non_interaction: true,
