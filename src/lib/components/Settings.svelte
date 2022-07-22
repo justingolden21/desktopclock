@@ -190,6 +190,10 @@
 	import { fontFamilies, locales, supportedLangs } from '../data/consts';
 	import { installButtonClick, showInstallButton } from '../util/install';
 
+	$: validFontFamilies = Object.keys(fontFamilies).filter(
+		(font) => $settings.locale.language !== 'hi' || font === 'Yatra One' || font === ''
+	);
+
 	async function changeLanguage() {
 		$session.languageDictionary = await fetchLanguage($settings.locale.language);
 	}
@@ -300,7 +304,7 @@
 					selectLabel={dictionary.labels['Heading font family:']}
 					bind:value={$settings.fontFamily}
 					onchange={fontFamilyChange}
-					values={Object.keys(fontFamilies)}
+					values={validFontFamilies}
 					labelMapper={(fontFamily) =>
 						fontFamily === '' ? dictionary.display['System default'] : fontFamily}
 					dynamicFont={true} />
@@ -311,7 +315,7 @@
 					id="font-family-body-select"
 					selectLabel={dictionary.labels['Body font family:']}
 					bind:value={$settings.fontFamilyBody}
-					values={Object.keys(fontFamilies)}
+					values={validFontFamilies}
 					labelMapper={(fontFamily) =>
 						fontFamily === '' ? dictionary.display['System default'] : fontFamily}
 					dynamicFont={true} />
@@ -450,7 +454,12 @@
 					on:mouseout={() => (hoveringContact = false)}
 					on:blur={() => (hoveringContact = false)}
 					on:click={() =>
-						window.open('mailto:contact@justingolden.me?subject=Desktop%20Clock%20Feedback')}>
+						// using English for email subject
+						// English name is generally what the app is known for, also makes it easier for me to know what an email is about
+						// this function is defined on page load anyway, making this a more difficult problem than is worth the time
+						window.open(
+							'mailto:contact@justingolden.me?subject=' + encodeURIComponent('Desktop Clock')
+						)}>
 					<Icon name={hoveringContact ? 'envelope_open' : 'envelope'} class="inline w-6 h-6" />
 					{dictionary.labels['Send feedback']}
 				</button>
@@ -492,6 +501,8 @@
 						$settings.clock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
 						$settings.worldclock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
 						$settings.worldclock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
+
+						changeLanguage();
 					}}>
 					<Icon name="undo" class="inline w-6 h-6" />
 					{dictionary.labels['Reset all settings']}
@@ -542,7 +553,15 @@
 						selectLabel={dictionary.labels['Language:']}
 						disabled={$settings.locale.automaticLanguage}
 						bind:value={$settings.locale.language}
-						onchange={changeLanguage}
+						onchange={(e) => {
+							changeLanguage();
+
+							// change locale when changing language
+							if (locales.includes(e.target.value)) {
+								$settings.locale.automaticDatetime = false;
+								$settings.locale.datetime = e.target.value;
+							}
+						}}
 						values={supportedLangs}
 						labels={dictionary.languages} />
 
@@ -638,6 +657,19 @@
 			{version}
 			{import.meta.env.PROD ? 'prod' : 'dev'}
 		</p>
+
+		{#if (dictionary.about.suggestBetterTranslation !== '' || dictionary.about.translationCredit !== '') && $settings.locale.language !== 'en'}
+			<h3>{dictionary.about['Translation']}</h3>
+			<p>
+				{@html dictionary.about.suggestBetterTranslation.replace(
+					'{{email}}',
+					'<a href="mailto:contact@justingolden.me?subject=Desktop%20Clock" target="_blank">contact@justingolden.me</a>'
+				)}
+			</p>
+			<p>
+				{dictionary.about.translationCredit}
+			</p>
+		{/if}
 
 		<h3>{dictionary.about['Contact']}</h3>
 		<p>

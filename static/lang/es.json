@@ -1,0 +1,340 @@
+{
+	"appName": "Reloj Sencillo",
+	"appShortName": "Reloj Sencillo",
+	"seo": {
+		"clock": {
+			"name": "Reloj Sencillo",
+			"description": "¡Un reloj ajustable, personalizable!",
+			"shareDescription": "Pensé que podría disfrutar de Reloj Sencillo, una aplicación y sitio web de reloj simple, redimensionable y personalizable.",
+			"keywords": "reloj, Reloj Sencillo, Desktop Clock, aplicación de reloj, reloj analogo, reloj digital, reloj personalizable, reloj gratis, reloj simple, fecha y hora, reloj con fecha, reloj de pantalla completa, reloj de la hora de acostarse, reloj redimensionable, reloj para windows, reloj para mac, reloj para cromo, reloj para android, reloj para ios",
+			"screenshot": "screenshot.png"
+		},
+		"worldclock": {
+			"name": "Reloj mundial - Reloj Sencillo",
+			"description": "Un reloj mundial simple, elegante y rico en funciones con pantallas analógicas y digitales, cientos de zonas horarias y un calendario",
+			"shareDescription": "Prueba Reloj mundial desde Reloj Sencillo",
+			"keywords": "reloj mundial, horarios, convertir zonas horarias, reloj mundial analógico, reloj mundial digital, reloj de múltiples zonas horarias, reloj mundial en línea, reloj mundial fuera de línea, reloj mundial gratuito, mejor reloj mundial",
+			"screenshot": "screenshot-worldclock-en.png"
+		},
+		"stopwatch": {
+			"name": "Cronógrafo - Reloj Sencillo",
+			"description": "Un cronómetro simple y elegante que admite vueltas, múltiples cronómetros y personalización",
+			"shareDescription": "Prueba Cronógrafo desde Reloj Sencillo",
+			"keywords": "cronómetro, cronómetro en línea, cronómetro sin conexión, cronómetro gratis, cronómetros múltiples, cronómetros múltiples en línea, cronómetros múltiples gratis, mejor cronómetro, cronómetro con vueltas, cronómetro de vueltas",
+			"screenshot": "screenshot-stopwatch-en.png"
+		},
+		"timers": {}
+	},
+	"pageNames": {
+		"home": "Reloj Sencillo",
+		"clock": "Reloj",
+		"worldclock": "Reloj mundial",
+		"stopwatch": "Cronógrafo",
+		"timers": "Temporizador"
+	},
+	"settingsTabs": {
+		"Appearance": "Apariencia",
+		"General": "General",
+		"About": "Información"
+	},
+	"error": {
+		"The resource could not be found": "No se pudo encontrar el recurso",
+		"Go back to the homepage": "Volver a la página de inicio",
+		"Error": "Error"
+	},
+	"labels": {
+		"Menu": "Menú",
+		"Close": "Cerrar",
+		"Go back": "Regresa",
+		"Settings": "Ajustes",
+		"Install": "Instalar en pc",
+		"Share": "Compartir",
+		"Cast": "Cast",
+		"Dark": "Modo nocturno",
+		"Fullscreen": "Pantalla completa",
+		"Cast clock": "Chromecast",
+		"Toggle secondary display": "Alternar pantalla secundaria",
+		"Toggle primary display": "Alternar pantalla principal",
+		"Toggle battery display": "Alternar pantalla de batería",
+		"Toggle dark mode": "Alternar modo oscuro",
+		"Toggle fullscreen": "Alternar pantalla completa",
+		"Doubleclick fullscreen": "Haga Doble Clic Pantalla Completa",
+		"Show dark button": "Mostrar botón oscuro",
+		"Show primary toggle button": "Mostrar botón de alternancia principal",
+		"Show secondary toggle button": "Mostrar botón de alternar secundario",
+		"Show cast button": "Mostrar botón de Chromecast",
+		"Show fullscreen button": "Mostrar botón de pantalla completa",
+		"palettes": {
+			"base": "Paleta Base",
+			"accent": "Paleta de Acento"
+		},
+		"Smaller menu": "Menú más pequeño",
+		"Always collapse menu": "Contraer siempre el menú",
+		"Hide title bar when idle": "Ocultar la barra de título cuando está inactiva",
+		"Seconds until idle:": "Segundos hasta inactiva:",
+		"Heading font family:": "Familia de fuentes de encabezado:",
+		"Body font family:": "Familia de fuentes de cuerpo:",
+		"Font family:": "Familia tipográfica:",
+		"Reset appearance settings": "Restablecer configuración de apariencia",
+		"Aesthetics": "Estética",
+		"User Interface": "Interfaz de usuario",
+		"Application": "Aplicación",
+		"Shortcuts": "Atajos",
+		"Locale": "Lugar",
+		"Copy website link": "Copiar enlace del sitio web",
+		"Open another clock": "Abre otro reloj",
+		"Send feedback": "Enviar comentarios",
+		"Reset all settings": "Restablecer todos los ajustes",
+		"Keyboard shortcuts": "Atajos De Teclado",
+		"View keyboard shortcuts": "Ver atajos de teclado",
+		"Language:": "Idioma:",
+		"Automatically detect language": "Detectar idioma automáticamente",
+		"Datetime locale:": "Localización de fecha y hora:",
+		"Automatically detect datetime locale": "Detectar automáticamente la configuración regional de fecha y hora",
+		"Timezone:": "Zona horaria:",
+		"Time:": "Tiempo:",
+		"Automatically detect timezone": "Detectar automáticamente la zona horaria",
+		"Timezone offset:": "Compensación de zona horaria:",
+		"Advanced / Experimental": "Avanzada / Experimental",
+		"Keep screen awake": "Mantener la pantalla activa",
+		"Delete all data and reload": "Eliminar todos los datos y recargar",
+		"New": "Nueva",
+		"Edit": "Editar",
+		"Save": "Ahorrar",
+		"Up": "Arriba",
+		"Down": "Abajo",
+		"Delete": "Borrar",
+		"Delete all": "Eliminar todos",
+		"Create": "Crear",
+		"Reset": "Reiniciar",
+		"Use AM / PM": "Usar AM / PM",
+		"Difference": "Diferencia",
+		"Name": "Nombre",
+		"Now": "Ahora",
+		"Home": "Hogar",
+
+		"Numeral Styles": {
+			"numerals": "Números",
+			"fourNumerals": "4 Números",
+			"numbers": "Números",
+			"fourNumbers": "4 números",
+			"none": "Ninguna"
+		},
+
+		"Font Weights": [
+			"",
+			"Delgada",
+			"Extra ligero",
+			"Ligera",
+			"Normal",
+			"Medio",
+			"Seminegrita",
+			"Negrita",
+			"extranegrita",
+			"Negra"
+		],
+		"Movements": {
+			"sweeping": "Barriendo",
+			"grandfather": "Abuelo",
+			"modern": "Moderna"
+		}
+	},
+	"languages": {
+		"en": "Inglés",
+		"es": "Español",
+		"de": "Alemán",
+		"fr": "Francés",
+		"ru": "Ruso",
+		"hi": "hindi"
+	},
+	"keyboardShortcuts": {
+		"Key": "Tecla",
+		"Action": "Acción"
+	},
+	"clockSettings": {
+		"Displays": "Pantallas",
+		"Analog": "Cosa análoga",
+		"Digital Datetime": "Fecha y hora digital",
+
+		"Primary display:": "Pantalla principal:",
+		"Secondary display:": "Pantalla secundaria:",
+		"clockFormats": {
+			"analog": "Reloj analogo",
+			"time": "hora digital",
+			"date": "Fecha",
+			"datetime": "Fecha + hora digital",
+			"none": "Ninguna",
+
+			"analog_digital": "Analógica + Digital",
+			"digital": "Digital",
+			"rows": "Filas",
+			"analog_grid": "Cuadrícula analógica",
+			"compact_rows": "Filas compactas",
+			"digital_grid": "Cuadrícula digital"
+		},
+		"Show battery": "Mostrar batería",
+
+		"Default Theme": "Tema predeterminado",
+		"Default Night Theme": "Tema nocturno predeterminado",
+		"Classic Theme": "Tema clásico",
+		"Classic Night Theme": "Tema clásico de la noche",
+		"Simple Mode": "Modo simple",
+
+		"Time format:": "Formato de tiempo:",
+		"Date format:": "Formato de fecha:",
+		"Custom": "Disfraz",
+		"Preview:": "Avance:",
+		"Custom formatting reference": "Referencia de formato personalizado",
+		"Reset datetime formats": "Restablecer formatos de fecha y hora",
+		"Primary display font weight:": "Peso de la fuente de la pantalla principal:",
+		"Second hand movement:": "Movimiento de segunda mano:",
+
+		"Datetime Formatting": "Formato de fecha y hora",
+
+		"Numeral Style:": "Estilo numérico:",
+
+		"Face": "Cara",
+		"Pin": "Alfiler",
+		"Ticks": "garrapatas",
+		"Numerals": "números",
+		"Hands": "Manos",
+
+		"sizes": {
+			"small": "Pequeña",
+			"medium": "Medio",
+			"large": "Larga"
+		},
+
+		"Hour": "Hora",
+		"Minute": "Minuto",
+		"Second": "Segunda",
+
+		"datetimeFormatTableHeadings": ["Formato", "Producción", "Descripción"],
+		"datetimeFormatTable": [
+			["YY", "18", "año de dos dígitos"],
+			["YYYY", "2018", "Año de cuatro dígitos"],
+			["M", "1-12", "El mes, comenzando a las 1"],
+			["MM", "01-12", "El mes, 2 dígitos"],
+			["MMM", "Jan-Dec", "El nombre del mes abreviado"],
+			["MMMM", "January-December", "El nombre completo del mes"],
+			["D", "1-31", "el dia del mes"],
+			["DD", "01-31", "El día del mes, 2 dígitos"],
+			["d", "0-6", "El día de la semana, con el domingo como 0"],
+			["dd", "Su-Sa", "El nombre mínimo del día de la semana."],
+			["ddd", "Sun-Sat", "El nombre abreviado del día de la semana."],
+			["dddd", "Sunday-Saturday", "El nombre del día de la semana."],
+			["H", "0-23", "La hora"],
+			["HH", "00-23", "La hora, 2 dígitos"],
+			["h", "1-12", "La hora, reloj de 12 horas."],
+			["hh", "01-12", "La hora, reloj de 12 horas, 2 dígitos"],
+			["m", "0-59", "El minuto"],
+			["mm", "00-59", "El minuto, 2 dígitos"],
+			["s", "0-59", "La segunda"],
+			["ss", "00-59", "El segundo, 2 dígitos"],
+			["SSS", "000-999", "El milisegundo, 3 dígitos"],
+			["Z", "+05:00", "El desplazamiento desde UTC, ±HH:mm"],
+			["ZZ", "+0500", "El desplazamiento desde UTC, ±HHmm"],
+			["A", "AM PM", "El período"],
+			["a", "am pm", "El punto, minúsculas"],
+			["[text]", "text", "Texto personalizado"]
+		]
+	},
+	"worldclockSettings": {
+		"Timetable": "Calendario",
+		"Timetable view": "Vista de horario",
+		"Convert": "Convertir",
+		"in": "en",
+		"is": "es",
+		"Convert timezones": "Convertir zonas horarias",
+		"New timezone": "Nueva zona horaria",
+		"Edit timezone": "Editar zona horaria",
+		"Timezone nickname:": "Apodo de la zona horaria:",
+
+		"Reset worldclocks": "Restablecer relojes mundiales",
+		"Delete worldclocks": "Eliminar relojes mundiales",
+		"Reset worldclock settings": "Restablecer la configuración del reloj mundial",
+
+		"You don't have any other worldclocks. Try adding a new one": "Restablecer la configuración del reloj mundial"
+	},
+	"stopwatchSettings": {
+		"Start": "Comienzo",
+		"Resume": "Reanudar",
+		"Pause": "Pausa",
+		"Lap": "Vuelta",
+		"LapNumber": "Vuelta",
+		"Laps": "Vueltas",
+		"Time": "Tiempo",
+		"Total": "Total",
+		"New stopwatch": "Nuevo cronómetro",
+
+		"Display": "Monitora",
+		"Behavior": "Comportamiento",
+
+		"Always show hours": "Mostrar siempre las horas",
+		"Digits after seconds": "Dígitos después de segundos",
+		"Digits after seconds in lap list": "Dígitos después de segundos en la lista de vueltas",
+		"Show reset stopwatch button": "Mostrar el botón de reinicio del cronómetro",
+		"Namable stopwatches": "Cronómetros reconocibles",
+		"Reverse lap order": "Orden de vuelta inverso",
+		"First stopwatch is larger": "El primer cronómetro es más grande.",
+		"Automatically start new stopwatches": "Iniciar automáticamente nuevos cronómetros",
+		"Start all paused stopwatches": "Iniciar todos los cronómetros en pausa",
+		"Stop all running stopwatches": "Detener todos los cronómetros en funcionamiento",
+		"Reset stopwatch settings": "Restablecer la configuración del cronómetro",
+
+		"Simultaneous start": "Inicio simultáneo",
+		"Simultaneous Start": "Inicio Simultáneo",
+		"Number of stopwatches to start at the same time:": "Número de cronómetros para iniciar al mismo tiempo:",
+		"You don't have any stopwatches. Try adding a new one": "No tienes cronómetros. Intenta agregar uno nuevo"
+	},
+	"display": {
+		"Stroke color": "Color del trazo",
+		"Fill color": "Color de relleno",
+		"Shadow fill color": "Color de relleno de sombra",
+		"Color:": "Color:",
+		"Stroke width:": "Anchura del trazo:",
+		"Size:": "Tamaño:",
+		"Shape:": "Forma:",
+		"Width:": "Ancho:",
+		"Height:": "Altura:",
+		"Length:": "Longitud:",
+		"Back:": "Atrás:",
+		"Linecap:": "Límite de línea:",
+
+		"Transparent": "Transparente",
+		"System default": "Sistema por defecto",
+
+		"shapes": {
+			"circle": "Circulo",
+			"rounded": "Cuadrado Redondeado",
+			"square": "Cuadrada"
+		},
+
+		"linecaps": {
+			"round": "Redonda",
+			"square": "Cuadrada"
+		}
+	},
+	"about": {
+		"Version": "Versión",
+		"Contact": "Contacto",
+		"Translation": "Traducción",
+		"aboutText": "Reloj Sencillo es un reloj simple, redimensionable, personalizable e instalable para cualquier dispositivo. Las características incluyen pantallas analógicas y digitales personalizables, modo nocturno, temas, zonas horarias y más. Reloj Sencillo está diseñado para escalar perfectamente a cualquier tamaño y relación de pantalla, sin distorsión ni pixelación. Use Reloj Sencillo como un reloj en su televisor, un reloj nocturno o proyecte la hora en el aula. Reloj Sencillo es súper liviano, funciona sin conexión, es gratuito, sin anuncios y siempre lo será. ¡Personaliza la hora, la fecha y más a tu gusto! Reloj Sencillo es el reloj todo en uno para cualquiera de sus necesidades de cronometraje. Más características próximamente.",
+		"contactText": "Hecho por {{author}}. No dude en ponerse en contacto conmigo con cualquier comentario, pregunta o solicitud en {{email}}",
+		"shareText": "Si te gusta esta aplicación, considera {{sharing}}.",
+		"sharing": "compartirla",
+		"suggestBetterTranslation": "Para sugerir una mejor traducción, envíeme un correo electrónico a {{email}}",
+		"translationCredit": "Traducido por Ricardo."
+	},
+	"messages": {
+		"Copied successfully": "Copiado con éxito",
+		"Failed to copy": "Error al copiar",
+		"Coming soon": "Próximamente, en breve, pronto",
+		"Wake lock was activated successfully": "Wake lock se activó con éxito",
+		"Wake lock was deactivated successfully": "Wake lock se desactivó con éxito",
+		"Wake lock failure": "Fallo de bloqueo de activación",
+		"Too many worldclocks": "Demasiados relojes mundiales",
+		"Too many stopwatches": "Demasiados cronómetros",
+		"Cannot have duplicate timezones with same name": "No se pueden tener zonas horarias duplicadas con el mismo nombre"
+	}
+}
