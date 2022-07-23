@@ -30,22 +30,18 @@
 			path: `M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z`
 		},
 		'moon': {
-			style: 'square',
 			path: `M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z`
 		},
 		'sun': {
 			path: `M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z`
 		},
 		'fullscreen': {
-			style: 'square',
 			path: `m4 8v-4m0 0h4m-4 0m16 4v-4m0 0h-4m4 0m-16 12v4m0 0h4m-4 0m16 0m0 0v-4m0 4h-4`
 		},
 		'menu': {
-			style: 'square',
 			path: `M4 6h16M4 12h16M4 18h16`
 		},
 		'close': {
-			style: 'square',
 			path: `M6 18L18 6M6 6l12 12`
 		},
 		'external-link': {
@@ -152,9 +148,5 @@
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 	viewBox={icon.viewbox ?? '0 0 24 24'}>
-	<path
-		stroke-linecap={icon.style ?? 'round'}
-		stroke-linejoin={icon.style ?? 'round'}
-		stroke-width="2"
-		d={icon.path} />
+	<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icon.path} />
 </svg>
