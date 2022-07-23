@@ -24,7 +24,7 @@
 	import ModalManager from '$lib/components/ModalManager.svelte';
 	import Nav from '$lib/layouts/Nav.svelte';
 	import { settings } from '$lib/stores/settings';
-	import { Toasts } from '$lib/components/Toast';
+	import Toasts from '$lib/components/Toast.svelte';
 
 	/// UTILS ///
 	import { systemFontFamilies } from '$lib/data/consts';

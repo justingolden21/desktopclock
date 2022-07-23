@@ -29,13 +29,11 @@
 
 	export function copyURL(languageDictionary) {
 		copyText(window.location.href).then((success) => {
-			const message = success
+			const text = success
 				? languageDictionary.messages['Copied successfully']
 				: languageDictionary.messages['Failed to copy'];
-			const type = success ? 'success' : 'error';
-			const dismissible = true;
-			const timeout = 2000;
-			addToast({ message, type, dismissible, timeout });
+			const icon = success ? 'success' : 'error';
+			addToast({ text, icon });
 		});
 	}
 
@@ -106,13 +104,11 @@
 			success = false;
 		}
 
-		const message = success
+		const text = success
 			? languageDictionary.messages['Wake lock was activated successfully']
 			: languageDictionary.messages['Wake lock failure'];
-		const type = success ? 'success' : 'error';
-		const dismissible = true;
-		const timeout = 2000;
-		addToast({ message, type, dismissible, timeout });
+		const icon = success ? 'success' : 'error';
+		addToast({ text, icon });
 	}
 
 	// https://phpnews.io/feeditem/have-a-web-page-prevent-your-screen-computer-from-dimming-sleeping-with-the-wake-lock-api
@@ -127,13 +123,11 @@
 			success = false;
 		}
 
-		const message = success
+		const text = success
 			? languageDictionary.messages['Wake lock was deactivated successfully']
 			: languageDictionary.messages['Wake lock failure'];
-		const type = success ? 'success' : 'error';
-		const dismissible = true;
-		const timeout = 2000;
-		addToast({ message, type, dismissible, timeout });
+		const icon = success ? 'success' : 'error';
+		addToast({ text, icon });
 	}
 
 	export function validateInt(input) {
@@ -171,7 +165,7 @@
 	import { Tabs, TabList, TabPanel, Tab } from '$lib/components/Tabs';
 	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 	import ThemeButtons from '$lib/components/ThemeButtons.svelte';
-	import { addToast } from '$lib/components/Toast';
+	import { addToast } from '$lib/components/Toast.svelte';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
 	import TimezoneAutocomplete from '$lib/components/TimezoneAutocomplete.svelte';
 	import ClockSettings from '$lib/components/_Clock/ClockSettings.svelte';
