@@ -25,7 +25,7 @@
 	<section class="z-30 fixed inset-x-0 bottom-4 w-full flex justify-center flex-col">
 		{#each $toasts as toast (toast.id)}
 			<div class="w-80 p-4 flex items-center mb-2 mx-auto surface" role="alert" transition:fade>
-				<Icon name={toast.icon} class="inline w-6 h-6" />
+				<Icon name={toast.icon} />
 
 				<div class="ml-4 font-bold">
 					{toast.text}
@@ -36,7 +36,7 @@
 						class="ml-auto"
 						aria-label={$session.languageDictionary.labels['Close']}
 						on:click={() => dismissToast(toast.id)}>
-						<Icon name="close" class="inline w-6 h-6" />
+						<Icon name="close" />
 					</button>
 				{/if}
 

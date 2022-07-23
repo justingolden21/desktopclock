@@ -99,12 +99,12 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 	<button
 		class="icon-btn top-2 left-2 absolute hidden {!stopwatchIsFullscreen && 'group-hover:block'}"
 		on:click={removeStopwatch}>
-		<Icon name="close" class="inline w-6 h-6" />
+		<Icon name="close" />
 	</button>
 	<button
 		class="icon-btn top-2 right-2 absolute hidden group-hover:block"
 		on:click={fullscreenStopwatch}>
-		<Icon name="fullscreen" class="inline w-6 h-6" />
+		<Icon name="fullscreen" />
 	</button>
 
 	{#if $settings.stopwatch.namableStopwatches}
@@ -126,17 +126,17 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 				bind:this={startButton}
 				class="m-0 btn {!running && !$settings.stopwatch.showResetButton ? 'col-span-2' : ''}"
 				on:click={toggleStart}>
-				<Icon name={running ? 'pause' : 'play'} class="inline w-6 h-6" />
+				<Icon name={running ? 'pause' : 'play'} />
 				{dictionary.stopwatchSettings[running ? 'Pause' : data.times.length ? 'Resume' : 'Start']}
 			</button>
 			<button class="m-0 btn {running ? '' : 'hidden'}" on:click={addLap}>
-				<Icon name="plus" class="inline w-6 h-6" />
+				<Icon name="plus" />
 				{dictionary.stopwatchSettings['Lap']}
 			</button>
 			<button
 				class="m-0 btn undo-btn {!running && $settings.stopwatch.showResetButton ? '' : 'hidden'}"
 				on:click={resetStopwatch}>
-				<Icon name="undo" class="inline w-6 h-6" />
+				<Icon name="undo" />
 				{dictionary.labels['Reset']}
 			</button>
 		</div>

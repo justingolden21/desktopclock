@@ -79,7 +79,7 @@
 <br />
 <br />
 <button class="btn undo-btn" on:click={resetTimetableSettings}>
-	<Icon name="undo" class="inline w-6 h-6" />
+	<Icon name="undo" />
 	{dictionary.labels['Reset']}
 </button>
 <Toggle

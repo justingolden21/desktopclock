@@ -93,17 +93,17 @@
 						class="icon-btn float-left mr-8"
 						on:click={() => open(previous)}
 						aria-label={$session.languageDictionary.labels['Go back']}>
-						<Icon name="arrow_left" class="w-6 h-6" />
+						<Icon name="arrow_left" />
 					</button>
 				{/if}
 				<button
 					class="icon-btn float-right"
 					on:click={close}
 					aria-label={$session.languageDictionary.labels['Close']}>
-					<Icon name="close" class="w-6 h-6" />
+					<Icon name="close" />
 				</button>
 				<h2>
-					<Icon name={icon} class="w-6 h-6 inline mr-2" />
+					<Icon name={icon} class="mr-2" />
 					{$session.languageDictionary[title[0]][title[1]]}
 				</h2>
 			</div>

@@ -20,7 +20,7 @@
 	<button class="details__summary" on:click={handleToggle} aria-expanded={open}>
 		<Icon
 			name="chevron_right"
-			class="inline w-6 h-6 transition-transform {open ? 'rotate-90' : ''}"
+			class="transition-transform {open ? 'rotate-90' : ''}"
 			aria-hidden="true" />
 		{accordionTitle}
 	</button>

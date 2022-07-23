@@ -88,18 +88,18 @@
 	labelText={dictionary.stopwatchSettings['Automatically start new stopwatches']} />
 
 <button class="btn" on:click={startAllStopwatches}>
-	<Icon name="stopwatch" class="inline w-6 h-6" />
+	<Icon name="stopwatch" />
 	{dictionary.stopwatchSettings['Start all paused stopwatches']}
 </button>
 
 <button class="btn" on:click={stopAllStopwatches}>
-	<Icon name="stopwatch" class="inline w-6 h-6" />
+	<Icon name="stopwatch" />
 	{dictionary.stopwatchSettings['Stop all running stopwatches']}
 </button>
 
 <hr />
 
 <button class="btn undo-btn mt-4" on:click={resetStopwatchSettings}>
-	<Icon name="undo" class="inline w-6 h-6" />
+	<Icon name="undo" />
 	{dictionary.stopwatchSettings['Reset stopwatch settings']}
 </button>

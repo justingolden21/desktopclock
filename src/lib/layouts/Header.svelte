@@ -78,7 +78,7 @@ to hide the cursor when idle -->
 			: 'md:hidden'}"
 		on:click={() => (navOpen = !navOpen)}
 		aria-label={dictionary.labels['Menu']}>
-		<Icon name={navOpen ? 'close' : 'menu'} class="md:w-8 md:h-8 w-6 h-6" />
+		<Icon name={navOpen ? 'close' : 'menu'} class="md:w-8 md:h-8" />
 	</button>
 
 	<button
@@ -88,7 +88,7 @@ to hide the cursor when idle -->
 		on:click={() => ($settings.darkMode = !$settings.darkMode)}
 		aria-label={dictionary.labels['Toggle dark mode']}
 		title={dictionary.labels['Toggle dark mode'] + ($settings.keyboardShortcuts ? ' (N)' : '')}>
-		<Icon name={$settings.darkMode ? 'moon' : 'sun'} class="w-6 h-6 md:w-8 md:h-8" />
+		<Icon name={$settings.darkMode ? 'moon' : 'sun'} class="md:w-8 md:h-8" />
 	</button>
 
 	<!-- only show toggle display buttons on pages with toggleable displays -->
@@ -101,7 +101,7 @@ to hide the cursor when idle -->
 			aria-label={dictionary.labels['Toggle primary display']}
 			title={dictionary.labels['Toggle primary display'] +
 				($settings.keyboardShortcuts ? ' (P)' : '')}>
-			<Icon name="primary" class="w-6 h-6 md:w-8 md:h-8" />
+			<Icon name="primary" class="md:w-8 md:h-8" />
 		</button>
 		<button
 			class="icon-btn float-left left-52 absolute top-4 z-10 
@@ -111,7 +111,7 @@ to hide the cursor when idle -->
 			aria-label={dictionary.labels['Toggle secondary display']}
 			title={dictionary.labels['Toggle secondary display'] +
 				($settings.keyboardShortcuts ? ' (D)' : '')}>
-			<Icon name="secondary" class="w-6 h-6 md:w-8 md:h-8" />
+			<Icon name="secondary" class="md:w-8 md:h-8" />
 		</button>
 	{/if}
 
@@ -125,7 +125,7 @@ to hide the cursor when idle -->
 		on:click={castClock}
 		aria-label={dictionary.labels['Cast clock']}
 		title={dictionary.labels['Cast clock']}>
-		<Icon name="cast" class="w-6 h-6 md:w-8 md:h-8" />
+		<Icon name="cast" class="md:w-8 md:h-8" />
 	</button>
 
 	<button
@@ -134,6 +134,6 @@ to hide the cursor when idle -->
 		on:click={toggleFullscreen}
 		aria-label={dictionary.labels['Toggle fullscreen']}
 		title={dictionary.labels['Toggle fullscreen'] + ($settings.keyboardShortcuts ? ' (F)' : '')}>
-		<Icon name="fullscreen" class="w-6 h-6 md:w-8 md:h-8" />
+		<Icon name="fullscreen" class="md:w-8 md:h-8" />
 	</button>
 </header>

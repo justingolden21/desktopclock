@@ -1,5 +1,6 @@
 <script>
-	export let name;
+	export let name,
+		size = 'md';
 
 	// most icons from heroicons.dev
 	// theme, applicaiton, and cast from iconoir.com
@@ -143,7 +144,7 @@
 </script>
 
 <svg
-	class={($$props.class ?? 'w-6 h-6 inline') + ` icon-${name}`}
+	class={$$props.class + ` ${size === 'md' ? 'w-6 h-6' : 'w-8 h-8'} inline icon-${name}`}
 	stroke="currentColor"
 	fill="none"
 	xmlns="http://www.w3.org/2000/svg"

@@ -20,7 +20,7 @@
 
 <button class="btn inline-flex" on:click={() => (isOpen = !isOpen)}>
 	{#if colorObj.lightness === '-1'}
-		<Icon name="eye_off" class="inline w-6 h-6 mr-2" />
+		<Icon name="eye_off" class="mr-2" />
 	{:else}
 		<span
 			style:background-color={getColor(colorObj)}
@@ -49,7 +49,7 @@
 			class="icon-btn"
 			on:click={() => (colorObj.lightness = '-1')}
 			title={dictionary.display['Transparent']}>
-			<Icon name="eye_off" class="inline w-6 h-6" />
+			<Icon name="eye_off" />
 		</button>
 	</div>
 {/if}

@@ -56,7 +56,7 @@
 			JSON.stringify(defaultSettings.worldclock.timezones)
 		);
 	}}>
-	<Icon name="undo" class="inline w-6 h-6" />
+	<Icon name="undo" />
 	{dictionary.worldclockSettings['Reset worldclocks']}
 </button>
 
@@ -65,7 +65,7 @@
 	on:click={() => {
 		$settings.worldclock.timezones = [];
 	}}>
-	<Icon name="trash" class="inline w-6 h-6" />
+	<Icon name="trash" />
 	{dictionary.worldclockSettings['Delete worldclocks']}
 </button>
 
@@ -86,6 +86,6 @@
 			$settings.worldclock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
 		}
 	}}>
-	<Icon name="undo" class="inline w-6 h-6" />
+	<Icon name="undo" />
 	{dictionary.worldclockSettings['Reset worldclock settings']}
 </button>
