@@ -435,7 +435,7 @@
 				{/if}
 
 				<button class="btn external-link-btn" on:click={() => openWindow(window.location.href)}>
-					<Icon name="external-link" class="inline w-6 h-6" />
+					<Icon name="external_link" class="inline w-6 h-6" />
 					{dictionary.labels['Open another clock']}
 				</button>
 				<button
