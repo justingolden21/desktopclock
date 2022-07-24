@@ -82,7 +82,7 @@ For issues with building, previewing, and npm packages, try running `npm run cle
 
 ### Other
 
-When adding a language, add it to `supportedLangs` in `consts.js` (and also add screenshots). Also, the language name must be added to each other language json file. Consider what fonts support what language characters.
+When adding a language, add it to `supportedLangs` in `consts.js` (and also add screenshots). Also, the language name must be added to each other language json file. Consider what fonts support what language characters. Check [DayJS display format docs](https://day.js.org/docs/en/display/format) in the new language for `datetimeFormatTable` in case it already exists.
 
 When adding a page, add it to cache in `service-worker.js` and validPages in `data/consts.js`. Also add SEO data and add it to `Nav`. Add shortcut to `manifest.webmanifest.js`. Add page to `sitemap.xml.js`.
 
