@@ -236,7 +236,7 @@
 			["ZZ", "+0500", "El desplazamiento desde UTC, ±HHmm"],
 			["A", "AM PM", "El período"],
 			["a", "am pm", "El punto, minúsculas"],
-			["[text]", "text", "Texto personalizado"]
+			["[texto]", "texto", "Texto personalizado"]
 		]
 	},
 	"worldclockSettings": {

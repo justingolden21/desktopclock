@@ -236,7 +236,7 @@
 			["ZZ", "+0500", "Le décalage UTC, ±HHmm"],
 			["A", "AM PM", "La période"],
 			["a", "am pm", "La période en minuscules"],
-			["[text]", "text", "Texte personnalisé"]
+			["[texte]", "texte", "Texte personnalisé"]
 		]
 	},
 	"worldclockSettings": {
