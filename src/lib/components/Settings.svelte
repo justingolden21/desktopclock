@@ -12,14 +12,13 @@
 	export function shareApp(languageDictionary, pathname) {
 		if (navigator.share) {
 			const isValid = validPages.includes(pathname);
+			const pageName = pathname.substring(1) || 'clock';
 			navigator
 				.share({
 					title: isValid
-						? languageDictionary.pageNames[pathname.substring(1) || 'clock'] +
-						  ' | ' +
-						  languageDictionary['appName']
+						? languageDictionary.pageNames[pageName] + ' | ' + languageDictionary['appName']
 						: languageDictionary['appName'],
-					text: languageDictionary.seo.clock.shareDescription,
+					text: languageDictionary.seo[pageName].shareDescription,
 					url: isValid ? appURL + pathname : appURL
 				})
 				.then(() => console.log('Successful share'))
