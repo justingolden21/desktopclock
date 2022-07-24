@@ -27,6 +27,7 @@
 	import Toasts from '$lib/components/Toast.svelte';
 
 	/// UTILS ///
+	import { loadFonts } from '$lib/util/fontController';
 	import { systemFontFamilies } from '$lib/data/consts';
 	import { hexToRgb } from '$lib/util/color';
 	import initializeSettings from '$lib/util/initializeSettings';
@@ -97,6 +98,8 @@
 			font_family: $settings.fontFamily,
 			font_family_body: $settings.fontFamilyBody
 		});
+
+		loadFonts();
 	});
 
 	onMount(() => {
