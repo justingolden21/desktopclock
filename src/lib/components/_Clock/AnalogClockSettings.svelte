@@ -64,7 +64,7 @@
 	<button
 		class="btn theme-btn"
 		on:click={() => ($settings[page].theme = JSON.parse(JSON.stringify(clockTheme)))}>
-		<Icon name="theme" class="inline w-6 h-6" />
+		<Icon name="theme" />
 		{dictionary.clockSettings[clockTheme.name]}
 	</button>
 {/each}
@@ -74,7 +74,7 @@
 		for (const size of 'sm md lg'.split(' '))
 			$settings[page].theme.ticks[size].stroke.lightness = '-1';
 	}}>
-	<Icon name="settings" class="inline w-6 h-6" />
+	<Icon name="settings" />
 	{dictionary.clockSettings['Simple Mode']}
 </button>
 
@@ -160,6 +160,7 @@
 				<ColorSelector bind:colorObj={$settings[page].theme.numerals.fill} label="Fill color" />
 			</div>
 
+			<!-- Since numerals are Latin characters, user's language doesn't matter, unlike font selection elsewhere -->
 			<SettingSelect
 				id="numerals-font-family-select"
 				selectLabel={dictionary.labels['Font family:']}

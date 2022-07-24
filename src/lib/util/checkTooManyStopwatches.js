@@ -1,4 +1,4 @@
-import { addToast } from '$lib/components/Toast';
+import { addToast } from '$lib/components/Toast.svelte';
 
 /**
  * If too many stopwatches, create a toast and return true, else return false
@@ -16,11 +16,9 @@ import { addToast } from '$lib/components/Toast';
 const checkTooManyStopwatches = (dictionary, currentNum, addingNum, max = 100) => {
 	if (!(currentNum + addingNum > max)) return false;
 
-	const message = dictionary.messages['Too many stopwatches'];
-	const type = 'error';
-	const dismissible = true;
-	const timeout = 2000;
-	addToast({ message, type, dismissible, timeout });
+	const text = dictionary.messages['Too many stopwatches'];
+	const icon = 'error';
+	addToast({ text, icon });
 
 	return true;
 };

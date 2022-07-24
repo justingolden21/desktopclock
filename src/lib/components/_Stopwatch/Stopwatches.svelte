@@ -78,13 +78,13 @@
 	on:click={makeNewStopwatch}
 	aria-label={dictionary.stopwatchSettings['New stopwatch']}
 	title={dictionary.stopwatchSettings['New stopwatch']}>
-	<Icon name="plus" class="inline-block w-8 h-8" />
+	<Icon name="plus" size="lg" />
 	<span>{dictionary.labels['New']}</span>
 </button>
 
 {#if $settings.stopwatch.stopwatches.length > 4}
 	<button class="ml-4 icon-btn rounded-none bg-transparent mx-auto" on:click={deleteAllStopwatches}>
-		<Icon name="trash" class="inline-block w-8 h-8" />
+		<Icon name="trash" size="lg" />
 		<span>{dictionary.labels['Delete all']}</span>
 	</button>
 {/if}
@@ -92,6 +92,6 @@
 <button
 	class="ml-4 icon-btn rounded-none bg-transparent mx-auto"
 	on:click={() => open('simultaneous-start')}>
-	<Icon name="stopwatch" class="inline-block w-8 h-8" />
+	<Icon name="stopwatch" size="lg" />
 	<span>{dictionary.stopwatchSettings['Simultaneous start']}</span>
 </button>

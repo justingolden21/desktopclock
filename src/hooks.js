@@ -7,7 +7,11 @@ async function getLanguageDictionary(lang) {
 }
 
 export async function handle({ event, resolve }) {
-	event.locals.lang = event.request.headers.get('accept-language')?.substr(0, 2) || 'en';
+	// We cannot access $settings or localStorage here, so we default to
+	// first fetching the browser default language.
+	// __layout.svelte and initializeSettings.js handle getting the language from $settings
+	// and Settings.svelte handles changing language settings
+	event.locals.lang = event.request.headers.get('accept-language')?.substr(0, 2) ?? 'en';
 	event.locals.languageDictionary = await getLanguageDictionary(event.locals.lang);
 
 	return resolve(event);

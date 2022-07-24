@@ -12,7 +12,7 @@
 	<slot />
 </button>
 
-<style lang="postcss">
+<style>
 	.tab {
 		@apply font-normal px-4 py-2 sm:py-4 w-full justify-center mx-auto border-b-2 md:inline-flex items-center leading-none border-base-300 text-base-500 hover:text-base-700 hover:bg-base-100 cursor-pointer rounded-none;
 	}

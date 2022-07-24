@@ -8,7 +8,7 @@
 	/// COMPONENTS ///
 	import { Icon } from '$lib/components/Icon';
 	import TimezoneAutocomplete from '$lib/components/TimezoneAutocomplete.svelte';
-	import { addToast } from '$lib/components/Toast';
+	import { addToast } from '$lib/components/Toast.svelte';
 
 	/// STATE ///
 	export let data = {};
@@ -49,11 +49,9 @@
 			// because this is the key used in the `#each` loop in `Worldclocks.svelte`
 			// for correctly rehydrating the worldclocks
 			if (timezone.name === (newTimezoneName ?? '') && timezone.zone === newTimezoneValue) {
-				const message = dictionary.messages['Cannot have duplicate timezones with same name'];
-				const type = 'error';
-				const dismissible = true;
-				const timeout = 2000;
-				addToast({ message, type, dismissible, timeout });
+				const text = dictionary.messages['Cannot have duplicate timezones with same name'];
+				const icon = 'error';
+				addToast({ text, icon });
 				return;
 			}
 		}
@@ -61,11 +59,9 @@
 		if (!isEditMode) {
 			// max 100 worldclocks
 			if ($settings.worldclock.timezones.length >= 100) {
-				const message = dictionary.messages['Too many worldclocks'];
-				const type = 'error';
-				const dismissible = true;
-				const timeout = 2000;
-				addToast({ message, type, dismissible, timeout });
+				const text = dictionary.messages['Too many worldclocks'];
+				const icon = 'error';
+				addToast({ text, icon });
 				return;
 			}
 
@@ -101,6 +97,6 @@
 </div>
 
 <button class="btn float-right md:absolute md:bottom-0 md:right-0" on:click={onSubmit}>
-	<Icon name={isEditMode ? 'check' : 'plus'} class="inline w-6 h-6" />
+	<Icon name={isEditMode ? 'check' : 'plus'} />
 	{dictionary.labels[isEditMode ? 'Save' : 'Create']}
 </button>

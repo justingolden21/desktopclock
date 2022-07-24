@@ -55,7 +55,7 @@
 </div>
 
 <button class="btn undo-btn block mt-4" on:click={reset}>
-	<Icon name="undo" class="inline w-6 h-6" />
+	<Icon name="undo" />
 	{dictionary.labels['Reset']}
 </button> -->
 
