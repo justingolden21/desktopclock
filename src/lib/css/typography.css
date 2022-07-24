@@ -23,6 +23,20 @@ h6 {
 	font-family: var(--font-family), sans-serif;
 }
 
+/* Technology font not on google fonts */
+/* Note: tabular nums not supported, numbers shift when time changes */
+@font-face {
+	font-family: 'Technology';
+	src: url('/font/technology/Technology.ttf') format('truetype');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Technology';
+	src: url('/font/technology/Technology-Bold.ttf') format('truetype');
+	font-weight: 700;
+}
+
 /* Sizing and spacing */
 
 h1,
