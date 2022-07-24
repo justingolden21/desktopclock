@@ -1,4 +1,5 @@
 /* Styles for inputs and buttons */
+
 @layer base {
 	.btn {
 		@apply p-2 my-2 mr-4 rounded-none text-white bg-base-600 hover:bg-base-700;
