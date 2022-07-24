@@ -60,7 +60,9 @@ export const fontFamilies = {
 	'Montserrat Alternates': [300, 600, 900],
 	'Orbitron': [400, 600, 800],
 	'Yatra One': [],
-	'': [100, 200, 300, 400, 500, 600, 700, 800, 900]
+	'': [100, 200, 300, 400, 500, 600, 700, 800, 900],
+
+	'Technology': [400, 700] // Note: not on google fonts
 };
 
 export const systemFontFamilies =
