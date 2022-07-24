@@ -1,3 +1,5 @@
+// Toggle the primary or secondary display settings on the given page
+
 const displayOptions = {
 	clock: {
 		primary: ['analog', 'time', 'date', 'datetime'],

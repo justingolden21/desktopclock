@@ -6,7 +6,7 @@ A simple, resizable customizable, installable clock for any device!
 
 ### Codebase
 
-This project is made with Svelte (using Svelte kit) and TailwindCSS. It uses Hero Icons and postCSS/purgeCSS for Tailwind. Vite is the bundler used under the hood for Svelte kit. It is hosted on Netlify and has no backend currently. It uses day.js for date/time logic, and uses Prettier, ESLint, and the AirBNB Javascript Style guide for code formatting and style. Desktop Clock is a PWA and can handle many timezones, date and time formats and locales, and languages.
+This project is made with Svelte (using Svelte kit, bundled with Vite) and TailwindCSS. It uses Hero Icons and postCSS/purgeCSS for Tailwind. It is hosted on Netlify and has no backend currently. It uses day.js for date/time logic, and uses Prettier and ESLint for code formatting and style (VS Code is recommended). Desktop Clock is a PWA and can handle many timezones, date and time formats, locales, and languages.
 
 Requires [NodeJS/npm](https://nodejs.org/en/download/)
 
@@ -36,7 +36,7 @@ Location of service worker: `view-source:http://localhost:3000/service-worker.js
 
 ### Styleguide and Linting
 
-This project uses ESLint, Prettier for VS code, and the AirBNB Javascript style guide.
+This project uses ESLint and Prettier for VS code.
 
 VS Code Extensions:
 
@@ -66,18 +66,6 @@ Set up VS code to auto format on save
 
 3. Update your `settings.json`. See `.vscode/settings.json` for reference.
 
-Recommended keyboard shortcuts (ctrl+shift+P > keyboard shortcuts):
-
-```json
-[
-	{
-		"key": "alt+w",
-		"command": "editor.emmet.action.wrapWithAbbreviation",
-		"when": "editorTextFocus"
-	}
-]
-```
-
 4. Reload VS code (may be necessary to go to extensions and find an extension with a button to reload and click that)
 
 Note: Click Prettier button on bottom right of file to view console output and any errors in formatting / autosave
@@ -86,27 +74,37 @@ Prettier options: https://prettier.io/docs/en/options.html
 
 ESLint rules: https://eslint.org/docs/rules/
 
-`alt+shift+F` to format current file with prettier
-
 ### Debugging
 
 For changes not appearing or hydration bugs, try killing the server and restarting, as well as hard refreshing (ctrl+shift+R) the page
 
-For issues with building, previewing, and npm packages, try deleting the build, .netlify, .svelte-kit, and node_modules folders.
+For issues with building, previewing, and npm packages, try running `npm run clean`.
 
 ### Other
 
 When adding a language, add it to `supportedLangs` in `consts.js` (and also add screenshots). Also, the language name must be added to each other language json file.
 
-When adding a page, add it to cache in `service-worker.js` and validPages in `data/consts.js`. Also add SEO data and add it to `Nav`. Add shortcut to `manifest.webmanifest.js`.
+When adding a page, add it to cache in `service-worker.js` and validPages in `data/consts.js`. Also add SEO data and add it to `Nav`. Add shortcut to `manifest.webmanifest.js`. Add page to `sitemap.xml.js`.
+
+### Enviornments
+
+Prod: Live app served to users. End product. `master` branch.
+
+Dev: For testing code before sending to prod, including smoke testing, testing different platforms or devices, and testing with other users. `dev` branch.
+
+QA: A playground for testing app. Unlike dev, QA is not meant to contain code that isn't about to go to prod. Only used while dev contains code nearly ready to ship and we want to test something different in a live site. `qa` branch.
 
 ### Links
 
 - Dev: https://desktopclockdev.netlify.app/
 
+- QA: https://desktopclockqa.netlify.app/
+
 - Prod Netlify: https://desktopclock.netlify.app/
 
 - Prod: https://desktopclock.app
+
+---
 
 - This repo: https://github.com/justingolden21/desktopclock
 
@@ -126,7 +124,7 @@ When adding a page, add it to cache in `service-worker.js` and validPages in `da
 
 Icons from https://heroicons.dev and https://iconoir.com
 
-<hr>
+---
 
 - My website: https://justingolden.me
 

@@ -1,3 +1,5 @@
+// Utility functions for converting times, dates, and timezones to strings
+
 // returning a function is confusing enough without obfuscating it further with nested arrow functions:
 /* eslint-disable arrow-body-style */
 // for code readability:

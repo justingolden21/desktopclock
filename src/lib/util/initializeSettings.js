@@ -1,3 +1,6 @@
+// Initialize settings based on the user's device preferences
+// For example, dark mode, language, and timezone
+
 import { get } from 'svelte/store';
 
 import defaultNightTheme from '$lib/themes/defaultNight';

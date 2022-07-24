@@ -11,7 +11,7 @@
 	import Toggle from '$lib/components/Toggle.svelte';
 	import { Icon } from '$lib/components/Icon';
 	import WorldclockDropdown from '$lib/components/_Worldclock/WorldclockDropdown.svelte';
-	import { getDiff, getSum } from '$lib/util/min';
+	import { getDiff, getSum } from '$lib/util/timetableDiff';
 
 	/// STATE ///
 	$: dictionary = $session.languageDictionary;
@@ -79,7 +79,7 @@
 <br />
 <br />
 <button class="btn undo-btn" on:click={resetTimetableSettings}>
-	<Icon name="undo" class="inline w-6 h-6" />
+	<Icon name="undo" />
 	{dictionary.labels['Reset']}
 </button>
 <Toggle
@@ -88,7 +88,7 @@
 	labelText={dictionary.labels['Use AM / PM']} />
 
 <!-- svelte-ignore css-unused-selector -->
-<style lang="postcss">
+<style>
 	tr {
 		@apply border-b-2 border-base-200 dark:border-base-800;
 	}
