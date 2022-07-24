@@ -3,21 +3,18 @@
 	"appShortName": "Reloj Sencillo",
 	"seo": {
 		"clock": {
-			"name": "Reloj Sencillo",
 			"description": "¡Un reloj ajustable, personalizable!",
 			"shareDescription": "Pensé que podría disfrutar de Reloj Sencillo, una aplicación y sitio web de reloj simple, redimensionable y personalizable.",
 			"keywords": "reloj, Reloj Sencillo, Desktop Clock, aplicación de reloj, reloj analogo, reloj digital, reloj personalizable, reloj gratis, reloj simple, fecha y hora, reloj con fecha, reloj de pantalla completa, reloj de la hora de acostarse, reloj redimensionable, reloj para windows, reloj para mac, reloj para cromo, reloj para android, reloj para ios",
 			"screenshot": "screenshot.png"
 		},
 		"worldclock": {
-			"name": "Reloj mundial - Reloj Sencillo",
 			"description": "Un reloj mundial simple, elegante y rico en funciones con pantallas analógicas y digitales, cientos de zonas horarias y un calendario",
 			"shareDescription": "Prueba Reloj mundial desde Reloj Sencillo",
 			"keywords": "reloj mundial, horarios, convertir zonas horarias, reloj mundial analógico, reloj mundial digital, reloj de múltiples zonas horarias, reloj mundial en línea, reloj mundial fuera de línea, reloj mundial gratuito, mejor reloj mundial",
 			"screenshot": "screenshot-worldclock-en.png"
 		},
 		"stopwatch": {
-			"name": "Cronógrafo - Reloj Sencillo",
 			"description": "Un cronómetro simple y elegante que admite vueltas, múltiples cronómetros y personalización",
 			"shareDescription": "Prueba Cronógrafo desde Reloj Sencillo",
 			"keywords": "cronómetro, cronómetro en línea, cronómetro sin conexión, cronómetro gratis, cronómetros múltiples, cronómetros múltiples en línea, cronómetros múltiples gratis, mejor cronómetro, cronómetro con vueltas, cronómetro de vueltas",

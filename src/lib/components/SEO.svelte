@@ -12,13 +12,14 @@
 	};
 	const pageName = pageNameMapper[$page.url.pathname];
 	$: seo = dictionary.seo[pageName];
+	$: name = dictionary.pageNames[pageName] + ' - ' + dictionary.appName;
 </script>
 
 <!-- custom SEO based off of pathname -->
 <svelte:head>
-	<title>{seo.name}</title>
+	<title>{name}</title>
 
-	<meta name="title" content={seo.name} />
+	<meta name="title" content={name} />
 	<meta name="description" content={seo.description} />
 	<meta name="keywords" content={seo.keywords} />
 	<meta name="robots" content="index" />
@@ -27,13 +28,13 @@
 	<meta property="og:image:height" content="720" />
 	<meta property="og:image:width" content="720" />
 	<meta property="og:description" content={seo.description} />
-	<meta property="og:title" content={seo.name} />
+	<meta property="og:title" content={name} />
 	<meta property="og:url" content={appURL + $page.url.pathname} />
 	<meta property="og:image" content={appURL + '/img/' + seo.screenshot} />
 	<meta property="og:type" content="website" />
-	<meta property="og:site_name" content={seo.name} />
+	<meta property="og:site_name" content={name} />
 
-	<meta name="twitter:title" content={seo.name} />
+	<meta name="twitter:title" content={name} />
 	<meta name="twitter:description" content={seo.description} />
 	<meta name="twitter:image" content={appURL + '/img/' + seo.screenshot} />
 	<meta name="twitter:card" content="summary_large_image" />

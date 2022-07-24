@@ -3,21 +3,18 @@
 	"appShortName": "Horloge de bureau",
 	"seo": {
 		"clock": {
-			"name": "Horloge de bureau",
 			"description": "Une horloge simple, personnalisable, redimensionnable et installable sur n'importe quel appareil!",
 			"shareDescription": "Je pensais que vous aimeriez peut-être Desktop Clock, une appli d'horloge simple, redimensionnable et installable.",
 			"keywords": "horloge, horloge de bureau, appli horloge, horloge analogique, horloge numérique, horloge personnalisable, horloge gratuite, horloge simple, date et heure, horloge avec date, horloge plein écran, horloge coucher, horloge redimensionnable, horloge pour windows, horloge pour mac, horloge pour chrome, horloge pour android, horloge pour ios",
 			"screenshot": "screenshot.png"
 		},
 		"worldclock": {
-			"name": "Horloge mondiale - Horloge de bureau",
 			"description": "Une horloge mondiale qui est simple, élégante, et riche en fonctions, avec des affichages analogique et numérique, des centaines de fuseaux horaires, et une charte de conversions",
 			"shareDescription": "Essayez Horloge mondiale de l'Horloge de bureau",
 			"keywords": "horloge mondiale, chartes de conversion, convertir fuseaux horaires, horloge mondiale analogique, horloge mondiale numérique, horloge avec multiples fuseaux horaires, horloge mondiale en ligne, horloge mondiale hors ligne, horloge mondiale gratuite, meilleure horloge mondiale",
 			"screenshot": "screenshot-worldclock-en.png"
 		},
 		"stopwatch": {
-			"name": "Chronomètre - Horloge de bureau",
 			"description": "Un chronomètre simple et élégant, qui supporte des tours de piste, des chronos multiples, et des options de personnalisation",
 			"shareDescription": "Essayer le Chronomètre de l'Horloge de Bureau",
 			"keywords": "chronomètre, chronomètre en ligne, chronomètre hors ligne, chronomètre gratuit, chronomètres multiples, chronomètres multiples en ligne, chronomètres multiples gratuit, meilleur chronomètre, chronomètre avec tours de piste, chronomètre tours de piste",

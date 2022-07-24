@@ -3,21 +3,18 @@
 	"appShortName": "Tischuhr",
 	"seo": {
 		"clock": {
-			"name": "Tischuhr",
 			"description": "Eine einfache, skalierbare, anpassbare, installierbare Uhr für jedes Gerät!",
 			"shareDescription": "Ich dachte, Sie könnten Tischuhr mögen, eine einfache, skalierbare und anpassbare Uhr-App und -Website.",
 			"keywords": "Uhr, Desktop-Uhr, Uhren-App, Analoguhr, Digitaluhr, anpassbare Uhr, kostenlose Uhr, einfache Uhr, Datum und Uhrzeit, Uhr mit Datum, Vollbilduhr, Schlafenszeituhr, veränderbare Uhr, Uhr für Windows, Uhr für Mac, Uhr für Chrom, Uhr für Android, Uhr für iOS",
 			"screenshot": "screenshot.png"
 		},
 		"worldclock": {
-			"name": "Weltuhr - Tischuhr",
 			"description": "Eine einfache, elegante, funktionsreiche Weltzeituhr mit analogen und digitalen Anzeigen, Hunderten von Zeitzonen und einem Zeitplan",
 			"shareDescription": "Probieren Sie Weltuhr von Tischuhr aus",
 			"keywords": "Weltzeituhr, Fahrpläne, Zeitzonen konvertieren, analoge Weltzeituhr, digitale Weltzeituhr, Uhr mit mehreren Zeitzonen, Weltzeituhr online, Weltzeituhr offline, kostenlose Weltzeituhr, beste Weltzeituhr",
 			"screenshot": "screenshot-worldclock-en.png"
 		},
 		"stopwatch": {
-			"name": "Stoppuhr - Tischuhr",
 			"description": "Eine einfache, elegante Stoppuhr, die Runden, mehrere Stoppuhren und Anpassbarkeit unterstützt",
 			"shareDescription": "Probieren Sie die Stoppuhr von der Tischuhr aus",
 			"keywords": "Stoppuhr, Stoppuhr online, Stoppuhr offline, kostenlose Stoppuhr, mehrere Stoppuhren, mehrere Stoppuhren online, mehrere Stoppuhren kostenlos, beste Stoppuhr, Stoppuhr mit Runden, Rundenstoppuhr",
