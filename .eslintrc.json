@@ -4,7 +4,7 @@
 		"es2021": true,
 		"node": true
 	},
-	"extends": ["airbnb-base", "prettier"],
+	"extends": ["prettier"],
 	"parserOptions": {
 		"ecmaVersion": "latest",
 		"sourceType": "module"
@@ -31,8 +31,6 @@
 		"new-cap": "off",
 		"import/no-extraneous-dependencies": "off",
 		"no-param-reassign": "off",
-		// until sveltekit gets everything figured out for $lib imports:
-		"import/no-unresolved": "off",
 		"radix": "off"
 	}
 }

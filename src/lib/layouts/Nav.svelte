@@ -52,7 +52,7 @@
 		class:active={$page.url.pathname === '/'}
 		href="/"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
-		<Icon name="clock" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
+		<Icon name="clock" class={$settings.smallerMenu ? '' : 'mr-3'} />
 		{#if !$settings.smallerMenu}
 			{dictionary.pageNames['clock']}
 		{/if}
@@ -61,7 +61,7 @@
 		class:active={$page.url.pathname === '/worldclock'}
 		href="/worldclock"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
-		<Icon name="worldclock" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
+		<Icon name="worldclock" class={$settings.smallerMenu ? '' : 'mr-3'} />
 		{#if !$settings.smallerMenu}
 			{dictionary.pageNames['worldclock']}
 		{/if}
@@ -70,7 +70,7 @@
 		class:active={$page.url.pathname === '/stopwatch'}
 		href="/stopwatch"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
-		<Icon name="stopwatch" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
+		<Icon name="stopwatch" class={$settings.smallerMenu ? '' : 'mr-3'} />
 		{#if !$settings.smallerMenu}
 			{dictionary.pageNames['stopwatch']}
 		{/if}
@@ -79,7 +79,7 @@
 		class:active={$page.url.pathname === '/timers'}
 		href="/timers"
 		class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
-		<Icon name="timer" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
+		<Icon name="timer" class={$settings.smallerMenu ? '' : 'mr-3'} />
 		{#if !$settings.smallerMenu}
 			{dictionary.pageNames['timers']}
 		{/if}
@@ -91,7 +91,7 @@
 				navOpen = false;
 				open('settings');
 			}}>
-			<Icon name="settings" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
+			<Icon name="settings" class={$settings.smallerMenu ? '' : 'mr-3'} />
 			{#if !$settings.smallerMenu}
 				{dictionary.labels['Settings']}
 			{/if}
@@ -102,18 +102,18 @@
 			<button
 				on:click={installButtonClick}
 				class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}">
-				<Icon name="download" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
+				<Icon name="download" class={$settings.smallerMenu ? '' : 'mr-3'} />
 				{#if !$settings.smallerMenu}
 					{$session.languageDictionary.labels['Install']}
 				{/if}
 			</button>
 		{/if}
 
-		<!-- no share-btn class so it isn't animated on hover -->
+		<!-- omit share-btn class so it isn't animated on hover -->
 		<button
 			class="inline-flex {$settings.smallerMenu ? '' : 'w-full'}"
 			on:click={() => shareApp(dictionary, $page.url.pathname)}>
-			<Icon name="share" class="w-6 h-6 inline {$settings.smallerMenu ? '' : 'mr-3'}" />
+			<Icon name="share" class={$settings.smallerMenu ? '' : 'mr-3'} />
 			{#if !$settings.smallerMenu}
 				{dictionary.labels['Share']}
 			{/if}
@@ -121,7 +121,7 @@
 	</div>
 </nav>
 
-<style lang="postcss">
+<style>
 	@media (min-height: 640px) {
 		#nav-bottom {
 			@apply absolute bottom-0;
@@ -130,7 +130,7 @@
 
 	/* notes
     nav links and icon btns have same hover colors (both normal and dark)
-    nav and modal have same bg colors, opacities, and shadows
+    nav and modal have same bg colors and opacities
     */
 	nav a,
 	nav button {

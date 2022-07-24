@@ -29,7 +29,7 @@
 	{/if}
 </div>
 
-<style lang="postcss">
+<style>
 	select {
 		@apply rounded;
 	}

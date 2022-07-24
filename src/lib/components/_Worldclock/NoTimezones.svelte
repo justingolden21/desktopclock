@@ -21,6 +21,6 @@
 	on:click={() => open('new-worldclock')}
 	aria-label={dictionary.worldclockSettings['New timezone']}
 	title={dictionary.worldclockSettings['New timezone']}>
-	<Icon name="plus" class="inline-block w-8 h-8" />
+	<Icon name="plus" size="lg" />
 	<span>{dictionary.labels['New']}</span>
 </button>

@@ -106,7 +106,7 @@
 				$settings[page].timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
 			}
 		}}>
-		<Icon name="undo" class="inline w-6 h-6" />
+		<Icon name="undo" />
 		{dictionary.clockSettings['Reset datetime formats']}
 	</button>
 </div>

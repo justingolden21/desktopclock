@@ -1,9 +1,11 @@
-// set this to null to close the modal
+// Utility functions for modals
 
 import { writable, get } from 'svelte/store';
 
-export const modal = writable({});
+const modal = writable({});
 
-export const close = () => modal.set({});
-export const open = (name, data = {}) => modal.set({ name, data });
-export const toggle = (name, data = {}) => (!get(modal)?.name ? open(name, data) : close());
+const close = () => modal.set({});
+const open = (name, data = {}) => modal.set({ name, data });
+const toggle = (name, data = {}) => (!get(modal)?.name ? open(name, data) : close());
+
+export { modal, close, open, toggle };

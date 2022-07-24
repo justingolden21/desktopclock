@@ -1,8 +1,6 @@
 <script>
 	import TailwindColors from 'tailwindcss/colors.js';
 
-	import { onMount } from 'svelte';
-
 	import { settings } from '$lib/stores/settings';
 
 	/// COMPONENTS ///
@@ -14,10 +12,6 @@
 	/// STATE ///
 	$: clockSettings = $settings.clock;
 	$: displays = clockSettings.displays;
-
-	let batteryLevel, batteryIsCharging;
-	let batterySupported = false;
-	let listeningToBattery = false;
 
 	// @see displayOptions in util/toggleDisplay
 	$: primaryDisplayMap = {
@@ -34,28 +28,10 @@
 	$: baseColorPalette = TailwindColors[$settings.baseColorPalette];
 	$: accentColorPalette = TailwindColors[$settings.accentColorPalette];
 	$: shade = $settings.darkMode ? 400 : 900;
-
-	/// LIFECYCLE HOOKS ///
-	onMount(async () => {
-		// https://developer.mozilla.org/en-US/docs/Web/API/Navigator/getBattery
-		if (!(navigator && navigator.getBattery)) return;
-		if (listeningToBattery) return;
-		batterySupported = true;
-		const battery = await navigator.getBattery();
-		batteryLevel = battery.level;
-
-		battery.addEventListener('levelchange', function () {
-			batteryLevel = battery.level;
-		});
-		battery.addEventListener('chargingchange', function () {
-			batteryIsCharging = battery.charging;
-		});
-		listeningToBattery = true;
-	});
 </script>
 
 <div class="flex">
-	<h1
+	<h2
 		id="primary-display"
 		style:--primary-font-weight={$settings.clock.datetimeFontWeight}
 		style:color={displays.primaryPalette === 'base'
@@ -65,7 +41,7 @@
 		{#if displays.primary !== 'analog'}
 			{primaryDisplayMap[displays.primary]}
 		{/if}
-	</h1>
+	</h2>
 	<h2
 		id="secondary-display"
 		style:color={displays.secondaryPalette === 'base'
@@ -78,23 +54,18 @@
 	</h2>
 </div>
 
-{#if displays.battery && batterySupported}
+{#if displays.battery}
 	<h2
 		id="battery-display"
 		class={'m-0 hidden sm:block text-' + displays.secondaryFontSize}
 		style:color={displays.secondaryPalette === 'base'
 			? baseColorPalette[shade]
 			: accentColorPalette[shade]}>
-		<BatteryIcon
-			fillLevel={batteryLevel ? batteryLevel * 100 : 100}
-			charging={batteryIsCharging}
-			class="inline w-6 h-6 md:w-8 md:h-8" />
-
-		{Math.round(batteryLevel * 100)}%
+		<BatteryIcon />
 	</h2>
 {/if}
 
-<style lang="postcss">
+<style>
 	#primary-display {
 		@apply top-[15%] short:top-[10%] supershort:top-[0%] tall:top-[20%] absolute left-0 right-0;
 		font-weight: var(--primary-font-weight);

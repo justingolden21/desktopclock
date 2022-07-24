@@ -1,9 +1,12 @@
-// stopwatch uses timestamps / ms since epoch generated from Date.now()
+// Utility functions for core stopwatch logic
+// The stopwatch uses timestamps (milliseconds since epoch) generated from `Date.now()`
 // to record start, stop, and laps
 
-// for getting net ms
-// takes in an array of timestamps
-export const getNetMs = (times) => {
+// ==== Basics ====
+
+// Given an array of timestamps (of play/pause clicks)
+// return the net milliseconds elapsed while running
+const getNetMs = (times) => {
 	let ms = 0;
 	for (let i = 0; i < times.length; i += 2) {
 		if (i === times.length - 1) {
@@ -15,7 +18,8 @@ export const getNetMs = (times) => {
 	return ms;
 };
 
-// for displaying
+// Convert milliseconds to a time object
+// Used for displaying times to the page
 const msToTimeObj = (ms) => ({
 	hours: Math.floor(ms / 1000 / 60 / 60),
 	minutes: Math.floor(ms / 1000 / 60) % 60,
@@ -23,12 +27,15 @@ const msToTimeObj = (ms) => ({
 	milliseconds: ms % 1000
 });
 
+// Returns the correct number of digits after the second
 const sliceMilliseconds = (ms, digits) => {
 	const str = `.${ms.toString().padStart(3, '0')}`;
 	const digitsToCut = 3 - digits;
 	return str.substring(0, str.length - digitsToCut);
 };
 
+// Given a time object and settings
+// Return that time converted to a string with the given display settings
 const timeObjToStr = (
 	{ hours, minutes, seconds, milliseconds },
 	{ digitsAfterSeconds, alwaysShowHours }
@@ -39,11 +46,14 @@ const timeObjToStr = (
 		digitsAfterSeconds === 0 ? '' : sliceMilliseconds(milliseconds, digitsAfterSeconds)
 	}`;
 
-export const msToStr = (ms, displaySettings) => timeObjToStr(msToTimeObj(ms), displaySettings);
+const msToStr = (ms, displaySettings) => timeObjToStr(msToTimeObj(ms), displaySettings);
 
 // ==== Laps ====
 
-export const getLapTimes = (times, laps) => {
+// Given a list of timestamps when the user clicked play/pause and clicked lap
+// Returns an array of objects containing lap data
+// Each object contains current and total time
+const getLapTimes = (times, laps) => {
 	const allTimes = [];
 	for (const time of times) {
 		allTimes.push({
@@ -115,3 +125,5 @@ export const getLapTimes = (times, laps) => {
 
 	return lapTimes;
 };
+
+export { getNetMs, msToStr, getLapTimes };

@@ -17,8 +17,9 @@ export const defaultSettings = {
 		theme: JSON.parse(JSON.stringify(defaultTheme)),
 		secondHandMovement: 'sweeping',
 
-		timeFormat: null, // overridden in _layout onMount to user device's preference
-		timeFormatCustom: null, // overridden in _layout onMount to user device's preference
+		// null values overridden in _layout onMount to user device's preference
+		timeFormat: null,
+		timeFormatCustom: null,
 		dateFormat: 'ddd, MMMM D',
 		dateFormatCustom: 'ddd, MMMM D',
 

@@ -33,7 +33,7 @@
 		use:clickOutside
 		on:click_outside={() => (dropdownOpen = false)}
 		aria-label={$session.languageDictionary.labels['Menu']}>
-		<Icon name="dots_vertical" class="w-6 h-6" />
+		<Icon name="dots_vertical" />
 	</button>
 
 	<ul
@@ -50,7 +50,7 @@
 							option.func();
 						}}
 						class="w-full py-2 px-4 text-sm font-bold text-left hover:bg-base-300 hover:bg-opacity-75 dark:hover:bg-base-600 dark:hover:bg-opacity-75">
-						<Icon name={option.icon} class="inline-block w-6 h-6 mr-2" />
+						<Icon name={option.icon} class="mr-2" />
 						{$session.languageDictionary.labels[option.text]}
 					</button>
 				</li>

@@ -1,0 +1,58 @@
+/* Typography styles for headings, paragraphs, and links */
+
+/* Font families */
+* {
+	font-weight: 300;
+	/* default to sans-serif, even for serif, cursive, monospace fonts */
+	font-family: var(--font-family-body), sans-serif;
+	-webkit-tap-highlight-color: transparent;
+
+	/* Set numbers to be monospace
+	only works on: Bitter, Montserrat Alternatives, Major Mono Display
+	https://stackoverflow.com/a/56266636/4907950 */
+	font-variant-numeric: tabular-nums;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	/* default to sans-serif, even for serif, cursive, monospace fonts */
+	font-family: var(--font-family), sans-serif;
+}
+
+/* Sizing and spacing */
+
+h1,
+h2,
+h3,
+h4 {
+	@apply tracking-widest mt-8 mb-2;
+}
+
+h1,
+h2,
+h3 {
+	@apply xs:text-lg sm:text-xl md:text-2xl;
+}
+
+h4 {
+	@apply sm:text-lg md:text-xl;
+}
+
+p {
+	@apply leading-relaxed text-base md:text-lg;
+}
+
+hr {
+	@apply m-1 ml-0 max-w-xs border-base-400 dark:border-base-600;
+}
+
+a:not(nav a) {
+	@apply text-base-600 hover:underline font-bold;
+}
+.dark a:not(nav a) {
+	@apply text-base-300;
+}

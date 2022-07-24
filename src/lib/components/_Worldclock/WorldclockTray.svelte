@@ -34,7 +34,7 @@
 		on:click={() => open('worldclock-timetable')}
 		aria-label={dictionary.worldclockSettings['Timetable view']}
 		title={dictionary.worldclockSettings['Timetable view']}>
-		<Icon name="table" class="inline-block w-8 h-8" />
+		<Icon name="table" size="lg" />
 		<span class="hidden lg:inline">{dictionary.worldclockSettings['Timetable']}</span>
 	</button>
 	<button
@@ -42,7 +42,7 @@
 		on:click={() => open('convert-timezones')}
 		aria-label={dictionary.worldclockSettings['Convert timezones']}
 		title={dictionary.worldclockSettings['Convert timezones']}>
-		<Icon name="switch_horizontal" class="inline-block w-8 h-8" />
+		<Icon name="switch_horizontal" size="lg" />
 		<span class="hidden lg:inline">{dictionary.worldclockSettings['Convert']}</span>
 	</button>
 	<button
@@ -50,7 +50,7 @@
 		on:click={() => open('new-worldclock')}
 		aria-label={dictionary.worldclockSettings['New timezone']}
 		title={dictionary.worldclockSettings['New timezone']}>
-		<Icon name="plus" class="inline-block w-8 h-8" />
+		<Icon name="plus" size="lg" />
 		<span class="hidden lg:inline">{dictionary.labels['New']}</span>
 	</button>
 </nav>
