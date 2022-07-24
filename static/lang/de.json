@@ -1,0 +1,337 @@
+{
+	"appName": "Tischuhr",
+	"appShortName": "Tischuhr",
+	"seo": {
+		"clock": {
+			"description": "Eine einfache, skalierbare, anpassbare, installierbare Uhr für jedes Gerät!",
+			"shareDescription": "Ich dachte, Sie könnten Tischuhr mögen, eine einfache, skalierbare und anpassbare Uhr-App und -Website.",
+			"keywords": "Uhr, Desktop-Uhr, Uhren-App, Analoguhr, Digitaluhr, anpassbare Uhr, kostenlose Uhr, einfache Uhr, Datum und Uhrzeit, Uhr mit Datum, Vollbilduhr, Schlafenszeituhr, veränderbare Uhr, Uhr für Windows, Uhr für Mac, Uhr für Chrom, Uhr für Android, Uhr für iOS",
+			"screenshot": "screenshot.png"
+		},
+		"worldclock": {
+			"description": "Eine einfache, elegante, funktionsreiche Weltzeituhr mit analogen und digitalen Anzeigen, Hunderten von Zeitzonen und einem Zeitplan",
+			"shareDescription": "Probieren Sie Weltuhr von Tischuhr aus",
+			"keywords": "Weltzeituhr, Fahrpläne, Zeitzonen konvertieren, analoge Weltzeituhr, digitale Weltzeituhr, Uhr mit mehreren Zeitzonen, Weltzeituhr online, Weltzeituhr offline, kostenlose Weltzeituhr, beste Weltzeituhr",
+			"screenshot": "screenshot-worldclock-en.png"
+		},
+		"stopwatch": {
+			"description": "Eine einfache, elegante Stoppuhr, die Runden, mehrere Stoppuhren und Anpassbarkeit unterstützt",
+			"shareDescription": "Probieren Sie die Stoppuhr von der Tischuhr aus",
+			"keywords": "Stoppuhr, Stoppuhr online, Stoppuhr offline, kostenlose Stoppuhr, mehrere Stoppuhren, mehrere Stoppuhren online, mehrere Stoppuhren kostenlos, beste Stoppuhr, Stoppuhr mit Runden, Rundenstoppuhr",
+			"screenshot": "screenshot-stopwatch-en.png"
+		},
+		"timers": {}
+	},
+	"pageNames": {
+		"home": "Tischuhr",
+		"clock": "Uhr",
+		"worldclock": "Weltuhr",
+		"stopwatch": "Stoppuhr",
+		"timers": "Timer"
+	},
+	"settingsTabs": {
+		"Appearance": "Aussehen",
+		"General": "Allgemein",
+		"About": "Um"
+	},
+	"error": {
+		"The resource could not be found": "Die Ressource konnte nicht gefunden werden",
+		"Go back to the homepage": "Gehen Sie zurück zur Startseite",
+		"Error": "Fehler"
+	},
+	"labels": {
+		"Menu": "Speisekarte",
+		"Close": "Nah dran",
+		"Go back": "Geh zurück",
+		"Settings": "Einstellungen",
+		"Install": "Installieren",
+		"Share": "Teilen",
+		"Cast": "Chromecast",
+		"Dark": "Dunkel",
+		"Fullscreen": "Ganzer Bildschirm",
+		"Cast clock": "Chromecast-Uhr",
+		"Toggle secondary display": "Sekundäranzeige umschalten",
+		"Toggle primary display": "Hauptanzeige umschalten",
+		"Toggle battery display": "Batterieanzeige umschalten",
+		"Toggle dark mode": "Dunkelmodus umschalten",
+		"Toggle fullscreen": "Vollbild umschalten",
+		"Doubleclick fullscreen": "Doppelklicken Sie auf Vollbild",
+		"Show dark button": "Dunkle Schaltfläche anzeigen",
+		"Show primary toggle button": "Primäre Umschaltfläche anzeigen",
+		"Show secondary toggle button": "Sekundäre Umschaltfläche anzeigen",
+		"Show cast button": "Cast-Schaltfläche anzeigen",
+		"Show fullscreen button": "Schaltfläche Vollbild anzeigen",
+		"palettes": {
+			"base": "Basispalette",
+			"accent": "Akzentpalette"
+		},
+		"Smaller menu": "Kleinere Speisekarte",
+		"Always collapse menu": "Menü immer einklappen",
+		"Hide title bar when idle": "Titelleiste im Leerlauf ausblenden",
+		"Seconds until idle:": "Sekunden bis Leerlauf:",
+		"Heading font family:": "Schriftfamilie Überschriften:",
+		"Body font family:": "Body-Schriftfamilie:",
+		"Font family:": "Schriftfamilie:",
+		"Reset appearance settings": "Darstellungseinstellungen zurücksetzen",
+		"Aesthetics": "Ästhetik",
+		"User Interface": "Benutzeroberfläche",
+		"Application": "Anwendung",
+		"Shortcuts": "Abkürzungen",
+		"Locale": "Gebietsschema",
+		"Copy website link": "Website-Link kopieren",
+		"Open another clock": "Öffnen Sie eine andere Uhr",
+		"Send feedback": "Feedback abschicken",
+		"Reset all settings": "Alle Einstellungen zurücksetzen",
+		"Keyboard shortcuts": "Tastatürkürzel",
+		"View keyboard shortcuts": "Tastenkombinationen anzeigen",
+		"Language:": "Sprache:",
+		"Automatically detect language": "Sprache automatisch erkennen",
+		"Datetime locale:": "Datetime-Gebietsschema:",
+		"Automatically detect datetime locale": "Datetime-Gebietsschema automatisch erkennen",
+		"Timezone:": "Zeitzone:",
+		"Time:": "Zeit:",
+		"Automatically detect timezone": "Zeitzone automatisch erkennen",
+		"Timezone offset:": "Zeitzonen-Offset:",
+		"Advanced / Experimental": "Fortgeschritten / Experimentell",
+		"Keep screen awake": "Bildschirm eingeschaltet lassen",
+		"Delete all data and reload": "Alle Daten löschen und neu laden",
+		"New": "Neu",
+		"Edit": "Bearbeiten",
+		"Save": "Speichern",
+		"Up": "Hoch",
+		"Down": "Runter",
+		"Delete": "Löschen",
+		"Delete all": "Alles löschen",
+		"Create": "Schaffen",
+		"Reset": "Zurücksetzen",
+		"Use AM / PM": "Verwenden Sie AM / PM",
+		"Difference": "Unterschied",
+		"Name": "Name",
+		"Now": "Jetzt",
+		"Home": "Heim",
+
+		"Numeral Styles": {
+			"numerals": "Ziffern",
+			"fourNumerals": "4 Ziffern",
+			"numbers": "Zahlen",
+			"fourNumbers": "4 Zahlen",
+			"none": "Keiner"
+		},
+
+		"Font Weights": [
+			"",
+			"Dünn",
+			"Extra-Licht",
+			"Licht",
+			"Normal",
+			"Mittel",
+			"Halbfett",
+			"Fett gedruckt",
+			"Extrafett",
+			"Schwarz"
+		],
+		"Movements": {
+			"sweeping": "Kehren",
+			"grandfather": "Großvater",
+			"modern": "Modern"
+		}
+	},
+	"languages": {
+		"en": "Englisch",
+		"es": "Spanisch",
+		"de": "Deutsch",
+		"fr": "Französisch",
+		"ru": "Russisch",
+		"hi": "Hindi"
+	},
+	"keyboardShortcuts": {
+		"Key": "Taste",
+		"Action": "Aktion"
+	},
+	"clockSettings": {
+		"Displays": "Anzeigen",
+		"Analog": "Analog",
+		"Digital Datetime": "Digitales Datum und Uhrzeit",
+
+		"Primary display:": "Primäre Anzeige:",
+		"Secondary display:": "Sekundäranzeige:",
+		"clockFormats": {
+			"analog": "Analoge Uhr",
+			"time": "Digitale Zeit",
+			"date": "Datum",
+			"datetime": "Datum + digitale Zeit",
+			"none": "Keiner",
+
+			"analog_digital": "Analog + Digital",
+			"digital": "Digital",
+			"rows": "Reihen",
+			"analog_grid": "Analoges Gitter",
+			"compact_rows": "Kompakte Reihen",
+			"digital_grid": "Digitales Raster"
+		},
+		"Show battery": "Akku anzeigen",
+
+		"Default Theme": "Standardthema",
+		"Default Night Theme": "Standard-Nachtthema",
+		"Classic Theme": "Klassisches Thema",
+		"Classic Night Theme": "Klassisches Nachtthema",
+		"Simple Mode": "Einfacher Modus",
+
+		"Time format:": "Zeitformat:",
+		"Date format:": "Datumsformat:",
+		"Custom": "Brauch",
+		"Preview:": "Vorschau:",
+		"Custom formatting reference": "Referenz zur benutzerdefinierten Formatierung",
+		"Reset datetime formats": "Datetime-Formate zurücksetzen",
+		"Primary display font weight:": "Schriftstärke der primären Anzeige:",
+		"Second hand movement:": "Sekundenzeigerwerk:",
+
+		"Datetime Formatting": "Datetime-Formatierung",
+
+		"Numeral Style:": "Ziffernstil:",
+
+		"Face": "Gesicht",
+		"Pin": "Stift",
+		"Ticks": "Zecken",
+		"Numerals": "Ziffern",
+		"Hands": "Hände",
+
+		"sizes": {
+			"small": "Klein",
+			"medium": "Mittel",
+			"large": "Groß"
+		},
+
+		"Hour": "Stunde",
+		"Minute": "Minute",
+		"Second": "Zweite",
+
+		"datetimeFormatTableHeadings": ["Format", "Ausgabe", "Beschreibung"],
+		"datetimeFormatTable": [
+			["YY", "18", "Zweistellige Jahreszahl"],
+			["YYYY", "2018", "Vierstellige Jahreszahl"],
+			["M", "1-12", "Der Monat, beginnend am 1"],
+			["MM", "01-12", "Der Monat, 2-stellig"],
+			["MMM", "Jan", "Der abgekürzte Monatsname"],
+			["MMMM", "Januar", "Der vollständige Monatsname"],
+			["D", "1-31", "Der Tag des Monats"],
+			["DD", "01-31", "Der Tag des Monats, 2-stellig"],
+			["d", "0-6", "Der Wochentag mit Sonntag als 0"],
+			["dd", "So", "Der minimale Name des Wochentags"],
+			["ddd", "So.", "Der Kurzname des Wochentags"],
+			["dddd", "Sonntag", "Der Name des Wochentags"],
+			["H", "0-23", "Die Stunde"],
+			["HH", "00-23", "Die Stunde, 2-stellig"],
+			["h", "1-12", "Die Stunde, 12-Stunden-Uhr"],
+			["hh", "01-12", "Die Stunde, 12-Stunden-Uhr, 2-stellig"],
+			["m", "0-59", "Die Minute"],
+			["mm", "00-59", "Die Minute, 2-stellig"],
+			["s", "0-59", "Der Zweite"],
+			["ss", "00-59", "Die zweite, 2-stellig"],
+			["SSS", "000-999", "Die Millisekunde, 3-stellig"],
+			["Z", "+05:00", "Der Offset von UTC, ±HH:mm"],
+			["ZZ", "+0500", "Der Offset von UTC, ±HHmm"],
+			["A", "AM PM", "Die Periode"],
+			["a", "am pm", "Der Punkt, Kleinbuchstaben"],
+			["[text]", "text", "Benutzerdefinierter Text"]
+		]
+	},
+	"worldclockSettings": {
+		"Timetable": "Zeitplan",
+		"Timetable view": "Fahrplanansicht",
+		"Convert": "Konvertieren",
+		"in": "in",
+		"is": "ist",
+		"Convert timezones": "Zeitzonen konvertieren",
+		"New timezone": "Neue Zeitzone",
+		"Edit timezone": "Zeitzone bearbeiten",
+		"Timezone nickname:": "Spitzname der Zeitzone:",
+
+		"Reset worldclocks": "Weltuhren zurücksetzen",
+		"Delete worldclocks": "Weltuhren löschen",
+		"Reset worldclock settings": "Weltuhreinstellungen zurücksetzen",
+
+		"You don't have any other worldclocks. Try adding a new one.": "Sie haben keine anderen Weltzeituhren. Versuchen Sie, eine neue hinzuzufügen."
+	},
+	"stopwatchSettings": {
+		"Start": "Anfang",
+		"Resume": "Fortsetzen",
+		"Pause": "Pause",
+		"Lap": "Schoß",
+		"LapNumber": "Schoß",
+		"Laps": "Runden",
+		"Time": "Zeit",
+		"Total": "Gesamt",
+		"New stopwatch": "Neue Stoppuhr",
+
+		"Display": "Anzeige",
+		"Behavior": "Verhalten",
+
+		"Always show hours": "Stunden immer anzeigen",
+		"Digits after seconds": "Ziffern nach Sekunden",
+		"Digits after seconds in lap list": "Ziffern nach Sekunden in der Rundenliste",
+		"Show reset stopwatch button": "Schaltfläche zum Zurücksetzen der Stoppuhr anzeigen",
+		"Namable stopwatches": "Benennbare Stoppuhren",
+		"Reverse lap order": "Umgekehrte Rundenreihenfolge",
+		"First stopwatch is larger": "Erste Stoppuhr ist größer",
+		"Automatically start new stopwatches": "Starten Sie automatisch neue Stoppuhren",
+		"Start all paused stopwatches": "Starten Sie alle angehaltenen Stoppuhren",
+		"Stop all running stopwatches": "Stoppen Sie alle laufenden Stoppuhren",
+		"Reset stopwatch settings": "Stoppuhreinstellungen zurücksetzen",
+
+		"Simultaneous start": "Gleichzeitiger Start",
+		"Simultaneous Start": "Gleichzeitiger Start",
+		"Number of stopwatches to start at the same time:": "Anzahl der gleichzeitig startenden Stoppuhren:",
+		"You don't have any stopwatches. Try adding a new one.": "Sie haben keine Stoppuhren. Versuchen Sie, eine neue hinzuzufügen."
+	},
+	"display": {
+		"Stroke color": "Strichfarbe",
+		"Fill color": "Füllfarbe",
+		"Shadow fill color": "Schattenfüllfarbe",
+		"Color:": "Farbe:",
+		"Stroke width:": "Strichbreite:",
+		"Size:": "Größe:",
+		"Shape:": "Form:",
+		"Width:": "Breite:",
+		"Height:": "Höhe:",
+		"Length:": "Länge:",
+		"Back:": "Der Rücken:",
+		"Linecap:": "Zeilenende:",
+
+		"Transparent": "Transparent",
+		"System default": "Systemfehler",
+
+		"shapes": {
+			"circle": "Kreis",
+			"rounded": "Abgerundetes Quadrat",
+			"square": "Quadrat"
+		},
+
+		"linecaps": {
+			"round": "Runden",
+			"square": "Quadrat"
+		}
+	},
+	"about": {
+		"Version": "Ausführung",
+		"Contact": "Kontakt",
+		"Translation": "Übersetzung",
+		"aboutText": "Tischuhr ist eine einfache, skalierbare, anpassbare, installierbare Uhr für jedes Gerät. Zu den Funktionen gehören anpassbare analoge und digitale Anzeigen, Nachtmodus, Themen, Zeitzonen und mehr. Die Desktop-Uhr ist so konzipiert, dass sie sich perfekt an jede Bildschirmgröße und jedes Seitenverhältnis anpasst, ohne Verzerrung oder Pixelbildung. Verwenden Sie die Desktop-Uhr als Uhr auf Ihrem Fernseher, als Nachtuhr oder projizieren Sie die Zeit im Klassenzimmer. Tischuhr ist superleicht, funktioniert offline, kostenlos, werbefrei und wird es immer sein. Passen Sie Uhrzeit, Datum und mehr nach Ihren Wünschen an! Tischuhr ist die All-in-One-Uhr für alle Ihre Zeiterfassungsanforderungen! Weitere Funktionen folgen in Kürze.",
+		"contactText": "Erstellt von {{author}}. Fühlen Sie sich frei, mich mit Feedback, Fragen oder Anfragen unter {{email}} zu kontaktieren",
+		"shareText": "Wenn Ihnen diese App gefällt, ziehen Sie in Betracht, sie zu {{sharing}}.",
+		"sharing": "teilen",
+		"suggestBetterTranslation": "Um eine bessere Übersetzung vorzuschlagen, senden Sie mir eine E-Mail an {{email}}.",
+		"translationCredit": ""
+	},
+	"messages": {
+		"Copied successfully": "Erfolgreich kopiert",
+		"Failed to copy": "Kopieren fehlgeschlagen",
+		"Coming soon": "Demnächst",
+		"Wake lock was activated successfully": "Wakelock wurde erfolgreich aktiviert",
+		"Wake lock was deactivated successfully": "Wakelock wurde erfolgreich deaktiviert",
+		"Wake lock failure": "Wakelock-Fehler",
+		"Too many worldclocks": "Zu viele Weltuhren",
+		"Too many stopwatches": "Zu viele Stoppuhren",
+		"Cannot have duplicate timezones with same name": "Es dürfen keine doppelten Zeitzonen mit demselben Namen vorhanden sein"
+	}
+}

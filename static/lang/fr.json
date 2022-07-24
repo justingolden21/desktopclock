@@ -3,21 +3,18 @@
 	"appShortName": "Horloge de bureau",
 	"seo": {
 		"clock": {
-			"name": "Horloge de bureau",
 			"description": "Une horloge simple, personnalisable, redimensionnable et installable sur n'importe quel appareil!",
 			"shareDescription": "Je pensais que vous aimeriez peut-être Desktop Clock, une appli d'horloge simple, redimensionnable et installable.",
 			"keywords": "horloge, horloge de bureau, appli horloge, horloge analogique, horloge numérique, horloge personnalisable, horloge gratuite, horloge simple, date et heure, horloge avec date, horloge plein écran, horloge coucher, horloge redimensionnable, horloge pour windows, horloge pour mac, horloge pour chrome, horloge pour android, horloge pour ios",
 			"screenshot": "screenshot.png"
 		},
 		"worldclock": {
-			"name": "Horloge mondiale - Horloge de bureau",
 			"description": "Une horloge mondiale qui est simple, élégante, et riche en fonctions, avec des affichages analogique et numérique, des centaines de fuseaux horaires, et une charte de conversions",
 			"shareDescription": "Essayez Horloge mondiale de l'Horloge de bureau",
 			"keywords": "horloge mondiale, chartes de conversion, convertir fuseaux horaires, horloge mondiale analogique, horloge mondiale numérique, horloge avec multiples fuseaux horaires, horloge mondiale en ligne, horloge mondiale hors ligne, horloge mondiale gratuite, meilleure horloge mondiale",
 			"screenshot": "screenshot-worldclock-en.png"
 		},
 		"stopwatch": {
-			"name": "Chronomètre - Horloge de bureau",
 			"description": "Un chronomètre simple et élégant, qui supporte des tours de piste, des chronos multiples, et des options de personnalisation",
 			"shareDescription": "Essayer le Chronomètre de l'Horloge de Bureau",
 			"keywords": "chronomètre, chronomètre en ligne, chronomètre hors ligne, chronomètre gratuit, chronomètres multiples, chronomètres multiples en ligne, chronomètres multiples gratuit, meilleur chronomètre, chronomètre avec tours de piste, chronomètre tours de piste",
@@ -215,14 +212,14 @@
 			["YYYY", "2018", "Année en 4 chiffres"],
 			["M", "1-12", "Le mois, en commençant par 1"],
 			["MM", "01-12", "Le mois en 2 chiffres"],
-			["MMM", "Jan-Dec", "Abréviation du nom du mois"],
-			["MMMM", "January-December", "Nom du mois"],
+			["MMM", "janv.", "Abréviation du nom du mois"],
+			["MMMM", "janvier", "Nom du mois"],
 			["D", "1-31", "Le jour du mois"],
 			["DD", "01-31", "Le jour du mois en 2 chiffres"],
 			["d", "0-6", "Le jour de la semaine, prenant le dimanche comme 0"],
-			["dd", "Su-Sa", "Le nom minimal du jour de la semaine"],
-			["ddd", "Sun-Sat", "Le nom raccourci du jour de la semaine"],
-			["dddd", "Sunday-Saturday", "Le nom du jour de la semaine"],
+			["dd", "di", "Le nom minimal du jour de la semaine"],
+			["ddd", "dim.", "Le nom raccourci du jour de la semaine"],
+			["dddd", "dimanche", "Le nom du jour de la semaine"],
 			["H", "0-23", "L'Heure"],
 			["HH", "00-23", "L'Heure en 2 chiffres"],
 			["h", "1-12", "L'Heure sur l'horloge de 12 heures"],
@@ -236,7 +233,7 @@
 			["ZZ", "+0500", "Le décalage UTC, ±HHmm"],
 			["A", "AM PM", "La période"],
 			["a", "am pm", "La période en minuscules"],
-			["[text]", "text", "Texte personnalisé"]
+			["[texte]", "texte", "Texte personnalisé"]
 		]
 	},
 	"worldclockSettings": {
@@ -254,7 +251,7 @@
 		"Delete worldclocks": "Supprimer les horloges mondiales",
 		"Reset worldclock settings": "Réinitialiser les paramètres horloge mondiale",
 
-		"You don't have any other worldclocks. Try adding a new one": "Vous n'avez aucune autre horloge mondiale. En ajouter une nouvelle?"
+		"You don't have any other worldclocks. Try adding a new one.": "Vous n'avez aucune autre horloge mondiale. En ajouter une nouvelle?"
 	},
 	"stopwatchSettings": {
 		"Start": "Commencer",
@@ -285,7 +282,7 @@
 		"Simultaneous start": "Démarrage simultané",
 		"Simultaneous Start": "Démarrage simultané",
 		"Number of stopwatches to start at the same time:": "Nombre de chronos à commencer simultanément:",
-		"You don't have any stopwatches. Try adding a new one": "Vous n'avez aucun chronomètre. En ajouter un nouveau?"
+		"You don't have any stopwatches. Try adding a new one.": "Vous n'avez aucun chronomètre. En ajouter un nouveau?"
 	},
 	"display": {
 		"Stroke color": "Couleur de trait",

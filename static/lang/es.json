@@ -3,21 +3,18 @@
 	"appShortName": "Reloj Sencillo",
 	"seo": {
 		"clock": {
-			"name": "Reloj Sencillo",
 			"description": "¡Un reloj ajustable, personalizable!",
 			"shareDescription": "Pensé que podría disfrutar de Reloj Sencillo, una aplicación y sitio web de reloj simple, redimensionable y personalizable.",
 			"keywords": "reloj, Reloj Sencillo, Desktop Clock, aplicación de reloj, reloj analogo, reloj digital, reloj personalizable, reloj gratis, reloj simple, fecha y hora, reloj con fecha, reloj de pantalla completa, reloj de la hora de acostarse, reloj redimensionable, reloj para windows, reloj para mac, reloj para cromo, reloj para android, reloj para ios",
 			"screenshot": "screenshot.png"
 		},
 		"worldclock": {
-			"name": "Reloj mundial - Reloj Sencillo",
 			"description": "Un reloj mundial simple, elegante y rico en funciones con pantallas analógicas y digitales, cientos de zonas horarias y un calendario",
 			"shareDescription": "Prueba Reloj mundial desde Reloj Sencillo",
 			"keywords": "reloj mundial, horarios, convertir zonas horarias, reloj mundial analógico, reloj mundial digital, reloj de múltiples zonas horarias, reloj mundial en línea, reloj mundial fuera de línea, reloj mundial gratuito, mejor reloj mundial",
 			"screenshot": "screenshot-worldclock-en.png"
 		},
 		"stopwatch": {
-			"name": "Cronógrafo - Reloj Sencillo",
 			"description": "Un cronómetro simple y elegante que admite vueltas, múltiples cronómetros y personalización",
 			"shareDescription": "Prueba Cronógrafo desde Reloj Sencillo",
 			"keywords": "cronómetro, cronómetro en línea, cronómetro sin conexión, cronómetro gratis, cronómetros múltiples, cronómetros múltiples en línea, cronómetros múltiples gratis, mejor cronómetro, cronómetro con vueltas, cronómetro de vueltas",
@@ -215,14 +212,14 @@
 			["YYYY", "2018", "Año de cuatro dígitos"],
 			["M", "1-12", "El mes, comenzando a las 1"],
 			["MM", "01-12", "El mes, 2 dígitos"],
-			["MMM", "Jan-Dec", "El nombre del mes abreviado"],
-			["MMMM", "January-December", "El nombre completo del mes"],
+			["MMM", "ene", "El nombre del mes abreviado"],
+			["MMMM", "enero", "El nombre completo del mes"],
 			["D", "1-31", "el dia del mes"],
 			["DD", "01-31", "El día del mes, 2 dígitos"],
 			["d", "0-6", "El día de la semana, con el domingo como 0"],
-			["dd", "Su-Sa", "El nombre mínimo del día de la semana."],
-			["ddd", "Sun-Sat", "El nombre abreviado del día de la semana."],
-			["dddd", "Sunday-Saturday", "El nombre del día de la semana."],
+			["dd", "do", "El nombre mínimo del día de la semana."],
+			["ddd", "dom.", "El nombre abreviado del día de la semana."],
+			["dddd", "domingo", "El nombre del día de la semana."],
 			["H", "0-23", "La hora"],
 			["HH", "00-23", "La hora, 2 dígitos"],
 			["h", "1-12", "La hora, reloj de 12 horas."],
@@ -236,7 +233,7 @@
 			["ZZ", "+0500", "El desplazamiento desde UTC, ±HHmm"],
 			["A", "AM PM", "El período"],
 			["a", "am pm", "El punto, minúsculas"],
-			["[text]", "text", "Texto personalizado"]
+			["[texto]", "texto", "Texto personalizado"]
 		]
 	},
 	"worldclockSettings": {
@@ -254,7 +251,7 @@
 		"Delete worldclocks": "Eliminar relojes mundiales",
 		"Reset worldclock settings": "Restablecer la configuración del reloj mundial",
 
-		"You don't have any other worldclocks. Try adding a new one": "Restablecer la configuración del reloj mundial"
+		"You don't have any other worldclocks. Try adding a new one.": "Restablecer la configuración del reloj mundial."
 	},
 	"stopwatchSettings": {
 		"Start": "Comienzo",
@@ -285,7 +282,7 @@
 		"Simultaneous start": "Inicio simultáneo",
 		"Simultaneous Start": "Inicio Simultáneo",
 		"Number of stopwatches to start at the same time:": "Número de cronómetros para iniciar al mismo tiempo:",
-		"You don't have any stopwatches. Try adding a new one": "No tienes cronómetros. Intenta agregar uno nuevo"
+		"You don't have any stopwatches. Try adding a new one.": "No tienes cronómetros. Intenta agregar uno nuevo."
 	},
 	"display": {
 		"Stroke color": "Color del trazo",
