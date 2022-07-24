@@ -1,5 +1,4 @@
 const colors = require('tailwindcss/colors.js');
-const defaultTheme = require('tailwindcss/defaultTheme');
 
 // https://stackoverflow.com/a/70480061/4907950
 // https://github.com/adamwathan/tailwind-css-variable-text-opacity-demo
@@ -21,22 +20,17 @@ module.exports = {
 	darkMode: 'class',
 	theme: {
 		colors: {
-			// ...colors,
 			white: '#FFF',
 			gray: colors.slate,
 			transparent: 'transparent'
 		},
-		screens: {
-			xs: '360px',
-			...defaultTheme.screens
-		},
-		fontSize: {
-			...defaultTheme.fontSize,
-			'10xl': '10rem',
-			'11xl': '12rem'
-		},
 		extend: {
+			fontSize: {
+				'10xl': '10rem',
+				'11xl': '12rem'
+			},
 			screens: {
+				xs: '360px',
 				supershort: { raw: '(max-height: 240px)' },
 				short: { raw: '(max-height: 480px)' },
 				tall: { raw: '(min-height: 720px)' }

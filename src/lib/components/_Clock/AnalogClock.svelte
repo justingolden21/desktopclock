@@ -185,7 +185,7 @@ A customizable analog clock
 		r={theme.pin.size} />
 </svg>
 
-<style lang="postcss">
+<style>
 	.clock {
 		position: absolute;
 		top: 12.5%;

@@ -12,6 +12,9 @@
 	import { Icon } from '$lib/components/Icon';
 	import { settings } from '$lib/stores/settings';
 
+	import { scale, fade } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
+
 	$: dictionary = $session.languageDictionary;
 
 	const makeNewStopwatch = () => {
@@ -50,12 +53,15 @@
 	});
 </script>
 
-<!-- give stopwatches a unique identifier in `each` loop so that upon removing one, the page maintains state correctly
-		stopwatches can be uniquely determined by a combination of their times and their index
-		we need index since intially the times are all the same (an empty array) -->
-<div class="grid  lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+<div class="grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
 	{#each $settings.stopwatch.stopwatches as stopwatch, idx (stopwatch.id)}
-		<Stopwatch bind:data={stopwatch} isFirst={idx === 0} />
+		<div
+			animate:flip={{ duration: 250 }}
+			in:scale|local
+			out:fade|local
+			class:col-span-full={idx === 0 && $settings.stopwatch.largerFirstStopwatch}>
+			<Stopwatch bind:data={stopwatch} />
+		</div>
 	{/each}
 </div>
 
@@ -72,13 +78,13 @@
 	on:click={makeNewStopwatch}
 	aria-label={dictionary.stopwatchSettings['New stopwatch']}
 	title={dictionary.stopwatchSettings['New stopwatch']}>
-	<Icon name="plus" class="inline-block w-8 h-8" />
+	<Icon name="plus" size="lg" />
 	<span>{dictionary.labels['New']}</span>
 </button>
 
 {#if $settings.stopwatch.stopwatches.length > 4}
 	<button class="ml-4 icon-btn rounded-none bg-transparent mx-auto" on:click={deleteAllStopwatches}>
-		<Icon name="trash" class="inline-block w-8 h-8" />
+		<Icon name="trash" size="lg" />
 		<span>{dictionary.labels['Delete all']}</span>
 	</button>
 {/if}
@@ -86,6 +92,6 @@
 <button
 	class="ml-4 icon-btn rounded-none bg-transparent mx-auto"
 	on:click={() => open('simultaneous-start')}>
-	<Icon name="stopwatch" class="inline-block w-8 h-8" />
+	<Icon name="stopwatch" size="lg" />
 	<span>{dictionary.stopwatchSettings['Simultaneous start']}</span>
 </button>

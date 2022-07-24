@@ -144,7 +144,8 @@
 		"es": "Spanish",
 		"de": "German",
 		"fr": "French",
-		"ru": "Russian"
+		"ru": "Russian",
+		"hi": "Hindi"
 	},
 	"keyboardShortcuts": {
 		"Key": "Key",
@@ -318,10 +319,13 @@
 	"about": {
 		"Version": "Version",
 		"Contact": "Contact",
+		"Translation": "Translation",
 		"aboutText": "Desktop Clock is a simple, resizable, customizable, installable clock for any device. Features include customizable analog and digital displays, night mode, themes, timezones and more. Desktop Clock is designed to scale perfectly to any screen size and ratio, with no distortion or pixelation. Use Desktop Clock as a clock on your TV, a night clock, or project the time in the classroom. Desktop Clock is super light-weight, works offline, free, ad-free, and always will be. Customize the time, date and more to your liking! Desktop Clock is the all-in-one clock for any of your timekeeping needs! More features coming soon.",
 		"contactText": "Made by {{author}}. Feel free to contact me with any feedback, questions, or requests at {{email}}",
 		"shareText": "If you like this app, consider {{sharing}} it.",
-		"sharing": "sharing"
+		"sharing": "sharing",
+		"suggestBetterTranslation": "To suggest a better translation, email me at {{email}}.",
+		"translationCredit": "Translated by Justin"
 	},
 	"messages": {
 		"Copied successfully": "Copied successfully",

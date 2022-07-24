@@ -29,13 +29,11 @@
 
 	export function copyURL(languageDictionary) {
 		copyText(window.location.href).then((success) => {
-			const message = success
+			const text = success
 				? languageDictionary.messages['Copied successfully']
 				: languageDictionary.messages['Failed to copy'];
-			const type = success ? 'success' : 'error';
-			const dismissible = true;
-			const timeout = 2000;
-			addToast({ message, type, dismissible, timeout });
+			const icon = success ? 'success' : 'error';
+			addToast({ text, icon });
 		});
 	}
 
@@ -106,13 +104,11 @@
 			success = false;
 		}
 
-		const message = success
+		const text = success
 			? languageDictionary.messages['Wake lock was activated successfully']
 			: languageDictionary.messages['Wake lock failure'];
-		const type = success ? 'success' : 'error';
-		const dismissible = true;
-		const timeout = 2000;
-		addToast({ message, type, dismissible, timeout });
+		const icon = success ? 'success' : 'error';
+		addToast({ text, icon });
 	}
 
 	// https://phpnews.io/feeditem/have-a-web-page-prevent-your-screen-computer-from-dimming-sleeping-with-the-wake-lock-api
@@ -127,13 +123,11 @@
 			success = false;
 		}
 
-		const message = success
+		const text = success
 			? languageDictionary.messages['Wake lock was deactivated successfully']
 			: languageDictionary.messages['Wake lock failure'];
-		const type = success ? 'success' : 'error';
-		const dismissible = true;
-		const timeout = 2000;
-		addToast({ message, type, dismissible, timeout });
+		const icon = success ? 'success' : 'error';
+		addToast({ text, icon });
 	}
 
 	export function validateInt(input) {
@@ -171,7 +165,7 @@
 	import { Tabs, TabList, TabPanel, Tab } from '$lib/components/Tabs';
 	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 	import ThemeButtons from '$lib/components/ThemeButtons.svelte';
-	import { addToast } from '$lib/components/Toast';
+	import { addToast } from '$lib/components/Toast.svelte';
 	import SettingSelect from '$lib/components/SettingSelect.svelte';
 	import TimezoneAutocomplete from '$lib/components/TimezoneAutocomplete.svelte';
 	import ClockSettings from '$lib/components/_Clock/ClockSettings.svelte';
@@ -180,8 +174,6 @@
 
 	import { defaultNightTheme } from '$lib/themes';
 
-	import version from '../data/version';
-
 	/// STATE ///
 	$: dictionary = $session.languageDictionary;
 
@@ -189,6 +181,10 @@
 
 	import { fontFamilies, locales, supportedLangs } from '../data/consts';
 	import { installButtonClick, showInstallButton } from '../util/install';
+
+	$: validFontFamilies = Object.keys(fontFamilies).filter(
+		(font) => $settings.locale.language !== 'hi' || font === 'Yatra One' || font === ''
+	);
 
 	async function changeLanguage() {
 		$session.languageDictionary = await fetchLanguage($settings.locale.language);
@@ -216,28 +212,28 @@
 	<TabList>
 		<Tab>
 			{#if $page.url.pathname === '/'}
-				<Icon name="clock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+				<Icon name="clock" class="mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 				{dictionary.pageNames['clock']}
 			{/if}
 			{#if $page.url.pathname === '/worldclock'}
-				<Icon name="worldclock" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+				<Icon name="worldclock" class="mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 				{dictionary.pageNames['worldclock']}
 			{/if}
 			{#if $page.url.pathname === '/stopwatch'}
-				<Icon name="stopwatch" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+				<Icon name="stopwatch" class="mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 				{dictionary.pageNames['stopwatch']}
 			{/if}
 		</Tab>
 		<Tab>
-			<Icon name="eye" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+			<Icon name="eye" class="mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 			{dictionary.settingsTabs['Appearance']}
 		</Tab>
 		<Tab>
-			<Icon name="application" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+			<Icon name="application" class="mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 			{dictionary.settingsTabs['General']}
 		</Tab>
 		<Tab>
-			<Icon name="info" class="inline w-6 h-6 mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
+			<Icon name="info" class="mr-1 md:w-0 md:h-0 lg:w-6 lg:h-6" />
 			{dictionary.settingsTabs['About']}
 		</Tab>
 	</TabList>
@@ -289,7 +285,7 @@
 				</div>
 				<div class="block mb-2">
 					<button class="dark-btn btn" on:click={() => ($settings.darkMode = !$settings.darkMode)}>
-						<Icon name={$settings.darkMode ? 'moon' : 'sun'} class="inline w-6 h-6" />
+						<Icon name={$settings.darkMode ? 'moon' : 'sun'} />
 						{dictionary.labels['Dark']}
 					</button>
 				</div>
@@ -299,7 +295,7 @@
 					selectLabel={dictionary.labels['Heading font family:']}
 					bind:value={$settings.fontFamily}
 					onchange={fontFamilyChange}
-					values={Object.keys(fontFamilies)}
+					values={validFontFamilies}
 					labelMapper={(fontFamily) =>
 						fontFamily === '' ? dictionary.display['System default'] : fontFamily}
 					dynamicFont={true} />
@@ -310,7 +306,7 @@
 					id="font-family-body-select"
 					selectLabel={dictionary.labels['Body font family:']}
 					bind:value={$settings.fontFamilyBody}
-					values={Object.keys(fontFamilies)}
+					values={validFontFamilies}
 					labelMapper={(fontFamily) =>
 						fontFamily === '' ? dictionary.display['System default'] : fontFamily}
 					dynamicFont={true} />
@@ -397,7 +393,7 @@
 				// auto detect user device preferences (same code as in layout)
 				$settings.darkMode = !!window.matchMedia('(prefers-color-scheme: dark)').matches;
 			}}>
-			<Icon name="undo" class="inline w-6 h-6" />
+			<Icon name="undo" />
 			{dictionary.labels['Reset appearance settings']}
 		</button>
 	</TabPanel>
@@ -411,21 +407,21 @@
 				<!-- <button class="btn">Upload Settings</button> -->
 
 				<button class="btn share-btn" on:click={() => shareApp(dictionary, $page.url.pathname)}>
-					<Icon name="share" class="inline w-6 h-6" />
+					<Icon name="share" />
 					{dictionary.labels['Share']}
 				</button>
 				<button class="btn link-btn" on:click={() => copyURL(dictionary)}>
-					<Icon name="link" class="inline w-6 h-6" />
+					<Icon name="link" />
 					{dictionary.labels['Copy website link']}
 				</button>
 
 				<button class="cast-btn btn" on:click={castClock} class:hidden={!castSupported}>
-					<Icon name="cast" class="inline w-6 h-6" />
+					<Icon name="cast" />
 					{dictionary.labels['Cast']}
 				</button>
 
 				<button class="fullscreen-btn btn" on:click={toggleFullscreen}>
-					<Icon name="fullscreen" class="inline w-6 h-6" />
+					<Icon name="fullscreen" />
 					{dictionary.labels['Fullscreen']}
 				</button>
 
@@ -433,13 +429,13 @@
 
 				{#if $showInstallButton}
 					<button on:click={installButtonClick} class="btn install-btn">
-						<Icon name="download" class="w-6 h-6 inline" />
+						<Icon name="download" />
 						{$session.languageDictionary.labels['Install']}
 					</button>
 				{/if}
 
 				<button class="btn external-link-btn" on:click={() => openWindow(window.location.href)}>
-					<Icon name="external-link" class="inline w-6 h-6" />
+					<Icon name="external_link" />
 					{dictionary.labels['Open another clock']}
 				</button>
 				<button
@@ -449,8 +445,13 @@
 					on:mouseout={() => (hoveringContact = false)}
 					on:blur={() => (hoveringContact = false)}
 					on:click={() =>
-						window.open('mailto:contact@justingolden.me?subject=Desktop%20Clock%20Feedback')}>
-					<Icon name={hoveringContact ? 'envelope_open' : 'envelope'} class="inline w-6 h-6" />
+						// using English for email subject
+						// English name is generally what the app is known for, also makes it easier for me to know what an email is about
+						// this function is defined on page load anyway, making this a more difficult problem than is worth the time
+						window.open(
+							'mailto:contact@justingolden.me?subject=' + encodeURIComponent('Desktop Clock')
+						)}>
+					<Icon name={hoveringContact ? 'envelope_open' : 'envelope'} />
 					{dictionary.labels['Send feedback']}
 				</button>
 
@@ -491,8 +492,10 @@
 						$settings.clock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
 						$settings.worldclock.timeFormat = AMPM ? 'h:mm A' : 'H:mm';
 						$settings.worldclock.timeFormatCustom = AMPM ? 'h:mm A' : 'H:mm';
+
+						changeLanguage();
 					}}>
-					<Icon name="undo" class="inline w-6 h-6" />
+					<Icon name="undo" />
 					{dictionary.labels['Reset all settings']}
 				</button>
 
@@ -530,7 +533,7 @@
 						bind:checked={$settings.keyboardShortcuts} />
 				</div>
 				<button class="btn" on:click={() => open('keyboard-shortcuts')}>
-					<Icon name="table" class="inline w-6 h-6" />
+					<Icon name="table" />
 					{dictionary.labels['View keyboard shortcuts']}
 				</button>
 			</AccordionPanel>
@@ -541,7 +544,15 @@
 						selectLabel={dictionary.labels['Language:']}
 						disabled={$settings.locale.automaticLanguage}
 						bind:value={$settings.locale.language}
-						onchange={changeLanguage}
+						onchange={(e) => {
+							changeLanguage();
+
+							// change locale when changing language
+							if (locales.includes(e.target.value)) {
+								$settings.locale.automaticDatetime = false;
+								$settings.locale.datetime = e.target.value;
+							}
+						}}
 						values={supportedLangs}
 						labels={dictionary.languages} />
 
@@ -634,9 +645,22 @@
 		</p>
 		<p class="mt-2">
 			{dictionary.about['Version']}
-			{version}
+			{__version__}
 			{import.meta.env.PROD ? 'prod' : 'dev'}
 		</p>
+
+		{#if (dictionary.about.suggestBetterTranslation !== '' || dictionary.about.translationCredit !== '') && $settings.locale.language !== 'en'}
+			<h3>{dictionary.about['Translation']}</h3>
+			<p>
+				{@html dictionary.about.suggestBetterTranslation.replace(
+					'{{email}}',
+					'<a href="mailto:contact@justingolden.me?subject=Desktop%20Clock" target="_blank">contact@justingolden.me</a>'
+				)}
+			</p>
+			<p>
+				{dictionary.about.translationCredit}
+			</p>
+		{/if}
 
 		<h3>{dictionary.about['Contact']}</h3>
 		<p>

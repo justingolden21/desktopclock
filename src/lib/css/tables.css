@@ -1,0 +1,19 @@
+/* Styles for tables */
+
+table {
+	@apply w-full mb-4;
+}
+table th,
+table td {
+	@apply p-1 px-2 text-base-800 dark:text-base-200;
+}
+th {
+	@apply font-bold;
+}
+th,
+tr:nth-child(even) {
+	@apply bg-base-50 dark:bg-base-800;
+}
+tr:nth-child(odd) {
+	@apply bg-base-100 dark:bg-base-700;
+}

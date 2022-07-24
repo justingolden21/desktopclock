@@ -20,7 +20,6 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 	import { Accordion, AccordionPanel } from '$lib/components/Accordion';
 
 	export let data;
-	export let isFirst;
 
 	$: dictionary = $session.languageDictionary;
 	$: running = data.times.length % 2 == 1; // odd number of times
@@ -96,18 +95,16 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 	};
 </script>
 
-<div
-	class="stopwatch__outer surface group {stopwatchIsFullscreen && 'fullscreen'}"
-	class:col-span-full={isFirst && $settings.stopwatch.largerFirstStopwatch}>
+<div class="stopwatch__outer surface group {stopwatchIsFullscreen && 'fullscreen'}">
 	<button
 		class="icon-btn top-2 left-2 absolute hidden {!stopwatchIsFullscreen && 'group-hover:block'}"
 		on:click={removeStopwatch}>
-		<Icon name="close" class="inline w-6 h-6" />
+		<Icon name="close" />
 	</button>
 	<button
 		class="icon-btn top-2 right-2 absolute hidden group-hover:block"
 		on:click={fullscreenStopwatch}>
-		<Icon name="fullscreen" class="inline w-6 h-6" />
+		<Icon name="fullscreen" />
 	</button>
 
 	{#if $settings.stopwatch.namableStopwatches}
@@ -129,17 +126,17 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 				bind:this={startButton}
 				class="m-0 btn {!running && !$settings.stopwatch.showResetButton ? 'col-span-2' : ''}"
 				on:click={toggleStart}>
-				<Icon name={running ? 'pause' : 'play'} class="inline w-6 h-6" />
+				<Icon name={running ? 'pause' : 'play'} />
 				{dictionary.stopwatchSettings[running ? 'Pause' : data.times.length ? 'Resume' : 'Start']}
 			</button>
 			<button class="m-0 btn {running ? '' : 'hidden'}" on:click={addLap}>
-				<Icon name="plus" class="inline w-6 h-6" />
+				<Icon name="plus" />
 				{dictionary.stopwatchSettings['Lap']}
 			</button>
 			<button
 				class="m-0 btn undo-btn {!running && $settings.stopwatch.showResetButton ? '' : 'hidden'}"
 				on:click={resetStopwatch}>
-				<Icon name="undo" class="inline w-6 h-6" />
+				<Icon name="undo" />
 				{dictionary.labels['Reset']}
 			</button>
 		</div>
@@ -181,9 +178,9 @@ triple dots menu for: delete, fullscreen, rename stopwatch
 	</div>
 </div>
 
-<style lang="postcss">
+<style>
 	.stopwatch__outer {
-		@apply inline-block align-top border-0 relative;
+		@apply align-top border-0 relative;
 	}
 	.stopwatch__outer.fullscreen {
 		@apply w-screen h-screen z-50 fixed top-0 left-0 m-0;

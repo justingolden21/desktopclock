@@ -1,16 +1,18 @@
+// Utilities for casting the current page to another screen / TV
+
 // https://googlechrome.github.io/samples/presentation-api/
 // https://googlechrome.github.io/samples/presentation-api/receiver/
 
-// TODO check if navigator presentation api exists, export bool if supported, if not hide btn
-// change settings toggle label to say "show (if casting is available)" as opposed to just "show" for the main button
-// TODO: on leave clear the presentation request so no error upon refresh?
+// TODO: On leave clear the presentation request so no error upon refresh?
 
 let presentationRequest;
 
+// Return `true` if the browser supports casting, else `false`
 function isCastSupported() {
 	return typeof PresentationRequest !== 'undefined';
 }
 
+// Prepare presentation request, called `onMount`
 function setupCasting() {
 	if (!isCastSupported()) return;
 
@@ -21,6 +23,7 @@ function setupCasting() {
 	navigator.presentation.defaultRequest = presentationRequest;
 }
 
+// Attempt to cast current page, called on button click
 function castClock() {
 	if (!isCastSupported()) {
 		console.log('Not supported');
