@@ -254,7 +254,7 @@
 		"Delete worldclocks": "Supprimer les horloges mondiales",
 		"Reset worldclock settings": "Réinitialiser les paramètres horloge mondiale",
 
-		"You don't have any other worldclocks. Try adding a new one": "Vous n'avez aucune autre horloge mondiale. En ajouter une nouvelle?"
+		"You don't have any other worldclocks. Try adding a new one.": "Vous n'avez aucune autre horloge mondiale. En ajouter une nouvelle?"
 	},
 	"stopwatchSettings": {
 		"Start": "Commencer",
@@ -285,7 +285,7 @@
 		"Simultaneous start": "Démarrage simultané",
 		"Simultaneous Start": "Démarrage simultané",
 		"Number of stopwatches to start at the same time:": "Nombre de chronos à commencer simultanément:",
-		"You don't have any stopwatches. Try adding a new one": "Vous n'avez aucun chronomètre. En ajouter un nouveau?"
+		"You don't have any stopwatches. Try adding a new one.": "Vous n'avez aucun chronomètre. En ajouter un nouveau?"
 	},
 	"display": {
 		"Stroke color": "Couleur de trait",

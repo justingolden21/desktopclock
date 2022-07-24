@@ -254,7 +254,7 @@
 		"Delete worldclocks": "Weltuhren löschen",
 		"Reset worldclock settings": "Weltuhreinstellungen zurücksetzen",
 
-		"You don't have any other worldclocks. Try adding a new one": "Sie haben keine anderen Weltzeituhren. Versuchen Sie, eine neue hinzuzufügen"
+		"You don't have any other worldclocks. Try adding a new one.": "Sie haben keine anderen Weltzeituhren. Versuchen Sie, eine neue hinzuzufügen."
 	},
 	"stopwatchSettings": {
 		"Start": "Anfang",
@@ -285,7 +285,7 @@
 		"Simultaneous start": "Gleichzeitiger Start",
 		"Simultaneous Start": "Gleichzeitiger Start",
 		"Number of stopwatches to start at the same time:": "Anzahl der gleichzeitig startenden Stoppuhren:",
-		"You don't have any stopwatches. Try adding a new one": "Sie haben keine Stoppuhren. Versuchen Sie, eine neue hinzuzufügen"
+		"You don't have any stopwatches. Try adding a new one.": "Sie haben keine Stoppuhren. Versuchen Sie, eine neue hinzuzufügen."
 	},
 	"display": {
 		"Stroke color": "Strichfarbe",

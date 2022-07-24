@@ -254,7 +254,7 @@
 		"Delete worldclocks": "Удалить мировые часы",
 		"Reset worldclock settings": "Сбросить настройки мировых часов",
 
-		"You don't have any other worldclocks. Try adding a new one": "У вас нет других мировых часов. Попробуйте добавить новый"
+		"You don't have any other worldclocks. Try adding a new one.": "У вас нет других мировых часов. Попробуйте добавить новый."
 	},
 	"stopwatchSettings": {
 		"Start": "Начинать",
@@ -285,7 +285,7 @@
 		"Simultaneous start": "Одновременный запуск",
 		"Simultaneous Start": "Одновременный запуск",
 		"Number of stopwatches to start at the same time:": "Количество секундомеров, запускаемых одновременно:",
-		"You don't have any stopwatches. Try adding a new one": "У тебя нет секундомеров. Попробуйте добавить новый"
+		"You don't have any stopwatches. Try adding a new one.": "У тебя нет секундомеров. Попробуйте добавить новый."
 	},
 	"display": {
 		"Stroke color": "Цвет обводки",

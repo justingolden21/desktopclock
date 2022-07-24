@@ -254,7 +254,7 @@
 		"Delete worldclocks": "Delete worldclocks",
 		"Reset worldclock settings": "Reset worldclock settings",
 
-		"You don't have any other worldclocks. Try adding a new one": "You don't have any other worldclocks. Try adding a new one"
+		"You don't have any other worldclocks. Try adding a new one.": "You don't have any other worldclocks. Try adding a new one."
 	},
 	"stopwatchSettings": {
 		"Start": "Start",
@@ -285,7 +285,7 @@
 		"Simultaneous start": "Simultaneous start",
 		"Simultaneous Start": "Simultaneous Start",
 		"Number of stopwatches to start at the same time:": "Number of stopwatches to start at the same time:",
-		"You don't have any stopwatches. Try adding a new one": "You don't have any stopwatches. Try adding a new one"
+		"You don't have any stopwatches. Try adding a new one.": "You don't have any stopwatches. Try adding a new one."
 	},
 	"display": {
 		"Stroke color": "Stroke color",

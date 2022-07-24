@@ -13,7 +13,7 @@
 
 <img src="img/time_management_undraw.svg" alt="" class="w-72 mx-auto mt-4" />
 <p class="my-4">
-	{dictionary.worldclockSettings["You don't have any other worldclocks. Try adding a new one"]}
+	{dictionary.worldclockSettings["You don't have any other worldclocks. Try adding a new one."]}
 </p>
 <!-- copied from worldclock tray: -->
 <button

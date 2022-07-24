@@ -254,7 +254,7 @@
 		"Delete worldclocks": "विश्व घड़ी हटाएं",
 		"Reset worldclock settings": "विश्व घड़ी सेटिंग रीसेट करें",
 
-		"You don't have any other worldclocks. Try adding a new one": "आपके पास कोई अन्य विश्व घड़ी नहीं है। एक नया जोड़ने का प्रयास करें"
+		"You don't have any other worldclocks. Try adding a new one.": "आपके पास कोई अन्य विश्व घड़ी नहीं है। एक नया जोड़ने का प्रयास करें"
 	},
 	"stopwatchSettings": {
 		"Start": "शुरू",
@@ -285,7 +285,7 @@
 		"Simultaneous start": "एक साथ शुरुआत",
 		"Simultaneous Start": "एक साथ प्रारंभ",
 		"Number of stopwatches to start at the same time:": "एक ही समय में शुरू होने वाली स्टॉपवॉच की संख्या:",
-		"You don't have any stopwatches. Try adding a new one": "आपके पास कोई स्टॉपवॉच नहीं है। एक नया जोड़ने का प्रयास करें"
+		"You don't have any stopwatches. Try adding a new one.": "आपके पास कोई स्टॉपवॉच नहीं है। एक नया जोड़ने का प्रयास करें"
 	},
 	"display": {
 		"Stroke color": "स्ट्रोक का रंग",
