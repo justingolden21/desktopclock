@@ -21,7 +21,7 @@ const hexToRgb = (hex) => {
  * @returns hex color string or 'none'
  */
 const getColor = (obj) =>
-	obj.lightness === '-1'
+	obj === undefined || obj.lightness === '-1'
 		? 'none'
 		: TailwindColors[get(settings)[`${obj.palette}ColorPalette`]][obj.lightness];
 

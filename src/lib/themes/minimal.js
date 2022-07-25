@@ -24,23 +24,6 @@ const minimalTheme = {
 	numerals: {
 		style: 'none'
 	},
-	ticks: {
-		sm: {
-			stroke: {
-				lightness: '-1'
-			}
-		},
-		md: {
-			stroke: {
-				lightness: '-1'
-			}
-		},
-		lg: {
-			stroke: {
-				lightness: '-1'
-			}
-		}
-	},
 	hands: {
 		hour: {
 			stroke: {

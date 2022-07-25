@@ -85,10 +85,6 @@
 			clearInterval(setTimeInterval);
 		};
 	});
-
-	//  ================
-
-	$: sizes = ['sm', 'md', 'lg'].map((size) => ({ size, r: 27.5 - theme.ticks[size].width / 2 }));
 </script>
 
 <!--
@@ -113,8 +109,8 @@ A customizable analog clock
 		y="2"
 		width="60"
 		height="60"
-		fill={getColor(theme.shadow.fill)}
-		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0} />
+		fill={getColor(theme.shadow?.fill)}
+		rx={theme.face?.shape == 'square' ? 0 : theme.face?.shape == 'rounded' ? 15 : 30} />
 
 	<!-- Face -->
 	<rect
@@ -122,67 +118,77 @@ A customizable analog clock
 		y="2"
 		width="60"
 		height="60"
-		fill={getColor(theme.face.fill)}
-		stroke={getColor(theme.face.stroke)}
-		stroke-width={theme.face.strokeWidth}
-		rx={theme.face.shape == 'circle' ? 30 : theme.face.shape == 'rounded' ? 15 : 0} />
+		fill={getColor(theme.face?.fill)}
+		stroke={getColor(theme.face?.stroke)}
+		stroke-width={theme.face?.strokeWidth ?? '0'}
+		rx={theme.face?.shape == 'square' ? 0 : theme.face?.shape == 'rounded' ? 15 : 30} />
 
 	<!-- Ticks -->
 	<g transform="translate(32,32)">
-		{#each sizes as { size, r }}
-			<circle
-				class="{size}-ticks"
-				fill="none"
-				{r}
-				stroke-dasharray={`${theme.ticks[size].height},${
-					(2 * r * Math.PI) / (size == 'sm' ? 60 : size == 'md' ? 12 : 4) - theme.ticks[size].height
-				}`}
-				stroke={getColor(theme.ticks[size].stroke)}
-				stroke-width={theme.ticks[size].width}
-				transform={`rotate(-${theme.ticks[size].height})`} />
+		{#each ['sm', 'md', 'lg'] as size}
+			{@const r = 27.5 - (theme.ticks?.[size]?.width / 2 ?? 0)}
+			{#if theme.ticks?.[size]}
+				<circle
+					class="{size}-ticks"
+					fill="none"
+					{r}
+					stroke-dasharray={theme.ticks[size].height +
+						',' +
+						((2 * r * Math.PI) / (size == 'sm' ? 60 : size == 'md' ? 12 : 4) -
+							theme.ticks[size].height)}
+					stroke={getColor(theme?.ticks?.[size]?.stroke)}
+					stroke-width={theme.ticks[size].width}
+					transform={`rotate(-${theme.ticks[size].height})`} />
+			{/if}
 		{/each}
 	</g>
 
 	<!-- Numerals -->
-	<g
-		fill={getColor(theme.numerals.fill)}
-		style="text-anchor: middle; pointer-events: none; user-select: none;">
-		{#each numeralStyles[theme.numerals.style] as numeral, idx}
-			<!-- y is middle of character -->
-			<text
-				style="font: 600 6px '{theme.numerals.fontFamily}', sans-serif;"
-				transform-origin="center"
-				transform="rotate({(idx + 1) * 30})"
-				x="32"
-				y="8">
-				{numeral}
-			</text>
-		{/each}
-	</g>
+	{#if theme.numerals}
+		<g
+			fill={getColor(theme.numerals?.fill)}
+			style="text-anchor: middle; pointer-events: none; user-select: none;">
+			{#each numeralStyles[theme.numerals.style] as numeral, idx}
+				<!-- y is middle of character -->
+				<text
+					style="font: 600 6px '{theme.numerals.fontFamily}', sans-serif;"
+					transform-origin="center"
+					transform="rotate({(idx + 1) * 30})"
+					x="32"
+					y="8">
+					{numeral}
+				</text>
+			{/each}
+		</g>
+	{/if}
 
 	<!-- Hands -->
 	<g transform="translate(32,32) rotate(180)">
 		{#each ['hour', 'minute', 'second'] as hand}
-			<line
-				class="{hand}-hand"
-				transform="rotate({angles[hand]})"
-				y1={-theme.hands[hand].back}
-				y2={theme.hands[hand].length}
-				stroke={getColor(theme.hands[hand].stroke)}
-				stroke-width={theme.hands[hand].strokeWidth}
-				stroke-linecap={theme.hands[hand].linecap} />
+			{#if theme.hands?.[hand]}
+				<line
+					class="{hand}-hand"
+					transform="rotate({angles[hand]})"
+					y1={-theme.hands[hand].back}
+					y2={theme.hands[hand].length}
+					stroke={getColor(theme.hands[hand].stroke)}
+					stroke-width={theme.hands[hand].strokeWidth}
+					stroke-linecap={theme.hands[hand].linecap} />
+			{/if}
 		{/each}
 	</g>
 
 	<!-- Pin -->
-	<circle
-		cx="32"
-		cy="32"
-		class="pin"
-		fill={getColor(theme.pin.fill)}
-		stroke={getColor(theme.pin.stroke)}
-		stroke-width={theme.pin.strokeWidth}
-		r={theme.pin.size} />
+	{#if theme.pin}
+		<circle
+			cx="32"
+			cy="32"
+			class="pin"
+			fill={getColor(theme.pin?.fill)}
+			stroke={getColor(theme.pin?.stroke)}
+			stroke-width={theme.pin?.strokeWidth ?? '0'}
+			r={theme.pin?.size ?? '0'} />
+	{/if}
 </svg>
 
 <style>
